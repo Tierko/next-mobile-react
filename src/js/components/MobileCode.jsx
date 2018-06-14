@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../components/Button';
+import MultipleInput from '../components/MultipleInput';
 
 class MobileCode extends Component {
   state = {
@@ -56,6 +57,7 @@ class MobileCode extends Component {
           status === 'timed out' &&
           <Button onClick={sendCode}>Прислать код еще раз</Button>
         }
+        <MultipleInput />
       </div>
     );
   }
