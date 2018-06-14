@@ -1,0 +1,59 @@
+.input {
+  font-size: @FONT-SIZE-BASE;
+  line-height: @LINE-HEIGHT-BASE;
+  position: relative;
+  padding: 1.1em 0 1.4em;
+
+  &_phone {
+    width: 208px;
+    margin: auto;
+    font-size: @FONT-SIZE-H2;
+    line-height: @LINE-HEIGHT-H2;
+  }
+
+  &__value {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    padding: 0.33em 0;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+  }
+  &__placeholder {
+    .text-ellipsis;
+    color: @GRAY-DARK;
+    position: absolute;
+    padding: 6px 0;
+    top: 1.33em;
+    right: 0;
+    left: 0;
+    transform-origin: 0 0;
+    transition: transform 0.3s;
+  }
+
+  &__value:focus + &__placeholder,
+  &__placeholder_filled {
+    transform: translateY(-1.4em) scale(0.83);
+  }
+
+  &__error {
+    .text-ellipsis;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__indicator {
+    height: 1px;
+    background-color: @GRAY;
+
+    &_error {
+      background-color: transparent;
+      background-image: linear-gradient(#f97a7c, #f97ad2);
+    }
+  }
+}

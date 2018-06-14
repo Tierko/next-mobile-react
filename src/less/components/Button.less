@@ -8,7 +8,12 @@
   margin: 0;
   cursor: pointer;
   background-color: transparent;
-  padding: 10px 40px;
+  padding: 10px 28px;
+  display: block;
+
+  &_mobile-code {
+    margin: auto;
+  }
 
   &:hover {
     border-color: @BLACK;
@@ -22,5 +27,10 @@
   &_disabled {
     cursor: default;
     color: @GRAY;
+  }
+
+  &:disabled:hover,
+  &_disabled:hover {
+    border-color: @GRAY;
   }
 }
