@@ -1,0 +1,26 @@
+.button {
+  font-family: inherit;
+  font-size: @FONT-SIZE-BASE;
+  line-height: @LINE-HEIGHT-BASE;
+  border-radius: 2px;
+  border: 1px solid @GRAY;
+  color: @BLACK;
+  margin: 0;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 10px 40px;
+
+  &:hover {
+    border-color: @BLACK;
+  }
+
+  &:active {
+    color: #000;
+  }
+
+  &:disabled,
+  &_disabled {
+    cursor: default;
+    color: @GRAY;
+  }
+}

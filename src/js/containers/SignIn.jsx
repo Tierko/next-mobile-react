@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import NavLobby from '../components/NavLobby';
+import Button from '../components/Button';
 
-const SignIn = () => (
-    <div className="sign-in">
-        <NavLobby/>
-    </div>
-);
+class SignIn extends Component {
+  sendCoe = () => {
+
+  };
+
+  render() {
+    const { sendCoe } = this;
+
+    return (
+      <div className="sign-in">
+        <NavLobby />
+        <Button onClick={sendCoe}>Прислать код</Button>
+      </div>
+    );
+  }
+}
 
 export default SignIn;
