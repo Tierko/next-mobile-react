@@ -1,5 +1,11 @@
 .multiple-input {
   display: flex;
+
+  &_mobile-code {
+    width: 115px;
+    margin: 25px auto 50px;
+  }
+
   &__value {
     font-family: inherit;
     font-size: @FONT-SIZE-H2;
@@ -11,5 +17,9 @@
     border-bottom: 1px solid @GRAY;
     margin-right: 5px;
     text-align: center;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }

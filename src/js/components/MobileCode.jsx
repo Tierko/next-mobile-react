@@ -5,14 +5,19 @@ import MultipleInput from '../components/MultipleInput';
 
 class MobileCode extends Component {
   state = {
-    seconds: 10,
+    seconds: 0,
     status: 'init',
+    code: '',
   };
 
-  sendCode = () => {
-    const { onCodeSend } = this.props;
-    onCodeSend();
-    this.initTimer();
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  onChange = (name, value) => {
+    this.setState({
+      [name]: value,
+    });
   };
 
   initTimer = () => {
@@ -30,24 +35,32 @@ class MobileCode extends Component {
     }, 1000);
   };
 
-  componentWillUnmount() {
-    clearInterval(this.timer);
-  }
+  sendCode = () => {
+    const { onCodeSend } = this.props;
+    onCodeSend();
+    this.initTimer();
+  };
 
   render() {
-    const { sendCode } = this;
-    const { phone } = this.props;
-    const { status, seconds } = this.state;
+    const { sendCode, onChange } = this;
+    const { phone, onEnter } = this.props;
+    const { status, seconds, code } = this.state;
 
     return (
       <div className="mobile-code">
+        {
+          (status === 'sent' || status === 'timed out') &&
+          <MultipleInput className="multiple-input_mobile-code" onChange={onChange} name="code" />
+        }
         {
           status === 'init' &&
           <Button className="button_mobile-code" onClick={sendCode} disabled={!phone}>Прислать код</Button>
         }
         {
           status === 'sent' &&
-          <Button className="button_mobile-code" onClick={() => {}}>Войти</Button>
+          <Button className="button_mobile-code" onClick={() => onEnter(code)} disabled={code.length < 4}>
+            Войти
+          </Button>
         }
         {
           status === 'sent' &&
@@ -55,9 +68,8 @@ class MobileCode extends Component {
         }
         {
           status === 'timed out' &&
-          <Button onClick={sendCode}>Прислать код еще раз</Button>
+          <Button className="button_mobile-code-again" onClick={sendCode}>Прислать код еще раз</Button>
         }
-        <MultipleInput />
       </div>
     );
   }
@@ -66,6 +78,7 @@ class MobileCode extends Component {
 MobileCode.propTypes = {
   phone: PropTypes.string.isRequired,
   onCodeSend: PropTypes.func.isRequired,
+  onEnter: PropTypes.func.isRequired,
 };
 
 export default MobileCode;

@@ -7,7 +7,7 @@ class MultipleInput extends Component {
   };
 
   onChange = (e) => {
-    const { count } = this.props;
+    const { count, onChange, name } = this.props;
     const values = this.state.values.slice();
     const number = e.target.dataset.number * 1;
     const { value } = e.target;
@@ -20,10 +20,8 @@ class MultipleInput extends Component {
       this[`input${number + 1}`].focus();
     }
 
-    console.log(values)
     if (value.length === 1 && values[number] && values[number].length === 1) {
       this[`input${number + 1}`].focus();
-
     }
 
     if (value.length > 1) {
@@ -31,6 +29,8 @@ class MultipleInput extends Component {
     }
 
     values[number] = value;
+    onChange(name, values.join(''));
+
     this.setState({
       values,
     });
@@ -39,7 +39,6 @@ class MultipleInput extends Component {
   onKeyDown = (e) => {
     const { count } = this.props;
     const number = e.target.dataset.number * 1;
-    const { value } = e.target;
     const { keyCode } = e;
 
     if (keyCode === 8 && number < count) {
@@ -48,7 +47,6 @@ class MultipleInput extends Component {
   };
 
   onFocus = (e) => {
-    const { count } = this.props;
     const number = e.target.dataset.number * 1;
     const { value } = e.target;
 
@@ -61,20 +59,16 @@ class MultipleInput extends Component {
     if (value.length === 1) {
       this[`input${number}`].focus();
     }
-
-    // if (number < count && value.length === 1) {
-    //   this[`input${number + 1}`].focus();
-    // }
   };
 
   render() {
-    const { count } = this.props;
+    const { count, name, className } = this.props;
     const { onChange, onFocus, onKeyDown } = this;
     const { values } = this.state;
     const inputs = Array(count).fill(null);
 
     return (
-      <div className="multiple-input">
+      <div className={`multiple-input ${className}`}>
         {
           inputs.map((_, i) => (
             <input
@@ -84,6 +78,7 @@ class MultipleInput extends Component {
               onFocus={onFocus}
               onKeyDown={onKeyDown}
               data-number={i}
+              name={name}
               ref={(e) => { this[`input${i}`] = e; }}
             />
           ))
@@ -95,10 +90,14 @@ class MultipleInput extends Component {
 
 MultipleInput.propTypes = {
   count: PropTypes.number,
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 MultipleInput.defaultProps = {
   count: 4,
+  className: '',
 };
 
 export default MultipleInput;
