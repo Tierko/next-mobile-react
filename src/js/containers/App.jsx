@@ -8,7 +8,7 @@ import Kit from './Kit';
 const App = () => (
   <div>
     <Switch>
-      <Route path={Pages.SignIn} component={SignIn} />
+      <Route path={Pages.SignIn} component={SignIn} exact />
       <Route path={Pages.Kit} component={Kit} />
       <Route path={Pages.SignUp} component={SignUp} />
     </Switch>
