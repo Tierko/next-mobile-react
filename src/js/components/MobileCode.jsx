@@ -68,7 +68,9 @@ class MobileCode extends Component {
         }
         {
           status === 'timed out' &&
-          <Button className="button_mobile-code-again" onClick={sendCode}>Прислать код еще раз</Button>
+          <Button className="button_mobile-code-again" onClick={sendCode} borderless>
+            Прислать код еще раз
+          </Button>
         }
       </div>
     );

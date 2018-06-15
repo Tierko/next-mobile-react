@@ -11,7 +11,8 @@ const App = () => (
     <Switch>
       <Route path={Pages.SignIn} component={SignIn} exact />
       <Route path={Pages.Kit} component={Kit} />
-      <Route path={Pages.SignUp} component={SignUp} />
+      <Route path={Pages.SignUp} component={SignUp} exact />
+      <Route path={`${Pages.SignUp}/step/:step`} component={SignUp} exact />
     </Switch>
   </div>
 );

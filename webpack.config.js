@@ -22,7 +22,11 @@ module.exports = (env) => {
         loader: 'babel-loader',
       }, {
         test: /\.less$/,
-        loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
+        loaders: [
+          development ? 'style-loader' :  MiniCssExtractPlugin.loader,
+          'css-loader',
+          'less-loader',
+        ],
       }],
     },
 
