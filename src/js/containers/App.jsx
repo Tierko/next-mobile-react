@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { hot } from 'react-hot-loader';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import { Pages } from '../constants';
@@ -15,4 +16,4 @@ const App = () => (
   </div>
 );
 
-export default App;
+export default hot(module)(App);

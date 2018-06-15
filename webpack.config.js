@@ -1,44 +1,48 @@
 let path = require('path');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin');
+let webpack = require('webpack');
 
-module.exports = env => {
-    let { development } = env;
+module.exports = (env) => {
+  let { development } = env;
 
-    return {
-        entry: {
-            bundle: './src/js/index.jsx',
-        },
+  return {
+    entry: {
+      bundle: './src/js/index.jsx',
+    },
 
-        output: {
-            path: path.resolve(__dirname, 'dist'),
-            filename: '[name].js'
-        },
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: '[name].js',
+      publicPath: 'http://localhost:8080/dist/',
+    },
 
-        module: {
-            rules: [{
-                test: /\.jsx$/,
-                loader: 'babel-loader'
-            }, {
-                test: /\.less$/,
-                loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
-            }]
-        },
+    module: {
+      rules: [{
+        test: /\.jsx$/,
+        loader: 'babel-loader',
+      }, {
+        test: /\.less$/,
+        loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
+      }],
+    },
 
-        plugins: [
-            new MiniCssExtractPlugin({
-                filename: '[name].css'
-            }),
-        ],
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: '[name].css',
+      }),
+      new webpack.NamedModulesPlugin(),
+      new webpack.HotModuleReplacementPlugin(),
+    ],
 
-        resolve: {
-            extensions: ['.js', '.jsx', '.css', '.less'],
-        },
+    resolve: {
+      extensions: ['.js', '.jsx', '.css', '.less'],
+    },
 
-        devtool: development && 'cheap-inline-module-source-map',
+    devtool: development && 'cheap-inline-module-source-map',
 
-        devServer: {
-            contentBase: path.resolve(__dirname),
-            publicPath: '/dist/'
-        }
-    };
+    devServer: {
+      contentBase: path.resolve(__dirname),
+      hot: true,
+    },
+  };
 };
