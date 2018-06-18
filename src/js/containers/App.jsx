@@ -5,6 +5,7 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 import RequestStatus from './RequestStatus';
 import Conditions from './Conditions';
+import SiteMap from './SiteMap';
 import { Pages } from '../constants';
 import Kit from './Kit';
 
@@ -18,6 +19,7 @@ const App = () => (
       <Route path={Pages.RequestStatus} component={RequestStatus} exact />
       <Route path={`${Pages.RequestStatus}/:status`} component={RequestStatus} />
       <Route path={Pages.Conditions} component={Conditions} />
+      <Route path={Pages.SiteMap} component={SiteMap} />
     </Switch>
   </div>
 );

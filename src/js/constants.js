@@ -6,6 +6,7 @@ export const Pages = {
   Support: '/support',
   RequestStatus: '/request-status',
   Conditions: '/conditions',
+  SiteMap: '/sitemap',
 };
 
 export const Statuses = {
