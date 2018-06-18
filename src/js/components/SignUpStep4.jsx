@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cs from 'classnames';
 import Input from '../components/Input';
 import Button from '../components/Button';
+import { Pages } from '../constants';
 
 class SignUpStep4 extends Component {
   state = {
@@ -19,7 +20,7 @@ class SignUpStep4 extends Component {
   render() {
     const { date, time } = this.state;
     const { onChange } = this;
-    const { nextStep } = this.props;
+    const { toPage } = this.props;
     const permit = !!date && !!time;
 
     return (
@@ -28,7 +29,7 @@ class SignUpStep4 extends Component {
         <div className="sign-up__message">Когда вам будет удобно получить новую SIM-карту и подписать договор?</div>
         <Input name="date" value={date} onChange={onChange} placeholder="Дата" />
         <Input name="time" value={time} onChange={onChange} placeholder="Время" />
-        <Button className="button_sign-up-continue" onClick={() => nextStep(5)} disabled={!permit}>
+        <Button className="button_sign-up-continue" onClick={() => toPage(Pages.RequestStatus)} disabled={!permit}>
           Продолжить
         </Button>
         <div className={cs('sign-up__note', { 'sign-up__note_show': permit })}>
@@ -40,7 +41,7 @@ class SignUpStep4 extends Component {
 }
 
 SignUpStep4.propTypes = {
-  nextStep: PropTypes.func.isRequired,
+  toPage: PropTypes.func.isRequired,
 };
 
 export default SignUpStep4;

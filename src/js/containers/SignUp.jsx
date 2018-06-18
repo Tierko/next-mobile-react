@@ -16,9 +16,15 @@ class SignUp extends Component {
     history.push(`${Pages.SignUp}/step/${step}`);
   };
 
+  toPage = (page) => {
+    const { history } = this.props;
+
+    history.push(page);
+  };
+
   render() {
-    const { history, match: { params: { step } } } = this.props;
-    const { nextStep } = this;
+    const { match: { params: { step } } } = this.props;
+    const { nextStep, toPage } = this;
 
     return (
       <div className="sign-up">
@@ -29,7 +35,7 @@ class SignUp extends Component {
         }
         {
           !step &&
-          <SignUpInit nextStep={nextStep} history={history} />
+          <SignUpInit nextStep={nextStep} toPage={toPage} />
         }
         {
           step === '1' &&
@@ -45,7 +51,7 @@ class SignUp extends Component {
         }
         {
           step === '4' &&
-          <SignUpStep4 nextStep={nextStep} />
+          <SignUpStep4 toPage={toPage} />
         }
       </div>
     );

@@ -14,3 +14,22 @@
   max-width: 450px;
   margin: auto;
 }
+
+.nav-point {
+  width: 24px;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    margin: auto;
+    background-color: @GRAY-DARK;
+  }
+}

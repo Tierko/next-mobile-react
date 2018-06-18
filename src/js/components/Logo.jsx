@@ -1,19 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Logo = ({ src, className }) => (
-  <div className={`logo ${className}`}>
-    <img className="logo__img" src={src} alt="" />
-  </div>
-);
+const Logo = ({ type, className }) => {
+  const path = '/media/images/';
+  let src;
+
+  switch (type) {
+  case 'green':
+    src = 'logo-green.png';
+    break;
+  case 'red':
+    src = 'logo-red.png';
+    break;
+  default:
+    src = 'logo-blue.png';
+  }
+
+  return (
+    <div className={`logo ${className}`}>
+      <img className="logo__img" src={`${path}${src}`} alt="" />
+    </div>
+  );
+};
 
 Logo.propTypes = {
-  src: PropTypes.string,
+  type: PropTypes.string,
   className: PropTypes.string,
 };
 
 Logo.defaultProps = {
-  src: '/media/images/logo-blue.svg',
+  type: '',
   className: '',
 };
 

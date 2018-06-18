@@ -37,12 +37,6 @@ class SignUp extends Component {
     });
   };
 
-  sendRequest = () => {
-    const { history } = this.props;
-
-    history.push(Pages.RequestStatus);
-  };
-
   render() {
     const {
       message,
@@ -54,9 +48,8 @@ class SignUp extends Component {
       onCodeEnter,
       onCodeReject,
       onChange,
-      sendRequest,
     } = this;
-    const { nextStep } = this.props;
+    const { nextStep, toPage } = this.props;
 
     return (
       <div className="sign-up__content">
@@ -69,7 +62,9 @@ class SignUp extends Component {
           option === 'no-promo' && stage === 2 &&
           <Fragment>
             <Input className="input_phone" name="phone" value={phone} onChange={onChange} />
-            <Button className="button_request" onClick={sendRequest} disabled={!phone}>Отправить запрос</Button>
+            <Button className="button_request" onClick={() => toPage(Pages.RequestStatus)} disabled={!phone}>
+              Отправить запрос
+            </Button>
           </Fragment>
         }
         {
@@ -87,7 +82,7 @@ class SignUp extends Component {
 }
 
 SignUp.propTypes = {
-  history: PropTypes.shape().isRequired,
+  toPage: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
 };
 

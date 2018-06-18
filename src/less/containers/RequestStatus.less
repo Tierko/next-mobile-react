@@ -1,0 +1,34 @@
+.request-status {
+  .enter-module;
+  position: relative;
+
+  &__content {
+    .enter-module-content;
+    text-align: center;
+  }
+
+  &__header {
+    font-size: @FONT-SIZE-H2;
+    line-height: @LINE-HEIGHT-H2;
+    margin-top: -90px;
+    background-clip: text;
+    color: transparent;
+
+    &_red {
+      background-image: linear-gradient(106deg, #ff0000 0%, #000000 81%, #000000 100%);
+    }
+
+    &_green {
+      background-image: linear-gradient(113deg, #00863b 0%, #000000 100%, #000000 100%);
+    }
+
+    &_blue {
+      background-image: linear-gradient(to right, #003edd 0%, #005ebb 26%, #000000 100%);
+    }
+  }
+
+  &__message {
+    max-width: 435px;
+    margin: 14px auto 0;
+  }
+}
