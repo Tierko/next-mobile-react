@@ -5,6 +5,12 @@
     .enter-module-content;
   }
 
+  &__header {
+    text-align: center;
+    margin: 50px 0 28px;
+    color: @GRAY-DARK;
+  }
+
   &__message {
     text-align: center;
   }
@@ -13,5 +19,23 @@
     text-align: center;
     color: @GRAY-DARK;
     margin-top: 12px;
+  }
+
+  &__note {
+    color: @GRAY-DARK;
+    text-align: center;
+    margin-top: 16px;
+    display: none;
+    opacity: 0;
+
+    &_show {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
   }
 }

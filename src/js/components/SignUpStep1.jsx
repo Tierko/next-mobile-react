@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import cs from 'classnames';
 import Input from './Input';
 import Button from './Button';
-import { Pages } from '../constants';
 
 class SignUpStep1 extends Component {
   state = {
@@ -15,28 +15,24 @@ class SignUpStep1 extends Component {
     });
   };
 
-  nextStep = () => {
-    const { history } = this.props;
-
-    history.push(`${Pages.SignUp}/step/2`);
-  };
-
   render() {
     const { phone } = this.state;
-    const { onChange, nextStep } = this;
+    const { onChange } = this;
+    const { nextStep } = this.props;
 
     return (
       <div className="sign-up__content">
-        <div>Текущий номер телефона</div>
+        <div className="sign-up__header">Текущий номер телефона</div>
         <Input name="phone" value={phone} onChange={onChange} className="input_phone" />
-        <Button onClick={nextStep} disabled={!phone}>Продолжить</Button>
+        <Button className="button_sign-up-continue" onClick={() => nextStep(2)} disabled={!phone}>Продолжить</Button>
+        <div className={cs('sign-up__note', { 'sign-up__note_show': !!phone })}>К личной информации</div>
       </div>
     );
   }
 }
 
 SignUpStep1.propTypes = {
-  history: PropTypes.shape().isRequired,
+  nextStep: PropTypes.func.isRequired,
 };
 
 export default SignUpStep1;

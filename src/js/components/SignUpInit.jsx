@@ -43,12 +43,6 @@ class SignUp extends Component {
     history.push(Pages.RequestStatus);
   };
 
-  toNextMobile = () => {
-    const { history } = this.props;
-
-    history.push(`${Pages.SignUp}/step/1`);
-  };
-
   render() {
     const {
       message,
@@ -61,8 +55,8 @@ class SignUp extends Component {
       onCodeReject,
       onChange,
       sendRequest,
-      toNextMobile,
     } = this;
+    const { nextStep } = this.props;
 
     return (
       <div className="sign-up__content">
@@ -81,7 +75,7 @@ class SignUp extends Component {
         {
           option === 'promo' && stage === 2 &&
           <Fragment>
-            <Button className="button_to-next-mobile" onClick={toNextMobile}>Перейти на Next Mobile</Button>
+            <Button className="button_to-next-mobile" onClick={() => nextStep(1)}>Перейти на Next Mobile</Button>
             <div className="sign-up__agreement">
               Я ознакомлен с <a href="" className="link">условиями перехода</a>
             </div>
@@ -94,6 +88,7 @@ class SignUp extends Component {
 
 SignUp.propTypes = {
   history: PropTypes.shape().isRequired,
+  nextStep: PropTypes.func.isRequired,
 };
 
 export default SignUp;

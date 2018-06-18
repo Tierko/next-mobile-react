@@ -62,7 +62,12 @@ class MultipleInput extends Component {
   };
 
   render() {
-    const { count, name, className } = this.props;
+    const {
+      count,
+      name,
+      className,
+      focus,
+    } = this.props;
     const { onChange, onFocus, onKeyDown } = this;
     const { values } = this.state;
     const inputs = Array(count).fill(null);
@@ -72,6 +77,7 @@ class MultipleInput extends Component {
         {
           inputs.map((_, i) => (
             <input
+              key={i}
               className="multiple-input__value"
               value={values[i] || ''}
               onChange={onChange}
@@ -79,6 +85,7 @@ class MultipleInput extends Component {
               onKeyDown={onKeyDown}
               data-number={i}
               name={name}
+              autoFocus={i === 0 && focus}
               ref={(e) => { this[`input${i}`] = e; }}
             />
           ))
@@ -93,11 +100,13 @@ MultipleInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
+  focus: PropTypes.bool,
 };
 
 MultipleInput.defaultProps = {
   count: 4,
   className: '',
+  focus: false,
 };
 
 export default MultipleInput;
