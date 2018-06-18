@@ -6,7 +6,9 @@
   "scripts": {
     "prepare": "npm install && npm -g webpack-dev-server",
     "start": "webpack-dev-server --mode development --env.development --open",
-    "build": "webpack --mode production --env.production"
+    "build": "webpack --mode production --env.production",
+    "deploy": "node deploy.js",
+    "flow": "git pull && git push && npm run build && npm run deploy"
   },
   "author": "artlebedev",
   "license": "EULA",
