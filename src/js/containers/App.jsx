@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import RequestStatus from './RequestStatus';
+import Conditions from './Conditions';
 import { Pages } from '../constants';
 import Kit from './Kit';
 
@@ -16,6 +17,7 @@ const App = () => (
       <Route path={`${Pages.SignUp}/step/:step`} component={SignUp} exact />
       <Route path={Pages.RequestStatus} component={RequestStatus} exact />
       <Route path={`${Pages.RequestStatus}/:status`} component={RequestStatus} />
+      <Route path={Pages.Conditions} component={Conditions} />
     </Switch>
   </div>
 );

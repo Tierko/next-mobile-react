@@ -2,9 +2,18 @@
   display: flex;
   justify-content: center;
   padding: 46px 15px;
+  position: relative;
+  max-width: 600px;
+  margin: auto;
 
   @media (max-width: @BREAK-POINT) {
     display: none;
+  }
+
+  &__back {
+    position: absolute;
+    top: 40px;
+    left: 15px;
   }
 
   &__item {

@@ -55,7 +55,7 @@ class SignIn extends Component {
               className="input_phone"
             />
           }
-          <MobileCode phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} />
+          <MobileCode className="mobile-code_sign-in" phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} />
         </div>
       </div>
     );

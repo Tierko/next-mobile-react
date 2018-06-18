@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import PromoCode from './PromoCode';
 import Input from './Input';
 import Button from './Button';
@@ -72,7 +73,7 @@ class SignUp extends Component {
           <Fragment>
             <Button className="button_to-next-mobile" onClick={() => nextStep(1)}>Перейти на Next Mobile</Button>
             <div className="sign-up__agreement">
-              Я ознакомлен с <a href="" className="link">условиями перехода</a>
+              Я ознакомлен с <Link to={Pages.Conditions} className="link">условиями перехода</Link>
             </div>
           </Fragment>
         }

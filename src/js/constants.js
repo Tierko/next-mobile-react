@@ -5,6 +5,7 @@ export const Pages = {
   Cabinet: '/cabinet',
   Support: '/support',
   RequestStatus: '/request-status',
+  Conditions: '/conditions',
 };
 
 export const Statuses = {

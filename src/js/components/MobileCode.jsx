@@ -43,11 +43,11 @@ class MobileCode extends Component {
 
   render() {
     const { sendCode, onChange } = this;
-    const { phone, onEnter } = this.props;
+    const { phone, onEnter, className } = this.props;
     const { status, seconds, code } = this.state;
 
     return (
-      <div className="mobile-code">
+      <div className={`mobile-code ${className}`}>
         {
           (status === 'sent' || status === 'timed out') &&
           <MultipleInput className="multiple-input_mobile-code" onChange={onChange} name="code" />
@@ -81,6 +81,11 @@ MobileCode.propTypes = {
   phone: PropTypes.string.isRequired,
   onCodeSend: PropTypes.func.isRequired,
   onEnter: PropTypes.func.isRequired,
+  className: PropTypes.string,
+};
+
+MobileCode.defaultProps = {
+  className: '',
 };
 
 export default MobileCode;
