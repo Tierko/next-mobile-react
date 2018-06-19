@@ -4,10 +4,16 @@ import cs from 'classnames';
 
 class Input extends Component {
   onChange = (e) => {
-    const { onChange, name } = this.props;
+    const { onChange, name, multiLine } = this.props;
     const { value } = e.target;
+    const { textArea } = this;
 
     onChange(name, value);
+
+    if (multiLine && textArea) {
+      textArea.style.height = 'auto';
+      textArea.style.height = `${textArea.scrollHeight}px`;
+    }
   };
 
   render() {
@@ -17,12 +23,27 @@ class Input extends Component {
       className,
       placeholder,
       errorText,
+      multiLine,
     } = this.props;
     const { onChange } = this;
 
     return (
       <div className={`input ${className}`}>
-        <input type="text" className="input__value" name={name} value={value} onChange={onChange} />
+        {
+          multiLine &&
+          <textarea
+            className="input__value input__value_multiline"
+            rows={1}
+            name={name}
+            value={value}
+            onChange={onChange}
+            ref={(e) => { this.textArea = e; }}
+          />
+        }
+        {
+          !multiLine &&
+            <input type="text" className="input__value" name={name} value={value} onChange={onChange} />
+        }
         <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>{placeholder}</div>
         <div className="input__error">{errorText}</div>
         <div className={cs('input__indicator', { input__indicator_error: errorText })} />
@@ -38,12 +59,14 @@ Input.propTypes = {
   className: PropTypes.string,
   placeholder: PropTypes.string,
   errorText: PropTypes.string,
+  multiLine: PropTypes.bool,
 };
 
 Input.defaultProps = {
   className: '',
   placeholder: '',
   errorText: '',
+  multiLine: false,
 };
 
 export default Input;

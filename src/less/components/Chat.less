@@ -1,4 +1,14 @@
 .chat {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__header {
+    display: flex;
+    padding: 34px 0;
+    flex-shrink: 0;
+  }
+
   &__avatar {
     width: 38px;
     height: 38px;
@@ -15,18 +25,58 @@
 
   &__companion {
     display: flex;
+    margin-right: auto;
   }
 
   &__companion_title {
     color: @GRAY-DARK;
     flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  &__content {
+    position: relative;
+    flex: 1 1 auto;
+  }
+
+  &__messages {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
   }
 
   &__date {
+    text-align: center;
+    margin-bottom: 35px;
+  }
 
+  &__date-inner {
+    .small;
+    display: inline-block;
+    color: @GRAY-DARK;
+    border-bottom: 1px dashed @GRAY-DARK;
   }
 
   &__message {
+    display: flex;
+    margin-bottom: 35px;
+  }
 
+  &__message-content {
+
+  }
+
+  &__message-meta {
+    .small;
+    color: @GRAY-DARK;
+  }
+
+  &__footer {
+    margin-top: auto;
+    display: flex;
   }
 }
