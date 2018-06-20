@@ -7,6 +7,7 @@ import RequestStatus from './RequestStatus';
 import Conditions from './Conditions';
 import SiteMap from './SiteMap';
 import Support from './Support';
+import Overview from './Overview';
 import { Pages } from '../constants';
 import Kit from './Kit';
 
@@ -21,6 +22,7 @@ const App = () => (
       <Route path={`${Pages.RequestStatus}/:status`} component={RequestStatus} />
       <Route path={Pages.Conditions} component={Conditions} />
       <Route path={Pages.Support} component={Support} />
+      <Route path={Pages.Dashboard} component={Overview} />
       <Route path={Pages.SiteMap} component={SiteMap} />
     </Switch>
   </div>

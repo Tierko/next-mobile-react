@@ -2,10 +2,17 @@ export const Pages = {
   Kit: '/kit',
   SignIn: '/',
   SignUp: '/signup',
-  Cabinet: '/cabinet',
+  Dashboard: '/cabinet',
   Support: '/support',
   RequestStatus: '/request-status',
   Conditions: '/conditions',
+  Overview: '/cabinet',
+  Payment: '/payment',
+  Services: '/services',
+  Roaming: '/roaming',
+  History: '/history',
+  Settings: '/settings',
+  Exit: '/exit',
   SiteMap: '/sitemap',
 };
 

@@ -32,7 +32,7 @@ class SignIn extends Component {
     const { history } = this.props;
 
     if (code.length === 4) {
-      history.push(Pages.Cabinet);
+      history.push(Pages.Dashboard);
     }
   };
 

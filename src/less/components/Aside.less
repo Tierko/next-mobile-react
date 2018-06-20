@@ -1,0 +1,56 @@
+.aside {
+  flex: 0 0 400px;
+
+  &__inner {
+    max-width: 200px;
+    margin: -90px auto 0;
+    padding: 0 15px 15px;
+  }
+
+  &__logo {
+    overflow: hidden;
+    max-width: 308px;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: -50px;
+      margin-left: -78px;
+    }
+  }
+
+  &__phone {
+    color: @GRAY-DARK;
+    margin-bottom: 30px;
+    margin-left: -14px;
+  }
+
+  &__info {
+    text-transform: uppercase;
+    margin-bottom: 50px;
+
+    span {
+      color: @GRAY-DARK;
+    }
+  }
+
+  &__link {
+    display: block;
+    color: @GRAY-DARK;
+    line-height: 35px;
+
+    &:hover {
+      text-decoration-color: @BLACK;
+    }
+
+    &_exit {
+      margin-top: 34px;
+    }
+
+    &.active {
+      color: @BLACK;
+      text-decoration: none;
+      cursor: default;
+    }
+  }
+}
