@@ -1,0 +1,48 @@
+.roaming {
+  &__title {
+    .link;
+    margin-bottom: 26px;
+    display: block;
+  }
+
+  &__items {
+
+  }
+
+  &__item {
+    display: flex;
+    margin-bottom: 22px;
+  }
+
+  &__item-name {
+    flex: 0 0 150px;
+    padding-right: 15px;
+  }
+
+  &__item-info {
+    display: flex;
+    flex: 1 1 auto;
+    margin-bottom: 10px;
+  }
+
+  &__item-desc {
+    padding-right: 15px;
+    flex: 0 0 305px;
+    padding-left: 18px;
+
+    background-repeat: no-repeat;
+    background-position: 0 5px;
+
+    &_fast {
+      background-image: url("/media/icons/fast.svg");
+    }
+
+    &_regular {
+      background-image: url("/media/icons/regular.svg");
+    }
+  }
+
+  &__item-conditions {
+    flex: 0 0 auto;
+  }
+}
