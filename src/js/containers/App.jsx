@@ -8,6 +8,7 @@ import Conditions from './Conditions';
 import SiteMap from './SiteMap';
 import Support from './Support';
 import Overview from './Overview';
+import Settings from './Settings';
 import { Pages } from '../constants';
 import Kit from './Kit';
 
@@ -23,6 +24,7 @@ const App = () => (
       <Route path={Pages.Conditions} component={Conditions} />
       <Route path={Pages.Support} component={Support} />
       <Route path={Pages.Dashboard} component={Overview} />
+      <Route path={Pages.Settings} component={Settings} />
       <Route path={Pages.SiteMap} component={SiteMap} />
     </Switch>
   </div>

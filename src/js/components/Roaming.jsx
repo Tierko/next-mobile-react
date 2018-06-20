@@ -20,7 +20,6 @@ const Roaming = ({ className, data }) => (
                     <div className={`roaming__item-desc roaming__item-desc_${s.type}`}>{s.desc}</div>
                     <div className="roaming__item-conditions">{s.conditions}</div>
                   </div>
-                  
                 ))
               }
             </div>
