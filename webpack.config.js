@@ -2,6 +2,7 @@ let path = require('path');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin');
 let webpack = require('webpack');
 let autoprefixer = require('autoprefixer');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env) => {
   let { development } = env;
@@ -14,7 +15,7 @@ module.exports = (env) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].js',
-      publicPath: 'http://localhost:8080/dist/',
+      publicPath: development ? 'http://localhost:8080/dist/' : '/',
     },
 
     module: {
@@ -47,6 +48,10 @@ module.exports = (env) => {
       }),
       new webpack.NamedModulesPlugin(),
       new webpack.HotModuleReplacementPlugin(),
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        hash: true,
+      }),
     ],
 
     resolve: {
