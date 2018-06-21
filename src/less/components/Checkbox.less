@@ -1,3 +1,67 @@
 .checkbox {
   position: relative;
+  width: 40px;
+  height: 20px;
+  border-radius: 20px;
+  border: 1px solid @GRAY-DARK;
+  transition: border-color 0.3s linear;
+
+  &_checked {
+    border-color: transparent;
+  }
+
+  &_settings {
+    margin-top: 10px;
+  }
+
+  &__value {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  &__point {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    border: 1px solid @BLACK;
+    top: -1px;
+    bottom: 0;
+    left: -1px;
+    background-color: transparent;
+    z-index: 1;
+    transition: transform 0.3s linear, box-shadow 0.3s linear, border-color 0.3s linear, background-color 0.3s linear;
+
+    &_checked {
+      transform: translateX(20px);
+      background-color: @WHITE;
+    }
+
+    &_checked-green {
+      border-color: #3dd732;
+      box-shadow: -5px 0 5px -1px #3dd732,
+                  -10px 0 5px -1px #3dd732,
+                  -15px 0 5px -2px #8af000,
+                  -20px 0 5px -2px #c5f436,
+                  -25px 0 5px -3px #e2eca3;
+    }
+
+    &_checked-red {
+      border-color: #9401d4;
+      box-shadow: -5px 0 5px -1px #9401d4,
+                  -10px 0 5px -2px #9401d4,
+                  -15px 0 5px -3px #b004e2,
+                  -20px 0 5px -4px #cc14ed,
+                  -25px 0 5px -5px #e456f5;
+    }
+  }
 }

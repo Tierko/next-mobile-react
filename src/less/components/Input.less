@@ -25,10 +25,21 @@
     margin-right: 15px;
   }
 
+  &_settings-email {
+    font-size: @FONT-SIZE-H2;
+    margin-bottom: 35px;
+  }
+
+  &_settings-expense {
+    max-width: 140px;
+    font-size: @FONT-SIZE-H2;
+  }
+
   &__value {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+    font-weight: 300;
     padding: 0.33em 0;
     width: 100%;
     border: none;
@@ -76,5 +87,16 @@
       background-color: transparent;
       background-image: linear-gradient(#f97a7c, #f97ad2);
     }
+  }
+
+  &__clear {
+    position: absolute;
+    top: 1.43em;
+    right: 0;
+    bottom: 1.73em;
+    width: 20px;
+    background: url("/media/icons/x.svg") no-repeat 100% 50%;
+    z-index: 1;
+    cursor: pointer;
   }
 }

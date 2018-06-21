@@ -24,6 +24,7 @@ class Input extends Component {
       placeholder,
       errorText,
       multiLine,
+      clear,
     } = this.props;
     const { onChange } = this;
 
@@ -47,6 +48,10 @@ class Input extends Component {
         <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>{placeholder}</div>
         <div className="input__error">{errorText}</div>
         <div className={cs('input__indicator', { input__indicator_error: errorText })} />
+        {
+          clear &&
+          <div className="input__clear" onClick={() => this.props.onChange(name, '')} role="button" />
+        }
       </div>
     );
   }
@@ -60,6 +65,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   errorText: PropTypes.string,
   multiLine: PropTypes.bool,
+  clear: PropTypes.bool,
 };
 
 Input.defaultProps = {
@@ -67,6 +73,7 @@ Input.defaultProps = {
   placeholder: '',
   errorText: '',
   multiLine: false,
+  clear: false,
 };
 
 export default Input;

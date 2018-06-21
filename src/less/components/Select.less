@@ -1,0 +1,64 @@
+.select {
+  position: relative;
+  font-size: @FONT-SIZE-BASE;
+
+  &_settings {
+    font-size: @FONT-SIZE-H2;
+    margin-bottom: 70px;
+  }
+
+  &__placeholder {
+    color: @GRAY-DARK;
+    font-size: 0.83em;
+  }
+
+  &__value {
+    border-bottom: 1px solid @GRAY;
+    padding: 0.33em 0;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+
+    &_open:after {
+      transform: rotate(180deg);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 20px;
+      background: 100% 50% url("/media/icons/down.svg") no-repeat;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    max-height: 200px;
+    display: none;
+    background-color: @WHITE;
+
+    &_open {
+      display: block;
+    }
+  }
+
+  &__item {
+    padding: 0.33em 0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: @GRAY-LIGHT;
+    }
+  }
+
+  &__img {
+    margin-right: 10px;
+    background-color: @WHITE;
+  }
+}
