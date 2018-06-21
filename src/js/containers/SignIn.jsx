@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import MobileNav from '../components/MobileNav';
 import NavLobby from '../components/NavLobby';
 import Input from '../components/Input';
 import Logo from '../components/Logo';
@@ -42,6 +43,7 @@ class SignIn extends Component {
 
     return (
       <div className="sign-in">
+        <MobileNav type="dashboard" />
         <NavLobby />
         <div className="sign-in__content">
           <Logo />

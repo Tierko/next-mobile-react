@@ -12,7 +12,7 @@ export const Pages = {
   Roaming: '/roaming',
   History: '/history',
   Settings: '/settings',
-  Exit: '/exit',
+  Exit: '/',
   SiteMap: '/sitemap',
 };
 

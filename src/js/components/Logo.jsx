@@ -12,12 +12,15 @@ const Logo = ({ type, className }) => {
   case 'red':
     src = 'logo-red.png';
     break;
+  case 'photo':
+    src = 'logo-photo.png';
+    break;
   default:
     src = 'logo-blue.png';
   }
 
   return (
-    <div className={`logo ${className}`}>
+    <div className={`logo logo_${type} ${className}`}>
       <img className="logo__img" src={`${path}${src}`} alt="" />
     </div>
   );

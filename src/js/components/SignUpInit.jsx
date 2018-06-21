@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PromoCode from './PromoCode';
 import Input from './Input';
 import Button from './Button';
+import Logo from './Logo';
 import { Pages } from '../constants';
 
 class SignUp extends Component {
@@ -54,6 +55,7 @@ class SignUp extends Component {
 
     return (
       <div className="sign-up__content">
+        <Logo type="photo" className="logo_sign-up" />
         <div className="sign-up__message">{message}</div>
         {
           stage === 1 &&

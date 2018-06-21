@@ -57,7 +57,7 @@ class MobileCode extends Component {
           <Button className="button_mobile-code" onClick={sendCode} disabled={!phone}>Прислать код</Button>
         }
         {
-          status === 'sent' &&
+          (status === 'sent' || status === 'timed out') &&
           <Button className="button_mobile-code" onClick={() => onEnter(code)} disabled={code.length < 4}>
             Войти
           </Button>
