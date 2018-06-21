@@ -1,6 +1,7 @@
 let path = require('path');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin');
 let webpack = require('webpack');
+let autoprefixer = require('autoprefixer');
 
 module.exports = (env) => {
   let { development } = env;
@@ -25,6 +26,16 @@ module.exports = (env) => {
         loaders: [
           development ? 'style-loader' :  MiniCssExtractPlugin.loader,
           'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                autoprefixer({
+                  browsers: ['last 4 version'],
+                }),
+              ],
+            },
+          },
           'less-loader',
         ],
       }],
