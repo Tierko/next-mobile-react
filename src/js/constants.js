@@ -13,6 +13,7 @@ export const Pages = {
   History: '/history',
   Settings: '/settings',
   Exit: '/',
+  AddPackage: '/add-package',
   SiteMap: '/sitemap',
 };
 

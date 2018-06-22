@@ -7,6 +7,7 @@ import Payment from '../components/Payment';
 import Remain from '../components/Remain';
 import History from '../components/History';
 import Roaming from '../components/Roaming';
+import { Pages } from '../constants';
 
 class Overview extends Component {
   state = {
@@ -104,7 +105,11 @@ class Overview extends Component {
     });
   };
 
-  onBuy = () => {};
+  onBuy = () => {
+    const { history } = this.props;
+
+    history.push(Pages.AddPackage);
+  };
 
   render() {
     const { onPay, sumChange, onBuy } = this;

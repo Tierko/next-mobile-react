@@ -1,0 +1,27 @@
+.package {
+  padding: 25px 0;
+
+  &__title {
+    margin-bottom: 2px;
+  }
+
+  &__table {
+    width: 100%;
+    border-top: 1px solid @GRAY-LIGHT;
+    margin-top: 10px;
+  }
+
+  &__row {
+    border-bottom: 1px solid @GRAY-LIGHT;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+      box-shadow: 0 5px 5px -5px @GRAY, 0 -5px 5px -5px @GRAY;
+    }
+  }
+
+  &__cell {
+    padding: 12px;
+  }
+}

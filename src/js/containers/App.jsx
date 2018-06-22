@@ -10,6 +10,7 @@ import Support from './Support';
 import Overview from './Overview';
 import Settings from './Settings';
 import Services from './Services';
+import AddPackage from './AddPackage';
 import { Pages } from '../constants';
 import Kit from './Kit';
 
@@ -27,6 +28,7 @@ const App = () => (
       <Route path={Pages.Dashboard} component={Overview} />
       <Route path={Pages.Settings} component={Settings} />
       <Route path={Pages.Services} component={Services} />
+      <Route path={Pages.AddPackage} component={AddPackage} />
       <Route path={Pages.SiteMap} component={SiteMap} />
     </Switch>
   </div>
