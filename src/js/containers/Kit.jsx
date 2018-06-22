@@ -1,5 +1,5 @@
 import React from 'react';
-import Aside from '../components/Aside'
+import Aside from '../components/Aside';
 import MobileNav from '../components/MobileNav';
 
 const Kit = () => (
