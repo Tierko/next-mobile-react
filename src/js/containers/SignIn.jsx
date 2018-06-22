@@ -43,7 +43,7 @@ class SignIn extends Component {
 
     return (
       <div className="sign-in">
-        <MobileNav type="dashboard" />
+        <MobileNav type="enter" />
         <NavLobby />
         <div className="sign-in__content">
           <Logo />

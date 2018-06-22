@@ -4,6 +4,7 @@
   left: 0;
   bottom: 0;
   display: none;
+  z-index: 2;
 
   @media (max-width: @BREAK-POINT) {
     display: block;
@@ -48,17 +49,25 @@
     color: @GRAY-DARK;
     padding: 12px 0 12px 33px;
     position: relative;
+    text-align: left;
 
-    &.active {
-      color: @BLACK;
-    }
-
-    img {
+    svg {
       position: absolute;
       top: 0;
       bottom: 0;
       left: 0;
       margin: auto;
+      height: 21px;
+      width: auto;
+      fill: @GRAY-DARK;
+    }
+
+    &.active {
+      color: @BLACK;
+
+      svg {
+        fill: @BLACK;
+      }
     }
   }
 }

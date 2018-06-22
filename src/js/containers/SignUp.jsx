@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import MobileNav from '../components/MobileNav';
 import NavLobby from '../components/NavLobby';
 import ProgressBar from '../components/ProgressBar';
 import SignUpInit from '../components/SignUpInit';
@@ -28,6 +29,7 @@ class SignUp extends Component {
 
     return (
       <div className="sign-up">
+        <MobileNav type="enter" />
         <NavLobby />
         {
           step &&

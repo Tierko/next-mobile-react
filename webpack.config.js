@@ -39,6 +39,9 @@ module.exports = (env) => {
           },
           'less-loader',
         ],
+      }, {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
       }],
     },
 

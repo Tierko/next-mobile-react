@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Input from '../components/Input';
 import Button from '../components/Button';
@@ -38,7 +39,8 @@ class Settings extends Component {
       expenseNoteSum,
     } = this.state;
 
-    return (
+    return [
+      <MobileNav type="dashboard" />,
       <div className="dashboard">
         <Aside />
         <div className="dashboard__content">
@@ -83,8 +85,8 @@ class Settings extends Component {
             </div>
           </div>
         </div>
-      </div>
-    );
+      </div>,
+    ];
   }
 }
 

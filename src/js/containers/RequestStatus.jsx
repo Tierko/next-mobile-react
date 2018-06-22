@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import MobileNav from '../components/MobileNav';
 import NavLobby from '../components/NavLobby';
 import RequestStatusSimple from '../components/RequestStatusSimple';
 import RequestStatusFooter from '../components/RequestStatusFooter';
@@ -54,6 +54,7 @@ const RequestStatus = ({ match }) => {
 
   return (
     <div className="request-status">
+      <MobileNav type="enter" />
       <NavLobby />
       {
         type === 'simple' &&

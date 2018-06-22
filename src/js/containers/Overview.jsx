@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Footer from '../components/Footer';
 import Balance from '../components/Balance';
@@ -110,7 +110,8 @@ class Overview extends Component {
     const { onPay, sumChange, onBuy } = this;
     const { sum } = this.state;
 
-    return (
+    return [
+      <MobileNav type="dashboard" />,
       <div className="dashboard">
         <Aside />
         <div className="dashboard__content">
@@ -121,8 +122,8 @@ class Overview extends Component {
           <Roaming data={this.roamingData} />
           <Footer />
         </div>
-      </div>
-    );
+      </div>,
+    ];
   }
 }
 

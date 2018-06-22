@@ -1,5 +1,9 @@
 .aside {
-  flex: 0 0 400px;
+  flex: 0 0 35%;
+
+  @media (max-width: @BREAK-POINT) {
+    display: none;
+  }
 
   &__inner {
     max-width: 200px;
@@ -8,14 +12,17 @@
   }
 
   &__logo {
-    overflow: hidden;
-    max-width: 308px;
 
     img {
-      max-width: 100%;
+      width: 100%;
+      max-width: 308px;
       height: auto;
       margin-top: -50px;
-      margin-left: -63px;
+      margin-left: -53px;
+
+      @media (max-width: @MAX-WIDTH) {
+        margin-left: -20%;
+      }
     }
   }
 
