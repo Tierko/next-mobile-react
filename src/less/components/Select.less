@@ -36,12 +36,14 @@
 
   &__list {
     position: absolute;
-    top: 100%;
+    top: calc(100% - 1px);
     right: 0;
     left: 0;
     max-height: 200px;
     display: none;
     background-color: @WHITE;
+    box-shadow: 0 0 10px @GRAY;
+    overflow: auto;
 
     &_open {
       display: block;
@@ -49,11 +51,13 @@
   }
 
   &__item {
-    padding: 0.33em 0;
+    padding: 0.66em 0 0.66em 1em;
     cursor: pointer;
+    color: @GRAY-DARK;
 
     &:hover {
       background-color: @GRAY-LIGHT;
+      color: @BLACK;
     }
   }
 
