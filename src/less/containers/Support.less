@@ -5,9 +5,21 @@
 
   &__chat {
     flex: 1 1  auto;
+    max-width: @MAX-WIDTH;
+    margin: 0 auto;
+    padding: 0 15px;
   }
 
-  &__aside {
-    flex: 0 1 225px;
+  &:after {
+    content: '';
+  }
+
+  &__aside,
+  &:after {
+    flex: 0 1 15%;
+
+    @media (max-width: @BREAK-POINT) {
+      display: none;
+    }
   }
 }

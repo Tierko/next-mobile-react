@@ -9,7 +9,6 @@ class Support extends Component {
         <div className="support__chat">
           <Chat />
         </div>
-        <div className="support__aside"></div>
       </div>
     );
   }
