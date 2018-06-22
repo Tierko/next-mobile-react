@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import MobileNav from '../components/MobileNav';
 import NavLobby from '../components/NavLobby';
 import Input from '../components/Input';
@@ -58,6 +59,9 @@ class SignIn extends Component {
             />
           }
           <MobileCode className="mobile-code_sign-in" phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} />
+          <div className="sign-in__reg">
+            <Link className="link-nav" to={Pages.SignUp}>Регистрация</Link>
+          </div>
         </div>
       </div>
     );
