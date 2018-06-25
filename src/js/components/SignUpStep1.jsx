@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import Input from './Input';
+import Input from './InputPhone';
 import Button from './Button';
 
 class SignUpStep1 extends Component {

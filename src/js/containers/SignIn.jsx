@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import MobileNav from '../components/MobileNav';
 import NavLobby from '../components/NavLobby';
-import Input from '../components/Input';
+import Input from '../components/InputPhone';
 import Logo from '../components/Logo';
 import MobileCode from '../components/MobileCode';
 import { Pages } from '../constants';

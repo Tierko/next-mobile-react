@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import PromoCode from './PromoCode';
-import Input from './Input';
+import Input from './InputPhone';
 import Button from './Button';
 import Logo from './Logo';
 import { Pages } from '../constants';
