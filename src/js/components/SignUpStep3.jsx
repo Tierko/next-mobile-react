@@ -6,11 +6,11 @@ import Button from '../components/Button';
 
 class SignUpStep3 extends Component {
   state = {
-    city: 'Москва',
-    street: 'Крестьянская застава',
-    house: '12/44',
-    flat: '124',
-    housing: '2А',
+    city: '',
+    street: '',
+    house: '',
+    flat: '',
+    housing: '',
   };
 
   onChange = (name, value) => {

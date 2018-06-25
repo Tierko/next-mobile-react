@@ -6,9 +6,9 @@ import Button from '../components/Button';
 
 class SignUpStep2 extends Component {
   state = {
-    surname: 'Константинопольский',
-    name: 'Константин',
-    middlename: 'Константинович',
+    surname: '',
+    name: '',
+    middlename: '',
   };
 
   onChange = (name, value) => {

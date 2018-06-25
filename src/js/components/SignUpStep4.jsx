@@ -7,8 +7,8 @@ import { Pages } from '../constants';
 
 class SignUpStep4 extends Component {
   state = {
-    date: '12 сентября (четверг)',
-    time: '15:00 – 19:00',
+    date: '',
+    time: '',
   };
 
   onChange = (name, value) => {

@@ -39,39 +39,39 @@ class Overview extends Component {
   historyData = [{
     id: 1,
     expense: 5200,
-    month: 'Октябрь',
+    month: 'октябрь',
   }, {
     id: 2,
     expense: 2600,
-    month: 'Ноябрь',
+    month: 'ноябрь',
   }, {
     id: 3,
     expense: 1000,
-    month: 'Декабрь',
+    month: 'декабрь',
   }, {
     id: 4,
     expense: 8100,
-    month: 'Январь',
+    month: 'январь',
   }, {
     id: 5,
     expense: 6000,
-    month: 'Февраль',
+    month: 'февраль',
   }, {
     id: 6,
     expense: 4000,
-    month: 'Март',
+    month: 'март',
   }, {
     id: 7,
     expense: 4500,
-    month: 'Апрель',
+    month: 'апрель',
   }, {
     id: 8,
     expense: 2000,
-    month: 'Май',
+    month: 'май',
   }, {
     id: 9,
     expense: 5000,
-    month: 'Июнь',
+    month: 'июнь',
   }];
 
   roamingData = [{
