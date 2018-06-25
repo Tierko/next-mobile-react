@@ -19,13 +19,19 @@ const Kit = () => (
               Стандартный текст, который используется для набора всей основной информации на страницах. Он может
               использоваться в двух цветах:
             </p>
-            <ul>
-              <li>Черный цвет – для важного текста</li>
+            <ul className="list">
+              <li>Черный цвет – для важного текстаЧерный цвет – для важного текста</li>
               <li>Серый цвет – для второстепенного текста</li>
             </ul>
           </section>
           <section>
             <h2>Цвета</h2>
+            <div className="kit__colors">
+              <div className="kit__color kit__color_black" />
+              <div className="kit__color kit__color_gray-dark" />
+              <div className="kit__color kit__color_gray" />
+              <div className="kit__color kit__color_gray-light" />
+            </div>
           </section>
           <section>
             <h2>Уведомления</h2>
