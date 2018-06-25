@@ -21,6 +21,7 @@ const config = {
     'package-lock.json',
     'package.json',
     'webpack.config.js',
+    'ftp-config.json',
   ],
 };
 

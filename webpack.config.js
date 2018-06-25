@@ -52,7 +52,7 @@ module.exports = (env) => {
       new webpack.NamedModulesPlugin(),
       new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
-        template: './index.html',
+        template: './src/index.html',
         hash: true,
       }),
     ],
