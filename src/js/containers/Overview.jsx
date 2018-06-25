@@ -116,8 +116,8 @@ class Overview extends Component {
     const { sum } = this.state;
 
     return [
-      <MobileNav type="dashboard" />,
-      <div className="dashboard">
+      <MobileNav key="nav" type="dashboard" />,
+      <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content">
           <Balance sum={500} message="Следующий платеж: 2 000 ₽ через 10 дней " />

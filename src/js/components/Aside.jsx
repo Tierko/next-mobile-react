@@ -21,7 +21,7 @@ const Aside = () => (
         <NavLink to={Pages.History} className="aside__link">История</NavLink>
         <NavLink to={Pages.Settings} className="aside__link">Настройки</NavLink>
         <NavLink to={Pages.Support} className="aside__link">Поддержка</NavLink>
-        <NavLink to={Pages.Exit} className="aside__link aside__link_exit">Выйти</NavLink>
+        <NavLink to={Pages.Exit} className="aside__link aside__link_exit" exact>Выйти</NavLink>
       </nav>
     </div>
   </div>

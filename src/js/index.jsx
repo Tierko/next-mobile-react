@@ -7,7 +7,7 @@ import '../less/style.less';
 
 render(
   (
-    <HashRouter>
+    <HashRouter hashType="noslash">
       <App />
     </HashRouter>
   ), document.getElementById('root'),

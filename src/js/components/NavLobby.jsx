@@ -11,7 +11,7 @@ const NavLobby = ({ back }) => (
         <img src="/media/icons/back.svg" />
       </Link>
     }
-    <NavLink className="nav-lobby__item" to={Pages.SignIn}>Вход</NavLink>
+    <NavLink className="nav-lobby__item" to={Pages.SignIn} exact>Вход</NavLink>
     <div className="nav-lobby__span" />
     <NavLink className="nav-lobby__item" to={Pages.SignUp}>Регистрация</NavLink>
     <div className="nav-lobby__span" />
