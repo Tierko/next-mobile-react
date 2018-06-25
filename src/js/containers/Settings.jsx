@@ -12,7 +12,7 @@ class Settings extends Component {
     lang: { title: 'Русский', value: 'ru', flag: 'RU.svg' },
     note: true,
     receipt: true,
-    expenseNoteSum: '2000 ₽',
+    expenseNoteSum: '2 000 ₽',
   };
 
   onChange = (name, value) => {
@@ -29,8 +29,38 @@ class Settings extends Component {
     });
   };
 
+  setCash = (e) => {
+    const { cash } = e.target.dataset;
+    const { onChange } = this;
+
+    onChange('expenseNoteSum', `${cash} ₽`);
+  };
+
+  sumFocus = () => {
+    const { expenseNoteSum } = this.state;
+
+    this.setState({
+      expenseNoteSum: expenseNoteSum.replace(' ₽', ''),
+    });
+  };
+
+  sumBlur = () => {
+    const { expenseNoteSum } = this.state;
+
+    this.setState({
+      expenseNoteSum: `${expenseNoteSum} ₽`,
+    });
+  };
+
   render() {
-    const { onSave, onChange, onLangSelect } = this;
+    const {
+      onSave,
+      onChange,
+      onLangSelect,
+      setCash,
+      sumFocus,
+      sumBlur,
+    } = this;
     const {
       email,
       lang,
@@ -61,6 +91,22 @@ class Settings extends Component {
                 <Checkbox className="checkbox_settings" value={note} name="note" onChange={onChange} />
               </div>
               <div className="service__desc">СМС-оповещение после траты каждых</div>
+              <div className="service__expense">
+                <Input
+                  className="input_settings-expense"
+                  name="expenseNoteSum"
+                  value={expenseNoteSum}
+                  onChange={onChange}
+                  onFocus={sumFocus}
+                  onBlur={sumBlur}
+                  clear
+                />
+                <div className="service__expense-sums">
+                  <div onClick={setCash} className="service__expense-sum" data-cash="2 000" >2 000 ₽</div>
+                  <div onClick={setCash} className="service__expense-sum" data-cash="5 000">5 000 ₽</div>
+                  <div onClick={setCash} className="service__expense-sum" data-cash="10 000">10 000 ₽</div>
+                </div>
+              </div>
             </div>
             <div className="service">
               <div className="service__control">
@@ -68,20 +114,6 @@ class Settings extends Component {
                 <Checkbox className="checkbox_settings" value={receipt} name="receipt" onChange={onChange} />
               </div>
               <div className="service__desc">Отправлять квитанцию после каждого платежа на почту</div>
-              <div className="service__expense">
-                <Input
-                  className="input_settings-expense"
-                  name="expenseNoteSum"
-                  value={expenseNoteSum}
-                  onChange={onChange}
-                  clear
-                />
-                <div className="service__expense-sums">
-                  <div className="service__expense-sum">2 000 ₽</div>
-                  <div className="service__expense-sum">5 000 ₽</div>
-                  <div className="service__expense-sum">10 000 ₽</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

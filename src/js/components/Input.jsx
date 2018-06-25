@@ -16,6 +16,22 @@ class Input extends Component {
     }
   };
 
+  onFocus = () => {
+    const { onFocus } = this.props;
+
+    if (onFocus) {
+      onFocus();
+    }
+  };
+
+  onBlur = () => {
+    const { onBlur } = this.props;
+
+    if (onBlur) {
+      onBlur();
+    }
+  };
+
   render() {
     const {
       name,
@@ -26,7 +42,7 @@ class Input extends Component {
       multiLine,
       clear,
     } = this.props;
-    const { onChange } = this;
+    const { onChange, onFocus, onBlur } = this;
 
     return (
       <div className={`input ${className}`}>
@@ -38,12 +54,22 @@ class Input extends Component {
             name={name}
             value={value}
             onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
             ref={(e) => { this.textArea = e; }}
           />
         }
         {
           !multiLine &&
-            <input type="text" className="input__value" name={name} value={value} onChange={onChange} />
+            <input
+              type="text"
+              className="input__value"
+              name={name}
+              value={value}
+              onChange={onChange}
+              onFocus={onFocus}
+              onBlur={onBlur}
+            />
         }
         <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>{placeholder}</div>
         <div className="input__error">{errorText}</div>
@@ -61,6 +87,8 @@ Input.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
   className: PropTypes.string,
   placeholder: PropTypes.string,
   errorText: PropTypes.string,
@@ -74,6 +102,8 @@ Input.defaultProps = {
   errorText: '',
   multiLine: false,
   clear: false,
+  onBlur: null,
+  onFocus: null,
 };
 
 export default Input;

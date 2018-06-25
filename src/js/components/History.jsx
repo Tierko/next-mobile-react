@@ -35,7 +35,7 @@ class History extends Component {
           {
             data.map(e => (
               <div
-                onClick={selectMonth}
+                onMouseEnter={selectMonth}
                 key={e.id}
                 className={cs('history__item', { history__item_selected: e.id === selected })}
                 data-id={e.id}
