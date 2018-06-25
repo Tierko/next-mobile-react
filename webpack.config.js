@@ -15,7 +15,7 @@ module.exports = (env) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].js',
-      publicPath: development ? 'http://localhost:8080/dist/' : '/',
+      publicPath: development ? 'http://localhost:8080/dist/' : '',
     },
 
     module: {
@@ -54,6 +54,7 @@ module.exports = (env) => {
       new HtmlWebpackPlugin({
         template: './src/index.html',
         hash: true,
+        inject: true,
       }),
     ],
 

@@ -1,30 +1,35 @@
+const path = require('path');
 const FtpDeploy = require('ftp-deploy');
 const credentials = require('./ftp-config.json');
 const ftpDeploy = new FtpDeploy();
 
-const config = {
+const configMain = {
+  user: credentials.user,
+  password: credentials.password,
+  host: 'six',
+  port: 21,
+  localRoot: path.join(__dirname, 'dist'),
+  remoteRoot: '/next-mobile/www/',
+  include: ['bundle.js', 'bundle.css', 'index.html'],
+  exclude: [],
+};
+
+const configMedia = {
   user: credentials.user,
   password: credentials.password,
   host: 'six',
   port: 21,
   localRoot: __dirname,
   remoteRoot: '/next-mobile/www/',
-  include: ['*'],
-  exclude: [
-    'node_modules/**/*',
-    '.git/**/*',
-    '.idea/**/*',
-    'src/**/*',
-    'README.md',
-    'accesses.txt',
-    'deploy.js',
-    'package-lock.json',
-    'package.json',
-    'webpack.config.js',
-    'ftp-config.json',
-  ],
+  include: ['media/**/*.*'],
+  exclude: [],
 };
 
-ftpDeploy.deploy(config)
-  .then(() => console.log('finished'))
+ftpDeploy.on('uploading', (data) => {
+  console.log(data.filename);
+});
+
+ftpDeploy.deploy(configMain)
+  .then(() => ftpDeploy.deploy(configMedia))
+  .then(() => console.log('Finished'))
   .catch(e => console.log(e));
