@@ -71,8 +71,8 @@ class Services extends Component {
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content">
-          <h1>Тарифы</h1>
-          <div>При подключении нового тарифа вы оплачиваете первый месяц абонентской платы</div>
+          <div className="dashboard__header">Тарифы</div>
+          <div className="dashboard__text">При подключении нового тарифа вы оплачиваете первый месяц абонентской платы</div>
           <TariffTable data={tariff} />
           <TariffServices services={services} onChange={toggleService} />
         </div>

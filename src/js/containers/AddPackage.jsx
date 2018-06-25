@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Package from '../components/Package';
+import LinkBack from '../components/LinkBack';
+import { Pages } from '../constants';
 
 class AddPackage extends Component {
   data = [{
@@ -71,13 +73,12 @@ class AddPackage extends Component {
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content">
-          <div className="add-package">
-            <h1>Дополнительный пакет</h1>
-            <div className="add-package__text">Через 10 дней будут начислены 200 мин и 2 ГБ по тарифу Супервип</div>
-            {
-              data.map(d => <Package data={d} />)
-            }
-          </div>
+          <LinkBack href={Pages.Overview} className="link-back_add-package" />
+          <div className="dashboard__header">Дополнительный пакет</div>
+          <div className="dashboard__text">Через 10&nbsp;дней будут начислены 200 мин и&nbsp;2&nbsp;ГБ по&nbsp;тарифу Супервип</div>
+          {
+            data.map(d => <Package data={d} />)
+          }
         </div>
       </div>,
     ]);

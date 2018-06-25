@@ -3,6 +3,10 @@
   max-width: @MAX-WIDTH;
   margin: auto;
 
+  @media (max-width: @BREAK-POINT) {
+    display: block;
+  }
+
   &__content {
     padding: 100px 15px;
     flex: 1 1 auto;
@@ -12,5 +16,15 @@
       align-items: center;
       flex-direction: column;
     }
+  }
+
+  &__header {
+    .h1;
+  }
+
+  &__text {
+    color: @GRAY-DARK;
+    margin-bottom: 25px;
+    max-width: 600px;
   }
 }
