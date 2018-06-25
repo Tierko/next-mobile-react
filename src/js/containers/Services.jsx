@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import TariffServices from '../components/TariffServices';
+import TariffTable from '../components/TariffTable';
 
 class Services extends Component {
   state = {
@@ -17,6 +18,34 @@ class Services extends Component {
       checked: false,
       desc: 'Ваш номер нельзя будет определить при звонке.',
       price: 'Бесплатно',
+    }],
+    tariff: [{
+      id: 1,
+      current: true,
+      title: 'Супервип',
+      payment: '3000',
+      internet: '32',
+      nextCalls: 'Безлимит',
+      calls: '700',
+      sms: 'Безлимит',
+    }, {
+      id: 2,
+      current: false,
+      title: 'Премиум',
+      payment: '2000',
+      internet: '16',
+      calls: '700',
+      nextCalls: '700',
+      sms: 'Безлимит',
+    }, {
+      id: 3,
+      current: false,
+      title: 'Лайт',
+      payment: '1500',
+      internet: '8',
+      calls: '700',
+      nextCalls: '700',
+      sms: 'Безлимит',
     }],
   };
 
@@ -34,7 +63,7 @@ class Services extends Component {
   };
 
   render() {
-    const { services } = this.state;
+    const { services, tariff } = this.state;
     const { toggleService } = this;
 
     return [
@@ -44,6 +73,7 @@ class Services extends Component {
         <div className="dashboard__content">
           <h1>Тарифы</h1>
           <div>При подключении нового тарифа вы оплачиваете первый месяц абонентской платы</div>
+          <TariffTable data={tariff} />
           <TariffServices services={services} onChange={toggleService} />
         </div>
       </div>,

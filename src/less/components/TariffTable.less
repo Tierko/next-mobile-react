@@ -1,0 +1,76 @@
+.cell {
+  flex: 1 1 33.33%;
+  min-width: 200px;
+}
+
+.tariff-table {
+  padding-bottom: 70px;
+  overflow-x: auto;
+
+  &__inner {
+    min-width: 600px;
+  }
+
+  &__row {
+    padding: 6px 0;
+
+    &_detail {
+      padding: 20px 0;
+    }
+
+    &_detail:not(:first-child) {
+      border-top: 1px solid @GRAY-LIGHT;
+    }
+  }
+
+  &__names {
+    display: flex;
+  }
+
+  &__name {
+    .cell;
+    font-size: @FONT-SIZE-H2;
+    line-height: @LINE-HEIGHT-H2;
+  }
+
+  &__actions {
+    display: flex;
+    padding-bottom: 25px;
+  }
+
+  &__action {
+    .cell;
+  }
+
+  &__title {
+    color: @GRAY-DARK;
+    display: none;
+
+    &_show {
+      display: block;
+    }
+  }
+
+  &__cells {
+    display: flex;
+  }
+
+  &__cell {
+    .cell;
+  }
+
+  &__toggle {
+    margin-top: 30px;
+    color: @GRAY-DARK;
+    border-bottom: 1px dashed @GRAY-DARK;
+    display: inline-block;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      color: @BLACK;
+      border-bottom-color: @BLACK;
+    }
+  }
+}

@@ -12,13 +12,11 @@
   }
 
   &__row {
-    border-bottom: 1px solid @GRAY-LIGHT;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid @GRAY-LIGHT;
 
-    &:hover {
-      box-shadow: 0 5px 5px -5px @GRAY, 0 -5px 5px -5px @GRAY;
-    }
+    .row-hover;
   }
 
   &__cell {
