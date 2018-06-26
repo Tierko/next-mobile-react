@@ -3,7 +3,7 @@ import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Footer from '../components/Footer';
 import Balance from '../components/Balance';
-import Payment from '../components/Payment';
+import OverviewPayment from '../components/OverviewPayment';
 import Remain from '../components/Remain';
 import History from '../components/History';
 import Roaming from '../components/Roaming';
@@ -121,7 +121,7 @@ class Overview extends Component {
         <Aside />
         <div className="dashboard__content">
           <Balance sum={500} message="Следующий платеж: 2 000 ₽ через 10 дней " />
-          <Payment onChange={sumChange} onPay={onPay} sum={sum} />
+          <OverviewPayment onChange={sumChange} onPay={onPay} sum={sum} />
           <Remain data={this.remainData} buy={onBuy} />
           <History data={this.historyData} />
           <Roaming data={this.roamingData} />
