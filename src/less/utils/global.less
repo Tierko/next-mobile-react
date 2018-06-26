@@ -89,6 +89,20 @@ h2,
   }
 }
 
+.link-dashed {
+  color: @GRAY-DARK;
+  border-bottom: 1px dashed @GRAY-DARK;
+  display: inline-block;
+  line-height: 1;
+  user-select: none;
+  text-decoration: none;
+
+  &:hover {
+    color: @BLACK;
+    border-bottom-color: @BLACK;
+  }
+}
+
 .list {
   padding-left: 0;
   list-style-type: none;
