@@ -5,6 +5,7 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import Checkbox from '../components/Checkbox';
 import Select from '../components/SelectLang';
+import Note from '../components/Note';
 
 class Settings extends Component {
   state = {
@@ -13,19 +14,34 @@ class Settings extends Component {
     note: true,
     receipt: true,
     expenseNoteSum: '2 000 ₽',
+    edited: false,
+    showNote: false,
   };
 
   onChange = (name, value) => {
     this.setState({
       [name]: value,
+      edited: true,
     });
   };
 
-  onSave = () => {};
+  onSave = () => {
+    this.setState({
+      edited: false,
+      showNote: true,
+    });
+  };
 
   onLangSelect = (lang) => {
     this.setState({
       lang,
+      edited: true,
+    });
+  };
+
+  onNoteFade = () => {
+    this.setState({
+      showNote: false,
     });
   };
 
@@ -60,6 +76,7 @@ class Settings extends Component {
       setCash,
       sumFocus,
       sumBlur,
+      onNoteFade,
     } = this;
     const {
       email,
@@ -67,6 +84,8 @@ class Settings extends Component {
       note,
       receipt,
       expenseNoteSum,
+      edited,
+      showNote,
     } = this.state;
 
     return [
@@ -84,7 +103,16 @@ class Settings extends Component {
               value={lang}
               onSelect={onLangSelect}
             />
-            <Button className="button_settings" onClick={onSave}>Сохранить изменения</Button>
+            <Button className="button_settings" onClick={onSave} disabled={!edited}>
+              Сохранить изменения
+            </Button>
+            <Note
+              className="note_settings"
+              message="Изменения сохранены"
+              color="green"
+              onFadeOut={onNoteFade}
+              show={showNote}
+            />
             <div className="service">
               <div className="service__control">
                 <div className="service__name">Уведомление о расходах</div>
