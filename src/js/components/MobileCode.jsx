@@ -43,7 +43,12 @@ class MobileCode extends Component {
 
   render() {
     const { sendCode, onChange } = this;
-    const { phone, onEnter, className } = this.props;
+    const {
+      phone,
+      onEnter,
+      className,
+      buttonTitle,
+    } = this.props;
     const { status, seconds, code } = this.state;
 
     return (
@@ -59,7 +64,7 @@ class MobileCode extends Component {
         {
           (status === 'sent' || status === 'timed out') &&
           <Button className="button_mobile-code" onClick={() => onEnter(code)} disabled={code.length < 4}>
-            Войти
+            {buttonTitle}
           </Button>
         }
         {
@@ -82,10 +87,12 @@ MobileCode.propTypes = {
   onCodeSend: PropTypes.func.isRequired,
   onEnter: PropTypes.func.isRequired,
   className: PropTypes.string,
+  buttonTitle: PropTypes.string,
 };
 
 MobileCode.defaultProps = {
   className: '',
+  buttonTitle: 'Войти',
 };
 
 export default MobileCode;

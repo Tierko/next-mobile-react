@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Aside from '../components/Aside';
 import MobileNav from '../components/MobileNav';
 import { Pages, Statuses } from '../constants';
 
 const SiteMap = () => ([
   <MobileNav key="nav" type="dashboard" />,
   <div key="dashboard" className="dashboard">
-    <Aside />
     <div className="dashboard__content">
       <Link className="link" to={Pages.SignIn}>Вход</Link>
       <br />
@@ -23,7 +21,9 @@ const SiteMap = () => ([
       <br />
       <Link className="link" to={Pages.Conditions}>Условия перехода</Link>
       <br />
-      <Link className="link" to={Pages.RequestStatus}>Статус заявки, заявка отпралвена</Link>
+      <Link className="link" to={Pages.RequestStatus}>Статус заявки</Link>
+      <br />
+      <Link className="link" to={`${Pages.RequestStatus}/${Statuses.REQUEST_SENT}`}>Статус заявки, заявка отпралвена</Link>
       <br />
       <Link className="link" to={`${Pages.RequestStatus}/${Statuses.INFORMATION_CHECKED}`}>Статус заявки, информация проверена</Link>
       <br />

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import MobileNav from '../components/MobileNav';
 import NavLobby from '../components/NavLobby';
+import InputPhone from '../components/InputPhone';
+import MobileCode from '../components/MobileCode';
 import RequestStatusSimple from '../components/RequestStatusSimple';
 import RequestStatusFooter from '../components/RequestStatusFooter';
-import { Statuses } from '../constants';
+import { Statuses, Pages } from '../constants';
 
 const data = {
   [Statuses.REQUEST_SENT]: {
@@ -48,25 +51,82 @@ const data = {
   },
 };
 
-const RequestStatus = ({ match }) => {
-  const status = match.params.status || Statuses.REQUEST_SENT;
-  const { type, content } = data[status];
+class RequestStatus extends Component {
+  state = {
+    phone: '+7',
+    codeSent: false,
+  };
 
-  return (
-    <div className="request-status">
-      <MobileNav type="enter" />
-      <NavLobby />
-      {
-        type === 'simple' &&
-        <RequestStatusSimple
-          header={content.header}
-          message={content.message}
-          color={content.color}
-        />
-      }
-      <RequestStatusFooter />
-    </div>
-  );
+  onChange = (name, value) => {
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  onCodeSend = () => {
+    this.setState({
+      codeSent: true,
+    });
+  };
+
+  onEnter = () => {
+    const { history } = this.props;
+
+    history.push(`${Pages.RequestStatus}/${Statuses.INFORMATION_CHECKED}`);
+  };
+
+  render() {
+    const { status } = this.props.match.params;
+    const { phone, codeSent } = this.state;
+    const { onChange, onCodeSend, onEnter } = this;
+    let content;
+    let type;
+
+    if (status) {
+      ({ content, type } = data[status]);
+    }
+
+    return (
+      <div className="request-status">
+        <MobileNav type="enter" />
+        <NavLobby />
+        {
+          !status &&
+          <div className="request-status__content">
+            <div className="request-status__title">Статус заявки</div>
+            {
+              codeSent &&
+              <div className="request-status__message">
+                Введите код, который мы прислали на номер {phone}
+              </div>
+            }
+            {
+              !codeSent &&
+              <div>
+                Введите номер, с которым вы оставляли заявку
+              </div>
+            }
+            <InputPhone onChange={onChange} value={phone} name="phone" className="input_phone" />
+            <MobileCode phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} buttonTitle="Проверить статус" />
+          </div>
+        }
+        {
+          type === 'simple' &&
+          <RequestStatusSimple
+            header={content.header}
+            message={content.message}
+            color={content.color}
+          />
+        }
+        <RequestStatusFooter />
+      </div>
+    );
+  }
+}
+
+RequestStatus.propTypes = {
+  match: PropTypes.shape().isRequired,
+  history: PropTypes.shape().isRequired,
 };
 
 export default RequestStatus;

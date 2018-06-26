@@ -67,8 +67,6 @@ class Input extends Component {
               name={name}
               value={value}
               onChange={onChange}
-              onFocus={onFocus}
-              onBlur={onBlur}
             />
         }
         <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>{placeholder}</div>
