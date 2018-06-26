@@ -27,7 +27,6 @@ const ProgressLinear = ({
   offsetColors(startColor, percent);
   offsetColors(endColor, percent);
 
-  console.log(startColor.current, endColor.current)
   const min = startColor.current;
   const max = endColor.current;
 
