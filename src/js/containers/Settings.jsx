@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Input from '../components/Input';
+import InputRuble from '../components/InputRuble';
 import Button from '../components/Button';
 import Checkbox from '../components/Checkbox';
 import Select from '../components/SelectLang';
@@ -52,30 +53,12 @@ class Settings extends Component {
     onChange('expenseNoteSum', `${cash} ₽`);
   };
 
-  sumFocus = () => {
-    const { expenseNoteSum } = this.state;
-
-    this.setState({
-      expenseNoteSum: expenseNoteSum.replace(' ₽', ''),
-    });
-  };
-
-  sumBlur = () => {
-    const { expenseNoteSum } = this.state;
-
-    this.setState({
-      expenseNoteSum: `${expenseNoteSum} ₽`,
-    });
-  };
-
   render() {
     const {
       onSave,
       onChange,
       onLangSelect,
       setCash,
-      sumFocus,
-      sumBlur,
       onNoteFade,
     } = this;
     const {
@@ -120,13 +103,11 @@ class Settings extends Component {
               </div>
               <div className="service__desc">СМС-оповещение после траты каждых</div>
               <div className="service__expense">
-                <Input
+                <InputRuble
                   className="input_settings-expense"
                   name="expenseNoteSum"
                   value={expenseNoteSum}
                   onChange={onChange}
-                  onFocus={sumFocus}
-                  onBlur={sumBlur}
                   clear
                 />
                 <div className="service__expense-sums">

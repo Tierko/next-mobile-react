@@ -11,7 +11,7 @@ import { Pages } from '../constants';
 
 class Overview extends Component {
   state = {
-    sum: 2000,
+    sum: '2000 ₽',
   };
 
   onPay = () => {};
