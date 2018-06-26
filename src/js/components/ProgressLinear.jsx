@@ -8,24 +8,28 @@ const offsetColors = (colorObject, percent) => {
 };
 
 const ProgressLinear = ({
-  max,
+  max: maxValue,
   current,
   className,
 }) => {
-  const percent = current / max;
+  const percent = current / maxValue;
   const startColor = {
-    min: [129, 246, 188],
-    max: [255, 76, 185],
-    current: [0, 0, 0, 1],
+    max: [323, 100, 70],
+    min: [150, 95, 50],
+    current: [0, 0, 0],
   };
   const endColor = {
-    min: [125, 255, 241],
-    max: [255, 42, 99],
-    current: [0, 0, 0, 1],
+    max: [345, 100, 85],
+    min: [190, 95, 50],
+    current: [0, 0, 0],
   };
 
   offsetColors(startColor, percent);
   offsetColors(endColor, percent);
+
+  console.log(startColor.current, endColor.current)
+  const min = startColor.current;
+  const max = endColor.current;
 
   return (
     <div className={`progress-linear ${className}`}>
@@ -33,7 +37,7 @@ const ProgressLinear = ({
         className="progress-linear__line"
         style={{
           width: `${percent * 100}%`,
-          backgroundImage: `linear-gradient(to right, rgba(${startColor.current.join(',')}), rgba(${endColor.current.join(',')}))`,
+          backgroundImage: `linear-gradient(to right, hsl(${min[0]}, ${min[1]}%, ${min[2]}%), hsl(${max[0]}, ${max[1]}%, ${max[2]}%)`,
         }}
       />
     </div>
