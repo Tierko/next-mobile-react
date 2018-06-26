@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import ProgressLinear from './ProgressLinear';
+import { Pages } from '../constants';
 
 const Package = ({ data }) => (
   <div className="package">
@@ -16,7 +17,12 @@ const Package = ({ data }) => (
             <div className="package__cell">+ {i.count}</div>
             <div className="package__cell">{i.price} ₽</div>
             <div className="package__cell">
-              <Link to="" className="link">Купить</Link>
+              <Link
+                to={{ pathname: Pages.PayPackage, state: { sum: i.price, pack: `${i.count} ${data.unit} ` } }}
+                className="link"
+              >
+                Купить
+              </Link>
             </div>
           </div>
         ))
@@ -24,5 +30,9 @@ const Package = ({ data }) => (
     </div>
   </div>
 );
+
+Package.propTypes = {
+  data: PropTypes.shape().isRequired,
+};
 
 export default Package;

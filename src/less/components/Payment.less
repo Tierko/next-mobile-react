@@ -1,0 +1,57 @@
+.payment {
+  width: 100%;
+
+  &__tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  &__tab {
+    margin: 10px;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px dashed transparent;
+    line-height: 20px;
+
+    &_active {
+      cursor: default;
+    }
+
+    &:not(&_active) {
+      border-bottom-color: @GRAY-DARK;
+      color: @GRAY-DARK;
+    }
+  }
+
+  &__cards {
+    height: 149px;
+    margin: 0 -15px;
+    position: relative;
+  }
+
+  &__card-row {
+    position: relative;
+    overflow: auto;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &__cards-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__sum {
+    font-size: 60px;
+    line-height: 54px;
+    text-align: center;
+    font-weight: 100;
+    margin-top: 50px;
+  }
+}

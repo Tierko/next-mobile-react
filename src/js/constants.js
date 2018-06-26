@@ -14,6 +14,7 @@ export const Pages = {
   Settings: '/settings',
   Exit: '/',
   AddPackage: '/add-package',
+  PayPackage: '/pay-package',
   SiteMap: '/sitemap',
 };
 

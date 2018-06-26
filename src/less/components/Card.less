@@ -1,0 +1,57 @@
+.card {
+  flex: 0 0 auto;
+  border-radius: 8px;
+  padding: 15px;
+  width: 144px;
+  height: 91px;
+  margin: 0 8px;
+  cursor: pointer;
+  user-select: none;
+
+  &_visa {
+    background-image: radial-gradient(132px 132px at 100% 0%, #ff693e 0%, #e72b2b 100%);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &_apple-pay {
+    display: flex;
+    border: 1px solid #131313;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &_new {
+    display: flex;
+    border: 1px solid @GRAY-DARK;
+    color: @GRAY-DARK;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: @FONT-SIZE-SMALL;
+    padding-top: 20px;
+  }
+
+  &_selected {
+    width: 168px;
+    height: 119px;
+  }
+
+  &__number {
+    color: @WHITE;
+  }
+
+  &__points {
+    width: 30px;
+    cursor: pointer;
+  }
+
+  &__point {
+    display: block;
+    width: 3px;
+    height: 3px;
+    background-color: @WHITE;
+    margin-bottom: 3px;
+    margin-left: auto;
+  }
+}
