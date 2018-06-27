@@ -77,7 +77,9 @@ class TariffTable extends Component {
             <div className="tariff-table__names">
               {
                 data.map(d => (
-                  <div className="tariff-table__name">{d.title}</div>
+                  <div className={cs('tariff-table__name', { 'tariff-table__name_active': d.current })}>
+                    <span>{d.title}</span>
+                  </div>
                 ))
               }
             </div>
