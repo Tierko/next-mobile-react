@@ -5,10 +5,10 @@ import Button from '../components/Button';
 import { Pages } from '../constants';
 
 const Conditions = () => (
-  <div className="conditions">
+  <div className="welcome">
     <NavLobby back={`${Pages.SignUp}/step/1`} />
-    <div className="conditions__content">
-      <h1>Условия перехода</h1>
+    <div className="welcome__content conditions">
+      <div className="conditions__header">Условия перехода</div>
       <div>Номер оформлен на ваше имя</div>
       <div>Нет задолженности перед оператором</div>
       <div>Вы не меняли оператора в последние 2 месяца</div>

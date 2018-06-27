@@ -24,7 +24,7 @@ class SignUpStep2 extends Component {
     const permit = !!name && !!surname && !!middlename;
 
     return (
-      <div className="sign-up__content">
+      <div className="welcome__content sign-up">
         <div className="sign-up__header">Владелец номера</div>
         <Input name="surname" value={surname} onChange={onChange} placeholder="Фамилия" />
         <Input name="name" value={name} onChange={onChange} placeholder="Имя" />

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MobileNav from '../components/MobileNav';
 import NavLobby from '../components/NavLobby';
@@ -87,12 +87,12 @@ class RequestStatus extends Component {
     }
 
     return (
-      <div className="request-status">
+      <div className="welcome">
         <MobileNav type="enter" />
         <NavLobby />
         {
           !status &&
-          <div className="request-status__content">
+          <div className="welcome__content request-status">
             <div className="request-status__title">Статус заявки</div>
             {
               codeSent &&

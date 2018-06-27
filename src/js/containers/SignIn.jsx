@@ -43,10 +43,10 @@ class SignIn extends Component {
     const { phone, message, isPhoneVisible } = this.state;
 
     return (
-      <div className="sign-in">
+      <div className="welcome">
         <MobileNav type="enter" />
         <NavLobby />
-        <div className="sign-in__content">
+        <div className="welcome__content">
           <Logo />
           <div className="sign-in__text">{ message }</div>
           {
@@ -59,7 +59,7 @@ class SignIn extends Component {
             />
           }
           <MobileCode className="mobile-code_sign-in" phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} />
-          <div className="sign-in__reg">
+          <div className="welcome__footer">
             <Link className="link-nav" to={Pages.SignUp}>Регистрация</Link>
           </div>
         </div>

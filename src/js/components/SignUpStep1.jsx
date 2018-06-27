@@ -21,7 +21,7 @@ class SignUpStep1 extends Component {
     const { nextStep } = this.props;
 
     return (
-      <div className="sign-up__content">
+      <div className="welcome__content sign-up">
         <div className="sign-up__header">Текущий номер телефона</div>
         <Input name="phone" value={phone} onChange={onChange} className="input_phone" />
         <Button className="button_sign-up-continue" onClick={() => nextStep(2)} disabled={!phone}>Продолжить</Button>

@@ -24,7 +24,7 @@ class SignUpStep4 extends Component {
     const permit = !!date && !!time;
 
     return (
-      <div className="sign-up__content">
+      <div className="welcome__content sign-up">
         <div className="sign-up__header">Время доставки</div>
         <div className="sign-up__message">Когда вам будет удобно получить новую SIM-карту и подписать договор?</div>
         <Input name="date" value={date} onChange={onChange} placeholder="Дата" />

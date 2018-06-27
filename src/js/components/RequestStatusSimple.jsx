@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Logo from './Logo';
 
 const RequestStatusSimple = ({ header, message, color }) => (
-  <div className="request-status__content">
+  <div className="welcome__content request-status">
     <Logo type={color} />
     <div className={`request-status__header request-status__header_${color}`}>{header}</div>
     <div className="request-status__message">{message}</div>

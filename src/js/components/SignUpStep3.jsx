@@ -32,7 +32,7 @@ class SignUpStep3 extends Component {
     const permit = !!city && !!street && !!house;
 
     return (
-      <div className="sign-up__content">
+      <div className="welcome__content sign-up">
         <div className="sign-up__header">Адрес доставки</div>
         <Input name="city" value={city} onChange={onChange} placeholder="Город" />
         <Input name="street" value={street} onChange={onChange} placeholder="Улица" />

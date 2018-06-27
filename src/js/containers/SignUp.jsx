@@ -28,7 +28,7 @@ class SignUp extends Component {
     const { nextStep, toPage } = this;
 
     return (
-      <div className="sign-up">
+      <div className="welcome">
         <MobileNav type="enter" />
         <NavLobby />
         {

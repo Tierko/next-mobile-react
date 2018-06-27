@@ -54,7 +54,7 @@ class SignUp extends Component {
     const { nextStep, toPage } = this.props;
 
     return (
-      <div className="sign-up__content">
+      <div className="welcome__content sign-up">
         <Logo type="photo" className="logo_sign-up" />
         <div className="sign-up__message">{message}</div>
         {
