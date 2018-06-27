@@ -23,18 +23,21 @@ class Overview extends Component {
     current: 2.01,
     unit: 'ГБ',
     name: 'Интернет',
+    link: false,
   }, {
     id: 2,
     max: 320,
     current: 200,
     unit: 'мин',
     name: 'Звонки',
+    link: true,
   }, {
     id: 3,
     max: 140,
     current: 129,
     unit: 'СМС',
     name: 'Сообщения',
+    link: false,
   }];
 
   historyData = [{

@@ -31,5 +31,5 @@ ftpDeploy.on('uploading', (data) => {
 
 ftpDeploy.deploy(configMain)
   .then(() => ftpDeploy.deploy(configMedia))
-  .then(() => console.log('Finished'))
+  .then(() => console.log('Finished', (new Date()).toLocaleString()))
   .catch(e => console.log(e));

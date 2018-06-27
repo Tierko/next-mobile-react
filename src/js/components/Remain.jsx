@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import cs from 'classnames';
 import ProgressLinear from './ProgressLinear';
 import Button from './Button';
 
@@ -12,7 +13,12 @@ const Remain = ({ data, buy }) => (
         <div key={i.id} className="remain__item">
           <div className="remain__desc">
             <div><span>{(i.current + '').replace('.', ',')} {i.unit}</span> из {i.max}</div>
-            <Link className="remain__service" to="#">{i.name}</Link>
+            {
+              i.link ?
+                <Link className={cs('remain__service', { remain__service_link: i.link })} to="#">{i.name}</Link>
+                :
+                <div className="remain__service">{i.name}</div>
+            }
           </div>
           <ProgressLinear color="red" max={i.max} current={i.current} />
         </div>
