@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Footer from '../components/Footer';
@@ -131,5 +132,9 @@ class Overview extends Component {
     ];
   }
 }
+
+Overview.propTypes = {
+  history: PropTypes.shape().isRequired,
+};
 
 export default Overview;
