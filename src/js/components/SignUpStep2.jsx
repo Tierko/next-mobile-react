@@ -26,16 +26,18 @@ class SignUpStep2 extends Component {
     return (
       <div className="welcome__content sign-up">
         <div className="sign-up__header">Владелец номера</div>
-        <Input name="surname" value={surname} onChange={onChange} placeholder="Фамилия" />
-        <Input name="name" value={name} onChange={onChange} placeholder="Имя" />
-        <Input name="middlename" value={middlename} onChange={onChange} placeholder="Отчество" />
-        <Button
-          className="button_sign-up-continue"
-          onClick={() => nextStep(3)}
-          disabled={!permit}
-        >
-          Продолжить
-        </Button>
+        <div className="sign-up__form">
+          <Input name="surname" value={surname} onChange={onChange} placeholder="Фамилия" />
+          <Input name="name" value={name} onChange={onChange} placeholder="Имя" />
+          <Input name="middlename" value={middlename} onChange={onChange} placeholder="Отчество" />
+          <Button
+            className="button_sign-up-continue"
+            onClick={() => nextStep(3)}
+            disabled={!permit}
+          >
+            Продолжить
+          </Button>
+        </div>
         <div className={cs('sign-up__note', { 'sign-up__note_show': permit })}>
           К  информации о доставке
         </div>

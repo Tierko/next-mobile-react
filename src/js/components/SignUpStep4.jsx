@@ -26,12 +26,14 @@ class SignUpStep4 extends Component {
     return (
       <div className="welcome__content sign-up">
         <div className="sign-up__header">Время доставки</div>
-        <div className="sign-up__message">Когда вам будет удобно получить новую SIM-карту и подписать договор?</div>
-        <Input name="date" value={date} onChange={onChange} placeholder="Дата" />
-        <Input name="time" value={time} onChange={onChange} placeholder="Время" />
-        <Button className="button_sign-up-continue" onClick={() => toPage(Pages.RequestStatus)} disabled={!permit}>
-          Продолжить
-        </Button>
+        <div className="sign-up__form">
+          <div className="sign-up__message">Когда вам будет удобно получить новую SIM-карту и подписать договор?</div>
+          <Input name="date" value={date} onChange={onChange} placeholder="Дата" />
+          <Input name="time" value={time} onChange={onChange} placeholder="Время" />
+          <Button className="button_sign-up-continue" onClick={() => toPage(Pages.RequestStatus)} disabled={!permit}>
+            Продолжить
+          </Button>
+        </div>
         <div className={cs('sign-up__note', { 'sign-up__note_show': permit })}>
           Я соглашаюсь с условиями пользования и на обработку персональных данных
         </div>

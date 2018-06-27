@@ -34,16 +34,18 @@ class SignUpStep3 extends Component {
     return (
       <div className="welcome__content sign-up">
         <div className="sign-up__header">Адрес доставки</div>
-        <Input name="city" value={city} onChange={onChange} placeholder="Город" />
-        <Input name="street" value={street} onChange={onChange} placeholder="Улица" />
-        <div className="sign-up__row">
-          <Input className="input_narrow-sign-up" name="house" value={house} onChange={onChange} placeholder="Дом" />
-          <Input className="input_narrow-sign-up" name="flat" value={flat} onChange={onChange} placeholder="Квартира" />
-          <Input className="input_narrow-sign-up" name="housing" value={housing} onChange={onChange} placeholder="Корпус" />
+        <div className="sign-up__form">
+          <Input name="city" value={city} onChange={onChange} placeholder="Город" />
+          <Input name="street" value={street} onChange={onChange} placeholder="Улица" />
+          <div className="sign-up__row">
+            <Input className="input_narrow-sign-up" name="house" value={house} onChange={onChange} placeholder="Дом" />
+            <Input className="input_narrow-sign-up" name="flat" value={flat} onChange={onChange} placeholder="Квартира" />
+            <Input className="input_narrow-sign-up" name="housing" value={housing} onChange={onChange} placeholder="Корпус" />
+          </div>
+          <Button className="button_sign-up-continue" onClick={() => nextStep(4)} disabled={!permit}>
+            Продолжить
+          </Button>
         </div>
-        <Button className="button_sign-up-continue" onClick={() => nextStep(4)} disabled={!permit}>
-          Продолжить
-        </Button>
         <div className={cs('sign-up__note', { 'sign-up__note_show': permit })}>
           Ко времени доставки
         </div>
