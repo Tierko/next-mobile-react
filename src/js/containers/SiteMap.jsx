@@ -37,6 +37,8 @@ const SiteMap = () => ([
       <br />
       <Link className="link" to={Pages.AddPackage}>Докупка пакета</Link>
       <br />
+      <Link className="link" to={Pages.Services}>Тарифы и услуги</Link>
+      <br />
       <Link className="link" to={Pages.Settings}>Настройки</Link>
     </div>
   </div>,
