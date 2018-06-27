@@ -65,23 +65,13 @@ class Calendar extends Component {
     };
   }
 
-  componentDidMount() {
-    const { outsideClick } = this;
-
-    document.addEventListener('cick', outsideClick);
-  }
-
-  componentWillUnmount() {
-    const { outsideClick } = this;
-
-    document.removeEventListener('click', outsideClick);
-  }
-
   onUpdateDate = () => {
     const { onUpdateDate } = this.props;
     const { selectedYear, selectedMonth, selectedDay } = this.state;
     const date = new Date(selectedYear, selectedMonth, selectedDay);
     const weekday = date.getDay();
+
+    console.log(selectedYear, selectedMonth, selectedDay)
 
     if (onUpdateDate) {
       onUpdateDate({
@@ -139,20 +129,11 @@ class Calendar extends Component {
     return days;
   };
 
-  outsideClick = (e) => {
-    const { calendar, onUpdateDate } = this;
-
-    if (!calendar.contains(e.target)) {
-      onUpdateDate();
-    }
-  };
-
   selectDay = (e) => {
-    const { day, month, year } = e.currentTarget.dataset;
+    const { day, month } = e.currentTarget.dataset;
 
     this.setState({
       day: day * 1,
-      selectedYear: year,
       selectedMonth: month * 1,
       selectedDay: day + 1,
     });
@@ -209,7 +190,7 @@ class Calendar extends Component {
     const days = Array(daysPerMonth).fill(null);
 
     return (
-      <div className={cs('calendar', { calendar_show: show })} ref={(e) => { this.calendar = e; }}>
+      <div className={cs('calendar', { calendar_show: show })}>
         <div className="calendar__header">
           <div className="calendar__month-year">{months[month]} {year}</div>
           <div className="calendar__control">
