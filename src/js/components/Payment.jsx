@@ -53,7 +53,11 @@ class Payment extends Component {
       cards,
     } = this;
     const { payment, tab, selectedCard } = this.state;
-    const { isEditable } = this.props;
+    const { isEditable, sum } = this.props;
+
+    if (!sum) {
+      return false;
+    }
 
     return (
       <div className="payment">
@@ -97,7 +101,7 @@ class Payment extends Component {
             </div>
           </div>
         </div>
-        <div className="payment__sum">2000 ₽</div>
+        <div className="payment__sum">{sum} ₽</div>
         {
           isEditable &&
           <Fragment>
@@ -116,6 +120,7 @@ class Payment extends Component {
 
 Payment.propTypes = {
   isEditable: PropTypes.bool.isRequired,
+  sum: PropTypes.number.isRequired,
 };
 
 export default Payment;

@@ -7,7 +7,9 @@ import { Pages } from '../constants';
 
 class PayPackage extends Component {
   render() {
-    const { location: { sum } } = this.props;
+    const { location } = this.props;
+    const state = location.state || {};
+    const { pack, sum } = state;
 
     return [
       <MobileNav key="nav" type="dashboard" />,
@@ -15,8 +17,12 @@ class PayPackage extends Component {
         <Aside />
         <div className="dashboard__content pay-package">
           <LinkBack href={Pages.AddPackage} className="link-back_pay-package" />
-          <div className="pay-package__header">Оплата 3 ГБ интернета</div>
-          <Payment isEditable={false} />
+          <div className="pay-package__header">
+            {
+              (!pack || !sum) ? 'Вы не выбрали услугу' : `Оплата ${pack}`
+            }
+          </div>
+          <Payment isEditable={false} sum={sum} />
         </div>
       </div>,
     ];

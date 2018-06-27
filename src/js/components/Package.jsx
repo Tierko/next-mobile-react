@@ -13,18 +13,15 @@ const Package = ({ data }) => (
     <div className="package__table">
       {
         data.items.map(i => (
-          <div className="package__row" key={i.id}>
-            <div className="package__cell">+ {i.count}</div>
-            <div className="package__cell">{i.price} ₽</div>
-            <div className="package__cell">
-              <Link
-                to={{ pathname: Pages.PayPackage, state: { sum: i.price, pack: `${i.count} ${data.unit} ` } }}
-                className="link"
-              >
-                Купить
-              </Link>
-            </div>
-          </div>
+          <Link
+            className="package__row"
+            key={i.id}
+            to={{ pathname: Pages.PayPackage, state: { sum: i.price, pack: `${i.count} ${data.unit} ${data.title_}` } }}
+          >
+            <div className="package__cell package__cell_count">+ {i.count} {data.unit}</div>
+            <div className="package__cell package__cell_period">{i.period} дней</div>
+            <div className="package__cell package__cell_price">{i.price} ₽</div>
+          </Link>
         ))
       }
     </div>
