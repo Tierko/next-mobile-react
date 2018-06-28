@@ -7,10 +7,17 @@ import LinkBack from '../components/LinkBack';
 import { Pages } from '../constants';
 
 class PayPackage extends Component {
+  onPay = () => {
+    const { history } = this.props;
+
+    history.push(`${Pages.PayResult}/success`);
+  };
+
   render() {
     const { location } = this.props;
     const state = location.state || {};
     const { pack, sum } = state;
+    const { onPay } = this;
 
     return [
       <MobileNav key="nav" type="dashboard" />,
@@ -23,7 +30,7 @@ class PayPackage extends Component {
               (!pack || !sum) ? 'Вы не выбрали услугу' : `Оплата ${pack}`
             }
           </div>
-          <Payment isEditable={false} sum={sum} />
+          <Payment isEditable={false} sum={sum} onPay={onPay} />
         </div>
       </div>,
     ];
@@ -32,6 +39,7 @@ class PayPackage extends Component {
 
 PayPackage.propTypes = {
   location: PropTypes.shape().isRequired,
+  history: PropTypes.shape().isRequired,
 };
 
 export default PayPackage;

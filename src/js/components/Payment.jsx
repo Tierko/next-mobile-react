@@ -36,8 +36,6 @@ class Payment extends Component {
     });
   };
 
-  onPay = () => {};
-
   changeTab = (e) => {
     const { tab } = e.target.dataset;
 
@@ -69,7 +67,6 @@ class Payment extends Component {
   render() {
     const {
       onChange,
-      onPay,
       changeTab,
       onCardEdit,
       selectCard,
@@ -85,7 +82,7 @@ class Payment extends Component {
       date,
       cvv,
     } = this.state;
-    const { isEditable, sum } = this.props;
+    const { isEditable, sum, onPay } = this.props;
 
     if (!sum) {
       return false;
@@ -163,6 +160,7 @@ class Payment extends Component {
 Payment.propTypes = {
   isEditable: PropTypes.bool.isRequired,
   sum: PropTypes.number,
+  onPay: PropTypes.func.isRequired,
 };
 
 Payment.defaultProps = {

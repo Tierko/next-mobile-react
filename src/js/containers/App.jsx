@@ -12,6 +12,7 @@ import Settings from './Settings';
 import Services from './Services';
 import AddPackage from './AddPackage';
 import PayPackage from './PayPackage';
+import PayResult from './PayResult';
 import { Pages } from '../constants';
 import Kit from './Kit';
 
@@ -31,6 +32,7 @@ const App = () => (
       <Route path={Pages.Services} component={Services} />
       <Route path={Pages.AddPackage} component={AddPackage} />
       <Route path={Pages.PayPackage} component={PayPackage} />
+      <Route path={`${Pages.PayResult}/:type`} component={PayResult} />
       <Route path={Pages.SiteMap} component={SiteMap} />
     </Switch>
   </div>

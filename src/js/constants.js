@@ -15,6 +15,8 @@ export const Pages = {
   Exit: '/',
   AddPackage: '/add-package',
   PayPackage: '/pay-package',
+  PayResult: '/pay-result',
+  AutoPay: '/auto-pay',
   SiteMap: '/sitemap',
 };
 

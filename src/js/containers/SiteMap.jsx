@@ -37,6 +37,10 @@ const SiteMap = () => ([
       <br />
       <Link className="link" to={Pages.AddPackage}>Докупка пакета</Link>
       <br />
+      <Link className="link" to={`${Pages.PayResult}/success`}>Успешная оплата</Link>
+      <br />
+      <Link className="link" to={`${Pages.PayResult}/error`}>Ошибка оплаты</Link>
+      <br />
       <Link className="link" to={Pages.Services}>Тарифы и услуги</Link>
       <br />
       <Link className="link" to={Pages.Settings}>Настройки</Link>
