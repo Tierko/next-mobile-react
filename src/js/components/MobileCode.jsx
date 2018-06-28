@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../components/Button';
 import MultipleInput from '../components/MultipleInput';
+import { checkPhone } from '../utils';
 
 class MobileCode extends Component {
   state = {
@@ -59,7 +60,7 @@ class MobileCode extends Component {
         }
         {
           status === 'init' &&
-          <Button className="button_mobile-code" onClick={sendCode} disabled={!phone}>Прислать код</Button>
+          <Button className="button_mobile-code" onClick={sendCode} disabled={!checkPhone(phone)}>Прислать код</Button>
         }
         {
           (status === 'sent' || status === 'timed out') &&
