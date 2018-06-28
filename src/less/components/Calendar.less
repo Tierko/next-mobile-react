@@ -1,12 +1,15 @@
 .calendar {
   background-color: @WHITE;
   border-radius: 6px;
-  //position: absolute;
+  position: absolute;
   font-size: @FONT-SIZE-SMALL;
   line-height: @LINE-HEIGHT-SMALL;
   padding: 30px 10px;
   max-width: 400px;
   display: none;
+  z-index: 1;
+  right: 0;
+  left: 0;
 
   &_show {
     display: block;

@@ -61,23 +61,19 @@ class Calendar extends Component {
       day: today.getDate(),
       selectedYear: today.getFullYear(),
       selectedMonth: today.getMonth(),
-      selectedDay: today.getDate(),
     };
   }
 
-  onUpdateDate = () => {
+  onUpdateDate = (year, month, day) => {
     const { onUpdateDate } = this.props;
-    const { selectedYear, selectedMonth, selectedDay } = this.state;
-    const date = new Date(selectedYear, selectedMonth, selectedDay);
+    const date = new Date(year, month, day);
     const weekday = date.getDay();
-
-    console.log(selectedYear, selectedMonth, selectedDay)
 
     if (onUpdateDate) {
       onUpdateDate({
-        year: selectedYear,
-        month: selectedMonth,
-        day: selectedDay,
+        year,
+        month,
+        day,
         weekday,
       });
     }
@@ -120,25 +116,31 @@ class Calendar extends Component {
 
   static getMonthOffsetStart = (month, year) => {
     const date = new Date(year, month, 1);
-    const days = date.getDay() - 1;
+    const days = date.getDay();
 
-    if (days < 0) {
+    if (days === 0) {
+      return 6;
+    }
+
+    if (days - 1 < 0) {
       return 0;
     }
 
-    return days;
+    return days - 1;
   };
 
   selectDay = (e) => {
-    const { day, month } = e.currentTarget.dataset;
+    const { selectedYear } = this.state;
+    let { day, month } = e.currentTarget.dataset;
+    day *= 1;
+    month *= 1;
 
     this.setState({
-      day: day * 1,
-      selectedMonth: month * 1,
-      selectedDay: day + 1,
+      day,
+      selectedMonth: month,
     });
 
-    this.onUpdateDate();
+    this.onUpdateDate(selectedYear, month, day);
   };
 
   changeMonth = (dir) => {
@@ -168,8 +170,6 @@ class Calendar extends Component {
       month: newMonth,
       year: newYear,
     });
-
-    this.onUpdateDate();
   };
 
   render() {

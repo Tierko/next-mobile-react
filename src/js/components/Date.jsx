@@ -80,7 +80,6 @@ class Date extends Input {
       className,
       placeholder,
       errorText,
-      multiLine,
       clear,
     } = this.props;
     const { dateUpdate, showCalendar } = this;
@@ -88,24 +87,27 @@ class Date extends Input {
 
     return (
       <div className={`input ${className}`} ref={(e) => { this.date = e; }}>
-        {
-          !multiLine &&
-          <input
-            type="text"
-            className="input__value"
-            name={name}
-            value={value}
-            onChange={dateUpdate}
-            onFocus={showCalendar}
-            onClick={showCalendar}
-          />
-        }
+        <input
+          type="text"
+          className="input__value"
+          name={name}
+          value={value}
+          onChange={() => {}}
+          onFocus={showCalendar}
+          onClick={showCalendar}
+        />
         <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>{placeholder}</div>
         <div className="input__error">{errorText}</div>
-        <div className={cs('input__indicator', { input__indicator_error: errorText })} />
+        <div
+          className={cs('input__indicator', {
+            input__indicator_error: errorText,
+            input__indicator_hide: show,
+          })}
+        />
+        <div className="input__icon input__icon_calendar" onClick={showCalendar} />
         {
           clear &&
-          <div className="input__clear" onClick={() => this.props.onChange(name, '')} role="button" />
+          <div className="input__icon_clear" onClick={() => this.props.onChange(name, '')} role="button" />
         }
         <Calendar onUpdateDate={dateUpdate} show={show} />
       </div>

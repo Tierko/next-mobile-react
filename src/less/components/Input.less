@@ -89,16 +89,29 @@
       background-color: transparent;
       background-image: linear-gradient(#f97a7c, #f97ad2);
     }
+
+    &_hide {
+      opacity: 0;
+    }
   }
 
-  &__clear {
+  &__icon {
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     width: 20px;
-    background: url("/media/icons/x.svg") no-repeat 100% 50%;
     z-index: 1;
     cursor: pointer;
+
+    &_clear {
+      background-image: url("/media/icons/calendar.svg");
+    }
+
+    &_calendar {
+      background-image: url("/media/icons/calendar.svg");
+    }
   }
 }
