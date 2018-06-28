@@ -27,14 +27,28 @@
     color: @GRAY-DARK;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     font-size: @FONT-SIZE-SMALL;
     padding-top: 20px;
+    text-align: center;
+  }
+
+
+  &_new-selected {
+    width: 285px;
+    height: 189px;
+    cursor: default;
+  }
+
+  &_new-filled {
+    border: none;
+    background-image: linear-gradient(to right top, #3daf33, #67dc01);
+    color: @WHITE;
   }
 
   &_selected {
     width: 168px;
     height: 119px;
+    cursor: default;
   }
 
   &__number {
@@ -53,5 +67,40 @@
     background-color: @WHITE;
     margin-bottom: 3px;
     margin-left: auto;
+  }
+
+  &__form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__input {
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+
+    &_wide {
+      max-width: 100%;
+    }
+
+    &_narrow {
+      width: 50%;
+    }
+
+    &_number {
+      letter-spacing: 2px;
+    }
   }
 }

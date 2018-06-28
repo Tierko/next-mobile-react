@@ -24,6 +24,7 @@ class InputPhone extends Input {
           value={value}
           onChange={onChange}
           mask="+7 999 999-99-99"
+          placeholder="+7 000 000-00-00"
         />
         <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>
           {placeholder}

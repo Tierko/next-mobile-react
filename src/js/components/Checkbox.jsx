@@ -3,40 +3,33 @@ import PropTypes from 'prop-types';
 import cs from 'classnames';
 
 const Checkbox = ({
-  value,
   name,
+  value,
   onChange,
   className,
-  color,
+  title,
 }) => (
   <div className={cs(`checkbox ${className}`, { checkbox_checked: value })}>
     <input
       className="checkbox__value"
       type="checkbox"
-      checked={value}
-      name={name}
       onChange={() => onChange(name, !value)}
+      checked={value}
     />
-    <div
-      className={cs('checkbox__point', {
-        [`checkbox__point_checked-${color}`]: value,
-        checkbox__point_checked: value,
-      })}
-    />
+    <div className="checkbox__title">{title}</div>
   </div>
 );
 
 Checkbox.propTypes = {
-  value: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
+  value: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
-  color: PropTypes.string,
   className: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };
 
 Checkbox.defaultProps = {
   className: '',
-  color: 'green',
 };
 
 export default Checkbox;

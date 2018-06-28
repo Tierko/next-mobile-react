@@ -1,15 +1,21 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import cs from 'classnames';
-import Input from '../components/InputRuble';
-import Button from '../components/Button';
-import Card from '../components/Card';
+import Input from './InputRuble';
+import Button from './Button';
+import Card from './Card';
+import Tabs from './PaymentTabs';
+import Checkbox from './Checkbox';
 
 class Payment extends Component {
   state = {
-    tab: '',
+    tab: 'card',
     payment: '2000 ₽',
     selectedCard: 2,
+    makeDefault: false,
+    number: '',
+    holder: '',
+    cvv: '',
+    date: '',
   };
 
   cards = [{
@@ -18,6 +24,10 @@ class Payment extends Component {
   }, {
     id: 2,
     type: 'visa',
+    number: '4000000000006266',
+    holder: 'Anna Vashulenko',
+    cvv: '456',
+    date: '',
   }];
 
   onChange = (name, value) => {
@@ -44,15 +54,37 @@ class Payment extends Component {
     });
   };
 
+  onCardEdit = (e) => {
+    const { id } = e.target.dataset;
+  };
+
+  static tabs = [{
+    title: 'C карты',
+    id: 'card',
+  }, {
+    title: 'За счет компании',
+    id: 'company',
+  }];
+
   render() {
     const {
       onChange,
       onPay,
       changeTab,
+      onCardEdit,
       selectCard,
       cards,
     } = this;
-    const { payment, tab, selectedCard } = this.state;
+    const {
+      payment,
+      tab,
+      selectedCard,
+      makeDefault,
+      number,
+      holder,
+      date,
+      cvv,
+    } = this.state;
     const { isEditable, sum } = this.props;
 
     if (!sum) {
@@ -61,46 +93,56 @@ class Payment extends Component {
 
     return (
       <div className="payment">
-        <div className="payment__tabs">
-          <div
-            className={cs('payment__tab', { payment__tab_active: tab === 'card' })}
-            onClick={changeTab}
-            data-tab="card"
-          >
-            C карты
-          </div>
-          <div
-            className={cs('payment__tab', { payment__tab_active: tab === 'company' })}
-            onClick={changeTab}
-            data-tab="company"
-          >
-            За счет компании
-          </div>
-        </div>
-        <div className="payment__cards">
-          <div className="payment__card-row">
-            <div className="payment__cards-inner">
-              {
-                cards.map(c => (
-                  <Card
-                    key={c.id}
-                    type={c.type}
-                    id={c.id}
-                    onSelect={selectCard}
-                    selected={selectedCard}
-                  />
-                ))
-              }
-              <Card
-                key={0}
-                type="new"
-                id={0}
-                onSelect={selectCard}
-                selected={selectedCard}
-              />
+        <Tabs items={Payment.tabs} onChange={changeTab} tab={tab} />
+        {
+          tab === 'card' &&
+          <div className="payment__cards">
+            <div className="payment__card-row">
+              <div className="payment__cards-inner">
+                {
+                  cards.map(c => (
+                    <Card
+                      key={c.id}
+                      type={c.type}
+                      id={c.id}
+                      onSelect={selectCard}
+                      selected={selectedCard}
+                      onEdit={onCardEdit}
+                    />
+                  ))
+                }
+                <Card
+                  key={0}
+                  type="new"
+                  id={0}
+                  onSelect={selectCard}
+                  selected={selectedCard}
+                  onChange={onChange}
+                  values={{
+                    number,
+                    holder,
+                    date,
+                    cvv,
+                  }}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        }
+        {
+          tab === 'company' &&
+          <div className="payment__company">
+            <img className="payment__img" src="/media/content/tyazhmash.png" alt="" />
+            <div className="payment__company-name">Оплатит «Тяжмаштрансмагистраль»</div>
+            <Checkbox
+              name="makeDefault"
+              value={makeDefault}
+              onChange={onChange}
+              title="Сделать платежом по умолчанию"
+              className="checkbox_payment"
+            />
+          </div>
+        }
         <div className="payment__sum">{sum} ₽</div>
         {
           isEditable &&

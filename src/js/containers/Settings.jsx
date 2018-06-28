@@ -4,7 +4,7 @@ import Aside from '../components/Aside';
 import Input from '../components/Input';
 import InputRuble from '../components/InputRuble';
 import Button from '../components/Button';
-import Checkbox from '../components/Checkbox';
+import CheckboxSlide from '../components/CheckboxSlide';
 import Select from '../components/SelectLang';
 import Note from '../components/Note';
 
@@ -99,7 +99,7 @@ class Settings extends Component {
             <div className="service">
               <div className="service__control">
                 <div className="service__name">Уведомление о расходах</div>
-                <Checkbox className="checkbox_settings" value={note} name="note" onChange={onChange} />
+                <CheckboxSlide className="checkbox_settings" value={note} name="note" onChange={onChange} />
               </div>
               <div className="service__desc">СМС-оповещение после траты каждых</div>
               <div className="service__expense">
@@ -120,7 +120,7 @@ class Settings extends Component {
             <div className="service">
               <div className="service__control">
                 <div className="service__name">Квитанции об оплате</div>
-                <Checkbox className="checkbox_settings" value={receipt} name="receipt" onChange={onChange} />
+                <CheckboxSlide className="checkbox_settings" value={receipt} name="receipt" onChange={onChange} />
               </div>
               <div className="service__desc">Отправлять квитанцию после каждого платежа на почту</div>
             </div>

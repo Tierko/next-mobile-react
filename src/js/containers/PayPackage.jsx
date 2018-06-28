@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Payment from '../components/Payment';
@@ -28,5 +29,9 @@ class PayPackage extends Component {
     ];
   }
 }
+
+PayPackage.propTypes = {
+  location: PropTypes.shape().isRequired,
+};
 
 export default PayPackage;
