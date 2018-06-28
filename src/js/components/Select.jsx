@@ -67,6 +67,7 @@ class Select extends Component {
                 className="select__item"
                 onClick={() => selectItem(i)}
                 role="button"
+                key={typeof value === 'string' ? i : i.id}
               >
                 {
                   typeof value === 'string' ? i : i.title

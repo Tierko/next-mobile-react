@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import Input from '../components/Input';
+import Select from '../components/Select';
 import Date from '../components/Date';
 import Button from '../components/Button';
 import { Pages } from '../constants';
 
 class SignUpStep4 extends Component {
+  static times = [{
+    id: 1,
+    title: '9:00 - 13:00',
+  }, {
+    id: 2,
+    title: '15:00 - 19:00',
+  }];
+
   state = {
     date: '',
-    time: '',
+    time: {
+      id: 1,
+      title: '9:00 - 13:00',
+    },
   };
 
   onChange = (name, value) => {
@@ -22,6 +33,7 @@ class SignUpStep4 extends Component {
     const { date, time } = this.state;
     const { onChange } = this;
     const { toPage } = this.props;
+    const { times } = SignUpStep4;
     const permit = !!date && !!time;
 
     return (
@@ -30,7 +42,7 @@ class SignUpStep4 extends Component {
         <div className="sign-up__form">
           <div className="sign-up__message">Когда вам будет удобно получить новую SIM-карту и подписать договор?</div>
           <Date name="date" value={date} onChange={onChange} placeholder="Дата" />
-          <Input name="time" value={time} onChange={onChange} placeholder="Время" />
+          <Select placeholder="Время" onSelect={v => onChange('time', v)} items={times} value={time} />
           <Button className="button_sign-up-continue" onClick={() => toPage(Pages.RequestStatus)} disabled={!permit}>
             Продолжить
           </Button>
