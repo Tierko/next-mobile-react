@@ -24,7 +24,7 @@ class PayPackage extends Component {
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content pay-package">
-          <LinkBack href={Pages.AddPackage} className="link-back_pay-package" />
+          <LinkBack href={Pages.AddPackage} className="link-back_offset-bottom" />
           <div className="pay-package__header">
             {
               (!pack || !sum) ? 'Вы не выбрали услугу' : `Оплата ${pack}`

@@ -50,7 +50,10 @@ class Select extends Component {
 
     return (
       <div className={`select ${className}`} ref={(e) => { this.select = e; }}>
-        <div className="select__placeholder">{placeholder}</div>
+        {
+          !!placeholder &&
+          <div className="select__placeholder">{placeholder}</div>
+        }
         <div
           className={cs('select__value', { select__value_open: open })}
           onClick={toggle}
@@ -83,9 +86,14 @@ class Select extends Component {
 
 Select.propTypes = {
   className: PropTypes.string,
-  placeholder: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   onSelect: PropTypes.func.isRequired,
-  items: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape(),
+    ])
+  ).isRequired,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape(),
@@ -94,6 +102,7 @@ Select.propTypes = {
 
 Select.defaultProps = {
   className: '',
+  placeholder: '',
 };
 
 export default Select;

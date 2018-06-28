@@ -1,0 +1,34 @@
+.auto-pay {
+  max-width: 400px;
+
+  &__title {
+    .h2;
+    font-weight: 300;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__section {
+    margin: 35px 0 60px;
+  }
+
+  &__block {
+    display: none;
+
+    &_show {
+      display: block;
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+  }
+
+  &__note {
+    .small;
+    color: @GRAY-DARK;
+  }
+}
