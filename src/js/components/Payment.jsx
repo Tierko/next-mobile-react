@@ -162,7 +162,11 @@ class Payment extends Component {
 
 Payment.propTypes = {
   isEditable: PropTypes.bool.isRequired,
-  sum: PropTypes.number.isRequired,
+  sum: PropTypes.number,
+};
+
+Payment.defaultProps = {
+  sum: 0,
 };
 
 export default Payment;

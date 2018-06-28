@@ -23,6 +23,9 @@ const Card = ({
     cvv,
   },
 }) => {
+  const isFilled = checkCardNumber(number) && checkCardHolder(holder) &&
+    checkCardDate(date) && checkCVV(cvv);
+
   switch (type) {
   case 'visa':
     return (
@@ -50,8 +53,6 @@ const Card = ({
       </div>
     );
   case 'new':
-    const isFilled = checkCardNumber(number) && checkCardHolder(holder) && checkCardDate(date) && checkCVV(cvv);
-
     return (
       <div
         className={cs('card card_new', {
