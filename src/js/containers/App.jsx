@@ -14,6 +14,7 @@ import AddPackage from './AddPackage';
 import PayPackage from './PayPackage';
 import PayResult from './PayResult';
 import AutoPay from './AutoPay';
+import AutoPayResult from './AutoPayResult';
 import SupportDashboard from './SupportDashboard';
 import { Pages } from '../constants';
 import Kit from './Kit';
@@ -36,6 +37,7 @@ const App = () => (
       <Route path={Pages.PayPackage} component={PayPackage} />
       <Route path={`${Pages.PayResult}/:type`} component={PayResult} />
       <Route path={Pages.AutoPay} component={AutoPay} />
+      <Route path={`${Pages.AutoPayResult}/:status`} component={AutoPayResult} />
       <Route path={Pages.SupportDashboard} component={SupportDashboard} />
       <Route path={Pages.SiteMap} component={SiteMap} />
     </Switch>

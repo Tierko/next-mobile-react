@@ -1,6 +1,6 @@
 .package {
   padding: 25px 0;
-  max-width: 400px;
+  max-width: 450px;
   width: 100%;
 
   &__title {
@@ -9,37 +9,48 @@
 
   &__table {
     width: 100%;
-    border-top: 1px solid @GRAY-LIGHT;
     margin-top: 10px;
   }
 
   &__row {
     display: flex;
-    border-bottom: 1px solid @GRAY-LIGHT;
-    text-decoration: none;
-    color: inherit;
+    flex-wrap: wrap;
 
-    .row-hover;
+    &:hover {
+      background-color: @WHITE;
+    }
   }
 
   &__cell {
-    padding: 12px;
-    flex: 1 1 33.33%;
+    padding: 10px;
+    flex-shrink: 1;
+    flex-grow: 1;
     white-space: nowrap;
+
+    &_count {
+      flex-basis: 30%;
+    }
 
     &_period {
       text-align: center;
       color: @GRAY-DARK;
+      flex-basis: 20%;
     }
 
     &_price {
       text-align: right;
+      flex-basis: 20%;
     }
 
-    @media screen and (max-width: 350px) {
+    &_action {
+      .link;
+      flex-basis: 30%;
+      text-align: right;
+    }
 
+    @media screen and (max-width: 500px) {
       &_count {
-        flex-basis: 43%;
+        flex-basis: 40%;
       }
 
       &_period {
@@ -47,7 +58,12 @@
       }
 
       &_price {
-        flex-basis: 28.5%;
+        flex-basis: 26.5%;
+      }
+
+      &_action {
+        text-align: left;
+        width: 100%;
       }
     }
   }

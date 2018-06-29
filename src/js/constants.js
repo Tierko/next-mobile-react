@@ -17,6 +17,7 @@ export const Pages = {
   PayPackage: '/pay-package',
   PayResult: '/pay-result',
   AutoPay: '/auto-pay',
+  AutoPayResult: '/auto-pay-result',
   SiteMap: '/sitemap',
   SupportDashboard: '/support-dashboard',
 };

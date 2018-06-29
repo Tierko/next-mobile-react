@@ -47,6 +47,10 @@ const SiteMap = () => ([
       <br />
       <Link className="link" to={Pages.AutoPay}>Автоплатеж</Link>
       <br />
+      <Link className="link" to={`${Pages.AutoPayResult}/success`}>Сохранение автоплатежа, успешно</Link>
+      <br />
+      <Link className="link" to={`${Pages.AutoPayResult}/error`}>Сохранение автоплатежа, ошибка</Link>
+      <br />
       <Link className="link" to={Pages.Services}>Тарифы и услуги</Link>
       <br />
       <Link className="link" to={Pages.Settings}>Настройки</Link>
