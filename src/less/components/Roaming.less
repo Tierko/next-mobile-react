@@ -14,6 +14,10 @@
   &__item {
     display: flex;
     margin-bottom: 22px;
+
+    @media (max-width: @BREAK-POINT) {
+      display: block;
+    }
   }
 
   &__item-name {
@@ -25,15 +29,26 @@
     display: flex;
     flex: 1 1 auto;
     margin-bottom: 10px;
+
+    @media (max-width: @BREAK-POINT) {
+      display: block;
+    }
   }
 
   &__item-desc {
     padding-right: 15px;
-    flex: 0 0 305px;
+    flex: 15 15 auto;
     padding-left: 18px;
-
     background-repeat: no-repeat;
     background-position: 0 5px;
+
+    @media (max-width: @BREAK-POINT) {
+      padding-left: 0;
+      padding-right: 18px;
+      background-position: top 5px right 0;
+      color: @GRAY-DARK;
+      margin-top: 14px;
+    }
 
     &_fast {
       background-image: url("/media/icons/fast.svg");
@@ -45,6 +60,6 @@
   }
 
   &__item-conditions {
-    flex: 0 0 auto;
+    flex: 8 8 auto;
   }
 }
