@@ -96,7 +96,11 @@ class TariffTable extends Component {
           {
             rows.map(r => RenderRow(data, r, isDetail))
           }
-          <div className="tariff-table__toggle" onClick={toggleMode}>Подробная информация</div>
+          <div className="tariff-table__toggle" onClick={toggleMode}>
+            {
+              isDetail ? 'Краткая информация' : 'Подробная информация'
+            }
+          </div>
         </div>
       </div>
     );
