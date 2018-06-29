@@ -35,6 +35,8 @@ const SiteMap = () => ([
       <br />
       <Link className="link" to={`${Pages.RequestStatus}/${Statuses.SIM_DELIVERY}`}>Статус заявки, доставка sim-карты</Link>
       <br />
+      <Link className="link" to={`${Pages.RequestStatus}/${Statuses.SIM_DELIVERY_TODAY}`}>Статус заявки, доставка sim-карты, сегодня</Link>
+      <br />
       <Link className="link" to={Pages.Overview}>Обзор</Link>
       <br />
       <Link className="link" to={Pages.AddPackage}>Докупка пакета</Link>

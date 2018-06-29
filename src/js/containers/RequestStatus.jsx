@@ -54,6 +54,7 @@ const data = {
     type: 'delivery',
     content: {
       header: 'Доставка SIM-карты',
+      img: '/media/images/sim.png',
       meta: [{
         id: 1,
         title: 'Дата',
@@ -64,6 +65,23 @@ const data = {
         value: '16:00 – 18:00',
       }, {
         id: 3,
+        title: 'Адрес',
+        value: 'ул. Крестьянская застава, дом 12/44, квартира 1, корпус 12/44',
+      }],
+    },
+  },
+  [Statuses.SIM_DELIVERY_TODAY]: {
+    type: 'delivery',
+    content: {
+      header: 'Доставка SIM-карты',
+      img: '/media/content/deviver.png',
+      text: 'Ваш курьер – Максим. Он доставим SIM-карту и договор сегодня. Пожалуйста, не забудьте свой паспорт. Он нужен, чтобы составить договор.',
+      meta: [{
+        id: 1,
+        title: 'Время',
+        value: '16:00 – 18:00',
+      }, {
+        id: 2,
         title: 'Адрес',
         value: 'ул. Крестьянская застава, дом 12/44, квартира 1, корпус 12/44',
       }],
