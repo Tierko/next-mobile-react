@@ -5,6 +5,7 @@ import NavLobby from '../components/NavLobby';
 import InputPhone from '../components/InputPhone';
 import MobileCode from '../components/MobileCode';
 import RequestStatusSimple from '../components/RequestStatusSimple';
+import RequestStatusDelivery from '../components/RequestStatusDelivery';
 import RequestStatusFooter from '../components/RequestStatusFooter';
 import { Statuses, Pages } from '../constants';
 
@@ -47,6 +48,25 @@ const data = {
       header: 'Переход приостановлен',
       message: 'На вашем счету есть задолженность 2000 ₽ перед\nпредыдущим оператором. Пожалуйста, погасите ее,\nчтобы перейти на Next',
       color: 'red',
+    },
+  },
+  [Statuses.SIM_DELIVERY]: {
+    type: 'delivery',
+    content: {
+      header: 'Доставка SIM-карты',
+      meta: [{
+        id: 1,
+        title: 'Дата',
+        value: '27 апреля (вторник)',
+      }, {
+        id: 2,
+        title: 'Время',
+        value: '16:00 – 18:00',
+      }, {
+        id: 3,
+        title: 'Адрес',
+        value: 'ул. Крестьянская застава, дом 12/44, квартира 1, корпус 12/44',
+      }],
     },
   },
 };
@@ -117,6 +137,10 @@ class RequestStatus extends Component {
             message={content.message}
             color={content.color}
           />
+        }
+        {
+          type === 'delivery' &&
+          <RequestStatusDelivery data={content} />
         }
         <RequestStatusFooter />
       </div>

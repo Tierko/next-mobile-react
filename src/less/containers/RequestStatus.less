@@ -1,6 +1,10 @@
 .request-status {
   text-align: center;
 
+  &_delivery {
+    margin-top: 100px;
+  }
+
   &__title {
     .h1;
     padding: 100px 0 30px
@@ -22,10 +26,32 @@
     &_blue {
       .gradient-blue;
     }
+
+    &_delivery {
+      margin-top: 0;
+    }
   }
 
   &__message {
     margin: 14px auto 0;
     white-space: pre-wrap;
+  }
+
+  &__row {
+    max-width: 450px;
+    margin: 17px auto 0;
+  }
+
+  &__row-title {
+    .small;
+    color: @GRAY-DARK;
+  }
+
+  &__row-value {
+
+  }
+
+  &__sim {
+    margin-bottom: 15px;
   }
 }
