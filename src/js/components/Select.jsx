@@ -46,6 +46,7 @@ class Select extends Component {
       value,
       placeholder,
       items,
+      hideIcon,
     } = this.props;
 
     return (
@@ -55,12 +56,12 @@ class Select extends Component {
           <div className="select__placeholder">{placeholder}</div>
         }
         <div
-          className={cs('select__value', { select__value_open: open })}
+          className={cs('select__value', { select__value_open: open, 'select__value_hide-icon': hideIcon })}
           onClick={toggle}
           role="button"
         >
           {
-            typeof value === 'string' ? value : value.title
+            (typeof value === 'string' || typeof value === 'number') ? value : value.title
           }
         </div>
         <div className={cs('select__list', { select__list_open: open })}>
@@ -70,10 +71,10 @@ class Select extends Component {
                 className="select__item"
                 onClick={() => selectItem(i)}
                 role="button"
-                key={typeof value === 'string' ? i : i.id}
+                key={(typeof value === 'string' || typeof value === 'number') ? i : i.id}
               >
                 {
-                  typeof value === 'string' ? i : i.title
+                  (typeof value === 'string' || typeof value === 'number') ? i : i.title
                 }
               </div>
             ))
@@ -92,17 +93,21 @@ Select.propTypes = {
     PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.shape(),
+      PropTypes.number,
     ])
   ).isRequired,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape(),
+    PropTypes.number,
   ]).isRequired,
+  hideIcon: PropTypes.bool,
 };
 
 Select.defaultProps = {
   className: '',
   placeholder: '',
+  hideIcon: false,
 };
 
 export default Select;
