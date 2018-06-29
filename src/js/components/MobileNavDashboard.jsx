@@ -11,7 +11,7 @@ const MobileNavDashboard = () => (
     <NavLink className="mobile-nav__link" to={Pages.Services}>
       <InlineSvg src={require('../../../media/nav/prices.svg')} raw /> Трифы
     </NavLink>
-    <NavLink className="mobile-nav__link" to={Pages.Payment}>
+    <NavLink className="mobile-nav__link" to={Pages.Pay}>
       <InlineSvg src={require('../../../media/nav/plus.svg')} raw /> Пополнение
     </NavLink>
     <NavLink className="mobile-nav__link" to={Pages.Roaming}>

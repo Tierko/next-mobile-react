@@ -7,7 +7,7 @@ export const Pages = {
   RequestStatus: '/request-status',
   Conditions: '/conditions',
   Overview: '/cabinet',
-  Payment: '/payment',
+  Pay: '/payment',
   Services: '/services',
   Roaming: '/roaming',
   History: '/history',

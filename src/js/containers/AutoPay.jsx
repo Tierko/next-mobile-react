@@ -47,8 +47,11 @@ class AutoPay extends Component {
 
   onSave = () => {
     const { unsaved } = this.state;
+    const { history } = this.props;
 
-    if (unsaved) {}
+    if (unsaved) {
+      history.push(`${Pages.AutoPayResult}/success`);
+    }
   };
 
   render() {
@@ -143,5 +146,9 @@ class AutoPay extends Component {
     ];
   }
 }
+
+AutoPay.propTypes = {
+  history: PropTypes.shape().isRequired,
+};
 
 export default AutoPay;

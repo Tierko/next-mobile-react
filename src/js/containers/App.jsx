@@ -16,6 +16,7 @@ import PayResult from './PayResult';
 import AutoPay from './AutoPay';
 import AutoPayResult from './AutoPayResult';
 import SupportDashboard from './SupportDashboard';
+import Pay from './Pay';
 import { Pages } from '../constants';
 import Kit from './Kit';
 
@@ -31,6 +32,7 @@ const App = () => (
       <Route path={Pages.Conditions} component={Conditions} />
       <Route path={Pages.Support} component={Support} />
       <Route path={Pages.Dashboard} component={Overview} />
+      <Route path={Pages.Pay} component={Pay} />
       <Route path={Pages.Settings} component={Settings} />
       <Route path={Pages.Services} component={Services} />
       <Route path={Pages.AddPackage} component={AddPackage} />

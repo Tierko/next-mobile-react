@@ -140,18 +140,18 @@ class Payment extends Component {
             />
           </div>
         }
-        <div className="payment__sum">{sum} ₽</div>
+        {
+          !isEditable &&
+          <div className="payment__sum">{sum} ₽</div>
+        }
         {
           isEditable &&
           <Fragment>
-            <Input onChange={onChange} value={payment} name="payment" clear />
-            <div>Для оплаты по тарифу Супервип на счету не хватает 2 000 ₽</div>
+            <Input className="input_pay" onChange={onChange} value={payment} name="payment" clear />
+            <div className="payment__message">Для оплаты по тарифу Супервип на счету не хватает { sum } ₽</div>
           </Fragment>
         }
-        {
-          !isEditable &&
-          <Button className="button_pay-package" onClick={onPay}>Пополнить</Button>
-        }
+        <Button className="button_pay-package" onClick={onPay} disabled={!payment.replace(/\D/g, '')}>Пополнить</Button>
       </div>
     );
   }

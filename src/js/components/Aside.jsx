@@ -15,7 +15,7 @@ const Aside = () => (
       </div>
       <nav className="aside__nav">
         <NavLink to={Pages.Overview} className="aside__link">Обзор</NavLink>
-        <NavLink to={Pages.Payment} className="aside__link">Пополнение</NavLink>
+        <NavLink to={Pages.Pay} className="aside__link">Пополнение</NavLink>
         <NavLink to={Pages.Services} className="aside__link">Тарифы и услуги</NavLink>
         <NavLink to={Pages.Roaming} className="aside__link">Роуминг</NavLink>
         <NavLink to={Pages.History} className="aside__link">История</NavLink>
