@@ -20,7 +20,7 @@ const Aside = () => (
         <NavLink to={Pages.Roaming} className="aside__link">Роуминг</NavLink>
         <NavLink to={Pages.History} className="aside__link">История</NavLink>
         <NavLink to={Pages.Settings} className="aside__link">Настройки</NavLink>
-        <NavLink to={Pages.Support} className="aside__link">Поддержка</NavLink>
+        <NavLink to={Pages.SupportDashboard} className="aside__link">Поддержка</NavLink>
         <NavLink to={Pages.Exit} className="aside__link aside__link_exit" exact>Выйти</NavLink>
       </nav>
     </div>

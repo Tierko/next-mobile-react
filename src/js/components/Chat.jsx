@@ -92,6 +92,7 @@ class Chat extends Component {
             onChange={onChange}
             placeholder="Напишите сообщение..."
             multiLine
+            simplePlaceholder
           />
           <ButtonIcon onClick={audioMessage} icon="microphone.svg" className="button-icon_chat-footer" />
         </div>

@@ -32,6 +32,14 @@ class Input extends Component {
     }
   };
 
+  onKeyDown = (e) => {
+    const { onKeyDown } = this.props;
+
+    if (onKeyDown) {
+      onKeyDown(e);
+    }
+  };
+
   render() {
     const {
       name,
@@ -41,8 +49,14 @@ class Input extends Component {
       errorText,
       multiLine,
       clear,
+      simplePlaceholder,
     } = this.props;
-    const { onChange, onFocus, onBlur } = this;
+    const {
+      onChange,
+      onFocus,
+      onBlur,
+      onKeyDown,
+    } = this;
 
     return (
       <div className={`input ${className}`}>
@@ -56,7 +70,9 @@ class Input extends Component {
             onChange={onChange}
             onFocus={onFocus}
             onBlur={onBlur}
+            onKeyDown={onKeyDown}
             ref={(e) => { this.textArea = e; }}
+            placeholder={simplePlaceholder && placeholder}
           />
         }
         {
@@ -69,7 +85,12 @@ class Input extends Component {
               onChange={onChange}
             />
         }
-        <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>{placeholder}</div>
+        {
+          !simplePlaceholder &&
+          <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>
+            {placeholder}
+          </div>
+        }
         <div className="input__error">{errorText}</div>
         <div className={cs('input__indicator', { input__indicator_error: errorText })} />
         {
@@ -92,6 +113,8 @@ Input.propTypes = {
   errorText: PropTypes.string,
   multiLine: PropTypes.bool,
   clear: PropTypes.bool,
+  simplePlaceholder: PropTypes.bool,
+  onKeyDown: PropTypes.func,
 };
 
 Input.defaultProps = {
@@ -102,6 +125,8 @@ Input.defaultProps = {
   clear: false,
   onBlur: null,
   onFocus: null,
+  simplePlaceholder: false,
+  onKeyDown: null,
 };
 
 export default Input;
