@@ -7,6 +7,7 @@ import MobileCode from '../components/MobileCode';
 import RequestStatusSimple from '../components/RequestStatusSimple';
 import RequestStatusDelivery from '../components/RequestStatusDelivery';
 import RequestStatusFooter from '../components/RequestStatusFooter';
+import PageFade from '../components/PageFade';
 import { Statuses, Pages } from '../constants';
 
 const data = {
@@ -171,4 +172,4 @@ RequestStatus.propTypes = {
   history: PropTypes.shape().isRequired,
 };
 
-export default RequestStatus;
+export default PageFade(RequestStatus);

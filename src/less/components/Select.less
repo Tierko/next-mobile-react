@@ -71,13 +71,14 @@
     width: 100%;
     min-width: 70px;
     max-height: 200px;
-    display: none;
     background-color: @WHITE;
     overflow: auto;
     z-index: 2;
+    transform: scale(0);
+    //transition: transform 0.3s;
 
     &_open {
-      display: block;
+      transform: scale(1);
     }
   }
 

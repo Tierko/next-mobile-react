@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
+import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
 
 const PayResult = ({ match: { params } }) => {
@@ -42,4 +43,4 @@ const PayResult = ({ match: { params } }) => {
   ];
 };
 
-export default PayResult;
+export default PageFade(PayResult);

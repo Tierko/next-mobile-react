@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
+import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
 
 const AutoPayResult = ({ match }) => {
@@ -41,4 +42,4 @@ const AutoPayResult = ({ match }) => {
   ]);
 };
 
-export default AutoPayResult;
+export default PageFade(AutoPayResult);

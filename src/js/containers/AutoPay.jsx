@@ -8,6 +8,7 @@ import Checkbox from '../components/CheckboxSlide';
 import InputRuble from '../components/InputRuble';
 import Select from '../components/Select';
 import Button from '../components/Button';
+import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
 
 class AutoPay extends Component {
@@ -151,4 +152,4 @@ AutoPay.propTypes = {
   history: PropTypes.shape().isRequired,
 };
 
-export default AutoPay;
+export default PageFade(AutoPay);

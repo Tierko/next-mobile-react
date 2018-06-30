@@ -1,6 +1,7 @@
 import React from 'react';
 import Aside from '../components/Aside';
 import MobileNav from '../components/MobileNav';
+import PageFade from '../components/PageFade';
 
 const Kit = () => (
   [
@@ -64,8 +65,8 @@ const Kit = () => (
           </section>
         </div>
       </div>
-    </div>
+    </div>,
   ]
 );
 
-export default Kit;
+export default PageFade(Kit);

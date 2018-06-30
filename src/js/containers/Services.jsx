@@ -3,6 +3,7 @@ import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import TariffServices from '../components/TariffServices';
 import TariffTable from '../components/TariffTable';
+import PageFade from '../components/PageFade';
 
 class Services extends Component {
   state = {
@@ -81,4 +82,4 @@ class Services extends Component {
   }
 }
 
-export default Services;
+export default PageFade(Services);

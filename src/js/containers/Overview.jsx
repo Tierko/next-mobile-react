@@ -8,6 +8,7 @@ import OverviewPayment from '../components/OverviewPayment';
 import Remain from '../components/Remain';
 import History from '../components/History';
 import Roaming from '../components/Roaming';
+import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
 
 class Overview extends Component {
@@ -140,4 +141,4 @@ Overview.propTypes = {
   history: PropTypes.shape().isRequired,
 };
 
-export default Overview;
+export default PageFade(Overview);

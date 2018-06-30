@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NavLobby from '../components/NavLobby';
 import Button from '../components/Button';
+import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
 
 const Conditions = () => (
@@ -19,4 +20,4 @@ const Conditions = () => (
   </div>
 );
 
-export default Conditions;
+export default PageFade(Conditions);

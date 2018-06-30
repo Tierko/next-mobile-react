@@ -3,6 +3,7 @@ import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Package from '../components/Package';
 import LinkBack from '../components/LinkBack';
+import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
 
 class AddPackage extends Component {
@@ -97,4 +98,4 @@ class AddPackage extends Component {
   }
 }
 
-export default AddPackage;
+export default PageFade(AddPackage);
