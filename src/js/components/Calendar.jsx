@@ -2,25 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import ButtonIcon from '../components/ButtonIcon';
+import { months, weekDaysShort } from '../constants';
 
 class Calendar extends Component {
-  static months = [
-    'Январь',
-    'Февраль',
-    'Март',
-    'Апрель',
-    'Май',
-    'Июнь',
-    'Июль',
-    'Август',
-    'Сентябрь',
-    'Октябрь',
-    'Ноябрь',
-    'Декабрь',
-  ];
-
-  static weekDays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
-
   static prevMonthDays = (year, month, count) => {
     let currentMonth = month - 1;
     let currentYear = year;
@@ -173,7 +157,6 @@ class Calendar extends Component {
   };
 
   render() {
-    const { months, weekDays } = Calendar;
     const { changeMonth, selectDay } = this;
     const { show } = this.props;
     const {
@@ -200,7 +183,7 @@ class Calendar extends Component {
         </div>
         <div className="calendar__weekdays">
           {
-            weekDays.map((w, i) => (
+            weekDaysShort.map((w, i) => (
               <div key={i} className="calendar__weekday">{w}</div>
             ))
           }

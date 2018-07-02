@@ -32,6 +32,16 @@
     right: 0;
   }
 
+  &_operations-filter {
+    max-width: 100%;
+    font-size: @FONT-SIZE-SMALL;
+  }
+
+  &_operations-filter &__list {
+    right: auto;
+    width: 300px;
+  }
+
   &__placeholder {
     color: @GRAY-DARK;
     font-size: 0.83em;
@@ -43,6 +53,7 @@
     cursor: pointer;
     user-select: none;
     position: relative;
+    white-space: nowrap;
 
     &_open:after {
       transform: rotate(180deg);

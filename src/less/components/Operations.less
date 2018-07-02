@@ -1,0 +1,68 @@
+.operations {
+  &__dates {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0 20px;
+  }
+
+  .operations__date-from {
+    line-height: @LINE-HEIGHT-BASE;
+    margin: 0 5px 1px 0;
+  }
+
+  .operations__date-to {
+    line-height: @LINE-HEIGHT-BASE;
+    margin: 0 5px 1px 26px;
+  }
+
+  &__dates-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: @GRAY-DARK;
+    position: relative;
+  }
+
+  &__table {
+    width: 100%;
+  }
+
+  &__row {
+    &_header {
+      color: @GRAY-DARK;
+      font-size: @FONT-SIZE-SMALL;
+    }
+  }
+
+  &__cell {
+    vertical-align: top;
+    border-top: 1px solid @GRAY;
+    padding: 20px 0;
+
+    &_date {
+      padding-right: 10px;
+    }
+
+    &_type {
+      padding: 20px;
+    }
+
+    &_count {
+      padding-right: 10px;
+    }
+
+    &_cost {
+      text-align: right;
+    }
+
+    &_button {
+      padding-top: 20px;
+      padding-left: 20px;
+    }
+  }
+
+  &__note {
+    .small;
+    color: @GRAY-DARK;
+  }
+}

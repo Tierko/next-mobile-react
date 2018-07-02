@@ -2,42 +2,28 @@ import React from 'react';
 import cs from 'classnames';
 import Input from './Input';
 import Calendar from './Calendar';
+import { monthsM, weekdays } from '../constants';
 
 class Date extends Input {
-  static months = [
-    'января',
-    'февраля',
-    'марта',
-    'апреля',
-    'мая',
-    'июня',
-    'июля',
-    'августа',
-    'сентября',
-    'октября',
-    'ноября',
-    'декабря',
-  ];
-
-  static weekdays = [
-    'воскресенье',
-    'понедельник',
-    'вторник',
-    'среда',
-    'четверг',
-    'пятница',
-    'суббота',
-  ];
-
   state = {
     show: false,
   };
 
   dateUpdate = (date) => {
-    const { name } = this.props;
-    const { months, weekdays } = Date;
-    const { month, day, weekday } = date;
-    const value = `${day} ${months[month]} (${weekdays[weekday]})`;
+    const { name, format } = this.props;
+    const {
+      month,
+      day,
+      weekday,
+      year,
+    } = date;
+    let value;
+
+    if (format === 'dmw') {
+      value = `${day} ${monthsM[month]} (${weekdays[weekday]})`;
+    } else {
+      value = `${day} ${monthsM[month]} ${year}`;
+    }
 
     this.props.onChange(name, value);
     this.setState({
@@ -96,7 +82,9 @@ class Date extends Input {
           onFocus={showCalendar}
           onClick={showCalendar}
         />
-        <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>{placeholder}</div>
+        <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>
+          {placeholder}
+        </div>
         <div className="input__error">{errorText}</div>
         <div
           className={cs('input__indicator', {
