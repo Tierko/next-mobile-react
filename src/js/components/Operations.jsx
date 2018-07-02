@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import Date from '../components/Date';
 import Select from '../components/Select';
 import Button from '../components/Button';
-import { historyFilters, monthsM, historyTitles } from '../constants';
+import {
+  historyFilters,
+  monthsM,
+  historyTitles,
+  monthsShort,
+} from '../constants';
 
 class Operations extends Component {
   static formatCount = (count, unit) => {
@@ -47,6 +52,12 @@ class Operations extends Component {
     return true;
   };
 
+  static replaceMonth = (value) => {
+    const index = monthsM.findIndex(d => value.indexOf(d) !== -1);
+
+    return value.replace(monthsM[index], monthsShort[index]);
+  };
+
   state = {
     filterBy: historyFilters[0],
     periodStart: '29 сентября 2020',
@@ -73,17 +84,32 @@ class Operations extends Component {
     const { onChange, filter } = this;
     const { filterBy, periodStart, periodEnd } = this.state;
     const { data } = this.props;
-    const { sameDateCount, showDate, formatCount } = Operations;
     const filteredData = filter(data);
+    const {
+      sameDateCount,
+      showDate,
+      formatCount,
+      replaceMonth,
+    } = Operations;
 
     return (
       <div className="operations">
         <div className="operations__dates">
           <div className="operations__dates-inner">
             <span className="operations__date-from">с</span>
-            <Date className="input_operations-date input_operations-date-from" onChange={onChange} name="periodStart" value={periodStart} />
+            <Date
+              className="input_operations-date input_operations-date-from"
+              onChange={onChange}
+              name="periodStart"
+              value={periodStart}
+            />
             <span className="operations__date-to">по</span>
-            <Date className="input_operations-date input_operations-date-to" onChange={onChange} name="periodEnd" value={periodEnd} />
+            <Date
+              className="input_operations-date input_operations-date-to"
+              onChange={onChange}
+              name="periodEnd"
+              value={periodEnd}
+            />
           </div>
         </div>
         <table className="operations__table" cellSpacing={0} cellPadding={0}>
@@ -147,6 +173,51 @@ class Operations extends Component {
             </tr>
           </tbody>
         </table>
+        <div className="operations__list">
+          <div className="operations__list-dates">
+            <Date
+              className="input_operations-date-list"
+              onChange={onChange}
+              name="periodStart"
+              value={replaceMonth(periodStart)}
+            />
+            <div className="operations__list-dates-divider" />
+            <Date
+              className="input_operations-date-list"
+              onChange={onChange}
+              name="periodEnd"
+              value={replaceMonth(periodEnd)}
+            />
+          </div>
+          <Select
+            className="select_operations-filter-list"
+            onSelect={v => onChange('filterBy', v)}
+            items={historyFilters}
+            value={filterBy}
+          />
+          {
+            filteredData.map((d, i) => (
+              <div className="operations__item">
+                {
+                  showDate(filteredData, i) &&
+                  <div className="operations__item-date">{d.date.day} {monthsM[d.date.month]}</div>
+                }
+                <div className="operations__item-row">
+                  <div>{historyTitles.find(f => f.id === d.type).title}</div>
+                  <div>{d.cost} ₽</div>
+                </div>
+                <div className="operations__item-row operations__item-row_gray">
+                  <div>{d.note}</div>
+                  <div>{d.time}</div>
+                </div>
+                <div className="operations__item-row operations__item-row_gray">
+                  <div>{d.count && formatCount(d.count, d.unit)}</div>
+                </div>
+              </div>
+            ))
+          }
+          <Button className="button_operations-list">Загрузить еще</Button>
+        </div>
       </div>
     );
   }

@@ -59,6 +59,7 @@
   &_operations-date {
     padding: 0;
     max-width: 170px;
+    position: static;
   }
 
   &_operations-date &__value {
@@ -67,14 +68,24 @@
 
   &_operations-date .calendar {
     max-width: none;
+    margin-top: -1px;
   }
 
-  &_operations-date-from .calendar {
-    right: -221px;
+  &_operations-date-list {
+    position: static;
+    flex: 1 1 auto;
   }
 
-  &_operations-date-to .calendar {
-    left: -221px;
+  &_operations-date-list &__value {
+    color: @GRAY-DARK;
+  }
+
+  &_operations-date-list .calendar {
+    max-width: none;
+  }
+
+  &__inner {
+    position: relative;
   }
 
   &__value {

@@ -93,8 +93,8 @@ class History extends Component {
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content">
-          <div className="dashboard__header">Расходы</div>
-          <div className="dashboard__header">История операций</div>
+          <div className="dashboard__header dashboard__header_center">Расходы</div>
+          <div className="dashboard__header dashboard__header_center">История операций</div>
           <Operations data={history} />
         </div>
       </div>,

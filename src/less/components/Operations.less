@@ -1,8 +1,14 @@
 .operations {
+  width: 100%;
+
   &__dates {
     display: flex;
     justify-content: center;
     padding: 15px 0 20px;
+
+    @media (max-width: @BREAK-POINT) {
+      display: none;
+    }
   }
 
   .operations__date-from {
@@ -25,6 +31,10 @@
 
   &__table {
     width: 100%;
+
+    @media (max-width: @BREAK-POINT) {
+      display: none;
+    }
   }
 
   &__row {
@@ -64,5 +74,68 @@
   &__note {
     .small;
     color: @GRAY-DARK;
+  }
+
+  &__list {
+    .small;
+    display: none;
+    max-width: 500px;
+    margin: 40px auto 0;
+
+    @media (max-width: @BREAK-POINT) {
+      display: block;
+    }
+  }
+
+  &__list-dates {
+    display: flex;
+    position: relative;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  &__list-dates-divider {
+    width: 15px;
+    height: 1px;
+    background-color: @GRAY;
+    margin: auto 15px;
+  }
+
+  &__item {
+    border-bottom: 1px solid @GRAY-LIGHT;
+    padding: 18px 0;
+  }
+
+  &__item-date {
+    color: @GRAY-DARK;
+    display: flex;
+    align-items: center;
+    padding: 60px 0 10px;
+
+    &:before,
+    &:after {
+      content: '';
+      flex: 1 1 auto;
+      height: 1px;
+      background-color: @GRAY-LIGHT;
+    }
+
+    &:before {
+      margin-right: 10px;
+    }
+
+    &:after {
+      margin-left: 10px;
+    }
+  }
+
+  &__item-row {
+    padding: 2px 0;
+    display: flex;
+    justify-content: space-between;
+
+    &_gray {
+      color: @GRAY-DARK;
+    }
   }
 }
