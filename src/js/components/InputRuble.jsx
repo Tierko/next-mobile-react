@@ -1,18 +1,25 @@
 import React from 'react';
 import cs from 'classnames';
 import Input from './Input';
+import { formatCost } from '../utils';
 
 class InputRuble extends Input {
-  sumFocus = () => {
-    const { name, value, onChange } = this.props;
+  onChange = ({ target }) => {
+    const { name, onChange } = this.props;
+    const { value } = target;
+    const fValue = formatCost(value);
 
-    onChange(name, value.replace(' ₽', ''));
+    setTimeout(() => {
+      target.setSelectionRange(fValue.length - 2, fValue.length - 2);
+    }, 20);
+    onChange(name, fValue);
   };
 
-  sumBlur = () => {
-    const { name, value, onChange } = this.props;
+  onFocus = ({ target }) => {
+    const { value } = this.props;
+    const fValue = formatCost(value);
 
-    onChange(name, `${value} ₽`);
+    target.setSelectionRange(fValue.length - 2, fValue.length - 2);
   };
 
   render() {
@@ -24,7 +31,7 @@ class InputRuble extends Input {
       errorText,
       clear,
     } = this.props;
-    const { onChange, sumFocus, sumBlur } = this;
+    const { onChange, onFocus } = this;
 
     return (
       <div className={`input ${className}`}>
@@ -32,10 +39,10 @@ class InputRuble extends Input {
           type="text"
           className="input__value"
           name={name}
-          value={value}
+          value={formatCost(value)}
           onChange={onChange}
-          onFocus={sumFocus}
-          onBlur={sumBlur}
+          onFocus={onFocus}
+          ref={(e) => { this.input = e; }}
         />
         <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>
           {placeholder}

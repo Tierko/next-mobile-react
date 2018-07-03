@@ -14,7 +14,7 @@ const OverviewPayment = ({ sum, onChange, onPay }) => (
 );
 
 OverviewPayment.propTypes = {
-  sum: PropTypes.string.isRequired,
+  sum: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
   onPay: PropTypes.func.isRequired,
 };

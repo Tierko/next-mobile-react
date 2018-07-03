@@ -12,7 +12,7 @@ export const checkCardHolder = str => str && str.search(/^[a-z]+\s+[a-z]+$/gi) =
 
 export const formatCost = (source) => {
   const arr = [];
-  let str = source.toString();
+  let str = source.toString().replace(/\D/g, '');
   str = str.split('').reverse();
 
   str.forEach((c, i) => {
