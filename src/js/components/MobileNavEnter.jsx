@@ -5,7 +5,7 @@ import { Pages } from '../constants';
 
 const MobileNavDashboard = () => (
   <div className="mobile-nav__list-inner">
-    <NavLink className="mobile-nav__link" to={Pages.SignIn}>
+    <NavLink className="mobile-nav__link" to={Pages.SignIn} exact>
       <InlineSvg src={require('../../../media/nav/enter.svg')} /> Вход
     </NavLink>
     <NavLink className="mobile-nav__link" to={Pages.SignUp}>

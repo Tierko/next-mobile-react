@@ -8,7 +8,7 @@ const Footer = () => (
     <div className="footer__dev">
       <img className="footer__dev-img" src="/media/images/als-logo.svg" alt="Студия Артеми Лебедева" />
       <div className="footer__dev-text">
-        Задизайнено в <a href="https://www.artlebedev.ru/" className="footer__link">Студии Артемия Лебедева</a>
+        Задизайнено в <a href="https://www.artlebedev.ru/" className="footer__link">Студии Артемия&nbsp;Лебедева</a>
         <br />
         <a href="https://www.artlebedev.ru/" className="footer__link">Информация о сайте</a>
       </div>

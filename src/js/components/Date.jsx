@@ -83,18 +83,18 @@ class Date extends Input {
             onFocus={showCalendar}
             onClick={showCalendar}
           />
-          <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>
-            {placeholder}
-          </div>
-          <div className="input__error">{errorText}</div>
-          <div
-            className={cs('input__indicator', {
-              input__indicator_error: errorText,
-              input__indicator_hide: show,
-            })}
-          />
           <div className="input__icon input__icon_calendar" onClick={showCalendar} />
         </div>
+        <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>
+          {placeholder}
+        </div>
+        <div className="input__error">{errorText}</div>
+        <div
+          className={cs('input__indicator', {
+            input__indicator_error: errorText,
+            input__indicator_hide: show,
+          })}
+        />
         {
           clear &&
           <div className="input__icon_clear" onClick={() => this.props.onChange(name, '')} role="button" />
