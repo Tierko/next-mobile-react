@@ -80,8 +80,10 @@ class Operations extends Component {
     return data.filter(d => d.type === filterBy.id);
   };
 
+  loadMore = () => {};
+
   render() {
-    const { onChange, filter } = this;
+    const { onChange, filter, loadMore } = this;
     const { filterBy, periodStart, periodEnd } = this.state;
     const { data } = this.props;
     const filteredData = filter(data);
@@ -167,7 +169,7 @@ class Operations extends Component {
             <tr>
               <td colSpan={2}>&nbsp;</td>
               <td className="operations__cell_button">
-                <Button>Загрузить еще</Button>
+                <Button onClick={loadMore}>Загрузить еще</Button>
               </td>
               <td colSpan={2}>&nbsp;</td>
             </tr>
@@ -197,7 +199,7 @@ class Operations extends Component {
           />
           {
             filteredData.map((d, i) => (
-              <div className="operations__item">
+              <div key={d.id} className="operations__item">
                 {
                   showDate(filteredData, i) &&
                   <div className="operations__item-date">{d.date.day} {monthsM[d.date.month]}</div>
@@ -216,7 +218,7 @@ class Operations extends Component {
               </div>
             ))
           }
-          <Button className="button_operations-list">Загрузить еще</Button>
+          <Button className="button_operations-list" onClick={loadMore}>Загрузить еще</Button>
         </div>
       </div>
     );

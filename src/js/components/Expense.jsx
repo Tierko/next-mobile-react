@@ -63,7 +63,7 @@ class Expense extends Component {
         <div className="expense__details">
           {
             item.expense.map(e => (
-              <div className="expense__detail">
+              <div key={e.id} className="expense__detail">
                 <div className="expense__detail-title">{e.title}</div>
                 <ProgressLinear className="progress-linear_expense" current={e.cost} max={cost} tall />
                 <div className="expense__detail-cost">{e.cost} ₽</div>
