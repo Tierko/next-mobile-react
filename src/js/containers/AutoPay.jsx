@@ -30,12 +30,12 @@ class AutoPay extends Component {
   ];
   state = {
     autoPay: true,
-    autoPaySum: '1000 ₽',
+    autoPaySum: 1000,
     autoPayDay: 10,
     autoPayMonth: AutoPay.months[0],
     fewMoney: true,
-    fewSum: '1000 ₽',
-    fewLess: '100 ₽',
+    fewSum: 1000,
+    fewLess: 100,
     unsaved: false,
   };
 
