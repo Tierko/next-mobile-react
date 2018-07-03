@@ -4,8 +4,22 @@
   padding: 1px 0;
   background-color: @GRAY-LIGHT;
 
+  &_tall {
+    height: 4px;
+  }
+
   &_add-package {
     width: 130px;
+  }
+
+  &_expense {
+    flex: 1 1 auto;
+
+    @media (max-width: @BREAK-POINT) {
+      flex-basis: 100%;
+      order: 3;
+      margin-top: 5px;
+    }
   }
 
   &__line {
@@ -13,5 +27,10 @@
     top: -1px;
     bottom: -1px;
     left: 0;
+
+    &_tall {
+      top: 0;
+      bottom: 0;
+    }
   }
 }

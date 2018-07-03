@@ -1,0 +1,45 @@
+.expense {
+  width: 100%;
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0 20px;
+  }
+
+  &__total-cost {
+    .h1;
+    text-align: right;
+  }
+
+  &__detail {
+    display: flex;
+    align-items: center;
+    color: @GRAY-DARK;
+
+    @media (max-width: @BREAK-POINT) {
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__detail-title {
+    width: 200px;
+    padding-right: 20px;
+
+    @media (max-width: @BREAK-POINT) {
+      .small;
+    }
+  }
+
+  &__detail-cost {
+    width: 100px;
+    padding-left: 20px;
+    text-align: right;
+
+    @media (max-width: @BREAK-POINT) {
+      margin-left: auto;
+    }
+  }
+}

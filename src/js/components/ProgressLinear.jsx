@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cs from 'classnames';
 
 const offsetColors = (colorObject, percent) => {
   colorObject.max.forEach((n, i) => {
@@ -11,6 +12,7 @@ const ProgressLinear = ({
   max: maxValue,
   current,
   className,
+  tall,
 }) => {
   const percent = current / maxValue;
   const startColor = {
@@ -31,9 +33,9 @@ const ProgressLinear = ({
   const max = endColor.current;
 
   return (
-    <div className={`progress-linear ${className}`}>
+    <div className={cs(`progress-linear ${className}`, { 'progress-linear_tall': tall })}>
       <div
-        className="progress-linear__line"
+        className={cs('progress-linear__line', { 'progress-linear__line_tall': tall })}
         style={{
           width: `${percent * 100}%`,
           backgroundImage: `linear-gradient(to right, hsl(${min[0]}, ${min[1]}%, ${min[2]}%), hsl(${max[0]}, ${max[1]}%, ${max[2]}%)`,
@@ -47,10 +49,12 @@ ProgressLinear.propTypes = {
   max: PropTypes.number.isRequired,
   current: PropTypes.number.isRequired,
   className: PropTypes.string,
+  tall: PropTypes.bool,
 };
 
 ProgressLinear.defaultProps = {
   className: '',
+  tall: false,
 };
 
 export default ProgressLinear;

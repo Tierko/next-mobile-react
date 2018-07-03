@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import PageFade from '../components/PageFade';
+import Expense from '../components/Expense';
 import Operations from '../components/Operations';
 import { Pages, historyFilters } from "../constants";
 
@@ -94,6 +95,7 @@ class History extends Component {
         <Aside />
         <div className="dashboard__content">
           <div className="dashboard__header dashboard__header_center">Расходы</div>
+          <Expense />
           <div className="dashboard__header dashboard__header_center">История операций</div>
           <Operations data={history} />
         </div>

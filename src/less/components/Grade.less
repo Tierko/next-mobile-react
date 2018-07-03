@@ -1,0 +1,40 @@
+.grade {
+  &__items {
+    height: 120px;
+    display: flex;
+    align-items: end;
+  }
+
+  &__item {
+    //padding-right: 23px;
+
+    //&_selected {
+    //  cursor: default;
+    //  border-left-color: @BLACK;
+    //}
+  }
+
+  &__line {
+    border-right: 3px solid @GRAY-LIGHT;
+    cursor: pointer;
+    min-height: 20px;
+    margin-left: auto;
+    width: 53px;
+    transition: background-color 0.3s;
+
+    &_selected {
+      cursor: default;
+      border-right-color: @BLACK;
+    }
+  }
+
+  &__month {
+    .small;
+    text-align: right;
+    color: @GRAY;
+
+    &_selected {
+      opacity: 0;
+    }
+  }
+}

@@ -137,3 +137,7 @@ export const weekdays = [
 ];
 
 export const weekDaysShort = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+
+export const units = {
+  currency: '₽',
+};
