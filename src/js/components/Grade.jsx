@@ -32,7 +32,7 @@ class Grade extends Component {
 
   render() {
     const { selectItem } = this;
-    const { data, className } = this.props;
+    const { data, className, wide } = this.props;
     const selected = this.state.selected === -1 ? data[data.length - 1].id : this.state.selected;
     const maxExpense = Math.max.apply(null, data.map(i => Grade.countExpense(i.expense)));
 
@@ -48,7 +48,10 @@ class Grade extends Component {
                 data-id={e.id}
               >
                 <div
-                  className={cs('grade__line', { grade__line_selected: e.id === selected })}
+                  className={cs('grade__line', {
+                    grade__line_selected: e.id === selected,
+                    grade__line_wide: wide,
+                  })}
                   style={{ height: (Grade.countExpense(e.expense) / maxExpense) * 100 }}
                 />
                 <div className={cs('grade__month', { grade__month_selected: e.id === selected })}>
@@ -67,10 +70,12 @@ Grade.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   className: PropTypes.string,
   onItemSelect: PropTypes.func.isRequired,
+  wide: PropTypes.bool,
 };
 
 Grade.defaultProps = {
   className: '',
+  wide: false,
 };
 
 export default Grade;

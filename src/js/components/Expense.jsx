@@ -59,7 +59,7 @@ class Expense extends Component {
 
     return (
       <div className="expense">
-        <Grade data={data} onItemSelect={onMonthSelect} />
+        <Grade data={data} onItemSelect={onMonthSelect} wide />
         <div className="expense__total">
           <div className="expense__total-date">{months[item.month]} {item.year}</div>
           <div className="expense__total-cost">{cost} ₽</div>
