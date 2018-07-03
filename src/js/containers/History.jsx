@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import PageFade from '../components/PageFade';
 import Expense from '../components/Expense';
 import Operations from '../components/Operations';
-import { Pages, historyFilters } from "../constants";
 
 class History extends Component {
   static history = [{
@@ -87,7 +87,8 @@ class History extends Component {
   }];
 
   render() {
-    const { history } = History;
+    const { history: data } = History;
+    const { history } = this.props;
 
     return ([
       <MobileNav key="nav" type="dashboard" />,
@@ -95,13 +96,17 @@ class History extends Component {
         <Aside />
         <div className="dashboard__content">
           <div className="dashboard__header dashboard__header_center">Расходы</div>
-          <Expense />
+          <Expense history={history} />
           <div className="dashboard__header dashboard__header_center">История операций</div>
-          <Operations data={history} />
+          <Operations data={data} />
         </div>
       </div>,
     ]);
   }
 }
+
+PropTypes.propTypes = {
+  history: PropTypes.shape().isRequired,
+};
 
 export default PageFade(History);

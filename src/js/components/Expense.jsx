@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Grade from './Grade';
 import ProgressLinear from './ProgressLinear';
 import Button from './Button';
-import { months } from '../constants';
+import { months, Pages } from '../constants';
 
 class Expense extends Component {
   static data = [{
@@ -43,7 +44,11 @@ class Expense extends Component {
     });
   };
 
-  orderDetails = () => {};
+  orderDetails = () => {
+    const { history } = this.props;
+
+    history.push(Pages.Detail);
+  };
 
   render() {
     const { orderDetails, onMonthSelect } = this;
@@ -76,5 +81,9 @@ class Expense extends Component {
     );
   }
 }
+
+PropTypes.propTypes = {
+  history: PropTypes.shape().isRequired,
+};
 
 export default Expense;

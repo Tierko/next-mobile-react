@@ -20,6 +20,7 @@ export const Pages = {
   AutoPayResult: '/auto-pay-result',
   SiteMap: '/sitemap',
   SupportDashboard: '/support-dashboard',
+  Detail: '/detail',
 };
 
 export const Statuses = {
