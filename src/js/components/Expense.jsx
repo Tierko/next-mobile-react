@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Grade from './Grade';
 import ProgressLinear from './ProgressLinear';
 import Button from './Button';
+import { formatCost } from '../utils';
 import { months, Pages } from '../constants';
 
 class Expense extends Component {
@@ -62,7 +63,7 @@ class Expense extends Component {
         <Grade data={data} onItemSelect={onMonthSelect} wide />
         <div className="expense__total">
           <div className="expense__total-date">{months[item.month]} {item.year}</div>
-          <div className="expense__total-cost">{cost} ₽</div>
+          <div className="expense__total-cost">{formatCost(cost)}</div>
         </div>
 
         <div className="expense__details">
@@ -71,7 +72,7 @@ class Expense extends Component {
               <div key={e.id} className="expense__detail">
                 <div className="expense__detail-title">{e.title}</div>
                 <ProgressLinear className="progress-linear_expense" current={e.cost} max={cost} tall />
-                <div className="expense__detail-cost">{e.cost} ₽</div>
+                <div className="expense__detail-cost">{formatCost(e.cost)}</div>
               </div>
             ))
           }
@@ -82,7 +83,7 @@ class Expense extends Component {
   }
 }
 
-PropTypes.propTypes = {
+Expense.propTypes = {
   history: PropTypes.shape().isRequired,
 };
 

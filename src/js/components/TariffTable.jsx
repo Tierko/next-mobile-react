@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import { Link } from 'react-router-dom';
+import { formatCost } from '../utils';
 
 class TariffTable extends Component {
   state = {
@@ -11,7 +12,7 @@ class TariffTable extends Component {
   rows = [{
     id: 1,
     title: 'Абонентская плата',
-    unit: '₽ / месяц',
+    unit: ' / месяц',
     field: 'payment',
   }, {
     id: 2,
@@ -49,7 +50,9 @@ class TariffTable extends Component {
         <div className="tariff-table__cells">
           {
             data.map(d => (
-              <div className="tariff-table__cell">{d[row.field]} {row.unit}</div>
+              <div className="tariff-table__cell">
+                {row.field === 'payment' ? formatCost(d[row.field]) : d[row.field]} {row.unit}
+              </div>
             ))
           }
         </div>

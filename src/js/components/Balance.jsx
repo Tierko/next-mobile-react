@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { formatCost } from '../utils';
 
 const Balance = ({
   status,
@@ -9,7 +10,7 @@ const Balance = ({
 }) => (
   <div className={`balance balance_${status} ${className}`}>
     <div className="balance__title">Ваш баланс</div>
-    <div className="balance__sum">{sum} ₽</div>
+    <div className="balance__sum">{formatCost(sum)}</div>
     <div className="balance__next-pay">{message}</div>
   </div>
 );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { formatCost } from '../utils';
 import { Pages } from '../constants';
 
 const Aside = () => (
@@ -10,7 +11,7 @@ const Aside = () => (
     <div className="aside__inner">
       <div className="aside__phone">+ 7 905 123-23-44</div>
       <div className="aside__info">
-        <div><span>Баланс:</span> 500 ₽</div>
+        <div><span>Баланс:</span> {formatCost(1000)}</div>
         <div><span>По России:</span> 1,7 ГБ, 1000 мин, 129 СМС</div>
       </div>
       <nav className="aside__nav">

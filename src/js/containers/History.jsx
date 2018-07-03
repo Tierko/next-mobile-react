@@ -105,7 +105,7 @@ class History extends Component {
   }
 }
 
-PropTypes.propTypes = {
+History.propTypes = {
   history: PropTypes.shape().isRequired,
 };
 

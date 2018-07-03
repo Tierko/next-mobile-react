@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Date from '../components/Date';
 import Select from '../components/Select';
 import Button from '../components/Button';
+import { formatCost } from '../utils';
 import {
   historyFilters,
   monthsM,
@@ -155,7 +156,7 @@ class Operations extends Component {
                     }
                   </td>
                   <td className="operations__cell operations__cell_cost">
-                    {d.cost} ₽
+                    {formatCost(d.cost)}
                     {
                       d.tariff &&
                       <div className="operations__note">
@@ -206,7 +207,7 @@ class Operations extends Component {
                 }
                 <div className="operations__item-row">
                   <div>{historyTitles.find(f => f.id === d.type).title}</div>
-                  <div>{d.cost} ₽</div>
+                  <div>{formatCost(d.cost)}</div>
                 </div>
                 <div className="operations__item-row operations__item-row_gray">
                   <div>{d.note}</div>
