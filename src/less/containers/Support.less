@@ -2,6 +2,10 @@
   min-height: calc(100vh - 115px);
   display: flex;
 
+  @media (max-width: @BREAK-POINT) {
+    min-height: 100vh;
+  }
+
   &__chat {
     flex: 1 1  auto;
     max-width: @MAX-WIDTH;

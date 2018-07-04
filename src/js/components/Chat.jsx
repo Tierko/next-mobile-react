@@ -1,16 +1,69 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Input from '../components/Input';
 import ButtonIcon from '../components/ButtonIcon';
 
 class Chat extends Component {
   state = {
     message: '',
+    messages: [{
+      user: 'Наталья',
+      avatar: '/media/content/support.png',
+      date: {
+        year: 2018,
+        month: 4,
+        day: 4,
+        time: '12:22',
+      },
+      text: 'Здраствуйте! Чем могу помочь?',
+      docs: [],
+    }, {
+      user: null,
+      avatar: '/media/content/client.png',
+      date: {
+        year: 2018,
+        month: 4,
+        day: 4,
+        time: '12:25',
+      },
+      text: 'Привет! Почему-то не срабатывает оплата по моей кредитке ',
+      docs: [],
+    }],
   };
 
   onChange = (n, v) => {
     this.setState({
       message: v,
     });
+  };
+
+  onKeyDown = (e) => {
+    const { keyCode } = e;
+    const { message, messages } = this.state;
+
+    if (message && (keyCode === 10 || keyCode === 13)) {
+      e.preventDefault();
+      const newMessages = messages.slice();
+      const date = new Date();
+      newMessages.push({
+        user: null,
+        avatar: '/media/content/client.png',
+
+        date: {
+          year: date.getFullYear(),
+          month: date.getMonth(),
+          day: date.getDate(),
+          time: `${date.getHours()}:${date.getMinutes()}`,
+        },
+        text: message,
+        docs: [],
+      });
+
+      this.setState({
+        message: '',
+        messages: newMessages,
+      });
+    }
   };
 
   audioCall = () => {
@@ -21,18 +74,63 @@ class Chat extends Component {
 
   };
 
-  addFile = () => {
+  addFile = (e) => {
+    const { messages } = this.state;
+    const files = e.target.files || [];
+    const redFiles = [];
+    const newMessages = messages.slice();
+    const date = new Date();
 
+    Array.prototype.slice.call(files).forEach((f) => {
+      const fr = new FileReader();
+      fr.readAsDataURL(f);
+
+      fr.onload = () => {
+        redFiles.push(fr.result);
+
+        if (redFiles.length === files.length) {
+          newMessages.push({
+            user: null,
+            avatar: '/media/content/client.png',
+
+            date: {
+              year: date.getFullYear(),
+              month: date.getMonth(),
+              day: date.getDate(),
+              time: `${date.getHours()}:${date.getMinutes()}`,
+            },
+            text: '',
+            docs: redFiles,
+          });
+
+          this.setState({
+            messages: newMessages
+          });
+        }
+      };
+    });
   };
 
   audioMessage = () => {
 
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    const prevLength = prevState.messages.length;
+    const { length } = this.state.messages;
+    const { messages } = this;
+
+    if (length !== prevLength && messages) {
+      messages.scrollTo(0, messages.clientHeight + messages.scrollHeight);
+    }
+  }
+
   render() {
-    const { message } = this.state;
+    const { message, messages } = this.state;
+    const { className } = this.props;
     const {
       onChange,
+      onKeyDown,
       audioCall,
       videoCall,
       addFile,
@@ -40,7 +138,7 @@ class Chat extends Component {
     } = this;
 
     return (
-      <div className="chat">
+      <div className={`chat ${className}`}>
         <div className="chat__header">
           <div className="chat__companion">
             <div className="chat__avatar">
@@ -54,42 +152,57 @@ class Chat extends Component {
           </div>
         </div>
         <div className="chat__content">
-          <div className="chat__messages">
+          <div className="chat__messages" ref={(e) => { this.messages = e; }}>
             <div className="chat__date">
               <div className="chat__date-inner">6 мая 2018</div>
             </div>
-            <div className="chat__message">
-              <div className="chat__avatar">
-                <img className="chat__avatar-img" src="/media/content/support.png" alt="" />
-              </div>
-              <div className="chat__message-content">
-                <div className="chat__message-meta">
-                  <span>Наталья </span>
-                  <span>12:22</span>
+            {
+              messages.map(m => (
+                <div className="chat__message">
+                  <div className="chat__avatar">
+                    <img className="chat__avatar-img" src={m.avatar} alt="" />
+                  </div>
+                  <div className="chat__message-content">
+                    <div className="chat__message-meta">
+                      {
+                        m.user && <span>{m.user} </span>
+                      }
+                      <span>{m.date.time}</span>
+                    </div>
+                    {
+                      m.text &&
+                      <div>{m.text}</div>
+                    }
+                    {
+                      !!m.docs.length &&
+                      <div className="chat__message-images">
+                        {
+                          m.docs.map((d) => (
+                            <div
+                              className="chat__message-image"
+                              style={{ backgroundImage: `url(${d})`}}
+                            />
+                          ))
+                        }
+                      </div>
+                    }
+                  </div>
                 </div>
-                <div>Здраствуйте! Чем могу помочь?</div>
-              </div>
-            </div>
-            <div className="chat__message">
-              <div className="chat__avatar">
-                <img className="chat__avatar-img" src="/media/content/client.png" alt="" />
-              </div>
-              <div className="chat__message-content">
-                <div className="chat__message-meta">
-                  <span>12:25</span>
-                </div>
-                <div>Привет! Почему-то не срабатывает оплата по моей кредитке </div>
-              </div>
-            </div>
+              ))
+            }
           </div>
         </div>
         <div className="chat__footer">
-          <ButtonIcon onClick={addFile} icon="plus.svg" className="button-icon_chat-footer" />
+          <div className="chat__file">
+            <input type="file" onChange={addFile} multiple />
+            <ButtonIcon onClick={addFile} icon="plus.svg" className="button-icon_chat-footer" />
+          </div>
           <Input
             name="message"
             className="input_chat"
             value={message}
             onChange={onChange}
+            onKeyDown={onKeyDown}
             placeholder="Напишите сообщение..."
             multiLine
             simplePlaceholder
@@ -100,5 +213,13 @@ class Chat extends Component {
     );
   }
 }
+
+Chat.propTypes = {
+  className: PropTypes.string,
+};
+
+Chat.defaultProps = {
+  className: '',
+};
 
 export default Chat;

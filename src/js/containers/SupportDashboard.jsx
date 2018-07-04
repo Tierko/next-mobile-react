@@ -11,7 +11,7 @@ class SupportDashboard extends Component {
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content dashboard__content_support">
-          <Chat />
+          <Chat className="chat_dashboard" />
         </div>
       </div>,
     ];
