@@ -37,7 +37,7 @@ class TariffTable extends Component {
     field: 'sms',
   }];
 
-  RenderRow = (data, row, isDetail) => {
+  RenderRow = ({ data, row, isDetail }) => {
     if (row.shortHide) {
       return null;
     }
@@ -50,7 +50,7 @@ class TariffTable extends Component {
         <div className="tariff-table__cells">
           {
             data.map(d => (
-              <div className="tariff-table__cell">
+              <div key={d.id} className="tariff-table__cell">
                 {row.field === 'payment' ? formatCost(d[row.field]) : d[row.field]} {row.unit}
               </div>
             ))
@@ -80,7 +80,7 @@ class TariffTable extends Component {
             <div className="tariff-table__names">
               {
                 data.map(d => (
-                  <div className={cs('tariff-table__name', { 'tariff-table__name_active': d.current })}>
+                  <div key={d.id} className={cs('tariff-table__name', { 'tariff-table__name_active': d.current })}>
                     <span>{d.title}</span>
                   </div>
                 ))
@@ -89,7 +89,7 @@ class TariffTable extends Component {
             <div className="tariff-table__actions">
               {
                 data.map(d => (
-                  <div className="tariff-table__action">
+                  <div key={d.id} className="tariff-table__action">
                     {d.current ? 'Текущий тариф' : <Link className="link-light" to="#">Перейти</Link>}
                   </div>
                 ))
@@ -97,7 +97,9 @@ class TariffTable extends Component {
             </div>
           </div>
           {
-            rows.map(r => RenderRow(data, r, isDetail))
+            rows.map(r => (
+              <RenderRow key={r.id} data={data} row={r} isDetail={isDetail} />
+            ))
           }
           <div className="tariff-table__toggle" onClick={toggleMode}>
             {
