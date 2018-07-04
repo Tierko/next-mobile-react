@@ -76,10 +76,6 @@ class Select extends Component {
                 key={(typeof value === 'string' || typeof value === 'number') ? i : i.id}
               >
                 {
-                  console.log((typeof value === 'string' || typeof value === 'number') ? i === value : i.id === value.id)
-                  // console.log(i, value)
-                }
-                {
                   (typeof value === 'string' || typeof value === 'number') ? i : i.title
                 }
               </div>

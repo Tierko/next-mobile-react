@@ -9,25 +9,28 @@ import InputRuble from '../components/InputRuble';
 import Select from '../components/Select';
 import Button from '../components/Button';
 import PageFade from '../components/PageFade';
-import { Pages } from '../constants';
+import { Pages, months } from '../constants';
 
 class AutoPay extends Component {
   static days = Array(28).fill(0).map((_, i) => i + 1);
 
-  static months = [
-    'Июль 2018',
-    'Август 2018',
-    'Сентябрь 2018',
-    'Октябрь 2018',
-    'Ноябрь 2018',
-    'Декабрь 2018',
-    'Январь 2019',
-    'Февраль 2019',
-    'Март 2019',
-    'Апрель 2019',
-    'Май 2019',
-    'Июнь 2019',
-  ];
+  static months = (() => {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const m = Array(36).fill('');
+
+    const mm = m.map((d, i) => {
+      const tmp = new Date(year, month + i + 1);
+
+      return `${months[tmp.getMonth()]} ${tmp.getFullYear()}`;
+    });
+
+    mm.push('Бессрочно');
+
+    return mm;
+  })();
+
   state = {
     autoPay: true,
     autoPaySum: 1000,
@@ -40,6 +43,12 @@ class AutoPay extends Component {
   };
 
   onChange = (name, value) => {
+    if (name === 'autoPaySum' || name === 'fewSum' || name === 'fewLess') {
+      if (value.toString().length > 5) {
+        return;
+      }
+    }
+
     this.setState({
       [name]: value,
       unsaved: true,
