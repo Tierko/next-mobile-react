@@ -60,6 +60,7 @@ class Detail extends Component {
                 name="startDate"
                 value={startDate}
                 onChange={onChange}
+                initDate={new window.Date(window.Date.now() - 2592000 * 1000)}
               />
               <div className="detail__divider" />
               <Date
@@ -67,6 +68,7 @@ class Detail extends Component {
                 name="endDate"
                 value={endDate}
                 onChange={onChange}
+                initDate={new window.Date()}
               />
             </div>
             <Input placeholder="На какую почту отправить" name="email" value={email} onChange={onChange} />

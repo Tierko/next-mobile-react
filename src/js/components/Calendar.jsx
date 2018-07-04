@@ -36,7 +36,7 @@ class Calendar extends Component {
   };
 
   constructor(props) {
-    const today = new Date();
+    const today = props.initDate || new Date();
 
     super(props);
     this.state = {
@@ -156,6 +156,15 @@ class Calendar extends Component {
     });
   };
 
+  componentDidMount() {
+    const date = this.props.initDate || new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+
+    this.onUpdateDate(year, month, day);
+  }
+
   render() {
     const { changeMonth, selectDay } = this;
     const { show } = this.props;
@@ -227,6 +236,11 @@ class Calendar extends Component {
 Calendar.propTypes = {
   onUpdateDate: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
+  initDate: PropTypes.shape(),
+};
+
+Calendar.defaultProps = {
+  initDate: null,
 };
 
 export default Calendar;
