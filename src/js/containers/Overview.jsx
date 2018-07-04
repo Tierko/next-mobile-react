@@ -105,8 +105,7 @@ class Overview extends Component {
   }];
 
   sumChange = (n, v) => {
-
-    if (v.toString().length > 4) {
+    if (v.toString().length > 5) {
       return;
     }
 

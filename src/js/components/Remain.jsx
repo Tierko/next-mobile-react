@@ -4,10 +4,14 @@ import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import ProgressLinear from './ProgressLinear';
 import Button from './Button';
+import { Pages } from '../constants';
 
 const Remain = ({ data, buy }) => (
   <div className="remain">
-    <div className="remain__title">Остаток до 16 июня по тарифу <a className="link" href="#">«Супервип»</a></div>
+    <div className="remain__title">
+      Остаток до 16 июня по тарифу
+      <Link className="link" to={Pages.Services}> «Супервип»</Link>
+    </div>
     {
       data.map(i => (
         <div key={i.id} className="remain__item">
