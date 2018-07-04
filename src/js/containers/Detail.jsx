@@ -23,7 +23,7 @@ class Detail extends Component {
   state = {
     startDate: '',
     endDate: '',
-    email: '',
+    email: 'Konstantinopolsky@gmail.com',
     format: Detail.formats[0],
   };
 
