@@ -68,11 +68,17 @@ class Select extends Component {
           {
             items.map(i => (
               <div
-                className="select__item"
+                className={cs('select__item', {
+                  select__item_active: (typeof value === 'string' || typeof value === 'number') ? i === value : i.id === value.id,
+                })}
                 onClick={() => selectItem(i)}
                 role="button"
                 key={(typeof value === 'string' || typeof value === 'number') ? i : i.id}
               >
+                {
+                  console.log((typeof value === 'string' || typeof value === 'number') ? i === value : i.id === value.id)
+                  // console.log(i, value)
+                }
                 {
                   (typeof value === 'string' || typeof value === 'number') ? i : i.title
                 }
