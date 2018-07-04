@@ -10,6 +10,7 @@ import History from '../components/History';
 import Roaming from '../components/Roaming';
 import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
+import { getData } from '../utils';
 
 class Overview extends Component {
   state = {
@@ -17,29 +18,6 @@ class Overview extends Component {
   };
 
   onPay = () => {};
-
-  remainData = [{
-    id: 1,
-    max: 10,
-    current: 2.01,
-    unit: 'ГБ',
-    name: 'Интернет',
-    link: false,
-  }, {
-    id: 2,
-    max: 320,
-    current: 200,
-    unit: 'мин',
-    name: 'Звонки',
-    link: true,
-  }, {
-    id: 3,
-    max: 140,
-    current: 129,
-    unit: 'СМС',
-    name: 'Сообщения',
-    link: false,
-  }];
 
   historyData = [{
     id: 1,
@@ -129,9 +107,9 @@ class Overview extends Component {
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content">
-          <Balance sum={500} message="Следующий платеж: 2 000 ₽ через 10 дней " />
+          <Balance sum={getData('balance')} message="Следующий платеж: 2 000 ₽ через 10 дней " />
           <OverviewPayment onChange={sumChange} onPay={onPay} sum={sum} />
-          <Remain data={this.remainData} buy={onBuy} />
+          <Remain data={getData('remain')} tariff={getData('tariff')} buy={onBuy} />
           <History data={this.historyData} />
           <Roaming data={this.roamingData} />
           <Footer />

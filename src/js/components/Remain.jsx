@@ -6,25 +6,31 @@ import ProgressLinear from './ProgressLinear';
 import Button from './Button';
 import { Pages } from '../constants';
 
-const Remain = ({ data, buy }) => (
+const Remain = ({ data, buy, tariff }) => (
   <div className="remain">
     <div className="remain__title">
       Остаток до 16 июня по тарифу
-      <Link className="link" to={Pages.Services}> «Супервип»</Link>
+      <Link className="link" to={Pages.Services}> «{tariff.title}»</Link>
     </div>
     {
       data.map(i => (
         <div key={i.id} className="remain__item">
           <div className="remain__desc">
-            <div><span>{(i.current + '').replace('.', ',')} {i.unit}</span> из {i.max}</div>
+            <div><span>{(i.current + '').replace('.', ',')} {i.unit}</span> из {tariff[i.type]}</div>
             {
               i.link ?
-                <Link className={cs('remain__service', { remain__service_link: i.link })} to={Pages.Calls}>{i.name}</Link>
+                <Link className={cs('remain__service', { remain__service_link: i.link })} to={Pages.Calls}>
+                  {i.name}
+                </Link>
                 :
                 <div className="remain__service">{i.name}</div>
             }
           </div>
-          <ProgressLinear color="red" max={i.max} current={i.current} />
+          <ProgressLinear
+            color="red"
+            max={typeof tariff[i.type] === 'string' ? i.current : tariff[i.type]}
+            current={i.current}
+          />
         </div>
       ))
     }
@@ -34,6 +40,7 @@ const Remain = ({ data, buy }) => (
 
 Remain.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  tariff: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   buy: PropTypes.func.isRequired,
 };
 

@@ -22,6 +22,7 @@ export const Pages = {
   SupportDashboard: '/support-dashboard',
   Detail: '/detail',
   Calls: '/calls',
+  Data: '/data',
 };
 
 export const Statuses = {

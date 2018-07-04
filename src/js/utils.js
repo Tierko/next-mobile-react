@@ -1,4 +1,5 @@
 import { units } from './constants';
+import data from '../data';
 
 export const checkCardNumber = str => str && str.replace(/\D/g, '').length === 16;
 
@@ -25,3 +26,5 @@ export const formatCost = (source) => {
 
   return `${arr.reverse().join('')} ${units.currency}`;
 };
+
+export const getData = type => data[type][localStorage[type] || 0];

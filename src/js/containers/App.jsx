@@ -20,8 +20,9 @@ import History from './History';
 import Detail from './Detail';
 import Pay from './Pay';
 import Calls from './Calls';
-import { Pages } from '../constants';
 import Kit from './Kit';
+import Data from './Data';
+import { Pages } from '../constants';
 
 const App = () => (
   <div>
@@ -48,6 +49,7 @@ const App = () => (
       <Route path={Pages.SupportDashboard} component={SupportDashboard} />
       <Route path={Pages.Calls} component={Calls} />
       <Route path={Pages.SiteMap} component={SiteMap} />
+      <Route path={Pages.Data} component={Data} />
     </Switch>
   </div>
 );
