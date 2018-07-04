@@ -180,7 +180,7 @@ class Chat extends Component {
                           m.docs.map((d) => (
                             <div
                               className="chat__message-image"
-                              style={{ backgroundImage: `url(${d})`}}
+                              style={{ backgroundImage: `url(${d})` }}
                             />
                           ))
                         }

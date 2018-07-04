@@ -19,6 +19,7 @@ import SupportDashboard from './SupportDashboard';
 import History from './History';
 import Detail from './Detail';
 import Pay from './Pay';
+import Calls from './Calls';
 import { Pages } from '../constants';
 import Kit from './Kit';
 
@@ -45,6 +46,7 @@ const App = () => (
       <Route path={Pages.AutoPay} component={AutoPay} />
       <Route path={`${Pages.AutoPayResult}/:status`} component={AutoPayResult} />
       <Route path={Pages.SupportDashboard} component={SupportDashboard} />
+      <Route path={Pages.Calls} component={Calls} />
       <Route path={Pages.SiteMap} component={SiteMap} />
     </Switch>
   </div>

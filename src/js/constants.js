@@ -21,6 +21,7 @@ export const Pages = {
   SiteMap: '/sitemap',
   SupportDashboard: '/support-dashboard',
   Detail: '/detail',
+  Calls: '/calls',
 };
 
 export const Statuses = {

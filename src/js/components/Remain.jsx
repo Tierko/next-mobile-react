@@ -19,7 +19,7 @@ const Remain = ({ data, buy }) => (
             <div><span>{(i.current + '').replace('.', ',')} {i.unit}</span> из {i.max}</div>
             {
               i.link ?
-                <Link className={cs('remain__service', { remain__service_link: i.link })} to="#">{i.name}</Link>
+                <Link className={cs('remain__service', { remain__service_link: i.link })} to={Pages.Calls}>{i.name}</Link>
                 :
                 <div className="remain__service">{i.name}</div>
             }
