@@ -105,6 +105,11 @@ class Overview extends Component {
   }];
 
   sumChange = (n, v) => {
+
+    if (v.toString().length > 4) {
+      return;
+    }
+
     this.setState({
       sum: v,
     });

@@ -12,7 +12,8 @@ class InputRuble extends Input {
     setTimeout(() => {
       target.setSelectionRange(fValue.length - 2, fValue.length - 2);
     }, 20);
-    onChange(name, fValue);
+
+    onChange(name, fValue.replace(/\D/g, '') * 1);
   };
 
   onFocus = ({ target }) => {
