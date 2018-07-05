@@ -28,7 +28,7 @@ class SelectLang extends Select {
           {
             items.map(i => (
               <div
-                className="select__item"
+                className="select__item select__item_lang"
                 onClick={() => selectItem(i)}
                 role="button"
               >
