@@ -11,6 +11,11 @@ class Calls extends Component {
 
   render() {
     const { setData } = this;
+    const style = {
+      display: 'flex',
+      flexWrap: 'wrap',
+      maxWidth: '100%',
+    };
     return ([
       <MobileNav key="nav" type="dashboard" />,
       <div key="dashboard" className="dashboard">
@@ -18,7 +23,7 @@ class Calls extends Component {
         <div className="dashboard__content">
           <div>
             <h2>Тариф</h2>
-            <div style={{ display: 'flex' }}>
+            <div style={style}>
               <Button onClick={() => setData('tariff', 0)}>
                 Супервип
               </Button>
@@ -30,7 +35,7 @@ class Calls extends Component {
               </Button>
             </div>
             <h2>Баланс</h2>
-            <div style={{ display: 'flex' }}>
+            <div style={style}>
               <Button onClick={() => setData('balance', 0)}>
                 500
               </Button>
@@ -42,7 +47,7 @@ class Calls extends Component {
               </Button>
             </div>
             <h2>История расходов</h2>
-            <div style={{ display: 'flex' }}>
+            <div style={style}>
               <Button onClick={() => setData('history', 0)}>
                 за 2 месяца
               </Button>
@@ -51,7 +56,7 @@ class Calls extends Component {
               </Button>
             </div>
             <h2>История операций</h2>
-            <div style={{ display: 'flex' }}>
+            <div style={style}>
               <Button onClick={() => setData('operations', 0)}>
                 Есть операции
               </Button>
@@ -59,8 +64,8 @@ class Calls extends Component {
                 Нет операций
               </Button>
             </div>
-            <h2>История операций</h2>
-            <div style={{ display: 'flex' }}>
+            <h2>Статус</h2>
+            <div style={style}>
               <Button onClick={() => setData('payment', 0)}>
                 Платеж 500 р через 15 дней
               </Button>
