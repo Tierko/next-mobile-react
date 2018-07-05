@@ -19,68 +19,11 @@ class Overview extends Component {
 
   onPay = () => {};
 
-  historyData = [{
-    id: 1,
-    expense: 5200,
-    month: 'октябрь',
-  }, {
-    id: 2,
-    expense: 2600,
-    month: 'ноябрь',
-  }, {
-    id: 3,
-    expense: 1000,
-    month: 'декабрь',
-  }, {
-    id: 4,
-    expense: 8100,
-    month: 'январь',
-  }, {
-    id: 5,
-    expense: 6000,
-    month: 'февраль',
-  }, {
-    id: 6,
-    expense: 4000,
-    month: 'март',
-  }, {
-    id: 7,
-    expense: 4500,
-    month: 'апрель',
-  }, {
-    id: 8,
-    expense: 2000,
-    month: 'май',
-  }, {
-    id: 9,
-    expense: 5000,
-    month: 'июнь',
-  }];
+  onBuy = () => {
+    const { history } = this.props;
 
-  roamingData = [{
-    id: 1,
-    zoneName: 'Зона 1',
-    services: [{
-      id: 11,
-      desc: 'Пакет быстрого интернета',
-      conditions: '2,01 ГБ еще 12 дней',
-      type: 'fast',
-    }, {
-      id: 12,
-      desc: 'Помегабайтный интернет',
-      conditions: '58 ₽ / Мб',
-      type: 'regular',
-    }],
-  }, {
-    id: 2,
-    zoneName: 'Остальной мир',
-    services: [{
-      id: 21,
-      desc: 'Помегабайтный интернет',
-      conditions: '320 ₽ / Мб',
-      type: 'regular',
-    }],
-  }];
+    history.push(Pages.AddPackage);
+  };
 
   sumChange = (n, v) => {
     if (v.toString().length > 5) {
@@ -90,12 +33,6 @@ class Overview extends Component {
     this.setState({
       sum: v,
     });
-  };
-
-  onBuy = () => {
-    const { history } = this.props;
-
-    history.push(Pages.AddPackage);
   };
 
   render() {
@@ -110,8 +47,8 @@ class Overview extends Component {
           <Balance sum={getData('balance')} message="Следующий платеж: 2 000 ₽ через 10 дней " />
           <OverviewPayment onChange={sumChange} onPay={onPay} sum={sum} />
           <Remain data={getData('remain')} tariff={getData('tariff')} buy={onBuy} />
-          <History data={this.historyData} />
-          <Roaming data={this.roamingData} />
+          <History data={getData('history')} />
+          <Roaming data={getData('roaming')} />
           <Footer />
         </div>
       </div>,

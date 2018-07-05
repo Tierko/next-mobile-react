@@ -97,40 +97,50 @@ class Operations extends Component {
 
     return (
       <div className="operations">
-        <div className="operations__dates">
-          <div className="operations__dates-inner">
-            <span className="operations__date-from">с</span>
-            <Date
-              className="input_operations-date input_operations-date-from"
-              onChange={onChange}
-              name="periodStart"
-              value={periodStart}
-            />
-            <span className="operations__date-to">по</span>
-            <Date
-              className="input_operations-date input_operations-date-to"
-              onChange={onChange}
-              name="periodEnd"
-              value={periodEnd}
-            />
+        {
+          !filteredData.length &&
+          <div className="operations__empty">У вас нет данных за указанный период</div>
+        }
+        {
+          !!filteredData.length &&
+          <div className="operations__dates">
+            <div className="operations__dates-inner">
+              <span className="operations__date-from">с</span>
+              <Date
+                className="input_operations-date input_operations-date-from"
+                onChange={onChange}
+                name="periodStart"
+                value={periodStart}
+              />
+              <span className="operations__date-to">по</span>
+              <Date
+                className="input_operations-date input_operations-date-to"
+                onChange={onChange}
+                name="periodEnd"
+                value={periodEnd}
+              />
+            </div>
           </div>
-        </div>
+        }
         <table className="operations__table" cellSpacing={0} cellPadding={0}>
           <tbody>
-            <tr className="operations__row operations__row_header">
-              <td className="operations__cell_date">Дата</td>
-              <td className="operations__cell_time">Время</td>
-              <td className="operations__cell_type">
-                <Select
-                  className="select_operations-filter"
-                  onSelect={v => onChange('filterBy', v)}
-                  items={historyFilters}
-                  value={filterBy}
-                />
-              </td>
-              <td className="operations__cell_count">Количество</td>
-              <td className="operations__cell_cost">Стоимость</td>
-            </tr>
+            {
+              !!filteredData.length &&
+              <tr className="operations__row operations__row_header">
+                <td className="operations__cell_date">Дата</td>
+                <td className="operations__cell_time">Время</td>
+                <td className="operations__cell_type">
+                  <Select
+                    className="select_operations-filter"
+                    onSelect={v => onChange('filterBy', v)}
+                    items={historyFilters}
+                    value={filterBy}
+                  />
+                </td>
+                <td className="operations__cell_count">Количество</td>
+                <td className="operations__cell_cost">Стоимость</td>
+              </tr>
+            }
             {
               filteredData.map((d, i) => (
                 <tr key={d.id} className="operations__row">
@@ -167,13 +177,16 @@ class Operations extends Component {
                 </tr>
               ))
             }
-            <tr>
-              <td colSpan={2}>&nbsp;</td>
-              <td className="operations__cell_button">
-                <Button onClick={loadMore}>Загрузить еще</Button>
-              </td>
-              <td colSpan={2}>&nbsp;</td>
-            </tr>
+            {
+              !!filteredData.length &&
+              <tr>
+                <td colSpan={2}>&nbsp;</td>
+                <td className="operations__cell_button">
+                  <Button onClick={loadMore}>Загрузить еще</Button>
+                </td>
+                <td colSpan={2}>&nbsp;</td>
+              </tr>
+            }
           </tbody>
         </table>
         <div className="operations__list">

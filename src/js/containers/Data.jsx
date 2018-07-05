@@ -17,7 +17,7 @@ class Calls extends Component {
         <Aside />
         <div className="dashboard__content">
           <div>
-            <div>Тариф</div>
+            <h2>Тариф</h2>
             <div style={{ display: 'flex' }}>
               <Button onClick={() => setData('tariff', 0)}>
                 Супервип
@@ -29,7 +29,7 @@ class Calls extends Component {
                 Лайт
               </Button>
             </div>
-            <div>Баланс</div>
+            <h2>Баланс</h2>
             <div style={{ display: 'flex' }}>
               <Button onClick={() => setData('balance', 0)}>
                 500
@@ -39,6 +39,24 @@ class Calls extends Component {
               </Button>
               <Button onClick={() => setData('balance', 2)}>
                 0
+              </Button>
+            </div>
+            <h2>История расходов</h2>
+            <div style={{ display: 'flex' }}>
+              <Button onClick={() => setData('history', 0)}>
+                за 2 месяца
+              </Button>
+              <Button onClick={() => setData('history', 1)}>
+                Без истории
+              </Button>
+            </div>
+            <h2>История операций</h2>
+            <div style={{ display: 'flex' }}>
+              <Button onClick={() => setData('operations', 0)}>
+                Есть операции
+              </Button>
+              <Button onClick={() => setData('operations', 1)}>
+                Нет операций
               </Button>
             </div>
           </div>

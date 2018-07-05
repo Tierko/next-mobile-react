@@ -54,9 +54,12 @@ class Grade extends Component {
                   })}
                   style={{ height: (Grade.countExpense(e.expense) / maxExpense) * 100 }}
                 />
-                <div className={cs('grade__month', { grade__month_selected: e.id === selected })}>
-                  {monthsShort[e.month]}
-                </div>
+                {
+                  wide &&
+                  <div className={cs('grade__month', { grade__month_selected: e.id === selected })}>
+                    {monthsShort[e.date.month]}
+                  </div>
+                }
               </div>
             ))
           }

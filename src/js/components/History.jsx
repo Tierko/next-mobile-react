@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Grade from './Grade';
 import { formatCost } from '../utils';
-import { Pages } from '../constants';
+import { Pages, months } from '../constants';
 
 class History extends Component {
   constructor(props) {
+    const { data } = props;
     super(props);
     this.state = {
-      selected: props.data[props.data.length - 1].id,
+      selected: data.length ? data[data.length - 1].id : -1,
     };
   }
 
@@ -24,12 +25,22 @@ class History extends Component {
     const { selected } = this.state;
     const { selectMonth } = this;
     const selectedItem = data.find(i => i.id === selected);
+    const cost = selectedItem ? selectedItem.expense.reduce((acc, d) => (acc + d.cost), 0) : 0;
 
     return (
       <div className={`history ${className}`}>
-        <div className="history__title">Ваши <Link className="link" to={Pages.History}>расходы</Link></div>
-        <div className="history__expense">- {formatCost(selectedItem.expense)} за {selectedItem.month}</div>
-        <Grade data={data} onItemSelect={selectMonth} />
+        {
+          selectedItem &&
+          <Fragment>
+            <div className="history__title">Ваши <Link className="link" to={Pages.History}>расходы</Link></div>
+            <div className="history__expense">- {formatCost(cost)} за {months[selectedItem.date.month]}</div>
+            <Grade data={data} onItemSelect={selectMonth} />
+          </Fragment>
+        }
+        {
+          !selectedItem &&
+          <div className="history__title">У вас пока нет расходов</div>
+        }
       </div>
     );
   }

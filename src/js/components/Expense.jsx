@@ -7,34 +7,6 @@ import { formatCost } from '../utils';
 import { months, Pages } from '../constants';
 
 class Expense extends Component {
-  static data = [{
-    id: 1,
-    year: 2018,
-    month: 8,
-    expense: [{
-      id: 1,
-      title: 'Абонентская плата',
-      cost: 8000,
-    }, {
-      id: 2,
-      title: 'Другие услуги',
-      cost: 42000,
-    }, {
-      id: 3,
-      title: 'Роуминг',
-      cost: 3400,
-    }],
-  }, {
-    id: 2,
-    year: 2018,
-    month: 9,
-    expense: [{
-      id: 1,
-      title: 'Абонентская плата',
-      cost: 20000,
-    }],
-  }];
-
   state = {
     itemId: -1,
   };
@@ -53,7 +25,7 @@ class Expense extends Component {
 
   render() {
     const { orderDetails, onMonthSelect } = this;
-    const { data } = Expense;
+    const { data } = this.props;
     const { itemId } = this.state;
     const item = itemId === -1 ? data[data.length - 1] : data.find(d => d.id === itemId);
     const cost = item.expense.reduce((acc, d) => (acc + d.cost), 0);
@@ -85,6 +57,7 @@ class Expense extends Component {
 
 Expense.propTypes = {
   history: PropTypes.shape().isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 export default Expense;
