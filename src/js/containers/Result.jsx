@@ -28,7 +28,7 @@ const Result = ({ match, location }) => {
             </span>
           </div>
           <div className="result__text">
-            { text || (status === 'success' ? 'Все в полоядке, изменения внесены' : 'Ой! Что-то произошло. Мы выясним что и свяжемся с вами') }
+            { text || (status === 'success' ? 'Все в порядке, изменения внесены' : 'Ой! Что-то произошло. Мы выясним что и свяжемся с вами') }
           </div>
           {
             (!links || !links.length) &&
