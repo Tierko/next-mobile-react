@@ -40,21 +40,27 @@ const SiteMap = () => ([
       <br />
       <Link className="link" to={Pages.Overview}>Обзор</Link>
       <br />
+      <Link className="link" to={Pages.Calls}>Звонки</Link>
+      <br />
       <Link className="link" to={Pages.AddPackage}>Докупка пакета</Link>
       <br />
-      <Link className="link" to={`${Pages.PayResult}/success`}>Успешная оплата</Link>
-      <br />
-      <Link className="link" to={`${Pages.PayResult}/error`}>Ошибка оплаты</Link>
+      <Link className="link" to={Pages.Pay}>Пополнение</Link>
       <br />
       <Link className="link" to={Pages.AutoPay}>Автоплатеж</Link>
       <br />
-      <Link className="link" to={`${Pages.AutoPayResult}/success`}>Сохранение автоплатежа, успешно</Link>
-      <br />
-      <Link className="link" to={`${Pages.AutoPayResult}/error`}>Сохранение автоплатежа, ошибка</Link>
-      <br />
       <Link className="link" to={Pages.Services}>Тарифы и услуги</Link>
       <br />
+      <Link className="link" to={Pages.History}>История</Link>
+      <br />
+      <Link className="link" to={Pages.Detail}>Детализация</Link>
+      <br />
       <Link className="link" to={Pages.Settings}>Настройки</Link>
+      <br />
+      <Link className="link" to={Pages.Settings}>Поддержка (в лк)</Link>
+      <br />
+      <Link className="link" to={`${Pages.Result}/success`}>Страница успхеа</Link>
+      <br />
+      <Link className="link" to={`${Pages.Result}/error`}>Страница ошибки</Link>
     </div>
   </div>,
 ]);

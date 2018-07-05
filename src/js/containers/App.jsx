@@ -12,9 +12,7 @@ import Settings from './Settings';
 import Services from './Services';
 import AddPackage from './AddPackage';
 import PayPackage from './PayPackage';
-import PayResult from './PayResult';
 import AutoPay from './AutoPay';
-import AutoPayResult from './AutoPayResult';
 import SupportDashboard from './SupportDashboard';
 import History from './History';
 import Detail from './Detail';
@@ -22,6 +20,7 @@ import Pay from './Pay';
 import Calls from './Calls';
 import Kit from './Kit';
 import Data from './Data';
+import Result from './Result';
 import { Pages } from '../constants';
 
 const App = () => (
@@ -36,20 +35,19 @@ const App = () => (
       <Route path={Pages.Conditions} component={Conditions} />
       <Route path={Pages.Support} component={Support} />
       <Route path={Pages.Dashboard} component={Overview} />
+      <Route path={Pages.Calls} component={Calls} />
+      <Route path={Pages.AddPackage} component={AddPackage} />
       <Route path={Pages.Pay} component={Pay} />
-      <Route path={Pages.Settings} component={Settings} />
       <Route path={Pages.Services} component={Services} />
+      <Route path={Pages.Settings} component={Settings} />
       <Route path={Pages.History} component={History} />
       <Route path={Pages.Detail} component={Detail} />
-      <Route path={Pages.AddPackage} component={AddPackage} />
       <Route path={Pages.PayPackage} component={PayPackage} />
-      <Route path={`${Pages.PayResult}/:type`} component={PayResult} />
       <Route path={Pages.AutoPay} component={AutoPay} />
-      <Route path={`${Pages.AutoPayResult}/:status`} component={AutoPayResult} />
       <Route path={Pages.SupportDashboard} component={SupportDashboard} />
-      <Route path={Pages.Calls} component={Calls} />
       <Route path={Pages.SiteMap} component={SiteMap} />
       <Route path={Pages.Data} component={Data} />
+      <Route path={`${Pages.Result}/:status`} component={Result} />
     </Switch>
   </div>
 );

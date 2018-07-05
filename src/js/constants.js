@@ -15,13 +15,12 @@ export const Pages = {
   Exit: '/',
   AddPackage: '/add-package',
   PayPackage: '/pay-package',
-  PayResult: '/pay-result',
   AutoPay: '/auto-pay',
-  AutoPayResult: '/auto-pay-result',
   SiteMap: '/sitemap',
   SupportDashboard: '/support-dashboard',
   Detail: '/detail',
   Calls: '/calls',
+  Result: '/result',
   Data: '/data',
 };
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import LinkBack from '../components/LinkBack';
@@ -33,7 +34,17 @@ class Detail extends Component {
     });
   };
 
-  order = () => {};
+  order = () => {
+    const { history } = this.props;
+
+    history.push({
+      pathname: `${Pages.Result}/success`,
+      state: {
+        title: 'Детализация заказана',
+        text: 'О расходах с 10 сентября по 21 октября 2018 в формате PDF на почту konstantinopolsky@gmail.com',
+      },
+    });
+  };
 
   render() {
     const { onChange, order } = this;
@@ -80,5 +91,9 @@ class Detail extends Component {
     ]);
   }
 }
+
+Detail.propTypes = {
+  history: PropTypes.shape().isRequired,
+};
 
 export default Detail;

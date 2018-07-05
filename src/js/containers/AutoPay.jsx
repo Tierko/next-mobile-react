@@ -60,7 +60,13 @@ class AutoPay extends Component {
     const { history } = this.props;
 
     if (unsaved) {
-      history.push(`${Pages.AutoPayResult}/success`);
+      history.push({
+        pathname: `${Pages.Result}/success`,
+        state: {
+          title: 'Автоплатеж сохранен',
+          text: 'Счет будет автоматически пополняться на 2 000 ₽ каждый месяц 10 числа до сентября 2018 включительно',
+        },
+      });
     }
   };
 

@@ -9,7 +9,7 @@ import Checkbox from './Checkbox';
 class Payment extends Component {
   state = {
     tab: 'card',
-    payment: '2000 ₽',
+    payment: 2000,
     selectedCard: 2,
     makeDefault: false,
     number: '',
@@ -31,9 +31,15 @@ class Payment extends Component {
   }];
 
   onChange = (name, value) => {
+    const { onSumChange } = this.props;
+
     this.setState({
       [name]: value,
     });
+
+    if (onSumChange) {
+      onSumChange(value);
+    }
   };
 
   changeTab = (e) => {
@@ -151,7 +157,9 @@ class Payment extends Component {
             <div className="payment__message">Для оплаты по тарифу Супервип на счету не хватает { sum } ₽</div>
           </Fragment>
         }
-        <Button className="button_pay-package" onClick={onPay} disabled={!payment.replace(/\D/g, '')}>Пополнить</Button>
+        <Button className="button_pay-package" onClick={onPay} disabled={!payment.toString().replace(/\D/g, '')}>
+          Пополнить
+        </Button>
       </div>
     );
   }
@@ -161,10 +169,12 @@ Payment.propTypes = {
   isEditable: PropTypes.bool.isRequired,
   sum: PropTypes.number,
   onPay: PropTypes.func.isRequired,
+  onSumChange: PropTypes.func,
 };
 
 Payment.defaultProps = {
   sum: 0,
+  onSumChange: null,
 };
 
 export default Payment;
