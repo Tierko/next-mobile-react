@@ -2,6 +2,7 @@ import balance from './balance';
 import history from './history';
 import operations from './operations';
 import packages from './packages';
+import payment from './payment';
 import remain from './remain';
 import roaming from './roaming';
 import tariff from './tariff';
@@ -11,6 +12,7 @@ const data = {
   history,
   operations,
   packages,
+  payment,
   remain,
   roaming,
   tariff,

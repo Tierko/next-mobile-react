@@ -8,10 +8,12 @@ const Balance = ({
   className,
   message,
 }) => (
-  <div className={`balance balance_${status} ${className}`}>
-    <div className="balance__title">Ваш баланс</div>
-    <div className="balance__sum">{formatCost(sum)}</div>
-    <div className="balance__next-pay">{message}</div>
+  <div className={`balance ${className}`}>
+    <div className={`balance__inner balance__inner_${status}`}>
+      <div className="balance__title">Ваш баланс</div>
+      <div className="balance__sum">{formatCost(sum)}</div>
+      <div className="balance__next-pay">{message}</div>
+    </div>
   </div>
 );
 

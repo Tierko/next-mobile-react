@@ -59,6 +59,18 @@ class Calls extends Component {
                 Нет операций
               </Button>
             </div>
+            <h2>История операций</h2>
+            <div style={{ display: 'flex' }}>
+              <Button onClick={() => setData('payment', 0)}>
+                Платеж 500 р через 15 дней
+              </Button>
+              <Button onClick={() => setData('payment', 1)}>
+                Платеж 1 000 р через 10 дней (желтый)
+              </Button>
+              <Button onClick={() => setData('payment', 2)}>
+                Платеж 2 000 р через 5 дней (красный)
+              </Button>
+            </div>
           </div>
         </div>
       </div>,

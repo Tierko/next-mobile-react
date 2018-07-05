@@ -10,7 +10,7 @@ import History from '../components/History';
 import Roaming from '../components/Roaming';
 import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
-import { getData } from '../utils';
+import { getData, formatCost, convertDays } from '../utils';
 
 class Overview extends Component {
   state = {
@@ -44,13 +44,19 @@ class Overview extends Component {
   render() {
     const { onPay, sumChange, onBuy } = this;
     const { sum } = this.state;
+    const status = (getData('payment').days === 10 && 'warn') || (getData('payment').days === 5 && 'error') || '';
+    console.log(status)
 
     return [
       <MobileNav key="nav" type="dashboard" />,
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content">
-          <Balance sum={getData('balance')} message="Следующий платеж: 2 000 ₽ через 10 дней " />
+          <Balance
+            sum={getData('balance')}
+            message={`Следующий платеж: ${formatCost(getData('payment').sum)} через ${getData('payment').days} дней`}
+            status={status}
+          />
           <OverviewPayment onChange={sumChange} onPay={onPay} sum={sum} />
           <Remain data={getData('remain')} tariff={getData('tariff')} buy={onBuy} />
           <History data={getData('history')} />

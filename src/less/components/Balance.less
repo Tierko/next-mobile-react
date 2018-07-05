@@ -1,6 +1,13 @@
 .balance {
-  &_error {
+  &__inner {
+    display: inline-block;
+    &_warn {
+      .gradient-orange;
+    }
 
+    &_error {
+      .gradient-red
+    }
   }
 
   &__sum {

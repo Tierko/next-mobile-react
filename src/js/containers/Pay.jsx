@@ -8,7 +8,6 @@ import Payment from '../components/Payment';
 import Button from '../components/Button';
 import PageFade from '../components/PageFade';
 import Popup from '../components/Popup';
-import ButtonIcon from '../components/ButtonIcon';
 import { Pages } from '../constants';
 import { formatCost } from '../utils';
 

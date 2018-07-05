@@ -138,6 +138,8 @@ export const weekdays = [
   'суббота',
 ];
 
+export const days = ['день', 'дня', 'дней'];
+
 export const weekDaysShort = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 
 export const units = {
