@@ -9,7 +9,7 @@ module.exports = (env) => {
 
   return {
     entry: {
-      bundle: './src/js/index.jsx',
+      bundle: ['babel-polyfill', './src/js/index.jsx'],
     },
 
     output: {
@@ -20,8 +20,9 @@ module.exports = (env) => {
 
     module: {
       rules: [{
-        test: /\.jsx$/,
+        test: [/\.jsx$/, /\.js$/],
         loader: 'babel-loader',
+        exclude: path.resolve(__dirname, 'node_modules'),
       }, {
         test: /\.less$/,
         loaders: [
