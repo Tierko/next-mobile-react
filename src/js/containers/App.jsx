@@ -21,6 +21,7 @@ import Calls from './Calls';
 import Kit from './Kit';
 import Data from './Data';
 import Result from './Result';
+import Roaming from './Roaming';
 import { Pages } from '../constants';
 
 const App = () => (
@@ -48,6 +49,7 @@ const App = () => (
       <Route path={Pages.SupportDashboard} component={SupportDashboard} />
       <Route path={Pages.Data} component={Data} />
       <Route path={`${Pages.Result}/:status`} component={Result} />
+      <Route path={Pages.Roaming} component={Roaming} />
     </Switch>
   </div>
 );
