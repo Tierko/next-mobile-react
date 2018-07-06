@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class MultipleInput extends Component {
-  state = {
-    values: [],
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      values: props.initValue.split(''),
+    };
+  }
 
   onChange = (e) => {
     const { count, onChange, name } = this.props;
@@ -101,12 +105,14 @@ MultipleInput.propTypes = {
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
   focus: PropTypes.bool,
+  initValue: PropTypes.string,
 };
 
 MultipleInput.defaultProps = {
   count: 4,
   className: '',
   focus: false,
+  initValue: '',
 };
 
 export default MultipleInput;

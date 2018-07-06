@@ -141,6 +141,7 @@
 
   &__error {
     .text-ellipsis;
+    .gradient-red;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -159,6 +160,11 @@
     &_hide {
       opacity: 0;
     }
+  }
+
+  &__value:focus ~ &__indicator,
+  &_active &__indicator {
+    background-color: @BLACK;
   }
 
   &__icon {
