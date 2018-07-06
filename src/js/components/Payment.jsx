@@ -7,16 +7,20 @@ import Tabs from './PaymentTabs';
 import Checkbox from './Checkbox';
 
 class Payment extends Component {
-  state = {
-    tab: 'card',
-    payment: 2000,
-    selectedCard: 2,
-    makeDefault: false,
-    number: '',
-    holder: '',
-    cvv: '',
-    date: '',
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      tab: 'card',
+      payment: props.sum,
+      selectedCard: 2,
+      makeDefault: false,
+      number: '',
+      holder: '',
+      cvv: '',
+      date: '',
+    };
+  }
 
   cards = [{
     id: 1,

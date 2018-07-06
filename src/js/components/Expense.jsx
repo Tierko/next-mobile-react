@@ -41,7 +41,7 @@ class Expense extends Component {
           <Fragment>
             <Grade data={data} onItemSelect={onMonthSelect} wide />
             <div className="expense__total">
-              <div className="expense__total-date">{months[item.month]} {item.year}</div>
+              <div className="expense__total-date">{months[item.date.month]} {item.date.year}</div>
               <div className="expense__total-cost">{formatCost(cost)}</div>
             </div>
 

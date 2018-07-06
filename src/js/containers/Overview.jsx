@@ -19,9 +19,11 @@ class Overview extends Component {
 
   onPay = () => {
     const { history } = this.props;
+    const { sum } = this.state;
 
     history.push({
       pathname: Pages.Pay,
+      state: { sum },
     });
   };
 

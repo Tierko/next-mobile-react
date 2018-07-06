@@ -9,13 +9,19 @@ import Button from '../components/Button';
 import PageFade from '../components/PageFade';
 import Popup from '../components/Popup';
 import { Pages } from '../constants';
-import { formatCost } from '../utils';
+import { formatCost, getData } from '../utils';
 
 class Pay extends Component {
-  state = {
-    sum: 2000,
-    showPopup: false,
-  };
+  constructor(props) {
+    super(props);
+    const state = props.location.state || {};
+    const sum = state.sum || getData('tariff').payment;
+
+    this.state = {
+      showPopup: false,
+      sum,
+    };
+  }
 
   onPay = () => {
     const { history } = this.props;
