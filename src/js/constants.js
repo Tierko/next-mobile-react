@@ -1,6 +1,6 @@
 export const Pages = {
   Kit: '/kit',
-  SignIn: '/',
+  SignIn: '/signin',
   SignUp: '/signup',
   Dashboard: '/cabinet',
   Support: '/support',
@@ -16,7 +16,7 @@ export const Pages = {
   AddPackage: '/add-package',
   PayPackage: '/pay-package',
   AutoPay: '/auto-pay',
-  SiteMap: '/sitemap',
+  SiteMap: '/',
   SupportDashboard: '/support-dashboard',
   Detail: '/detail',
   Calls: '/calls',

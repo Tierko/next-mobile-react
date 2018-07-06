@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MobileNav from '../components/MobileNav';
 import PageFade from '../components/PageFade';
 import { Pages, Statuses } from '../constants';
 
-const SiteMap = () => ([
-  <MobileNav key="nav" type="dashboard" />,
-  <div key="dashboard" className="dashboard">
+const SiteMap = () => (
+  <div key="dashboard" className="dashboard" style={{ maxWidth: 400, margin: '0 auto' }}>
     <div className="dashboard__content">
       <Link className="link" to={Pages.SignIn}>Вход</Link>
       <br />
@@ -62,7 +60,7 @@ const SiteMap = () => ([
       <br />
       <Link className="link" to={`${Pages.Result}/error`}>Страница ошибки</Link>
     </div>
-  </div>,
-]);
+  </div>
+);
 
 export default PageFade(SiteMap);
