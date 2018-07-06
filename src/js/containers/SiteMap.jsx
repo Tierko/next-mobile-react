@@ -56,9 +56,9 @@ const SiteMap = () => ([
       <br />
       <Link className="link" to={Pages.Settings}>Настройки</Link>
       <br />
-      <Link className="link" to={Pages.Settings}>Поддержка (в лк)</Link>
+      <Link className="link" to={Pages.SupportDashboard}>Поддержка (в лк)</Link>
       <br />
-      <Link className="link" to={`${Pages.Result}/success`}>Страница успхеа</Link>
+      <Link className="link" to={`${Pages.Result}/success`}>Страница успеха</Link>
       <br />
       <Link className="link" to={`${Pages.Result}/error`}>Страница ошибки</Link>
     </div>
