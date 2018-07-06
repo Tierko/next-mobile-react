@@ -1,3 +1,3 @@
-const balance = [500, 5000, 0];
+const balance = [500, 5000, 100];
 
 export default balance;

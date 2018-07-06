@@ -14,7 +14,7 @@ import { getData, formatCost, convertDays } from '../utils';
 
 class Overview extends Component {
   state = {
-    sum: 2000,
+    sum: getData('balance') < getData('tariff').payment ? getData('tariff').payment - getData('balance') : getData('tariff').payment,
   };
 
   onPay = () => {
@@ -44,8 +44,16 @@ class Overview extends Component {
   render() {
     const { onPay, sumChange, onBuy } = this;
     const { sum } = this.state;
-    const status = (getData('payment').days === 10 && 'warn') || (getData('payment').days === 5 && 'error') || '';
-    console.log(status)
+    const data = getData('payment');
+    let status = '';
+
+    if (data.days > 5 && data.days <= 10 && getData('balance') < getData('tariff').payment) {
+      status = 'warn';
+    }
+
+    if (data.days <= 5 && getData('balance') < getData('tariff').payment) {
+      status = 'error';
+    }
 
     return [
       <MobileNav key="nav" type="dashboard" />,
@@ -54,7 +62,7 @@ class Overview extends Component {
         <div className="dashboard__content">
           <Balance
             sum={getData('balance')}
-            message={`Следующий платеж: ${formatCost(getData('payment').sum)} через ${getData('payment').days} дней`}
+            message={`Следующий платеж: ${formatCost(getData('tariff').payment)} через ${getData('payment').days} ${convertDays(getData('payment').days)}`}
             status={status}
           />
           <OverviewPayment onChange={sumChange} onPay={onPay} sum={sum} />

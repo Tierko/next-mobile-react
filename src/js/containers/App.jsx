@@ -26,6 +26,7 @@ import { Pages } from '../constants';
 const App = () => (
   <div>
     <Switch>
+      <Route path={Pages.SiteMap} component={SiteMap} exact />
       <Route path={Pages.SignIn} component={SignIn} exact />
       <Route path={Pages.Kit} component={Kit} />
       <Route path={Pages.SignUp} component={SignUp} exact />
@@ -45,7 +46,6 @@ const App = () => (
       <Route path={Pages.PayPackage} component={PayPackage} />
       <Route path={Pages.AutoPay} component={AutoPay} />
       <Route path={Pages.SupportDashboard} component={SupportDashboard} />
-      <Route path={Pages.SiteMap} component={SiteMap} />
       <Route path={Pages.Data} component={Data} />
       <Route path={`${Pages.Result}/:status`} component={Result} />
     </Switch>

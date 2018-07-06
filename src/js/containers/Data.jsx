@@ -43,7 +43,7 @@ class Calls extends Component {
                 5000
               </Button>
               <Button onClick={() => setData('balance', 2)}>
-                0
+                100
               </Button>
             </div>
             <h2>История расходов</h2>
@@ -64,16 +64,16 @@ class Calls extends Component {
                 Нет операций
               </Button>
             </div>
-            <h2>Статус</h2>
+            <h2>Через какое время платеж</h2>
             <div style={style}>
               <Button onClick={() => setData('payment', 0)}>
-                Платеж 500 р через 15 дней
+                Через 15 дней
               </Button>
               <Button onClick={() => setData('payment', 1)}>
-                Платеж 1 000 р через 10 дней (желтый)
+                Через 10 дней
               </Button>
               <Button onClick={() => setData('payment', 2)}>
-                Платеж 2 000 р через 5 дней (красный)
+                Через 5 дней
               </Button>
             </div>
           </div>

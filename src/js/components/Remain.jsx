@@ -40,7 +40,7 @@ const Remain = ({ data, buy, tariff }) => (
 
 Remain.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  tariff: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  tariff: PropTypes.PropTypes.shape().isRequired,
   buy: PropTypes.func.isRequired,
 };
 

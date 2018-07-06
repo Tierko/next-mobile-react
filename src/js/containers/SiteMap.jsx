@@ -6,6 +6,8 @@ import { Pages, Statuses } from '../constants';
 const SiteMap = () => (
   <div key="dashboard" className="dashboard" style={{ maxWidth: 400, margin: '0 auto' }}>
     <div className="dashboard__content">
+      <Link className="link" to={Pages.Data}>Демо данные</Link>
+      <br />
       <Link className="link" to={Pages.SignIn}>Вход</Link>
       <br />
       <Link className="link" to={Pages.SignUp}>Регистрация</Link>
