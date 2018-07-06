@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Button from '../components/Button';
+import { getData } from '../utils';
 
 class Calls extends Component {
   setData = (type, value) => {
@@ -24,55 +25,55 @@ class Calls extends Component {
           <div>
             <h2>Тариф</h2>
             <div style={style}>
-              <Button onClick={() => setData('tariff', 0)}>
+              <Button onClick={() => setData('tariff', 0)} disabled={getData('tariff').id === 1}>
                 Супервип
               </Button>
-              <Button onClick={() => setData('tariff', 1)}>
+              <Button onClick={() => setData('tariff', 1)} disabled={getData('tariff').id === 2}>
                 Премиум
               </Button>
-              <Button onClick={() => setData('tariff', 2)}>
+              <Button onClick={() => setData('tariff', 2)} disabled={getData('tariff').id === 3}>
                 Лайт
               </Button>
             </div>
             <h2>Баланс</h2>
             <div style={style}>
-              <Button onClick={() => setData('balance', 0)}>
+              <Button onClick={() => setData('balance', 0)} disabled={getData('balance') === 500}>
                 500
               </Button>
-              <Button onClick={() => setData('balance', 1)}>
+              <Button onClick={() => setData('balance', 1)} disabled={getData('balance') === 5000}>
                 5000
               </Button>
-              <Button onClick={() => setData('balance', 2)}>
+              <Button onClick={() => setData('balance', 2)} disabled={getData('balance') === 100}>
                 100
               </Button>
             </div>
             <h2>История расходов</h2>
             <div style={style}>
-              <Button onClick={() => setData('history', 0)}>
+              <Button onClick={() => setData('history', 0)} disabled={getData('history').length !== 0}>
                 за 2 месяца
               </Button>
-              <Button onClick={() => setData('history', 1)}>
+              <Button onClick={() => setData('history', 1)} disabled={getData('history').length === 0}>
                 Без истории
               </Button>
             </div>
             <h2>История операций</h2>
             <div style={style}>
-              <Button onClick={() => setData('operations', 0)}>
+              <Button onClick={() => setData('operations', 0)} disabled={getData('operations').length !== 0}>
                 Есть операции
               </Button>
-              <Button onClick={() => setData('operations', 1)}>
+              <Button onClick={() => setData('operations', 1)} disabled={getData('operations').length === 0}>
                 Нет операций
               </Button>
             </div>
             <h2>Через какое время платеж</h2>
             <div style={style}>
-              <Button onClick={() => setData('payment', 0)}>
+              <Button onClick={() => setData('payment', 0)} disabled={getData('payment').days === 15}>
                 Через 15 дней
               </Button>
-              <Button onClick={() => setData('payment', 1)}>
+              <Button onClick={() => setData('payment', 1)} disabled={getData('payment').days === 10}>
                 Через 10 дней
               </Button>
-              <Button onClick={() => setData('payment', 2)}>
+              <Button onClick={() => setData('payment', 2)} disabled={getData('payment').days === 5}>
                 Через 5 дней
               </Button>
             </div>
