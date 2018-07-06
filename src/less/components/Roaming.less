@@ -1,5 +1,9 @@
 .roaming {
-  max-width: 100%;
+  @media (max-width: @BREAK-POINT) {
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+  }
 
   &__title {
     .link;
@@ -7,37 +11,42 @@
     display: block;
   }
 
-  &__items {
+  &__list {
+    display: none;
 
+    @media (max-width: @BREAK-POINT) {
+      display: block;
+    }
   }
 
   &__item {
-    display: flex;
-    margin-bottom: 22px;
-
-    @media (max-width: @BREAK-POINT) {
-      display: block;
-    }
+    //display: flex;
+    //margin-bottom: 22px;
+    //
+    //@media (max-width: @BREAK-POINT) {
+    //  display: block;
+    //}
   }
 
   &__item-name {
-    flex: 0 0 150px;
+    //flex: 0 0 150px;
     padding-right: 15px;
+    vertical-align: top;
   }
 
   &__item-info {
-    display: flex;
-    flex: 1 1 auto;
-    margin-bottom: 10px;
-
-    @media (max-width: @BREAK-POINT) {
-      display: block;
-    }
+    //display: flex;
+    //flex: 1 1 auto;
+    //margin-bottom: 10px;
+    //
+    //@media (max-width: @BREAK-POINT) {
+    //  display: block;
+    //}
   }
 
   &__item-desc {
     padding-right: 15px;
-    flex: 15 15 auto;
+    //flex: 15 15 auto;
     padding-left: 18px;
     background-repeat: no-repeat;
     background-position: 0 5px;
@@ -61,5 +70,13 @@
 
   &__item-conditions {
     flex: 8 8 auto;
+  }
+
+  &__table {
+    width: 100%;
+
+    @media (max-width: @BREAK-POINT) {
+      display: none;
+    }
   }
 }

@@ -1,10 +1,16 @@
 .history {
   padding: 60px 0;
 
+  @media (max-width: @BREAK-POINT) {
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+  }
+
   &__expense {
     .h1;
     margin-bottom: 16px;
-    margin-left: -24px;
+    text-indent: -24px;
     text-transform: lowercase;
   }
 }

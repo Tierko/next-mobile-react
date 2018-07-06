@@ -2,6 +2,14 @@
   display: flex;
   color: rgba(0, 0, 0, 0.3);
   padding-top: 100px;
+  width: 100%;
+
+  @media (max-width: @BREAK-POINT) {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+  }
 
   &__copy {
     margin-right: 43px;
@@ -9,6 +17,11 @@
 
   &__dev {
     display: flex;
+
+    @media (max-width: @BREAK-POINT) {
+      display: block;
+      margin-top: 20px;
+    }
   }
 
   &__dev-img {
@@ -18,6 +31,10 @@
   &__dev-text {
     .small;
     margin-left: 10px;
+
+    @media (max-width: @BREAK-POINT) {
+      margin-left: 0;
+    }
   }
 
   &__link {

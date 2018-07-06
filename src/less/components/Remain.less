@@ -1,6 +1,12 @@
 .remain {
   max-width: 450px;
 
+  @media (max-width: @BREAK-POINT) {
+    width: 100%;
+    max-width: 450px;
+    margin: 60px auto 0;
+  }
+
   &__title {
     margin-bottom: 15px;
   }

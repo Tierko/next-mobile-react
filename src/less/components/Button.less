@@ -65,6 +65,10 @@
   &_payment {
     min-width: 128px;
     flex-shrink: 0;
+
+    @media (max-width: @BREAK-POINT) {
+      width: 100%;
+    }
   }
 
   &_settings {

@@ -1,4 +1,10 @@
 .balance {
+  @media (max-width: @BREAK-POINT) {
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+  }
+
   &__inner {
     display: inline-block;
     &_warn {

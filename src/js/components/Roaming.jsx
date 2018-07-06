@@ -6,7 +6,7 @@ import { Pages } from '../constants';
 const Roaming = ({ className, data }) => (
   <div className={`roaming ${className}`}>
     <Link className="roaming__title" to={Pages.Roaming}>Роуминг</Link>
-    <div className="roaming__items">
+    <div className="roaming__list">
       {
         data.map(i => (
           <div key={i.id} className="roaming__item">
@@ -27,6 +27,28 @@ const Roaming = ({ className, data }) => (
         ))
       }
     </div>
+    <table className="roaming__table" cellSpacing={0} cellPadding={0}>
+      <tbody>
+        <tr>
+          <td rowSpan={2} className="roaming__item-name">
+            <Link to={Pages.Roaming} className="link">Зона 1</Link>
+          </td>
+          <td className="roaming__item-desc roaming__item-desc_fast">Пакет быстрого интернета</td>
+          <td>2,01 ГБ еще 12 дней</td>
+        </tr>
+        <tr>
+          <td className="roaming__item-desc roaming__item-desc_regular">Помегабайтный интернет</td>
+          <td>58 ₽ / Мб</td>
+        </tr>
+        <tr>
+          <td className="roaming__item-name">
+            <Link to={Pages.Roaming} className="link">Зона 1</Link>
+          </td>
+          <td className="roaming__item-desc roaming__item-desc_regular">Помегабайтный интернет</td>
+          <td>320 ₽ / Мб</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 );
 
