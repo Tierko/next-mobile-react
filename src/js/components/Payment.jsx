@@ -5,6 +5,7 @@ import Button from './Button';
 import Card from './Card';
 import Tabs from './PaymentTabs';
 import Checkbox from './Checkbox';
+import payment from "../../data/payment";
 
 class Payment extends Component {
   constructor(props) {
@@ -36,6 +37,10 @@ class Payment extends Component {
 
   onChange = (name, value) => {
     const { onSumChange } = this.props;
+
+    if (name === 'payment' && value.toString().length > 5) {
+      return;
+    }
 
     this.setState({
       [name]: value,
