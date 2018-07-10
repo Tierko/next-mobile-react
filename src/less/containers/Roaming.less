@@ -1,0 +1,101 @@
+.roaming {
+  padding: 0 75px;
+  position: relative;
+
+  &__title {
+    .h1;
+    margin-top: 30px;
+    position: relative;
+  }
+}
+
+.roaming-zone {
+  display: none;
+
+  &_show {
+    display: block;
+  }
+
+  &__countries {
+    .link-dashed;
+  }
+
+  &__subtitle {
+    margin-top: 40px;
+    position: relative;
+
+    &_fast:before {
+      content: '';
+      position: absolute;
+      left: -15px;
+      width: 9px;
+      height: @LINE-HEIGHT-BASE;
+      background: url("/media/icons/fast.svg") no-repeat 50% 50%;
+    }
+
+    &_regular:before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      width: 14px;
+      height: @LINE-HEIGHT-BASE;
+      background: url("/media/icons/regular.svg") no-repeat 50% 50%;
+    }
+  }
+
+  &__regular {
+    display: flex;
+    margin-top: 10px;
+  }
+
+  &__tariff {
+    display: flex;
+    margin-top: 40px;
+  }
+
+  &__tariff-item:not(:last-child) {
+    padding-right: 50px;
+  }
+
+  &__more {
+    .link-dashed;
+    margin-top: 40px;
+  }
+
+  &__note {
+    color: @GRAY-DARK;
+  }
+
+  &__big {
+    .h2;
+    font-weight: 300;
+  }
+}
+
+.roaming-countries {
+  margin-top: 60px;
+  padding-left: 150px;
+  position: relative;
+}
+
+.roaming-country {
+  display: block;
+  text-decoration: none;
+  padding: 10px 0 10px 30px;
+  position: relative;
+  color: inherit;
+
+  &__img {
+    position: absolute;
+    left: 0;
+    top: 15px;
+  }
+
+  &__name {
+    border-bottom: 1px solid @GRAY;
+  }
+
+  &:hover &__name {
+    border-bottom-color: @BLACK;
+  }
+}

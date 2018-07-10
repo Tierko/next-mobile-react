@@ -5,9 +5,9 @@ import LinkBack from '../components/LinkBack';
 import { Pages } from '../constants';
 
 const RoamingCountries = ({ items }) => (
-  <div className="roaming-countries">
-    <div className="roaming-countries__title">
-      <LinkBack className="link-back_roaming-countries" href={Pages.Roaming} />
+  <div className="roaming">
+    <div className="roaming__title">
+      <LinkBack className="link-back_roaming" href={Pages.Roaming} />
       Страны Зоны 1
     </div>
     <div>

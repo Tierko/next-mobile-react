@@ -5,11 +5,12 @@ import operations from './operations';
 import packages from './packages';
 import payment from './payment';
 import remain from './remain';
+import roamingInternet from './roaming-internet';
 import roamingZones from './roaming-zones';
 import roaming from './roaming';
 import tariff from './tariff';
 
-const data = {
+export default {
   balance,
   countries,
   history,
@@ -17,9 +18,8 @@ const data = {
   packages,
   payment,
   remain,
+  roamingInternet,
   roamingZones,
   roaming,
   tariff,
 };
-
-export default data;

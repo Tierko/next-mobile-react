@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
@@ -6,6 +6,7 @@ import Map from '../components/Map';
 import Tabs from '../components/Tabs';
 import RoamingZone from '../components/RoamingZone';
 import RoamingCountries from '../components/RoamingCountries';
+import RoamingInternet from '../components/RoamingInternet';
 import data from '../../data';
 
 class Roaming extends Component {
@@ -21,9 +22,9 @@ class Roaming extends Component {
 
   render() {
     const { tab } = this.state;
-    const { onChange } = this;
     const { roamingZones, countries } = data;
-    const { match: { params: { id: zoneId } } } = this.props;
+    const { match: { params: { type, zone } }, history } = this.props;
+    const { onChange } = this;
 
     return ([
       <MobileNav key="nav" type="dashboard" />,
@@ -32,19 +33,23 @@ class Roaming extends Component {
         <div className="dashboard__content dashboard__content_roaming">
           <Map />
           {
-            !zoneId &&
-            <Fragment>
+            !zone &&
+            <div className="roaming">
               <Tabs tabs={roamingZones} active={tab} onTabChange={v => onChange('tab', v)} />
               {
                 roamingZones.map(z => (
-                  <RoamingZone key={z.id} data={z} active={tab} />
+                  <RoamingZone key={z.id} data={z} active={tab} history={history} />
                 ))
               }
-            </Fragment>
+            </div>
           }
           {
-            zoneId &&
+            zone && type === 'countries' &&
             <RoamingCountries items={countries} />
+          }
+          {
+            zone && type === 'internet' &&
+            <RoamingInternet />
           }
         </div>
       </div>,
@@ -54,6 +59,7 @@ class Roaming extends Component {
 
 Roaming.propTypes = {
   match: PropTypes.shape().isRequired,
+  history: PropTypes.shape().isRequired,
 };
 
 export default Roaming;

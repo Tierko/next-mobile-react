@@ -49,7 +49,7 @@ const App = () => (
       <Route path={Pages.SupportDashboard} component={SupportDashboard} />
       <Route path={Pages.Data} component={Data} />
       <Route path={`${Pages.Result}/:status`} component={Result} />
-      <Route path={`${Pages.Roaming}/zone/:id`} component={Roaming} />
+      <Route path={`${Pages.Roaming}/:type/:zone`} component={Roaming} />
       <Route path={Pages.Roaming} component={Roaming} exact />
     </Switch>
   </div>
