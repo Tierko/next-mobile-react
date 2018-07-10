@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ProgressLinear from './ProgressLinear';
 import Button from './Button';
 import CheckboxSlide from './CheckboxSlide';
+import { Pages } from '../constants';
 
 class RoamingZone extends Component {
   state = {
@@ -29,7 +30,7 @@ class RoamingZone extends Component {
     return (
       <div className={cs('roaming-zone', { 'roaming-zone_show': data.id === active })}>
         <div className="roaming-zone__title">{data.title}</div>
-        <Link to="#" className="roaming-zone__countries">Австрия, Бельгия и еще 45 стран</Link>
+        <Link to={`${Pages.Roaming}/zone/${data.id}`} className="roaming-zone__countries">Австрия, Бельгия и еще 45 стран</Link>
         <div className="roaming-zone__subtitle roaming-zone__subtitle_fast">
           Пакет быстрого интернета <span className="roaming-zone__note">(еще 30 дней)</span>
         </div>
@@ -68,5 +69,10 @@ class RoamingZone extends Component {
     );
   }
 }
+
+RoamingZone.propTypes = {
+  data: PropTypes.shape().isRequired,
+  active: PropTypes.number.isRequired,
+};
 
 export default RoamingZone;
