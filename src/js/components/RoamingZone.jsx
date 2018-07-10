@@ -66,7 +66,7 @@ class RoamingZone extends Component {
             </div>
           </div>
         </div>
-        <Link to="#" className="roaming-zone__more">Подробнее о тарифах в Зоне 1</Link>
+        <Link to={`${Pages.Roaming}/zone-tariff/${data.id}`} className="roaming-zone__more">Подробнее о тарифах в Зоне 1</Link>
       </div>
     );
   }

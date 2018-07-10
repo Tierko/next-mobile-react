@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import LinkBack from '../components/LinkBack';
 import { Pages } from '../constants';
 
-const RoamingCountries = ({ items }) => (
+const RoamingCountries = ({ items, id }) => (
   <div className="roaming">
     <div className="roaming__title">
       <LinkBack className="link-back_roaming" href={Pages.Roaming} />
@@ -13,7 +13,7 @@ const RoamingCountries = ({ items }) => (
     <div>
       {
         items.map(i => (
-          <Link key={i.id} className="roaming-country" to={Pages.Roaming}>
+          <Link key={i.id} className="roaming-country" to={`${Pages.Roaming}/country-tariff/${id}`}>
             <img className="roaming-country__img" src={`/media/flags/${i.flag}`} alt={i.title} />
             <span className="roaming-country__name">{i.title}</span>
           </Link>
@@ -25,6 +25,7 @@ const RoamingCountries = ({ items }) => (
 
 RoamingCountries.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default RoamingCountries;

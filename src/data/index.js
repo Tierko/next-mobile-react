@@ -6,6 +6,7 @@ import packages from './packages';
 import payment from './payment';
 import remain from './remain';
 import roamingInternet from './roaming-internet';
+import roamingTariffZone from './roaming-tariff-zone';
 import roamingZones from './roaming-zones';
 import roaming from './roaming';
 import tariff from './tariff';
@@ -19,6 +20,7 @@ export default {
   payment,
   remain,
   roamingInternet,
+  roamingTariffZone,
   roamingZones,
   roaming,
   tariff,

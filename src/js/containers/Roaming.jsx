@@ -7,6 +7,8 @@ import Tabs from '../components/Tabs';
 import RoamingZone from '../components/RoamingZone';
 import RoamingCountries from '../components/RoamingCountries';
 import RoamingInternet from '../components/RoamingInternet';
+import RoamingTariffZone from '../components/RoamingTariffZone';
+import RoamingTariffCountry from '../components/RoamingTariffCountry';
 import data from '../../data';
 
 class Roaming extends Component {
@@ -45,11 +47,19 @@ class Roaming extends Component {
           }
           {
             zone && type === 'countries' &&
-            <RoamingCountries items={countries} />
+            <RoamingCountries items={countries} id={zone} />
           }
           {
             zone && type === 'internet' &&
             <RoamingInternet />
+          }
+          {
+            zone && type === 'zone-tariff' &&
+            <RoamingTariffZone id={zone} />
+          }
+          {
+            zone && type === 'country-tariff' &&
+            <RoamingTariffCountry id={zone} />
           }
         </div>
       </div>,
