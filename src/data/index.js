@@ -1,4 +1,5 @@
 import balance from './balance';
+import countries from './countries';
 import history from './history';
 import operations from './operations';
 import packages from './packages';
@@ -10,6 +11,7 @@ import tariff from './tariff';
 
 const data = {
   balance,
+  countries,
   history,
   operations,
   packages,

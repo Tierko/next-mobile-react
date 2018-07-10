@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>HT</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="13.6363636" rx="1"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#F0F0F0" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-4" x="0" y="0" width="6.66666667" height="5.45454545" rx="0.666666667"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-28.000000, -364.000000)">
+            <g id="HT" transform="translate(28.000000, 364.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <rect id="Rectangle-2" fill="#112EBC" mask="url(#mask-2)" x="0" y="0" width="20" height="6.36363636"></rect>
+                <rect id="Rectangle-2" fill="#E3264A" mask="url(#mask-2)" x="0" y="6.36363636" width="20" height="7.27272727"></rect>
+                <g id="Rectangle-180" mask="url(#mask-2)">
+                    <g transform="translate(6.666667, 4.545455)">
+                        <mask id="mask-5" fill="white">
+                            <use xlink:href="#path-4"></use>
+                        </mask>
+                        <use id="Mask" stroke="none" fill="url(#linearGradient-3)" fill-rule="evenodd" xlink:href="#path-4"></use>
+                        <path d="M0.333333333,4.75571581 L0.333333333,5.12121212 L6.33333333,5.12121212 L6.33333333,4.75571581 L5.43717298,4.32800292 C5.03015118,4.13374251 4.30717768,3.96969697 3.8578869,3.96969697 L2.80877976,3.96969697 C2.35441975,3.96969697 1.63934947,4.13238992 1.22949368,4.32800292 L0.333333333,4.75571581 Z" id="Rectangle-181" stroke="#366C14" stroke-width="0.666666667" fill="#AABCAE" fill-rule="evenodd" mask="url(#mask-5)"></path>
+                        <ellipse id="Oval-6" stroke="none" fill="#D4B872" fill-rule="evenodd" mask="url(#mask-5)" cx="3.33333333" cy="2.27272727" rx="1.42857143" ry="1.36363636"></ellipse>
+                        <path d="M1.28571429,2.94668243 L1.28571429,3.8758538 C1.28571429,4.06394691 1.43263857,4.21212121 1.61450341,4.21212121 L5.05216326,4.21212121 C5.2320781,4.21212121 5.38095238,4.06179072 5.38095238,3.8758538 L5.38095238,2.94668243 L4.06404837,3.95231822 C3.65306708,4.26615848 3.01377586,4.26629308 2.6026183,3.95231822 L1.28571429,2.94668243 Z" id="Rectangle-182" stroke="#0D3488" stroke-width="0.666666667" fill="#C28321" fill-rule="evenodd" mask="url(#mask-5)"></path>
+                        <path d="M2.14066142,1.13426772 C2.01037772,1.009906 2.05837431,0.909090909 2.23251252,0.909090909 L4.43415415,0.909090909 C4.61516581,0.909090909 4.64980716,1.01609317 4.52600525,1.13426772 L3.56923285,2.04755046 C3.43894914,2.17191218 3.22123573,2.16572501 3.09743382,2.04755046 L2.14066142,1.13426772 Z" id="Rectangle-183" stroke="none" fill="#216C30" fill-rule="evenodd" mask="url(#mask-5)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

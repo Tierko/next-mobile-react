@@ -1,0 +1,36 @@
+.combo-box {
+  position: relative;
+  height: 56px;
+  background-color: #f1f0f6;
+
+  &__clear {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 75px;
+    background: url("/media/icons/x.svg") 50% no-repeat;
+    background-size: 25px auto;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  &__value {
+    width: 100%;
+    height: 100%;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: 300;
+    border: none;
+    background: transparent url("/media/icons/search.svg") 30px 50% no-repeat;
+    padding: 0 75px;
+  }
+
+  &__title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 75px;
+  }
+}

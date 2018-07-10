@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>GD</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+        <rect id="path-3" x="0" y="0" width="16.1904762" height="10.2666667"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#E21C30" offset="0%"></stop>
+            <stop stop-color="#CE1225" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-508.000000, -316.000000)">
+            <g id="GD" transform="translate(508.000000, 316.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <rect id="Mask" fill="#E42235" mask="url(#mask-2)" x="0" y="0" width="20" height="14"></rect>
+                <g id="Rectangle-1128" mask="url(#mask-2)">
+                    <g transform="translate(1.904762, 1.866667)">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <use id="Mask" stroke="none" fill="#079B77" fill-rule="evenodd" xlink:href="#path-3"></use>
+                        <path d="M1.233218,5.22559677 C1.50286297,5.64848848 1.88998803,5.92763482 2.25056073,5.99927382 C2.44906968,6.03871381 2.08562177,5.146549 2.24400132,5.04956181 C2.37913794,4.96680792 3.02932404,5.70872448 3.08625834,5.55393688 C3.21725364,5.19779929 3.13997835,4.69347295 2.8485477,4.23641414 C2.43045295,3.5807045 2.41413089,4.01348475 1.28385533,3.54373812 C1.40203264,4.2155149 0.815123242,4.56988713 1.233218,5.22559677 L1.233218,5.22559677 Z" id="Oval-180" stroke="none" fill="#FFD938" fill-rule="evenodd" mask="url(#mask-4)"></path>
+                        <path d="M0,0 L16.1904762,0 L8.0952381,5.13333333 L0,0 Z M0,10.2666667 L8.0952381,5.13333333 L16.1904762,10.2666667 L0,10.2666667 Z" id="Rectangle-1129" stroke="none" fill="#FFD93B" fill-rule="evenodd" mask="url(#mask-4)"></path>
+                        <ellipse id="Oval-179" stroke="none" fill="url(#linearGradient-5)" fill-rule="evenodd" mask="url(#mask-4)" cx="8.0952381" cy="5.13333333" rx="2.38095238" ry="2.33333333"></ellipse>
+                        <polygon id="Star-96" stroke="none" fill="#FFD938" fill-rule="evenodd" mask="url(#mask-4)" points="8.0952381 5.85321062 6.97564714 6.64349839 7.39662179 5.35578765 6.28370187 4.55650161 7.66346947 4.55094038 8.0952381 3.26666667 8.52700672 4.55094038 9.90677432 4.55650161 8.7938544 5.35578765 9.21482905 6.64349839"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
