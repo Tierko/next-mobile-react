@@ -9,7 +9,7 @@ import InputRuble from '../components/InputRuble';
 import Select from '../components/Select';
 import Button from '../components/Button';
 import PageFade from '../components/PageFade';
-import { Pages, months } from '../constants';
+import { Pages, MONTHS } from '../constants';
 
 class AutoPay extends Component {
   static days = Array(28).fill(0).map((_, i) => i + 1);
@@ -23,7 +23,7 @@ class AutoPay extends Component {
     const mm = m.map((d, i) => {
       const tmp = new Date(year, month + i + 1);
 
-      return `${months[tmp.getMonth()]} ${tmp.getFullYear()}`;
+      return `${MONTHS[tmp.getMonth()]} ${tmp.getFullYear()}`;
     });
 
     mm.push('Бессрочно');
@@ -61,7 +61,7 @@ class AutoPay extends Component {
 
     if (unsaved) {
       history.push({
-        pathname: `${Pages.Result}/success`,
+        pathname: `${Pages.RESULT}/success`,
         state: {
           title: 'Автоплатеж сохранен',
           text: 'Счет будет автоматически пополняться на 2 000 ₽ каждый месяц 10 числа до сентября 2018 включительно',
@@ -89,7 +89,7 @@ class AutoPay extends Component {
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content">
-          <LinkBack className="link-back_offset-bottom" href={Pages.Overview} />
+          <LinkBack className="link-back_offset-bottom" href={Pages.OVERVIEW} />
           <div className="dashboard__header">Подключение автоплатежа</div>
           <div className="auto-pay">
             <div className="auto-pay__section">

@@ -35,7 +35,7 @@ class SignIn extends Component {
     const { history } = this.props;
 
     if (code.length === 4) {
-      history.push(Pages.Dashboard);
+      history.push(Pages.DASHBOARD);
     }
   };
 
@@ -61,7 +61,7 @@ class SignIn extends Component {
           }
           <MobileCode className="mobile-code_sign-in" phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} />
           <div className="welcome__footer">
-            <Link className="link-nav" to={Pages.SignUp}>Регистрация</Link>
+            <Link className="link-nav" to={Pages.SIGN_UP}>Регистрация</Link>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { units, days } from './constants';
+import { units, DAYS } from './constants';
 import data from '../data';
 
 export const checkCardNumber = str => str && str.replace(/\D/g, '').length === 16;
@@ -32,12 +32,12 @@ export const getData = type => data[type][localStorage[type] || 0] || {};
 export const convertDays = (n) => {
   const mod = n % 10;
   if (mod === 1) {
-    return days[0];
+    return DAYS[0];
   }
 
   if (mod === 2 || mod === 3 || mod === 4) {
-    return days[1];
+    return DAYS[1];
   }
 
-  return days[2];
+  return DAYS[2];
 };

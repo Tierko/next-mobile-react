@@ -5,10 +5,10 @@ import Select from '../components/Select';
 import Button from '../components/Button';
 import { formatCost } from '../utils';
 import {
-  historyFilters,
-  monthsM,
-  historyTitles,
-  monthsShort,
+  HISTORY_FILTERS,
+  MONTHS_M,
+  HISTORY_TITLES,
+  MONTHS_SHORT,
 } from '../constants';
 
 class Operations extends Component {
@@ -54,13 +54,13 @@ class Operations extends Component {
   };
 
   static replaceMonth = (value) => {
-    const index = monthsM.findIndex(d => value.indexOf(d) !== -1);
+    const index = MONTHS_M.findIndex(d => value.indexOf(d) !== -1);
 
-    return value.replace(monthsM[index], monthsShort[index]);
+    return value.replace(MONTHS_M[index], MONTHS_SHORT[index]);
   };
 
   state = {
-    filterBy: historyFilters[0],
+    filterBy: HISTORY_FILTERS[0],
     periodStart: '29 сентября 2020',
     periodEnd: '30 сентября 2020',
   };
@@ -133,7 +133,7 @@ class Operations extends Component {
                   <Select
                     className="select_operations-filter"
                     onSelect={v => onChange('filterBy', v)}
-                    items={historyFilters}
+                    items={HISTORY_FILTERS}
                     value={filterBy}
                   />
                 </td>
@@ -150,13 +150,13 @@ class Operations extends Component {
                       className="operations__cell operations__cell_date"
                       rowSpan={sameDateCount(filteredData, d.date)}
                     >
-                      {d.date.day} {monthsM[d.date.month]}
+                      {d.date.day} {MONTHS_M[d.date.month]}
                     </td>
                   }
                   <td className="operations__cell operations__cell_time">{d.time}</td>
                   <td className="operations__cell operations__cell_type">
                     <div>
-                      {historyTitles.find(f => f.id === d.type).title}
+                      {HISTORY_TITLES.find(f => f.id === d.type).title}
                     </div>
                     <div className="operations__note">{d.note}</div>
                   </td>
@@ -208,7 +208,7 @@ class Operations extends Component {
           <Select
             className="select_operations-filter-list"
             onSelect={v => onChange('filterBy', v)}
-            items={historyFilters}
+            items={HISTORY_FILTERS}
             value={filterBy}
           />
           {
@@ -216,10 +216,10 @@ class Operations extends Component {
               <div key={d.id} className="operations__item">
                 {
                   showDate(filteredData, i) &&
-                  <div className="operations__item-date">{d.date.day} {monthsM[d.date.month]}</div>
+                  <div className="operations__item-date">{d.date.day} {MONTHS_M[d.date.month]}</div>
                 }
                 <div className="operations__item-row">
-                  <div>{historyTitles.find(f => f.id === d.type).title}</div>
+                  <div>{HISTORY_TITLES.find(f => f.id === d.type).title}</div>
                   <div>{formatCost(d.cost)}</div>
                 </div>
                 <div className="operations__item-row operations__item-row_gray">

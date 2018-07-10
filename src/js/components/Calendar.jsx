@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import ButtonIcon from '../components/ButtonIcon';
-import { months, weekDaysShort } from '../constants';
+import { MONTHS, WEEKDAYS_SHORT } from '../constants';
 
 class Calendar extends Component {
   static prevMonthDays = (year, month, count) => {
@@ -184,7 +184,7 @@ class Calendar extends Component {
     return (
       <div className={cs('calendar', { calendar_show: show })}>
         <div className="calendar__header">
-          <div className="calendar__month-year">{months[month]} {year}</div>
+          <div className="calendar__month-year">{MONTHS[month]} {year}</div>
           <div className="calendar__control">
             <ButtonIcon onClick={() => changeMonth('prev')} icon="prev.svg" />
             <ButtonIcon onClick={() => changeMonth('next')} icon="next.svg" />
@@ -192,7 +192,7 @@ class Calendar extends Component {
         </div>
         <div className="calendar__weekdays">
           {
-            weekDaysShort.map((w, i) => (
+            WEEKDAYS_SHORT.map((w, i) => (
               <div key={i} className="calendar__weekday">{w}</div>
             ))
           }

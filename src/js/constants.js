@@ -1,27 +1,27 @@
 export const Pages = {
-  Kit: '/kit',
-  SignIn: '/signin',
-  SignUp: '/signup',
-  Dashboard: '/cabinet',
-  Support: '/support',
-  RequestStatus: '/request-status',
-  Conditions: '/conditions',
-  Overview: '/cabinet',
-  Pay: '/payment',
-  Services: '/services',
-  Roaming: '/roaming',
-  History: '/history',
-  Settings: '/settings',
+  KIT: '/kit',
+  SIGN_IN: '/signin',
+  SIGN_UP: '/signup',
+  DASHBOARD: '/cabinet',
+  SUPPORT: '/support',
+  REQUEST_STATUS: '/request-status',
+  CONDITIONS: '/conditions',
+  OVERVIEW: '/cabinet',
+  PAY: '/payment',
+  SERVICES: '/services',
+  ROAMING: '/roaming',
+  HISTORY: '/history',
+  SETTINGS: '/settings',
   Exit: '/',
-  AddPackage: '/add-package',
-  PayPackage: '/pay-package',
-  AutoPay: '/auto-pay',
-  SiteMap: '/',
-  SupportDashboard: '/support-dashboard',
-  Detail: '/detail',
-  Calls: '/calls',
-  Result: '/result',
-  Data: '/data',
+  ADD_PACKAGE: '/add-package',
+  PAY_PACKAGE: '/pay-package',
+  AUTO_PAY: '/auto-pay',
+  SITE_MAP: '/',
+  SUPPORT_DASHBOARD: '/support-dashboard',
+  DETAIL: '/detail',
+  CALLS: '/calls',
+  RESULT: '/result',
+  DATA: '/data',
 };
 
 export const Statuses = {
@@ -34,7 +34,7 @@ export const Statuses = {
   SIM_DELIVERY_TODAY: 'sim-delivery-today',
 };
 
-export const historyFilters = [{
+export const HISTORY_FILTERS = [{
   id: 1,
   title: 'Все операции',
 }, {
@@ -60,7 +60,7 @@ export const historyFilters = [{
   title: 'Входящий звонок',
 }];
 
-export const historyTitles = [{
+export const HISTORY_TITLES = [{
   id: 2,
   title: 'Покупка пакета услуг',
 }, {
@@ -83,7 +83,7 @@ export const historyTitles = [{
   title: 'Входящий звонок',
 }];
 
-export const months = [
+export const MONTHS = [
   'Январь',
   'Февраль',
   'Март',
@@ -98,7 +98,7 @@ export const months = [
   'Декабрь',
 ];
 
-export const monthsM = [
+export const MONTHS_M = [
   'января',
   'февраля',
   'марта',
@@ -113,7 +113,7 @@ export const monthsM = [
   'декабря',
 ];
 
-export const monthsShort = [
+export const MONTHS_SHORT = [
   'янв',
   'фев',
   'мар',
@@ -128,7 +128,7 @@ export const monthsShort = [
   'дек',
 ];
 
-export const weekdays = [
+export const WEEKDAYS = [
   'воскресенье',
   'понедельник',
   'вторник',
@@ -138,9 +138,9 @@ export const weekdays = [
   'суббота',
 ];
 
-export const days = ['день', 'дня', 'дней'];
+export const DAYS = ['день', 'дня', 'дней'];
 
-export const weekDaysShort = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+export const WEEKDAYS_SHORT = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 
 export const units = {
   currency: '₽',

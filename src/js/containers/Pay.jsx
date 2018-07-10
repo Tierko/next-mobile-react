@@ -27,15 +27,15 @@ class Pay extends Component {
     const { history } = this.props;
     const { sum } = this.state;
     const links = [{
-      url: Pages.AutoPay,
+      url: Pages.AUTO_PAY,
       title: 'Сделать платеж регулярным',
     }, {
-      url: Pages.Overview,
+      url: Pages.OVERVIEW,
       title: 'Вернуться на главную',
     }];
 
     history.push({
-      pathname: `${Pages.Result}/success`,
+      pathname: `${Pages.RESULT}/success`,
       state: {
         title: 'Оплата прошла успешно',
         text: `На ваш счет зачислено ${formatCost(sum)}`,
@@ -63,7 +63,7 @@ class Pay extends Component {
   changeAutoPay = () => {
     const { history } = this.props;
 
-    history.push(Pages.AutoPay);
+    history.push(Pages.AUTO_PAY);
   };
 
   render() {
@@ -92,7 +92,7 @@ class Pay extends Component {
             Оплата каждый месяц 10 числа до сентября 2020
           </div>
           <Button className="button_pay" onClick={changeAutoPay}>Изменить</Button>
-          <Link className="link" to={Pages.AutoPay} >
+          <Link className="link" to={Pages.AUTO_PAY} >
             Удалить
           </Link>
         </div>

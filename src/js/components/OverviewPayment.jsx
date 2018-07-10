@@ -7,7 +7,7 @@ import { Pages } from '../constants';
 
 const OverviewPayment = ({ sum, onChange, onPay }) => (
   <div className="overview-payment">
-    <Link to={Pages.Pay} className="overview-payment__title">Пополнение:</Link>
+    <Link to={Pages.PAY} className="overview-payment__title">Пополнение:</Link>
     <Input value={sum} onChange={onChange} name="sum" className="input_payment" />
     <Button className="button_payment" onClick={onPay}>Оплатить</Button>
   </div>

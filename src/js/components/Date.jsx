@@ -2,7 +2,7 @@ import React from 'react';
 import cs from 'classnames';
 import Input from './Input';
 import Calendar from './Calendar';
-import { monthsM, weekdays } from '../constants';
+import { MONTHS_M, WEEKDAYS } from '../constants';
 
 class Date extends Input {
   state = {
@@ -20,9 +20,9 @@ class Date extends Input {
     let value;
 
     if (format === 'dmw') {
-      value = `${day} ${monthsM[month]} (${weekdays[weekday]})`;
+      value = `${day} ${MONTHS_M[month]} (${WEEKDAYS[weekday]})`;
     } else {
-      value = `${day} ${monthsM[month]} ${year}`;
+      value = `${day} ${MONTHS_M[month]} ${year}`;
     }
 
     this.props.onChange(name, value);

@@ -111,7 +111,7 @@ class RequestStatus extends Component {
   onEnter = () => {
     const { history } = this.props;
 
-    history.push(`${Pages.RequestStatus}/${Statuses.INFORMATION_CHECKED}`);
+    history.push(`${Pages.REQUEST_STATUS}/${Statuses.INFORMATION_CHECKED}`);
   };
 
   render() {

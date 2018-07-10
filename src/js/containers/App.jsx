@@ -27,30 +27,30 @@ import { Pages } from '../constants';
 const App = () => (
   <div>
     <Switch>
-      <Route path={Pages.SiteMap} component={SiteMap} exact />
-      <Route path={Pages.SignIn} component={SignIn} exact />
-      <Route path={Pages.Kit} component={Kit} />
-      <Route path={Pages.SignUp} component={SignUp} exact />
-      <Route path={`${Pages.SignUp}/step/:step`} component={SignUp} exact />
-      <Route path={Pages.RequestStatus} component={RequestStatus} exact />
-      <Route path={`${Pages.RequestStatus}/:status`} component={RequestStatus} />
-      <Route path={Pages.Conditions} component={Conditions} />
-      <Route path={Pages.Support} component={Support} />
-      <Route path={Pages.Dashboard} component={Overview} />
-      <Route path={Pages.Calls} component={Calls} />
-      <Route path={Pages.AddPackage} component={AddPackage} />
-      <Route path={Pages.Pay} component={Pay} />
-      <Route path={Pages.Services} component={Services} />
-      <Route path={Pages.Settings} component={Settings} />
-      <Route path={Pages.History} component={History} />
-      <Route path={Pages.Detail} component={Detail} />
-      <Route path={Pages.PayPackage} component={PayPackage} />
-      <Route path={Pages.AutoPay} component={AutoPay} />
-      <Route path={Pages.SupportDashboard} component={SupportDashboard} />
-      <Route path={Pages.Data} component={Data} />
-      <Route path={`${Pages.Result}/:status`} component={Result} />
-      <Route path={`${Pages.Roaming}/:type/:zone`} component={Roaming} />
-      <Route path={Pages.Roaming} component={Roaming} exact />
+      <Route path={Pages.SITE_MAP} component={SiteMap} exact />
+      <Route path={Pages.SIGN_IN} component={SignIn} exact />
+      <Route path={Pages.KIT} component={Kit} />
+      <Route path={Pages.SIGN_UP} component={SignUp} exact />
+      <Route path={`${Pages.SIGN_UP}/step/:step`} component={SignUp} exact />
+      <Route path={Pages.REQUEST_STATUS} component={RequestStatus} exact />
+      <Route path={`${Pages.REQUEST_STATUS}/:status`} component={RequestStatus} />
+      <Route path={Pages.CONDITIONS} component={Conditions} />
+      <Route path={Pages.SUPPORT} component={Support} />
+      <Route path={Pages.DASHBOARD} component={Overview} />
+      <Route path={Pages.CALLS} component={Calls} />
+      <Route path={Pages.ADD_PACKAGE} component={AddPackage} />
+      <Route path={Pages.PAY} component={Pay} />
+      <Route path={Pages.SERVICES} component={Services} />
+      <Route path={Pages.SETTINGS} component={Settings} />
+      <Route path={Pages.HISTORY} component={History} />
+      <Route path={Pages.HISTORY} component={Detail} />
+      <Route path={Pages.PAY_PACKAGE} component={PayPackage} />
+      <Route path={Pages.AUTO_PAY} component={AutoPay} />
+      <Route path={Pages.SUPPORT_DASHBOARD} component={SupportDashboard} />
+      <Route path={Pages.DATA} component={Data} />
+      <Route path={`${Pages.RESULT}/:status`} component={Result} />
+      <Route path={`${Pages.ROAMING}/:type/:zone`} component={Roaming} />
+      <Route path={Pages.ROAMING} component={Roaming} exact />
     </Switch>
   </div>
 );

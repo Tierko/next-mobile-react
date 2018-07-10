@@ -10,7 +10,7 @@ const Remain = ({ data, buy, tariff }) => (
   <div className="remain">
     <div className="remain__title">
       Остаток до 16 июня по тарифу
-      <Link className="link" to={Pages.Services}> «{tariff.title}»</Link>
+      <Link className="link" to={Pages.SERVICES}> «{tariff.title}»</Link>
     </div>
     {
       data.map(i => (
@@ -19,7 +19,7 @@ const Remain = ({ data, buy, tariff }) => (
             <div><span>{(i.current + '').replace('.', ',')} {i.unit}</span> из {tariff[i.type]}</div>
             {
               i.link ?
-                <Link className={cs('remain__service', { remain__service_link: i.link })} to={Pages.Calls}>
+                <Link className={cs('remain__service', { remain__service_link: i.link })} to={Pages.CALLS}>
                   {i.name}
                 </Link>
                 :

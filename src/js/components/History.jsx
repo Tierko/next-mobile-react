@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Grade from './Grade';
 import { formatCost } from '../utils';
-import { Pages, months } from '../constants';
+import { Pages, MONTHS } from '../constants';
 
 class History extends Component {
   constructor(props) {
@@ -32,8 +32,8 @@ class History extends Component {
         {
           selectedItem &&
           <Fragment>
-            <div className="history__title">Ваши <Link className="link" to={Pages.History}>расходы</Link></div>
-            <div className="history__expense">- {formatCost(cost)} за {months[selectedItem.date.month]}</div>
+            <div className="history__title">Ваши <Link className="link" to={Pages.HISTORY}>расходы</Link></div>
+            <div className="history__expense">- {formatCost(cost)} за {MONTHS[selectedItem.date.month]}</div>
             <Grade data={data} onItemSelect={selectMonth} />
           </Fragment>
         }

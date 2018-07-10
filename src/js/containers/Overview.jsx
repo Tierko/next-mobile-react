@@ -22,7 +22,7 @@ class Overview extends Component {
     const { sum } = this.state;
 
     history.push({
-      pathname: Pages.Pay,
+      pathname: Pages.PAY,
       state: { sum },
     });
   };
@@ -30,7 +30,7 @@ class Overview extends Component {
   onBuy = () => {
     const { history } = this.props;
 
-    history.push(Pages.AddPackage);
+    history.push(Pages.ADD_PACKAGE);
   };
 
   sumChange = (n, v) => {

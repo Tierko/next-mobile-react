@@ -8,7 +8,7 @@ import data from '../../data';
 const RoamingInternet = () => (
   <div className="roaming">
     <div className="roaming__title">
-      <LinkBack href={Pages.Roaming} className="link-back_roaming" />
+      <LinkBack href={Pages.ROAMING} className="link-back_roaming" />
       Интернет в Зоне 1
     </div>
     <div>Остаток стандартного пакета: 2,01 ГБ из 20</div>

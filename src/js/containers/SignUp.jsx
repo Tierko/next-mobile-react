@@ -15,7 +15,7 @@ class SignUp extends Component {
   nextStep = (step) => {
     const { history } = this.props;
 
-    history.push(`${Pages.SignUp}/step/${step}`);
+    history.push(`${Pages.SIGN_UP}/step/${step}`);
   };
 
   toPage = (page) => {

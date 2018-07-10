@@ -9,7 +9,7 @@ module.exports = (env) => {
 
   return {
     entry: {
-      bundle: ['babel-polyfill', './src/js/index.jsx'],
+      bundle: ['./src/js/index.jsx'],
     },
 
     output: {

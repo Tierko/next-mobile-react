@@ -20,13 +20,13 @@ const Aside = () => (
         </div>
       </div>
       <nav className="aside__nav">
-        <NavLink to={Pages.Overview} className="aside__link">Обзор</NavLink>
-        <NavLink to={Pages.Pay} className="aside__link">Пополнение</NavLink>
-        <NavLink to={Pages.Services} className="aside__link">Тарифы и услуги</NavLink>
-        <NavLink to={Pages.Roaming} className="aside__link">Роуминг</NavLink>
-        <NavLink to={Pages.History} className="aside__link">История</NavLink>
-        <NavLink to={Pages.Settings} className="aside__link">Настройки</NavLink>
-        <NavLink to={Pages.SupportDashboard} className="aside__link">Поддержка</NavLink>
+        <NavLink to={Pages.OVERVIEW} className="aside__link">Обзор</NavLink>
+        <NavLink to={Pages.PAY} className="aside__link">Пополнение</NavLink>
+        <NavLink to={Pages.SERVICES} className="aside__link">Тарифы и услуги</NavLink>
+        <NavLink to={Pages.ROAMING} className="aside__link">Роуминг</NavLink>
+        <NavLink to={Pages.HISTORY} className="aside__link">История</NavLink>
+        <NavLink to={Pages.SETTINGS} className="aside__link">Настройки</NavLink>
+        <NavLink to={Pages.SUPPORT_DASHBOARD} className="aside__link">Поддержка</NavLink>
         <NavLink to={Pages.Exit} className="aside__link aside__link_exit" exact>Выйти</NavLink>
       </nav>
     </div>

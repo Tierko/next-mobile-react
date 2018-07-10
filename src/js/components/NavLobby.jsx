@@ -11,13 +11,13 @@ const NavLobby = ({ back }) => (
         <img src="/media/icons/back.svg" />
       </Link>
     }
-    <NavLink className="nav-lobby__item" to={Pages.SignIn} exact>Вход</NavLink>
+    <NavLink className="nav-lobby__item" to={Pages.SIGN_IN} exact>Вход</NavLink>
     <div className="nav-lobby__span" />
-    <NavLink className="nav-lobby__item" to={Pages.SignUp}>Регистрация</NavLink>
+    <NavLink className="nav-lobby__item" to={Pages.SIGN_UP}>Регистрация</NavLink>
     <div className="nav-lobby__span" />
-    <NavLink className="nav-lobby__item" to={Pages.Support}>Поддержка</NavLink>
+    <NavLink className="nav-lobby__item" to={Pages.SUPPORT}>Поддержка</NavLink>
     <div className="nav-lobby__span" />
-    <NavLink className="nav-lobby__item" to={Pages.RequestStatus}>Статус заявки</NavLink>
+    <NavLink className="nav-lobby__item" to={Pages.REQUEST_STATUS}>Статус заявки</NavLink>
   </nav>
 );
 

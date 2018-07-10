@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import { monthsShort } from '../constants';
+import { MONTHS_SHORT } from '../constants';
 
 class Grade extends Component {
   static countExpense = (expense) => {
@@ -57,7 +57,7 @@ class Grade extends Component {
                 {
                   wide &&
                   <div className={cs('grade__month', { grade__month_selected: e.id === selected })}>
-                    {monthsShort[e.date.month]}
+                    {MONTHS_SHORT[e.date.month]}
                   </div>
                 }
               </div>

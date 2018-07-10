@@ -16,7 +16,7 @@ class AddPackage extends Component {
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content">
-          <LinkBack href={Pages.Overview} className="link-back_offset-bottom" />
+          <LinkBack href={Pages.OVERVIEW} className="link-back_offset-bottom" />
           <div className="dashboard__header">Дополнительный пакет</div>
           <div className="dashboard__text">Через 10&nbsp;дней будут начислены 200 мин и&nbsp;2&nbsp;ГБ по&nbsp;тарифу Супервип</div>
           {

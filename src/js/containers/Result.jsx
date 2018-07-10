@@ -33,7 +33,7 @@ const Result = ({ match, location }) => {
           {
             (!links || !links.length) &&
             <div>
-              <Link className="result__link" to={Pages.Overview}>Продолжить работу</Link>
+              <Link className="result__link" to={Pages.OVERVIEW}>Продолжить работу</Link>
             </div>
           }
           {

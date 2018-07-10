@@ -21,7 +21,7 @@ class RoamingZone extends Component {
   addPackage = () => {
     const { history, data: { id } } = this.props;
 
-    history.push(`${Pages.Roaming}/internet/${id}`);
+    history.push(`${Pages.ROAMING}/internet/${id}`);
   };
 
   render() {
@@ -32,7 +32,7 @@ class RoamingZone extends Component {
     return (
       <div className={cs('roaming-zone', { 'roaming-zone_show': data.id === active })}>
         <div className="roaming__title">{data.title}</div>
-        <Link to={`${Pages.Roaming}/countries/${data.id}`} className="roaming-zone__countries">Австрия, Бельгия и еще 45 стран</Link>
+        <Link to={`${Pages.ROAMING}/countries/${data.id}`} className="roaming-zone__countries">Австрия, Бельгия и еще 45 стран</Link>
         <div className="roaming-zone__subtitle roaming-zone__subtitle_fast">
           Пакет быстрого интернета <span className="roaming-zone__note">(еще 30 дней)</span>
         </div>
@@ -66,7 +66,7 @@ class RoamingZone extends Component {
             </div>
           </div>
         </div>
-        <Link to={`${Pages.Roaming}/zone-tariff/${data.id}`} className="roaming-zone__more">Подробнее о тарифах в Зоне 1</Link>
+        <Link to={`${Pages.ROAMING}/zone-tariff/${data.id}`} className="roaming-zone__more">Подробнее о тарифах в Зоне 1</Link>
       </div>
     );
   }

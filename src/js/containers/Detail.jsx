@@ -38,7 +38,7 @@ class Detail extends Component {
     const { history } = this.props;
 
     history.push({
-      pathname: `${Pages.Result}/success`,
+      pathname: `${Pages.RESULT}/success`,
       state: {
         title: 'Детализация заказана',
         text: 'О расходах с 10 сентября по 21 октября 2018 в формате PDF на почту konstantinopolsky@gmail.com',
@@ -61,7 +61,7 @@ class Detail extends Component {
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content">
-          <LinkBack href={Pages.History} className="link-back_detail" />
+          <LinkBack href={Pages.HISTORY} className="link-back_detail" />
           <div className="detail">
             <div className="dashboard__header dashboard__header_center">Детализация</div>
             <div className="detail__period-title">За период</div>

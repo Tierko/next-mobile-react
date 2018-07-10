@@ -4,7 +4,7 @@ import Grade from './Grade';
 import ProgressLinear from './ProgressLinear';
 import Button from './Button';
 import { formatCost } from '../utils';
-import { months, Pages } from '../constants';
+import { MONTHS, Pages } from '../constants';
 
 class Expense extends Component {
   state = {
@@ -20,7 +20,7 @@ class Expense extends Component {
   orderDetails = () => {
     const { history } = this.props;
 
-    history.push(Pages.Detail);
+    history.push(Pages.HISTORY);
   };
 
   render() {
@@ -41,7 +41,7 @@ class Expense extends Component {
           <Fragment>
             <Grade data={data} onItemSelect={onMonthSelect} wide />
             <div className="expense__total">
-              <div className="expense__total-date">{months[item.date.month]} {item.date.year}</div>
+              <div className="expense__total-date">{MONTHS[item.date.month]} {item.date.year}</div>
               <div className="expense__total-cost">{formatCost(cost)}</div>
             </div>
 

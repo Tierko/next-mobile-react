@@ -66,7 +66,7 @@ class SignUp extends Component {
           option === 'no-promo' && stage === 2 &&
           <Fragment>
             <Input className="input_phone" name="phone" value={phone} onChange={onChange} />
-            <Button className="button_request" onClick={() => toPage(Pages.RequestStatus)} disabled={!checkPhone(phone)}>
+            <Button className="button_request" onClick={() => toPage(Pages.REQUEST_STATUS)} disabled={!checkPhone(phone)}>
               Отправить запрос
             </Button>
           </Fragment>
@@ -76,7 +76,7 @@ class SignUp extends Component {
           <Fragment>
             <Button className="button_to-next-mobile" onClick={() => nextStep(1)}>Перейти на Next Mobile</Button>
             <div className="sign-up__agreement">
-              Я ознакомлен с <Link to={Pages.Conditions} className="link">условиями перехода</Link>
+              Я ознакомлен с <Link to={Pages.CONDITIONS} className="link">условиями перехода</Link>
             </div>
           </Fragment>
         }

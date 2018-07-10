@@ -5,13 +5,13 @@ import { Pages } from '../constants';
 
 const Roaming = ({ className, data }) => (
   <div className={`roaming ${className}`}>
-    <Link className="roaming__title" to={Pages.Roaming}>Роуминг</Link>
+    <Link className="roaming__title" to={Pages.ROAMING}>Роуминг</Link>
     <div className="roaming__list">
       {
         data.map(i => (
           <div key={i.id} className="roaming__item">
             <div className="roaming__item-name">
-              <Link to={Pages.Roaming} className="link">{i.zoneName}</Link>
+              <Link to={Pages.ROAMING} className="link">{i.zoneName}</Link>
             </div>
             <div>
               {
@@ -31,7 +31,7 @@ const Roaming = ({ className, data }) => (
       <tbody>
         <tr>
           <td rowSpan={2} className="roaming__item-name">
-            <Link to={Pages.Roaming} className="link">Зона 1</Link>
+            <Link to={Pages.ROAMING} className="link">Зона 1</Link>
           </td>
           <td className="roaming__item-desc roaming__item-desc_fast">Пакет быстрого интернета</td>
           <td>2,01 ГБ еще 12 дней</td>
@@ -42,7 +42,7 @@ const Roaming = ({ className, data }) => (
         </tr>
         <tr>
           <td className="roaming__item-name">
-            <Link to={Pages.Roaming} className="link">Зона 1</Link>
+            <Link to={Pages.ROAMING} className="link">Зона 1</Link>
           </td>
           <td className="roaming__item-desc roaming__item-desc_regular">Помегабайтный интернет</td>
           <td>320 ₽ / Мб</td>

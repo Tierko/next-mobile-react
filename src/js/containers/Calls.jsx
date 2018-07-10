@@ -11,7 +11,7 @@ class Calls extends Component {
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content">
-          <LinkBack className="link-back_offset-bottom" href={Pages.Overview} />
+          <LinkBack className="link-back_offset-bottom" href={Pages.OVERVIEW} />
           <div className="dashboard__header">Звонки по тарифу Супервип</div>
           <div className="calls__name">На номера Next всей России дома и в поездках по стране</div>
           <div className="calls__remain">0 ₽ / мин</div>
