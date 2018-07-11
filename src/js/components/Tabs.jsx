@@ -4,18 +4,20 @@ import cs from 'classnames';
 
 const Tabs = ({ tabs, active, onTabChange }) => (
   <div className="tabs">
-    {
-      tabs.map(t => (
-        <div
-          key={t.id}
-          className={cs('tab', { tab_active: t.id === active })}
-          onClick={() => onTabChange(t.id)}
-          role="button"
-        >
-          {t.name}
-        </div>
-      ))
-    }
+    <div className="tabs__inner">
+      {
+        tabs.map(t => (
+          <div
+            key={t.id}
+            className={cs('tab', { tab_active: t.id === active })}
+            onClick={() => onTabChange(t.id)}
+            role="button"
+          >
+            {t.name}
+          </div>
+        ))
+      }
+    </div>
   </div>
 );
 

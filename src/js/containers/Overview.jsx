@@ -7,7 +7,7 @@ import Balance from '../components/Balance';
 import OverviewPayment from '../components/OverviewPayment';
 import Remain from '../components/Remain';
 import History from '../components/History';
-import Roaming from '../components/Roaming';
+import RoamingDashboard from '../components/RoamingDashboard';
 import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
 import { getData, formatCost, convertDays } from '../utils';
@@ -70,7 +70,7 @@ class Overview extends Component {
           <OverviewPayment onChange={sumChange} onPay={onPay} sum={sum} />
           <Remain data={getData('remain')} tariff={getData('tariff')} buy={onBuy} />
           <History data={getData('history')} />
-          <Roaming data={getData('roaming')} />
+          <RoamingDashboard data={getData('roaming')} />
           <Footer />
         </div>
       </div>,

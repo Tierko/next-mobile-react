@@ -6,6 +6,7 @@ import ProgressLinear from './ProgressLinear';
 import Button from './Button';
 import CheckboxSlide from './CheckboxSlide';
 import { Pages } from '../constants';
+import { formatCost } from '../utils';
 
 class RoamingZone extends Component {
   state = {
@@ -31,8 +32,10 @@ class RoamingZone extends Component {
 
     return (
       <div className={cs('roaming-zone', { 'roaming-zone_show': data.id === active })}>
-        <div className="roaming__title">{data.title}</div>
-        <Link to={`${Pages.ROAMING}/countries/${data.id}`} className="roaming-zone__countries">Австрия, Бельгия и еще 45 стран</Link>
+        <div className="roaming__title">Роуминг в {data.title}</div>
+        <Link to={`${Pages.ROAMING}/countries/${data.id}`} className="roaming-zone__countries">
+          Австрия, Бельгия и еще 45 стран
+        </Link>
         <div className="roaming-zone__subtitle roaming-zone__subtitle_fast">
           Пакет быстрого интернета <span className="roaming-zone__note">(еще 30 дней)</span>
         </div>
@@ -43,12 +46,12 @@ class RoamingZone extends Component {
         <Button className="button_roaming-add" onClick={addPackage}>
           Добавить пакет
         </Button>
-        <div className="roaming-zone__subtitle roaming-zone__subtitle_regular">
+        <div className="roaming-zone__subtitle">
           Помегабайтный интернет <span className="roaming-zone__note">(заработает, когда закончится пакет)</span>
         </div>
         <div className="roaming-zone__regular">
           <div>
-            <span className="roaming-zone__big">58 ₽</span> <span className="roaming-zone__note">/ Мб</span>
+            <span className="roaming-zone__big">{formatCost(data.tariff.internet.byMb)}</span> <span className="roaming-zone__note">/ Мб</span>
           </div>
           <CheckboxSlide className="checkbox-slide_roaming" value={slowInternet} name="slowInternet" onChange={onChange} />
         </div>
@@ -56,7 +59,7 @@ class RoamingZone extends Component {
           <div className="roaming-zone__tariff-item">
             <div>Звонки</div>
             <div>
-              <span className="roaming-zone__big">от 200 ₽</span> <span>/ мин</span>
+              <span className="roaming-zone__big">от {data.tariff.calls} ₽</span> <span>/ мин</span>
             </div>
           </div>
           <div className="roaming-zone__tariff-item">
@@ -66,7 +69,9 @@ class RoamingZone extends Component {
             </div>
           </div>
         </div>
-        <Link to={`${Pages.ROAMING}/zone-tariff/${data.id}`} className="roaming-zone__more">Подробнее о тарифах в Зоне 1</Link>
+        <Link to={`${Pages.ROAMING}/zone-tariff/${data.id}`} className="roaming-zone__more">
+          Подробнее о тарифах в {data.title}
+        </Link>
       </div>
     );
   }

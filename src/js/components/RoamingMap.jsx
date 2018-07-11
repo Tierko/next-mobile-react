@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Map, GeoJSON } from 'react-leaflet';
+import PropTypes from 'prop-types';
+import { Map, GeoJSON, ZoomControl } from 'react-leaflet';
 import ComboBox from './ComboBox';
 import countries from '../../data/countries';
-
-const position = [41.00, -109.05];
 
 class RoamingMap extends Component {
   state = {
@@ -41,26 +40,32 @@ class RoamingMap extends Component {
   render() {
     const { onItemSelect, mapStyle, onClick } = this;
     const { country, features } = this.state;
+    const { zone: { center, zoom } } = this.props;
 
     return (
       <div className="map">
+        <div className="map__container" id="map">
+          {
+            !!features.length &&
+            <Map center={center} zoom={zoom} onclick={onClick} zoomControl={false} animate>
+              <GeoJSON data={features} style={mapStyle} />
+              <ZoomControl position="bottomright" />
+            </Map>
+          }
+        </div>
         <ComboBox
           items={countries}
           value={country}
           onSelect={onItemSelect}
           placeholder="В какой стране вам нужен роуминг?"
         />
-        <div className="map__container" id="map" ref={(e) => { this.container = e; }}>
-          {
-            !!features.length &&
-            <Map center={position} zoom={1} onclick={onClick}>
-              <GeoJSON data={features} style={mapStyle} />
-            </Map>
-          }
-        </div>
       </div>
     );
   }
 }
+
+RoamingMap.propTypes = {
+  zone: PropTypes.shape().isRequired,
+};
 
 export default RoamingMap;

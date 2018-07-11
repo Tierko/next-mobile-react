@@ -22,21 +22,28 @@ class Roaming extends Component {
     });
   };
 
+  getCurrentZone = () => {
+    const { tab } = this.state;
+    const { roamingZones } = data;
+
+    return roamingZones.find(z => z.id === tab);
+  };
+
   render() {
     const { tab } = this.state;
     const { roamingZones, countries } = data;
     const { match: { params: { type, zone } }, history } = this.props;
-    const { onChange } = this;
+    const { onChange, getCurrentZone } = this;
 
     return ([
       <MobileNav key="nav" type="dashboard" />,
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content dashboard__content_roaming">
-          <RoamingMap />
+          <RoamingMap zone={getCurrentZone()} />
           {
             !zone &&
-            <div className="roaming">
+            <div className="roaming roaming_zones">
               <Tabs tabs={roamingZones} active={tab} onTabChange={v => onChange('tab', v)} />
               {
                 roamingZones.map(z => (
