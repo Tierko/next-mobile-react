@@ -29,19 +29,14 @@ class RoamingMap extends Component {
       }));
   }
 
-  mapStyle = (a) => {
-    console.log(a)
-    return {
-      color: '#e6e6f3',
-      fillColor: '#fff',
-      fillOpacity: 1,
-      weight: 2,
-    };
-  };
+  mapStyle = () => ({
+    color: '#e6e6f3',
+    fillColor: '#fff',
+    fillOpacity: 1,
+    weight: 2,
+  });
 
-  onClick = (e) => {
-    console.log(a)
-  };
+  onClick = () => {};
 
   render() {
     const { onItemSelect, mapStyle, onClick } = this;

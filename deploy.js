@@ -25,11 +25,23 @@ const configMedia = {
   exclude: [],
 };
 
+const configData = {
+  user: credentials.user,
+  password: credentials.password,
+  host: 'six',
+  port: 21,
+  localRoot: __dirname,
+  remoteRoot: '/next-mobile/www/',
+  include: ['data/**/*.*'],
+  exclude: [],
+};
+
 ftpDeploy.on('uploading', (data) => {
   console.log(data.filename);
 });
 
 ftpDeploy.deploy(configMain)
   .then(() => ftpDeploy.deploy(configMedia))
+  .then(() => ftpDeploy.deploy(configData))
   .then(() => console.log('Finished', (new Date()).toLocaleString()))
   .catch(e => console.log(e));
