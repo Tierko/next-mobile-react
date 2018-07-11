@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
-import Map from '../components/Map';
+import RoamingMap from '../components/RoamingMap';
 import Tabs from '../components/Tabs';
 import RoamingZone from '../components/RoamingZone';
 import RoamingCountries from '../components/RoamingCountries';
@@ -33,7 +33,7 @@ class Roaming extends Component {
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content dashboard__content_roaming">
-          <Map />
+          <RoamingMap />
           {
             !zone &&
             <div className="roaming">

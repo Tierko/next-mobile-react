@@ -41,6 +41,12 @@ module.exports = (env) => {
           'less-loader',
         ],
       }, {
+        test: /\.css/,
+        loaders: [
+          development ? 'style-loader' :  MiniCssExtractPlugin.loader,
+          'css-loader',
+        ],
+      }, {
         test: /\.svg$/,
         loader: 'svg-inline-loader',
       }],

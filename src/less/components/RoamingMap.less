@@ -1,20 +1,22 @@
 .map {
-  //height: 320px;
+  height: 500px;
   background-color: @WHITE;
   position: relative;
   //overflow: hidden;
 
   &__container {
-    display: none;
+    //display: none;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    overflow: hidden;
+    //height: 500px;
   }
-}
 
-.leaflet-container {
-  height: 400px;
-  width: 100%;
+  .leaflet-container {
+    height: 100%;
+    background-color: #e6e6f3;
+  }
 }
