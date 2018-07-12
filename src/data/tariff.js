@@ -1,6 +1,5 @@
 const tariff = [{
   id: 1,
-  current: true,
   title: 'Супервип',
   payment: 3000,
   internet: 32,

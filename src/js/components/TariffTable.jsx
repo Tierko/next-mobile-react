@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import { Link } from 'react-router-dom';
+import Button from '../components/Button';
 import { formatCost } from '../utils';
 
 class TariffTable extends Component {
@@ -70,8 +70,10 @@ class TariffTable extends Component {
 
   render() {
     const { toggleMode, rows, RenderRow } = this;
-    const { data } = this.props;
+    const { data, current, onChange } = this.props;
     const isDetail = this.state.mode === 'detail';
+
+    data.sort(a => a.id === current ? -1 : 1);
 
     return (
       <div className="tariff-table">
@@ -80,7 +82,7 @@ class TariffTable extends Component {
             <div className="tariff-table__names">
               {
                 data.map(d => (
-                  <div key={d.id} className={cs('tariff-table__name', { 'tariff-table__name_active': d.current })}>
+                  <div key={d.id} className={cs('tariff-table__name', { 'tariff-table__name_active': d.id === current })}>
                     <span>{d.title}</span>
                   </div>
                 ))
@@ -90,7 +92,10 @@ class TariffTable extends Component {
               {
                 data.map(d => (
                   <div key={d.id} className="tariff-table__action">
-                    {d.current ? 'Текущий тариф' : <Link className="link-light" to="#">Перейти</Link>}
+                    {
+                      d.id === current ? 'Текущий тариф' :
+                        <Button className="button_tariff-change" onClick={() => onChange(d.id)} borderless>Перейти</Button>
+                    }
                   </div>
                 ))
               }
@@ -114,6 +119,8 @@ class TariffTable extends Component {
 
 TariffTable.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  current: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default TariffTable;

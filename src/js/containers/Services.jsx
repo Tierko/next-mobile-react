@@ -4,6 +4,7 @@ import Aside from '../components/Aside';
 import TariffServices from '../components/TariffServices';
 import TariffTable from '../components/TariffTable';
 import PageFade from '../components/PageFade';
+import tariff from '../../data/tariff';
 
 class Services extends Component {
   state = {
@@ -20,34 +21,7 @@ class Services extends Component {
       desc: 'Ваш номер нельзя будет определить при звонке.',
       price: 'Бесплатно',
     }],
-    tariff: [{
-      id: 1,
-      current: true,
-      title: 'Супервип',
-      payment: '3000',
-      internet: '32',
-      nextCalls: 'Безлимит',
-      calls: '700',
-      sms: 'Безлимит',
-    }, {
-      id: 2,
-      current: false,
-      title: 'Премиум',
-      payment: '2000',
-      internet: '16',
-      calls: '700',
-      nextCalls: '700',
-      sms: 'Безлимит',
-    }, {
-      id: 3,
-      current: false,
-      title: 'Лайт',
-      payment: '1500',
-      internet: '8',
-      calls: '700',
-      nextCalls: '700',
-      sms: 'Безлимит',
-    }],
+    currentTariff: 1,
   };
 
   toggleService = (id, value) => {
@@ -63,9 +37,15 @@ class Services extends Component {
     }
   };
 
+  changeTariff = (id) => {
+    this.setState({
+      currentTariff: id,
+    });
+  };
+
   render() {
-    const { services, tariff } = this.state;
-    const { toggleService } = this;
+    const { services, currentTariff } = this.state;
+    const { toggleService, changeTariff } = this;
 
     return [
       <MobileNav key="nav" type="dashboard" />,
@@ -74,7 +54,7 @@ class Services extends Component {
         <div className="dashboard__content">
           <div className="dashboard__header">Тарифы</div>
           <div className="dashboard__text">При подключении нового тарифа вы оплачиваете первый месяц абонентской платы</div>
-          <TariffTable data={tariff} />
+          <TariffTable data={tariff} current={currentTariff} onChange={changeTariff} />
           <TariffServices services={services} onChange={toggleService} />
         </div>
       </div>,
