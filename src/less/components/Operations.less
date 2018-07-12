@@ -1,5 +1,6 @@
 .operations {
   width: 100%;
+  position: relative;
 
   &__empty {
     margin-top: 20px;
@@ -42,38 +43,33 @@
     }
   }
 
+  &__hover {
+    width: 2px;
+    background-color: #f00;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+  }
+
   &__row {
-    position: relative;
+    &:not(&_header):hover {
+      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #fff 10%, #fff 30%, #fff 50%, #fff 70%, #fff 90%, rgba(255, 255, 255, 0) 100%) 50% 50%;
+    }
 
     &_header {
       color: @GRAY-DARK;
       font-size: @FONT-SIZE-SMALL;
     }
+  }
 
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: -15px;
-      bottom: 0;
-      left: -15px;
-      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #fff 10%, #fff 30%, #fff 50%, #fff 70%, #fff 90%, rgba(255, 255, 255, 0) 100%) 50% 50%;
-      background-size: 100% 100%;
-      opacity: 0;
-      transition: opacity 0.3s linear;
-    }
-
-    &:not(&_header):hover:before {
-      opacity: 1;
-    }
+  &__row:hover &__type:before {
+    opacity: 1;
   }
 
   &__cell {
     vertical-align: top;
     border-top: 1px solid @GRAY;
     padding: 20px 0;
-    position: relative;
-    z-index: 1;
 
     &_date {
       padding-right: 10px;
@@ -81,7 +77,7 @@
     }
 
     &_type {
-      padding: 20px;
+      padding: 20px 20px 20px 40px;
     }
 
     &_count {
@@ -98,11 +94,46 @@
       padding-top: 20px;
       padding-left: 20px;
     }
+
+    &_hide {
+      border-top-color: transparent;
+    }
   }
 
   &__note {
     .small;
     color: @GRAY-DARK;
+  }
+
+  &__type {
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      background-size: 34px 34px;
+      top: -5px;
+      left: -34px;
+      opacity: 0;
+    }
+
+    &_beeline:before {
+      background-image: url("/media/images/beeline.png");
+    }
+
+    &_megafon:before {
+      background-image: url("/media/images/megafon.png");
+    }
+
+    &_mts:before {
+      background-image: url("/media/images/mts.png");
+    }
+
+    &_tele2:before {
+      background-image: url("/media/images/tele2.png");
+    }
   }
 
   &__list {

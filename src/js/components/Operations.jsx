@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import cs from 'classnames';
 import Date from '../components/Date';
 import Select from '../components/Select';
 import Button from '../components/Button';
@@ -22,16 +23,6 @@ class Operations extends Component {
 
     return `${count} ${unit}`;
   };
-
-  static sameDateCount = (data, date) => (
-    data.reduce((acc, d) => {
-      if (d.date.year !== date.year || d.date.month !== date.month || d.date.day !== date.day) {
-        return acc;
-      }
-
-      return acc + 1;
-    }, 0)
-  );
 
   static showDate = (data, index) => {
     const { date } = data[index];
@@ -89,7 +80,6 @@ class Operations extends Component {
     const { data } = this.props;
     const filteredData = filter(data);
     const {
-      sameDateCount,
       showDate,
       formatCount,
       replaceMonth,
@@ -145,17 +135,19 @@ class Operations extends Component {
               filteredData.map((d, i) => (
                 <tr key={d.id} className="operations__row">
                   {
-                    showDate(filteredData, i) &&
                     <td
-                      className="operations__cell operations__cell_date"
-                      rowSpan={sameDateCount(filteredData, d.date)}
+                      className={cs('operations__cell operations__cell_date', { operations__cell_hide: !showDate(filteredData, i) })}
                     >
-                      {d.date.day} {MONTHS_M[d.date.month]}
+                      {
+                        showDate(filteredData, i) && `${d.date.day} ${MONTHS_M[d.date.month]}`
+                      }
                     </td>
                   }
-                  <td className="operations__cell operations__cell_time">{d.time}</td>
+                  <td className="operations__cell operations__cell_time">
+                    {d.time}
+                  </td>
                   <td className="operations__cell operations__cell_type">
-                    <div>
+                    <div className={`operations__type operations__type_${d.provider || ''}`}>
                       {HISTORY_TITLES.find(f => f.id === d.type).title}
                     </div>
                     <div className="operations__note">{d.note}</div>
@@ -180,7 +172,7 @@ class Operations extends Component {
             {
               !!filteredData.length &&
               <tr>
-                <td colSpan={3}>&nbsp;</td>
+                <td colSpan={2}>&nbsp;</td>
                 <td className="operations__cell_button">
                   <Button onClick={loadMore}>Загрузить еще</Button>
                 </td>

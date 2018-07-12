@@ -25,6 +25,7 @@ const operations = [
     unit: 'СМС',
     cost: 0,
     note: 'на номер +7 903 234-00-83 Билайн',
+    provider: 'beeline',
   }, {
     id: 3,
     date: {
@@ -117,7 +118,7 @@ const operations = [
     note: 'на номер +1 302 378-90-89',
     tariff: 100,
   }, {
-    id: 9,
+    id: 10,
     date: {
       year: 2020,
       month: 8,
@@ -130,7 +131,7 @@ const operations = [
     cost: 0,
     note: 'в Зоне 1',
   }, {
-    id: 10,
+    id: 11,
     date: {
       year: 2020,
       month: 8,
