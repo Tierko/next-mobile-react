@@ -115,7 +115,7 @@ class Calls extends Component {
                   Выключить
                 </Button>
               </div>
-              Синее сообщение
+              Красное сообщение
               <div style={style}>
                 <Button onClick={() => setData('noteRed', 1)} disabled={getData('noteRed')}>
                   Включить
