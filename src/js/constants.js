@@ -81,6 +81,15 @@ export const HISTORY_TITLES = [{
 }, {
   id: 8,
   title: 'Входящий звонок',
+}, {
+  id: 9,
+  title: 'СМС',
+}, {
+  id: 10,
+  title: 'Интернет',
+}, {
+  id: 11,
+  title: 'Пополнение счета',
 }];
 
 export const MONTHS = [

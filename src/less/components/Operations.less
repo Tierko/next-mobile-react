@@ -43,9 +43,28 @@
   }
 
   &__row {
+    position: relative;
+
     &_header {
       color: @GRAY-DARK;
       font-size: @FONT-SIZE-SMALL;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -15px;
+      bottom: 0;
+      left: -15px;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #fff 10%, #fff 30%, #fff 50%, #fff 70%, #fff 90%, rgba(255, 255, 255, 0) 100%) 50% 50%;
+      background-size: 100% 100%;
+      opacity: 0;
+      transition: opacity 0.3s linear;
+    }
+
+    &:not(&_header):hover:before {
+      opacity: 1;
     }
   }
 
@@ -53,9 +72,12 @@
     vertical-align: top;
     border-top: 1px solid @GRAY;
     padding: 20px 0;
+    position: relative;
+    z-index: 1;
 
     &_date {
       padding-right: 10px;
+      white-space: nowrap;
     }
 
     &_type {
@@ -64,10 +86,12 @@
 
     &_count {
       padding-right: 10px;
+      white-space: nowrap;
     }
 
     &_cost {
       text-align: right;
+      white-space: nowrap;
     }
 
     &_button {

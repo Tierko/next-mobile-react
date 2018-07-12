@@ -180,7 +180,7 @@ class Operations extends Component {
             {
               !!filteredData.length &&
               <tr>
-                <td colSpan={2}>&nbsp;</td>
+                <td colSpan={3}>&nbsp;</td>
                 <td className="operations__cell_button">
                   <Button onClick={loadMore}>Загрузить еще</Button>
                 </td>
