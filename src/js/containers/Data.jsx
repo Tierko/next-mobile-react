@@ -61,11 +61,17 @@ class Calls extends Component {
             </div>
             <h2>История расходов</h2>
             <div style={style}>
-              <Button onClick={() => setData('history', 0)} disabled={getData('history').length !== 0}>
-                за 2 месяца
+              <Button onClick={() => setData('history', 0)} disabled={getData('history').length === 1}>
+                За 1 месяц
               </Button>
-              <Button onClick={() => setData('history', 1)} disabled={getData('history').length === 0}>
+              <Button onClick={() => setData('history', 1)} disabled={getData('history').length === 2}>
+                За 2 месяца
+              </Button>
+              <Button onClick={() => setData('history', 2)} disabled={getData('history').length === 0}>
                 Без истории
+              </Button>
+              <Button onClick={() => setData('history', 3)} disabled={getData('history').length === 10}>
+                За 10 месяцев
               </Button>
             </div>
             <h2>История операций</h2>
