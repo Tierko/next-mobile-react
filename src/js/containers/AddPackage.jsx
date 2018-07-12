@@ -10,6 +10,7 @@ import { getData } from '../utils';
 class AddPackage extends Component {
   render() {
     const data = getData('packages');
+    const remain = getData('remain')
 
     return ([
       <MobileNav key="nav" type="dashboard" />,
@@ -20,7 +21,7 @@ class AddPackage extends Component {
           <div className="dashboard__header">Дополнительный пакет</div>
           <div className="dashboard__text">Через 10&nbsp;дней будут начислены 200 мин и&nbsp;2&nbsp;ГБ по&nbsp;тарифу Супервип</div>
           {
-            data.map(d => <Package key={d.id} data={d} />)
+            data.map((d, i) => <Package key={d.id} data={d} remain={remain[i]} />)
           }
         </div>
       </div>,

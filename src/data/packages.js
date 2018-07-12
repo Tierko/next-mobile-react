@@ -3,8 +3,6 @@ const packages = [
     id: 1,
     title: 'Интернет',
     title_: 'интернета',
-    max: 20,
-    current: 2.01,
     unit: 'ГБ',
     items: [{
       id: 11,
@@ -26,8 +24,6 @@ const packages = [
     id: 2,
     title: 'Звонки',
     title_: 'звонков',
-    max: 1000,
-    current: 900,
     unit: 'мин',
     items: [{
       id: 21,

@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 import ProgressLinear from './ProgressLinear';
 import { Pages } from '../constants';
 
-const Package = ({ data, simple }) => (
+const Package = ({ data, remain, simple }) => (
   <div className="package">
     {
       !simple &&
       <Fragment>
         <div className="package__title">
-          {data.title}:<span> {data.current.toString().replace('.', ',')} {data.unit} из {data.max}</span>
+          {data.title}:<span> {remain.current.toString().replace('.', ',')} {data.unit} из {remain.max}</span>
         </div>
-        <ProgressLinear className="progress-linear_add-package" current={data.current} max={data.max} />
+        <ProgressLinear className="progress-linear_add-package" current={remain.current} max={remain.max} />
       </Fragment>
     }
     {
@@ -48,6 +48,7 @@ const Package = ({ data, simple }) => (
 
 Package.propTypes = {
   data: PropTypes.shape().isRequired,
+  remain: PropTypes.shape().isRequired,
   simple: PropTypes.bool,
 };
 
