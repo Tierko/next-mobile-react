@@ -8,17 +8,17 @@ const packages = [
     unit: 'ГБ',
     items: [{
       id: 11,
-      count: 1000,
+      count: 5,
       price: 2500,
       period: 30,
     }, {
       id: 12,
-      count: 500,
+      count: 3,
       price: 1000,
       period: 30,
     }, {
       id: 13,
-      count: 300,
+      count: 1,
       price: 700,
       period: 30,
     }],
@@ -45,7 +45,7 @@ const packages = [
       price: 700,
       period: 30,
     }],
-  }, {
+  }/*, {
     id: 3,
     title: 'Сообщения',
     title_: 'сообщений',
@@ -68,7 +68,7 @@ const packages = [
       price: 700,
       period: 30,
     }],
-  }]
+  }*/]
 ];
 
 export default packages;

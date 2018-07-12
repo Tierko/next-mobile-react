@@ -16,7 +16,7 @@ const Remain = ({ data, buy, tariff }) => (
       data.map(i => (
         <div key={i.id} className="remain__item">
           <div className="remain__desc">
-            <div><span>{(i.current + '').replace('.', ',')} {i.unit}</span> из {tariff[i.type]}</div>
+            <div><span>{(i.current + '').replace('.', ',')} {i.unit}</span> из {i.max}</div>
             {
               i.link ?
                 <Link className={cs('remain__service', { remain__service_link: i.link })} to={Pages.CALLS}>
@@ -28,7 +28,7 @@ const Remain = ({ data, buy, tariff }) => (
           </div>
           <ProgressLinear
             color="red"
-            max={typeof tariff[i.type] === 'string' ? i.current : tariff[i.type]}
+            max={i.max}
             current={i.current}
           />
         </div>

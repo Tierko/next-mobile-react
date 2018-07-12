@@ -21,7 +21,7 @@ class Services extends Component {
       desc: 'Ваш номер нельзя будет определить при звонке.',
       price: 'Бесплатно',
     }],
-    currentTariff: 1,
+    currentTariff: tariff[(localStorage.getItem('tariff') || 0) * 1].id,
   };
 
   toggleService = (id, value) => {
@@ -41,6 +41,7 @@ class Services extends Component {
     this.setState({
       currentTariff: id,
     });
+    localStorage.setItem('tariff', id - 1);
   };
 
   render() {

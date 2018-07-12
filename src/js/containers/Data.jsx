@@ -125,6 +125,24 @@ class Calls extends Component {
                 </Button>
               </div>
             </div>
+            <h2>Остаток по тарифу (трафик, звонки)</h2>
+            <div style={style}>
+              <Button onClick={() => setData('remain', 0)} disabled={getData('payment') === 0}>
+                16 ГБ / 700 мин
+              </Button>
+              <Button onClick={() => setData('remain', 1)} disabled={getData('payment') === 1}>
+                8 ГБ / 538 мин
+              </Button>
+              <Button onClick={() => setData('remain', 2)} disabled={getData('payment') === 2}>
+                4 ГБ / 243 мин
+              </Button>
+              <Button onClick={() => setData('remain', 3)} disabled={getData('payment') === 3}>
+                2 ГБ / 7 мин
+              </Button>
+              <Button onClick={() => setData('remain', 4)} disabled={getData('payment') === 4}>
+                0 ГБ / 0 мин
+              </Button>
+            </div>
           </div>
         </div>
       </div>,

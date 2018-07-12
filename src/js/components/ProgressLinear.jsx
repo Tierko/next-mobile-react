@@ -14,7 +14,7 @@ const ProgressLinear = ({
   className,
   tall,
 }) => {
-  const percent = current / maxValue;
+  const percent = (current > maxValue || maxValue === 0) ? 1 : current / maxValue;
   const startColor = {
     max: [323, 100, 70],
     min: [150, 95, 50],

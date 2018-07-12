@@ -36,6 +36,10 @@ class Grade extends Component {
     const selected = this.state.selected === -1 ? data[data.length - 1].id : this.state.selected;
     const maxExpense = Math.max.apply(null, data.map(i => Grade.countExpense(i.expense)));
 
+    if (data.length === 1) {
+      return false;
+    }
+
     return (
       <div className={`grade ${className}`}>
         <div className="grade__items">

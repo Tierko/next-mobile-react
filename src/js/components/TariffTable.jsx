@@ -72,8 +72,8 @@ class TariffTable extends Component {
     const { toggleMode, rows, RenderRow } = this;
     const { data, current, onChange } = this.props;
     const isDetail = this.state.mode === 'detail';
-
-    data.sort(a => a.id === current ? -1 : 1);
+    const currentTariff = data.find(d => d.id === current);
+    const dataFiltered = [currentTariff, ...data.filter(d => d.id !== current)];
 
     return (
       <div className="tariff-table">
@@ -81,7 +81,7 @@ class TariffTable extends Component {
           <div className="tariff-table__row">
             <div className="tariff-table__names">
               {
-                data.map(d => (
+                dataFiltered.map(d => (
                   <div key={d.id} className={cs('tariff-table__name', { 'tariff-table__name_active': d.id === current })}>
                     <span>{d.title}</span>
                   </div>
@@ -90,7 +90,7 @@ class TariffTable extends Component {
             </div>
             <div className="tariff-table__actions">
               {
-                data.map(d => (
+                dataFiltered.map(d => (
                   <div key={d.id} className="tariff-table__action">
                     {
                       d.id === current ? 'Текущий тариф' :
@@ -103,7 +103,7 @@ class TariffTable extends Component {
           </div>
           {
             rows.map(r => (
-              <RenderRow key={r.id} data={data} row={r} isDetail={isDetail} />
+              <RenderRow key={r.id} data={dataFiltered} row={r} isDetail={isDetail} />
             ))
           }
           <div className="tariff-table__toggle" onClick={toggleMode}>

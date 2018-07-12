@@ -19,6 +19,7 @@ export const formatCost = (source) => {
   if (str.indexOf('.') !== -1) {
     tail = str.substr(str.indexOf('.'));
     str = str.substring(0, str.lastIndexOf(tail));
+    tail = tail.replace('.', ',');
   }
 
   str = str.split('').reverse();
