@@ -13,7 +13,14 @@ export const checkCardHolder = str => str && str.search(/^[a-z]+\s+[a-z]+$/gi) =
 
 export const formatCost = (source) => {
   const arr = [];
-  let str = source.toString().replace(/\D/g, '');
+  let str = source.toString().replace(/[^\d/.]/g, '');
+  let tail = '';
+
+  if (str.indexOf('.') !== -1) {
+    tail = str.substr(str.indexOf('.'));
+    str = str.substring(0, str.lastIndexOf(tail));
+  }
+
   str = str.split('').reverse();
 
   str.forEach((c, i) => {
@@ -24,7 +31,11 @@ export const formatCost = (source) => {
     arr.push(c);
   });
 
-  return `${arr.reverse().join('')} ${units.currency}`;
+  if (source < 0) {
+    arr.push('-');
+  }
+
+  return `${arr.reverse().join('') || '0'}${tail} ${units.currency}`;
 };
 
 export const getData = type => data[type][localStorage[type] || 0] || {};
