@@ -95,6 +95,36 @@ class Calls extends Component {
                 Через 5 дней
               </Button>
             </div>
+            <h2>Уведомления</h2>
+            <div>
+              Синее сообщение
+              <div style={style}>
+                <Button onClick={() => setData('noteBlue', 1)} disabled={getData('noteBlue')}>
+                  Включить
+                </Button>
+                <Button onClick={() => setData('noteBlue', 0)} disabled={!getData('noteBlue')}>
+                  Выключить
+                </Button>
+              </div>
+              Зеленое сообщение
+              <div style={style}>
+                <Button onClick={() => setData('noteGreen', 1)} disabled={getData('noteGreen')}>
+                  Включить
+                </Button>
+                <Button onClick={() => setData('noteGreen', 0)} disabled={!getData('noteGreen')}>
+                  Выключить
+                </Button>
+              </div>
+              Синее сообщение
+              <div style={style}>
+                <Button onClick={() => setData('noteRed', 1)} disabled={getData('noteRed')}>
+                  Включить
+                </Button>
+                <Button onClick={() => setData('noteRed', 0)} disabled={!getData('noteRed')}>
+                  Выключить
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>,

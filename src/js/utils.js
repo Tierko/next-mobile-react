@@ -38,7 +38,13 @@ export const formatCost = (source) => {
   return `${arr.reverse().join('') || '0'}${tail} ${units.currency}`;
 };
 
-export const getData = type => data[type][localStorage[type] || 0] || {};
+export const getData = (type) => {
+  if (!data[type]) {
+    return localStorage[type] * 1;
+  }
+
+  return data[type][localStorage[type] || 0] || {};
+};
 
 export const convertDays = (n) => {
   const mod = n % 10;

@@ -8,6 +8,7 @@ import OverviewPayment from '../components/OverviewPayment';
 import Remain from '../components/Remain';
 import History from '../components/History';
 import RoamingDashboard from '../components/RoamingDashboard';
+import Note from '../components/Note';
 import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
 import { getData, formatCost, convertDays } from '../utils';
@@ -62,6 +63,27 @@ class Overview extends Component {
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content">
+          <Note
+            className="note_dashboard"
+            message="Добавлено 3ГБ бесплатного интернета до 5 марта"
+            color="green"
+            hideCont
+            show={getData('noteGreen')}
+          />
+          <Note
+            className="note_dashboard"
+            message="Информационное сообщение"
+            color="blue"
+            hideCont
+            show={getData('noteBlue')}
+          />
+          <Note
+            className="note_dashboard"
+            message="Ваши номер заблокирован"
+            color="red"
+            hideCont
+            show={getData('noteRed')}
+          />
           <Balance
             sum={getData('balance')}
             message={`Следующий платеж: ${formatCost(getData('tariff').payment)} через ${getData('payment').days} ${convertDays(getData('payment').days)}`}
