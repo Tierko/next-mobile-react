@@ -8,11 +8,19 @@
     &:not(:last-child) {
       border-bottom: 1px solid @GRAY;
     }
+
+    @media (max-width: @BREAK-POINT) {
+      display: block;
+    }
   }
 
   &__title {
     flex: 1 1 25%;
     color: @GRAY-DARK;
+
+    @media (max-width: @BREAK-POINT) {
+      margin-bottom: 10px;
+    }
   }
 
   &__content {

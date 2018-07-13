@@ -2,12 +2,16 @@
   padding: 0 75px 0 150px;
   position: relative;
 
+  @media (max-width: @MAX-WIDTH) {
+    padding: 0 15px;
+  }
+
   &:before {
     content: '';
     position: absolute;
     top: 0;
     bottom: -100px;
-    left: 0;
+    left: -15px;
     border-left: 1px solid @GRAY-LIGHT;
   }
 
@@ -33,7 +37,9 @@
     position: relative;
 
     @media (max-width: @BREAK-POINT) {
-      display: none;
+      &_desktop {
+        display: none;
+      }
     }
   }
 
@@ -103,7 +109,7 @@
 
   &__tariff {
     display: flex;
-    margin-top: 40px;
+    margin: 40px 0;
 
     @media (max-width: @BREAK-POINT) {
       display: block;
@@ -123,11 +129,22 @@
 
   &__more {
     .link-dashed;
-    margin-top: 40px;
   }
 
   &__note {
     color: @GRAY-DARK;
+
+    @media (max-width: @BREAK-POINT) {
+      &_desktop {
+        display: none;
+      }
+    }
+
+    @media (min-width: @BREAK-POINT + 1) {
+      &_mobile {
+        display: none;
+      }
+    }
   }
 
   &__big {

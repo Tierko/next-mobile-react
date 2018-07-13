@@ -32,15 +32,15 @@ class RoamingZone extends Component {
 
     return (
       <div className={cs('roaming-zone', { 'roaming-zone_show': data.id === active })}>
-        <div className="roaming__title">Роуминг в {data.title}</div>
+        <div className="roaming__title roaming__title_desktop">Роуминг в {data.title}</div>
         <Link to={`${Pages.ROAMING}/countries/${data.id}`} className="roaming-zone__countries">
           Австрия, Бельгия и еще 45 стран
         </Link>
         <div className="roaming-zone__subtitle roaming-zone__subtitle_fast">
-          Пакет быстрого интернета <span className="roaming-zone__note">(еще 30 дней)</span>
+          Пакет быстрого интернета <span className="roaming-zone__note_desktop">(еще 30 дней)</span>
         </div>
         <div>
-          <span className="roaming-zone__big">12,01 ГБ</span> <span className="roaming-zone__note">из 20</span>
+          <span className="roaming-zone__big">12,01 ГБ</span> <span className="roaming-zone__note">из 20</span> <span className="roaming-zone__note roaming-zone__note_mobile">(еще 30 дней)</span>
         </div>
         <ProgressLinear className="progress-linear_roaming" max={20} current={12.01} />
         <Button className="button_roaming-add" onClick={addPackage}>

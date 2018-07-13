@@ -14,12 +14,24 @@
     position: absolute;
     left: -50px;
     top: 10px;
+
+    @media (max-width: @MAX-WIDTH) {
+      position: static;
+      display: block;
+      margin-bottom: 30px;
+    }
   }
 
   &_roaming-country {
     position: absolute;
     left: -50px;
     top: 35px;
+
+    @media (max-width: @MAX-WIDTH) {
+      position: static;
+      display: block;
+      margin: 10px 0 30px;
+    }
   }
 
   &__img {
