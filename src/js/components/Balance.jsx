@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cs from 'classnames';
 import { formatCost } from '../utils';
 
 const Balance = ({
@@ -11,7 +12,7 @@ const Balance = ({
   <div className={`balance ${className}`}>
     <div className={`balance__inner balance__inner_${status}`}>
       <div className="balance__title">Ваш баланс</div>
-      <div className="balance__sum">{formatCost(sum)}</div>
+      <div className={cs('balance__sum', { balance__sum_negative: sum < 0 })}>{formatCost(sum)}</div>
       <div className="balance__next-pay">{message}</div>
     </div>
   </div>
