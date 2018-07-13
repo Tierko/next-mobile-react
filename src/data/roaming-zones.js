@@ -7,7 +7,7 @@ const roamingZones = [{
   current: 85,
   max: 100,
   byMegabytes: false,
-  countries: [],
+  countries: ['RU', 'BY', 'KZ', 'UK', 'UZ'],
   tariff: {
     calls: 200,
     sms: 7,

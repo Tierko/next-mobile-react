@@ -18,14 +18,14 @@ class ComboBox extends Select {
   filter = (value) =>  {
     const { items } = this.props;
 
-    return items.filter(i => i.title.toUpperCase().indexOf(value.toUpperCase()) !== -1);
+    return items.filter(i => i.properties.name.toUpperCase().indexOf(value.toUpperCase()) !== -1);
   };
 
   onSelect = (item) => {
     const { selectItem } = this;
 
     this.setState({
-      valueSearch: item.title,
+      valueSearch: item.properties.name,
     });
 
     selectItem(item);
@@ -49,7 +49,7 @@ class ComboBox extends Select {
     return (
       <div className={`combo-box ${className}`} ref={(e) => { this.select = e; }}>
         {
-          !value.title &&
+          !(value && value.properties && value.properties.title) &&
           <input
             className="combo-box__value"
             type="text"
@@ -59,7 +59,7 @@ class ComboBox extends Select {
           />
         }
         {
-          value.title &&
+          value && value.properties && value.properties.title &&
           <div
             className="combo-box__clear"
             onClick={clear}
@@ -67,23 +67,23 @@ class ComboBox extends Select {
           />
         }
         {
-          value.title &&
+          value && value.properties && value.properties.title &&
           <div className="combo-box__title">
-            <img className="select__img" src={`/media/flags/${value.flag}`} alt={value.title} />
-            {value.title}
+            <img className="select__img" src={`/media/flags/${value.properties.iso_a2}.svg`} alt={value.properties.name} />
+            {value.properties.name}
           </div>
         }
         <div className={cs('select__list', { select__list_open: !!valueSearch.length && open })}>
           {
             filter(valueSearch).map(i => (
               <div
-                key={i.id}
+                key={i.properties.iso_a2}
                 className="select__item select__item_lang"
                 onClick={() => onSelect(i)}
                 role="button"
               >
-                <img className="select__img" src={`/media/flags/${i.flag}`} alt={i.title} />
-                {i.title}
+                <img className="select__img" src={`/media/flags/${i.properties.iso_a2}.svg`} alt={i.properties.name} />
+                {i.properties.name}
               </div>
             ))
           }

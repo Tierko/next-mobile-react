@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>TM</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+        <ellipse id="path-3" cx="1.42857143" cy="0.933333333" rx="1.42857143" ry="1"></ellipse>
+        <ellipse id="path-5" cx="1.42857143" cy="0.933333333" rx="1.42857143" ry="1"></ellipse>
+        <ellipse id="path-7" cx="1.42857143" cy="0.933333333" rx="1.42857143" ry="1"></ellipse>
+        <ellipse id="path-9" cx="1.42857143" cy="0.466666667" rx="1.42857143" ry="1"></ellipse>
+        <ellipse id="path-11" cx="1.42857143" cy="0.933333333" rx="1.42857143" ry="1"></ellipse>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-556.000000, -940.000000)">
+            <g id="TM" transform="translate(556.000000, 940.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <rect id="Rectangle-2" fill="#30C375" mask="url(#mask-2)" x="0" y="0" width="20" height="14"></rect>
+                <rect id="Rectangle-1092" fill="#DE414F" mask="url(#mask-2)" x="2.85714286" y="0" width="2.85714286" height="14"></rect>
+                <g id="Oval-161" mask="url(#mask-2)">
+                    <g transform="translate(2.857143, 0.933333)">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <use id="Mask" stroke="none" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                        <ellipse id="Oval-166" stroke="none" fill="#DD404F" fill-rule="evenodd" mask="url(#mask-4)" cx="1.42857143" cy="0.933333333" rx="1" ry="1"></ellipse>
+                        <rect id="Rectangle-1093" stroke="none" fill="#FBAF29" fill-rule="evenodd" mask="url(#mask-4)" x="0" y="0" width="1.42857143" height="1"></rect>
+                        <rect id="Rectangle-1093-Copy" stroke="none" fill="#FBAF29" fill-rule="evenodd" mask="url(#mask-4)" x="1.42857143" y="0.933333333" width="1.42857143" height="1"></rect>
+                    </g>
+                </g>
+                <g id="Oval-161-Copy-2" mask="url(#mask-2)">
+                    <g transform="translate(2.857143, 11.200000)">
+                        <mask id="mask-6" fill="white">
+                            <use xlink:href="#path-5"></use>
+                        </mask>
+                        <use id="Mask" stroke="none" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-5"></use>
+                        <ellipse id="Oval-166" stroke="none" fill="#DD404F" fill-rule="evenodd" mask="url(#mask-6)" cx="1.42857143" cy="0.933333333" rx="1" ry="1"></ellipse>
+                        <rect id="Rectangle-1093" stroke="none" fill="#FBAF29" fill-rule="evenodd" mask="url(#mask-6)" x="0" y="0" width="1.42857143" height="1"></rect>
+                        <rect id="Rectangle-1093-Copy" stroke="none" fill="#FBAF29" fill-rule="evenodd" mask="url(#mask-6)" x="1.42857143" y="0.933333333" width="1.42857143" height="1"></rect>
+                    </g>
+                </g>
+                <g id="Oval-161-Copy-3" mask="url(#mask-2)">
+                    <g transform="translate(2.857143, 6.533333)">
+                        <mask id="mask-8" fill="white">
+                            <use xlink:href="#path-7"></use>
+                        </mask>
+                        <use id="Mask" stroke="none" fill="#28AE67" fill-rule="evenodd" xlink:href="#path-7"></use>
+                        <ellipse id="Oval-166" stroke="none" fill="#DD404F" fill-rule="evenodd" mask="url(#mask-8)" cx="1.42857143" cy="0.933333333" rx="1" ry="1"></ellipse>
+                    </g>
+                </g>
+                <g id="Oval-161-Copy-4" mask="url(#mask-2)">
+                    <g transform="translate(2.857143, 9.333333)">
+                        <mask id="mask-10" fill="white">
+                            <use xlink:href="#path-9"></use>
+                        </mask>
+                        <use id="Mask" stroke="none" fill="#28AE67" fill-rule="evenodd" xlink:href="#path-9"></use>
+                    </g>
+                </g>
+                <g id="Oval-161-Copy" mask="url(#mask-2)">
+                    <g transform="translate(2.857143, 3.733333)">
+                        <mask id="mask-12" fill="white">
+                            <use xlink:href="#path-11"></use>
+                        </mask>
+                        <use id="Mask" stroke="none" fill="#FBAF29" fill-rule="evenodd" xlink:href="#path-11"></use>
+                        <ellipse id="Oval-166" stroke="none" fill="#DD404F" fill-rule="evenodd" mask="url(#mask-12)" cx="1.42857143" cy="0.933333333" rx="1" ry="1"></ellipse>
+                        <rect id="Rectangle-1093" stroke="none" fill="#28AE67" fill-rule="evenodd" mask="url(#mask-12)" x="0" y="0" width="1" height="1.86666667"></rect>
+                        <rect id="Rectangle-1093-Copy-2" stroke="none" fill="#28AE67" fill-rule="evenodd" mask="url(#mask-12)" x="1.9047619" y="0" width="1" height="1.86666667"></rect>
+                    </g>
+                </g>
+                <path d="M10.587609,2.96670998 C10.4185605,3.16414482 10.4448386,3.45849743 10.6463027,3.62416494 C10.8477668,3.78983244 11.1481266,3.76407993 11.3171751,3.56664508 C11.4862236,3.36921024 11.4599455,3.07485763 11.2584814,2.90919013 C11.0570173,2.74352262 10.7566574,2.76927514 10.587609,2.96670998 Z M9.35371947,4.77585679 C9.15225535,4.61018929 8.85189554,4.6359418 8.68284707,4.83337665 C8.51379859,5.03081149 8.54007667,5.3251641 8.7415408,5.49083161 C8.94300492,5.65649911 9.24336473,5.63074659 9.4124132,5.43331175 C9.58146168,5.23587691 9.5551836,4.9415243 9.35371947,4.77585679 L9.35371947,4.77585679 Z M8.40133852,3.84252346 C8.19987439,3.67685595 7.89951459,3.70260847 7.73046611,3.90004331 C7.56141764,4.09747816 7.58769572,4.39183077 7.78915984,4.55749827 C7.99062397,4.72316578 8.29098378,4.69741326 8.46003225,4.49997842 C8.62908072,4.30254357 8.60280265,4.00819096 8.40133852,3.84252346 L8.40133852,3.84252346 Z M10.3061004,1.97585679 C10.1046363,1.81018929 9.80427649,1.8359418 9.63522802,2.03337665 C9.46617955,2.23081149 9.49245762,2.5251641 9.69392175,2.69083161 C9.89538587,2.85649911 10.1957457,2.83074659 10.3647942,2.63331175 C10.5338426,2.43587691 10.5075646,2.1415243 10.3061004,1.97585679 L10.3061004,1.97585679 Z M9.82990995,3.37585679 C9.62844582,3.21018929 9.32808602,3.2359418 9.15903754,3.43337665 C8.98998907,3.63081149 9.01626715,3.9251641 9.21773127,4.09083161 C9.4191954,4.25649911 9.71955521,4.23074659 9.88860368,4.03331175 C10.0576522,3.83587691 10.0313741,3.5415243 9.82990995,3.37585679 L9.82990995,3.37585679 Z" id="Oval-68" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                <path d="M12.4829263,6.61536438 C11.3486051,7.7269991 9.50950716,7.7269991 8.37518601,6.61536438 C8.26527355,6.50765016 8.16601129,6.3934511 8.07739923,6.27402393 C9.21320323,7.0833904 10.8124242,6.98611339 11.8368329,5.98219288 C12.8612416,4.97827237 12.9605038,3.41103581 12.1346197,2.29794789 C12.2564841,2.38478771 12.3730138,2.48206472 12.4829263,2.58977894 C13.6172474,3.70141366 13.6172474,5.50372965 12.4829263,6.61536438 Z" id="Star-8" fill="#FFFFFF" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,24 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>CU</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Flags" transform="translate(-652.000000, -124.000000)">
-            <g id="CU" transform="translate(652.000000, 124.000000)">
-                <mask id="mask-2" fill="white">
-                    <use xlink:href="#path-1"></use>
-                </mask>
-                <rect stroke="#F5F5F5" stroke-width="0.5" x="0.25" y="0.25" width="19.5" height="13.5" rx="1"></rect>
-                <rect id="Rectangle-2" fill="#0B389F" mask="url(#mask-2)" x="0" y="0" width="20" height="2.8"></rect>
-                <rect id="Rectangle-2" fill="#0B389F" mask="url(#mask-2)" x="0" y="5.6" width="20" height="2.8"></rect>
-                <rect id="Rectangle-2" fill="#0B389F" mask="url(#mask-2)" x="0" y="11.2" width="20" height="2.8"></rect>
-                <polygon id="Rectangle-83" fill="#E12A43" mask="url(#mask-2)" points="0 0 9.52380952 7 0 14"></polygon>
-                <polygon id="Star-53" fill="#FFFFFF" mask="url(#mask-2)" points="3.33333333 7.71588185 2.21374238 8.51016506 2.63859446 7.22121966 1.52179711 6.42316828 2.9039611 6.42083942 3.33333333 5.13333333 3.76270557 6.42083942 5.14486955 6.42316828 4.02807221 7.22121966 4.45292429 8.51016506"></polygon>
-            </g>
-        </g>
-    </g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="800" height="400">
+<path d="M0,0h800v400H0z" fill="#002a8f"/>
+<path d="M0,80h800v80H0v80h800v80H0z" fill="#fff"/>
+<path d="M346.4,200L0,0v400z" fill="#cf142b"/>
+<path d="M115.5,140l35.35,108.5 l-92.5-67h114.2l-92.5,67z" fill="#fff"/>
 </svg>

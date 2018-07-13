@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>DM</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#E02C42" offset="0%"></stop>
+            <stop stop-color="#D22036" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-124.000000, -172.000000)">
+            <g id="DM" transform="translate(124.000000, 172.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <rect id="Rectangle-2" fill="#108753" mask="url(#mask-2)" x="0" y="0" width="20" height="5.6"></rect>
+                <rect id="Rectangle-2" fill="#108753" mask="url(#mask-2)" x="0" y="8.4" width="20" height="5.6"></rect>
+                <path d="M8.57142857,5.6 L8.57142857,0 L11.4285714,0 L11.4285714,5.6 L20,5.6 L20,8.4 L11.4285714,8.4 L11.4285714,14 L8.57142857,14 L8.57142857,8.4 L0,8.4 L0,5.6 L8.57142857,5.6 Z" id="Rectangle-2" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                <path d="M9.52380952,7.46666667 L0,7.46666667 L0,6.53333333 L9.52380952,6.53333333 L9.52380952,0 L10.4761905,0 L10.4761905,6.53333333 L20,6.53333333 L20,7.46666667 L10.4761905,7.46666667 L10.4761905,14 L9.52380952,14 L9.52380952,7.46666667 Z" id="Rectangle-2" fill="#262626" mask="url(#mask-2)"></path>
+                <path d="M8.57142857,6.53333333 L0,6.53333333 L0,5.6 L8.57142857,5.6 L8.57142857,0 L9.52380952,0 L9.52380952,5.6 L20,5.6 L20,6.53333333 L9.52380952,6.53333333 L9.52380952,14 L8.57142857,14 L8.57142857,6.53333333 Z" id="Rectangle-2" fill="#FCD449" mask="url(#mask-2)"></path>
+                <ellipse id="Oval-83" fill="url(#linearGradient-3)" mask="url(#mask-2)" cx="10" cy="7" rx="3.33333333" ry="3.26666667"></ellipse>
+                <path d="M10,9.33333333 C11.3149637,9.33333333 12.3809524,8.28866442 12.3809524,7 C12.3809524,5.71133558 11.3149637,4.66666667 10,4.66666667 C8.68503631,4.66666667 7.61904762,5.71133558 7.61904762,7 C7.61904762,8.28866442 8.68503631,9.33333333 10,9.33333333 Z" id="Oval-73" stroke="#0E673F" stroke-width="1.33333333" stroke-linecap="round" stroke-dasharray="0.6666666666666666,2.666666666666667" mask="url(#mask-2)"></path>
+                <path d="M10,7.93333333 C10.5259855,7.93333333 10.4761905,7.51546577 10.4761905,7 C10.4761905,6.48453423 10.5259855,6.06666667 10,6.06666667 C9.47401452,6.06666667 9.52380952,6.48453423 9.52380952,7 C9.52380952,7.51546577 9.47401452,7.93333333 10,7.93333333 Z" id="Oval-84" fill="#0E673F" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

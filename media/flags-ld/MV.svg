@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>MV</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-268.000000, -604.000000)">
+            <g id="MV" transform="translate(268.000000, 604.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <rect id="Mask-Copy" fill="#F32249" mask="url(#mask-2)" x="0" y="0" width="20" height="14"></rect>
+                <rect id="Rectangle-1568" fill="#15A04F" mask="url(#mask-2)" x="2.85714286" y="2.8" width="14.2857143" height="8.4" rx="0.666666667"></rect>
+                <path d="M11.6666667,3.80850856 C10.1689609,4.12895466 9.04761905,5.43614465 9.04761905,7 C9.04761905,8.56385535 10.1689609,9.87104534 11.6666667,10.1914914 C11.4365552,10.2407256 11.1975593,10.2666667 10.952381,10.2666667 C9.11143179,10.2666667 7.61904762,8.80413018 7.61904762,7 C7.61904762,5.19586982 9.11143179,3.73333333 10.952381,3.73333333 C11.1975593,3.73333333 11.4365552,3.75927438 11.6666667,3.80850856 Z" id="Oval-12" fill="#FFFFFF" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

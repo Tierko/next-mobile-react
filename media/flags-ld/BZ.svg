@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>BZ</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-412.000000, -76.000000)">
+            <g id="BZ" transform="translate(412.000000, 76.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <rect id="Rectangle-2-Copy-4" fill="#094995" mask="url(#mask-2)" x="0" y="1.86666667" width="20" height="10.2666667"></rect>
+                <rect id="Rectangle-2" fill="#D5182F" mask="url(#mask-2)" x="0" y="0" width="20" height="1.86666667"></rect>
+                <rect id="Rectangle-2" fill="#D5182F" mask="url(#mask-2)" x="0" y="12.1333333" width="20" height="1.86666667"></rect>
+                <ellipse id="Oval-12" fill="#FFFFFF" mask="url(#mask-2)" cx="10" cy="7" rx="4.28571429" ry="4.2"></ellipse>
+                <path d="M10,9.8 C11.5779564,9.8 12.8571429,8.5463973 12.8571429,7 C12.8571429,5.4536027 11.5779564,4.2 10,4.2 C8.42204357,4.2 7.14285714,5.4536027 7.14285714,7 C7.14285714,8.5463973 8.42204357,9.8 10,9.8 Z" id="Oval-73" stroke="#118014" stroke-width="1.33333333" stroke-linecap="round" stroke-dasharray="0.6666666666666666,2" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

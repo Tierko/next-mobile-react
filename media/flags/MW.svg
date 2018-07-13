@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>MW</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <rect id="path-1" x="0" y="0" width="20" height="13.6363636" rx="1"></rect>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Flags" transform="translate(-172.000000, -604.000000)">
-            <g id="MW" transform="translate(172.000000, 604.000000)">
-                <mask id="mask-2" fill="white">
-                    <use xlink:href="#path-1"></use>
-                </mask>
-                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
-                <rect id="Rectangle-2" fill="#262626" mask="url(#mask-2)" x="0" y="0" width="20" height="4.54545455"></rect>
-                <ellipse id="Oval-200" fill="#E42038" mask="url(#mask-2)" cx="10" cy="5" rx="3.33333333" ry="3.18181818"></ellipse>
-                <rect id="Rectangle-2" fill="#E42038" mask="url(#mask-2)" x="0" y="4.54545455" width="20" height="4.54545455"></rect>
-                <rect id="Rectangle-2" fill="#47B849" mask="url(#mask-2)" x="0" y="9.09090909" width="20" height="4.54545455"></rect>
-            </g>
-        </g>
-    </g>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="600" viewBox="-225 -114 450 300">
+<title>Flag of Malawi</title>
+<rect x="-225" y="-114" width="450" height="300"/>
+<g fill="#CE1126">
+<circle r="64.5"/>
+<rect x="-225" y="-14" width="450" height="100"/>
+<g id="r16">
+	<g id="r8">
+		<g id="r4">
+			<g id="r2">
+				<path id="r" d="M0-102c-2.2,0-3,3.3-3,6.5 0,8 1,12 3,23.5 2.04-11.5 3-15.6 3-23.5 0-3.3-1-6.5-3-6.5"/>
+				<use transform="rotate(5)" xlink:href="#r"/></g>
+			<use transform="rotate(10)" xlink:href="#r2"/></g>
+		<use transform="rotate(20)" xlink:href="#r4"/></g>
+	<use transform="rotate(40)" xlink:href="#r8"/></g>
+<use transform="rotate(-80)" xlink:href="#r16"/></g>
+<rect x="-225" y="-21.5" width="450" height="7.5"/>
+<rect x="-225" y="86" width="450" height="100" fill="#339E35"/>
 </svg>

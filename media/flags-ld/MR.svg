@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>MR</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-748.000000, -604.000000)">
+            <g id="MR" transform="translate(748.000000, 604.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <rect id="Mask-Copy" fill="#108B4D" mask="url(#mask-2)" x="0" y="0" width="20" height="14"></rect>
+                <path d="M14.1526069,5.41333351 C14.1873,5.62853733 14.2053155,5.84917593 14.2053155,6.07393812 C14.2053155,8.39353407 12.2865359,10.2739381 9.91960124,10.2739381 C7.5526666,10.2739381 5.63388695,8.39353407 5.63388695,6.07393812 C5.63388695,5.84917593 5.65190248,5.62853733 5.6865956,5.41333351 C6.00994319,7.41908115 7.78201577,8.9527289 9.91960124,8.9527289 C12.0571867,8.9527289 13.8292593,7.41908115 14.1526069,5.41333351 L14.1526069,5.41333351 Z M10,5.99486068 L8.8227924,6.81727766 L9.25714283,5.4659377 L8.0952381,4.62287939 L9.54088902,4.61012234 L10,3.26666667 L10.459111,4.61012234 L11.9047619,4.62287939 L10.7428572,5.4659377 L11.1772076,6.81727766 L10,5.99486068 L10,5.99486068 Z" id="Star-8" fill="#FFC941" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

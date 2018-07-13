@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>TN</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-364.000000, -940.000000)">
+            <g id="TN" transform="translate(364.000000, 940.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <rect id="Mask-Copy" fill="#E92434" mask="url(#mask-2)" x="0" y="0" width="20" height="14"></rect>
+                <path d="M11.2936705,3.98846632 C10.8958949,3.82416028 10.4587708,3.73333333 10,3.73333333 C8.15905083,3.73333333 6.66666667,5.19586982 6.66666667,7 C6.66666667,8.80413018 8.15905083,10.2666667 10,10.2666667 C10.4587708,10.2666667 10.8958949,10.1758397 11.2936705,10.0115337 C9.76009618,9.83102188 8.57142857,8.55154876 8.57142857,7 C8.57142857,5.44845124 9.76009618,4.16897812 11.2936705,3.98846632 Z M10,11.2 C7.63306536,11.2 5.71428571,9.31959595 5.71428571,7 C5.71428571,4.68040405 7.63306536,2.8 10,2.8 C12.3669346,2.8 14.2857143,4.68040405 14.2857143,7 C14.2857143,9.31959595 12.3669346,11.2 10,11.2 Z M11.676779,7.8190716 L12.96066,8.28481354 L12.2290096,7.15032104 L13.0888733,6.08984084 L11.7576858,6.43397078 L11.0052298,5.31281603 L10.9141612,6.65999253 L9.58925406,7.02756099 L10.864158,7.51603191 L10.7977764,8.86435646 L11.676779,7.8190716 Z" id="Oval-41" fill="#FFFFFF" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

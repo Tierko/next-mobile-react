@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>TG</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Flags" transform="translate(-268.000000, -940.000000)">
-            <g id="TG" transform="translate(268.000000, 940.000000)">
-                <mask id="mask-2" fill="white">
-                    <use xlink:href="#path-1"></use>
-                </mask>
-                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
-                <rect id="Mask-Copy" fill="#FFD44D" mask="url(#mask-2)" x="0" y="0" width="20" height="14"></rect>
-                <path d="M8.57142857,0 L20,0 L20,2.8 L8.57142857,2.8 L8.57142857,0 Z M8.57142857,5.6 L20,5.6 L20,8.4 L8.57142857,8.4 L8.57142857,5.6 Z M0,11.2 L20,11.2 L20,14 L0,14 L0,11.2 Z" id="Rectangle-537" fill="#159A74" mask="url(#mask-2)"></path>
-                <rect id="Rectangle-1568" fill="#ED1F45" mask="url(#mask-2)" x="0" y="0" width="8.57142857" height="8.4"></rect>
-                <polygon id="Star-8" fill="#FFFFFF" mask="url(#mask-2)" points="4.28571429 5.29200004 2.60632785 6.46524758 3.22596555 4.53744657 1.56840995 3.33475242 3.63075355 3.31655341 4.28571429 1.4 4.94067502 3.31655341 7.00301862 3.33475242 5.34546302 4.53744657 5.96510072 6.46524758"></polygon>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="809" height="500">
+	<rect width="809" height="500" fill="#006a4e"/>
+	<rect y="100" width="809" height="100" fill="#ffce00"/>
+	<rect y="300" width="809" height="100" fill="#ffce00"/>
+	<rect width="300" height="300" fill="#d21034"/>
+	<g transform="translate(150,150)" fill="#fff">
+		<g id="c">
+			<path id="t" d="M 0,-95 V 0 H 50" transform="rotate(18 0,-95)"/>
+			<use xlink:href="#t" transform="scale(-1,1)"/>
+		</g>
+		<use xlink:href="#c" transform="rotate(72)"/>
+		<use xlink:href="#c" transform="rotate(144)"/>
+		<use xlink:href="#c" transform="rotate(216)"/>
+		<use xlink:href="#c" transform="rotate(288)"/>
+	</g>
 </svg>

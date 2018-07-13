@@ -9,13 +9,14 @@ const RoamingCountries = ({ items, id }) => (
     <div className="roaming__title">
       <LinkBack className="link-back_roaming" href={Pages.ROAMING} />
       Страны Зоны 1
+
     </div>
     <div>
       {
         items.map(i => (
-          <Link key={i.id} className="roaming-country" to={`${Pages.ROAMING}/country-tariff/${id}`}>
-            <img className="roaming-country__img" src={`/media/flags/${i.flag}`} alt={i.title} />
-            <span className="roaming-country__name">{i.title}</span>
+          <Link key={i.properties.iso_a2} className="roaming-country" to={`${Pages.ROAMING}/country-tariff/${id}`}>
+            <img className="roaming-country__img" src={`/media/flags/${i.properties.iso_a2}.svg`} alt={i.title} />
+            <span className="roaming-country__name">{i.properties.name}</span>
           </Link>
         ))
       }

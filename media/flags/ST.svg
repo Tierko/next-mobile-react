@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>ST</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Flags" transform="translate(-316.000000, -892.000000)">
-            <g id="ST" transform="translate(316.000000, 892.000000)">
-                <mask id="mask-2" fill="white">
-                    <use xlink:href="#path-1"></use>
-                </mask>
-                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
-                <rect id="Rectangle-2" fill="#2ACB41" mask="url(#mask-2)" x="0" y="9.33333333" width="20" height="4.66666667"></rect>
-                <rect id="Rectangle-2" fill="#2ACB41" mask="url(#mask-2)" x="0" y="0" width="20" height="4.66666667"></rect>
-                <rect id="Rectangle-2" fill="#FDD043" mask="url(#mask-2)" x="0" y="4.66666667" width="20" height="4.66666667"></rect>
-                <polygon id="Rectangle-83" fill="#E71E43" mask="url(#mask-2)" points="0 0 7.61904762 7 0 14"></polygon>
-                <polygon id="Star-33" fill="#262626" mask="url(#mask-2)" points="10.4761905 7.76533333 9.35659952 8.51016506 9.73346063 7.236501 8.66465425 6.42316828 10.0171582 6.38083233 10.4761905 5.13333333 10.9352228 6.38083233 12.2877267 6.42316828 11.2189203 7.236501 11.5957814 8.51016506"></polygon>
-                <polygon id="Star-33" fill="#262626" mask="url(#mask-2)" points="15.2380952 7.76533333 14.1185043 8.51016506 14.4953654 7.236501 13.426559 6.42316828 14.7790629 6.38083233 15.2380952 5.13333333 15.6971275 6.38083233 17.0496315 6.42316828 15.9808251 7.236501 16.3576862 8.51016506"></polygon>
-            </g>
-        </g>
-    </g>
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2800" height="1400">
+	<rect width="2800" height="1400" fill="#12ad2b"/>
+	<rect y="400" width="2800" height="600" fill="#ffce00"/>
+	<path d="M 0,0 V 1400 L 700,700" fill="#d21034"/>
+	<g id="star" transform="translate(1400,700)" fill="#000">
+		<g id="c">
+			<path id="t" d="M 0,-200 v 200 h 100" transform="rotate(18 0,-200)"/>
+			<use xlink:href="#t" transform="scale(-1,1)"/>
+		</g>
+		<use xlink:href="#c" transform="rotate(72)"/>
+		<use xlink:href="#c" transform="rotate(144)"/>
+		<use xlink:href="#c" transform="rotate(216)"/>
+		<use xlink:href="#c" transform="rotate(288)"/>
+	</g>
+	<use xlink:href="#star" x="700"/>
 </svg>

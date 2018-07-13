@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>WS</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
-            <stop stop-color="#FFFFFF" offset="0%"></stop>
-            <stop stop-color="#F0F0F0" offset="100%"></stop>
-        </linearGradient>
-        <rect id="path-2" x="0" y="0" width="20" height="14" rx="1"></rect>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Flags" transform="translate(-124.000000, -1036.000000)">
-            <g id="WS" transform="translate(124.000000, 1036.000000)">
-                <mask id="mask-3" fill="white">
-                    <use xlink:href="#path-2"></use>
-                </mask>
-                <use id="Mask" fill="#FFFFFF" xlink:href="#path-2"></use>
-                <rect id="Mask-Copy" fill="#E31F37" mask="url(#mask-3)" x="0" y="0" width="20" height="14"></rect>
-                <rect id="Rectangle-2" fill="#083B9A" mask="url(#mask-3)" x="-0.952380952" y="-0.933333333" width="11.4285714" height="8.4"></rect>
-                <path d="M4.76190476,6.53333333 L4.08846973,6.726633 L4.28571429,6.06666667 L4.08846973,5.40670034 L4.76190476,5.6 L5.43533979,5.40670034 L5.23809524,6.06666667 L5.43533979,6.726633 L4.76190476,6.53333333 Z M4.76190476,1.86666667 L4.08846973,2.05996633 L4.28571429,1.4 L4.08846973,0.740033671 L4.76190476,0.933333333 L5.43533979,0.740033671 L5.23809524,1.4 L5.43533979,2.05996633 L4.76190476,1.86666667 Z M2.85714286,4.2 L2.18370783,4.39329966 L2.38095238,3.73333333 L2.18370783,3.073367 L2.85714286,3.26666667 L3.53057789,3.073367 L3.33333333,3.73333333 L3.53057789,4.39329966 L2.85714286,4.2 Z M7.14285714,3.73333333 L6.46942211,3.926633 L6.66666667,3.26666667 L6.46942211,2.60670034 L7.14285714,2.8 L7.81629217,2.60670034 L7.61904762,3.26666667 L7.81629217,3.926633 L7.14285714,3.73333333 Z M5.95238095,5.13333333 C5.82088458,5.13333333 5.71428571,5.02886644 5.71428571,4.9 C5.71428571,4.77113356 5.82088458,4.66666667 5.95238095,4.66666667 C6.08387732,4.66666667 6.19047619,4.77113356 6.19047619,4.9 C6.19047619,5.02886644 6.08387732,5.13333333 5.95238095,5.13333333 Z" id="Star-2" fill="#FFFFFF" mask="url(#mask-3)"></path>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2880" height="1440">
+<defs>
+<path id="s" d="M0,0 0.309017,0.951057 -0.5,0.363271H0.5L-0.309017,0.951057z"/>
+</defs>
+<rect width="2880" height="1440" fill="#ce1126"/>
+<rect width="1440" height="720" fill="#002b7f"/>
+<g fill="#fff">
+<use xlink:href="#s" transform="translate(720,30) scale(160)"/>
+<use xlink:href="#s" transform="translate(500,210) scale(160)"/>
+<use xlink:href="#s" transform="translate(945,180) scale(150)"/>
+<use xlink:href="#s" transform="translate(830,364.894348) scale(100)"/>
+<use xlink:href="#s" transform="translate(720,499.788697) scale(200)"/>
+</g>
 </svg>

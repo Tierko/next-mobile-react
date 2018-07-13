@@ -1,31 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>GG</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Flags" transform="translate(-604.000000, -316.000000)">
-            <g id="GG" transform="translate(604.000000, 316.000000)">
-                <mask id="mask-2" fill="white">
-                    <use xlink:href="#path-1"></use>
-                </mask>
-                <rect stroke="#F5F5F5" stroke-width="0.5" x="0.25" y="0.25" width="19.5" height="13.5" rx="1"></rect>
-                <rect id="Mask" fill="#E8112D" mask="url(#mask-2)" x="7.61904762" y="0" width="4.76190476" height="14"></rect>
-                <rect id="Mask" fill="#E8112D" mask="url(#mask-2)" x="0" y="4.66666667" width="20" height="4.66666667"></rect>
-                <g id="Group" mask="url(#mask-2)" fill="#F9DD16">
-                    <g transform="translate(4.761905, 1.866667)">
-                        <rect id="Rectangle-1229" x="4.76190476" y="0" width="1" height="10.2666667"></rect>
-                        <polygon id="Triangle-1" points="5.23809524 9.33333333 6.19047619 10.2666667 4.28571429 10.2666667"></polygon>
-                        <rect id="Rectangle-1229" x="0" y="4.66666667" width="10.4761905" height="1"></rect>
-                        <polygon id="Triangle-1" transform="translate(5.238095, 0.466667) scale(1, -1) translate(-5.238095, -0.466667) " points="5.23809524 0 6.19047619 0.933333333 4.28571429 0.933333333"></polygon>
-                        <polygon id="Triangle-1" transform="translate(0.476190, 5.133333) scale(1, -1) rotate(-270.000000) translate(-0.476190, -5.133333) " points="0.476190476 4.66666667 1.42857143 5.6 -0.476190476 5.6"></polygon>
-                        <polygon id="Triangle-1" transform="translate(10.000000, 5.133333) scale(-1, -1) rotate(-270.000000) translate(-10.000000, -5.133333) " points="10 4.66666667 10.952381 5.6 9.04761905 5.6"></polygon>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
+<!DOCTYPE svg>
+<svg width="900" height="600" viewBox="-18 -12 36 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <rect x="-18" y="-12" width="36" height="24" fill="white"/>
+   <path d="M 0,-12 v 24 M -18,0 h 36" stroke="#e8112d" stroke-width="6" fill="none"/>
+   <path id="arm" d="M -9,2 l 1,-1 h 9 v -2 h -9 l -1,-1 z" fill="#f9dd16"/>
+   <use xlink:href="#arm" transform="rotate(90)"/>
+   <use xlink:href="#arm" transform="rotate(-90)"/>
+   <use xlink:href="#arm" transform="rotate(180)"/>
 </svg>

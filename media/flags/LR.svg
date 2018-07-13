@@ -1,22 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>LR</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Flags" transform="translate(-172.000000, -556.000000)">
-            <g id="LR" transform="translate(172.000000, 556.000000)">
-                <mask id="mask-2" fill="white">
-                    <use xlink:href="#path-1"></use>
-                </mask>
-                <rect stroke="#F5F5F5" stroke-width="0.5" x="0.25" y="0.25" width="19.5" height="13.5" rx="1"></rect>
-                <path d="M9.52380952,0 L20,0 L20,1.86666667 L9.52380952,1.86666667 L9.52380952,0 Z M9.52380952,3.73333333 L20,3.73333333 L20,5.6 L9.52380952,5.6 L9.52380952,3.73333333 Z M9.52380952,7.46666667 L20,7.46666667 L20,9.33333333 L9.52380952,9.33333333 L9.52380952,7.46666667 Z M0,11.2 L20,11.2 L20,13.0666667 L0,13.0666667 L0,11.2 Z" id="Rectangle-537" fill="#E1244A" mask="url(#mask-2)"></path>
-                <rect id="Rectangle-1568" fill="#0C3F8E" mask="url(#mask-2)" x="0" y="0" width="9.52380952" height="9.33333333"></rect>
-                <polygon id="Star-8" fill="#FFFFFF" mask="url(#mask-2)" points="4.76190476 5.75866671 3.08251833 6.93191425 3.70215603 5.00411324 2.04460043 3.80141908 4.10694403 3.78322007 4.76190476 1.86666667 5.4168655 3.78322007 7.47920909 3.80141908 5.82165349 5.00411324 6.4412912 6.93191425"></polygon>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="600" viewBox="0 0 209 110" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect fill="#bf0a30" width="209" height="110"/>
+<path d="M0,15H209 M0,35H209 M0,55H209 M0,75H209 M0,95H209" stroke="#fff" stroke-width="10"/>
+<rect fill="#002868" width="50" height="50"/>
+<g transform="translate(25,25) scale(15)">
+<g id="B">
+<polygon id="A" fill="#fff" points="0,0 0,1 .5,1" transform="translate(0,-1) rotate(18)"/>
+<use xlink:href="#A" transform="scale(-1,1)"/>
+</g>
+<use xlink:href="#B" transform="rotate(72)"/>
+<use xlink:href="#B" transform="rotate(-72)"/>
+<use xlink:href="#B" transform="rotate(144)"/>
+<use xlink:href="#B" transform="rotate(-144)"/>
+</g>
 </svg>

@@ -14,6 +14,7 @@ import data from '../../data';
 class Roaming extends Component {
   state = {
     tab: 1,
+    features: [],
   };
 
   onChange = (name, value) => {
@@ -29,9 +30,21 @@ class Roaming extends Component {
     return roamingZones.find(z => z.id === tab);
   };
 
+  componentDidMount() {
+    fetch('/data/map.geo.json', {
+      headers: new Headers({
+        'Content-Types': 'text/json',
+      }),
+    })
+      .then(features => features.json())
+      .then(features => this.setState({
+        features,
+      }));
+  }
+
   render() {
-    const { tab } = this.state;
-    const { roamingZones, countries } = data;
+    const { tab, features } = this.state;
+    const { roamingZones } = data;
     const { match: { params: { type, zone } }, history } = this.props;
     const { onChange, getCurrentZone } = this;
 
@@ -40,7 +53,7 @@ class Roaming extends Component {
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content dashboard__content_roaming">
-          <RoamingMap zone={getCurrentZone()} />
+          <RoamingMap zone={getCurrentZone()} features={features} />
           {
             !zone &&
             <div className="roaming roaming_zones">
@@ -54,7 +67,7 @@ class Roaming extends Component {
           }
           {
             zone && type === 'countries' &&
-            <RoamingCountries items={countries} id={zone} />
+            <RoamingCountries items={features} id={zone} />
           }
           {
             zone && type === 'internet' &&

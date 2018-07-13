@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>KM</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Flags" transform="translate(-508.000000, -124.000000)">
-            <g id="KM" transform="translate(508.000000, 124.000000)">
-                <mask id="mask-2" fill="white">
-                    <use xlink:href="#path-1"></use>
-                </mask>
-                <rect stroke="#F5F5F5" stroke-width="0.5" x="0.25" y="0.25" width="19.5" height="13.5" rx="1"></rect>
-                <rect id="Rectangle-2" fill="#FFCB49" mask="url(#mask-2)" x="0" y="0" width="20" height="3.73333333"></rect>
-                <rect id="Rectangle-2" fill="#DC1D34" mask="url(#mask-2)" x="0" y="6.53333333" width="20" height="3.73333333"></rect>
-                <rect id="Rectangle-2" fill="#4985D4" mask="url(#mask-2)" x="0" y="10.2666667" width="20" height="3.73333333"></rect>
-                <polygon id="Rectangle-2" fill="#4BA343" mask="url(#mask-2)" points="0 14 9.52380952 7 0 0"></polygon>
-                <path d="M4.52380952,4.28821224 C3.29150437,4.59904219 2.38095238,5.6953124 2.38095238,7 C2.38095238,8.3046876 3.29150437,9.40095781 4.52380952,9.71178776 C4.29550958,9.7693729 4.05616636,9.8 3.80952381,9.8 C2.23156738,9.8 0.952380952,8.5463973 0.952380952,7 C0.952380952,5.4536027 2.23156738,4.2 3.80952381,4.2 C4.05616636,4.2 4.29550958,4.2306271 4.52380952,4.28821224 Z M5.23809524,5.6 C4.9751025,5.6 4.76190476,5.39106622 4.76190476,5.13333333 C4.76190476,4.87560045 4.9751025,4.66666667 5.23809524,4.66666667 C5.50108798,4.66666667 5.71428571,4.87560045 5.71428571,5.13333333 C5.71428571,5.39106622 5.50108798,5.6 5.23809524,5.6 Z M5.23809524,7.46666667 C4.9751025,7.46666667 4.76190476,7.25773288 4.76190476,7 C4.76190476,6.74226712 4.9751025,6.53333333 5.23809524,6.53333333 C5.50108798,6.53333333 5.71428571,6.74226712 5.71428571,7 C5.71428571,7.25773288 5.50108798,7.46666667 5.23809524,7.46666667 Z M5.23809524,9.33333333 C4.9751025,9.33333333 4.76190476,9.12439955 4.76190476,8.86666667 C4.76190476,8.60893378 4.9751025,8.4 5.23809524,8.4 C5.50108798,8.4 5.71428571,8.60893378 5.71428571,8.86666667 C5.71428571,9.12439955 5.50108798,9.33333333 5.23809524,9.33333333 Z" id="Oval-12" fill="#FFFFFF" mask="url(#mask-2)"></path>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="600" viewBox="0 0 500 300">
+<rect fill="#3A75C4" width="500" height="300"/>
+<rect fill="#CE1126" width="500" height="225"/>
+<rect fill="#FFF" width="500" height="150"/>
+<rect fill="#FFC61E" width="500" height="75"/>
+<path fill="#3D8E33" d="M0,300l250-150L0,0V300z"/>
+<circle fill="#FFF" cx="85" cy="150" r="67.5"/>
+<circle fill="#3D8E33" cx="115" cy="150" r="67.5"/>
+<path id="star" fill="#FFF" d="M100.0104,89.1996l7.3594,22.5883L88.1125,97.8394h23.775l-19.2573,13.9486L100.0104,89.1996z"/>
+<use xlink:href="#star" y="32.2083"/>
+<use xlink:href="#star" y="64.4166"/>
+<use xlink:href="#star" y="96.625"/>
 </svg>
