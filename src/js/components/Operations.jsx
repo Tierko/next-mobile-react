@@ -54,6 +54,7 @@ class Operations extends Component {
     filterBy: HISTORY_FILTERS[0],
     periodStart: '29 сентября 2020',
     periodEnd: '30 сентября 2020',
+    show: 10,
   };
 
   onChange = (name, value) => {
@@ -72,13 +73,24 @@ class Operations extends Component {
     return data.filter(d => d.type === filterBy.id);
   };
 
-  loadMore = () => {};
+  loadMore = () => {
+    const { show } = this.state;
+
+    this.setState({
+      show: show + 10,
+    });
+  };
 
   render() {
     const { onChange, filter, loadMore } = this;
-    const { filterBy, periodStart, periodEnd } = this.state;
+    const {
+      filterBy,
+      periodStart,
+      periodEnd,
+      show,
+    } = this.state;
     const { data } = this.props;
-    const filteredData = filter(data);
+    const filteredData = filter(data.slice(0, show));
     const {
       showDate,
       formatCount,
@@ -174,7 +186,7 @@ class Operations extends Component {
               <tr>
                 <td colSpan={2}>&nbsp;</td>
                 <td className="operations__cell_button">
-                  <Button onClick={loadMore}>Загрузить еще</Button>
+                  <Button onClick={loadMore} disabled={data.length <= show}>Загрузить еще</Button>
                 </td>
                 <td colSpan={2}>&nbsp;</td>
               </tr>
@@ -224,7 +236,7 @@ class Operations extends Component {
               </div>
             ))
           }
-          <Button className="button_operations-list" onClick={loadMore}>Загрузить еще</Button>
+          <Button className="button_operations-list" onClick={loadMore} disabled={data.length <= show}>Загрузить еще</Button>
         </div>
       </div>
     );

@@ -12,6 +12,7 @@ const operations = [
     unit: 'time',
     cost: 0,
     note: 'на номер +7 905 123-45-66',
+    provider: 'tele2',
   }, {
     id: 2,
     date: {
@@ -52,6 +53,7 @@ const operations = [
     unit: 'time',
     cost: 0,
     note: 'с номера +7 905 666-45-66',
+    provider: 'mts',
   }, {
     id: 5,
     date: {
@@ -141,6 +143,20 @@ const operations = [
     type: 11,
     cost: 1000,
     note: 'Пополнение счета с карты *4510 +1000 руб',
+  }, {
+    id: 12,
+    date: {
+      year: 2020,
+      month: 8,
+      day: 8,
+    },
+    time: '9:45',
+    type: 9,
+    count: 1,
+    unit: 'СМС',
+    cost: 0,
+    note: 'на номер +7 903 234-01-83 Мегафон',
+    provider: 'megafon',
   }],
   [],
 ];

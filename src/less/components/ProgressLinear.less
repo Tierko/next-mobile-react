@@ -8,6 +8,11 @@
     height: 4px;
   }
 
+  &_dashed {
+    background: transparent linear-gradient(to right, @GRAY-LIGHT 0%, @GRAY-LIGHT 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
+    background-size: 4px;
+  }
+
   &_add-package {
     width: 130px;
   }
@@ -25,6 +30,15 @@
   &_roaming {
     margin-top: 10px;
     max-width: 380px;
+  }
+
+  &_tab {
+    max-width: 60px;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   &__line {

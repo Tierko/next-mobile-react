@@ -43,7 +43,7 @@ const App = () => (
       <Route path={Pages.SERVICES} component={Services} />
       <Route path={Pages.SETTINGS} component={Settings} />
       <Route path={Pages.HISTORY} component={History} />
-      <Route path={Pages.HISTORY} component={Detail} />
+      <Route path={Pages.DETAIL} component={Detail} />
       <Route path={Pages.PAY_PACKAGE} component={PayPackage} />
       <Route path={Pages.AUTO_PAY} component={AutoPay} />
       <Route path={Pages.SUPPORT_DASHBOARD} component={SupportDashboard} />

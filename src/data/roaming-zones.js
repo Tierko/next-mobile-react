@@ -4,6 +4,9 @@ const roamingZones = [{
   title: 'Зоне 1',
   center: [55.615383, 37.890201],
   zoom: 3,
+  current: 85,
+  max: 100,
+  byMegabytes: false,
   countries: [],
   tariff: {
     calls: 200,
@@ -62,6 +65,9 @@ const roamingZones = [{
   title: 'Зоне 2',
   center: [41.843539, 84.477611],
   zoom: 3,
+  current: 15,
+  max: 100,
+  byMegabytes: false,
   countries: [],
   tariff: {
     calls: 200,
@@ -120,6 +126,9 @@ const roamingZones = [{
   title: 'Зоне 3',
   center: [37.854653, -69.446866],
   zoom: 3,
+  current: 0,
+  max: 0,
+  byMegabytes: true,
   countries: [],
   tariff: {
     calls: 200,
@@ -178,6 +187,8 @@ const roamingZones = [{
   title: 'Остальном мире',
   center: [6.804347, 21.635814],
   zoom: 3,
+  current: 0,
+  max: 0,
   countries: [],
   tariff: {
     calls: 200,

@@ -16,7 +16,9 @@ const Remain = ({ data, buy, tariff }) => (
       data.map(i => (
         <div key={i.id} className="remain__item">
           <div className="remain__desc">
-            <div><span>{(i.current + '').replace('.', ',')} {i.unit}</span> из {i.max}</div>
+            <div>
+              <span>{(i.current + '').replace('.', ',')} {i.unit}</span> из {i.max || 'Безлимит'}
+            </div>
             {
               i.link ?
                 <Link className={cs('remain__service', { remain__service_link: i.link })} to={Pages.CALLS}>

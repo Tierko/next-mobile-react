@@ -98,15 +98,14 @@ h2,
 
 .link-dashed {
   color: @GRAY-DARK;
-  border-bottom: 1px dashed @GRAY-DARK;
-  display: inline-block;
   line-height: 1;
   user-select: none;
-  text-decoration: none;
+  text-decoration-color: @GRAY;
+  text-decoration-style: dashed;
 
   &:hover {
     color: @BLACK;
-    border-bottom-color: @BLACK;
+    text-decoration-color: @BLACK;
   }
 }
 
@@ -141,16 +140,16 @@ h2,
     background-image: linear-gradient(-90deg,#003FDD 0%,#000000 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    position:relative;
-    display:inline-block; /*required*/
+    position: relative;
+    display: inline-block;
   }
 
   &_error span{
     background-image: linear-gradient(-90deg,#FD7C7E 0%,#000000 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    position:relative;
-    display:inline-block; /*required*/
+    position: relative;
+    display: inline-block;
   }
 
   &:after {

@@ -20,7 +20,7 @@ class Expense extends Component {
   orderDetails = () => {
     const { history } = this.props;
 
-    history.push(Pages.HISTORY);
+    history.push(Pages.DETAIL);
   };
 
   render() {

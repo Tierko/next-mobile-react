@@ -13,6 +13,7 @@ const ProgressLinear = ({
   current,
   className,
   tall,
+  dashed,
 }) => {
   const percent = (current > maxValue || maxValue === 0) ? 1 : current / maxValue;
   const startColor = {
@@ -33,14 +34,17 @@ const ProgressLinear = ({
   const max = endColor.current;
 
   return (
-    <div className={cs(`progress-linear ${className}`, { 'progress-linear_tall': tall })}>
-      <div
-        className={cs('progress-linear__line', { 'progress-linear__line_tall': tall })}
-        style={{
-          width: `${percent * 100}%`,
-          backgroundImage: `linear-gradient(to right, hsl(${min[0]}, ${min[1]}%, ${min[2]}%), hsl(${max[0]}, ${max[1]}%, ${max[2]}%)`,
-        }}
-      />
+    <div className={cs(`progress-linear ${className}`, { 'progress-linear_tall': tall, 'progress-linear_dashed': dashed })}>
+      {
+        !dashed &&
+        <div
+          className={cs('progress-linear__line', { 'progress-linear__line_tall': tall })}
+          style={{
+            width: `${percent * 100}%`,
+            backgroundImage: `linear-gradient(to right, hsl(${min[0]}, ${min[1]}%, ${min[2]}%), hsl(${max[0]}, ${max[1]}%, ${max[2]}%)`,
+          }}
+        />
+      }
     </div>
   );
 };
@@ -50,11 +54,13 @@ ProgressLinear.propTypes = {
   current: PropTypes.number.isRequired,
   className: PropTypes.string,
   tall: PropTypes.bool,
+  dashed: PropTypes.bool,
 };
 
 ProgressLinear.defaultProps = {
   className: '',
   tall: false,
+  dashed: false,
 };
 
 export default ProgressLinear;
