@@ -9,6 +9,7 @@ import Remain from '../components/Remain';
 import History from '../components/History';
 import RoamingDashboard from '../components/RoamingDashboard';
 import Note from '../components/Note';
+import OverviewInvite from '../components/OverviewInvite';
 import PageFade from '../components/PageFade';
 import { Pages, DAYS } from '../constants';
 import { getData, formatCost, convertStrings } from '../utils';
@@ -93,6 +94,7 @@ class Overview extends Component {
           <Remain data={getData('remain')} tariff={getData('tariff')} buy={onBuy} />
           <History data={getData('history')} />
           <RoamingDashboard data={getData('roaming')} />
+          <OverviewInvite />
           <Footer />
         </div>
       </div>,

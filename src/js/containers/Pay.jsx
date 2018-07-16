@@ -49,8 +49,6 @@ class Pay extends Component {
   removeCard = () => {};
 
   onSumChange = (sum) => {
-    console.log(sum)
-
     this.setState({
       sum,
     });

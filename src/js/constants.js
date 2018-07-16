@@ -22,6 +22,7 @@ export const Pages = {
   CALLS: '/calls',
   RESULT: '/result',
   DATA: '/data',
+  INVITE: '/INVITE',
 };
 
 export const Statuses = {
