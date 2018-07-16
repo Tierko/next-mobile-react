@@ -9,8 +9,7 @@ import { Pages } from '../constants';
 const Remain = ({ data, buy, tariff }) => (
   <div className="remain">
     <div className="remain__title">
-      Остаток до 16 июня по тарифу
-      <Link className="link" to={Pages.SERVICES}> «{tariff.title}»</Link>
+      Остаток до 16 июня по тарифу <Link className="link" to={Pages.SERVICES}>«{tariff.title}»</Link>
     </div>
     {
       data.map(i => (
