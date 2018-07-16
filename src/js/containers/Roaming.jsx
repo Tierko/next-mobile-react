@@ -9,28 +9,96 @@ import RoamingCountries from '../components/RoamingCountries';
 import RoamingInternet from '../components/RoamingInternet';
 import RoamingTariffZone from '../components/RoamingTariffZone';
 import RoamingTariffCountry from '../components/RoamingTariffCountry';
+import { Pages } from '../constants';
 import data from '../../data';
 
 class Roaming extends Component {
   state = {
     tab: 1,
     features: [],
+    roamingZones: [],
+    country: {},
   };
 
-  onChange = (name, value) => {
+  onTabChange = (tab) => {
+    const { country } = this.state;
+
+    if (country.properties) {
+      return;
+    }
+
     this.setState({
-      [name]: value,
+      tab,
     });
   };
 
-  getCurrentZone = () => {
-    const { tab } = this.state;
-    const { roamingZones } = data;
+  onCountrySelect = (country) => {
+    const { roamingZones, tab } = this.state;
+    const { history } = this.props;
+    const { getCenter, getZoneByCountry } = this;
+    const zone = getZoneByCountry(roamingZones, country);
 
-    return roamingZones.find(z => z.id === tab);
+    this.setState({
+      country: Object.assign(country, { center: getCenter(country) }),
+      tab: zone || tab,
+    });
+
+    history.push(Pages.ROAMING);
+  };
+
+  getZoneByCountry = (zones, country) => {
+    if (!country.properties) {
+      return 0;
+    }
+
+    const zone = zones.find(z => z.countries.indexOf(country.properties.iso_a2) !== -1);
+
+    if (!zone) {
+      return 0;
+    }
+
+    return zone.id;
+  };
+
+  getCurrentZone = () => {
+    const { fillEmptyZone } = this;
+    const { tab, features, roamingZones } = this.state;
+    const zones = fillEmptyZone(roamingZones, features);
+
+    return zones.find(z => z.id === tab) || {};
+  };
+
+  getCenter = (f) => {
+    const coordinates = [];
+
+    if (!f.geometry) {
+      return false;
+    }
+
+    f.geometry.coordinates.forEach(a => (
+      a.forEach(c => (
+        f.geometry.type === 'MultiPolygon' ? c.forEach(m => coordinates.push(m)) : coordinates.push(c)
+      ))
+    ));
+
+    const x = coordinates.map(c => c[0]);
+    const y = coordinates.map(c => c[1]);
+    const minX = Math.min.apply(null, x);
+    const minY = Math.min.apply(null, y);
+    const maxX = Math.max.apply(null, x);
+    const maxY = Math.max.apply(null, y);
+
+    const lat = (minX + maxX) / 2;
+    const lon = (minY + maxY) / 2;
+
+    return [lon, lat];
   };
 
   componentDidMount() {
+    this.setState({
+      roamingZones: data.roamingZones,
+    });
+
     fetch('/data/map.geo.json', {
       headers: new Headers({
         'Content-Types': 'text/json',
@@ -42,44 +110,102 @@ class Roaming extends Component {
       }));
   }
 
+  fillEmptyZone = (zones, features) => {
+    const filtered = [];
+    const emptyZoneIndex = zones.findIndex(z => z.countries.length === 0);
+
+    if (emptyZoneIndex === -1) {
+      return zones;
+    }
+
+    zones.forEach(z => {
+      if (z.countries) {
+        z.countries.forEach(c => filtered.push(c));
+      }
+    });
+
+    const countries = features.map(f => {
+      if (filtered.indexOf(f.properties.iso_a2) === -1) {
+        return f.properties.iso_a2;
+      }
+
+      return null;
+    });
+
+    zones[emptyZoneIndex].countries = countries.filter(c => c);
+
+    return zones;
+  };
+
   render() {
-    const { tab, features } = this.state;
-    const { roamingZones } = data;
-    const { match: { params: { type, zone } }, history } = this.props;
-    const { onChange, getCurrentZone } = this;
+    const {
+      onTabChange,
+      getCurrentZone,
+      onCountrySelect,
+      fillEmptyZone,
+    } = this;
+    const {
+      tab,
+      features,
+      country,
+      roamingZones,
+    } = this.state;
+    const zones = fillEmptyZone(roamingZones, features);
+    const { match: { params: { type, zoneId, countryId } }, history } = this.props;
+    const zone = roamingZones.find(z => z.id === zoneId * 1);
 
     return ([
       <MobileNav key="nav" type="dashboard" />,
       <div key="dashboard" className="dashboard">
         <Aside />
         <div className="dashboard__content dashboard__content_roaming">
-          <RoamingMap zone={getCurrentZone()} features={features} />
+          <RoamingMap
+            zone={getCurrentZone()}
+            features={features}
+            country={country}
+            onCountrySelect={onCountrySelect}
+          />
           {
-            !zone &&
+            !zoneId &&
             <div className="roaming roaming_zones">
-              <Tabs tabs={roamingZones} active={tab} onTabChange={v => onChange('tab', v)} />
               {
-                roamingZones.map(z => (
-                  <RoamingZone key={z.id} data={z} active={tab} history={history} />
+
+              }
+              <Tabs
+                tabs={zones}
+                active={tab}
+                onTabChange={onTabChange}
+                disable={!!country.properties}
+              />
+              {
+                zones.map(z => (
+                  <RoamingZone
+                    key={z.id}
+                    data={z}
+                    active={tab}
+                    history={history}
+                    features={features}
+                    zones={zones}
+                  />
                 ))
               }
             </div>
           }
           {
-            zone && type === 'countries' &&
-            <RoamingCountries items={features} id={zone} />
+            zoneId && type === 'countries' &&
+            <RoamingCountries items={features} zone={zone} />
           }
           {
-            zone && type === 'internet' &&
+            zoneId && type === 'internet' &&
             <RoamingInternet />
           }
           {
-            zone && type === 'zone-tariff' &&
-            <RoamingTariffZone id={zone} />
+            zoneId && type === 'zone-tariff' &&
+            <RoamingTariffZone id={zoneId} />
           }
           {
-            zone && type === 'country-tariff' &&
-            <RoamingTariffCountry id={zone} />
+            countryId && type === 'country-tariff' && zoneId &&
+            <RoamingTariffCountry zone={zone} items={features} id={countryId} />
           }
         </div>
       </div>,

@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import ProgressLinear from './ProgressLinear';
 import Button from './Button';
 import CheckboxSlide from './CheckboxSlide';
-import { Pages } from '../constants';
-import { formatCost } from '../utils';
+import { Pages, COUNTRIES } from '../constants';
+import { formatCost, convertStrings } from '../utils';
 
 class RoamingZone extends Component {
   state = {
@@ -19,6 +19,35 @@ class RoamingZone extends Component {
     });
   };
 
+  getCountries = () => {
+    // const filtered = [];
+    const { data, features, zones } = this.props;
+    let countries = features.filter(f => data.countries.indexOf(f.properties.iso_a2) !== -1);
+
+    // if (countries.length === 0) {
+    //   zones.forEach((z) => {
+    //     if (z.id === data.id) {
+    //       return false;
+    //     }
+    //
+    //     z.countries.forEach(c => filtered.push(c));
+    //   });
+    // }
+    //
+    // if (filtered.length) {
+    //   countries = features.filter(f => data.countries.indexOf(f.properties.iso_a2) === -1);
+    // }
+
+    countries = countries.map(c => c.properties.name);
+
+    if (countries.length > 2) {
+      const count = countries.length - 2;
+      return [countries[0], countries[1], `и еще ${count} ${convertStrings(count, COUNTRIES)}`].join(', ');
+    }
+
+    return countries.join(', ');
+  };
+
   addPackage = () => {
     const { history, data: { id } } = this.props;
 
@@ -27,14 +56,15 @@ class RoamingZone extends Component {
 
   render() {
     const { slowInternet } = this.state;
-    const { onChange, addPackage } = this;
+    const { onChange, addPackage, getCountries } = this;
     const { active, data } = this.props;
+
 
     return (
       <div className={cs('roaming-zone', { 'roaming-zone_show': data.id === active })}>
         <div className="roaming__title roaming__title_desktop">Роуминг в {data.title}</div>
         <Link to={`${Pages.ROAMING}/countries/${data.id}`} className="roaming-zone__countries">
-          Австрия, Бельгия и еще 45 стран
+          {getCountries()}
         </Link>
         <div className="roaming-zone__subtitle roaming-zone__subtitle_fast">
           Пакет быстрого интернета <span className="roaming-zone__note_desktop">(еще 30 дней)</span>
@@ -81,6 +111,7 @@ RoamingZone.propTypes = {
   data: PropTypes.shape().isRequired,
   active: PropTypes.number.isRequired,
   history: PropTypes.shape().isRequired,
+  features: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 export default RoamingZone;

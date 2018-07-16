@@ -4,66 +4,65 @@ import { Map, GeoJSON, ZoomControl } from 'react-leaflet';
 import ComboBox from './ComboBox';
 
 class RoamingMap extends Component {
-  state = {
-    country: {},
-  };
+  setStyle = (f) => {
+    const { zone: { countries } } = this.props;
+    const { featureDefaultStyle, featureSelectZone, featureSelectCountry } = this;
+    const { country } = this.props;
 
-  onItemSelect = (country) => {
-    this.setState({
-      country,
-    });
-  };
-
-  featureDefaultStyle = (f) => {
-    
-    return {
-      color: '#e6e6f3',
-      fillColor: '#fff',
-      fillOpacity: 1,
-      weight: 2,
+    if (country.properties && f.properties.iso_a2 === country.properties.iso_a2) {
+      return featureSelectCountry();
     }
+
+    if (countries && countries.indexOf(f.properties.iso_a2) !== -1) {
+      return featureSelectZone();
+    }
+
+    return featureDefaultStyle();
   };
 
-  featureSelectStyle = () => ({
+  featureSelectCountry = () => ({
+    color: '#e6e6f3',
+    fillColor: '#5a961a',
+    fillOpacity: 1,
+    weight: 1,
+  });
+
+  featureDefaultStyle = () => ({
+    color: '#e6e6f3',
+    fillColor: '#fff',
+    fillOpacity: 1,
+    weight: 1,
+  });
+
+  featureSelectZone = () => ({
     color: '#e6e6f3',
     fillColor: '#97da34',
     fillOpacity: 1,
-    weight: 2,
+    weight: 1,
   });
 
   onClick = (e, a) => {
-    e.layer.setStyle(this.featureSelectStyle())
-    console.log(e.layer)
-  };
-
-  onEachFuture =(f) => {
-    const { iso_a2 } = f.properties;
-    const { countries } = this.props.zone;
-
-    if (countries.indexOf(iso_a2) !== -1) {
-    }
-    f.style = this.featureSelectStyle()();
-
-    // console.log(f)
-
-    return f;
+    console.log(e, a)
   };
 
   render() {
-    const { onItemSelect, featureDefaultStyle, onClick, onEachFuture } = this;
-    const { country } = this.state;
-    const { zone: { center, zoom }, features } = this.props;
+    const { onClick, setStyle } = this;
+    const {
+      zone: { center, zoom, title },
+      features,
+      country,
+      onCountrySelect,
+    } = this.props;
 
     return (
       <div className="map">
         <div className="map__container" id="map">
           {
             !!features.length &&
-            <Map center={center} zoom={zoom} zoomControl={false} animate>
+            <Map center={country.center || center} zoom={zoom} zoomControl={false} animate>
               <GeoJSON
                 data={features}
-                style={featureDefaultStyle}
-                onEachFeature={onEachFuture}
+                style={setStyle}
                 onclick={onClick}
               />
               <ZoomControl position="bottomright" />
@@ -73,8 +72,9 @@ class RoamingMap extends Component {
         <ComboBox
           items={features}
           value={country}
-          onSelect={onItemSelect}
+          onSelect={onCountrySelect}
           placeholder="В какой стране вам нужен роуминг?"
+          zoneName={title}
         />
       </div>
     );
@@ -84,6 +84,8 @@ class RoamingMap extends Component {
 RoamingMap.propTypes = {
   zone: PropTypes.shape().isRequired,
   features: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  country: PropTypes.shape().isRequired,
+  onCountrySelect: PropTypes.func.isRequired,
 };
 
 export default RoamingMap;

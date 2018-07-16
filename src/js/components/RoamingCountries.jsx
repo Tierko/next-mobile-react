@@ -4,29 +4,36 @@ import { Link } from 'react-router-dom';
 import LinkBack from '../components/LinkBack';
 import { Pages } from '../constants';
 
-const RoamingCountries = ({ items, id }) => (
-  <div className="roaming">
-    <div className="roaming__title">
-      <LinkBack className="link-back_roaming" href={Pages.ROAMING} />
-      Страны Зоны 1
+const RoamingCountries = ({ items, zone }) => {
+  const countries = items.filter(c => zone.countries.indexOf(c.properties.iso_a2) !== -1);
 
+  return (
+    <div className="roaming">
+      <div className="roaming__title">
+        <LinkBack className="link-back_roaming" href={Pages.ROAMING} />
+        Страны {zone.title_}
+      </div>
+      <div>
+        {
+          countries.map(i => (
+            <Link
+              key={i.properties.iso_a2}
+              className="roaming-country"
+              to={`${Pages.ROAMING}/country-tariff/${zone.id}/${i.properties.iso_a2}`}
+            >
+              <img className="roaming-country__img" src={`/media/flags/${i.properties.iso_a2}.svg`} alt={i.title} />
+              <span className="roaming-country__name">{i.properties.name}</span>
+            </Link>
+          ))
+        }
+      </div>
     </div>
-    <div>
-      {
-        items.map(i => (
-          <Link key={i.properties.iso_a2} className="roaming-country" to={`${Pages.ROAMING}/country-tariff/${id}`}>
-            <img className="roaming-country__img" src={`/media/flags/${i.properties.iso_a2}.svg`} alt={i.title} />
-            <span className="roaming-country__name">{i.properties.name}</span>
-          </Link>
-        ))
-      }
-    </div>
-  </div>
-);
+  );
+}
 
 RoamingCountries.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  id: PropTypes.string.isRequired,
+  zone: PropTypes.shape().isRequired,
 };
 
 export default RoamingCountries;

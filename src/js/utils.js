@@ -47,15 +47,15 @@ export const getData = (type) => {
   return data[type][localStorage[type] || 0] || {};
 };
 
-export const convertDays = (n) => {
+export const convertStrings = (n, arr) => {
   const mod = n % 10;
   if (mod === 1) {
-    return DAYS[0];
+    return arr[0];
   }
 
   if (mod === 2 || mod === 3 || mod === 4) {
-    return DAYS[1];
+    return arr[1];
   }
 
-  return DAYS[2];
+  return arr[2];
 };

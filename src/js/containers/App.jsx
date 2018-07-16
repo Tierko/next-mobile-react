@@ -49,7 +49,8 @@ const App = () => (
       <Route path={Pages.SUPPORT_DASHBOARD} component={SupportDashboard} />
       <Route path={Pages.DATA} component={Data} />
       <Route path={`${Pages.RESULT}/:status`} component={Result} />
-      <Route path={`${Pages.ROAMING}/:type/:zone`} component={Roaming} />
+      <Route path={`${Pages.ROAMING}/:type/:zoneId/:countryId`} component={Roaming} />
+      <Route path={`${Pages.ROAMING}/:type/:zoneId`} component={Roaming} />
       <Route path={Pages.ROAMING} component={Roaming} exact />
     </Switch>
   </div>

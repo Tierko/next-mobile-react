@@ -23,9 +23,10 @@ class ComboBox extends Select {
 
   onSelect = (item) => {
     const { selectItem } = this;
+    const valueSearch = (item.properties && item.properties.name) || '';
 
     this.setState({
-      valueSearch: item.properties.name,
+      valueSearch,
     });
 
     selectItem(item);
@@ -34,7 +35,7 @@ class ComboBox extends Select {
   clear = () => {
     const { onSelect } = this;
 
-    onSelect({ title: '' });
+    onSelect({});
   };
 
   render() {
@@ -44,12 +45,13 @@ class ComboBox extends Select {
       className,
       value,
       placeholder,
+      zoneName,
     } = this.props;
 
     return (
       <div className={`combo-box ${className}`} ref={(e) => { this.select = e; }}>
         {
-          !(value && value.properties && value.properties.title) &&
+          !(value && value.properties && value.properties.name) &&
           <input
             className="combo-box__value"
             type="text"
@@ -59,7 +61,7 @@ class ComboBox extends Select {
           />
         }
         {
-          value && value.properties && value.properties.title &&
+          value && value.properties && value.properties.name &&
           <div
             className="combo-box__clear"
             onClick={clear}
@@ -67,10 +69,11 @@ class ComboBox extends Select {
           />
         }
         {
-          value && value.properties && value.properties.title &&
+          value && value.properties && value.properties.name &&
           <div className="combo-box__title">
             <img className="select__img" src={`/media/flags/${value.properties.iso_a2}.svg`} alt={value.properties.name} />
             {value.properties.name}
+            <span className="combo-box__zone"> находиться в зоне {zoneName}</span>
           </div>
         }
         <div className={cs('select__list', { select__list_open: !!valueSearch.length && open })}>

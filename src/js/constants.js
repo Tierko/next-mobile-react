@@ -148,6 +148,7 @@ export const WEEKDAYS = [
 ];
 
 export const DAYS = ['день', 'дня', 'дней'];
+export const COUNTRIES = ['страна', 'страны', 'стран'];
 
 export const WEEKDAYS_SHORT = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 

@@ -10,8 +10,8 @@ import History from '../components/History';
 import RoamingDashboard from '../components/RoamingDashboard';
 import Note from '../components/Note';
 import PageFade from '../components/PageFade';
-import { Pages } from '../constants';
-import { getData, formatCost, convertDays } from '../utils';
+import { Pages, DAYS } from '../constants';
+import { getData, formatCost, convertStrings } from '../utils';
 
 class Overview extends Component {
   state = {
@@ -86,7 +86,7 @@ class Overview extends Component {
           />
           <Balance
             sum={getData('balance')}
-            message={`Следующий платеж: ${formatCost(getData('tariff').payment)} через ${getData('payment').days} ${convertDays(getData('payment').days)}`}
+            message={`Следующий платеж: ${formatCost(getData('tariff').payment)} через ${getData('payment').days} ${convertStrings(getData('payment').days, DAYS)}`}
             status={status}
           />
           <OverviewPayment onChange={sumChange} onPay={onPay} sum={sum} />
