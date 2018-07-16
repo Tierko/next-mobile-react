@@ -5,7 +5,7 @@ import PromoCode from './PromoCode';
 import Input from './InputPhone';
 import Button from './Button';
 import Logo from './Logo';
-import { Pages } from '../constants';
+import { Pages, Statuses } from '../constants';
 import { checkPhone } from '../utils';
 
 class SignUp extends Component {
@@ -66,7 +66,7 @@ class SignUp extends Component {
           option === 'no-promo' && stage === 2 &&
           <Fragment>
             <Input className="input_phone" name="phone" value={phone} onChange={onChange} />
-            <Button className="button_request" onClick={() => toPage(Pages.REQUEST_STATUS)} disabled={!checkPhone(phone)}>
+            <Button className="button_request" onClick={() => toPage(`${Pages.REQUEST_STATUS}/${Statuses.REQUEST_SENT}`)} disabled={!checkPhone(phone)}>
               Отправить запрос
             </Button>
           </Fragment>
