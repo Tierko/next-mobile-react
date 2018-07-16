@@ -15,11 +15,11 @@ class Pay extends Component {
   constructor(props) {
     super(props);
     const state = props.location.state || {};
-    const sum = state.sum || getData('tariff').payment;
+    const sum = state.sum || 2000;
 
     this.state = {
       showPopup: false,
-      sum,
+      sum: 2000,
     };
   }
 
@@ -49,6 +49,8 @@ class Pay extends Component {
   removeCard = () => {};
 
   onSumChange = (sum) => {
+    console.log(sum)
+
     this.setState({
       sum,
     });
@@ -104,13 +106,13 @@ class Pay extends Component {
         <div className="pay-edit">
           <div className="pay-edit__button">
             <span className="pay-edit__icon">
-              <InlineSvg src={require('../../../media/icons/card.svg')} row />
+              <InlineSvg src={require('../../../media/icons/card.svg')} raw />
             </span>
             <span className="pay-edit__title">Карта по умолчанию</span>
           </div>
           <div className="pay-edit__button">
             <span className="pay-edit__icon">
-              <InlineSvg src={require('../../../media/icons/bucket.svg')} row />
+              <InlineSvg src={require('../../../media/icons/bucket.svg')} raw />
             </span>
             <span className="pay-edit__title">Удалить</span>
           </div>

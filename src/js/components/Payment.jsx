@@ -46,7 +46,7 @@ class Payment extends Component {
       [name]: value,
     });
 
-    if (onSumChange) {
+    if (onSumChange && name === 'payment') {
       onSumChange(value);
     }
   };
