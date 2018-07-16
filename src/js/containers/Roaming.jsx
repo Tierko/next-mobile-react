@@ -192,7 +192,7 @@ class Roaming extends Component {
             </div>
           }
           {
-            zoneId && type === 'countries' &&
+            zone && type === 'countries' &&
             <RoamingCountries items={features} zone={zone} />
           }
           {
@@ -204,7 +204,7 @@ class Roaming extends Component {
             <RoamingTariffZone id={zoneId} />
           }
           {
-            countryId && type === 'country-tariff' && zoneId &&
+            countryId && type === 'country-tariff' && zone &&
             <RoamingTariffCountry zone={zone} items={features} id={countryId} />
           }
         </div>

@@ -66,7 +66,7 @@ const SiteMap = () => (
       <br />
       <Link className="link" to={`${Pages.ROAMING}/countries/1`}>Роуминг (Страны)</Link>
       <br />
-      <Link className="link" to={`${Pages.ROAMING}/country-tariff/1`}>Роуминг (тарифы страны)</Link>
+      <Link className="link" to={`${Pages.ROAMING}/country-tariff/BY`}>Роуминг (тарифы страны)</Link>
       <br />
       <Link className="link" to={`${Pages.ROAMING}/internet/1`}>Роуминг (докупка пакета)</Link>
       <br />
