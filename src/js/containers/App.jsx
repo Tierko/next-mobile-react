@@ -22,6 +22,7 @@ import Kit from './Kit';
 import Data from './Data';
 import Result from './Result';
 import Roaming from './Roaming';
+import Invite from './Invite';
 import { Pages } from '../constants';
 
 const App = () => (
@@ -52,6 +53,7 @@ const App = () => (
       <Route path={`${Pages.ROAMING}/:type/:zoneId/:countryId`} component={Roaming} />
       <Route path={`${Pages.ROAMING}/:type/:zoneId`} component={Roaming} />
       <Route path={Pages.ROAMING} component={Roaming} exact />
+      <Route path={Pages.INVITE} component={Invite} exact />
     </Switch>
   </div>
 );
