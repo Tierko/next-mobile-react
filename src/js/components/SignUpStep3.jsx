@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import Input from '../components/Input';
-import Button from '../components/Button';
+import Input from './Input';
+import Button from './Button';
+import AutoComplete from './AutoComplete';
 
 class SignUpStep3 extends Component {
   state = {
@@ -35,7 +36,14 @@ class SignUpStep3 extends Component {
       <div className="welcome__content sign-up">
         <div className="sign-up__header">Адрес доставки</div>
         <div className="sign-up__form">
-          <Input name="city" value={city} onChange={onChange} placeholder="Город" />
+          <AutoComplete
+            name="city"
+            value={city}
+            onChange={onChange}
+            onSelect={onChange}
+            placeholder="Город"
+            items={[{ id: 1, title: 'Москва' }, { id: 2, title: 'Владивосток' }]}
+          />
           <Input name="street" value={street} onChange={onChange} placeholder="Улица" />
           <div className="sign-up__row">
             <Input className="input_narrow-sign-up" name="house" value={house} onChange={onChange} placeholder="Дом" />
