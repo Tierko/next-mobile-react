@@ -17,7 +17,7 @@ import SupportDashboard from './SupportDashboard';
 import History from './History';
 import Detail from './Detail';
 import Pay from './Pay';
-import Calls from './Calls';
+import More from './More';
 import Kit from './Kit';
 import Data from './Data';
 import Result from './Result';
@@ -38,7 +38,7 @@ const App = () => (
       <Route path={Pages.CONDITIONS} component={Conditions} />
       <Route path={Pages.SUPPORT} component={Support} />
       <Route path={Pages.DASHBOARD} component={Overview} />
-      <Route path={Pages.CALLS} component={Calls} />
+      <Route path={`${Pages.MORE}/:type`} component={More} />
       <Route path={Pages.ADD_PACKAGE} component={AddPackage} />
       <Route path={Pages.PAY} component={Pay} />
       <Route path={Pages.SERVICES} component={Services} />

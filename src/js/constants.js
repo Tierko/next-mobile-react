@@ -21,10 +21,11 @@ export const Pages = {
   SITE_MAP: '/',
   SUPPORT_DASHBOARD: '/support-dashboard',
   DETAIL: '/detail',
-  CALLS: '/calls',
+  MORE: '/more',
   RESULT: '/result',
   DATA: '/data',
   INVITE: '/invite',
+  INTERNET: '/internet',
 };
 
 export const Statuses = {

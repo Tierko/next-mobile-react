@@ -5,7 +5,7 @@ const remain = [
     max: 16,
     unit: 'ГБ',
     name: 'Интернет',
-    link: false,
+    link: true,
     type: 'internet',
   }, {
     id: 2,
@@ -29,7 +29,7 @@ const remain = [
     max: 16,
     unit: 'ГБ',
     name: 'Интернет',
-    link: false,
+    link: true,
     type: 'internet',
   }, {
     id: 2,
@@ -53,7 +53,7 @@ const remain = [
     max: 16,
     unit: 'ГБ',
     name: 'Интернет',
-    link: false,
+    link: true,
     type: 'internet',
   }, {
     id: 2,
@@ -77,7 +77,7 @@ const remain = [
     max: 16,
     unit: 'ГБ',
     name: 'Интернет',
-    link: false,
+    link: true,
     type: 'internet',
   }, {
     id: 2,
@@ -101,7 +101,7 @@ const remain = [
     max: 16,
     unit: 'ГБ',
     name: 'Интернет',
-    link: false,
+    link: true,
     type: 'internet',
   }, {
     id: 2,

@@ -20,7 +20,7 @@ const Remain = ({ data, buy, tariff }) => (
             </div>
             {
               i.link ?
-                <Link className={cs('remain__service', { remain__service_link: i.link })} to={Pages.CALLS}>
+                <Link className={cs('remain__service', { remain__service_link: i.link })} to={`${Pages.MORE}/${i.type}`}>
                   {i.name}
                 </Link>
                 :

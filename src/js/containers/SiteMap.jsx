@@ -40,7 +40,9 @@ const SiteMap = () => (
       <br />
       <Link className="link" to={Pages.OVERVIEW}>Обзор</Link>
       <br />
-      <Link className="link" to={Pages.CALLS}>Звонки</Link>
+      <Link className="link" to={`${Pages.MORE}/calls`}>Звонки</Link>
+      <br />
+      <Link className="link" to={`${Pages.MORE}/internet`}>Интернет</Link>
       <br />
       <Link className="link" to={Pages.ADD_PACKAGE}>Докупка пакета</Link>
       <br />
@@ -71,6 +73,8 @@ const SiteMap = () => (
       <Link className="link" to={`${Pages.ROAMING}/internet/1`}>Роуминг (докупка пакета)</Link>
       <br />
       <Link className="link" to={`${Pages.ROAMING}/zone-tariff/1`}>Роуминг (тарифы зоны)</Link>
+      <br />
+      <Link className="link" to={Pages.INVITE}>Инвайты</Link>
     </div>
   </div>
 );
