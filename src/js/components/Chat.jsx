@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import InlineSvg from 'svg-inline-react';
+import cs from 'classnames';
 import Input from '../components/Input';
 import ButtonIcon from '../components/ButtonIcon';
-import InlineSvg from 'svg-inline-react';
 
 class Chat extends Component {
   state = {
+    audio: false,
     message: '',
     messages: [{
       user: 'Наталья',
@@ -67,9 +69,7 @@ class Chat extends Component {
     }
   };
 
-  audioCall = () => {
-
-  };
+  audioCall = () => {};
 
   videoCall = () => {
 
@@ -105,7 +105,7 @@ class Chat extends Component {
           });
 
           this.setState({
-            messages: newMessages
+            messages: newMessages,
           });
         }
       };
@@ -113,7 +113,11 @@ class Chat extends Component {
   };
 
   audioMessage = () => {
+    const { audio } = this.state;
 
+    this.setState({
+      audio: !audio,
+    });
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -127,7 +131,7 @@ class Chat extends Component {
   }
 
   render() {
-    const { message, messages } = this.state;
+    const { message, messages, audio } = this.state;
     const { className } = this.props;
     const {
       onChange,
@@ -208,7 +212,13 @@ class Chat extends Component {
             multiLine
             simplePlaceholder
           />
-          <button onClick={audioMessage} className="button-icon button-icon_chat-footer button-icon_chat-audio">
+          {
+            console.log(audio)
+          }
+          <button
+            onClick={audioMessage}
+            className={cs('button-icon button-icon_chat-footer button-icon_chat-audio', { 'button-icon_chat-audio-active': audio })}
+          >
             <InlineSvg src={require('../../../media/icons/microphone.svg')} raw />
           </button>
         </div>
