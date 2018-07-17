@@ -17,6 +17,11 @@ import { getData, formatCost, convertStrings } from '../utils';
 class Overview extends Component {
   state = {
     sum: getData('balance') < getData('tariff').payment ? getData('tariff').payment - getData('balance') : getData('tariff').payment,
+    invites: {
+      message: '',
+      items: [],
+      desc: '',
+    },
   };
 
   onPay = () => {
@@ -35,6 +40,12 @@ class Overview extends Component {
     history.push(Pages.ADD_PACKAGE);
   };
 
+  componentDidMount() {
+    fetch('/data/invites.json')
+      .then(invites => invites.json())
+      .then(invites => this.setState({ invites }));
+  }
+
   sumChange = (n, v) => {
     if (v.toString().length > 5) {
       return;
@@ -47,8 +58,9 @@ class Overview extends Component {
 
   render() {
     const { onPay, sumChange, onBuy } = this;
-    const { sum } = this.state;
+    const { sum, invites: { message, items } } = this.state;
     const data = getData('payment');
+    const code = items.find(i => !i.active);
     let status = '';
 
     if (data.days > 5 && data.days <= 10 && getData('balance') < getData('tariff').payment) {
@@ -73,7 +85,7 @@ class Overview extends Component {
           />
           <Note
             className="note_dashboard"
-            message="Информационное сообщение"
+            message="Добавьте электронную почту в настройках, чтобы получать квитанции"
             color="blue"
             hideCont
             show={getData('noteBlue')}
@@ -94,7 +106,7 @@ class Overview extends Component {
           <Remain data={getData('remain')} tariff={getData('tariff')} buy={onBuy} />
           <History data={getData('history')} />
           <RoamingDashboard data={getData('roaming')} />
-          <OverviewInvite />
+          <OverviewInvite message={message} code={code ? code.code : ''} />
           <Footer />
         </div>
       </div>,

@@ -4,10 +4,13 @@ import Aside from '../components/Aside';
 import LinkBack from '../components/LinkBack';
 import CopyCode from '../components/CopyCode';
 import Invites from '../components/Invites';
-import { Pages } from '../constants';
+import Button from '../components/Button';
+import { Pages, PROMO_CODES, LINKS } from '../constants';
+import { convertStrings } from '../utils';
 
 class Invite extends Component {
   state = {
+    mode: '',
     invites: {
       items: [],
       desc: '',
@@ -20,8 +23,24 @@ class Invite extends Component {
       .then(invites => this.setState({ invites }));
   }
 
+  setCopyMode = (mode) => {
+    this.setState({
+      mode,
+    });
+  };
+
   render() {
-    const { invites } = this.state;
+    const { mode, invites: { items, desc } } = this.state;
+    const { setCopyMode } = this;
+    const count = items.reduce((acc, i) => {
+      if (!i.active) {
+        return acc + 1;
+      }
+
+      return acc;
+    }, 0);
+    let code = items.find(i => !i.active);
+    code = code ? code.code : '';
 
     return ([
       <MobileNav key="nav" type="dashboard" />,
@@ -30,10 +49,29 @@ class Invite extends Component {
         <div className="dashboard__content invite">
           <LinkBack className="link-back_offset-bottom" href={Pages.OVERVIEW} />
           <div className="dashboard__header">Подарите близким возможность присоединится к закрытому клубу Next Mobile</div>
-          <div>{invites.desc}</div>
-          <div className="invite__subtitle">Осталось 7 промокодов или ссылок для активации</div>
-          <CopyCode />
-          <Invites items={invites.items} />
+          <div>{desc}</div>
+          {
+            count &&
+            <div className="invite__subtitle">
+              Осталось {
+                count
+              } {
+                mode === 'link' ?
+                  <Button className="button_code-mode" borderless onClick={() => setCopyMode('')}>
+                    {convertStrings(count, PROMO_CODES)}
+                  </Button> :
+                  convertStrings(count, PROMO_CODES)
+              } или {
+                mode !== 'link' ?
+                  <Button className="button_code-mode" borderless onClick={() => setCopyMode('link')}>
+                    {convertStrings(count, LINKS)}
+                  </Button> :
+                  convertStrings(count, LINKS)
+              } для активации
+            </div>
+          }
+          <CopyCode code={code} mode={mode} />
+          <Invites items={items} />
         </div>
       </div>,
     ]);

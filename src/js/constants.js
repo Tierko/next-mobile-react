@@ -1,3 +1,5 @@
+export const URL = 'http://localhost';
+
 export const Pages = {
   KIT: '/kit',
   SIGN_IN: '/signin',
@@ -150,6 +152,8 @@ export const WEEKDAYS = [
 
 export const DAYS = ['день', 'дня', 'дней'];
 export const COUNTRIES = ['страна', 'страны', 'стран'];
+export const PROMO_CODES = ['промокод', 'промокода', 'промокодов'];
+export const LINKS = ['ссылка', 'ссылки', 'ссылок'];
 
 export const WEEKDAYS_SHORT = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 
