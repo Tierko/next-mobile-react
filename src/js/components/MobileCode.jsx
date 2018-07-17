@@ -70,7 +70,7 @@ class MobileCode extends Component {
         }
         {
           status === 'sent' &&
-          <div className="mobile-code__timer">Еще {seconds} c</div>
+          <div className="mobile-code__timer">Прислать код еще раз можно через {seconds} c</div>
         }
         {
           status === 'timed out' &&
