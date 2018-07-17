@@ -15,9 +15,18 @@ const Remain = ({ data, buy, tariff }) => (
       data.map(i => (
         <div key={i.id} className="remain__item">
           <div className="remain__desc">
-            <div>
-              <span>{(i.current + '').replace('.', ',')} {i.unit}</span> из {i.max || 'Безлимит'}
-            </div>
+            {
+              i.max > 0 &&
+              <div>
+                <span>{(i.current + '').replace('.', ',')} {i.unit}</span> из {i.max}
+              </div>
+            }
+            {
+              i.max === 0 &&
+              <div>
+                <span>Безлимит</span>
+              </div>
+            }
             {
               i.link ?
                 <Link className={cs('remain__service', { remain__service_link: i.link })} to={`${Pages.MORE}/${i.type}`}>
@@ -27,11 +36,18 @@ const Remain = ({ data, buy, tariff }) => (
                 <div className="remain__service">{i.name}</div>
             }
           </div>
-          <ProgressLinear
-            color="red"
-            max={i.max}
-            current={i.current}
-          />
+          {
+            i.max > 0 &&
+            <ProgressLinear
+              color="red"
+              max={i.max}
+              current={i.current}
+            />
+          }
+          {
+            i.max === 0 &&
+            <div className="remain__dash" />
+          }
         </div>
       ))
     }
