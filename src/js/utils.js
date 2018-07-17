@@ -1,4 +1,4 @@
-import { units, DAYS } from './constants';
+import { units } from './constants';
 import data from '../data';
 
 export const checkCardNumber = str => str && str.replace(/\D/g, '').length === 16;
@@ -15,6 +15,10 @@ export const formatCost = (source) => {
   const arr = [];
   let str = source.toString().replace(/[^\d/.]/g, '');
   let tail = '';
+
+  if (source === 0) {
+    str = '';
+  }
 
   if (str.indexOf('.') !== -1) {
     tail = str.substr(str.indexOf('.'));
@@ -36,7 +40,7 @@ export const formatCost = (source) => {
     arr.push('-');
   }
 
-  return `${arr.reverse().join('') || '0'}${tail} ${units.currency}`;
+  return `${arr.reverse().join('') || ''}${tail} ${units.currency}`;
 };
 
 export const getData = (type) => {

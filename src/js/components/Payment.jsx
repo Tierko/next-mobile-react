@@ -5,7 +5,7 @@ import Button from './Button';
 import Card from './Card';
 import Tabs from './PaymentTabs';
 import Checkbox from './Checkbox';
-import payment from "../../data/payment";
+import payment from '../../data/payment';
 
 class Payment extends Component {
   constructor(props) {
@@ -99,9 +99,7 @@ class Payment extends Component {
     } = this.state;
     const { isEditable, sum, onPay } = this.props;
 
-    if (!sum) {
-      return false;
-    }
+
 
     return (
       <div className="payment">
@@ -166,7 +164,7 @@ class Payment extends Component {
             <div className="payment__message">Для оплаты по тарифу Супервип на счету не хватает { sum } ₽</div>
           </Fragment>
         }
-        <Button className="button_pay-package" onClick={onPay} disabled={!payment.toString().replace(/\D/g, '')}>
+        <Button className="button_pay-package" onClick={onPay} disabled={!payment}>
           Пополнить
         </Button>
       </div>
