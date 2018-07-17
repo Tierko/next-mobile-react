@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from '../components/Input';
 import ButtonIcon from '../components/ButtonIcon';
+import InlineSvg from 'svg-inline-react';
 
 class Chat extends Component {
   state = {
@@ -207,7 +208,9 @@ class Chat extends Component {
             multiLine
             simplePlaceholder
           />
-          <ButtonIcon onClick={audioMessage} icon="microphone.svg" className="button-icon_chat-footer" />
+          <button onClick={audioMessage} className="button-icon button-icon_chat-footer button-icon_chat-audio">
+            <InlineSvg src={require('../../../media/icons/microphone.svg')} raw />
+          </button>
         </div>
       </div>
     );
