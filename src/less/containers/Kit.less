@@ -1,6 +1,7 @@
 .kit {
   &__colors {
     display: flex;
+    flex-wrap: wrap;
   }
 
   &__color {
@@ -24,5 +25,13 @@
     &_gray-light {
       background-color: @GRAY-LIGHT;
     }
+  }
+
+  &__input {
+    max-width: 400px;
+  }
+
+  .tabs__inner {
+    padding-top: 0;
   }
 }

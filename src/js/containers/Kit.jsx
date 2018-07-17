@@ -7,8 +7,20 @@ import Date from '../components/Date';
 import Select from '../components/Select';
 import MultipleInput from '../components/MultipleInput';
 import InputRuble from '../components/InputRuble';
+import Tabs from '../components/Tabs';
+import Button from '../components/Button';
 
 class Kit extends Component {
+  state = {
+    tab: 1,
+  };
+
+  onChange = (name, value) => {
+    this.setState({
+      [name]: value,
+    })
+  };
+
   render() {
     return ([
       <MobileNav key="nav" type="dashboard" />,
@@ -50,12 +62,12 @@ class Kit extends Component {
             </section>
             <section>
               <h2>Поля ввода</h2>
-              <Input name="" value="" onChange={() => {}} placeholder="Плейсхолдер" />
-              <Input className="input_active" name="" value="Активное поле" onChange={() => {}} />
-              <Input className="" name="" value="" onChange={() => {}} placeholder="Электронная почта" />
-              <Input className="" name="" value="konstantinopolsky@gmail.com" onChange={() => {}} placeholder="Электронная почта" />
-              <Input className="" name="" value="konstantinopolsky@gmail.com" onChange={() => {}} placeholder="Электронная почта" errorText="Такого адреса не существует" />
-              <div className="detail__period">
+              <Input className="kit__input" name="" value="" onChange={() => {}} placeholder="Плейсхолдер" />
+              <Input className="kit__input input_active" name="" value="Активное поле" onChange={() => {}} />
+              <Input className="kit__input" name="" value="" onChange={() => {}} placeholder="Электронная почта" />
+              <Input className="kit__input" name="" value="konstantinopolsky@gmail.com" onChange={() => {}} placeholder="Электронная почта" />
+              <Input className="kit__input" name="" value="konstantinopolsky@gmail.com" onChange={() => {}} placeholder="Электронная почта" errorText="Такого адреса не существует" />
+              <div className="detail__period kit__input">
                 <Date
                   className="input_detail"
                   name="startDate"
@@ -72,13 +84,19 @@ class Kit extends Component {
                   initDate={new window.Date()}
                 />
               </div>
-              <Select onSelect={() => {}} items={['PDF', 'XLS', 'HTML']} value="XLS" placeholder="Выбор из списка" />
+              <Select className="kit__input" onSelect={() => {}} items={['PDF', 'XLS', 'HTML']} value="XLS" placeholder="Выбор из списка" />
               <MultipleInput onChange={() => {}} name="" count={4} initValue="5677" />
-              <Input className="" name="" value="konstantinopolsky@gmail.com" onChange={() => {}} placeholder="Электронная почта" />
-              <InputRuble className="" name="" value={2000} onChange={() => {}} placeholder="Электронная почта" clear />
+              <Input className="kit__input input_middle" name="" value="konstantinopolsky@gmail.com" onChange={() => {}} placeholder="Крупное поле ввода" />
+              <InputRuble className="kit__input input_big" name="" value={2000} onChange={() => {}} placeholder="Крупное поле ввода с суммой денег" clear />
             </section>
             <section>
               <h2>Табы</h2>
+              <Tabs
+                tabs={[{id: 1, name: 'Зона 1'}, {id: 2, name: 'Зона 2'}, {id: 3, name: 'Зона 3'}, {id: 4, name: 'Остальной мир'}]}
+                active={this.state.tab}
+                onTabChange={v => this.onChange('tab', v)}
+                disable={false}
+              />
             </section>
             <section>
               <h2>Кнопки</h2>
