@@ -152,6 +152,15 @@ class Calls extends Component {
                 Включен
               </Button>
             </div>
+            <h2>Роуминг</h2>
+            <div style={style}>
+              <Button onClick={() => {}} disabled={1}>
+                Отключен
+              </Button>
+              <Button onClick={() => {}} disabled={1}>
+                Включен
+              </Button>
+            </div>
           </div>
         </div>
       </div>,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import RoamingMap from '../components/RoamingMap';
@@ -10,7 +11,7 @@ import RoamingInternet from '../components/RoamingInternet';
 import RoamingTariffZone from '../components/RoamingTariffZone';
 import RoamingTariffCountry from '../components/RoamingTariffCountry';
 import { Pages } from '../constants';
-import data from '../../data';
+// import data from '../../data';
 
 class Roaming extends Component {
   state = {
@@ -33,8 +34,8 @@ class Roaming extends Component {
   };
 
   onCountrySelect = (country) => {
-    const { roamingZones, tab } = this.state;
-    const { history } = this.props;
+    const { tab } = this.state;
+    const { history, data: { zones: roamingZones } } = this.props;
     const { getCenter, getZoneByCountry } = this;
     const zone = getZoneByCountry(roamingZones, country);
 
@@ -62,10 +63,11 @@ class Roaming extends Component {
 
   getCurrentZone = () => {
     const { fillEmptyZone } = this;
-    const { tab, features, roamingZones } = this.state;
-    const zones = fillEmptyZone(roamingZones, features);
+    const { tab, features } = this.state;
+    const { zones } = this.props.data;
+    const roamingZones = fillEmptyZone(zones, features);
 
-    return zones.find(z => z.id === tab) || {};
+    return roamingZones.find(z => z.id === tab) || {};
   };
 
   getCenter = (f) => {
@@ -95,10 +97,6 @@ class Roaming extends Component {
   };
 
   componentDidMount() {
-    this.setState({
-      roamingZones: data.roamingZones,
-    });
-
     fetch('/data/map.geo.json', {
       headers: new Headers({
         'Content-Types': 'text/json',
@@ -148,10 +146,13 @@ class Roaming extends Component {
       tab,
       features,
       country,
-      roamingZones,
     } = this.state;
+    const {
+      match: { params: { type, zoneId, countryId } },
+      history,
+      data: { zones: roamingZones },
+    } = this.props;
     const zones = fillEmptyZone(roamingZones, features);
-    const { match: { params: { type, zoneId, countryId } }, history } = this.props;
     const zone = roamingZones.find(z => z.id === zoneId * 1);
 
     return ([
@@ -213,9 +214,16 @@ class Roaming extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    data: state.Roaming,
+  };
+}
+
 Roaming.propTypes = {
   match: PropTypes.shape().isRequired,
   history: PropTypes.shape().isRequired,
+  data: PropTypes.shape().isRequired,
 };
 
-export default Roaming;
+export default connect(mapStateToProps)(Roaming);

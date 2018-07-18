@@ -54,4 +54,20 @@
   &__tariff-item:not(:last-child) {
     padding-right: 50px;
   }
+
+  &__note {
+    color: @GRAY-DARK;
+
+    @media (max-width: @BREAK-POINT) {
+      &_desktop {
+        display: none;
+      }
+    }
+
+    @media (min-width: @BREAK-POINT + 1) {
+      &_mobile {
+        display: none;
+      }
+    }
+  }
 }

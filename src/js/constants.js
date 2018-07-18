@@ -1,7 +1,8 @@
 import keyMirror from 'keymirror';
 
-
 export const URL = 'http://localhost';
+
+export const HOME = 'RU';
 
 export const ACTION_TYPES = keyMirror({
   PACKAGES_REQUEST: undefined,

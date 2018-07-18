@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Map, GeoJSON, ZoomControl } from 'react-leaflet';
 import ComboBox from './ComboBox';
+import { HOME } from '../constants';
 
 class RoamingMap extends Component {
   setStyle = (f) => {
@@ -9,11 +10,19 @@ class RoamingMap extends Component {
     const { featureDefaultStyle, featureSelectZone, featureSelectCountry } = this;
     const { country } = this.props;
 
-    if (country.properties && f.properties.iso_a2 === country.properties.iso_a2) {
+    if (
+      country.properties &&
+      f.properties.iso_a2 === country.properties.iso_a2 &&
+      f.properties.iso_a2 !== HOME
+    ) {
       return featureSelectCountry();
     }
 
-    if (countries && countries.indexOf(f.properties.iso_a2) !== -1) {
+    if (
+      countries &&
+      countries.indexOf(f.properties.iso_a2) !== -1 &&
+      f.properties.iso_a2 !== HOME
+    ) {
       return featureSelectZone();
     }
 

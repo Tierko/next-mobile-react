@@ -21,8 +21,13 @@ const Tabs = ({
               role="button"
             >
               {
-                (t.max > 0 || t.byMegabytes) && !disable &&
-                <ProgressLinear className="progress-linear_tab" max={t.max} current={t.current} dashed={t.byMegabytes} />
+                (t.additionalPackage || t.byMegabytes) && !disable &&
+                <ProgressLinear
+                  className="progress-linear_tab"
+                  max={(t.additionalPackage && t.additionalPackage.max) || 0}
+                  current={(t.additionalPackage && t.additionalPackage.current) || 0}
+                  dashed={t.byMegabytes}
+                />
               }
               {t.name}
             </div>

@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import cs from 'classnames';
 import { Link } from 'react-router-dom';
 import RoamingCurrent from './RoamingCurrent';
-import { Pages, COUNTRIES } from '../constants';
+import { Pages, COUNTRIES, HOME } from '../constants';
 import { convertStrings } from '../utils';
 
 class RoamingZone extends Component {
   getCountries = () => {
     const { data, features } = this.props;
-    let countries = features.filter(f => data.countries.indexOf(f.properties.iso_a2) !== -1);
+    let countries = features.filter(f => (
+      data.countries.indexOf(f.properties.iso_a2) !== -1 && f.properties.iso_a2 !== HOME
+    ));
 
     countries = countries.map(c => c.properties.name);
 

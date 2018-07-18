@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import ProgressLinear from './ProgressLinear';
 import Button from './Button';
 import CheckboxSlide from './CheckboxSlide';
-import { formatCost } from '../utils';
-import { Pages } from '../constants';
+import { formatCost, convertStrings } from '../utils';
+import { Pages, DAYS } from '../constants';
 
 class RoamingCurrent extends Component {
   state = {
@@ -25,21 +25,32 @@ class RoamingCurrent extends Component {
 
   render() {
     const { addPackage, onChange } = this;
-    const { data } = this.props;
+    const { data, data: { additionalPackage } } = this.props;
     const { slowInternet } = this.state;
 
     return (
       <Fragment>
-        <div className="roaming-current__subtitle roaming-current__subtitle_fast">
-          Пакет быстрого интернета <span className="roaming-current__note_desktop">(еще 30 дней)</span>
-        </div>
-        <div>
-          <span className="roaming-current__big">12,01 ГБ</span> <span className="roaming-current__note">из 20</span> <span className="roaming-current__note roaming-current__note_mobile">(еще 30 дней)</span>
-        </div>
-        <ProgressLinear className="progress-linear_roaming" max={20} current={12.01} />
-        <Button className="button_roaming-add" onClick={addPackage}>
-          Добавить пакет
-        </Button>
+        {
+          additionalPackage &&
+          <Fragment>
+            <div className="roaming-current__subtitle roaming-current__subtitle_fast">
+              Пакет быстрого интернета <span className="roaming-current__note roaming-current__note_desktop">(еще {additionalPackage.expired} {convertStrings(additionalPackage.expired, DAYS)})</span>
+            </div>
+            <div>
+              <span className="roaming-current__big">12,01 ГБ</span> <span className="roaming-current__note">из 20</span> <span className="roaming-current__note roaming-current__note_mobile">(еще {additionalPackage.expired} {convertStrings(additionalPackage.expired, DAYS)})</span>
+            </div>
+            <ProgressLinear className="progress-linear_roaming" max={20} current={12.01} />
+            <Button className="button_roaming-add" onClick={addPackage}>
+              Добавить пакет
+            </Button>
+          </Fragment>
+        }
+        {
+          !additionalPackage &&
+          <Button className="button_roaming-add" onClick={addPackage}>
+            Добавить пакет интернета
+          </Button>
+        }
         <div className="roaming-current__subtitle">
           Помегабайтный интернет <span className="roaming-current__note">(заработает, когда закончится пакет)</span>
         </div>

@@ -53,6 +53,15 @@ export const getData = (type) => {
 
 export const convertStrings = (n, arr) => {
   const mod = n % 10;
+
+  if (!arr.length || !Array.isArray(arr)) {
+    return arr;
+  }
+
+  if (n > 10 && n < 20) {
+    return arr[2];
+  }
+
   if (mod === 1) {
     return arr[0];
   }
