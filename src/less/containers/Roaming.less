@@ -71,62 +71,6 @@
     .link-dashed;
   }
 
-  &__subtitle {
-    margin-top: 40px;
-    position: relative;
-
-    &_fast:after,
-    &_regular:after {
-      content: '';
-      position: absolute;
-      height: 1em;
-
-      @media (max-width: @BREAK-POINT) {
-        position: static;
-        display: inline-block;
-        margin-left: 0.3em;
-      }
-    }
-
-    &_fast:after {
-      left: -15px;
-      width: 9px;
-      background: url("/media/icons/fast.svg") no-repeat 50% 90%;
-    }
-
-    &_regular:after {
-      left: -20px;
-      width: 14px;
-      background: url("/media/icons/regular.svg") no-repeat 50% 90%;
-    }
-  }
-
-  &__regular {
-    display: flex;
-    margin-top: 10px;
-    align-items: center;
-  }
-
-  &__tariff {
-    display: flex;
-    margin: 40px 0;
-
-    @media (max-width: @BREAK-POINT) {
-      display: block;
-      margin-top: 0;
-    }
-  }
-
-  &__tariff-item {
-    @media (max-width: @BREAK-POINT) {
-      margin-top: 30px;
-    }
-  }
-
-  &__tariff-item:not(:last-child) {
-    padding-right: 50px;
-  }
-
   &__more {
     .link-dashed;
   }
