@@ -143,6 +143,15 @@ class Calls extends Component {
                 0 ГБ / 0 мин
               </Button>
             </div>
+            <h2>Автоплатеж</h2>
+            <div style={style}>
+              <Button onClick={() => setData('autopay', 0)} disabled={getData('autopay') === 0}>
+                Отключен
+              </Button>
+              <Button onClick={() => setData('autopay', 1)} disabled={getData('autopay') === 1}>
+                Включен
+              </Button>
+            </div>
           </div>
         </div>
       </div>,

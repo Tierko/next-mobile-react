@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import InlineSvg from 'svg-inline-react';
@@ -68,6 +68,7 @@ class Pay extends Component {
 
   render() {
     const { sum, showPopup } = this.state;
+    const autoPayEnabled = !!getData('autopay');
     const {
       onPay,
       changeAutoPay,
@@ -84,17 +85,25 @@ class Pay extends Component {
         <div className="dashboard__content dashboard__content_pay pay">
           <div className="dashboard__header">Пополнение</div>
           <Payment isEditable onPay={onPay} sum={sum} onSumChange={onSumChange} />
-          <div className="conditions__header">Подключен автоплатеж</div>
-          <div>
-            2 000 ₽ с карты Сбербанка *4493
-          </div>
-          <div>
-            Оплата каждый месяц 10 числа до сентября 2020
-          </div>
-          <Button className="button_pay" onClick={changeAutoPay}>Изменить</Button>
-          <Link className="link" to={Pages.AUTO_PAY} >
-            Удалить
-          </Link>
+          {
+            autoPayEnabled &&
+            <Fragment>
+              <div className="dashboard__header">Подключен автоплатеж</div>
+              <div className="pay__auto-pay-from">
+                2 000 ₽ с карты Сбербанка *4493
+              </div>
+              <div>
+                Оплата каждый месяц 10 числа до сентября 2020
+              </div>
+              <Button className="button_pay" onClick={changeAutoPay}>Изменить</Button>
+            </Fragment>
+          }
+          {
+            !autoPayEnabled &&
+            <Link className="link" to={Pages.AUTO_PAY} >
+              Подключить автоплатеж
+            </Link>
+          }
         </div>
       </div>,
       <Popup show={showPopup} onClose={onPopupClose}>
