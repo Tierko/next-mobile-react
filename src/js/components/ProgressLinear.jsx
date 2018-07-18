@@ -33,6 +33,8 @@ const ProgressLinear = ({
   const min = startColor.current;
   const max = endColor.current;
 
+
+
   return (
     <div className={cs(`progress-linear ${className}`, { 'progress-linear_tall': tall, 'progress-linear_dashed': dashed })}>
       {
@@ -44,6 +46,10 @@ const ProgressLinear = ({
             backgroundImage: `linear-gradient(to right, hsl(${min[0]}, ${min[1]}%, ${min[2]}%), hsl(${max[0]}, ${max[1]}%, ${max[2]}%)`,
           }}
         />
+      }
+      {
+        current <= 0 && maxValue > 0 &&
+        <div className="progress-linear__empty" />
       }
     </div>
   );
