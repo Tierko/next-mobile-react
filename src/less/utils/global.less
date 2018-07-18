@@ -84,9 +84,11 @@ h2,
   color: @GRAY-DARK;
   text-decoration: none;
   border-bottom: 1px solid @GRAY;
+  transition: color 0.2s linear, border-bottom-color 0.2s linear;
 
   &:hover {
     border-bottom-color: @BLACK;
+    color: @BLACK;
   }
 
   &.active {
