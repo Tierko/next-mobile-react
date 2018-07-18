@@ -24,7 +24,7 @@ const SiteMap = () => (
       <br />
       <Link className="link" to={Pages.REQUEST_STATUS}>Статус заявки</Link>
       <br />
-      <Link className="link" to={`${Pages.REQUEST_STATUS}/${Statuses.REQUEST_SENT}`}>Статус заявки, заявка отпралвена</Link>
+      <Link className="link" to={`${Pages.REQUEST_STATUS}/${Statuses.REQUEST_SENT}`}>Статус заявки, заявка отправлена</Link>
       <br />
       <Link className="link" to={`${Pages.REQUEST_STATUS}/${Statuses.INFORMATION_CHECKED}`}>Статус заявки, информация проверена</Link>
       <br />
