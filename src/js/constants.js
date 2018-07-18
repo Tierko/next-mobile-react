@@ -26,6 +26,7 @@ export const Pages = {
   DATA: '/data',
   INVITE: '/invite',
   INTERNET: '/internet',
+  CONFIRM: '/confirm',
 };
 
 export const Statuses = {

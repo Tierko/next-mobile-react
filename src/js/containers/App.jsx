@@ -23,6 +23,7 @@ import Data from './Data';
 import Result from './Result';
 import Roaming from './Roaming';
 import Invite from './Invite';
+import Confirm from './Confirm';
 import { Pages } from '../constants';
 
 const App = () => (
@@ -53,7 +54,8 @@ const App = () => (
       <Route path={`${Pages.ROAMING}/:type/:zoneId/:countryId`} component={Roaming} />
       <Route path={`${Pages.ROAMING}/:type/:zoneId`} component={Roaming} />
       <Route path={Pages.ROAMING} component={Roaming} exact />
-      <Route path={Pages.INVITE} component={Invite} exact />
+      <Route path={Pages.INVITE} component={Invite} />
+      <Route path={Pages.CONFIRM} component={Confirm} />
     </Switch>
   </div>
 );

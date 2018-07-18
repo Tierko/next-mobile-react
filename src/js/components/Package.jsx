@@ -35,7 +35,7 @@ const Package = ({ data, remain, simple }) => (
             <div className="package__cell package__cell_price">{i.price} ₽</div>
             <Link
               className="package__cell package__cell_action"
-              to={{ pathname: Pages.PAY_PACKAGE, state: { sum: i.price, pack: `${i.count} ${data.unit} ${data.title_}` } }}
+              to={{ pathname: Pages.CONFIRM, state: { sum: i.price, pack: `${i.count} ${data.unit} ${data.title_}` } }}
             >
               Купить
             </Link>

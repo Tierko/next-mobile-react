@@ -10,7 +10,7 @@ import { getData } from '../utils';
 class AddPackage extends Component {
   render() {
     const data = getData('packages');
-    const remain = getData('remain')
+    const remain = getData('remain');
 
     return ([
       <MobileNav key="nav" type="dashboard" />,
