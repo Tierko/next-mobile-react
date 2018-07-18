@@ -2,12 +2,16 @@
   padding: 50px 0;
 
   &__header {
-    .gradient-black-blue;
     .link;
     .h1;
+    color: @GRAY-DARK;
     margin-bottom: 20px;
     display: block;
     text-decoration: none;
+
+    &:hover span {
+      color: @BLACK;
+    }
 
     span {
       background: linear-gradient(to right, @GRAY) repeat-x 0 95%;
