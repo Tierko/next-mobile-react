@@ -7,6 +7,9 @@ export const ACTION_TYPES = keyMirror({
   PACKAGES_REQUEST: undefined,
   PACKAGES_REQUEST_FAIL: undefined,
   PACKAGES_REQUEST_SUCCESS: undefined,
+  BALANCE_SUM_SET: undefined,
+  BALANCE_INTERNET_SET: undefined,
+  BALANCE_CALLS_SET: undefined,
 });
 
 export const Pages = {
