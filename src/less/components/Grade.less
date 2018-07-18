@@ -11,6 +11,10 @@
     margin-top: auto;
   }
 
+  &__item:first-child &__line:not(&__line_wide) {
+    width: 3px;
+  }
+
   &__line {
     border-right: 3px solid @GRAY-LIGHT;
     cursor: pointer;
