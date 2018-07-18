@@ -75,7 +75,7 @@ class Overview extends Component {
     return [
       <MobileNav key="nav" type="dashboard" />,
       <div key="dashboard" className="dashboard">
-        <Aside />
+        <Aside hideLink />
         <div className="dashboard__content">
           <Note
             className="note_dashboard"

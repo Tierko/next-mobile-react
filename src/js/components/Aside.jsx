@@ -1,12 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { NavLink, Link } from 'react-router-dom';
 import { formatCost, getData } from '../utils';
 import { Pages } from '../constants';
 
-const Aside = () => (
+const Aside = ({ hideLink }) => (
   <div className="aside">
     <div className="aside__logo">
       <img src="/media/images/logo-blue.png" alt="Next Mobile" />
+      {
+        !hideLink && <Link className="aside__home" to={Pages.OVERVIEW} />
+      }
     </div>
     <div className="aside__inner">
       <div className="aside__phone">+ 7 905 123-23-44</div>
@@ -32,5 +36,13 @@ const Aside = () => (
     </div>
   </div>
 );
+
+Aside.propTypes = {
+  hideLink: PropTypes.bool,
+};
+
+Aside.defaultProps = {
+  hideLink: false,
+};
 
 export default Aside;
