@@ -1,4 +1,13 @@
+import keyMirror from 'keymirror';
+
+
 export const URL = 'http://localhost';
+
+export const ACTION_TYPES = keyMirror({
+  PACKAGES_REQUEST: undefined,
+  PACKAGES_REQUEST_FAIL: undefined,
+  PACKAGES_REQUEST_SUCCESS: undefined,
+});
 
 export const Pages = {
   KIT: '/kit',

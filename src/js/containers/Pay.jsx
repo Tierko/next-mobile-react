@@ -14,8 +14,6 @@ import { formatCost, getData } from '../utils';
 class Pay extends Component {
   constructor(props) {
     super(props);
-    const state = props.location.state || {};
-    const sum = state.sum || 2000;
 
     this.state = {
       showPopup: false,

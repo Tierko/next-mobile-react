@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Package from '../components/Package';
 import LinkBack from '../components/LinkBack';
-import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
+import getPackages from '../actions/Packages';
 import { getData } from '../utils';
 
 class AddPackage extends Component {
+  componentDidMount() {
+    const { requestPackages } = this.props;
+
+    requestPackages();
+  }
+
   render() {
-    const data = getData('packages');
+    const { data } = this.props;
     const remain = getData('remain');
 
     return ([
@@ -29,4 +37,21 @@ class AddPackage extends Component {
   }
 }
 
-export default PageFade(AddPackage);
+function mapStateToProps(state) {
+  const { Packages } = state;
+
+  return { data: Packages.items };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    requestPackages: () => dispatch(getPackages),
+  };
+}
+
+AddPackage.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  requestPackages: PropTypes.func.isRequired,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddPackage);
