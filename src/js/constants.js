@@ -11,6 +11,7 @@ export const ACTION_TYPES = keyMirror({
   BALANCE_SUM_SET: undefined,
   BALANCE_INTERNET_SET: undefined,
   BALANCE_CALLS_SET: undefined,
+  ROAMING_TOGGLE: undefined,
 });
 
 export const Pages = {

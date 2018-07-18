@@ -1,6 +1,8 @@
+import { ACTION_TYPES } from '../constants';
+
 const initState = {
   currentZoneId: 0,
-  currentCountry: '',
+  currentCountry: 'UA',
   features: [],
   zones: [{
     id: 1,
@@ -258,6 +260,8 @@ const initState = {
 
 const Roaming = (state = initState, action) => {
   switch (action.type) {
+  case ACTION_TYPES.ROAMING_TOGGLE:
+    return Object.assign({}, state, { currentZoneId: state.currentZoneId ? 0 : 1 });
   default:
     return state;
   }

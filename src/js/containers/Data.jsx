@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Button from '../components/Button';
+import toggleRoaming from '../actions/Roaming';
 import { getData } from '../utils';
 
 class Calls extends Component {
@@ -12,11 +14,13 @@ class Calls extends Component {
 
   render() {
     const { setData } = this;
+    const { state: { Roaming }, roamingSwitch } = this.props;
     const style = {
       display: 'flex',
       flexWrap: 'wrap',
       maxWidth: '100%',
     };
+
     return ([
       <MobileNav key="nav" type="dashboard" />,
       <div key="dashboard" className="dashboard">
@@ -154,11 +158,11 @@ class Calls extends Component {
             </div>
             <h2>Роуминг</h2>
             <div style={style}>
-              <Button onClick={() => {}} disabled={1}>
-                Отключен
+              <Button onClick={roamingSwitch} disabled={!Roaming.currentZoneId}>
+                Отключить
               </Button>
-              <Button onClick={() => {}} disabled={1}>
-                Включен
+              <Button onClick={roamingSwitch} disabled={Roaming.currentZoneId}>
+                Включить
               </Button>
             </div>
           </div>
@@ -168,4 +172,16 @@ class Calls extends Component {
   }
 }
 
-export default Calls;
+function mapStateToProps(state) {
+  return {
+    state,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    roamingSwitch: () => dispatch(toggleRoaming()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Calls);
