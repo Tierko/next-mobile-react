@@ -12,6 +12,12 @@ export const ACTION_TYPES = keyMirror({
   BALANCE_INTERNET_SET: undefined,
   BALANCE_CALLS_SET: undefined,
   ROAMING_TOGGLE: undefined,
+  ROAMING_ZONES_REQUEST: undefined,
+  ROAMING_ZONES_REQUEST_FAIL: undefined,
+  ROAMING_ZONES_REQUEST_SUCCESS: undefined,
+  ROAMING_FEATURES_REQUEST: undefined,
+  ROAMING_FEATURES_REQUEST_FAIL: undefined,
+  ROAMING_FEATURES_REQUEST_SUCCESS: undefined,
 });
 
 export const Pages = {

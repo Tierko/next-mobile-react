@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
+import { connect } from 'react-redux';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import RequestStatus from './RequestStatus';
@@ -25,39 +26,61 @@ import Roaming from './Roaming';
 import Invite from './Invite';
 import Confirm from './Confirm';
 import { Pages } from '../constants';
+import {
+  getZonesAction,
+  getFeaturesAction,
+} from '../actions/Roaming';
 
-const App = () => (
-  <div>
-    <Switch>
-      <Route path={Pages.SITE_MAP} component={SiteMap} exact />
-      <Route path={Pages.SIGN_IN} component={SignIn} exact />
-      <Route path={Pages.KIT} component={Kit} />
-      <Route path={Pages.SIGN_UP} component={SignUp} exact />
-      <Route path={`${Pages.SIGN_UP}/step/:step`} component={SignUp} exact />
-      <Route path={Pages.REQUEST_STATUS} component={RequestStatus} exact />
-      <Route path={`${Pages.REQUEST_STATUS}/:status`} component={RequestStatus} />
-      <Route path={Pages.CONDITIONS} component={Conditions} />
-      <Route path={Pages.SUPPORT} component={Support} />
-      <Route path={Pages.DASHBOARD} component={Overview} />
-      <Route path={`${Pages.MORE}/:type`} component={More} />
-      <Route path={Pages.ADD_PACKAGE} component={AddPackage} />
-      <Route path={Pages.PAY} component={Pay} />
-      <Route path={Pages.SERVICES} component={Services} />
-      <Route path={Pages.SETTINGS} component={Settings} />
-      <Route path={Pages.HISTORY} component={History} />
-      <Route path={Pages.DETAIL} component={Detail} />
-      <Route path={Pages.PAY_PACKAGE} component={PayPackage} />
-      <Route path={Pages.AUTO_PAY} component={AutoPay} />
-      <Route path={Pages.SUPPORT_DASHBOARD} component={SupportDashboard} />
-      <Route path={Pages.DATA} component={Data} />
-      <Route path={`${Pages.RESULT}/:status`} component={Result} />
-      <Route path={`${Pages.ROAMING}/:type/:zoneId/:countryId`} component={Roaming} />
-      <Route path={`${Pages.ROAMING}/:type/:zoneId`} component={Roaming} />
-      <Route path={Pages.ROAMING} component={Roaming} exact />
-      <Route path={Pages.INVITE} component={Invite} />
-      <Route path={Pages.CONFIRM} component={Confirm} />
-    </Switch>
-  </div>
-);
 
-export default hot(module)(App);
+class App extends Component {
+  componentDidMount() {
+    const { getZones, getFeatures } = this.props;
+    getZones();
+    getFeatures();
+  }
+
+  render() {
+    return (
+      <div>
+        <Switch>
+          <Route path={Pages.SITE_MAP} component={SiteMap} exact />
+          <Route path={Pages.SIGN_IN} component={SignIn} exact />
+          <Route path={Pages.KIT} component={Kit} />
+          <Route path={Pages.SIGN_UP} component={SignUp} exact />
+          <Route path={`${Pages.SIGN_UP}/step/:step`} component={SignUp} exact />
+          <Route path={Pages.REQUEST_STATUS} component={RequestStatus} exact />
+          <Route path={`${Pages.REQUEST_STATUS}/:status`} component={RequestStatus} />
+          <Route path={Pages.CONDITIONS} component={Conditions} />
+          <Route path={Pages.SUPPORT} component={Support} />
+          <Route path={Pages.DASHBOARD} component={Overview} />
+          <Route path={`${Pages.MORE}/:type`} component={More} />
+          <Route path={Pages.ADD_PACKAGE} component={AddPackage} />
+          <Route path={Pages.PAY} component={Pay} />
+          <Route path={Pages.SERVICES} component={Services} />
+          <Route path={Pages.SETTINGS} component={Settings} />
+          <Route path={Pages.HISTORY} component={History} />
+          <Route path={Pages.DETAIL} component={Detail} />
+          <Route path={Pages.PAY_PACKAGE} component={PayPackage} />
+          <Route path={Pages.AUTO_PAY} component={AutoPay} />
+          <Route path={Pages.SUPPORT_DASHBOARD} component={SupportDashboard} />
+          <Route path={Pages.DATA} component={Data} />
+          <Route path={`${Pages.RESULT}/:status`} component={Result} />
+          <Route path={`${Pages.ROAMING}/:type/:zoneId/:countryId`} component={Roaming} />
+          <Route path={`${Pages.ROAMING}/:type/:zoneId`} component={Roaming} />
+          <Route path={Pages.ROAMING} component={Roaming} exact />
+          <Route path={Pages.INVITE} component={Invite} />
+          <Route path={Pages.CONFIRM} component={Confirm} />
+        </Switch>
+      </div>
+    );
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getZones: () => dispatch(getZonesAction()),
+    getFeatures: () => dispatch(getFeaturesAction()),
+  };
+}
+
+export default hot(module)(connect(null, mapDispatchToProps)(App));

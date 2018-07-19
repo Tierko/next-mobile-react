@@ -72,3 +72,18 @@ export const convertStrings = (n, arr) => {
 
   return arr[2];
 };
+
+export const ajax = (url, dispatch, onRequest, onFail, onSuccess) => {
+  if (onRequest) {
+    dispatch(onRequest());
+  }
+
+  fetch(url, {
+    headers: new Headers({
+      'Content-Types': 'text/json',
+    }),
+  })
+    .then(items => items.json())
+    .then(items => dispatch(onSuccess(items)))
+    .catch(() => dispatch(onFail()));
+};

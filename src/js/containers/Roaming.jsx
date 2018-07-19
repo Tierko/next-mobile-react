@@ -63,9 +63,9 @@ class Roaming extends Component {
 
   getCurrentZone = () => {
     const { fillEmptyZone } = this;
-    const { tab, features } = this.state;
-    const { zones } = this.props.data;
-    const roamingZones = fillEmptyZone(zones, features);
+    const { tab } = this.state;
+    const { zones, features } = this.props.data;
+    const roamingZones = fillEmptyZone(zones.items, features.items);
 
     return roamingZones.find(z => z.id === tab) || {};
   };
@@ -97,15 +97,15 @@ class Roaming extends Component {
   };
 
   componentDidMount() {
-    fetch('/data/map.geo.json', {
-      headers: new Headers({
-        'Content-Types': 'text/json',
-      }),
-    })
-      .then(features => features.json())
-      .then(features => this.setState({
-        features,
-      }));
+    // fetch('/data/map.geo.json', {
+    //   headers: new Headers({
+    //     'Content-Types': 'text/json',
+    //   }),
+    // })
+    //   .then(features => features.json())
+    //   .then(features => this.setState({
+    //     features,
+    //   }));
   }
 
   fillEmptyZone = (zones, features) => {
@@ -144,16 +144,16 @@ class Roaming extends Component {
     } = this;
     const {
       tab,
-      features,
       country,
     } = this.state;
     const {
       match: { params: { type, zoneId, countryId } },
       history,
       data: { zones: roamingZones },
+      data: { features },
     } = this.props;
-    const zones = fillEmptyZone(roamingZones, features);
-    const zone = roamingZones.find(z => z.id === zoneId * 1);
+    const zones = fillEmptyZone(roamingZones.items, features.items);
+    const zone = roamingZones.items.find(z => z.id === zoneId * 1);
 
     return ([
       <MobileNav key="nav" type="dashboard" />,
@@ -162,7 +162,7 @@ class Roaming extends Component {
         <div className="dashboard__content dashboard__content_roaming">
           <RoamingMap
             zone={getCurrentZone()}
-            features={features}
+            features={features.items}
             country={country}
             onCountrySelect={onCountrySelect}
           />
@@ -185,7 +185,7 @@ class Roaming extends Component {
                     data={z}
                     active={tab}
                     history={history}
-                    features={features}
+                    features={features.items}
                     zones={zones}
                   />
                 ))
@@ -194,7 +194,7 @@ class Roaming extends Component {
           }
           {
             zone && type === 'countries' &&
-            <RoamingCountries items={features} zone={zone} />
+            <RoamingCountries items={features.items} zone={zone} />
           }
           {
             zoneId && type === 'internet' &&
@@ -206,7 +206,7 @@ class Roaming extends Component {
           }
           {
             countryId && type === 'country-tariff' && zone &&
-            <RoamingTariffCountry zone={zone} items={features} id={countryId} />
+            <RoamingTariffCountry zone={zone} items={features.items} id={countryId} />
           }
         </div>
       </div>,

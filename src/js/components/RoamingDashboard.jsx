@@ -14,7 +14,7 @@ const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
       <Link className="roaming-dashboard__title" to={Pages.ROAMING}>Роуминг</Link>
       <div className="roaming-dashboard__list">
         {
-          zones.map(i => (
+          zones.items.map(i => (
             <div key={i.id} className="roaming-dashboard__item">
               <div className="roaming-dashboard__item-name">
                 <Link to={Pages.ROAMING} className="link">{i.name}</Link>
@@ -47,7 +47,7 @@ const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
       <table className="roaming-dashboard__table" cellSpacing={0} cellPadding={0}>
         <tbody>
           {
-            zones.map(i => (
+            zones.items.map(i => (
               i.additionalPackage ?
                 <Fragment key={i.id}>
                   <tr key={`${i.id}-f`}>
@@ -77,7 +77,7 @@ const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
       </table>
     </div>
   );
-}
+};
 
 RoamingDashboard.propTypes = {
   data: PropTypes.PropTypes.shape().isRequired,

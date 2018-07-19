@@ -1,4 +1,5 @@
 import { ACTION_TYPES } from '../constants';
+import { ajax } from '../utils';
 
 const packagesRequest = () => ({
   type: ACTION_TYPES.PACKAGES_REQUEST,
@@ -14,18 +15,7 @@ const packagesRequestSuccess = (items) => ({
 });
 
 const getPackages = () => (
-  (dispatch) => {
-    dispatch(packagesRequest());
-
-    fetch('/data/packages.json', {
-      headers: new Headers({
-        'Content-Types': 'text/json',
-      }),
-    })
-      .then(items => items.json())
-      .then(items => dispatch(packagesRequestSuccess(items)))
-      .catch(() => dispatch(packagesRequestFail()));
-  }
+  dispatch => (ajax('/data/packages.json', dispatch, packagesRequest, packagesRequestFail, packagesRequestSuccess))
 );
 
 export default getPackages();

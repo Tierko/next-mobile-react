@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Button from '../components/Button';
-import toggleRoaming from '../actions/Roaming';
+import { toggleRoaming } from '../actions/Roaming';
 import { getData } from '../utils';
 
 class Calls extends Component {
