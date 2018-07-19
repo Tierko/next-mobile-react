@@ -37,7 +37,9 @@ class RoamingCurrent extends Component {
               Пакет быстрого интернета <span className="roaming-current__note roaming-current__note_desktop">(еще {additionalPackage.expired} {convertStrings(additionalPackage.expired, DAYS)})</span>
             </div>
             <div>
-              <span className="roaming-current__big">12,01 ГБ</span> <span className="roaming-current__note">из 20</span> <span className="roaming-current__note roaming-current__note_mobile">(еще {additionalPackage.expired} {convertStrings(additionalPackage.expired, DAYS)})</span>
+              <span className="roaming-current__big">
+                12,01 ГБ
+              </span> <span className="roaming-current__note">из 20</span> <span className="roaming-current__note roaming-current__note_mobile">(еще {additionalPackage.expired} {convertStrings(additionalPackage.expired, DAYS)})</span>
             </div>
             <ProgressLinear className="progress-linear_roaming" max={20} current={12.01} />
             <Button className="button_roaming-add" onClick={addPackage}>

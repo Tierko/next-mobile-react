@@ -18,6 +18,9 @@ export const ACTION_TYPES = keyMirror({
   ROAMING_FEATURES_REQUEST: undefined,
   ROAMING_FEATURES_REQUEST_FAIL: undefined,
   ROAMING_FEATURES_REQUEST_SUCCESS: undefined,
+  ROAMING_INTERNET_REQUEST: undefined,
+  ROAMING_INTERNET_REQUEST_FAIL: undefined,
+  ROAMING_INTERNET_REQUEST_SUCCESS: undefined,
 });
 
 export const Pages = {

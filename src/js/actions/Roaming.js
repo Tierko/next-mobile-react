@@ -38,3 +38,20 @@ const featuresRequestSuccess = items => ({
 export const getFeaturesAction = () => (
   dispatch => ajax('/data/map.geo.json', dispatch, featuresRequest, featuresRequestFail, featuresRequestSuccess)
 );
+
+const roamingInternetRequest = () => ({
+  type: ACTION_TYPES.ROAMING_INTERNET_REQUEST,
+});
+
+const roamingInternetRequestFail = () => ({
+  type: ACTION_TYPES.ROAMING_INTERNET_REQUEST_FAIL,
+});
+
+const roamingInternetRequestSuccess = data => ({
+  type: ACTION_TYPES.ROAMING_INTERNET_REQUEST_SUCCESS,
+  data,
+});
+
+export const getRoamingInternetAction = () => (
+  dispatch => ajax('/data/roaming-internet.json', dispatch, roamingInternetRequest, roamingInternetRequestFail, roamingInternetRequestSuccess)
+);

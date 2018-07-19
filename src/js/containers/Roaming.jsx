@@ -11,7 +11,6 @@ import RoamingInternet from '../components/RoamingInternet';
 import RoamingTariffZone from '../components/RoamingTariffZone';
 import RoamingTariffCountry from '../components/RoamingTariffCountry';
 import { Pages } from '../constants';
-// import data from '../../data';
 
 class Roaming extends Component {
   state = {
@@ -95,18 +94,6 @@ class Roaming extends Component {
 
     return [lon, lat];
   };
-
-  componentDidMount() {
-    // fetch('/data/map.geo.json', {
-    //   headers: new Headers({
-    //     'Content-Types': 'text/json',
-    //   }),
-    // })
-    //   .then(features => features.json())
-    //   .then(features => this.setState({
-    //     features,
-    //   }));
-  }
 
   fillEmptyZone = (zones, features) => {
     const filtered = [];
@@ -198,7 +185,7 @@ class Roaming extends Component {
           }
           {
             zoneId && type === 'internet' &&
-            <RoamingInternet />
+            <RoamingInternet zoneId={zoneId} />
           }
           {
             zoneId && type === 'zone-tariff' &&

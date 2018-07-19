@@ -13,9 +13,15 @@ const initState = {
     error: false,
     items: [],
   },
+  internet: {
+    loaded: false,
+    error: false,
+    data: {},
+  },
 };
 
 const Roaming = (state = initState, action) => {
+  // console.log(state)
   switch (action.type) {
   case ACTION_TYPES.ROAMING_TOGGLE:
     return Object.assign({}, state, { currentZoneId: state.currentZoneId ? 0 : 1 });
@@ -31,6 +37,12 @@ const Roaming = (state = initState, action) => {
     return Object.assign({}, state, { features: { loaded: false, error: true, items: [] } });
   case ACTION_TYPES.ROAMING_FEATURES_REQUEST_SUCCESS:
     return Object.assign({}, state, { features: { loaded: true, error: false, items: action.items } });
+  case ACTION_TYPES.ROAMING_INTERNET_REQUEST:
+    return Object.assign({}, state, { internet: { loaded: false, error: false, data: {} } });
+  case ACTION_TYPES.ROAMING_INTERNET_REQUEST_FAIL:
+    return Object.assign({}, state, { internet: { loaded: false, error: true, data: {} } });
+  case ACTION_TYPES.ROAMING_INTERNET_REQUEST_SUCCESS:
+    return Object.assign({}, state, { internet: { loaded: false, error: false, data: action.data } });
   default:
     return state;
   }
