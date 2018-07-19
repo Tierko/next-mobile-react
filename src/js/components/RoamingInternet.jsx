@@ -5,7 +5,7 @@ import LinkBack from './LinkBack';
 import ProgressLinear from './ProgressLinear';
 import Package from './Package';
 import { Pages, DAYS } from '../constants';
-import { convertStrings } from '../utils';
+import { convertStrings, getData } from '../utils';
 import { getRoamingInternetAction } from '../actions/Roaming';
 
 class RoamingInternet extends Component {
@@ -16,9 +16,8 @@ class RoamingInternet extends Component {
   }
 
   render() {
-    const { roaming, zoneId } = this.props;
-    const zone = roaming.zones.items.find(z => z.id === zoneId * 1);
-    console.log(roaming)
+    const { roaming: { zones, internet }, zoneId } = this.props;
+    const zone = zones.items.find(z => z.id === zoneId * 1);
 
     if (!zone) {
       return false;
@@ -44,8 +43,13 @@ class RoamingInternet extends Component {
             <div>Действует еще {zone.additionalPackage.expired} {convertStrings(zone.additionalPackage.expired, DAYS)}</div>
           </Fragment>
         }
-        <Package data={roaming.itnernet.fast} simple />
-        <Package data={roaming.itnernet.regular} simple />
+        {
+          internet.data.fast && internet.data.regular &&
+          <Fragment>
+            <Package data={internet.data.fast} simple remain={getData('remain')[0]} />
+            <Package data={internet.data.regular} simple remain={getData('remain')[1]} />
+          </Fragment>
+        }
       </div>
     );
   }

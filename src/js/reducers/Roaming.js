@@ -3,9 +3,9 @@ import { ACTION_TYPES } from '../constants';
 const initState = {
   currentZoneId: 0,
   currentCountry: 'UA',
-  loaded: false,
-  error: false,
   features: {
+    loaded: false,
+    error: false,
     items: [],
   },
   zones: {
@@ -21,7 +21,6 @@ const initState = {
 };
 
 const Roaming = (state = initState, action) => {
-  // console.log(state)
   switch (action.type) {
   case ACTION_TYPES.ROAMING_TOGGLE:
     return Object.assign({}, state, { currentZoneId: state.currentZoneId ? 0 : 1 });
@@ -42,7 +41,7 @@ const Roaming = (state = initState, action) => {
   case ACTION_TYPES.ROAMING_INTERNET_REQUEST_FAIL:
     return Object.assign({}, state, { internet: { loaded: false, error: true, data: {} } });
   case ACTION_TYPES.ROAMING_INTERNET_REQUEST_SUCCESS:
-    return Object.assign({}, state, { internet: { loaded: false, error: false, data: action.data } });
+    return Object.assign({}, state, { internet: { loaded: true, error: false, data: action.data } });
   default:
     return state;
   }

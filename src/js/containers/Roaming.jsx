@@ -51,7 +51,7 @@ class Roaming extends Component {
       return 0;
     }
 
-    const zone = zones.find(z => z.countries.indexOf(country.properties.iso_a2) !== -1);
+    const zone = zones.items.find(z => z.countries.indexOf(country.properties.iso_a2) !== -1);
 
     if (!zone) {
       return 0;

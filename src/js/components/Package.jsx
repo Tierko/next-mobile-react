@@ -33,12 +33,14 @@ const Package = ({ data, remain, simple }) => (
             <div className="package__cell package__cell_count">+ {i.count} {data.unit}</div>
             <div className="package__cell package__cell_period">{i.period} дней</div>
             <div className="package__cell package__cell_price">{i.price} ₽</div>
-            <Link
-              className="package__cell package__cell_action"
-              to={{ pathname: Pages.CONFIRM, state: { sum: i.price, pack: `${i.count} ${data.unit} ${data.title_}` } }}
-            >
-              Купить
-            </Link>
+            <div className="package__cell package__cell_action">
+              <Link
+                className="link"
+                to={{ pathname: Pages.CONFIRM, state: { sum: i.price, pack: `${i.count} ${data.unit} ${data.title_}` } }}
+              >
+                Купить
+              </Link>
+            </div>
           </div>
         ))
       }
