@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import SignIn from './SignIn';
@@ -40,9 +40,11 @@ class App extends Component {
   }
 
   render() {
+    const { location } = this.props;
+
     return (
       <div>
-        <Switch>
+        <Switch location={location}>
           <Route path={Pages.SITE_MAP} component={SiteMap} exact />
           <Route path={Pages.SIGN_IN} component={SignIn} exact />
           <Route path={Pages.KIT} component={Kit} />
@@ -83,4 +85,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default hot(module)(connect(null, mapDispatchToProps)(App));
+export default hot(module)(withRouter(connect(null, mapDispatchToProps)(App)));
