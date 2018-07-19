@@ -2,24 +2,18 @@
   padding: 50px 0;
 
   &__header {
-    .link;
     .h1;
-    color: @GRAY-DARK;
-    margin-bottom: 20px;
-    display: block;
+    .gradient-black-blue;
     text-decoration: none;
-
-    &:hover span {
-      color: @BLACK;
-    }
+    display: block;
 
     span {
-      background: linear-gradient(to right, @GRAY) repeat-x 0 95%;
+      background: linear-gradient(to right, @GRAY, @GRAY) repeat-x 0 95%;
       background-size: 100% 1px;
     }
 
     &:hover span {
-      background-image: linear-gradient(@BLACK);
+      background-image: linear-gradient(to right, @BLACK);
     }
   }
 

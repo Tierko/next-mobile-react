@@ -63,20 +63,25 @@ h2,
 
 .link {
   color: @BLACK;
-  text-decoration-color: @GRAY;
+  background: linear-gradient(to right, @GRAY) 0 93% repeat-x;
+  background-size: 100% 1px;
+  text-decoration: none;
 
   &:hover {
-    text-decoration-color: @BLACK;
+    background-image: linear-gradient(to right, @BLACK);
   }
 }
 
 .link-light {
   color: @GRAY-DARK;
-  text-decoration-color: @GRAY;
+  background: linear-gradient(to right, @GRAY) 0 93% repeat-x;
+  background-size: 100% 1px;
+  text-decoration: none;
+  line-height: inherit;
 
   &:hover {
-    text-decoration-color: @BLACK;
     color: @BLACK;
+    background-image: linear-gradient(to right, @BLACK);
   }
 }
 
@@ -100,14 +105,12 @@ h2,
 
 .link-dashed {
   color: @GRAY-DARK;
-  line-height: 1;
-  user-select: none;
-  text-decoration-color: @GRAY;
-  text-decoration-style: dashed;
+  text-decoration: none;
+  background: linear-gradient(to right, @GRAY-DARK 50%, rgba(255, 255, 255, 0) 50%) repeat-x 0.1em 95%;
+  background-size: 10px 1px;
 
   &:hover {
     color: @BLACK;
-    text-decoration-color: @BLACK;
   }
 }
 

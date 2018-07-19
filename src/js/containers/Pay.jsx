@@ -98,9 +98,11 @@ class Pay extends Component {
           }
           {
             !autoPayEnabled &&
-            <Link className="link" to={Pages.AUTO_PAY} >
-              Подключить автоплатеж
-            </Link>
+            <div>
+              <Link className="link" to={Pages.AUTO_PAY} >
+                Подключить автоплатеж
+              </Link>
+            </div>
           }
         </div>
       </div>,
