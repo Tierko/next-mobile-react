@@ -1,6 +1,10 @@
 .remain {
   max-width: 450px;
 
+  &_in-roaming {
+    order: 19;
+  }
+
   @media (max-width: @BREAK-POINT) {
     width: 100%;
     max-width: 450px;
@@ -9,6 +13,17 @@
 
   &__title {
     margin-bottom: 15px;
+  }
+
+  &__title-roaming {
+    .h1;
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    .link;
+    margin-bottom: 15px;
+    display: inline-block;
   }
 
   &__item {

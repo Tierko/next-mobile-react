@@ -10,8 +10,8 @@ const initState = {
     link: true,
   },
   calls: {
-    current: 1000,
-    max: 1000,
+    current: 0,
+    max: 0,
     unit: 'мин',
     name: 'Звонки',
     link: true,

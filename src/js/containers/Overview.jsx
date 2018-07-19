@@ -13,7 +13,6 @@ import RoamingDashboard from '../components/RoamingDashboard';
 import Note from '../components/Note';
 import OverviewInvite from '../components/OverviewInvite';
 import OverviewRoamingCurrent from '../components/OverviewRoamingCurrent';
-// import RoamingCurrent from '../components/Da';
 
 import { Pages, DAYS } from '../constants';
 import { getData, formatCost, convertStrings } from '../utils';
@@ -109,7 +108,12 @@ class Overview extends Component {
           />
           <OverviewPayment onChange={sumChange} onPay={onPay} sum={sum} />
           <OverviewRoamingCurrent history={history} data={roaming} />
-          <Remain data={getData('remain')} tariff={getData('tariff')} buy={onBuy} />
+          <Remain
+            data={getData('remain')}
+            tariff={getData('tariff')}
+            buy={onBuy}
+            inRoaming={!!roaming.currentZoneId}
+          />
           <History data={getData('history')} />
           <RoamingDashboard data={roaming} />
           <OverviewInvite message={message} code={code ? code.code : ''} />
