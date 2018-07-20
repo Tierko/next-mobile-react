@@ -96,7 +96,6 @@ class AutoPay extends Component {
       fewMoney,
       fewSum,
       unsaved,
-      payPermitted,
     } = this.state;
     const { onChange, onSave, onPermitChange } = this;
     const { months, days } = AutoPay;
