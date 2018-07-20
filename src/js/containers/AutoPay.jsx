@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
+import { connect } from 'react-redux';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import LinkBack from '../components/LinkBack';
@@ -8,8 +9,9 @@ import Checkbox from '../components/CheckboxSlide';
 import InputRuble from '../components/InputRuble';
 import Select from '../components/Select';
 import Button from '../components/Button';
-import PageFade from '../components/PageFade';
+import Cards from '../components/Cards';
 import { Pages, MONTHS } from '../constants';
+import saveAutoPayAction from '../actions/AutoPay';
 
 class AutoPay extends Component {
   static days = Array(28).fill(0).map((_, i) => i + 1);
@@ -31,16 +33,21 @@ class AutoPay extends Component {
     return mm;
   })();
 
-  state = {
-    autoPay: true,
-    autoPaySum: 1000,
-    autoPayDay: 10,
-    autoPayMonth: AutoPay.months[0],
-    fewMoney: true,
-    fewSum: 1000,
-    fewLess: 100,
-    unsaved: false,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      autoPay: true,
+      autoPaySum: 1000,
+      autoPayDay: 10,
+      autoPayMonth: AutoPay.months[0],
+      fewMoney: true,
+      fewSum: 1000,
+      fewLess: 100,
+      unsaved: false,
+      payPermitted: false,
+    };
+  }
 
   onChange = (name, value) => {
     if (name === 'autoPaySum' || name === 'fewSum' || name === 'fewLess') {
@@ -57,7 +64,10 @@ class AutoPay extends Component {
 
   onSave = () => {
     const { unsaved } = this.state;
-    const { history } = this.props;
+    const {
+      history,
+
+    } = this.props;
 
     if (unsaved) {
       history.push({
@@ -70,6 +80,12 @@ class AutoPay extends Component {
     }
   };
 
+  onPermitChange = (payPermitted) => {
+    this.setState({
+      payPermitted,
+    });
+  };
+
   render() {
     const {
       autoPay,
@@ -80,8 +96,9 @@ class AutoPay extends Component {
       fewMoney,
       fewSum,
       unsaved,
+      payPermitted,
     } = this.state;
-    const { onChange, onSave } = this;
+    const { onChange, onSave, onPermitChange } = this;
     const { months, days } = AutoPay;
 
     return [
@@ -91,6 +108,7 @@ class AutoPay extends Component {
         <div className="dashboard__content">
           <LinkBack className="link-back_offset-bottom" href={Pages.OVERVIEW} />
           <div className="dashboard__header">Подключение автоплатежа</div>
+          <Cards onPermitChange={onPermitChange} />
           <div className="auto-pay">
             <div className="auto-pay__section">
               <div className="auto-pay__title">
@@ -163,8 +181,22 @@ class AutoPay extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    data: state.AutoPay,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    saveAutoPayAction: state => dispatch(saveAutoPayAction(state)),
+  };
+}
+
 AutoPay.propTypes = {
   history: PropTypes.shape().isRequired,
+  data: PropTypes.shape().isRequired,
+  saveAutoPayAction: PropTypes.func.isRequired,
 };
 
-export default PageFade(AutoPay);
+export default connect(mapStateToProps, mapDispatchToProps)(AutoPay);

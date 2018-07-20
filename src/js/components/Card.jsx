@@ -11,11 +11,14 @@ import {
 
 const Card = ({
   id,
+  title,
   onSelect,
   onEdit,
   onChange,
   type,
   selected,
+  defaultCard,
+  colors,
   values: {
     number,
     holder,
@@ -25,27 +28,37 @@ const Card = ({
 }) => {
   const isFilled = checkCardNumber(number) && checkCardHolder(holder) &&
     checkCardDate(date) && checkCVV(cvv);
+  const isSelected = selected === id;
+  const isDefault = defaultCard === id;
+  let style = colors && colors.length === 2 ?
+    { backgroundImage: `linear-gradient(to top right, ${colors[0]}, ${colors[1]})` } :
+    { backgroundColor: '#e72b2b' };
+  style = isDefault ? {} : style;
 
   switch (type) {
   case 'visa':
     return (
       <div
-        className={cs('card card_visa', { card_selected: selected === id })}
+        className={cs('card', { card_selected: isSelected, card_default: isDefault })}
         onClick={onSelect}
         data-id={id}
+        style={style}
       >
-        <div className="card__number">*6266</div>
-        <div className="card__points" onClick={onEdit} data-id={id}>
-          <span className="card__point" />
-          <span className="card__point" />
-          <span className="card__point" />
-        </div>
+        <div className="card__number">*{title}</div>
+        {
+          isSelected &&
+          <div className="card__points" onClick={onEdit} data-id={id}>
+            <span className="card__point" />
+            <span className="card__point" />
+            <span className="card__point" />
+          </div>
+        }
       </div>
     );
   case 'apple-pay':
     return (
       <div
-        className={cs('card card_apple-pay', { card_selected: selected === id })}
+        className={cs('card card_apple-pay', { card_selected: isSelected })}
         onClick={onSelect}
         data-id={id}
       >
@@ -56,14 +69,14 @@ const Card = ({
     return (
       <div
         className={cs('card card_new', {
-          'card_new-selected': selected === id,
-          'card_new-filled': isFilled && selected === id,
+          'card_new-selected': isSelected,
+          'card_new-filled': isFilled && isSelected,
         })}
         onClick={onSelect}
         data-id={id}
       >
         {
-          selected !== id &&
+          !isSelected &&
           <div>
             <img className="" src="/media/icons/plus-gray.svg" />
             <br />
@@ -71,7 +84,7 @@ const Card = ({
           </div>
         }
         {
-          selected === id &&
+          isSelected &&
           <div className="card__form">
             <InputMask
               className="card__input card__input_wide card__input_number"
@@ -113,19 +126,25 @@ const Card = ({
 };
 
 Card.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string,
   onSelect: PropTypes.func.isRequired,
   onEdit: PropTypes.func,
   onChange: PropTypes.func,
   type: PropTypes.string.isRequired,
-  selected: PropTypes.number.isRequired,
+  defaultCard: PropTypes.string,
+  selected: PropTypes.string.isRequired,
   values: PropTypes.shape(),
+  colors: PropTypes.arrayOf(PropTypes.string),
 };
 
 Card.defaultProps = {
+  title: '',
   onEdit: null,
   onChange: null,
   values: {},
+  isDefault: false,
+  colors: null,
 };
 
 export default Card;

@@ -1,28 +1,26 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import InlineSvg from 'svg-inline-react';
+import { connect } from 'react-redux';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Payment from '../components/Payment';
 import Button from '../components/Button';
-import PageFade from '../components/PageFade';
-import Popup from '../components/Popup';
 import { Pages } from '../constants';
 import { formatCost, getData } from '../utils';
+import { addCardAction } from '../actions/Cards';
 
 class Pay extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      showPopup: false,
       sum: 2000,
     };
   }
 
-  onPay = () => {
-    const { history } = this.props;
+  onPay = (card) => {
+    const { history, addCard } = this.props;
     const { sum } = this.state;
     const links = [{
       url: Pages.AUTO_PAY,
@@ -31,6 +29,10 @@ class Pay extends Component {
       url: Pages.OVERVIEW,
       title: 'Вернуться на главную',
     }];
+
+    if (card) {
+      addCard(card);
+    }
 
     history.push({
       pathname: `${Pages.RESULT}/success`,
@@ -42,19 +44,9 @@ class Pay extends Component {
     });
   };
 
-  makeCardDefault = () => {};
-
-  removeCard = () => {};
-
   onSumChange = (sum) => {
     this.setState({
       sum,
-    });
-  };
-
-  onPopupClose = () => {
-    this.setState({
-      showPopup: false,
     });
   };
 
@@ -65,15 +57,12 @@ class Pay extends Component {
   };
 
   render() {
-    const { sum, showPopup } = this.state;
+    const { sum } = this.state;
     const autoPayEnabled = !!getData('autopay');
     const {
       onPay,
       changeAutoPay,
       onSumChange,
-      onPopupClose,
-      makeCardDefault,
-      removeCard,
     } = this;
 
     return ([
@@ -106,31 +95,19 @@ class Pay extends Component {
           }
         </div>
       </div>,
-      <Popup show={showPopup} onClose={onPopupClose}>
-        <div className="card card_visa card_big">
-          <div className="card__number">*6266</div>
-        </div>
-        <div className="pay-edit">
-          <div className="pay-edit__button">
-            <span className="pay-edit__icon">
-              <InlineSvg src={require('../../../media/icons/card.svg')} raw />
-            </span>
-            <span className="pay-edit__title">Карта по умолчанию</span>
-          </div>
-          <div className="pay-edit__button">
-            <span className="pay-edit__icon">
-              <InlineSvg src={require('../../../media/icons/bucket.svg')} raw />
-            </span>
-            <span className="pay-edit__title">Удалить</span>
-          </div>
-        </div>
-      </Popup>,
     ]);
   }
 }
 
 Pay.propTypes = {
   history: PropTypes.shape().isRequired,
+  addCard: PropTypes.func.isRequired,
 };
 
-export default PageFade(Pay);
+function mapDispatchToProps(dispatch) {
+  return {
+    addCard: card => dispatch(addCardAction(card)),
+  };
+}
+
+export default connect(null, mapDispatchToProps)(Pay);
