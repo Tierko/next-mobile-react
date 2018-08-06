@@ -7,7 +7,7 @@ import { checkPhone } from '../utils';
 
 class SignUpStep1 extends Component {
   state = {
-    phone: '+7',
+    phone: '',
   };
 
   onChange = (_, value) => {

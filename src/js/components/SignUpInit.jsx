@@ -12,7 +12,7 @@ class SignUp extends Component {
   state = {
     message: 'Введите промокод, чтобы начать работу с Next Mobile',
     code: '',
-    phone: '+7',
+    phone: '',
     option: '',
     stage: 1,
   };

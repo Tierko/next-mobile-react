@@ -11,7 +11,7 @@ import { Pages } from '../constants';
 
 class SignIn extends Component {
   state = {
-    phone: '+7',
+    phone: '',
     message: 'На этот номер Next мы вышлем код для входа',
     isPhoneVisible: true,
   };
