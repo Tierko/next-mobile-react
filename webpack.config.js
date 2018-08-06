@@ -9,7 +9,7 @@ module.exports = (env) => {
 
   return {
     entry: {
-      bundle: ['whatwg-fetch', './src/js/index.jsx'],
+      bundle: ['babel-polyfill', 'whatwg-fetch', './src/js/index.jsx'],
     },
 
     output: {
@@ -76,6 +76,9 @@ module.exports = (env) => {
       hot: true,
       host: '0.0.0.0',
       public: 'localhost:8080',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
     },
   };
 };
