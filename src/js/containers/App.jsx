@@ -85,4 +85,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default hot(module)(withRouter(connect(null, mapDispatchToProps)(App)));
+export default withRouter(connect(null, mapDispatchToProps)(hot(module)(App)));
