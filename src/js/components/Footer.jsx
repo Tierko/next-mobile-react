@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => (
   <div className="footer">
     <div className="footer__copy">
-      &copy; 2018 «Next Mobile»
+      &copy; 2018 Next Mobile
     </div>
     <div className="footer__dev">
       <img className="footer__dev-img" src="/media/images/als-logo.svg" alt="Студия Артеми Лебедева" />
