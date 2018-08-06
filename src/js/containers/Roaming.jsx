@@ -166,7 +166,7 @@ class Roaming extends Component {
                 disable={!!country.properties}
               />
               {
-                zones.map(z => (
+                zones && zones.map(z => (
                   <RoamingZone
                     key={z.id}
                     data={z}
@@ -202,6 +202,7 @@ class Roaming extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log(state)
   return {
     data: state.Roaming,
   };
