@@ -9,7 +9,7 @@ import { Pages } from '../constants';
 class SignUpStep4 extends Component {
   static times = [{
     id: 1,
-    title: '9:00 - 13:00',
+    title: '9:00 — 13:00',
   }, {
     id: 2,
     title: '15:00 — 19:00',
