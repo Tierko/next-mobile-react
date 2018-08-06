@@ -12,14 +12,14 @@ class SignUpStep4 extends Component {
     title: '9:00 - 13:00',
   }, {
     id: 2,
-    title: '15:00 - 19:00',
+    title: '15:00 — 19:00',
   }];
 
   state = {
     date: '',
     time: {
       id: 1,
-      title: '9:00 - 13:00',
+      title: '9:00 — 13:00',
     },
   };
 
