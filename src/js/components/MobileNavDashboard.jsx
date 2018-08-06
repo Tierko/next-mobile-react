@@ -27,7 +27,7 @@ const MobileNavDashboard = () => (
       <InlineSvg src={require('../../../media/nav/settings.svg')} raw /> Настройки
     </NavLink>
     <NavLink className="mobile-nav__link" to={Pages.Exit} exact>
-      <InlineSvg src={require('../../../media/nav/exit.svg')} raw /> Выйти
+      <InlineSvg src={require('../../../media/nav/exit.svg')} raw /> Выход
     </NavLink>
   </div>
 );

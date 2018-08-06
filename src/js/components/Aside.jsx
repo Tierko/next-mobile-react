@@ -31,7 +31,7 @@ const Aside = ({ hideLink }) => (
         <NavLink to={Pages.HISTORY} className="aside__link">История</NavLink>
         <NavLink to={Pages.SETTINGS} className="aside__link">Настройки</NavLink>
         <NavLink to={Pages.SUPPORT_DASHBOARD} className="aside__link">Поддержка</NavLink>
-        <NavLink to={Pages.Exit} className="aside__link aside__link_exit" exact>Выйти</NavLink>
+        <NavLink to={Pages.Exit} className="aside__link aside__link_exit" exact>Выход</NavLink>
       </nav>
     </div>
   </div>
