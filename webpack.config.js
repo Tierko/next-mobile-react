@@ -9,13 +9,13 @@ module.exports = (env) => {
 
   return {
     entry: {
-      bundle: ['./src/js/index.jsx'],
+      bundle: ['whatwg-fetch', './src/js/index.jsx'],
     },
 
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].js',
-      publicPath: development ? 'http://localhost:8080/dist/' : '',
+      publicPath: development ? '/dist/' : '',
     },
 
     module: {
@@ -74,6 +74,8 @@ module.exports = (env) => {
     devServer: {
       contentBase: path.resolve(__dirname),
       hot: true,
+      host: '0.0.0.0',
+      public: 'localhost:8080',
     },
   };
 };
