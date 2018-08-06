@@ -41,12 +41,16 @@ class MultipleInput extends Component {
   };
 
   onKeyDown = (e) => {
-    const { count } = this.props;
+    const { count, onKeyDown } = this.props;
     const number = e.target.dataset.number * 1;
     const { keyCode } = e;
 
     if (keyCode === 8 && number < count) {
       this[`input${number}`].focus();
+    }
+
+    if (onKeyDown) {
+      onKeyDown(e);
     }
   };
 
@@ -106,6 +110,7 @@ MultipleInput.propTypes = {
   className: PropTypes.string,
   focus: PropTypes.bool,
   initValue: PropTypes.string,
+  onKeyDown: PropTypes.func,
 };
 
 MultipleInput.defaultProps = {
@@ -113,6 +118,7 @@ MultipleInput.defaultProps = {
   className: '',
   focus: false,
   initValue: '',
+  onKeyDown: null,
 };
 
 export default MultipleInput;

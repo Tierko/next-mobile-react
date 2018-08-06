@@ -16,19 +16,28 @@ class SignUpStep1 extends Component {
     });
   };
 
+  onSubmit = (e) => {
+    e.preventDefault();
+    const { nextStep } = this.props;
+    const { phone } = this.state;
+
+    if (checkPhone(phone)) {
+      nextStep(2);
+    }
+  };
+
   render() {
     const { phone } = this.state;
-    const { onChange } = this;
-    const { nextStep } = this.props;
+    const { onChange, onSubmit } = this;
     const isPhoneValid = checkPhone(phone);
 
     return (
       <div className="welcome__content sign-up">
         <div className="sign-up__header">Текущий номер телефона</div>
-        <div className="sign-up__form">
+        <form onSubmit={onSubmit} className="sign-up__form">
           <Input name="phone" value={phone} onChange={onChange} className="input_phone" />
-        </div>
-        <Button className="button_sign-up-continue" onClick={() => nextStep(2)} disabled={!isPhoneValid}>Продолжить</Button>
+        </form>
+        <Button className="button_sign-up-continue" onClick={onSubmit} disabled={!isPhoneValid}>Продолжить</Button>
         <div className={cs('sign-up__note', { 'sign-up__note_show': isPhoneValid })}>К личной информации</div>
       </div>
     );

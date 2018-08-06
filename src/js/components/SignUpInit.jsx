@@ -11,15 +11,13 @@ import { checkPhone } from '../utils';
 class SignUp extends Component {
   state = {
     message: 'Введите промокод, чтобы начать работу с Next Mobile',
-    code: '',
     phone: '',
     option: '',
     stage: 1,
   };
 
-  onCodeEnter = (code) => {
+  onCodeEnter = () => {
     this.setState({
-      code,
       option: 'promo',
       stage: 2,
       message: '8 ГБ интернета, безлимит СМС и 1 000 мин в месяц бесплатно в течение 6 месяцев. Плата после – от 1 000 ₽ в месяц',
@@ -40,6 +38,13 @@ class SignUp extends Component {
     });
   };
 
+  onSubmitNoPromo = (e) => {
+    e.preventDefault();
+    const { toPage } = this.props;
+
+    toPage(`${Pages.REQUEST_STATUS}/${Statuses.REQUEST_SENT}`);
+  };
+
   render() {
     const {
       message,
@@ -51,8 +56,9 @@ class SignUp extends Component {
       onCodeEnter,
       onCodeReject,
       onChange,
+      onSubmitNoPromo,
     } = this;
-    const { nextStep, toPage } = this.props;
+    const { nextStep } = this.props;
 
     return (
       <div className="welcome__content sign-up">
@@ -64,12 +70,12 @@ class SignUp extends Component {
         }
         {
           option === 'no-promo' && stage === 2 &&
-          <Fragment>
+          <form onSubmit={onSubmitNoPromo}>
             <Input className="input_phone" name="phone" value={phone} onChange={onChange} />
-            <Button className="button_request" onClick={() => toPage(`${Pages.REQUEST_STATUS}/${Statuses.REQUEST_SENT}`)} disabled={!checkPhone(phone)}>
+            <Button className="button_request" onClick={onSubmitNoPromo} disabled={!checkPhone(phone)}>
               Отправить запрос
             </Button>
-          </Fragment>
+          </form>
         }
         {
           option === 'promo' && stage === 2 &&

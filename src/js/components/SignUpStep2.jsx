@@ -11,34 +11,48 @@ class SignUpStep2 extends Component {
     middlename: '',
   };
 
+  isFilled = () => {
+    const { name, surname, middlename } = this.state;
+
+    return !!name && !!surname && !!middlename;
+  };
+
   onChange = (name, value) => {
     this.setState({
       [name]: value,
     });
   };
 
+  onSubmit = (e) => {
+    e.preventDefault();
+    const { nextStep } = this.props;
+    const { isFilled } = this;
+
+    if (isFilled()) {
+      nextStep(3);
+    }
+  };
+
   render() {
     const { name, surname, middlename } = this.state;
-    const { onChange } = this;
-    const { nextStep } = this.props;
-    const permit = !!name && !!surname && !!middlename;
+    const { onChange, onSubmit, isFilled } = this;
 
     return (
       <div className="welcome__content sign-up">
         <div className="sign-up__header">Владелец номера</div>
-        <div className="sign-up__form">
+        <form onSubmit={onSubmit} className="sign-up__form">
           <Input name="surname" value={surname} onChange={onChange} placeholder="Фамилия" />
           <Input name="name" value={name} onChange={onChange} placeholder="Имя" />
           <Input name="middlename" value={middlename} onChange={onChange} placeholder="Отчество" />
           <Button
             className="button_sign-up-continue"
-            onClick={() => nextStep(3)}
-            disabled={!permit}
+            onClick={onSubmit}
+            disabled={!isFilled()}
           >
             Продолжить
           </Button>
-        </div>
-        <div className={cs('sign-up__note', { 'sign-up__note_show': permit })}>
+        </form>
+        <div className={cs('sign-up__note', { 'sign-up__note_show': isFilled() })}>
           К  информации о доставке
         </div>
       </div>

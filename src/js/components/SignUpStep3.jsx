@@ -20,6 +20,22 @@ class SignUpStep3 extends Component {
     });
   };
 
+  onSubmit = (e) => {
+    e.preventDefault();
+    const { nextStep } = this.props;
+    const { isFilled } = this;
+
+    if (isFilled()) {
+      nextStep(4);
+    }
+  };
+
+  isFilled = () => {
+    const { city, street, house } = this.state;
+
+    return !!city && !!street && !!house;
+  };
+
   render() {
     const {
       city,
@@ -28,14 +44,12 @@ class SignUpStep3 extends Component {
       flat,
       housing,
     } = this.state;
-    const { onChange } = this;
-    const { nextStep } = this.props;
-    const permit = !!city && !!street && !!house;
+    const { onChange, isFilled, onSubmit } = this;
 
     return (
       <div className="welcome__content sign-up">
         <div className="sign-up__header">Адрес доставки</div>
-        <div className="sign-up__form">
+        <form onSubmit={onSubmit} className="sign-up__form">
           <AutoComplete
             name="city"
             value={city}
@@ -50,11 +64,11 @@ class SignUpStep3 extends Component {
             <Input className="input_narrow-sign-up" name="flat" value={flat} onChange={onChange} placeholder="Квартира" />
             <Input className="input_narrow-sign-up" name="housing" value={housing} onChange={onChange} placeholder="Корпус" />
           </div>
-          <Button className="button_sign-up-continue" onClick={() => nextStep(4)} disabled={!permit}>
+          <Button className="button_sign-up-continue" onClick={onSubmit} disabled={!isFilled()}>
             Продолжить
           </Button>
-        </div>
-        <div className={cs('sign-up__note', { 'sign-up__note_show': permit })}>
+        </form>
+        <div className={cs('sign-up__note', { 'sign-up__note_show': isFilled() })}>
           Ко времени доставки
         </div>
       </div>

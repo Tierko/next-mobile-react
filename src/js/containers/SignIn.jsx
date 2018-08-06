@@ -39,8 +39,23 @@ class SignIn extends Component {
     }
   };
 
+  onSubmit = (e) => {
+    e.preventDefault();
+    const { mobileCode: { current: { sendCode } } } = this;
+
+    sendCode();
+  };
+
+  mobileCode = React.createRef();
+
   render() {
-    const { onChange, onCodeSend, onEnter } = this;
+    const {
+      onChange,
+      onCodeSend,
+      onEnter,
+      onSubmit,
+      mobileCode,
+    } = this;
     const { phone, message, isPhoneVisible } = this.state;
 
     return (
@@ -50,16 +65,18 @@ class SignIn extends Component {
         <div className="welcome__content">
           <Logo />
           <div className="sign-in__text">{ message }</div>
-          {
-            isPhoneVisible &&
-            <Input
-              name="phone"
-              value={phone}
-              onChange={onChange}
-              className="input_phone"
-            />
-          }
-          <MobileCode className="mobile-code_sign-in" phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} />
+          <form onSubmit={onSubmit} >
+            {
+              isPhoneVisible &&
+              <Input
+                name="phone"
+                value={phone}
+                onChange={onChange}
+                className="input_phone"
+              />
+            }
+          </form>
+          <MobileCode className="mobile-code_sign-in" phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} ref={mobileCode} />
           <div className="welcome__footer">
             <Link className="link-nav" to={Pages.SIGN_UP}>Регистрация</Link>
           </div>
