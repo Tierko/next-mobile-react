@@ -48,19 +48,19 @@ class Calls extends Component {
                 5000
               </Button>
               <Button onClick={() => setData('balance', 2)} disabled={getData('balance') === 16.5}>
-                16.5
+                16,5
               </Button>
               <Button onClick={() => setData('balance', 3)} disabled={getData('balance') === 0}>
                 0
               </Button>
               <Button onClick={() => setData('balance', 4)} disabled={getData('balance') === -100}>
-                -100
+                &minus;100
               </Button>
               <Button onClick={() => setData('balance', 5)} disabled={getData('balance') === -2000}>
-                -2000
+                &minus;2000
               </Button>
               <Button onClick={() => setData('balance', 6)} disabled={getData('balance') === -113.5}>
-                -113.5
+                &minus;113,5
               </Button>
             </div>
             <h2>История расходов</h2>
