@@ -7,7 +7,6 @@ import { Pages } from '../constants';
 class More extends Component {
   render() {
     const { match: { params: { type } } } = this.props;
-    console.log(type)
 
     return ([
       <MobileNav key="nav" type="dashboard" />,

@@ -61,8 +61,8 @@ class SignUpStep3 extends Component {
           <Input name="street" value={street} onChange={onChange} placeholder="Улица" />
           <div className="sign-up__row">
             <Input className="input_narrow-sign-up" name="house" value={house} onChange={onChange} placeholder="Дом" />
-            <Input className="input_narrow-sign-up" name="flat" value={flat} onChange={onChange} placeholder="Квартира" />
             <Input className="input_narrow-sign-up" name="housing" value={housing} onChange={onChange} placeholder="Корпус" />
+            <Input className="input_narrow-sign-up" name="flat" value={flat} onChange={onChange} placeholder="Квартира" />
           </div>
           <Button className="button_sign-up-continue" onClick={onSubmit} disabled={!isFilled()}>
             Продолжить
