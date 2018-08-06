@@ -9,6 +9,7 @@ import RequestStatusDelivery from '../components/RequestStatusDelivery';
 import RequestStatusFooter from '../components/RequestStatusFooter';
 import PageFade from '../components/PageFade';
 import { Statuses, Pages } from '../constants';
+import { checkPhone } from '../utils';
 
 const data = {
   [Statuses.REQUEST_SENT]: {
@@ -102,22 +103,32 @@ class RequestStatus extends Component {
     });
   };
 
-  onCodeSend = () => {
-    this.setState({
-      codeSent: true,
-    });
-  };
-
   onEnter = () => {
     const { history } = this.props;
 
     history.push(`${Pages.REQUEST_STATUS}/${Statuses.INFORMATION_CHECKED}`);
   };
 
+  onCodeSend = () => {
+    this.setState({
+      codeSent: true,
+    });
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const { mobileCode: { current: { sendCode } } } = this;
+    const { phone } = this.state;
+
+    sendCode();
+  };
+
+  mobileCode = React.createRef();
+
   render() {
     const { status } = this.props.match.params;
     const { phone, codeSent } = this.state;
-    const { onChange, onCodeSend, onEnter } = this;
+    const { onChange, onSubmit, onEnter, onCodeSend, mobileCode } = this;
     let content;
     let type;
 
@@ -145,8 +156,13 @@ class RequestStatus extends Component {
                 Введите номер, с которым вы оставляли заявку
               </div>
             }
-            <InputPhone onChange={onChange} value={phone} name="phone" className="input_phone" />
-            <MobileCode phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} buttonTitle="Проверить статус" />
+            {
+              !codeSent &&
+              <form onSubmit={onSubmit}>
+                <InputPhone onChange={onChange} value={phone} name="phone" className="input_phone" />
+              </form>
+            }
+            <MobileCode phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} buttonTitle="Проверить статус" ref={mobileCode} />
           </div>
         }
         {

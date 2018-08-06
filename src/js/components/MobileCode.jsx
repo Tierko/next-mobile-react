@@ -21,6 +21,15 @@ class MobileCode extends Component {
     });
   };
 
+  onKeyDown = ({ keyCode }) => {
+    const { onEnter } = this.props;
+    const { code } = this.state;
+
+    if ((keyCode === 10 || keyCode === 13) && code.length === 4) {
+      onEnter(code);
+    }
+  };
+
   initTimer = () => {
     this.setState({ status: 'sent', seconds: 10 });
 
@@ -37,13 +46,16 @@ class MobileCode extends Component {
   };
 
   sendCode = () => {
-    const { onCodeSend } = this.props;
-    onCodeSend();
-    this.initTimer();
+    const { onCodeSend, phone } = this.props;
+
+    if (checkPhone(phone)) {
+      onCodeSend();
+      this.initTimer();
+    }
   };
 
   render() {
-    const { sendCode, onChange } = this;
+    const { sendCode, onChange, onKeyDown } = this;
     const {
       phone,
       onEnter,
@@ -56,7 +68,7 @@ class MobileCode extends Component {
       <div className={`mobile-code ${className}`}>
         {
           (status === 'sent' || status === 'timed out') &&
-          <MultipleInput className="multiple-input_mobile-code" onChange={onChange} name="code" />
+          <MultipleInput className="multiple-input_mobile-code" onChange={onChange} name="code" onKeyDown={onKeyDown} />
         }
         {
           status === 'init' &&
