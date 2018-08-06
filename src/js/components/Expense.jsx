@@ -56,7 +56,7 @@ class Expense extends Component {
                 ))
               }
             </div>
-            <Button className="button_expense" onClick={orderDetails}>Заказать детализацию</Button>
+            <Button className="button_expense" onClick={orderDetails}>Заказать детализацию...</Button>
           </Fragment>
         }
       </div>
