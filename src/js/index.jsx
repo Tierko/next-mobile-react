@@ -1,7 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-// import { HashRouter } from 'react-router-dom';
-// import { Router } from 'react-router';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { createHashHistory } from 'history';

@@ -16,15 +16,7 @@ class MultipleInput extends Component {
     const number = e.target.dataset.number * 1;
     const { value } = e.target;
 
-    if (value.length === 0 && number > 0) {
-      this[`input${number - 1}`].focus();
-    }
-
-    if (value.length === 1 && number < count - 1) {
-      this[`input${number + 1}`].focus();
-    }
-
-    if (value.length === 1 && values[number] && values[number].length === 1) {
+    if (value.length === 1 && number !== count - 1) {
       this[`input${number + 1}`].focus();
     }
 
@@ -44,14 +36,26 @@ class MultipleInput extends Component {
     const { count, onKeyDown } = this.props;
     const number = e.target.dataset.number * 1;
     const { keyCode } = e;
-
-    if (keyCode === 8 && number < count) {
-      this[`input${number}`].focus();
-    }
+    const values = this.state.values.slice();
 
     if (onKeyDown) {
       onKeyDown(e);
     }
+
+    if (keyCode === 8 && number !== count - 1 && number !== 0) {
+      this[`input${number - 1}`].focus();
+      values[number - 1] = '';
+      return;
+    }
+
+    if (keyCode === 8 && number === count - 1 && this[`input${number}`].value.length === 0) {
+      values[number - 1] = '';
+      this[`input${number - 1}`].focus();
+    }
+
+    this.setState({
+      values,
+    });
   };
 
   onFocus = (e) => {
