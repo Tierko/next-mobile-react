@@ -92,7 +92,7 @@ const data = {
 
 class RequestStatus extends Component {
   state = {
-    phone: '+7',
+    phone: '',
     codeSent: false,
   };
 
