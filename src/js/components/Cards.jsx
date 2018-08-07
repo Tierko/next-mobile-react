@@ -95,13 +95,11 @@ class Cards extends Component {
 
     if (cardE && row) {
       const isNewCard = cardE.classList.contains('card_new');
-      console.log(isNewCard)
       const offset = this.calculateOffsetStart() + 8 + (isNewCard ? -117 : 0);
       const cardBound = cardE.getBoundingClientRect();
       const innerBound = inner.getBoundingClientRect();
 
       setTimeout(() => {
-        // row.scroll(cardBound.x - innerBound.x - offset, 0, { behavior: 'smooth' });
         row.scroll({
           left: cardBound.x - innerBound.x - offset,
           top: 0,
@@ -220,63 +218,65 @@ class Cards extends Component {
     const currentCard = data.items.find(i => i.token === editCardId);
 
     return (
-      <div className={`cards ${className}`}>
-        <div className="cards__row" ref={(e) => { this.row = e; }}>
-          <div className="cards__inner" ref={(e) => { this.inner = e; }}>
-            {
-              data.items.map(c => (
-                <Card
-                  key={c.token}
-                  id={c.token}
-                  onChange={onChange}
-                  onSelect={onCardSelect}
-                  onEdit={onCardEdit}
-                  selected={selected}
-                  type={c.type}
-                  title={c.title}
-                  colors={c.colors}
-                  defaultCard={data.defaultCard}
-                />
-              ))
-            }
-            <Card
-              key="new"
-              type="new"
-              id="new"
-              onSelect={onCardSelect}
-              selected={selected}
-              onChange={onChange}
-              values={{
-                number,
-                holder,
-                date,
-                cvv,
-              }}
-            />
+      <div className="cards__wrapper">
+        <div className={`cards ${className}`}>
+          <div className="cards__row" ref={(e) => { this.row = e; }}>
+            <div className="cards__inner" ref={(e) => { this.inner = e; }}>
+              {
+                data.items.map(c => (
+                  <Card
+                    key={c.token}
+                    id={c.token}
+                    onChange={onChange}
+                    onSelect={onCardSelect}
+                    onEdit={onCardEdit}
+                    selected={selected}
+                    type={c.type}
+                    title={c.title}
+                    colors={c.colors}
+                    defaultCard={data.defaultCard}
+                  />
+                ))
+              }
+              <Card
+                key="new"
+                type="new"
+                id="new"
+                onSelect={onCardSelect}
+                selected={selected}
+                onChange={onChange}
+                values={{
+                  number,
+                  holder,
+                  date,
+                  cvv,
+                }}
+              />
+            </div>
           </div>
+          <Popup show={showPopup} onClose={onPopupClose}>
+            <div>
+              <div className="card card_visa card_big">
+                <div className="card__number">*6266</div>
+                <div className="card__close" onClick={onPopupClose} />
+              </div>
+              <div className="card__edit">
+                <div className="card__edit-item" onClick={() => onMakeCardDefault(editCardId)}>
+                  <span className="card__edit-icon">
+                    <InlineSvg src={require('../../../media/icons/card.svg')} raw />
+                  </span>
+                  Карта по умолчанию
+                </div>
+                <div className="card__edit-item" onClick={() => onCardRemove(editCardId)}>
+                  <span className="card__edit-icon">
+                    <InlineSvg src={require('../../../media/icons/bucket.svg')} raw />
+                  </span>
+                  удалить
+                </div>
+              </div>
+            </div>
+          </Popup>
         </div>
-        <Popup show={showPopup} onClose={onPopupClose}>
-          <div>
-            <div className="card card_visa card_big">
-              <div className="card__number">*6266</div>
-              <div className="card__close" onClick={onPopupClose} />
-            </div>
-            <div className="card__edit">
-              <div className="card__edit-item" onClick={() => onMakeCardDefault(editCardId)}>
-                <span className="card__edit-icon">
-                  <InlineSvg src={require('../../../media/icons/card.svg')} raw />
-                </span>
-                Карта по умолчанию
-              </div>
-              <div className="card__edit-item" onClick={() => onCardRemove(editCardId)}>
-                <span className="card__edit-icon">
-                  <InlineSvg src={require('../../../media/icons/bucket.svg')} raw />
-                </span>
-                удалить
-              </div>
-            </div>
-          </div>
-        </Popup>
       </div>
     );
   }

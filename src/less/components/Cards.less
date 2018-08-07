@@ -8,12 +8,46 @@
     margin: 40px -15px 0;
   }
 
+  &__wrapper {
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: -15px;
+      bottom: -15px;
+      width: 40px;
+      background: radial-gradient(closest-side, #f5f5f8, #f5f5f8, rgba(255, 255, 255, 0)) 50% 50% no-repeat;
+      background-size: 100% 100%;
+      z-index: 2;
+    }
+
+    &:before {
+      left: -28px;
+    }
+
+    &:after {
+      right: -28px;
+    }
+  }
+
   &__row {
     position: relative;
     overflow: auto;
     height: 209px;
     z-index: 1;
     margin-bottom: -20px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -0px;
+      width: 20px;
+      background: radial-gradient(#f3f3f7, rgba(255, 255, 255, 0));
+    }
   }
 
   &__inner {
