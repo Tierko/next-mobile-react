@@ -9,7 +9,6 @@ import Checkbox from '../components/CheckboxSlide';
 import InputRuble from '../components/InputRuble';
 import Select from '../components/Select';
 import Button from '../components/Button';
-import Cards from '../components/Cards';
 import { Pages, MONTHS } from '../constants';
 import saveAutoPayAction from '../actions/AutoPay';
 
@@ -36,17 +35,7 @@ class AutoPay extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      autoPay: true,
-      autoPaySum: 1000,
-      autoPayDay: 10,
-      autoPayMonth: AutoPay.months[0],
-      fewMoney: true,
-      fewSum: 1000,
-      fewLess: 100,
-      unsaved: false,
-      payPermitted: false,
-    };
+    this.state = props.data;
   }
 
   onChange = (name, value) => {
@@ -63,13 +52,32 @@ class AutoPay extends Component {
   };
 
   onSave = () => {
-    const { unsaved } = this.state;
+    const {
+      unsaved,
+      monthlyEnabled,
+      monthlySum,
+      monthlyDay,
+      monthlyUntil,
+      lessEnabled,
+      lessSum,
+      lessLess,
+    } = this.state;
     const {
       history,
-
+      saveAutoPay,
     } = this.props;
 
     if (unsaved) {
+      saveAutoPay({
+        monthlyEnabled,
+        monthlySum,
+        monthlyDay,
+        monthlyUntil,
+        lessEnabled,
+        lessSum,
+        lessLess,
+      });
+
       history.push({
         pathname: `${Pages.RESULT}/success`,
         state: {
@@ -80,25 +88,26 @@ class AutoPay extends Component {
     }
   };
 
-  onPermitChange = (payPermitted) => {
-    this.setState({
-      payPermitted,
-    });
+  getDefaultCard = () => {
+    const { cards } = this.props;
+
+    return cards.items.find(i => i.token === cards.defaultCard);
   };
 
   render() {
     const {
-      autoPay,
-      autoPayDay,
-      autoPayMonth,
-      autoPaySum,
-      fewLess,
-      fewMoney,
-      fewSum,
+      monthlyEnabled,
+      monthlyDay,
+      monthlyUntil,
+      monthlySum,
+      lessEnabled,
+      lessLess,
+      lessSum,
       unsaved,
     } = this.state;
-    const { onChange, onSave, onPermitChange } = this;
+    const { onChange, onSave, getDefaultCard } = this;
     const { months, days } = AutoPay;
+    const card = getDefaultCard();
 
     return [
       <MobileNav key="nav" type="dashboard" />,
@@ -107,20 +116,37 @@ class AutoPay extends Component {
         <div className="dashboard__content">
           <LinkBack className="link-back_offset-bottom" href={Pages.OVERVIEW} />
           <div className="dashboard__header">Подключение автоплатежа</div>
-          <Cards onPermitChange={onPermitChange} />
           <div className="auto-pay">
+            {
+              card &&
+              <div className="auto-pay__card">
+                <div className="auto-pay__note">С карты по умолчанию</div>
+                <div
+                  className="card card_selected card_auto-pay"
+                >
+                  <div className="card__number">*{card.title}</div>
+                </div>
+                <div className="auto-pay__note">
+                  Чтобы привязать автоплатеж к другой карте, установите ее картой по умолчанию
+                </div>
+              </div>
+            }
+            {
+              !card &&
+              <div className="auto-pay__note">У вас не установлена карта по умолчанию, вы не сможете настроить автоплатеж</div>
+            }
             <div className="auto-pay__section">
               <div className="auto-pay__title">
                 <div>Ежемесячно</div>
-                <Checkbox name="autoPay" value={autoPay} onChange={onChange} />
+                <Checkbox name="monthlyEnabled" value={monthlyEnabled} onChange={onChange} />
               </div>
-              <div className={cs('auto-pay__block', { 'auto-pay__block_show': autoPay })}>
+              <div className={cs('auto-pay__block', { 'auto-pay__block_show': monthlyEnabled })}>
                 <div className="auto-pay__row">
                   <div className="auto-pay__cell">
                     На сумму
                     <div className="auto-pay__note">От 100 до 15 000 ₽</div>
                   </div>
-                  <InputRuble className="input_auto-pay" name="autoPaySum" value={autoPaySum} onChange={onChange} />
+                  <InputRuble className="input_auto-pay" name="monthlySum" value={monthlySum} onChange={onChange} />
                 </div>
                 <div className="auto-pay__row">
                   <div className="auto-pay__cell">
@@ -131,9 +157,9 @@ class AutoPay extends Component {
                   </div>
                   <Select
                     className="select_auto-pay-day"
-                    value={autoPayDay}
+                    value={monthlyDay}
                     items={days}
-                    onSelect={v => onChange('autoPayDay', v)}
+                    onSelect={v => onChange('monthlyDay', v)}
                   />
                 </div>
                 <div className="auto-pay__row">
@@ -143,9 +169,9 @@ class AutoPay extends Component {
                   </div>
                   <Select
                     className="select_auto-pay-month"
-                    onSelect={v => onChange('autoPayMonth', v)}
+                    onSelect={v => onChange('monthlyUntil', v)}
                     items={months}
-                    value={autoPayMonth}
+                    value={monthlyUntil}
                     hideIcon
                   />
                 </div>
@@ -154,25 +180,25 @@ class AutoPay extends Component {
             <div className="auto-pay__section">
               <div className="auto-pay__title">
                 <div>Если на счету мало денег</div>
-                <Checkbox value={fewMoney} name="fewMoney" onChange={onChange} />
+                <Checkbox value={lessEnabled} name="lessEnabled" onChange={onChange} />
               </div>
-              <div className={cs('auto-pay__block', { 'auto-pay__block_show': fewMoney })}>
+              <div className={cs('auto-pay__block', { 'auto-pay__block_show': lessEnabled })}>
                 <div className="auto-pay__row">
                   <div className="auto-pay__cell">
                     На сумму
                     <div className="auto-pay__note">От 100 до 15 000 ₽</div>
                   </div>
-                  <InputRuble className="input_auto-pay" onChange={onChange} value={fewSum} name="fewSum" />
+                  <InputRuble className="input_auto-pay" onChange={onChange} value={lessSum} name="lessSum" />
                 </div>
                 <div className="auto-pay__row">
                   <div className="auto-pay__cell">
                     Пополнять, если на счету меньше, чем
                   </div>
-                  <InputRuble className="input_auto-pay" onChange={onChange} value={fewLess} name="fewLess" />
+                  <InputRuble className="input_auto-pay" onChange={onChange} value={lessLess} name="lessLess" />
                 </div>
               </div>
             </div>
-            <Button onClick={onSave} disabled={!unsaved}>Сохранить</Button>
+            <Button onClick={onSave} disabled={!unsaved || !card}>Сохранить</Button>
           </div>
         </div>
       </div>,
@@ -183,19 +209,21 @@ class AutoPay extends Component {
 function mapStateToProps(state) {
   return {
     data: state.AutoPay,
+    cards: state.Cards,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    saveAutoPayAction: state => dispatch(saveAutoPayAction(state)),
+    saveAutoPay: state => dispatch(saveAutoPayAction(state)),
   };
 }
 
 AutoPay.propTypes = {
   history: PropTypes.shape().isRequired,
   data: PropTypes.shape().isRequired,
-  saveAutoPayAction: PropTypes.func.isRequired,
+  saveAutoPay: PropTypes.func.isRequired,
+  cards: PropTypes.shape().isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AutoPay);
