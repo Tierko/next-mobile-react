@@ -84,6 +84,32 @@ class Cards extends Component {
 
     onPermitChange(id !== 'new' || (id === 'new' && isNewCardValid()), card);
 
+
+    const cardE = e.currentTarget;
+    const { row, inner } = this;
+    const selected = document.querySelector('.card_selected');
+
+    if (selected && !cardE.classList.contains('card_selected')) {
+      selected.classList.remove('card_selected');
+    }
+
+    if (cardE && row) {
+      const isNewCard = cardE.classList.contains('card_new');
+      console.log(isNewCard)
+      const offset = this.calculateOffsetStart() + 8 + (isNewCard ? -117 : 0);
+      const cardBound = cardE.getBoundingClientRect();
+      const innerBound = inner.getBoundingClientRect();
+
+      setTimeout(() => {
+        // row.scroll(cardBound.x - innerBound.x - offset, 0, { behavior: 'smooth' });
+        row.scroll({
+          left: cardBound.x - innerBound.x - offset,
+          top: 0,
+          behavior: 'smooth',
+        });
+      }, 100);
+    }
+
     this.setState({
       selected: id,
     });
@@ -137,6 +163,41 @@ class Cards extends Component {
       checkCVV(cvv);
   };
 
+  calculateOffsetStart = () => {
+    const { row } = this;
+    const CARD_WIDTH = 168 + 16;
+
+    if (!row) {
+      return 0;
+    }
+
+    return (row.clientWidth - CARD_WIDTH) / 2;
+  };
+
+  calculateOfssetEnd = () => {
+    const { row } = this;
+    const CARD_WIDTH = 285 + 16;
+
+    if (!row) {
+      return 0;
+    }
+
+    return (row.clientWidth - CARD_WIDTH) / 2;
+  };
+
+  setOffset = () => {
+    const { calculateOffsetStart, calculateOfssetEnd, inner } = this;
+    const offsetStart = calculateOffsetStart();
+    const offsetEnd = calculateOfssetEnd();
+    inner.style.paddingLeft = `${offsetStart}px`;
+    inner.style.paddingRight = `${offsetEnd}px`;
+  };
+
+  componentDidMount() {
+    const { setOffset } = this;
+    setOffset();
+  }
+
   render() {
     const { className, data } = this.props;
     const {
@@ -157,12 +218,11 @@ class Cards extends Component {
     } = this.state;
     const selected = this.state.selected || data.defaultCard;
     const currentCard = data.items.find(i => i.token === editCardId);
-    // console.log(currentCard)
 
     return (
       <div className={`cards ${className}`}>
-        <div className="cards__row">
-          <div className="cards__inner">
+        <div className="cards__row" ref={(e) => { this.row = e; }}>
+          <div className="cards__inner" ref={(e) => { this.inner = e; }}>
             {
               data.items.map(c => (
                 <Card

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Input from './InputRuble';
 import Button from './Button';
 import Cards from './Cards';
-import payment from '../../data/payment';
 
 class Payment extends Component {
   constructor(props) {
