@@ -48,11 +48,16 @@ class Payment extends Component {
       payPermitted,
       card,
     } = this.state;
-    const { isEditable, sum, onPay } = this.props;
+    const {
+      isEditable,
+      sum,
+      onPay,
+      onEdit,
+    } = this.props;
 
     return (
       <div className="payment">
-        <Cards onPermitChange={onPermitChange} />
+        <Cards onPermitChange={onPermitChange} onEdit={onEdit} />
         {
           !isEditable &&
           <div className="payment__sum">{sum} ₽</div>
@@ -77,6 +82,7 @@ Payment.propTypes = {
   sum: PropTypes.number,
   onPay: PropTypes.func.isRequired,
   onSumChange: PropTypes.func,
+  onEdit: PropTypes.func.isRequired,
 };
 
 Payment.defaultProps = {
