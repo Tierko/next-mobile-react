@@ -48,8 +48,12 @@ class Cards extends Component {
       token: `${number}${holder}${date}${cvv}`,
     };
 
+    value.replace(/[^a-z\s]/gi, '');
+
+    console.log(value.replace(/[^a-z\s]/gi, ''))
+
     this.setState({
-      [name]: value,
+      [name]: value.toUpperCase().replace(/[^a-z\s]/gi, ''),
     });
 
     onPermitChange(isNewCardValid(nextState), isNewCardValid(nextState) ? card : undefined);
