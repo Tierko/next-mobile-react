@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cs from 'classnames';
@@ -15,21 +15,13 @@ const Remain = ({
   <div className={cs('remain', { 'remain_in-roaming': inRoaming })}>
     {
       inRoaming &&
-        <Fragment>
-          <div className="remain__title-roaming">
-            Домашний тариф
-          </div>
-          <Link className="remain__link" to={Pages.SERVICES}>
-            {tariff.title}
-          </Link>
-        </Fragment>
-    }
-    {
-      !inRoaming &&
-      <div className="remain__title">
-        Остаток до 16 июня по тарифу <Link className="link" to={Pages.SERVICES}>«{tariff.title}»</Link>
+      <div className="remain__title-roaming">
+        Домашний тариф
       </div>
     }
+    <div className="remain__title">
+      Остаток до 16 июня по тарифу <Link className="link" to={Pages.SERVICES}>«{tariff.title}»</Link>
+    </div>
     {
       data.map(i => (
         <div key={i.id} className="remain__item">
