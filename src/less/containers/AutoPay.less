@@ -18,10 +18,12 @@
   }
 
   &__block {
-    display: none;
+    max-height: 0;
+    transition: max-height 0.2s;
+    overflow: hidden;
 
     &_show {
-      display: block;
+      max-height: 500px;
     }
   }
 
