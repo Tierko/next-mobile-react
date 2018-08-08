@@ -14,6 +14,27 @@ class Grade extends Component {
 
   state = {
     selected: -1,
+    saved: -1,
+  };
+
+  onEnter = () => {
+    const { selected } = this.state;
+
+    this.setState({
+      saved: selected,
+    });
+  };
+
+  onBlur = () => {
+    const { saved } = this.state;
+    const { onItemSelect, data } = this.props;
+    const item = data.find(i => i.id === saved);
+
+    this.setState({
+      selected: saved,
+    });
+
+    onItemSelect(item || data[data.length - 1]);
   };
 
   selectItem = (e) => {
@@ -21,9 +42,16 @@ class Grade extends Component {
     const id = e.currentTarget.dataset.id * 1;
     const item = data.find(i => i.id === id);
 
-    this.setState({
-      selected: id,
-    });
+    if (e.type === 'click') {
+      this.setState({
+        selected: id,
+        saved: id,
+      });
+    } else {
+      this.setState({
+        selected: id,
+      });
+    }
 
     if (onItemSelect) {
       onItemSelect(item);
@@ -31,7 +59,7 @@ class Grade extends Component {
   };
 
   render() {
-    const { selectItem } = this;
+    const { selectItem, onEnter, onBlur } = this;
     const { data, className, wide } = this.props;
     const selected = this.state.selected === -1 ? data[data.length - 1].id : this.state.selected;
     const maxExpense = Math.max.apply(null, data.map(i => Grade.countExpense(i.expense)));
@@ -42,10 +70,11 @@ class Grade extends Component {
 
     return (
       <div className={`grade ${className}`}>
-        <div className="grade__items">
+        <div className="grade__items" onMouseEnter={onEnter} onMouseOut={onBlur}>
           {
             data.map(e => (
               <div
+                onClick={selectItem}
                 onMouseEnter={selectItem}
                 key={e.id}
                 className="grade__item"
