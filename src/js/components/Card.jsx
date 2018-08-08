@@ -30,10 +30,9 @@ const Card = ({
     checkCardDate(date) && checkCVV(cvv);
   const isSelected = selected === id;
   const isDefault = defaultCard === id;
-  let style = colors && colors.length === 2 ?
+  const style = colors && colors.length === 2 ?
     { backgroundImage: `linear-gradient(to top right, ${colors[0]}, ${colors[1]})` } :
     { backgroundColor: '#e72b2b' };
-  style = isDefault ? {} : style;
 
   switch (type) {
   case 'visa':

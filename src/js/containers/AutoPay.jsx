@@ -122,7 +122,7 @@ class AutoPay extends Component {
               <div className="auto-pay__card">
                 <div className="auto-pay__note">С карты по умолчанию</div>
                 <div
-                  className="card card_selected card_auto-pay"
+                  className="card card_selected card_default card_auto-pay"
                 >
                   <div className="card__number">*{card.title}</div>
                 </div>
