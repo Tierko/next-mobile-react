@@ -181,6 +181,14 @@ class Cards extends Component {
         <div className={`cards ${className}`}>
           <div className="cards__row" ref={(e) => { this.row = e; }}>
             <div className="cards__inner" ref={(e) => { this.inner = e; }}>
+              <Card
+                key="apple-pay"
+                id="apple-pay"
+                onSelect={onCardSelect}
+                selected={selected}
+                type="apple-pay"
+                defaultCard={data.defaultCard}
+              />
               {
                 data.items.map(c => (
                   <Card
@@ -190,7 +198,7 @@ class Cards extends Component {
                     onSelect={onCardSelect}
                     onEdit={onCardEdit}
                     selected={selected}
-                    type={c.type}
+                    type="card"
                     title={c.title}
                     colors={c.colors}
                     defaultCard={data.defaultCard}

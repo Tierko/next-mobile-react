@@ -35,7 +35,7 @@ const Card = ({
     { backgroundColor: '#e72b2b' };
 
   switch (type) {
-  case 'visa':
+  case 'card':
     return (
       <div
         className={cs('card', { card_selected: isSelected, card_default: isDefault })}
