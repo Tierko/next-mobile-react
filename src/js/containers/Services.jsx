@@ -4,6 +4,7 @@ import Aside from '../components/Aside';
 import TariffServices from '../components/TariffServices';
 import TariffTable from '../components/TariffTable';
 import PageFade from '../components/PageFade';
+import InterCalls from '../components/InterCalls';
 import tariff from '../../data/tariff';
 
 class Services extends Component {
@@ -56,6 +57,7 @@ class Services extends Component {
           <div className="dashboard__header">Тарифы</div>
           <div className="dashboard__text">При подключении нового тарифа вы оплачиваете первый месяц абонентской платы</div>
           <TariffTable data={tariff} current={currentTariff} onChange={changeTariff} />
+          <InterCalls className="inter-calls_services" />
           <TariffServices services={services} onChange={toggleService} />
         </div>
       </div>,

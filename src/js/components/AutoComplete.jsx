@@ -21,7 +21,7 @@ class AutoComplete extends Select {
   onSelect = (item) => {
     const { onSelect, name } = this.props;
 
-    onSelect(name, item.title);
+    onSelect(name, item);
 
     this.setState({
       open: false,
@@ -46,12 +46,10 @@ class AutoComplete extends Select {
           {
             items.filter(i => i.title.toUpperCase().indexOf(value.toUpperCase()) !== -1).map(i => (
               <div
-                className={cs('select__item', {
-                  select__item_active: i.id === value.id,
-                })}
+                className="select__item"
                 onClick={() => onSelect(i)}
                 role="button"
-                key={i.id}
+                key={i.id || i.title}
               >
                 {
                   (typeof i === 'string' || typeof i === 'number') ? i : i.title

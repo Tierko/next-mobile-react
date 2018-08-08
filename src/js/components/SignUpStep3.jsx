@@ -15,6 +15,7 @@ class SignUpStep3 extends Component {
   };
 
   onChange = (name, value) => {
+    console.log(name, value)
     this.setState({
       [name]: value,
     });
@@ -54,7 +55,7 @@ class SignUpStep3 extends Component {
             name="city"
             value={city}
             onChange={onChange}
-            onSelect={onChange}
+            onSelect={(name, value) => onChange(name, value.title)}
             placeholder="Город"
             items={[{ id: 1, title: 'Москва' }, { id: 2, title: 'Владивосток' }]}
           />
