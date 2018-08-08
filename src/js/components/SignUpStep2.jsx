@@ -8,18 +8,18 @@ class SignUpStep2 extends Component {
   state = {
     surname: '',
     name: '',
-    middlename: '',
-  };
-
-  isFilled = () => {
-    const { name, surname, middlename } = this.state;
-
-    return !!name && !!surname && !!middlename;
+    middleName: '',
   };
 
   onChange = (name, value) => {
+    let tmp = value.replace(/^\s/g, '');
+
+    if (tmp.length !== 0) {
+      tmp = `${tmp[0].toUpperCase()}${tmp.substr(1).toLowerCase()}`;
+    }
+
     this.setState({
-      [name]: value,
+      [name]: tmp,
     });
   };
 
@@ -33,8 +33,14 @@ class SignUpStep2 extends Component {
     }
   };
 
+  isFilled = () => {
+    const { name, surname, middleName } = this.state;
+
+    return !!name && !!surname && !!middleName;
+  };
+
   render() {
-    const { name, surname, middlename } = this.state;
+    const { name, surname, middleName } = this.state;
     const { onChange, onSubmit, isFilled } = this;
 
     return (
@@ -43,7 +49,7 @@ class SignUpStep2 extends Component {
         <form onSubmit={onSubmit} className="sign-up__form">
           <Input name="surname" value={surname} onChange={onChange} placeholder="Фамилия" />
           <Input name="name" value={name} onChange={onChange} placeholder="Имя" />
-          <Input name="middlename" value={middlename} onChange={onChange} placeholder="Отчество" />
+          <Input name="middleName" value={middleName} onChange={onChange} placeholder="Отчество" />
           <Button
             className="button_sign-up-continue"
             onClick={onSubmit}
