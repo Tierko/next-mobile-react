@@ -83,6 +83,7 @@ class Input extends Component {
               name={name}
               value={value}
               onChange={onChange}
+              onBlur={onBlur}
             />
         }
         {

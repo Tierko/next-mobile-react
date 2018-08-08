@@ -42,6 +42,14 @@ class SignUpStep2 extends Component {
     }
   };
 
+  onBlur = () => {
+    this.setState({
+      nameError: false,
+      surnameError: false,
+      middleNameError: false,
+    });
+  };
+
   isFilled = () => {
     const { name, surname, middleName } = this.state;
 
@@ -49,7 +57,12 @@ class SignUpStep2 extends Component {
   };
 
   render() {
-    const { onChange, onSubmit, isFilled } = this;
+    const {
+      onChange,
+      onSubmit,
+      isFilled,
+      onBlur,
+    } = this;
     const {
       name,
       surname,
@@ -67,22 +80,25 @@ class SignUpStep2 extends Component {
             name="surname"
             value={surname}
             onChange={onChange}
+            onBlur={onBlur}
             placeholder="Фамилия"
-            errorText={surnameError && 'Только русские буквы'}
+            errorText={surnameError && 'Смените раскладку на кириллицу'}
           />
           <Input
             name="name"
             value={name}
             onChange={onChange}
+            onBlur={onBlur}
             placeholder="Имя"
-            errorText={nameError && 'Только русские буквы'}
+            errorText={nameError && 'Смените раскладку на кириллицу'}
           />
           <Input
             name="middleName"
             value={middleName}
             onChange={onChange}
+            onBlur={onBlur}
             placeholder="Отчество"
-            errorText={middleNameError && 'Только русские буквы'}
+            errorText={middleNameError && 'Смените раскладку на кириллицу'}
           />
           <Button
             className="button_sign-up-continue"
