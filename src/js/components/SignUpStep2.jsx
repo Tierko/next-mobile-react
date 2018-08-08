@@ -12,7 +12,7 @@ class SignUpStep2 extends Component {
   };
 
   onChange = (name, value) => {
-    let tmp = value.replace(/^\s/g, '');
+    let tmp = value.replace(/[^а-яё]/gi, '');
 
     if (tmp.length !== 0) {
       tmp = `${tmp[0].toUpperCase()}${tmp.substr(1)}`;
