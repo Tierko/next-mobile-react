@@ -115,15 +115,13 @@ class Cards extends Component {
     const state = nextState || this.state;
     const {
       number,
-      holder,
       date,
       cvv,
+      holder,
     } = state;
 
     return checkCardNumber(number) &&
-      checkCardHolder(holder) &&
-      checkCardDate(date) &&
-      checkCVV(cvv);
+      checkCardDate(date) && holder && checkCVV(cvv);
   };
 
   calculateOffsetStart = () => {

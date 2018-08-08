@@ -26,7 +26,7 @@ const Card = ({
     cvv,
   },
 }) => {
-  const isFilled = checkCardNumber(number) && checkCardHolder(holder) &&
+  const isFilled = checkCardNumber(number) && holder &&
     checkCardDate(date) && checkCVV(cvv);
   const isSelected = selected === id;
   const isDefault = defaultCard === id;
