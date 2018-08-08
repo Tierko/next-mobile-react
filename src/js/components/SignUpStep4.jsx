@@ -40,10 +40,10 @@ class SignUpStep4 extends Component {
       <div className="welcome__content sign-up">
         <div className="sign-up__header">Время доставки</div>
         <div className="sign-up__form">
-          <div className="sign-up__message">Когда вам будет удобно получить новую SIM-карту и подписать договор?</div>
+          <div className="sign-up__message sign-up__message_step4">Когда вам будет удобно получить новую SIM-карту и подписать договор?</div>
           <Date name="date" value={date} onChange={onChange} placeholder="Дата" />
           <Select placeholder="Время" onSelect={v => onChange('time', v)} items={times} value={time} />
-          <Button className="button_sign-up-continue" onClick={() => toPage(Pages.REQUEST_STATUS)} disabled={!permit}>
+          <Button className="button_sign-up-step4" onClick={() => toPage(Pages.REQUEST_STATUS)} disabled={!permit}>
             Продолжить
           </Button>
         </div>
