@@ -30,7 +30,8 @@ class Cards extends Component {
   onChange = (name, value) => {
     const { onPermitChange } = this.props;
     const { isNewCardValid, state } = this;
-    const nextState = Object.assign({}, state, { [name]: value });
+    const tmp = name === 'holder' ? value.toUpperCase().replace(/[^a-z\s]/gi, '') : value;
+    const nextState = Object.assign({}, state, { [name]: tmp });
     nextState[name] = value;
 
     const {
@@ -48,12 +49,8 @@ class Cards extends Component {
       token: `${number}${holder}${date}${cvv}`,
     };
 
-    value.replace(/[^a-z\s]/gi, '');
-
-    console.log(value.replace(/[^a-z\s]/gi, ''))
-
     this.setState({
-      [name]: value.toUpperCase().replace(/[^a-z\s]/gi, ''),
+      [name]: tmp,
     });
 
     onPermitChange(isNewCardValid(nextState), isNewCardValid(nextState) ? card : undefined);
