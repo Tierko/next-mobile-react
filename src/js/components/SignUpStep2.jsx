@@ -15,7 +15,7 @@ class SignUpStep2 extends Component {
     let tmp = value.replace(/^\s/g, '');
 
     if (tmp.length !== 0) {
-      tmp = `${tmp[0].toUpperCase()}${tmp.substr(1).toLowerCase()}`;
+      tmp = `${tmp[0].toUpperCase()}${tmp.substr(1)}`;
     }
 
     this.setState({
