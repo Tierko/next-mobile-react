@@ -8,7 +8,7 @@ import { Pages } from '../constants';
 
 const Conditions = ({ history }) => (
   <div className="welcome">
-    <NavLobby back={Pages.SIGN_UP} />
+    <NavLobby back={`${Pages.SIGN_UP}/promo`} />
     <div className="welcome__content conditions">
       <div className="conditions__header">Условия перехода</div>
       <div>Номер оформлен на ваше имя</div>

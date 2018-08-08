@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
@@ -50,6 +51,7 @@ class App extends Component {
           <Route path={Pages.KIT} component={Kit} />
           <Route path={Pages.SIGN_UP} component={SignUp} exact />
           <Route path={`${Pages.SIGN_UP}/step/:step`} component={SignUp} exact />
+          <Route path={`${Pages.SIGN_UP}/:mode`} component={SignUp} exact />
           <Route path={Pages.REQUEST_STATUS} component={RequestStatus} exact />
           <Route path={`${Pages.REQUEST_STATUS}/:status`} component={RequestStatus} />
           <Route path={Pages.CONDITIONS} component={Conditions} />
@@ -77,6 +79,12 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  getZones: PropTypes.func.isRequired,
+  getFeatures: PropTypes.func.isRequired,
+  location: PropTypes.shape().isRequired,
+};
 
 function mapDispatchToProps(dispatch) {
   return {

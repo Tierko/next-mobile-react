@@ -25,7 +25,7 @@ class SignUp extends Component {
   };
 
   render() {
-    const { match: { params: { step } } } = this.props;
+    const { match: { params: { step, mode } } } = this.props;
     const { nextStep, toPage } = this;
 
     return (
@@ -38,7 +38,7 @@ class SignUp extends Component {
         }
         {
           !step &&
-          <SignUpInit nextStep={nextStep} toPage={toPage} />
+          <SignUpInit nextStep={nextStep} toPage={toPage} mode={mode || ''} />
         }
         {
           step === '1' &&

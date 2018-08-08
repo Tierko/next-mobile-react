@@ -14,6 +14,10 @@ const SiteMap = () => (
         <br />
         <Link className="link" to={Pages.SIGN_UP}>Регистрация</Link>
         <br />
+        <Link className="link" to={`${Pages.SIGN_UP}/no-promo`}>Регистрация, без промо</Link>
+        <br />
+        <Link className="link" to={`${Pages.SIGN_UP}/promo`}>Регистрация, промо</Link>
+        <br />
         <Link className="link" to={`${Pages.SIGN_UP}/step/1`}>Регистрация шаг 1</Link>
         <br />
         <Link className="link" to={`${Pages.SIGN_UP}/step/2`}>Регистрация шаг 2</Link>

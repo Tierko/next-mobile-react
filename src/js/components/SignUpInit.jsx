@@ -10,26 +10,19 @@ import { checkPhone } from '../utils';
 
 class SignUp extends Component {
   state = {
-    message: 'Введите промокод, чтобы начать работу с Next Mobile',
     phone: '',
-    option: '',
-    stage: 1,
   };
 
   onCodeEnter = () => {
-    this.setState({
-      option: 'promo',
-      stage: 2,
-      message: '8 ГБ интернета, безлимит СМС и 1 000 мин в месяц бесплатно в течение 6 месяцев. Плата после – от 1 000 ₽ в месяц',
-    });
+    const { toPage } = this.props;
+
+    toPage(`${Pages.SIGN_UP}/promo`);
   };
 
   onCodeReject = () => {
-    this.setState({
-      option: 'no-promo',
-      stage: 2,
-      message: 'Next Mobile - закрытая сотовая сеть. Присоедениться к ней можно, отправив запрос. Мы перезвоним, как только рассмотрим его',
-    });
+    const { toPage } = this.props;
+
+    toPage(`${Pages.SIGN_UP}/no-promo`);
   };
 
   onChange = (name, value) => {
@@ -45,31 +38,45 @@ class SignUp extends Component {
     toPage(`${Pages.REQUEST_STATUS}/${Statuses.REQUEST_SENT}`);
   };
 
+  MESSAGES = {
+    INIT: 'Введите промокод, чтобы начать работу с Next Mobile',
+    PROMO: '8 ГБ интернета, безлимит СМС и 1 000 мин в месяц бесплатно в течение 6 месяцев. Плата после – от 1 000 ₽ в месяц',
+    NO_PROMO: 'Next Mobile - закрытая сотовая сеть. Присоедениться к ней можно, отправив запрос. Мы перезвоним, как только рассмотрим его',
+  };
+
   render() {
     const {
-      message,
       phone,
-      option,
-      stage,
     } = this.state;
     const {
       onCodeEnter,
       onCodeReject,
       onChange,
       onSubmitNoPromo,
+      MESSAGES,
     } = this;
-    const { nextStep } = this.props;
+    const { nextStep, mode } = this.props;
 
     return (
       <div className="welcome__content sign-up">
         <Logo type="photo" className="logo_sign-up" />
-        <div className="sign-up__message">{message}</div>
+        <div className="sign-up__message">
+          {
+            !mode && MESSAGES.INIT
+          }
+          {
+            mode === 'promo' && MESSAGES.PROMO
+          }
+          {
+            mode === 'no-promo' && MESSAGES.NO_PROMO
+          }
+        </div>
         {
-          stage === 1 &&
+          !mode &&
           <PromoCode onCodeEnter={onCodeEnter} onCodeReject={onCodeReject} />
         }
         {
-          option === 'no-promo' && stage === 2 &&
+          mode === 'no-promo' &&
           <form onSubmit={onSubmitNoPromo}>
             <Input className="input_phone" name="phone" value={phone} onChange={onChange} />
             <Button className="button_request" onClick={onSubmitNoPromo} disabled={!checkPhone(phone)}>
@@ -78,7 +85,7 @@ class SignUp extends Component {
           </form>
         }
         {
-          option === 'promo' && stage === 2 &&
+          mode === 'promo' &&
           <Fragment>
             <Button className="button_to-next-mobile" onClick={() => nextStep(1)}>Перейти на Next Mobile</Button>
             <div className="sign-up__agreement">
@@ -94,6 +101,7 @@ class SignUp extends Component {
 SignUp.propTypes = {
   toPage: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
+  mode: PropTypes.string.isRequired,
 };
 
 export default SignUp;
