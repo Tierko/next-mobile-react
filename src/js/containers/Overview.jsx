@@ -27,15 +27,11 @@ class Overview extends Component {
     },
   };
 
-  onPay = () => {
-    const { history } = this.props;
-    const { sum } = this.state;
-
-    history.push({
-      pathname: Pages.PAY,
-      state: { sum },
-    });
-  };
+  componentDidMount() {
+    fetch('/data/invites.json')
+      .then(invites => invites.json())
+      .then(invites => this.setState({ invites }));
+  }
 
   onBuy = () => {
     const { history } = this.props;
@@ -43,11 +39,43 @@ class Overview extends Component {
     history.push(Pages.ADD_PACKAGE);
   };
 
-  componentDidMount() {
-    fetch('/data/invites.json')
-      .then(invites => invites.json())
-      .then(invites => this.setState({ invites }));
-  }
+  onPay = () => {
+    const { history, cards } = this.props;
+    const { sum } = this.state;
+    const links = [{
+      url: Pages.AUTO_PAY,
+      title: 'Сделать платеж регулярным',
+    }, {
+      url: Pages.OVERVIEW,
+      title: 'Вернуться на главную',
+    }];
+
+    history.push({
+      pathname: `${Pages.RESULT}/success`,
+      state: {
+        title: 'Оплата прошла успешно',
+        text: `На ваш счет зачислено ${formatCost(sum)}`,
+        links,
+      },
+    });
+
+    if (cards.defaultCard) {
+      history.push({
+        pathname: `${Pages.RESULT}/success`,
+        state: {
+          title: 'Оплата прошла успешно',
+          text: `На ваш счет зачислено ${formatCost(sum)}`,
+          links,
+        },
+      });
+    } else {
+      history.push({
+        pathname: Pages.PAY,
+        state: { sum },
+      });
+    }
+
+  };
 
   sumChange = (n, v) => {
     if (v.toString().length > 5) {
@@ -125,17 +153,18 @@ class Overview extends Component {
 }
 
 function mapStateToProps(state) {
-  const { Roaming } = state;
-
+  const { Roaming, Cards } = state;
 
   return {
     roaming: Roaming,
+    cards: Cards,
   };
 }
 
 Overview.propTypes = {
   history: PropTypes.shape().isRequired,
   roaming: PropTypes.shape().isRequired,
+  cards: PropTypes.shape().isRequired,
 };
 
 export default connect(mapStateToProps)(Overview);
