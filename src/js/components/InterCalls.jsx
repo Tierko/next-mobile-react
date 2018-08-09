@@ -80,7 +80,10 @@ class InterCalls extends Component {
           <div className="inter-calls__row inter-calls__row_selected">
             <div onClick={clear} className="inter-calls__clear" />
             <div className="inter-calls__selected">
-              <span>{item.title}</span>
+              <span className="inter-calls__country">
+                {item.flag && <img src={`/media/flags/${item.flag}.svg`} />}
+                {item.title}
+              </span>
               <span>{formatCost(getCost())} / мин</span>
             </div>
           </div>
