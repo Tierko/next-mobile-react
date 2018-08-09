@@ -84,6 +84,7 @@ class Input extends Component {
               value={value}
               onChange={onChange}
               onBlur={onBlur}
+              placeholder={simplePlaceholder && placeholder}
             />
         }
         {

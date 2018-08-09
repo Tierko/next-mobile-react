@@ -37,11 +37,18 @@ class AutoComplete extends Select {
       placeholder,
       items,
       name,
+      simplePlaceholder,
     } = this.props;
 
     return (
       <div className={`select ${className}`} ref={(e) => { this.select = e; }}>
-        <Input name={name} value={value} onChange={onChange} placeholder={placeholder} />
+        <Input
+          name={name}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          simplePlaceholder={simplePlaceholder}
+        />
         <div className={cs('select__list select__list_auto-complete', { select__list_open: open && value.length })}>
           {
             items.filter(i => i.title.toUpperCase().indexOf(value.toUpperCase()) !== -1).map(i => (

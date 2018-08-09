@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import cs from 'classnames';
 import AutoComplete from './AutoComplete';
 import { formatCost } from '../utils';
 
@@ -55,13 +56,20 @@ class InterCalls extends Component {
   };
 
   render() {
-    const { onChange, onSelect, clear, getCost } = this;
     const { value, item, data } = this.state;
-    const { className } = this.props;
+    const { more, className } = this.props;
+    const {
+      onChange,
+      onSelect,
+      clear,
+      getCost,
+    } = this;
 
     return (
       <div className={`inter-calls ${className}`}>
-        <div className="inter-calls__header">Звонки за границу</div>
+        <div className={cs('inter-calls__header', { 'inter-calls__header_light': more })}>
+          Звонки за границу
+        </div>
         {
           !item &&
           <div className="inter-calls__row inter-calls__row_complete">
@@ -72,6 +80,7 @@ class InterCalls extends Component {
               onSelect={onSelect}
               placeholder="Например, Армения"
               items={data.items}
+              simplePlaceholder
             />
           </div>
         }
@@ -81,14 +90,16 @@ class InterCalls extends Component {
             <div onClick={clear} className="inter-calls__clear" />
             <div className="inter-calls__selected">
               <span className="inter-calls__country">
-                {item.flag && <img src={`/media/flags/${item.flag}.svg`} />}
+                {item.flag && <img src={`/media/flags/${item.flag}.svg`} alt="" />}
                 {item.title}
               </span>
               <span>{formatCost(getCost())} / мин</span>
             </div>
           </div>
         }
-        <div className="inter-calls__note">Одинаковая цена для всех тарифов</div>
+        {
+          !more && <div className="inter-calls__note">Одинаковая цена для всех тарифов</div>
+        }
       </div>
     );
   }
@@ -96,9 +107,11 @@ class InterCalls extends Component {
 
 InterCalls.propTypes = {
   className: PropTypes.string,
+  more: PropTypes.bool,
 };
 
 InterCalls.defaultProps = {
+  more: false,
   className: '',
 };
 

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
+import InterCalls from '../components/InterCalls';
 import LinkBack from '../components/LinkBack';
 import { Pages } from '../constants';
 
@@ -22,6 +23,7 @@ class More extends Component {
               <div className="more__subtitle">0 ₽ / мин</div>
               <div className="more__text">На номера всех операторов Москвы и на Next по всей России </div>
               <div className="more__subtitle">550 мин / месяц </div>
+              <InterCalls more className="inter-calls_more" />
               <div className="dashboard__header dashboard__header_more">Дополнительный пакет</div>
               <div className="more__subtitle">До 12 сентбря</div>
               <div className="more__text">На номера всех операторов Москвы и на Next по всей России </div>

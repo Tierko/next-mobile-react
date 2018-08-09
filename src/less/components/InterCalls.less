@@ -1,18 +1,24 @@
 .inter-calls {
   max-width: 310px;
 
+  &_more {
+    margin-top: 30px;
+  }
+
   &_services {
     margin-bottom: 50px;
   }
 
   &__header {
-
+    &_light {
+      color: @GRAY-DARK;
+    }
   }
 
   &__clear {
     width: 20px;
     height: 20px;
-    margin: 0 10px 10px 0;
+    margin: 0 10px 0px 0;
     background: url("/media/icons/x.svg") no-repeat 100% 50%;
     background-size: 100% auto;
     cursor: pointer;
@@ -24,6 +30,10 @@
 
     .select {
       width: 100%;
+
+      .input{
+        padding: 0.3em 0;
+      }
     }
 
     &_complete:before {
@@ -31,17 +41,13 @@
       height: 20px;
       width: 20px;
       background: url("/media/icons/search.svg") no-repeat 50% 50%;
-      margin: 0 10px 10px 0;
+      margin: 0 10px 0 0;
       flex-shrink: 0;
-    }
-
-    &_selected {
-
     }
   }
 
   &__selected {
-    margin: 1.1em 0 1.4em;
+    margin: 0.3em 0;
     padding: 0.33em 0;
     line-height: 25px;
     border-bottom: 1px solid @GRAY;
