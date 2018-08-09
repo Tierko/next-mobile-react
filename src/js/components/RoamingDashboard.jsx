@@ -46,7 +46,7 @@ const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
             zones.items.map(i => (
               i.additionalPackage ?
                 <Fragment key={i.id}>
-                  <tr key={`${i.id}-f`}>
+                  <tr key={`${i.id}-f`} className="roaming-dashboard__tr">
                     <td rowSpan={2} className="roaming-dashboard__item-name">
                       <Link to={Pages.ROAMING} className="link">{i.name}</Link>
                     </td>
@@ -60,7 +60,7 @@ const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
                     <td>{formatCost(i.tariff.internet.byMb)} / Мб</td>
                   </tr>
                 </Fragment> :
-                <tr key={`${i.id}-r`}>
+                <tr key={`${i.id}-r`} className="roaming-dashboard__tr">
                   <td className="roaming-dashboard__item-name">
                     <Link to={Pages.ROAMING} className="link">{i.name}</Link>
                   </td>

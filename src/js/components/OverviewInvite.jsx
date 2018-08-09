@@ -30,7 +30,7 @@ class OverviewInvite extends Component {
         <Link className="overview-invite__header" to={Pages.INVITE}>
           <span>{message}</span>
         </Link>
-        <div>
+        <div className="overview-invite__subtitle">
           По {
             mode === 'link' ?
               <Button className="button_code-mode" borderless onClick={() => setCopyMode('')}>промокоду</Button> :

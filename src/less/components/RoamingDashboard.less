@@ -1,5 +1,6 @@
 .roaming-dashboard {
   order: 40;
+  margin-bottom: 60px;
 
   &_roaming {
     order: 27;
@@ -13,7 +14,6 @@
 
   &__title {
     .link;
-    margin-bottom: 26px;
     display: inline-block;
   }
 
@@ -23,6 +23,10 @@
     @media (max-width: @BREAK-POINT) {
       display: block;
     }
+  }
+
+  &__tr td {
+    padding-top: 26px;
   }
 
   &__item {
@@ -70,6 +74,10 @@
     &_regular:after {
       background-image: url("/media/icons/regular.svg");
     }
+  }
+
+  &__tr &__item-desc:after {
+    top: calc(0.2em + 26px);
   }
 
   &__item-conditions {

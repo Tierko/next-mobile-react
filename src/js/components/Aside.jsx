@@ -20,7 +20,7 @@ const Aside = ({ hideLink }) => (
         </div>
         <div>
           <span>По России: </span>
-          {getData('remain')[0].current.toString().replace('.', ',')} ГБ, {getData('remain')[1].current} мин, {getData('remain')[2].current} СМС
+          <div>{getData('remain')[0].current.toString().replace('.', ',')} ГБ, {getData('remain')[1].current} мин, {getData('remain')[2].current} СМС</div>
         </div>
       </div>
       <nav className="aside__nav">
