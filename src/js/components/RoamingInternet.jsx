@@ -46,7 +46,7 @@ class RoamingInternet extends Component {
         {
           internet.data.fast && internet.data.regular &&
           <Fragment>
-            <Package data={internet.data.fast} simple remain={getData('remain')[0]} />
+            <Package data={internet.data.fast} simple remain={getData('remain')[0]} fast />
             <Package data={internet.data.regular} simple remain={getData('remain')[1]} />
           </Fragment>
         }

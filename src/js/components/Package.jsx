@@ -66,7 +66,7 @@ Package.propTypes = {
 
 Package.defaultProps = {
   simple: false,
-  fast: true,
+  fast: false,
 };
 
 export default Package;
