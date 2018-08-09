@@ -63,6 +63,7 @@ const RoamingTariffCountry = ({ zone, items, id }) => {
         <div className="roaming__title-inner">{zone.name}</div>
         <LinkBack className="link-back_roaming-country" href={Pages.ROAMING} />
         Тарифы: {country.properties.name}
+        <img className="roaming__flag" src={`/media/flags/${id}.svg`} alt="" />
       </div>
       <RoamingTariff data={data} />
       <div className="roaming__note">
