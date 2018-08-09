@@ -5,6 +5,12 @@ import ComboBox from './ComboBox';
 import { HOME } from '../constants';
 
 class RoamingMap extends Component {
+  onClick = (e) => {
+    const { onCountrySelect } = this.props;
+
+    onCountrySelect(e.layer.toGeoJSON());
+  };
+
   setStyle = (f) => {
     const { zone: { countries } } = this.props;
     const { featureDefaultStyle, featureSelectZone, featureSelectCountry } = this;
@@ -49,10 +55,6 @@ class RoamingMap extends Component {
     fillOpacity: 1,
     weight: 1,
   });
-
-  onClick = (e, a) => {
-    console.log(e, a)
-  };
 
   render() {
     const { onClick, setStyle } = this;

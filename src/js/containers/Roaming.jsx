@@ -15,8 +15,6 @@ import { Pages } from '../constants';
 class Roaming extends Component {
   state = {
     tab: 1,
-    features: [],
-    roamingZones: [],
     country: {},
   };
 
@@ -38,12 +36,14 @@ class Roaming extends Component {
     const { getCenter, getZoneByCountry } = this;
     const zone = getZoneByCountry(roamingZones, country);
 
-    this.setState({
-      country: Object.assign(country, { center: getCenter(country) }),
-      tab: zone || tab,
-    });
+    if (!country.properties || country.properties.iso_a2 !== 'RU') {
+      this.setState({
+        country: Object.assign(country, { center: getCenter(country) }),
+        tab: zone || tab,
+      });
 
-    history.push(Pages.ROAMING);
+      history.push(Pages.ROAMING);
+    }
   };
 
   getZoneByCountry = (zones, country) => {
