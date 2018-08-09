@@ -13,17 +13,22 @@
     "price": 30
     },
     "5": {
-    "price": 70
+      "price": 70
+    },
+    "6": {
+      "price": 650
     }
   },
   "items": [
     {
       "title": "Австралия",
-      "group": 1
+      "group": 1,
+      "flag": "AU"
     },
     {
       "title": "Бангладеш",
-      "group": 1
+      "group": 1,
+      "flag": "BD"
     },
     {
       "title": "Бермудские Острова",
@@ -31,15 +36,18 @@
     },
     {
       "title": "Бруней",
-      "group": 1
+      "group": 1,
+      "flag": "BN"
     },
     {
       "title": "Бутан",
-      "group": 1
+      "group": 1,
+      "flag": "BT"
     },
     {
       "title": "Венгрия",
-      "group": 1
+      "group": 1,
+      "flag": "HU"
     },
     {
       "title": "Виргинские Острова (Американские)",
@@ -47,7 +55,8 @@
     },
     {
       "title": "Вьетнам",
-      "group": 1
+      "group": 1,
+      "flag": "VN"
     },
     {
       "title": "Гваделупа",
@@ -55,7 +64,8 @@
     },
     {
       "title": "Германия",
-      "group": 1
+      "group": 1,
+      "flag": "DE"
     },
     {
       "title": "Гонконг",
@@ -63,55 +73,68 @@
     },
     {
       "title": "Греция",
-      "group": 1
+      "group": 1,
+      "flag": "GR"
     },
     {
       "title": "Дания",
-      "group": 1
+      "group": 1,
+      "flag": "DK"
     },
     {
       "title": "Индия",
-      "group": 1
+      "group": 1,
+      "flag": "IN"
     },
     {
       "title": "Индонезия",
-      "group": 1
+      "group": 1,
+      "flag": "ID"
     },
     {
       "title": "Ирландия",
-      "group": 1
+      "group": 1,
+      "flag": "IE"
     },
     {
       "title": "Исландия",
-      "group": 1
+      "group": 1,
+      "flag": "IS"
     },
     {
       "title": "Камбоджа",
-      "group": 1
+      "group": 1,
+      "flag": "KH"
     },
     {
       "title": "Китай",
-      "group": 1
+      "group": 1,
+      "flag": "CN"
     },
     {
       "title": "Колумбия",
-      "group": 1
+      "group": 1,
+      "flag": "CO"
     },
     {
       "title": "Коста-Рика",
-      "group": 1
+      "group": 1,
+      "flag": "CR"
     },
     {
       "title": "Кувейт",
-      "group": 1
+      "group": 1,
+      "flag": "KW"
     },
     {
       "title": "Лаос",
-      "group": 1
+      "group": 1,
+      "flag": "LA"
     },
     {
       "title": "Малайзия",
-      "group": 1
+      "group": 1,
+      "flag": "MY"
     },
     {
       "title": "Мальта",
@@ -119,23 +142,28 @@
     },
     {
       "title": "Мексика",
-      "group": 1
+      "group": 1,
+      "flag": "MX"
     },
     {
       "title": "Монголия",
-      "group": 1
+      "group": 1,
+      "flag": "MN"
     },
     {
       "title": "Намибия",
-      "group": 1
+      "group": 1,
+      "flag": "NA"
     },
     {
       "title": "Новая Зеландия",
-      "group": 1
+      "group": 1,
+      "flag": "NZ"
     },
     {
       "title": "Норвегия",
-      "group": 1
+      "group": 1,
+      "flag": "NO"
     },
     {
       "title": "Остров Гуам",
@@ -151,19 +179,23 @@
     },
     {
       "title": "Пакистан",
-      "group": 1
+      "group": 1,
+      "flag": "PK"
     },
     {
       "title": "Перу",
-      "group": 1
+      "group": 1,
+      "flag": "PE"
     },
     {
       "title": "Пуэрто-Рико",
-      "group": 1
+      "group": 1,
+      "flag": "PR"
     },
     {
       "title": "Румыния",
-      "group": 1
+      "group": 1,
+      "flag": "RO"
     },
     {
       "title": "Самоа (США)",
@@ -175,19 +207,28 @@
     },
     {
       "title": "Словакия",
-      "group": 1
+      "group": 1,
+      "flag": "SK"
     },
     {
-      "title": "США, Канада",
-      "group": 1
+      "title": "США",
+      "group": 1,
+      "flag": "US"
+    },
+    {
+      "title": "Канада",
+      "group": 1,
+      "flag": "CA"
     },
     {
       "title": "Таиланд",
-      "group": 1
+      "group": 1,
+      "flag": "TH"
     },
     {
       "title": "Тайвань",
-      "group": 1
+      "group": 1,
+      "flag": "TW"
     },
     {
       "title": "Французская Гвиана",
@@ -195,19 +236,23 @@
     },
     {
       "title": "Чешская Республика",
-      "group": 1
+      "group": 1,
+      "flag": "CZ"
     },
     {
       "title": "Чили",
-      "group": 1
+      "group": 1,
+      "flag": "CL"
     },
     {
       "title": "Швеция",
-      "group": 1
+      "group": 1,
+      "flag": "SE"
     },
     {
       "title": "Южная Корея",
-      "group": 1
+      "group": 1,
+      "flag": "KR"
     },
     {
       "title": "Южная Осетия",
@@ -215,11 +260,13 @@
     },
     {
       "title": "Япония",
-      "group": 1
+      "group": 1,
+      "flag": "JP"
     },
     {
       "title": "Аргентина",
-      "group": 2
+      "group": 2,
+      "flag": "AR"
     },
     {
       "title": "Бахрейн",
@@ -227,31 +274,38 @@
     },
     {
       "title": "Бразилия",
-      "group": 2
+      "group": 2,
+      "flag": "BR"
     },
     {
       "title": "Венесуэла",
-      "group": 2
+      "group": 2,
+      "flag": "VE"
     },
     {
       "title": "Гватемала",
-      "group": 2
+      "group": 2,
+      "flag": "GT"
     },
     {
       "title": "Доминиканская Республика",
-      "group": 2
+      "group": 2,
+      "flag": "DO"
     },
     {
       "title": "Италия",
-      "group": 2
+      "group": 2,
+      "flag": "IT"
     },
     {
       "title": "Йеменская Арабская Республика",
-      "group": 2
+      "group": 2,
+      "flag": "YE"
     },
     {
       "title": "КИПР",
-      "group": 2
+      "group": 2,
+      "flag": "CY"
     },
     {
       "title": "Майотте, Острова Реюньон",
@@ -263,7 +317,8 @@
     },
     {
       "title": "Нигерия",
-      "group": 2
+      "group": 2,
+      "flag": "NG"
     },
     {
       "title": "Нидерландские Антильские острова",
@@ -271,23 +326,28 @@
     },
     {
       "title": "Панама",
-      "group": 2
+      "group": 2,
+      "flag": "PA"
     },
     {
       "title": "Парагвай",
-      "group": 2
+      "group": 2,
+      "flag": "PY"
     },
     {
       "title": "Польша",
-      "group": 2
+      "group": 2,
+      "flag": "PL"
     },
     {
       "title": "Португалия",
-      "group": 2
+      "group": 2,
+      "flag": "PT"
     },
     {
       "title": "Саудовская Аравия",
-      "group": 2
+      "group": 2,
+      "flag": "SA"
     },
     {
       "title": "Синт-Мартен",
@@ -295,11 +355,13 @@
     },
     {
       "title": "Туркмения",
-      "group": 2
+      "group": 2,
+      "flag": "TM"
     },
     {
       "title": "Узбекистан",
-      "group": 2
+      "group": 2,
+      "flag": "UZ"
     },
     {
       "title": "Фарерские Острова",
@@ -307,19 +369,23 @@
     },
     {
       "title": "Филиппины",
-      "group": 2
+      "group": 2,
+      "flag": "PH"
     },
     {
       "title": "Франция",
-      "group": 2
+      "group": 2,
+      "flag": "FR"
     },
     {
       "title": "Абхазия",
-      "group": 3
+      "group": 3,
+      "flag": "FR"
     },
     {
       "title": "Австрия",
-      "group": 3
+      "group": 3,
+      "flag": "AT"
     },
     {
       "title": "Ангилья",
@@ -327,7 +393,8 @@
     },
     {
       "title": "Ангола",
-      "group": 3
+      "group": 3,
+      "flag": "AO"
     },
     {
       "title": "Андорра",
@@ -339,7 +406,8 @@
     },
     {
       "title": "Армения",
-      "group": 3
+      "group": 3,
+      "flag": "AM"
     },
     {
       "title": "Аруба",
@@ -347,7 +415,8 @@
     },
     {
       "title": "Афганистан",
-      "group": 3
+      "group": 3,
+      "flag": "AF"
     },
     {
       "title": "Багамские Острова",
@@ -359,15 +428,18 @@
     },
     {
       "title": "Белиз",
-      "group": 3
+      "group": 3,
+      "flag": "BZ"
     },
     {
       "title": "Боливия",
-      "group": 3
+      "group": 3,
+      "flag": "BO"
     },
     {
       "title": "Ботсвана",
-      "group": 3
+      "group": 3,
+      "flag": "BW"
     },
     {
       "title": "Британские Виргинские Острова",
@@ -375,7 +447,8 @@
     },
     {
       "title": "Великобритания",
-      "group": 3
+      "group": 3,
+      "flag": "GB"
     },
     {
       "title": "Гибралтар",
@@ -383,7 +456,8 @@
     },
     {
       "title": "Гондурас",
-      "group": 3
+      "group": 3,
+      "flag": "HN"
     },
     {
       "title": "Гренада",
@@ -391,35 +465,43 @@
     },
     {
       "title": "Доминика",
-      "group": 3
+      "group": 3,
+      "flag": "DO"
     },
     {
       "title": "Египет",
-      "group": 3
+      "group": 3,
+      "flag": "EG"
     },
     {
       "title": "Израиль",
-      "group": 3
+      "group": 3,
+      "flag": "IL"
     },
     {
       "title": "Иордания",
-      "group": 3
+      "group": 3,
+      "flag": "JO"
     },
     {
       "title": "Ирак",
-      "group": 3
+      "group": 3,
+      "flag": "IQ"
     },
     {
       "title": "Иран",
-      "group": 3
+      "group": 3,
+      "flag": "IR"
     },
     {
       "title": "Испания",
-      "group": 3
+      "group": 3,
+      "flag": "ES"
     },
     {
       "title": "Казахстан",
-      "group": 3
+      "group": 3,
+      "flag": "KZ"
     },
     {
       "title": "Каймановы Острова",
@@ -427,15 +509,18 @@
     },
     {
       "title": "Катар",
-      "group": 3
+      "group": 3,
+      "flag": "QA"
     },
     {
       "title": "Кыргызстан",
-      "group": 3
+      "group": 3,
+      "flag": "KG"
     },
     {
       "title": "Ливан",
-      "group": 3
+      "group": 3,
+      "flag": "LB"
     },
     {
       "title": "Лихтенштейн",
@@ -443,7 +528,8 @@
     },
     {
       "title": "Люксембург",
-      "group": 3
+      "group": 3,
+      "flag": "LU"
     },
     {
       "title": "Маврикий",
@@ -459,23 +545,28 @@
     },
     {
       "title": "Непал",
-      "group": 3
+      "group": 3,
+      "flag": "NP"
     },
     {
       "title": "Никарагуа",
-      "group": 3
+      "group": 3,
+      "flag": "NI"
     },
     {
       "title": "Объединенные Арабские Эмираты",
-      "group": 3
+      "group": 3,
+      "flag": "AE"
     },
     {
       "title": "Палестина",
-      "group": 3
+      "group": 3,
+      "flag": "PS"
     },
     {
       "title": "Сальвадор",
-      "group": 3
+      "group": 3,
+      "flag": "SV"
     },
     {
       "title": "Сан Марино",
@@ -483,7 +574,8 @@
     },
     {
       "title": "Свазиленд",
-      "group": 3
+      "group": 3,
+      "flag": "SZ"
     },
     {
       "title": "Сент-Винсент и Гренадины",
@@ -499,11 +591,13 @@
     },
     {
       "title": "Судан",
-      "group": 3
+      "group": 3,
+      "flag": "SD"
     },
     {
       "title": "Таджикистан",
-      "group": 3
+      "group": 3,
+      "flag": "TJ"
     },
     {
       "title": "Терк и Кайкос",
@@ -511,19 +605,23 @@
     },
     {
       "title": "Тринидад и Тобаго",
-      "group": 3
+      "group": 3,
+      "flag": "TT"
     },
     {
       "title": "Турция",
-      "group": 3
+      "group": 3,
+      "flag": "TR"
     },
     {
       "title": "Украина",
-      "group": 3
+      "group": 3,
+      "flag": "UA"
     },
     {
       "title": "Уругвай",
-      "group": 3
+      "group": 3,
+      "flag": "UY"
     },
     {
       "title": "Французская Полинезия",
@@ -531,79 +629,98 @@
     },
     {
       "title": "Шри Ланка",
-      "group": 3
+      "group": 3,
+      "flag": "LK"
     },
     {
       "title": "Эквадор",
-      "group": 3
+      "group": 3,
+      "flag": "EC"
     },
     {
       "title": "Эритрея",
-      "group": 3
+      "group": 3,
+      "flag": "ER"
     },
     {
       "title": "Южная Африка",
-      "group": 3
+      "group": 3,
+      "flag": "ZA"
     },
     {
       "title": "Ямайка",
-      "group": 3
+      "group": 3,
+      "flag": "JM"
     },
     {
       "title": "Азербайджан",
-      "group": 4
+      "group": 4,
+      "flag": "AZ"
     },
     {
       "title": "Албания",
-      "group": 4
+      "group": 4,
+      "flag": "AL"
     },
     {
       "title": "Беларусь",
-      "group": 4
+      "group": 4,
+      "flag": "BY"
     },
     {
       "title": "Бельгия",
-      "group": 4
+      "group": 4,
+      "flag": "BE"
     },
     {
       "title": "Бенин",
-      "group": 4
+      "group": 4,
+      "flag": "BJ"
     },
     {
       "title": "Болгария",
-      "group": 4
+      "group": 4,
+      "flag": "BG"
     },
     {
       "title": "Босния и Герцеговина",
-      "group": 4
+      "group": 4,
+      "flag": "BA"
     },
     {
       "title": "Буркина-Фасо",
-      "group": 4
+      "group": 4,
+      "flag": "BF"
     },
     {
       "title": "Гаити",
-      "group": 4
+      "group": 4,
+      "flag": "HT"
     },
     {
       "title": "Гайана",
-      "group": 4
+      "group": 4,
+      "flag": "GY"
     },
     {
       "title": "Гана",
-      "group": 4
+      "group": 4,
+      "flag": "GH"
     },
     {
       "title": "Грузия",
-      "group": 4
+      "group": 4,
+      "flag": "GE"
     },
     {
       "title": "Демократическая Республика Конго",
-      "group": 4
+      "group": 4,
+      "flag": "CD"
     },
     {
       "title": "Джибути",
-      "group": 4
+      "group": 4,
+      "flag": "DJ"
     },
     {
       "title": "Кабо-Верде (острова Зеленого Мыса)",
@@ -611,135 +728,171 @@
     },
     {
       "title": "Камерун",
-      "group": 4
+      "group": 4,
+      "flag": "CM"
     },
     {
       "title": "Кения",
-      "group": 4
+      "group": 4,
+      "flag": "KE"
     },
     {
       "title": "Латвия",
-      "group": 4
+      "group": 4,
+      "flag": "LV"
     },
     {
       "title": "Лесото",
-      "group": 4
+      "group": 4,
+      "flag": "LS"
     },
     {
       "title": "Ливия",
-      "group": 4
+      "group": 4,
+      "flag": "LY"
     },
     {
       "title": "Литва",
-      "group": 4
+      "group": 4,
+      "flag": "LT"
     },
     {
       "title": "Македония",
-      "group": 4
+      "group": 4,
+      "flag": "MK"
     },
     {
       "title": "Малави",
-      "group": 4
+      "group": 4,
+      "flag": "MW"
     },
     {
       "title": "Мали",
-      "group": 4
+      "group": 4,
+      "flag": "ML"
     },
     {
       "title": "Мозамбик",
-      "group": 4
+      "group": 4,
+      "flag": "MZ"
     },
     {
       "title": "Молдова",
-      "group": 4
+      "group": 4,
+      "flag": "MD"
     },
     {
       "title": "Мьянма (Бирма)",
-      "group": 4
+      "group": 4,
+      "flag": "MM"
     },
     {
       "title": "Нигер",
-      "group": 4
+      "group": 4,
+      "flag": "NE"
     },
     {
       "title": "Нидерланды",
-      "group": 4
+      "group": 4,
+      "flag": "NL"
     },
     {
       "title": "Новая Каледония",
-      "group": 4
+      "group": 4,
+      "flag": "NL"
     },
     {
       "title": "Оман",
-      "group": 4
+      "group": 4,
+      "flag": "OM"
     },
     {
       "title": "Руанда",
-      "group": 4
+      "group": 4,
+      "flag": "RW"
     },
     {
       "title": "Сербия",
-      "group": 4
+      "group": 4,
+      "flag": "RS"
     },
     {
       "title": "Сирия",
-      "group": 4
+      "group": 4,
+      "flag": "SY"
     },
     {
       "title": "Словения",
-      "group": 4
+      "group": 4,
+      "flag": "SI"
     },
     {
       "title": "Суринам",
-      "group": 4
+      "group": 4,
+      "flag": "SR"
     },
     {
       "title": "Танзания",
-      "group": 4
+      "group": 4,
+      "flag": "TZ"
     },
     {
       "title": "Того",
-      "group": 4
+      "group": 4,
+      "flag": "TG"
     },
     {
       "title": "Уганда",
-      "group": 4
+      "group": 4,
+      "flag": "UG"
     },
     {
       "title": "Фиджи",
-      "group": 4
+      "group": 4,
+      "flag": "FJ"
     },
     {
       "title": "Финляндия",
-      "group": 4
+      "group": 4,
+      "flag": "FI"
     },
     {
       "title": "Хорватия",
-      "group": 4
+      "group": 4,
+      "flag": "HR"
     },
     {
       "title": "Черногория",
-      "group": 4
+      "group": 4,
+      "flag": "ME"
     },
     {
       "title": "Швейцария",
-      "group": 4
+      "group": 4,
+      "flag": "CH"
     },
     {
       "title": "Эстония",
-      "group": 4
+      "group": 4,
+      "flag": "EE"
     },
     {
       "title": "Эфиопия",
-      "group": 4
+      "group": 4,
+      "flag": "ET"
     },
     {
       "title": "Южный Судан",
-      "group": 4
+      "group": 4,
+      "flag": "SS"
     },
     {
       "title": "Остальные страны",
       "group": 5
+    },
+    {
+      "title": "Международные Сети 883 - Global Networks MTT, Система Глобальной Подвижной Спутниковой Связи, Международные Сети, Инмарсат",
+      "group": 6
     }
   ]
 }
