@@ -12,8 +12,14 @@ class Calls extends Component {
     location.reload();
   };
 
+  reset = () => {
+    localStorage.clear();
+    location.reload();
+  };
+
+
   render() {
-    const { setData } = this;
+    const { setData, reset } = this;
     const { state: { Roaming }, roamingSwitch } = this.props;
     const style = {
       display: 'flex',
@@ -27,6 +33,10 @@ class Calls extends Component {
         <Aside />
         <div className="dashboard__content">
           <div>
+            <h2>Сброс</h2>
+            <div style={style}>
+              <Button onClick={reset}>Сбросить данные</Button>
+            </div>
             <h2>Тариф</h2>
             <div style={style}>
               <Button onClick={() => setData('tariff', 0)} disabled={getData('tariff').id === 1}>
