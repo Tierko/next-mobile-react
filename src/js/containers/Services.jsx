@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import TariffServices from '../components/TariffServices';
 import TariffTable from '../components/TariffTable';
 import PageFade from '../components/PageFade';
 import InterCalls from '../components/InterCalls';
+import { Pages } from '../constants';
 import tariff from '../../data/tariff';
 
 class Services extends Component {
@@ -39,9 +41,13 @@ class Services extends Component {
   };
 
   changeTariff = (id) => {
+    const { history } = this.props;
+
     this.setState({
       currentTariff: id,
     });
+
+    history.push(Pages.PAY);
     localStorage.setItem('tariff', id - 1);
   };
 
@@ -64,5 +70,9 @@ class Services extends Component {
     ];
   }
 }
+
+Services.propTypes = {
+  history: PropTypes.shape().isRequired,
+};
 
 export default PageFade(Services);
