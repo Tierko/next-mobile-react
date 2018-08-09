@@ -21,8 +21,21 @@
     display: flex;
     flex-wrap: wrap;
 
+    &_simple {
+      border-top: 1px solid @GRAY;
+      padding: 19px 0;
+    }
+
+    &_simple:last-child {
+      border-bottom: 1px solid @GRAY;
+    }
+
     &:hover {
       background-color: @WHITE;
+    }
+
+    &_simple:hover {
+      background-color: transparent;
     }
   }
 
@@ -34,6 +47,19 @@
 
     &_count {
       flex-basis: 30%;
+    }
+
+    &_count-fast span {
+      .gradient-black-purple;
+      display: inline-block;
+
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        background: url("/media/icons/fast-purple.svg") no-repeat 100% 100%;
+      }
     }
 
     &_period {

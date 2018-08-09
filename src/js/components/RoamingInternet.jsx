@@ -34,7 +34,7 @@ class RoamingInternet extends Component {
           <Fragment>
             <div>
               Остаток стандартного пакета: {zone.additionalPackage.current.toString().replace('.', ',')} ГБ из {zone.additionalPackage.max}
-              </div>
+            </div>
             <ProgressLinear
               className="progress-linear_internet-zone"
               current={zone.additionalPackage.current}

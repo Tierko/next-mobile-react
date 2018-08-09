@@ -1,10 +1,17 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import cs from 'classnames';
 import ProgressLinear from './ProgressLinear';
 import { Pages } from '../constants';
+import { formatCost } from '../utils';
 
-const Package = ({ data, remain, simple }) => (
+const Package = ({
+  data,
+  remain,
+  simple,
+  fast,
+}) => (
   <div className="package">
     {
       !simple &&
@@ -29,10 +36,12 @@ const Package = ({ data, remain, simple }) => (
     <div className="package__table">
       {
         data.items.map(i => (
-          <div className="package__row" key={i.id} >
-            <div className="package__cell package__cell_count">+ {i.count} {data.unit}</div>
+          <div className={cs('package__row', { package__row_simple: simple })} key={i.id} >
+            <div className={cs('package__cell package__cell_count', { 'package__cell_count-fast': fast })}>
+              <span>+ {i.count} {data.unit}</span>
+            </div>
             <div className="package__cell package__cell_period">{i.period} дней</div>
-            <div className="package__cell package__cell_price">{i.price} ₽</div>
+            <div className="package__cell package__cell_price">{formatCost(i.price)}</div>
             <div className="package__cell package__cell_action">
               <Link
                 className="link"
@@ -52,10 +61,12 @@ Package.propTypes = {
   data: PropTypes.shape().isRequired,
   remain: PropTypes.shape().isRequired,
   simple: PropTypes.bool,
+  fast: PropTypes.bool,
 };
 
 Package.defaultProps = {
   simple: false,
+  fast: true,
 };
 
 export default Package;
