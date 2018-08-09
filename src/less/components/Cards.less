@@ -66,6 +66,32 @@
   justify-content: space-between;
   position: relative;
 
+  &:after {
+    content: '';
+    position: absolute;
+    width: 63px;
+    height: 30px;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    right: 15px;
+    bottom: 15px;
+  }
+
+  &_mir:after {
+    background-image: url("/media/cards/mir.png");
+    background-size: 63px auto;
+  }
+
+  &_visa:after {
+    background-image: url("/media/cards/visa.png");
+    background-size: 63px auto;
+  }
+
+  &_mastercard:after {
+    background-image: url("/media/cards/mastercard.png");
+    background-size: 44px auto;
+  }
+
   &_default &__number:after {
     content: '';
     display: inline-block;

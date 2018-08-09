@@ -8,6 +8,10 @@ import {
   removeCardAction,
   makeDefaultAction,
 } from '../actions/Cards';
+import {
+  getShortPan,
+  getPaySystem,
+} from '../utils';
 
 const CardEditor = ({
   id,
@@ -18,8 +22,8 @@ const CardEditor = ({
   <div className={cs('card-editor', { 'card-editor_show': !!id })}>
     <ButtonIcon onClick={onClose} icon="back.svg" className="button-icon_card-editor" />
     <div>
-      <div className="card card_visa card_big">
-        <div className="card__number">*6266</div>
+      <div className={`card card_big card_${getPaySystem(id)}`}>
+        <div className="card__number">{getShortPan(id)}</div>
       </div>
       <div className="card__edit">
         <div className="card__edit-item" onClick={() => makeDefault(id)}>

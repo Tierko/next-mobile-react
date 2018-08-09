@@ -4,14 +4,14 @@ import cs from 'classnames';
 import InputMask from 'react-input-mask';
 import {
   checkCardNumber,
-  checkCardHolder,
   checkCardDate,
   checkCVV,
+  getShortPan,
+  getPaySystem,
 } from '../utils';
 
 const Card = ({
   id,
-  title,
   onSelect,
   onEdit,
   onChange,
@@ -38,12 +38,12 @@ const Card = ({
   case 'card':
     return (
       <div
-        className={cs('card', { card_selected: isSelected, card_default: isDefault })}
+        className={cs(`card card_${getPaySystem(id)}`, { card_selected: isSelected, card_default: isDefault })}
         onClick={onSelect}
         data-id={id}
         style={style}
       >
-        <div className="card__number">*{title}</div>
+        <div className="card__number">{getShortPan(id)}</div>
         {
           isSelected &&
           <div className="card__points" onClick={onEdit} data-id={id}>
@@ -61,7 +61,7 @@ const Card = ({
         onClick={onSelect}
         data-id={id}
       >
-        <img src="/media/images/apple-pay.png" />
+        <img src="/media/cards/apple-pay.png" alt=""/>
       </div>
     );
   case 'new':
@@ -77,7 +77,7 @@ const Card = ({
         {
           !isSelected &&
           <div>
-            <img className="" src="/media/icons/plus-gray.svg" />
+            <img className="" src="/media/icons/plus-gray.svg" alt="" />
             <br />
             Новая карта
           </div>
@@ -126,7 +126,6 @@ const Card = ({
 
 Card.propTypes = {
   id: PropTypes.string.isRequired,
-  title: PropTypes.string,
   onSelect: PropTypes.func.isRequired,
   onEdit: PropTypes.func,
   onChange: PropTypes.func,
@@ -138,7 +137,6 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  title: '',
   onEdit: null,
   onChange: null,
   values: {},

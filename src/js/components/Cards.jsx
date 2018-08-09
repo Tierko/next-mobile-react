@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Card from './Card';
 import {
   checkCardNumber,
-  checkCardHolder,
   checkCardDate,
   checkCVV,
 } from '../utils';
@@ -19,13 +18,10 @@ class Cards extends Component {
     editCardId: '',
   };
 
-  onPermitChange = (payPermitted) => {
-    const { onPermitChange } = this.props;
-
-    if (onPermitChange) {
-      onPermitChange(payPermitted);
-    }
-  };
+  componentDidMount() {
+    const { setOffset } = this;
+    setOffset();
+  }
 
   onChange = (name, value) => {
     const { onPermitChange } = this.props;
@@ -70,8 +66,7 @@ class Cards extends Component {
       holder,
       date,
       cvv,
-      type: 'visa',
-      token: `${number}${holder}${date}${cvv}`,
+      token: number.replace(/\s/g, ''),
     } : undefined;
 
     onPermitChange(id !== 'new' || (id === 'new' && isNewCardValid()), card);
@@ -105,10 +100,48 @@ class Cards extends Component {
     });
   };
 
+  onPermitChange = (payPermitted) => {
+    const { onPermitChange } = this.props;
+
+    if (onPermitChange) {
+      onPermitChange(payPermitted);
+    }
+  };
+
   onCardEdit = ({ target }) => {
     const { onEdit } = this.props;
 
     onEdit(target.dataset.id);
+  };
+
+  setOffset = () => {
+    const { calculateOffsetStart, calculateOfssetEnd, inner } = this;
+    const offsetStart = calculateOffsetStart();
+    const offsetEnd = calculateOfssetEnd();
+    inner.style.paddingLeft = `${offsetStart}px`;
+    inner.style.paddingRight = `${offsetEnd}px`;
+  };
+
+  calculateOfssetEnd = () => {
+    const { row } = this;
+    const CARD_WIDTH = 285 + 16;
+
+    if (!row) {
+      return 0;
+    }
+
+    return (row.clientWidth - CARD_WIDTH) / 2;
+  };
+
+  calculateOffsetStart = () => {
+    const { row } = this;
+    const CARD_WIDTH = 168 + 16;
+
+    if (!row) {
+      return 0;
+    }
+
+    return (row.clientWidth - CARD_WIDTH) / 2;
   };
 
   isNewCardValid = (nextState) => {
@@ -123,41 +156,6 @@ class Cards extends Component {
     return checkCardNumber(number) &&
       checkCardDate(date) && holder && checkCVV(cvv);
   };
-
-  calculateOffsetStart = () => {
-    const { row } = this;
-    const CARD_WIDTH = 168 + 16;
-
-    if (!row) {
-      return 0;
-    }
-
-    return (row.clientWidth - CARD_WIDTH) / 2;
-  };
-
-  calculateOfssetEnd = () => {
-    const { row } = this;
-    const CARD_WIDTH = 285 + 16;
-
-    if (!row) {
-      return 0;
-    }
-
-    return (row.clientWidth - CARD_WIDTH) / 2;
-  };
-
-  setOffset = () => {
-    const { calculateOffsetStart, calculateOfssetEnd, inner } = this;
-    const offsetStart = calculateOffsetStart();
-    const offsetEnd = calculateOfssetEnd();
-    inner.style.paddingLeft = `${offsetStart}px`;
-    inner.style.paddingRight = `${offsetEnd}px`;
-  };
-
-  componentDidMount() {
-    const { setOffset } = this;
-    setOffset();
-  }
 
   render() {
     const { className, data } = this.props;
@@ -199,7 +197,6 @@ class Cards extends Component {
                     onEdit={onCardEdit}
                     selected={selected}
                     type="card"
-                    title={c.title}
                     colors={c.colors}
                     defaultCard={data.defaultCard}
                   />

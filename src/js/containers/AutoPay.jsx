@@ -11,6 +11,10 @@ import Select from '../components/Select';
 import Button from '../components/Button';
 import { Pages, MONTHS } from '../constants';
 import saveAutoPayAction from '../actions/AutoPay';
+import {
+  getShortPan,
+  getPaySystem,
+} from '../utils';
 
 class AutoPay extends Component {
   static days = Array(28).fill(0).map((_, i) => i + 1);
@@ -122,9 +126,9 @@ class AutoPay extends Component {
               <div className="auto-pay__card">
                 <div className="auto-pay__note">С карты по умолчанию</div>
                 <div
-                  className="card card_selected card_default card_auto-pay"
+                  className={`card card_selected card_default card_auto-pay card_${getPaySystem(card.token)}`}
                 >
-                  <div className="card__number">*{card.title}</div>
+                  <div className="card__number">{getShortPan(card.token)}</div>
                 </div>
                 <div className="auto-pay__note">
                   Чтобы привязать автоплатеж к другой карте, установите ее картой по умолчанию

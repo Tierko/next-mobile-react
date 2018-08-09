@@ -1,21 +1,15 @@
 import { ACTION_TYPES } from '../constants';
 
 const initState = {
-  defaultCard: '1',
+  defaultCard: '4254863245896266',
   items: [{
-    token: '1',
-    type: 'visa',
-    title: '6266',
+    token: '4254863245896266',
     colors: ['#e72b2b', '#ff693e'],
   }, {
-    token: '2',
-    type: 'visa',
-    title: '5073',
+    token: '2254563796521258',
     colors: ['#e72b2b', '#ff693e'],
   }, {
-    token: '3',
-    type: 'visa',
-    title: '3011',
+    token: '5254563796528514',
     colors: ['#0e4471', '#015198'],
   }],
 };

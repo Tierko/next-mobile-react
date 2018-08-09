@@ -49,12 +49,6 @@ class Pay extends Component {
     });
   };
 
-  changeAutoPay = () => {
-    const { history } = this.props;
-
-    history.push(Pages.AUTO_PAY);
-  };
-
   onEdit = (editCardId) => {
     this.setState({
       editCardId,
@@ -65,6 +59,12 @@ class Pay extends Component {
     this.setState({
       editCardId: '',
     });
+  };
+
+  changeAutoPay = () => {
+    const { history } = this.props;
+
+    history.push(Pages.AUTO_PAY);
   };
 
   render() {

@@ -11,6 +11,24 @@ export const checkCVV = str => str && str.replace(/\D/g, '').length === 3;
 
 export const checkCardHolder = str => str && str.search(/^[a-z]+\s+[a-z]+$/gi) === 0;
 
+export const getPaySystem = (pan) => {
+  if (pan.indexOf('2') === 0) {
+    return 'mir';
+  }
+
+  if (pan.indexOf('4') === 0) {
+    return 'visa';
+  }
+
+  if (pan.indexOf('5') === 0) {
+    return 'mastercard';
+  }
+
+  return '';
+};
+
+export const getShortPan = pan => `*${pan.substring(12)}`;
+
 export const formatCost = (source) => {
   const arr = [];
   let str = source.toString().replace(/[^\d/.]/g, '');
