@@ -5,12 +5,8 @@ import { Pages, DAYS } from '../constants';
 import { convertStrings, formatCost } from '../utils';
 
 const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
-  if (currentZoneId) {
-    return false;
-  }
-
   return (
-    <div className={`roaming-dashboard ${className}`}>
+    <div className={`roaming-dashboard ${className} ${currentZoneId ? 'roaming-dashboard_roaming' : ''}`}>
       <Link className="roaming-dashboard__title" to={Pages.ROAMING}>Роуминг</Link>
       <div className="roaming-dashboard__list">
         {
