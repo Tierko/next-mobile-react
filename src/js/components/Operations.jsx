@@ -100,11 +100,11 @@ class Operations extends Component {
     return (
       <div className="operations">
         {
-          !filteredData.length &&
+          !data.length &&
           <div className="operations__empty">У вас нет данных за указанный период</div>
         }
         {
-          !!filteredData.length &&
+          !!data.length &&
           <div className="operations__dates">
             <div className="operations__dates-inner">
               <span className="operations__date-from">с</span>
@@ -127,7 +127,7 @@ class Operations extends Component {
         <table className="operations__table" cellSpacing={0} cellPadding={0}>
           <tbody>
             {
-              !!filteredData.length &&
+              !!data.length &&
               <tr className="operations__row operations__row_header">
                 <td className="operations__cell_date">Дата</td>
                 <td className="operations__cell_time">Время</td>
@@ -180,6 +180,14 @@ class Operations extends Component {
                   </td>
                 </tr>
               ))
+            }
+            {
+              !filteredData.length &&
+                <tr>
+                  <td colSpan={5} className="operations__empty">
+                    У вас нет данных за указанный период
+                  </td>
+                </tr>
             }
             {
               !!filteredData.length &&
