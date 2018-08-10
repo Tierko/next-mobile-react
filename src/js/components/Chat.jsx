@@ -112,11 +112,15 @@ class Chat extends Component {
     });
   };
 
-  audioMessage = () => {
-    const { audio } = this.state;
-
+  audioMessageStart = () => {
     this.setState({
-      audio: !audio,
+      audio: true,
+    });
+  };
+
+  audioMessageFinish = () => {
+    this.setState({
+      audio: false,
     });
   };
 
@@ -139,7 +143,8 @@ class Chat extends Component {
       audioCall,
       videoCall,
       addFile,
-      audioMessage,
+      audioMessageStart,
+      audioMessageFinish,
     } = this;
 
     return (
@@ -212,11 +217,10 @@ class Chat extends Component {
             multiLine
             simplePlaceholder
           />
-          {
-            console.log(audio)
-          }
           <button
-            onClick={audioMessage}
+            onMouseDown={audioMessageStart}
+            onMouseUp={audioMessageFinish}
+            onMouseLeave={audioMessageFinish}
             className={cs('button-icon button-icon_chat-footer button-icon_chat-audio', { 'button-icon_chat-audio-active': audio })}
           >
             <InlineSvg src={require('../../../media/icons/microphone.svg')} raw />
