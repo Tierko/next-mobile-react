@@ -81,6 +81,8 @@ const SiteMap = () => (
         <Link className="link" to={`${Pages.ROAMING}/zone-tariff/1`}>Роуминг (тарифы зоны)</Link>
         <br />
         <Link className="link" to={Pages.INVITE}>Инвайты</Link>
+        <br />
+        <Link className="link" to="/not-found">404</Link>
       </div>
     </div>
   </div>
