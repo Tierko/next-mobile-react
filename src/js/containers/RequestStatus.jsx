@@ -152,7 +152,7 @@ class RequestStatus extends Component {
             }
             {
               !codeSent &&
-              <div>
+              <div className="request-status__message">
                 Введите номер, с которым вы оставляли заявку
               </div>
             }
