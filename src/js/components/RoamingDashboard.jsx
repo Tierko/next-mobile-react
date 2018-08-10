@@ -45,7 +45,7 @@ const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
       <table className="roaming-dashboard__table" cellSpacing={0} cellPadding={0}>
         <tbody>
           {
-            zones.items.map(i => (
+            zones.items.filter(i => i.id !== currentZoneId).map(i => (
               i.additionalPackage ?
                 <Fragment key={i.id}>
                   <tr key={`${i.id}-f`} className="roaming-dashboard__tr">
