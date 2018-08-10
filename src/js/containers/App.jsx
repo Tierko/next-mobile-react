@@ -26,6 +26,7 @@ import Result from './Result';
 import Roaming from './Roaming';
 import Invite from './Invite';
 import Confirm from './Confirm';
+import NotFound from './NotFound';
 import { Pages } from '../constants';
 import {
   getZonesAction,
@@ -74,6 +75,7 @@ class App extends Component {
           <Route path={Pages.ROAMING} component={Roaming} exact />
           <Route path={Pages.INVITE} component={Invite} />
           <Route path={Pages.CONFIRM} component={Confirm} />
+          <Route component={NotFound} />
         </Switch>
       </div>
     );

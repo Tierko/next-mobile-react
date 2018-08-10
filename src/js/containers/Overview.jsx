@@ -145,7 +145,7 @@ class Overview extends Component {
           <History data={getData('history')} />
           <RoamingDashboard data={roaming} />
           <OverviewInvite message={message} code={code ? code.code : ''} />
-          <Footer />
+          <Footer als />
         </div>
       </div>,
     ];

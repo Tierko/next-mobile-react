@@ -1,0 +1,22 @@
+.not-found {
+  &__message {
+    max-width: 450px;
+    padding-top: 16px;
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 350px;
+    padding-top: 40px;
+
+    @media (max-width: 350px) {
+      display: block;
+    }
+  }
+
+  &__nav-item {
+    flex: 50%;
+    padding: 6px 0;
+  }
+}

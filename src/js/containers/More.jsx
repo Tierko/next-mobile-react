@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import InterCalls from '../components/InterCalls';
@@ -49,5 +50,9 @@ class More extends Component {
     ]);
   }
 }
+
+More.propTypes = {
+  match: PropTypes.shape().isRequired,
+};
 
 export default More;
