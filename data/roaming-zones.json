@@ -16,10 +16,7 @@
     },
     "byMegabytes": false,
     "countries": [
-      "BY",
-      "KZ",
-      "UA",
-      "UZ"
+      "AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IS","IE","IT","LV","LT","LU","MT","NL","NO","PL","PT","RO","SK","SI","ES","SE","GB"
     ],
     "tariff": {
       "calls": 200,
@@ -98,8 +95,7 @@
     },
     "byMegabytes": false,
     "countries": [
-      "CN",
-      "IN"
+      "US","AU","CA","HK","SG","TH","TR","GF","GI","Гваделупа","LI","Остров Мартиника","Майотте","Острова Реюньон","SX","CN","KZ","NZ","CH","IL","KR"
     ],
     "tariff": {
       "calls": 200,
@@ -174,8 +170,7 @@
     "additionalPackage": null,
     "byMegabytes": true,
     "countries": [
-      "US",
-      "CA"
+      "JP","BR","MX","MK","AL","AR","FO","PR","RS","ZA","UG","UA","CL","ME","PE","BA","KH","GG","IM","JE","MY","QA","AM","KE"
     ],
     "tariff": {
       "calls": 200,
@@ -248,7 +243,9 @@
     ],
     "zoom": 3,
     "additionalPackage": null,
-    "countries": [],
+    "countries": [
+      "SA","DO","GN","BH","AF","CO","ZM","AZ","SR","TD","RW","XK","CG","BS","KW","GA","FJ","PG","TO","VU","AI","AG","AW","BB","BM","о. Бонэйр","VG","KY","CW","DO","GD","HT","JM","MS","Сен-Бартельми","KN","LC","VC","SX","TC","PY","IR","NE","CI","HN","MA","BO","MM","SS","OM","CG","MW","CV","GM","MU","DZ","CR","IQ","VE","PK","UZ","MD","CU","VN","ML","JO","SL","YE","SD","Над морем","NP","BT","MG","NA","TT","MN","GQ","MZ","LB","LR","NL","PF","TM","BI","AD","BF","LY","BW","ZW","CM","ET","ST","MV","GU","SC","BJ","AO","MR","TG"
+    ],
     "tariff": {
       "calls": 200,
       "sms": 7,

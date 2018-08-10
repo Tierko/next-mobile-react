@@ -70,7 +70,14 @@ class RoamingMap extends Component {
         <div className="map__container" id="map">
           {
             !!features.length &&
-            <Map center={country.center || center} zoom={zoom} zoomControl={false} animate>
+            <Map
+              center={country.center || center}
+              zoom={zoom}
+              zoomControl={false}
+              animate
+              minZoom={1.4}
+              maxZoom={5}
+            >
               <GeoJSON
                 data={features}
                 style={setStyle}
