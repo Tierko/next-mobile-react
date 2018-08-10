@@ -28,9 +28,19 @@ class AutoComplete extends Select {
     });
   };
 
+  isItemValid = (item, value) => {
+    const { fromStart } = this.props;
+
+    if (fromStart) {
+      return item.title.toUpperCase().indexOf(value.toUpperCase()) === 0;
+    }
+
+    return item.title.toUpperCase().indexOf(value.toUpperCase()) !== -1;
+  };
+
   render() {
     const { open } = this.state;
-    const { onSelect, onChange } = this;
+    const { onSelect, onChange, isItemValid } = this;
     const {
       className,
       value,
@@ -51,7 +61,7 @@ class AutoComplete extends Select {
         />
         <div className={cs('select__list select__list_auto-complete', { select__list_open: open && value.length })}>
           {
-            items.filter(i => i.title.toUpperCase().indexOf(value.toUpperCase()) !== -1).map(i => (
+            items.filter(i => isItemValid(i, value)).map(i => (
               <div
                 className="select__item"
                 onClick={() => onSelect(i)}

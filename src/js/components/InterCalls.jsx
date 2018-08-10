@@ -81,6 +81,7 @@ class InterCalls extends Component {
               placeholder="Например, Армения"
               items={data.items}
               simplePlaceholder
+              fromStart
             />
           </div>
         }
