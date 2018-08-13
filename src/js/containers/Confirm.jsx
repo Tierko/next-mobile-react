@@ -29,7 +29,7 @@ class Confirm extends Component {
           <div className="dashboard__content">
             <LinkBack href={Pages.ADD_PACKAGE} />
             <div className="confirm">
-              <div className="dashboard__header dashboard__header_confirm">Оплатить {pack}</div>
+              <div className="dashboard__header dashboard__header_confirm">Оплатить {pack}?</div>
               <div className="confirm__sum">{formatCost(sum)}</div>
               <Button className="button_confirm" onClick={onPay} >Оплатить</Button>
             </div>

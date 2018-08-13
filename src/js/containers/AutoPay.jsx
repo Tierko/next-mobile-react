@@ -120,7 +120,7 @@ class AutoPay extends Component {
         <Aside />
         <Transitions>
           <div className="dashboard__content">
-            <LinkBack className="link-back_offset-bottom" href={Pages.OVERVIEW} />
+            <LinkBack className="link-back_offset-bottom" href={Pages.PAY} />
             <div className="dashboard__header">Подключение автоплатежа</div>
             <div className="auto-pay">
               {

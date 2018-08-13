@@ -26,7 +26,7 @@ const Transitions = ({
 
 Transitions.propTypes = {
   children: PropTypes.any.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   classNames: PropTypes.string,
   className: PropTypes.string,
   timeout: PropTypes.oneOfType([
@@ -36,6 +36,7 @@ Transitions.propTypes = {
 };
 
 Transitions.defaultProps = {
+  id: '',
   classNames: 'fade',
   className: '',
   timeout: {
