@@ -88,16 +88,6 @@ class Settings extends Component {
                 value={lang}
                 onSelect={onLangSelect}
               />
-              <Button className="button_settings" onClick={onSave} disabled={!edited}>
-                Сохранить изменения
-              </Button>
-              <Note
-                className="note_settings"
-                message="Изменения сохранены"
-                color="green"
-                onFadeOut={onNoteFade}
-                show={showNote}
-              />
               <div className="service">
                 <div className="service__control">
                   <div className="service__name">Уведомление о расходах</div>
@@ -126,6 +116,16 @@ class Settings extends Component {
                 </div>
                 <div className="service__desc">Отправлять квитанцию после каждого платежа на почту</div>
               </div>
+              <Button className="button_settings" onClick={onSave} disabled={!edited}>
+                Сохранить изменения
+              </Button>
+              <Note
+                className="note_settings"
+                message="Изменения сохранены"
+                color="green"
+                onFadeOut={onNoteFade}
+                show={showNote}
+              />
             </div>
           </div>
         </Transitions>
