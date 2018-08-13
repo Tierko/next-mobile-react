@@ -34,7 +34,7 @@ class MultipleInput extends Component {
 
   onKeyDown = (e) => {
     const { count, onKeyDown } = this.props;
-    const number = e.target.dataset.number * 1;
+    const number = this.getNumber(e.target) * 1;
     const { keyCode } = e;
     const values = this.state.values.slice();
 
@@ -59,7 +59,7 @@ class MultipleInput extends Component {
   };
 
   onFocus = (e) => {
-    const number = e.target.dataset.number * 1;
+    const number = this.getNumber(e.target) * 1;
     const { value } = e.target;
 
     if (number > 0 && value.length === 0) {
