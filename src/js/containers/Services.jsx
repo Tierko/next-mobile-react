@@ -5,6 +5,7 @@ import Aside from '../components/Aside';
 import TariffServices from '../components/TariffServices';
 import TariffTable from '../components/TariffTable';
 import InterCalls from '../components/InterCalls';
+import Transitions from '../components/Transitions';
 import { Pages } from '../constants';
 import tariff from '../../data/tariff';
 
@@ -58,13 +59,15 @@ class Services extends Component {
       <MobileNav key="nav" type="dashboard" />,
       <div key="dashboard" className="dashboard">
         <Aside />
-        <div className="dashboard__content">
-          <div className="dashboard__header">Тарифы</div>
-          <div className="dashboard__text">При подключении нового тарифа вы оплачиваете первый месяц абонентской платы</div>
-          <TariffTable data={tariff} current={currentTariff} onChange={changeTariff} />
-          <InterCalls className="inter-calls_services" />
-          <TariffServices services={services} onChange={toggleService} />
-        </div>
+        <Transitions>
+          <div className="dashboard__content">
+            <div className="dashboard__header">Тарифы</div>
+            <div className="dashboard__text">При подключении нового тарифа вы оплачиваете первый месяц абонентской платы</div>
+            <TariffTable data={tariff} current={currentTariff} onChange={changeTariff} />
+            <InterCalls className="inter-calls_services" />
+            <TariffServices services={services} onChange={toggleService} />
+          </div>
+        </Transitions>
       </div>,
     ];
   }

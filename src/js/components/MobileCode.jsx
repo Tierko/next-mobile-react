@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Button from '../components/Button';
-import MultipleInput from '../components/MultipleInput';
+import Button from './Button';
+import MultipleInput from './MultipleInput';
+import Transitions from './Transitions';
 import { checkPhone } from '../utils';
 
 class MobileCode extends Component {
@@ -68,27 +69,37 @@ class MobileCode extends Component {
       <div className={`mobile-code ${className}`}>
         {
           (status === 'sent' || status === 'timed out') &&
-          <MultipleInput className="multiple-input_mobile-code" onChange={onChange} name="code" onKeyDown={onKeyDown} />
+          <Transitions classNames="slide">
+            <MultipleInput className="multiple-input_mobile-code" onChange={onChange} name="code" onKeyDown={onKeyDown} />
+          </Transitions>
         }
         {
           status === 'init' &&
-          <Button className="button_mobile-code" onClick={sendCode} disabled={!checkPhone(phone)}>Прислать код</Button>
+          <Transitions classNames="slide">
+            <Button className="button_mobile-code" onClick={sendCode} disabled={!checkPhone(phone)}>Прислать код</Button>
+          </Transitions>
         }
         {
           (status === 'sent' || status === 'timed out') &&
-          <Button className="button_mobile-code" onClick={() => onEnter(code)} disabled={code.length < 4}>
-            {buttonTitle}
-          </Button>
+          <Transitions classNames="slide">
+            <Button className="button_mobile-code" onClick={() => onEnter(code)} disabled={code.length < 4}>
+              {buttonTitle}
+            </Button>
+          </Transitions>
         }
         {
           status === 'sent' &&
-          <div className="mobile-code__timer">Прислать код еще раз можно через {seconds} c</div>
+          <Transitions classNames="slide">
+            <div className="mobile-code__timer">Прислать код еще раз можно через {seconds} c</div>
+          </Transitions>
         }
         {
           status === 'timed out' &&
-          <Button className="button_mobile-code-again" onClick={sendCode} borderless>
-            Прислать код еще раз
-          </Button>
+          <Transitions classNames="slide">
+            <Button className="button_mobile-code-again" onClick={sendCode} borderless>
+              Прислать код еще раз
+            </Button>
+          </Transitions>
         }
       </div>
     );

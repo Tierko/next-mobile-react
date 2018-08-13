@@ -8,6 +8,7 @@ import Aside from '../components/Aside';
 import Payment from '../components/Payment';
 import Button from '../components/Button';
 import CardEditor from '../components/CardEditor';
+import Transitions from '../components/Transitions';
 import { Pages } from '../constants';
 import { formatCost, getData } from '../utils';
 import { addCardAction } from '../actions/Cards';
@@ -82,34 +83,42 @@ class Pay extends Component {
       <MobileNav key="nav" type="dashboard" />,
       <div key="dashboard" className="dashboard">
         <Aside />
-        <div className="dashboard__content dashboard__content_pay pay">
-          <div className={cs('pay__inner', { pay__inner_fade: !!editCardId })}>
-            <div className="dashboard__header">Пополнение</div>
-            <Payment isEditable onPay={onPay} sum={sum} onSumChange={onSumChange} onEdit={onEdit} />
-            {
-              autoPayEnabled &&
-              <Fragment>
-                <div className="dashboard__header">Подключен автоплатеж</div>
-                <div className="pay__auto-pay-from">
-                  2 000 ₽ с карты Сбербанка *4493
-                </div>
+        <Transitions id="pay">
+          <div className="dashboard__content dashboard__content_pay pay">
+            <div className={cs('pay__inner', { pay__inner_fade: !!editCardId })}>
+              <div className="dashboard__header">Пополнение</div>
+              <Payment
+                isEditable
+                onPay={onPay}
+                sum={sum}
+                onSumChange={onSumChange}
+                onEdit={onEdit}
+              />
+              {
+                autoPayEnabled &&
+                <Fragment>
+                  <div className="dashboard__header">Подключен автоплатеж</div>
+                  <div className="pay__auto-pay-from">
+                    2 000 ₽ с карты Сбербанка *4493
+                  </div>
+                  <div>
+                    Оплата каждый месяц 10 числа до сентября 2020
+                  </div>
+                  <Button className="button_pay" onClick={changeAutoPay}>Изменить</Button>
+                </Fragment>
+              }
+              {
+                !autoPayEnabled &&
                 <div>
-                  Оплата каждый месяц 10 числа до сентября 2020
+                  <Link className="link" to={Pages.AUTO_PAY} >
+                    Подключить автоплатеж
+                  </Link>
                 </div>
-                <Button className="button_pay" onClick={changeAutoPay}>Изменить</Button>
-              </Fragment>
-            }
-            {
-              !autoPayEnabled &&
-              <div>
-                <Link className="link" to={Pages.AUTO_PAY} >
-                  Подключить автоплатеж
-                </Link>
-              </div>
-            }
+              }
+            </div>
+            <CardEditor id={editCardId} onClose={onClose} />
           </div>
-          <CardEditor id={editCardId} onClose={onClose} />
-        </div>
+        </Transitions>
       </div>,
     ]);
   }

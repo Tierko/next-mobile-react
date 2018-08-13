@@ -6,6 +6,7 @@ import NavLobby from '../components/NavLobby';
 import Input from '../components/InputPhone';
 import Logo from '../components/Logo';
 import MobileCode from '../components/MobileCode';
+import Transitions from '../components/Transitions';
 import { Pages } from '../constants';
 
 class SignIn extends Component {
@@ -61,25 +62,29 @@ class SignIn extends Component {
       <div className="welcome">
         <MobileNav type="enter" />
         <NavLobby />
-        <div className="welcome__content">
-          <Logo />
-          <div className="sign-in__text">{ message }</div>
-          <form onSubmit={onSubmit} >
-            {
-              isPhoneVisible &&
-              <Input
-                name="phone"
-                value={phone}
-                onChange={onChange}
-                className="input_phone"
-              />
-            }
-          </form>
-          <MobileCode className="mobile-code_sign-in" phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} ref={mobileCode} />
-          <div className="welcome__footer">
-            <Link className="link-nav" to={Pages.SIGN_UP}>Регистрация</Link>
+        <Transitions classNames="slide">
+          <div className="welcome__content">
+            <Logo />
+            <div className="sign-in__text">{ message }</div>
+            <form onSubmit={onSubmit} >
+              {
+                isPhoneVisible &&
+                <Transitions classNames="slide">
+                  <Input
+                    name="phone"
+                    value={phone}
+                    onChange={onChange}
+                    className="input_phone"
+                  />
+                </Transitions>
+              }
+            </form>
+            <MobileCode className="mobile-code_sign-in" phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} ref={mobileCode} />
+            <div className="welcome__footer">
+              <Link className="link-nav" to={Pages.SIGN_UP}>Регистрация</Link>
+            </div>
           </div>
-        </div>
+        </Transitions>
       </div>
     );
   }

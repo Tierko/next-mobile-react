@@ -1,0 +1,29 @@
+.fade-init {
+  opacity: 0;
+}
+
+.fade-enter-done {
+  transition: opacity 0.2s linear;
+  opacity: 1;
+}
+
+.fade-exit-done {
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+
+.slide-init {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.slide-enter-done {
+  transition: opacity 0.2s linear, transform 0.2s linear;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-exit-done {
+  opacity: 0;
+  transform: translateY(150px);
+}

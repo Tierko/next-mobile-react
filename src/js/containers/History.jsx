@@ -4,6 +4,7 @@ import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Expense from '../components/Expense';
 import Operations from '../components/Operations';
+import Transitions from '../components/Transitions';
 import { getData } from '../utils';
 
 class History extends Component {
@@ -14,12 +15,14 @@ class History extends Component {
       <MobileNav key="nav" type="dashboard" />,
       <div key="dashboard" className="dashboard">
         <Aside />
-        <div className="dashboard__content">
-          <div className="dashboard__header dashboard__header_center">Расходы</div>
-          <Expense history={history} data={getData('history')} />
-          <div className="dashboard__header dashboard__header_center">История операций</div>
-          <Operations data={getData('operations')} />
-        </div>
+        <Transitions>
+          <div className="dashboard__content">
+            <div className="dashboard__header dashboard__header_center">Расходы</div>
+            <Expense history={history} data={getData('history')} />
+            <div className="dashboard__header dashboard__header_center">История операций</div>
+            <Operations data={getData('operations')} />
+          </div>
+        </Transitions>
       </div>,
     ]);
   }

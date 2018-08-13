@@ -67,10 +67,14 @@
 }
 
 .roaming-zone {
-  display: none;
+  max-height: 0;
+  transition: max-height 0.4s;
+  overflow: hidden;
+
+  //display: none;
 
   &_show {
-    display: block;
+    max-height: 800px;
   }
 
   &__countries {

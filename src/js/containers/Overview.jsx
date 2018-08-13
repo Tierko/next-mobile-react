@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Transitions from '../components/Transitions';
 
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
@@ -107,46 +108,48 @@ class Overview extends Component {
       <MobileNav key="nav" type="dashboard" />,
       <div key="dashboard" className="dashboard">
         <Aside hideLink />
-        <div className="dashboard__content">
-          <Note
-            className="note_dashboard"
-            message="Добавлено 3ГБ бесплатного интернета до 5 марта"
-            color="green"
-            hideCont
-            show={getData('noteGreen')}
-          />
-          <Note
-            className="note_dashboard"
-            message="Добавьте электронную почту в настройках, чтобы получать квитанции"
-            color="blue"
-            hideCont
-            show={getData('noteBlue')}
-          />
-          <Note
-            className="note_dashboard"
-            message="Ваш номер заблокирован"
-            color="red"
-            hideCont
-            show={getData('noteRed')}
-          />
-          <Balance
-            sum={getData('balance')}
-            message={`Следующий платеж: ${formatCost(getData('tariff').payment)} через ${getData('payment').days} ${convertStrings(getData('payment').days, DAYS)}`}
-            status={status}
-          />
-          <OverviewPayment onChange={sumChange} onPay={onPay} sum={sum} />
-          <OverviewRoamingCurrent history={history} data={roaming} />
-          <Remain
-            data={getData('remain')}
-            tariff={getData('tariff')}
-            buy={onBuy}
-            inRoaming={!!roaming.currentZoneId}
-          />
-          <History data={getData('history')} />
-          <RoamingDashboard data={roaming} />
-          <OverviewInvite message={message} code={code ? code.code : ''} />
-          <Footer als />
-        </div>
+        <Transitions id="Overview">
+          <div className="dashboard__content">
+            <Note
+              className="note_dashboard"
+              message="Добавлено 3ГБ бесплатного интернета до 5 марта"
+              color="green"
+              hideCont
+              show={getData('noteGreen')}
+            />
+            <Note
+              className="note_dashboard"
+              message="Добавьте электронную почту в настройках, чтобы получать квитанции"
+              color="blue"
+              hideCont
+              show={getData('noteBlue')}
+            />
+            <Note
+              className="note_dashboard"
+              message="Ваш номер заблокирован"
+              color="red"
+              hideCont
+              show={getData('noteRed')}
+            />
+            <Balance
+              sum={getData('balance')}
+              message={`Следующий платеж: ${formatCost(getData('tariff').payment)} через ${getData('payment').days} ${convertStrings(getData('payment').days, DAYS)}`}
+              status={status}
+            />
+            <OverviewPayment onChange={sumChange} onPay={onPay} sum={sum} />
+            <OverviewRoamingCurrent history={history} data={roaming} />
+            <Remain
+              data={getData('remain')}
+              tariff={getData('tariff')}
+              buy={onBuy}
+              inRoaming={!!roaming.currentZoneId}
+            />
+            <History data={getData('history')} />
+            <RoamingDashboard data={roaming} />
+            <OverviewInvite message={message} code={code ? code.code : ''} />
+            <Footer als />
+          </div>
+        </Transitions>
       </div>,
     ];
   }

@@ -5,6 +5,7 @@ import PromoCode from './PromoCode';
 import Input from './InputPhone';
 import Button from './Button';
 import Logo from './Logo';
+import Transitions from './Transitions';
 import { Pages, Statuses } from '../constants';
 import { checkPhone } from '../utils';
 
@@ -59,16 +60,27 @@ class SignUp extends Component {
 
     return (
       <div className="welcome__content sign-up">
-        <Logo type="photo" className="logo_sign-up" />
+        <Transitions classNames="slide">
+          <Logo type="photo" className="logo_sign-up" />
+        </Transitions>
         <div className="sign-up__message">
           {
-            !mode && MESSAGES.INIT
+            !mode &&
+            <Transitions classNames="slide">
+              {MESSAGES.INIT}
+            </Transitions>
           }
           {
-            mode === 'promo' && MESSAGES.PROMO
+            mode === 'promo' &&
+            <Transitions classNames="slide">
+              {MESSAGES.PROMO}
+            </Transitions>
           }
           {
-            mode === 'no-promo' && MESSAGES.NO_PROMO
+            mode === 'no-promo' &&
+            <Transitions classNames="slide">
+              {MESSAGES.NO_PROMO}
+            </Transitions>
           }
         </div>
         {
@@ -77,21 +89,25 @@ class SignUp extends Component {
         }
         {
           mode === 'no-promo' &&
-          <form onSubmit={onSubmitNoPromo}>
-            <Input className="input_phone" name="phone" value={phone} onChange={onChange} />
-            <Button className="button_request" onClick={onSubmitNoPromo} disabled={!checkPhone(phone)}>
-              Отправить запрос
-            </Button>
-          </form>
+          <Transitions classNames="slide">
+            <form onSubmit={onSubmitNoPromo}>
+              <Input className="input_phone" name="phone" value={phone} onChange={onChange} />
+              <Button className="button_request" onClick={onSubmitNoPromo} disabled={!checkPhone(phone)}>
+                Отправить запрос
+              </Button>
+            </form>
+          </Transitions>
         }
         {
           mode === 'promo' &&
-          <Fragment>
-            <Button className="button_to-next-mobile" onClick={() => nextStep(1)}>Перейти на Next Mobile</Button>
-            <div className="sign-up__agreement">
-              Я ознакомлен с <Link to={Pages.CONDITIONS} className="link">условиями перехода</Link>
-            </div>
-          </Fragment>
+          <Transitions classNames="slide">
+            <Fragment>
+              <Button className="button_to-next-mobile" onClick={() => nextStep(1)}>Перейти на Next Mobile</Button>
+              <div className="sign-up__agreement">
+                Я ознакомлен с <Link to={Pages.CONDITIONS} className="link">условиями перехода</Link>
+              </div>
+            </Fragment>
+          </Transitions>
         }
       </div>
     );

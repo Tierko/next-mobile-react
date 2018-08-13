@@ -4,6 +4,7 @@ import cs from 'classnames';
 import Input from './Input';
 import Button from './Button';
 import AutoComplete from './AutoComplete';
+import Transitions from '../components/Transitions';
 
 class SignUpStep3 extends Component {
   state = {
@@ -15,7 +16,6 @@ class SignUpStep3 extends Component {
   };
 
   onChange = (name, value) => {
-    console.log(name, value)
     this.setState({
       [name]: value,
     });
@@ -48,49 +48,51 @@ class SignUpStep3 extends Component {
     const { onChange, isFilled, onSubmit } = this;
 
     return (
-      <div className="welcome__content sign-up">
-        <div className="sign-up__header">Адрес доставки</div>
-        <form onSubmit={onSubmit} className="sign-up__form">
-          <AutoComplete
-            name="city"
-            value={city}
-            onChange={onChange}
-            onSelect={(name, value) => onChange(name, value.title)}
-            placeholder="Город"
-            items={[{ id: 1, title: 'Москва' }, { id: 2, title: 'Владивосток' }]}
-          />
-          <Input name="street" value={street} onChange={onChange} placeholder="Улица" />
-          <div className="sign-up__row">
-            <Input
-              className="input_sign-up-house"
-              name="house"
-              value={house}
+      <Transitions classNames="slide">
+        <div className="welcome__content sign-up">
+          <div className="sign-up__header">Адрес доставки</div>
+          <form onSubmit={onSubmit} className="sign-up__form">
+            <AutoComplete
+              name="city"
+              value={city}
               onChange={onChange}
-              placeholder="Дом"
+              onSelect={(name, value) => onChange(name, value.title)}
+              placeholder="Город"
+              items={[{ id: 1, title: 'Москва' }, { id: 2, title: 'Владивосток' }]}
             />
-            <Input
-              className="input_sign-up-housing"
-              name="housing"
-              value={housing}
-              onChange={onChange}
-              placeholder="Корпус/строение"
-            />
-            <Input
-              className="input_sign-up-flat"
-              name="flat"
-              value={flat}
-              onChange={onChange}
-              placeholder="Квартира"
-            />
+            <Input name="street" value={street} onChange={onChange} placeholder="Улица" />
+            <div className="sign-up__row">
+              <Input
+                className="input_sign-up-house"
+                name="house"
+                value={house}
+                onChange={onChange}
+                placeholder="Дом"
+              />
+              <Input
+                className="input_sign-up-housing"
+                name="housing"
+                value={housing}
+                onChange={onChange}
+                placeholder="Корпус/строение"
+              />
+              <Input
+                className="input_sign-up-flat"
+                name="flat"
+                value={flat}
+                onChange={onChange}
+                placeholder="Квартира"
+              />
+            </div>
+            <Button className="button_sign-up-continue" onClick={onSubmit} disabled={!isFilled()}>
+              Продолжить
+            </Button>
+          </form>
+          <div className={cs('sign-up__note', { 'sign-up__note_show': isFilled() })}>
+            Ко времени доставки
           </div>
-          <Button className="button_sign-up-continue" onClick={onSubmit} disabled={!isFilled()}>
-            Продолжить
-          </Button>
-        </form>
-        <div className={cs('sign-up__note', { 'sign-up__note_show': isFilled() })}>
-          Ко времени доставки
         </div>
-      </div>
+      </Transitions>
     );
   }
 }

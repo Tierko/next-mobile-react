@@ -7,8 +7,8 @@ import MobileCode from '../components/MobileCode';
 import RequestStatusSimple from '../components/RequestStatusSimple';
 import RequestStatusDelivery from '../components/RequestStatusDelivery';
 import RequestStatusFooter from '../components/RequestStatusFooter';
+import Transitions from '../components/Transitions';
 import { Statuses, Pages } from '../constants';
-import { checkPhone } from '../utils';
 
 const data = {
   [Statuses.REQUEST_SENT]: {
@@ -139,44 +139,46 @@ class RequestStatus extends Component {
       <div className="welcome">
         <MobileNav type="enter" />
         <NavLobby />
-        {
-          !status &&
-          <div className="welcome__content request-status">
-            <div className="request-status__title">Статус заявки</div>
-            {
-              codeSent &&
-              <div className="request-status__message">
-                Введите код, который мы прислали на номер {phone}
-              </div>
-            }
-            {
-              !codeSent &&
-              <div className="request-status__message">
-                Введите номер, с которым вы оставляли заявку
-              </div>
-            }
-            {
-              !codeSent &&
-              <form onSubmit={onSubmit}>
-                <InputPhone onChange={onChange} value={phone} name="phone" className="input_phone" />
-              </form>
-            }
-            <MobileCode phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} buttonTitle="Проверить статус" ref={mobileCode} />
-          </div>
-        }
-        {
-          type === 'simple' &&
-          <RequestStatusSimple
-            header={content.header}
-            message={content.message}
-            color={content.color}
-          />
-        }
-        {
-          type === 'delivery' &&
-          <RequestStatusDelivery data={content} />
-        }
-        <RequestStatusFooter />
+        <Transitions classNames="slide" className="slide-init">
+          {
+            !status &&
+            <div className="welcome__content request-status">
+              <div className="request-status__title">Статус заявки</div>
+              {
+                codeSent &&
+                <div className="request-status__message">
+                  Введите код, который мы прислали на номер {phone}
+                </div>
+              }
+              {
+                !codeSent &&
+                <div className="request-status__message">
+                  Введите номер, с которым вы оставляли заявку
+                </div>
+              }
+              {
+                !codeSent &&
+                <form onSubmit={onSubmit}>
+                  <InputPhone onChange={onChange} value={phone} name="phone" className="input_phone" />
+                </form>
+              }
+              <MobileCode phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} buttonTitle="Проверить статус" ref={mobileCode} />
+            </div>
+          }
+          {
+            type === 'simple' &&
+            <RequestStatusSimple
+              header={content.header}
+              message={content.message}
+              color={content.color}
+            />
+          }
+          {
+            type === 'delivery' &&
+            <RequestStatusDelivery data={content} />
+          }
+          <RequestStatusFooter />
+        </Transitions>
       </div>
     );
   }

@@ -4,6 +4,7 @@ import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Payment from '../components/Payment';
 import LinkBack from '../components/LinkBack';
+import Transitions from '../components/Transitions';
 import { Pages } from '../constants';
 
 class PayPackage extends Component {
@@ -23,15 +24,17 @@ class PayPackage extends Component {
       <MobileNav key="nav" type="dashboard" />,
       <div key="dashboard" className="dashboard">
         <Aside />
-        <div className="dashboard__content pay-package">
-          <LinkBack href={Pages.ADD_PACKAGE} className="link-back_offset-bottom" />
-          <div className="pay-package__header">
-            {
-              (!pack || !sum) ? 'Вы не выбрали услугу' : `Оплата ${pack}`
-            }
+        <Transitions>
+          <div className="dashboard__content pay-package">
+            <LinkBack href={Pages.ADD_PACKAGE} className="link-back_offset-bottom" />
+            <div className="pay-package__header">
+              {
+                (!pack || !sum) ? 'Вы не выбрали услугу' : `Оплата ${pack}`
+              }
+            </div>
+            <Payment isEditable={false} sum={sum} onPay={onPay} />
           </div>
-          <Payment isEditable={false} sum={sum} onPay={onPay} />
-        </div>
+        </Transitions>
       </div>,
     ];
   }

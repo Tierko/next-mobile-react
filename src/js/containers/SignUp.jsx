@@ -8,6 +8,7 @@ import SingUpStep1 from '../components/SignUpStep1';
 import SignUpStep2 from '../components/SignUpStep2';
 import SignUpStep3 from '../components/SignUpStep3';
 import SignUpStep4 from '../components/SignUpStep4';
+import Transitions from '../components/Transitions';
 import { Pages } from '../constants';
 
 class SignUp extends Component {
@@ -31,30 +32,34 @@ class SignUp extends Component {
       <div className="welcome">
         <MobileNav type="enter" />
         <NavLobby />
-        {
-          step &&
-          <ProgressBar count={4} current={step} />
-        }
-        {
-          !step &&
-          <SignUpInit nextStep={nextStep} toPage={toPage} mode={mode || ''} />
-        }
-        {
-          step === '1' &&
-          <SingUpStep1 nextStep={nextStep} />
-        }
-        {
-          step === '2' &&
-          <SignUpStep2 nextStep={nextStep} />
-        }
-        {
-          step === '3' &&
-          <SignUpStep3 nextStep={nextStep} />
-        }
-        {
-          step === '4' &&
-          <SignUpStep4 toPage={toPage} />
-        }
+        <Transitions classNames="slide">
+          {
+            step &&
+            <Transitions classNames="slide">
+              <ProgressBar count={4} current={step} />
+            </Transitions>
+          }
+          {
+            !step &&
+            <SignUpInit nextStep={nextStep} toPage={toPage} mode={mode || ''} />
+          }
+          {
+            step === '1' &&
+            <SingUpStep1 nextStep={nextStep} />
+          }
+          {
+            step === '2' &&
+            <SignUpStep2 nextStep={nextStep} />
+          }
+          {
+            step === '3' &&
+            <SignUpStep3 nextStep={nextStep} />
+          }
+          {
+            step === '4' &&
+            <SignUpStep4 toPage={toPage} />
+          }
+        </Transitions>
       </div>
     );
   }

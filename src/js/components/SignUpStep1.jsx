@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cs from 'classnames';
 import Input from './InputPhone';
 import Button from './Button';
+import Transitions from '../components/Transitions';
 import { checkPhone } from '../utils';
 
 class SignUpStep1 extends Component {
@@ -32,14 +33,16 @@ class SignUpStep1 extends Component {
     const isPhoneValid = checkPhone(phone);
 
     return (
-      <div className="welcome__content sign-up">
-        <div className="sign-up__header">Текущий номер телефона</div>
-        <form onSubmit={onSubmit} className="sign-up__form">
-          <Input name="phone" value={phone} onChange={onChange} className="input_phone" />
-        </form>
-        <Button className="button_sign-up-continue" onClick={onSubmit} disabled={!isPhoneValid}>Продолжить</Button>
-        <div className={cs('sign-up__note', { 'sign-up__note_show': isPhoneValid })}>К личной информации</div>
-      </div>
+      <Transitions classNames="slide">
+        <div className="welcome__content sign-up">
+          <div className="sign-up__header">Текущий номер телефона</div>
+          <form onSubmit={onSubmit} className="sign-up__form">
+            <Input name="phone" value={phone} onChange={onChange} className="input_phone" />
+          </form>
+          <Button className="button_sign-up-continue" onClick={onSubmit} disabled={!isPhoneValid}>Продолжить</Button>
+          <div className={cs('sign-up__note', { 'sign-up__note_show': isPhoneValid })}>К личной информации</div>
+        </div>
+      </Transitions>
     );
   }
 }

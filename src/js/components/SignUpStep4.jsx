@@ -4,6 +4,7 @@ import cs from 'classnames';
 import Select from '../components/Select';
 import Date from '../components/Date';
 import Button from '../components/Button';
+import Transitions from '../components/Transitions';
 import { Pages } from '../constants';
 
 class SignUpStep4 extends Component {
@@ -37,20 +38,22 @@ class SignUpStep4 extends Component {
     const permit = !!date && !!time;
 
     return (
-      <div className="welcome__content sign-up">
-        <div className="sign-up__header">Время доставки</div>
-        <div className="sign-up__form">
-          <div className="sign-up__message sign-up__message_step4">Когда вам будет удобно получить новую SIM-карту и подписать договор?</div>
-          <Date name="date" value={date} onChange={onChange} placeholder="Дата" fromToday />
-          <Select placeholder="Время" onSelect={v => onChange('time', v)} items={times} value={time} />
-          <Button className="button_sign-up-step4" onClick={() => toPage(Pages.REQUEST_STATUS)} disabled={!permit}>
-            Продолжить
-          </Button>
+      <Transitions classNames="slide">
+        <div className="welcome__content sign-up">
+          <div className="sign-up__header">Время доставки</div>
+          <div className="sign-up__form">
+            <div className="sign-up__message sign-up__message_step4">Когда вам будет удобно получить новую SIM-карту и подписать договор?</div>
+            <Date name="date" value={date} onChange={onChange} placeholder="Дата" fromToday />
+            <Select placeholder="Время" onSelect={v => onChange('time', v)} items={times} value={time} />
+            <Button className="button_sign-up-step4" onClick={() => toPage(Pages.REQUEST_STATUS)} disabled={!permit}>
+              Продолжить
+            </Button>
+          </div>
+          <div className={cs('sign-up__note', { 'sign-up__note_show': permit })}>
+            Я соглашаюсь с условиями пользования и на обработку персональных данных
+          </div>
         </div>
-        <div className={cs('sign-up__note', { 'sign-up__note_show': permit })}>
-          Я соглашаюсь с условиями пользования и на обработку персональных данных
-        </div>
-      </div>
+      </Transitions>
     );
   }
 }

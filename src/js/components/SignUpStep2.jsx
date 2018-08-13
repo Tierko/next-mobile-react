@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cs from 'classnames';
 import Input from '../components/Input';
 import Button from '../components/Button';
+import Transitions from '../components/Transitions';
 
 class SignUpStep2 extends Component {
   state = {
@@ -73,45 +74,47 @@ class SignUpStep2 extends Component {
     } = this.state;
 
     return (
-      <div className="welcome__content sign-up">
-        <div className="sign-up__header">Владелец номера</div>
-        <form onSubmit={onSubmit} className="sign-up__form">
-          <Input
-            name="surname"
-            value={surname}
-            onChange={onChange}
-            onBlur={onBlur}
-            placeholder="Фамилия"
-            errorText={surnameError && 'Смените раскладку на кириллицу'}
-          />
-          <Input
-            name="name"
-            value={name}
-            onChange={onChange}
-            onBlur={onBlur}
-            placeholder="Имя"
-            errorText={nameError && 'Смените раскладку на кириллицу'}
-          />
-          <Input
-            name="middleName"
-            value={middleName}
-            onChange={onChange}
-            onBlur={onBlur}
-            placeholder="Отчество"
-            errorText={middleNameError && 'Смените раскладку на кириллицу'}
-          />
-          <Button
-            className="button_sign-up-continue"
-            onClick={onSubmit}
-            disabled={!isFilled()}
-          >
-            Продолжить
-          </Button>
-        </form>
-        <div className={cs('sign-up__note', { 'sign-up__note_show': isFilled() })}>
-          К  информации о доставке
+      <Transitions classNames="slide">
+        <div className="welcome__content sign-up">
+          <div className="sign-up__header">Владелец номера</div>
+          <form onSubmit={onSubmit} className="sign-up__form">
+            <Input
+              name="surname"
+              value={surname}
+              onChange={onChange}
+              onBlur={onBlur}
+              placeholder="Фамилия"
+              errorText={surnameError && 'Смените раскладку на кириллицу'}
+            />
+            <Input
+              name="name"
+              value={name}
+              onChange={onChange}
+              onBlur={onBlur}
+              placeholder="Имя"
+              errorText={nameError && 'Смените раскладку на кириллицу'}
+            />
+            <Input
+              name="middleName"
+              value={middleName}
+              onChange={onChange}
+              onBlur={onBlur}
+              placeholder="Отчество"
+              errorText={middleNameError && 'Смените раскладку на кириллицу'}
+            />
+            <Button
+              className="button_sign-up-continue"
+              onClick={onSubmit}
+              disabled={!isFilled()}
+            >
+              Продолжить
+            </Button>
+          </form>
+          <div className={cs('sign-up__note', { 'sign-up__note_show': isFilled() })}>
+            К  информации о доставке
+          </div>
         </div>
-      </div>
+      </Transitions>
     );
   }
 }
