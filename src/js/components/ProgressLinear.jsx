@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 
@@ -8,52 +8,66 @@ const offsetColors = (colorObject, percent) => {
   });
 };
 
-const ProgressLinear = ({
-  max: maxValue,
-  current,
-  className,
-  tall,
-  dashed,
-}) => {
-  const percent = (current > maxValue || maxValue === 0) ? 1 : current / maxValue;
-  const startColor = {
-    max: [323, 100, 70],
-    min: [150, 95, 50],
-    current: [0, 0, 0],
-  };
-  const endColor = {
-    max: [345, 100, 85],
-    min: [190, 95, 50],
-    current: [0, 0, 0],
+class ProgressLinear extends Component {
+  state = {
+    show: false,
   };
 
-  offsetColors(startColor, percent);
-  offsetColors(endColor, percent);
+  componentDidMount() {
+    setTimeout(() => (
+      this.setState({
+        show: true,
+      })
+    ), 300);
+  }
 
-  const min = startColor.current;
-  const max = endColor.current;
+  render() {
+    const {
+      max: maxValue,
+      current,
+      className,
+      tall,
+      dashed,
+    } = this.props;
+    const percent = (current > maxValue || maxValue === 0) ? 1 : current / maxValue;
+    const startColor = {
+      max: [323, 100, 70],
+      min: [150, 95, 50],
+      current: [0, 0, 0],
+    };
+    const endColor = {
+      max: [345, 100, 85],
+      min: [190, 95, 50],
+      current: [0, 0, 0],
+    };
+    const { show } = this.state;
 
+    offsetColors(startColor, percent);
+    offsetColors(endColor, percent);
 
+    const min = startColor.current;
+    const max = endColor.current;
 
-  return (
-    <div className={cs(`progress-linear ${className}`, { 'progress-linear_tall': tall, 'progress-linear_dashed': dashed })}>
-      {
-        !dashed &&
-        <div
-          className={cs('progress-linear__line', { 'progress-linear__line_tall': tall })}
-          style={{
-            width: `${percent * 100}%`,
-            backgroundImage: `linear-gradient(to right, hsl(${min[0]}, ${min[1]}%, ${min[2]}%), hsl(${max[0]}, ${max[1]}%, ${max[2]}%)`,
-          }}
-        />
-      }
-      {
-        current <= 0 && maxValue > 0 &&
-        <div className="progress-linear__empty" />
-      }
-    </div>
-  );
-};
+    return (
+      <div className={cs(`progress-linear ${className}`, { 'progress-linear_tall': tall, 'progress-linear_dashed': dashed })}>
+        {
+          !dashed &&
+          <div
+            className={cs('progress-linear__line', { 'progress-linear__line_tall': tall })}
+            style={{
+              width: `${show ? percent * 100 : 0}%`,
+              backgroundImage: `linear-gradient(to right, hsl(${min[0]}, ${min[1]}%, ${min[2]}%), hsl(${max[0]}, ${max[1]}%, ${max[2]}%)`,
+            }}
+          />
+        }
+        {
+          current <= 0 && maxValue > 0 &&
+          <div className="progress-linear__empty" />
+        }
+      </div>
+    );
+  }
+}
 
 ProgressLinear.propTypes = {
   max: PropTypes.number.isRequired,
