@@ -13,7 +13,7 @@ class MultipleInput extends Component {
   onChange = (e) => {
     const { count, onChange, name } = this.props;
     const values = this.state.values.slice();
-    const number = e.target.dataset.number * 1;
+    const number = this.getNumber(e.target) * 1;
     const { value } = e.target;
 
     if (value.length === 1 && number !== count - 1) {
@@ -71,6 +71,14 @@ class MultipleInput extends Component {
     if (value.length === 1) {
       this[`input${number}`].focus();
     }
+  };
+
+  getNumber = (el) => {
+    if (el.dataset) {
+      return el.dataset.number;
+    }
+
+    return el.getAttribute('data-number');
   };
 
   render() {
