@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PageFade from '../components/PageFade';
 import { Pages, Statuses } from '../constants';
 
 const SiteMap = () => (
@@ -88,4 +87,4 @@ const SiteMap = () => (
   </div>
 );
 
-export default PageFade(SiteMap);
+export default SiteMap;

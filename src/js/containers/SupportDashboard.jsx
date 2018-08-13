@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Chat from '../components/Chat';
-import PageFade from '../components/PageFade';
 
 class SupportDashboard extends Component {
   render() {
@@ -18,4 +17,4 @@ class SupportDashboard extends Component {
   }
 }
 
-export default PageFade(SupportDashboard);
+export default SupportDashboard;

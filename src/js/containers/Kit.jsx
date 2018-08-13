@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Aside from '../components/Aside';
 import MobileNav from '../components/MobileNav';
-import PageFade from '../components/PageFade';
 import Input from '../components/Input';
 import Date from '../components/Date';
 import Select from '../components/Select';
@@ -129,4 +128,4 @@ class Kit extends Component {
   }
 }
 
-export default PageFade(Kit);
+export default Kit;

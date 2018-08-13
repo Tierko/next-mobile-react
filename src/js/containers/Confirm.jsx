@@ -4,11 +4,10 @@ import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import LinkBack from '../components/LinkBack';
 import Button from '../components/Button';
-import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
 import { formatCost } from '../utils';
 
-class PayPackage extends Component {
+class Confirm extends Component {
   onPay = () => {
     const { history } = this.props;
 
@@ -38,9 +37,9 @@ class PayPackage extends Component {
   }
 }
 
-PayPackage.propTypes = {
+Confirm.propTypes = {
   location: PropTypes.shape().isRequired,
   history: PropTypes.shape().isRequired,
 };
 
-export default PageFade(PayPackage);
+export default Confirm;

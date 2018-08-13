@@ -4,7 +4,6 @@ import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Payment from '../components/Payment';
 import LinkBack from '../components/LinkBack';
-import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
 
 class PayPackage extends Component {
@@ -43,4 +42,4 @@ PayPackage.propTypes = {
   history: PropTypes.shape().isRequired,
 };
 
-export default PageFade(PayPackage);
+export default PayPackage;

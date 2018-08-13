@@ -7,7 +7,6 @@ import Button from '../components/Button';
 import CheckboxSlide from '../components/CheckboxSlide';
 import Select from '../components/SelectLang';
 import Note from '../components/Note';
-import PageFade from '../components/PageFade';
 
 class Settings extends Component {
   state = {
@@ -132,4 +131,4 @@ class Settings extends Component {
   }
 }
 
-export default PageFade(Settings);
+export default Settings;

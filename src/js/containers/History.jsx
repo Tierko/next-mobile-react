@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
-import PageFade from '../components/PageFade';
 import Expense from '../components/Expense';
 import Operations from '../components/Operations';
 import { getData } from '../utils';
@@ -30,4 +29,4 @@ History.propTypes = {
   history: PropTypes.shape().isRequired,
 };
 
-export default PageFade(History);
+export default History;

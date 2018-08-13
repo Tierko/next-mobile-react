@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
-import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
 
 const Result = ({ match, location }) => {
@@ -49,4 +48,4 @@ const Result = ({ match, location }) => {
   ]);
 };
 
-export default PageFade(Result);
+export default Result;

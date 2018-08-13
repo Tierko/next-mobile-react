@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import MobileNav from '../components/MobileNav';
 import NavLobby from '../components/NavLobby';
-import PageFade from '../components/PageFade';
 import Chat from '../components/Chat';
 
 class Support extends Component {
@@ -19,4 +18,4 @@ class Support extends Component {
   }
 }
 
-export default PageFade(Support);
+export default Support;

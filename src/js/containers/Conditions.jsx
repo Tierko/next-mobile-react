@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import NavLobby from '../components/NavLobby';
 import Button from '../components/Button';
-import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
 
 const Conditions = ({ history }) => (
@@ -25,4 +24,4 @@ Conditions.propTypes = {
   history: PropTypes.shape().isRequired,
 };
 
-export default PageFade(Conditions);
+export default Conditions;

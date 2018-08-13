@@ -8,7 +8,6 @@ import SingUpStep1 from '../components/SignUpStep1';
 import SignUpStep2 from '../components/SignUpStep2';
 import SignUpStep3 from '../components/SignUpStep3';
 import SignUpStep4 from '../components/SignUpStep4';
-import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
 
 class SignUp extends Component {
@@ -66,4 +65,4 @@ SignUp.propTypes = {
   match: PropTypes.shape().isRequired,
 };
 
-export default PageFade(SignUp);
+export default SignUp;

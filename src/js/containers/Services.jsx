@@ -4,7 +4,6 @@ import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import TariffServices from '../components/TariffServices';
 import TariffTable from '../components/TariffTable';
-import PageFade from '../components/PageFade';
 import InterCalls from '../components/InterCalls';
 import { Pages } from '../constants';
 import tariff from '../../data/tariff';
@@ -75,4 +74,4 @@ Services.propTypes = {
   history: PropTypes.shape().isRequired,
 };
 
-export default PageFade(Services);
+export default Services;

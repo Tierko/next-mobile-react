@@ -6,7 +6,6 @@ import NavLobby from '../components/NavLobby';
 import Input from '../components/InputPhone';
 import Logo from '../components/Logo';
 import MobileCode from '../components/MobileCode';
-import PageFade from '../components/PageFade';
 import { Pages } from '../constants';
 
 class SignIn extends Component {
@@ -90,4 +89,4 @@ SignIn.propTypes = {
   history: PropTypes.shape().isRequired,
 };
 
-export default PageFade(SignIn);
+export default SignIn;
