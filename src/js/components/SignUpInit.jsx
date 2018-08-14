@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PromoCode from './PromoCode';
 import Input from './InputPhone';
 import Button from './Button';
-import Logo from './Logo';
+import LogoAnimated from './LogoAnimated';
 import Transitions from './Transitions';
 import { Pages, Statuses } from '../constants';
 import { checkPhone } from '../utils';
@@ -61,7 +61,7 @@ class SignUp extends Component {
     return (
       <div className="welcome__content sign-up">
         <Transitions classNames="slide">
-          <Logo type="photo" className="logo_sign-up" />
+          <LogoAnimated expand={mode === 'promo'} />
         </Transitions>
         <div className="sign-up__message">
           {
