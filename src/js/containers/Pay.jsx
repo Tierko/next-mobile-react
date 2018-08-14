@@ -79,7 +79,6 @@ class Pay extends Component {
       onEdit,
       onClose,
     } = this;
-    console.log(autoPay)
 
     return ([
       <MobileNav key="nav" type="dashboard" />,

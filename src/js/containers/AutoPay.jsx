@@ -135,7 +135,7 @@ class AutoPay extends Component {
                 <div className="auto-pay__card">
                   <div className="auto-pay__note">С карты по умолчанию</div>
                   <div
-                    className={`card card_selected card_default card_auto-pay card_${getPaySystem(card.token)}`}
+                    className={`card card_default card_auto-pay card_${getPaySystem(card.token)}`}
                   >
                     <div className="card__number">{getShortPan(card.token)}</div>
                   </div>
