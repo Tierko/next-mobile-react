@@ -19,15 +19,17 @@
 
   &_chat-audio {
     border-radius: 50%;
+    transition: color 0.3s linear, background-color 0.1s linear, box-shadow 0.3s linear;
 
     svg {
       height: 30px;
     }
 
     &-active {
-      background-color: #1bbbeb;
       color: @WHITE;
-      box-shadow: 0 0 10px 10px #1bbbeb;
+      background-color: #1bbbeb;
+      animation: pulse 1s infinite;
+      box-shadow: 0 0 5px 5px #1bbbeb;
     }
   }
 
@@ -40,5 +42,19 @@
   &__img {
     max-width: 100%;
     height: auto;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 5px 5px #1bbbeb;
+  }
+
+  50% {
+    box-shadow: 0 0 10px 10px #1bbbeb;
+  }
+
+  100% {
+    box-shadow: 0 0 5px 5px #1bbbeb;
   }
 }
