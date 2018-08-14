@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Input from './InputRuble';
 import Button from './Button';
 import Cards from './Cards';
+import { formatCost } from '../utils';
 
 class Payment extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class Payment extends Component {
 
     this.state = {
       payment: props.sum,
+      paymentInit: props.sum,
       payPermitted: true,
       card: null,
     };
@@ -47,10 +49,10 @@ class Payment extends Component {
       payment,
       payPermitted,
       card,
+      paymentInit,
     } = this.state;
     const {
       isEditable,
-      sum,
       onPay,
       onEdit,
     } = this.props;
@@ -60,13 +62,13 @@ class Payment extends Component {
         <Cards onPermitChange={onPermitChange} onEdit={onEdit} />
         {
           !isEditable &&
-          <div className="payment__sum">{sum} ₽</div>
+          <div className="payment__sum">{formatCost(paymentInit, true)}</div>
         }
         {
           isEditable &&
           <Fragment>
             <Input className="input_pay" onChange={onChange} value={payment} name="payment" clear />
-            <div className="payment__message">Для оплаты по тарифу Супервип на счету не хватает { sum } ₽</div>
+            <div className="payment__message">Для оплаты по тарифу Супервип на счету не хватает {formatCost(paymentInit, true)}</div>
           </Fragment>
         }
         <Button className="button_pay" onClick={() => onPay(card)} disabled={!payment || !payPermitted}>

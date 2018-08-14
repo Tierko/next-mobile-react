@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cs from 'classnames';
 import CheckboxSlide from './CheckboxSlide';
 
 const TariffServices = ({ services, onChange }) => (
@@ -12,7 +11,7 @@ const TariffServices = ({ services, onChange }) => (
       services.map(s => (
         <div key={s.id} className="tariff-service">
           <div className="tariff-service__control">
-            <div className={cs('tariff-service__name', { 'tariff-service__name_checked': s.checked })}>
+            <div className="tariff-service__name">
               {s.name}
             </div>
             <CheckboxSlide value={s.checked} name="tariff" onChange={(n, v) => onChange(s.id, v)} />
