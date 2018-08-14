@@ -19,8 +19,9 @@ class Cards extends Component {
   };
 
   componentDidMount() {
-    const { setOffset } = this;
+    const { setOffset, addClasses } = this;
     setOffset();
+    addClasses();
   }
 
   onChange = (name, value) => {
@@ -41,8 +42,7 @@ class Cards extends Component {
       holder,
       date,
       cvv,
-      type: 'visa',
-      token: `${number}${holder}${date}${cvv}`,
+      token: number,
     };
 
     this.setState({
@@ -53,14 +53,15 @@ class Cards extends Component {
   };
 
   onCardSelect = (e) => {
-    const { onPermitChange, isNewCardValid } = this;
+    const cardE = e.currentTarget;
+    const { onPermitChange, isNewCardValid, getAttr } = this;
     const {
       number,
       holder,
       date,
       cvv,
     } = this.state;
-    const { id } = e.currentTarget.dataset;
+    const id = getAttr(cardE, 'id');
     const card = id === 'new' ? {
       number,
       holder,
@@ -70,30 +71,23 @@ class Cards extends Component {
     } : undefined;
 
     onPermitChange(id !== 'new' || (id === 'new' && isNewCardValid()), card);
-
-
-    const cardE = e.currentTarget;
     const { row, inner } = this;
-    const selected = document.querySelector('.card_selected');
+    const maxScroll = inner.clientWidth - row.clientWidth;
+    const cardNumber = getAttr(cardE, 'number') * 1;
+    const scroll = isNaN(cardNumber) ? maxScroll + 142 : cardNumber * 167;
+    let timeout = 0;
 
-    if (selected && !cardE.classList.contains('card_selected')) {
-      selected.classList.remove('card_selected');
+    if (isNaN(cardNumber)) {
+      timeout = 300;
     }
 
-    if (cardE && row) {
-      const isNewCard = cardE.classList.contains('card_new');
-      const offset = this.calculateOffsetStart() + 8 + (isNewCard ? -117 : 0);
-      const cardBound = cardE.getBoundingClientRect();
-      const innerBound = inner.getBoundingClientRect();
-
-      setTimeout(() => {
-        row.scroll({
-          left: cardBound.x - innerBound.x - offset,
-          top: 0,
-          behavior: 'smooth',
-        });
-      }, 100);
-    }
+    setTimeout(() => {
+      row.scroll({
+        left: scroll,
+        top: 0,
+        behavior: 'smooth',
+      });
+    }, timeout);
 
     this.setState({
       selected: id,
@@ -110,8 +104,17 @@ class Cards extends Component {
 
   onCardEdit = ({ target }) => {
     const { onEdit } = this.props;
+    const { getAttr } = this;
 
-    onEdit(target.dataset.id);
+    onEdit(getAttr(target, 'id'));
+  };
+
+  getAttr = (e, attr) => {
+    if (e.dataset) {
+      return e.dataset[attr];
+    }
+
+    return e.getAttribute(attr);
   };
 
   setOffset = () => {
@@ -120,6 +123,16 @@ class Cards extends Component {
     const offsetEnd = calculateOfssetEnd();
     inner.style.paddingLeft = `${offsetStart}px`;
     inner.style.paddingRight = `${offsetEnd}px`;
+  };
+
+  addClasses = () => {
+    const cards = document.querySelectorAll('.card__wrapper');
+
+    [].forEach.call(cards, (e, i) => {
+      if (i !== cards.length - 1) {
+        e.setAttribute('data-number', i);
+      }
+    });
   };
 
   calculateOfssetEnd = () => {
@@ -169,10 +182,8 @@ class Cards extends Component {
       holder,
       date,
       cvv,
-      editCardId,
     } = this.state;
     const selected = this.state.selected || data.defaultCard;
-    const currentCard = data.items.find(i => i.token === editCardId);
 
     return (
       <div className="cards__wrapper">

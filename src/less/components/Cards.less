@@ -13,7 +13,7 @@
 
     &:before,
     &:after {
-      content: '';
+      //content: '';
       position: absolute;
       top: -15px;
       bottom: -15px;
@@ -65,6 +65,7 @@
   display: flex;
   justify-content: space-between;
   position: relative;
+  transition: width 0.2s linear, height 0.2s linear;
 
   &:after {
     content: '';
@@ -168,6 +169,10 @@
 
   &_auto-pay {
     margin: 50px 0 15px;
+  }
+
+  &__wrapper {
+
   }
 
   &__number {
