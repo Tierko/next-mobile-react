@@ -10,7 +10,7 @@ import Button from '../components/Button';
 import CardEditor from '../components/CardEditor';
 import Transitions from '../components/Transitions';
 import { Pages } from '../constants';
-import { formatCost, getData } from '../utils';
+import { formatCost, getShortPan } from '../utils';
 import { addCardAction } from '../actions/Cards';
 
 class Pay extends Component {
@@ -70,7 +70,8 @@ class Pay extends Component {
 
   render() {
     const { sum, editCardId } = this.state;
-    const autoPayEnabled = !!getData('autopay');
+    const { autoPay, cards } = this.props;
+    const autoPayEnabled = autoPay.lessEnabled || autoPay.monthlyEnabled;
     const {
       onPay,
       changeAutoPay,
@@ -78,6 +79,7 @@ class Pay extends Component {
       onEdit,
       onClose,
     } = this;
+    console.log(autoPay)
 
     return ([
       <MobileNav key="nav" type="dashboard" />,
@@ -96,16 +98,33 @@ class Pay extends Component {
               />
               {
                 autoPayEnabled &&
+                <div className="dashboard__header">Подключен автоплатеж</div>
+              }
+              {
+                autoPay.monthlyEnabled &&
                 <Fragment>
-                  <div className="dashboard__header">Подключен автоплатеж</div>
                   <div className="pay__auto-pay-from">
-                    2 000 ₽ с карты Сбербанка *4493
+                    {formatCost(autoPay.monthlySum)} с карты {getShortPan(cards.defaultCard)}
                   </div>
                   <div>
-                    Оплата каждый месяц 10 числа до сентября 2020
+                    Оплата каждый месяц {autoPay.monthlyDay} числа до {autoPay.monthlyUntil}
                   </div>
-                  <Button className="button_pay" onClick={changeAutoPay}>Изменить</Button>
                 </Fragment>
+              }
+              {
+                autoPay.lessEnabled &&
+                <Fragment>
+                  <div className="pay__auto-pay-from">
+                    {formatCost(autoPay.lessSum)} с карты {getShortPan(cards.defaultCard)}
+                  </div>
+                  <div>
+                    Если сумма на балансе меньше {formatCost(autoPay.lessLess)}
+                  </div>
+                </Fragment>
+              }
+              {
+                autoPayEnabled &&
+                <Button className="button_pay" onClick={changeAutoPay}>Изменить</Button>
               }
               {
                 !autoPayEnabled &&
@@ -127,7 +146,16 @@ class Pay extends Component {
 Pay.propTypes = {
   history: PropTypes.shape().isRequired,
   addCard: PropTypes.func.isRequired,
+  autoPay: PropTypes.shape().isRequired,
+  cards: PropTypes.shape().isRequired,
 };
+
+function mapStateToProps(state) {
+  return {
+    autoPay: state.AutoPay,
+    cards: state.Cards,
+  };
+}
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -135,4 +163,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(null, mapDispatchToProps)(Pay);
+export default connect(mapStateToProps, mapDispatchToProps)(Pay);

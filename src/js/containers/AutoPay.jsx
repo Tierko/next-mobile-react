@@ -10,7 +10,7 @@ import InputRuble from '../components/InputRuble';
 import Select from '../components/Select';
 import Button from '../components/Button';
 import Transitions from '../components/Transitions';
-import { Pages, MONTHS } from '../constants';
+import { Pages, MONTHS_M } from '../constants';
 import saveAutoPayAction from '../actions/AutoPay';
 import {
   getShortPan,
@@ -28,8 +28,10 @@ class AutoPay extends Component {
 
     const mm = m.map((d, i) => {
       const tmp = new Date(year, month + i + 1);
+      let monthName = MONTHS_M[tmp.getMonth()];
+      monthName = `${monthName[0].toUpperCase()}${monthName.substr(1)}`;
 
-      return `${MONTHS[tmp.getMonth()]} ${tmp.getFullYear()}`;
+      return `${monthName} ${tmp.getFullYear()}`;
     });
 
     mm.push('Бессрочно');
