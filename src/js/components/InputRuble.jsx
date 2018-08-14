@@ -52,7 +52,7 @@ class InputRuble extends Input {
         <div className={cs('input__indicator', { input__indicator_error: errorText })} />
         {
           clear &&
-          <div className="input__clear" onClick={() => this.props.onChange(name, '')} role="button" />
+          <div className="input__icon input__icon_clear" onClick={() => this.props.onChange(name, '')} role="button" />
         }
       </div>
     );
