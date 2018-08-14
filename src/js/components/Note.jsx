@@ -25,6 +25,7 @@ class Note extends Component {
       color,
       show,
       hideCont,
+      subText,
     } = this.props;
 
     this.createTimer();
@@ -34,6 +35,9 @@ class Note extends Component {
         <div className={`note__message note__message_${color}`}>
           {message}
         </div>
+        {
+          subText && <div className="note__sub">{subText}</div>
+        }
       </div>
     );
   }
@@ -47,6 +51,7 @@ Note.propTypes = {
   timeOut: PropTypes.number,
   show: PropTypes.bool.isRequired,
   hideCont: PropTypes.bool,
+  subText: PropTypes.string,
 };
 
 Note.defaultProps = {
@@ -54,6 +59,7 @@ Note.defaultProps = {
   timeOut: 3000,
   onFadeOut: null,
   hideCont: false,
+  subText: '',
 };
 
 export default Note;

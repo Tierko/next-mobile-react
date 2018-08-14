@@ -38,11 +38,10 @@ class Cards extends Component {
       cvv,
     } = nextState;
     const card = {
-      number,
+      number: number.replace(/\s/g, ''),
       holder,
       date,
       cvv,
-      token: number,
     };
 
     this.setState({

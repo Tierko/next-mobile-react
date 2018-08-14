@@ -114,6 +114,7 @@ class Overview extends Component {
             <Note
               className="note_dashboard"
               message="Добавлено 3ГБ бесплатного интернета до 5 марта"
+              subText="Спасибо, что всегда оплачиваетесчет вовремя"
               color="green"
               hideCont
               show={getData('noteGreen')}
@@ -121,6 +122,7 @@ class Overview extends Component {
             <Note
               className="note_dashboard"
               message="Добавьте электронную почту в настройках, чтобы получать квитанции"
+              subText="Перейти в настройки"
               color="blue"
               hideCont
               show={getData('noteBlue')}
@@ -131,6 +133,7 @@ class Overview extends Component {
               color="red"
               hideCont
               show={getData('noteRed')}
+              subText="Чтобы разблокровать номер, обратитесь в поддержку"
             />
             <Balance
               sum={getData('balance')}
