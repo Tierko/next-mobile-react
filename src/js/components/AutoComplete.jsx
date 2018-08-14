@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cs from 'classnames';
 import Select from './Select';
 import Input from './Input';
@@ -48,7 +49,9 @@ class AutoComplete extends Select {
       items,
       name,
       simplePlaceholder,
+      emptyText,
     } = this.props;
+    const itemsFiltered = items.filter(i => isItemValid(i, value));
 
     return (
       <div className={`select ${className}`} ref={(e) => { this.select = e; }}>
@@ -61,7 +64,7 @@ class AutoComplete extends Select {
         />
         <div className={cs('select__list select__list_auto-complete', { select__list_open: open && value.length })}>
           {
-            items.filter(i => isItemValid(i, value)).map(i => (
+            itemsFiltered.map(i => (
               <div
                 className="select__item"
                 onClick={() => onSelect(i)}
@@ -74,10 +77,24 @@ class AutoComplete extends Select {
               </div>
             ))
           }
+          {
+            value && itemsFiltered.length === 0 &&
+            <div className="select__item">
+              {emptyText}
+            </div>
+          }
         </div>
       </div>
     );
   }
 }
+
+AutoComplete.propTypes = {
+  emptyText: PropTypes.string,
+};
+
+AutoComplete.defaultProps = {
+  emptyText: 'Ничего не найдено',
+};
 
 export default AutoComplete;

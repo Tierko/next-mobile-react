@@ -82,6 +82,7 @@ class InterCalls extends Component {
               items={data.items}
               simplePlaceholder
               fromStart
+              emptyText="Такой страны нет в списке"
             />
           </div>
         }
