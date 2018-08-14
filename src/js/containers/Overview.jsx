@@ -14,6 +14,7 @@ import RoamingDashboard from '../components/RoamingDashboard';
 import Note from '../components/Note';
 import OverviewInvite from '../components/OverviewInvite';
 import OverviewRoamingCurrent from '../components/OverviewRoamingCurrent';
+import OverviewAutoPay from '../components/OverviewAutoPay';
 
 import { Pages, DAYS } from '../constants';
 import { getData, formatCost, convertStrings } from '../utils';
@@ -137,6 +138,7 @@ class Overview extends Component {
               status={status}
             />
             <OverviewPayment onChange={sumChange} onPay={onPay} sum={sum} />
+            <OverviewAutoPay />
             <OverviewRoamingCurrent history={history} data={roaming} />
             <Remain
               data={getData('remain')}
