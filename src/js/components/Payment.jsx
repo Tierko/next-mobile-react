@@ -69,7 +69,7 @@ class Payment extends Component {
             <div className="payment__message">Для оплаты по тарифу Супервип на счету не хватает { sum } ₽</div>
           </Fragment>
         }
-        <Button className="button_pay-package" onClick={() => onPay(card)} disabled={!payment || !payPermitted}>
+        <Button className="button_pay" onClick={() => onPay(card)} disabled={!payment || !payPermitted}>
           Пополнить
         </Button>
       </div>
