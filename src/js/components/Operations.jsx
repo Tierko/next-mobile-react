@@ -170,7 +170,7 @@ class Operations extends Component {
                     }
                   </td>
                   <td className="operations__cell operations__cell_cost">
-                    {formatCost(d.cost)}
+                    {formatCost(d.cost, true)}
                     {
                       d.tariff &&
                       <div className="operations__note">
@@ -232,7 +232,7 @@ class Operations extends Component {
                 }
                 <div className="operations__item-row">
                   <div>{HISTORY_TITLES.find(f => f.id === d.type).title}</div>
-                  <div>{formatCost(d.cost)}</div>
+                  <div>{formatCost(d.cost, true)}</div>
                 </div>
                 <div className="operations__item-row operations__item-row_gray">
                   <div>{d.note}</div>

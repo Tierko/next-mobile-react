@@ -29,12 +29,12 @@ export const getPaySystem = (pan) => {
 
 export const getShortPan = pan => `*${pan.substring(12)}`;
 
-export const formatCost = (source) => {
+export const formatCost = (source, zeroByDefault) => {
   const arr = [];
   let str = source.toString().replace(/[^\d/.]/g, '');
   let tail = '';
 
-  if (source === 0) {
+  if (source === 0 && !zeroByDefault) {
     str = '';
   }
 
