@@ -25,7 +25,7 @@ class Grade extends Component {
     });
   };
 
-  onBlur = () => {
+  onBlur = (e) => {
     const { saved } = this.state;
     const { onItemSelect, data } = this.props;
     const item = data.find(i => i.id === saved);
@@ -69,16 +69,19 @@ class Grade extends Component {
     }
 
     return (
-      <div className={`grade ${className}`}>
-        <div className="grade__items" onMouseEnter={onEnter} onMouseOut={onBlur}>
+      <div className={`grade ${className}`} onMouseEnter={onEnter} onMouseLeave={onBlur}>
+        <div className="grade__items">
           {
             data.map(e => (
               <div
                 onClick={selectItem}
                 onMouseEnter={selectItem}
                 key={e.id}
-                className="grade__item"
                 data-id={e.id}
+                className={cs('grade__item', {
+                  grade__item_selected: e.id === selected,
+                  grade__item_wide: wide,
+                })}
               >
                 <div
                   className={cs('grade__line', {

@@ -60,10 +60,10 @@ class ProgressLinear extends Component {
             }}
           />
         }
-        {
-          current <= 0 && maxValue > 0 &&
-          <div className="progress-linear__empty" />
-        }
+        <div className={cs('progress-linear__empty', {
+          'progress-linear__empty_show': current <= 0 && maxValue > 0,
+        })}
+        />
       </div>
     );
   }

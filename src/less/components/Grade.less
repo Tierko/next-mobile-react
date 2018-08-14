@@ -1,5 +1,6 @@
 .grade {
   overflow-x: auto;
+  margin: 0 -10px;
 
   &__items {
     height: 120px;
@@ -8,27 +9,26 @@
   }
 
   &__item {
-    margin-top: auto;
-  }
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+    padding: 0 10px;
+    justify-content: center;
+    flex-direction: column;
 
-  &__item:first-child &__line:not(&__line_wide) {
-    width: 3px;
+    &_wide {
+      min-width: 53px;
+    }
   }
 
   &__line {
     border-right: 3px solid @GRAY-LIGHT;
     cursor: pointer;
     min-height: 20px;
-    margin-left: auto;
-    width: 23px;
+    margin-top: auto;
     transition: border-right-color 0.3s;
 
-    &_wide {
-      width: 53px;
-    }
-
     &_selected {
-      cursor: default;
       border-right-color: @BLACK;
     }
   }
