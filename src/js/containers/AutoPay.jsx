@@ -115,6 +115,7 @@ class AutoPay extends Component {
     const { onChange, onSave, getDefaultCard } = this;
     const { months, days } = AutoPay;
     const card = getDefaultCard();
+    const autoPayEnabled = monthlyEnabled || lessEnabled;
 
     return [
       <MobileNav key="nav" type="dashboard" />,
@@ -123,7 +124,11 @@ class AutoPay extends Component {
         <Transitions>
           <div className="dashboard__content">
             <LinkBack className="link-back_offset-bottom" href={Pages.PAY} />
-            <div className="dashboard__header">Подключение автоплатежа</div>
+            <div className="dashboard__header">
+              {
+                autoPayEnabled ? 'Ваш автоплатеж' : 'Подключение автоплатежа'
+              }
+            </div>
             <div className="auto-pay">
               {
                 card &&
