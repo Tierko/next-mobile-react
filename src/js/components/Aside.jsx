@@ -24,14 +24,30 @@ const Aside = ({ hideLink }) => (
         </div>
       </div>
       <nav className="aside__nav">
-        <NavLink to={Pages.OVERVIEW} className="aside__link">Обзор</NavLink>
-        <NavLink to={Pages.PAY} className="aside__link">Пополнение</NavLink>
-        <NavLink to={Pages.SERVICES} className="aside__link">Тарифы и услуги</NavLink>
-        <NavLink to={Pages.ROAMING} className="aside__link">Роуминг</NavLink>
-        <NavLink to={Pages.HISTORY} className="aside__link">История</NavLink>
-        <NavLink to={Pages.SETTINGS} className="aside__link">Настройки</NavLink>
-        <NavLink to={Pages.SUPPORT_DASHBOARD} className="aside__link">Поддержка</NavLink>
-        <NavLink to={Pages.Exit} className="aside__link aside__link_exit" exact>Выход</NavLink>
+        <div>
+          <NavLink to={Pages.OVERVIEW} className="aside__link">Обзор</NavLink>
+        </div>
+        <div>
+          <NavLink to={Pages.PAY} className="aside__link">Пополнение</NavLink>
+        </div>
+        <div>
+          <NavLink to={Pages.SERVICES} className="aside__link">Тарифы и услуги</NavLink>
+        </div>
+        <div>
+          <NavLink to={Pages.ROAMING} className="aside__link">Роуминг</NavLink>
+        </div>
+        <div>
+          <NavLink to={Pages.HISTORY} className="aside__link">История</NavLink>
+        </div>
+        <div>
+          <NavLink to={Pages.SETTINGS} className="aside__link">Настройки</NavLink>
+        </div>
+        <div>
+          <NavLink to={Pages.SUPPORT_DASHBOARD} className="aside__link">Поддержка</NavLink>
+        </div>
+        <div>
+          <NavLink to={Pages.Exit} className="aside__link aside__link_exit" exact>Выход</NavLink>
+        </div>
       </nav>
     </div>
   </div>

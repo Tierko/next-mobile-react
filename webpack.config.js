@@ -33,7 +33,7 @@ module.exports = (env) => {
             options: {
               plugins: [
                 autoprefixer({
-                  browsers: ['last 4 version'],
+                  browsers: ['last 4 version', 'ie >= 10'],
                 }),
               ],
             },
