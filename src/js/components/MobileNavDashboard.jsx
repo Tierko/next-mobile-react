@@ -9,7 +9,7 @@ const MobileNavDashboard = () => (
       <InlineSvg src={require('../../../media/nav/roaming.svg')} raw /> Обзор
     </NavLink>
     <NavLink className="mobile-nav__link" to={Pages.SERVICES}>
-      <InlineSvg src={require('../../../media/nav/prices.svg')} raw /> Трифы
+      <InlineSvg src={require('../../../media/nav/prices.svg')} raw /> Тарифы
     </NavLink>
     <NavLink className="mobile-nav__link" to={Pages.PAY}>
       <InlineSvg src={require('../../../media/nav/plus.svg')} raw /> Пополнение
