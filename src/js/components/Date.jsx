@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cs from 'classnames';
 import Input from './Input';
 import Calendar from './Calendar';

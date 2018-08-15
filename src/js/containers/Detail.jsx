@@ -84,10 +84,6 @@ class Detail extends Component {
             <LinkBack href={Pages.HISTORY} className="link-back_detail" />
             <div className="detail">
               <div className="dashboard__header dashboard__header_center">Детализация</div>
-              {
-                !isInLimit() &&
-                <div className="detail__error">Вы выбрали слишком большой период (максимум 30 дней)</div>
-              }
               <div className="detail__period-title">За период</div>
               <div className="detail__period">
                 <Date
@@ -97,6 +93,7 @@ class Detail extends Component {
                   onChange={onChange}
                   onChangeRaw={onChange}
                   initDate={new window.Date(window.Date.now() - THIRTY_DAYS)}
+                  errorText={!isInLimit()}
                 />
                 <div className="detail__divider" />
                 <Date
@@ -106,9 +103,20 @@ class Detail extends Component {
                   onChange={onChange}
                   onChangeRaw={onChange}
                   initDate={new window.Date()}
+                  errorText={!isInLimit()}
                 />
               </div>
-              <Input placeholder="На какую почту отправить" name="email" value={email} onChange={onChange} />
+              {
+                !isInLimit() &&
+                <div className="detail__error">Вы выбрали слишком большой период (максимум 30 дней)</div>
+              }
+              <Input
+                placeholder="На какую почту отправить"
+                name="email"
+                value={email}
+                onChange={onChange}
+                className="input_detain-email"
+              />
               <Select placeholder="Формат" onSelect={v => onChange('format', v)} items={formats} value={format} />
               <Button className="button_detail" onClick={order}>Заказать детализацию</Button>
             </div>
