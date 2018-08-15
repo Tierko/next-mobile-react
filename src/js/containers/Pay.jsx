@@ -123,7 +123,7 @@ class Pay extends Component {
               }
               {
                 autoPayEnabled &&
-                <Button className="button_pay" onClick={changeAutoPay}>Изменить</Button>
+                <Button className="button_pay-change" onClick={changeAutoPay}>Изменить</Button>
               }
               {
                 !autoPayEnabled &&

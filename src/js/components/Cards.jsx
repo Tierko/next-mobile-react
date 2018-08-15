@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import cs from 'classnames';
 import Card from './Card';
 import {
   checkCardNumber,
@@ -38,7 +39,7 @@ class Cards extends Component {
       cvv,
     } = nextState;
     const card = {
-      number: number.replace(/\s/g, ''),
+      token: number.replace(/\s/g, ''),
       holder,
       date,
       cvv,
@@ -59,10 +60,10 @@ class Cards extends Component {
       holder,
       date,
       cvv,
+      selected,
     } = this.state;
     const id = getAttr(cardE, 'id');
     const card = id === 'new' ? {
-      number,
       holder,
       date,
       cvv,
@@ -73,11 +74,11 @@ class Cards extends Component {
     const { row, inner } = this;
     const maxScroll = inner.clientWidth - row.clientWidth;
     const cardNumber = getAttr(cardE, 'number') * 1;
-    const scroll = isNaN(cardNumber) ? maxScroll + 142 : cardNumber * 167;
+    const scroll = isNaN(cardNumber) ? maxScroll + 142 : cardNumber * 163;
     let timeout = 0;
 
-    if (isNaN(cardNumber)) {
-      timeout = 300;
+    if (isNaN(cardNumber) || selected === 'new') {
+      timeout = 400;
     }
 
     setTimeout(() => {
@@ -101,11 +102,11 @@ class Cards extends Component {
     }
   };
 
-  onCardEdit = ({ target }) => {
+  onCardEdit = ({ currentTarget }) => {
     const { onEdit } = this.props;
     const { getAttr } = this;
 
-    onEdit(getAttr(target, 'id'));
+    onEdit(getAttr(currentTarget, 'id'));
   };
 
   getAttr = (e, attr) => {
@@ -185,7 +186,7 @@ class Cards extends Component {
     const selected = this.state.selected || data.defaultCard;
 
     return (
-      <div className="cards__wrapper">
+      <div className={cs('cards__wrapper', { cards__wrapper_new: selected === 'new' })}>
         <div className={`cards ${className}`}>
           <div className="cards__row" ref={(e) => { this.row = e; }}>
             <div className="cards__inner" ref={(e) => { this.inner = e; }}>
