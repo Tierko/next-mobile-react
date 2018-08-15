@@ -74,12 +74,10 @@ class Cards extends Component {
     const { row, inner } = this;
     const maxScroll = inner.clientWidth - row.clientWidth;
     const cardNumber = getAttr(cardE, 'number') * 1;
-    const scroll = isNaN(cardNumber) ? maxScroll + 142 : cardNumber * 163;
+    const scroll = id === 'new' ? maxScroll + 142 : cardNumber * 163;
     let timeout = 0;
 
-    console.log(inner.clientWidth, row.clientWidth)
-
-    if (isNaN(cardNumber) || selected === 'new') {
+    if (selected === 'new' || id === 'new') {
       timeout = 400;
     }
 
