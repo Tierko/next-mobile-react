@@ -39,22 +39,28 @@
   }
 
   &__row {
-    position: relative;
-    overflow: auto;
-    height: 209px;
+    position: absolute;
+    overflow-x: scroll;
     z-index: 1;
-    margin-bottom: -20px;
+    top: 0;
+    right: 0;
+    bottom: -20px;
+    left: 0;
   }
 
   &__inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: table-cell;
     position: absolute;
-    height: 189px;
     top: 0;
     bottom: 0;
     left: 0;
+  }
+
+  &__fix {
+    height: 189px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 

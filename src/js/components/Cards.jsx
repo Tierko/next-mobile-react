@@ -77,6 +77,8 @@ class Cards extends Component {
     const scroll = isNaN(cardNumber) ? maxScroll + 142 : cardNumber * 163;
     let timeout = 0;
 
+    console.log(inner.clientWidth, row.clientWidth)
+
     if (isNaN(cardNumber) || selected === 'new') {
       timeout = 400;
     }
@@ -190,43 +192,45 @@ class Cards extends Component {
         <div className={`cards ${className}`}>
           <div className="cards__row" ref={(e) => { this.row = e; }}>
             <div className="cards__inner" ref={(e) => { this.inner = e; }}>
-              <Card
-                key="apple-pay"
-                id="apple-pay"
-                onSelect={onCardSelect}
-                selected={selected}
-                type="apple-pay"
-                defaultCard={data.defaultCard}
-              />
-              {
-                data.items.map(c => (
-                  <Card
-                    key={c.token}
-                    id={c.token}
-                    onChange={onChange}
-                    onSelect={onCardSelect}
-                    onEdit={onCardEdit}
-                    selected={selected}
-                    type="card"
-                    colors={c.colors}
-                    defaultCard={data.defaultCard}
-                  />
-                ))
-              }
-              <Card
-                key="new"
-                type="new"
-                id="new"
-                onSelect={onCardSelect}
-                selected={selected}
-                onChange={onChange}
-                values={{
-                  number,
-                  holder,
-                  date,
-                  cvv,
-                }}
-              />
+              <div className="cards__fix">
+                <Card
+                  key="apple-pay"
+                  id="apple-pay"
+                  onSelect={onCardSelect}
+                  selected={selected}
+                  type="apple-pay"
+                  defaultCard={data.defaultCard}
+                />
+                {
+                  data.items.map(c => (
+                    <Card
+                      key={c.token}
+                      id={c.token}
+                      onChange={onChange}
+                      onSelect={onCardSelect}
+                      onEdit={onCardEdit}
+                      selected={selected}
+                      type="card"
+                      colors={c.colors}
+                      defaultCard={data.defaultCard}
+                    />
+                  ))
+                }
+                <Card
+                  key="new"
+                  type="new"
+                  id="new"
+                  onSelect={onCardSelect}
+                  selected={selected}
+                  onChange={onChange}
+                  values={{
+                    number,
+                    holder,
+                    date,
+                    cvv,
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
