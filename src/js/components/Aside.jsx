@@ -24,29 +24,29 @@ const Aside = ({ hideLink }) => (
         </div>
       </div>
       <nav className="aside__nav">
-        <div>
+        <div className="aside__nav-item">
           <NavLink to={Pages.OVERVIEW} className="aside__link">Обзор</NavLink>
         </div>
-        <div>
+        <div className="aside__nav-item">
           <NavLink to={Pages.PAY} className="aside__link">Пополнение</NavLink>
         </div>
-        <div>
+        <div className="aside__nav-item">
           <NavLink to={Pages.SERVICES} className="aside__link">Тарифы и услуги</NavLink>
         </div>
-        <div>
+        <div className="aside__nav-item">
           <NavLink to={Pages.ROAMING} className="aside__link">Роуминг</NavLink>
         </div>
-        <div>
+        <div className="aside__nav-item">
           <NavLink to={Pages.HISTORY} className="aside__link">История</NavLink>
         </div>
-        <div>
+        <div className="aside__nav-item">
           <NavLink to={Pages.SETTINGS} className="aside__link">Настройки</NavLink>
         </div>
-        <div>
+        <div className="aside__nav-item">
           <NavLink to={Pages.SUPPORT_DASHBOARD} className="aside__link">Поддержка</NavLink>
         </div>
-        <div>
-          <NavLink to={Pages.Exit} className="aside__link aside__link_exit" exact>Выход</NavLink>
+        <div className="aside__nav-item aside__nav-item_exit">
+          <NavLink to={Pages.Exit} className="aside__link" exact>Выход</NavLink>
         </div>
       </nav>
     </div>
