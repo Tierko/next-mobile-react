@@ -1,35 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="660" height="480" viewBox="0 0 220 160">
-  <desc>Flag of Israel</desc>
-  <defs>
-    <!-- Specs are taken from "The Provisional Council of State Proclamation of
-      the Flag of the State of Israel," 25 Tishrei 5709 (28 October 1948)
-    For Magen David, the "Israel Science and Technology Homepage" at
-      http://www.science.co.il/Israel-flag.asp specifies each side as 60 cm.
-      Outer radius is then 30 / cos(30) = 20 * sqrt(3)
-    For equilateral triangles, middle radius = outer radius - width:
-      20 * sqrt(3) - 5.5
-    Coordinates for upward-pointing triangle relative to center are then:
-      (                            0,-(20*sqrt(3) - 5.5)          )
-      (-(20*sqrt(3) - 5.5) * cos(30), (20*sqrt(3) - 5.5) * sin(30))
-      ( (20*sqrt(3) - 5.5) * cos(30), (20*sqrt(3) - 5.5) * sin(30)) -->
-    <polygon id="triangle" points="0,-29.1410161513775421
-                -25.2368602791855814, 14.5705080756887710
-                 25.2368602791855814, 14.5705080756887710"
-      stroke="#0038b8" stroke-width="5.5" fill-opacity="0"/>
-  </defs>
-  <!-- "The flag is 220 cm long and 160 cm wide.  The background is white" -->
-  <rect width="220" height="160" fill="white"/>
-  <!-- "...two stripes of dark sky-blue, 25 cm broad, over the whole length of
-    the flag, at a distance of 15 cm from the top and from the bottom..."
-    Legislation does not specify exact shade of blue; "#0038b8" is typical of
-    flags used in Israel -->
-  <rect width="220" height="25" fill="#0038b8" y="15"/>
-  <rect width="220" height="25" fill="#0038b8" y="120"/>
-  <use xlink:href="#triangle" transform="translate(110,80)"/>
-  <use xlink:href="#triangle" transform="translate(110,80) rotate(180)"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>IL</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-316.000000, -412.000000)">
+            <g id="IL" transform="translate(316.000000, 412.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <rect stroke="#F5F5F5" stroke-width="0.5" x="0.25" y="0.25" width="19.5" height="13.5" rx="1"></rect>
+                <rect id="Rectangle-2" fill="#0E46D4" mask="url(#mask-2)" x="0" y="0" width="20" height="2.8"></rect>
+                <rect id="Rectangle-2" fill="#0E46D4" mask="url(#mask-2)" x="0" y="11.2" width="20" height="2.8"></rect>
+                <path d="M6.63508759,7.38446684 L11.8504603,4.32005487 L11.7501275,10.278573 L6.63508759,7.38446684 Z" id="Star-25" stroke="#093EC5" stroke-width="0.666666667" mask="url(#mask-2)" transform="translate(9.404762, 7.310363) rotate(-30.000000) translate(-9.404762, -7.310363) "></path>
+                <path d="M6.63508767,6.76374068 L11.8504601,3.69932873 L11.7501275,9.65784716 L6.63508767,6.76374068 Z" id="Star-25-Copy" stroke="#093EC5" stroke-width="0.666666667" mask="url(#mask-2)" transform="translate(9.404762, 6.689637) scale(1, -1) rotate(-30.000000) translate(-9.404762, -6.689637) "></path>
+            </g>
+        </g>
+    </g>
 </svg>

@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800" height="600">
-<rect width="800" height="600" x="0" y ="0" style="fill:#007fff" />
-<path d="m 36,120 84,0 26,-84 26,84 84,0 -68,52 26,84 -68,-52 -68,52 26,-84 -68,-52 z M 750,0 0,450 0,600 0,600 50,600 800,150 800,0 750,0" style="fill:#f7d618" />
-<path d="M 800,0 0,480 0,600 0,600 0,600 800,120 800,0" style="fill:#ce1021" />
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>CD</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-412.000000, -124.000000)">
+            <g id="CD" transform="translate(412.000000, 124.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <rect id="Mask-Copy" fill="#158AFF" mask="url(#mask-2)" x="0" y="0" width="20" height="14" rx="2"></rect>
+                <polygon id="Rectangle-69-Copy" fill="#FDD216" mask="url(#mask-2)" transform="translate(9.512178, 7.292371) rotate(153.000000) translate(-9.512178, -7.292371) " points="-4.29734563 4.49237133 23.321702 4.49237133 23.321702 10.0923713 -4.29734563 10.0923713"></polygon>
+                <rect id="Rectangle-69" fill="#CE1120" mask="url(#mask-2)" transform="translate(9.774941, 7.122451) rotate(153.000000) translate(-9.774941, -7.122451) " x="-4.03458325" y="5.25578408" width="27.6190476" height="3.73333333"></rect>
+                <polygon id="Star-8" fill="#FDD216" mask="url(#mask-2)" points="3.33333333 4.1766667 1.93384464 5.15437299 2.45020939 3.54787214 1.06891306 2.54562701 2.78753272 2.53046117 3.33333333 0.933333333 3.87913395 2.53046117 5.59775361 2.54562701 4.21645728 3.54787214 4.73282203 5.15437299"></polygon>
+            </g>
+        </g>
+    </g>
 </svg>

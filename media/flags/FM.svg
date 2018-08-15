@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="760" height="400" viewBox="-19 -10 38 20">
-	<rect x="-19" y="-10" width="38" height="20" fill="#75b2dd"/>
-	<g id="star" transform="translate(0,-6)" fill="#fff">
-		<g id="c">
-			<path id="t" d="M 0,-2 V 0 H 1" transform="rotate(18 0,-2)"/>
-			<use xlink:href="#t" transform="scale(-1,1)"/>
-		</g>
-		<use xlink:href="#c" transform="rotate(72)"/>
-		<use xlink:href="#c" transform="rotate(144)"/>
-		<use xlink:href="#c" transform="rotate(216)"/>
-		<use xlink:href="#c" transform="rotate(288)"/>
-	</g>
-	<use xlink:href="#star" transform="rotate(90)"/>
-	<use xlink:href="#star" transform="rotate(180)"/>
-	<use xlink:href="#star" transform="rotate(270)"/>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>FM</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-124.000000, -268.000000)">
+            <g id="FM" transform="translate(124.000000, 268.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <rect id="Mask-Copy" fill="#95CEF5" mask="url(#mask-2)" x="0" y="0" width="20" height="14"></rect>
+                <path d="M10,4.03199999 L8.88040904,4.77683172 L9.25727016,3.50316767 L8.18846378,2.68983494 L9.54096771,2.647499 L10,1.4 L10.4590323,2.647499 L11.8115362,2.68983494 L10.7427298,3.50316767 L11.119591,4.77683172 L10,4.03199999 Z M10,11.4986667 L8.88040904,12.2434984 L9.25727016,10.9698343 L8.18846378,10.1565016 L9.54096771,10.1141657 L10,8.86666667 L10.4590323,10.1141657 L11.8115362,10.1565016 L10.7427298,10.9698343 L11.119591,12.2434984 L10,11.4986667 Z M13.8095238,7.76533333 L12.6899329,8.51016506 L13.066794,7.236501 L11.9979876,6.42316828 L13.3504915,6.38083233 L13.8095238,5.13333333 L14.2685561,6.38083233 L15.62106,6.42316828 L14.5522537,7.236501 L14.9291148,8.51016506 L13.8095238,7.76533333 Z M6.19047619,7.76533333 L5.07088523,8.51016506 L5.44774635,7.236501 L4.37893997,6.42316828 L5.7314439,6.38083233 L6.19047619,5.13333333 L6.64950848,6.38083233 L8.00201241,6.42316828 L6.93320603,7.236501 L7.31006715,8.51016506 L6.19047619,7.76533333 Z" id="Star-33" fill="#FFFFFF" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
 </svg>

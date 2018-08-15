@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg	xmlns="http://www.w3.org/2000/svg"
-	width="600"
-	height="400"
-	viewBox="0 0 3 2">
-<rect id="green_area" width="3" height="2" fill="#009543"/>
-<path id="yellow_area" d="M 0 2 L 2 0 h 1 v 2 z" fill="#FBDE4A"/>
-<path id="red_area" d="M 3 0 v 2 h -2 z" fill="#DC241F"/>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>CG</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-124.000000, -124.000000)">
+            <g id="CG" transform="translate(124.000000, 124.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <polygon id="Rectangle-74" fill="#F33630" mask="url(#mask-2)" points="4.76190476 13.0666667 19.047619 0 20 0 20 14 4.76190476 14"></polygon>
+                <polygon id="Rectangle-74-Copy" fill="#009643" mask="url(#mask-2)" transform="translate(7.619048, 7.000000) scale(-1, -1) translate(-7.619048, -7.000000) " points="5.68434189e-14 13.0666667 14.2857143 0 15.2380952 0 15.2380952 14 5.68434189e-14 14"></polygon>
+                <polygon id="Rectangle-69-Copy" fill="#FCDF4A" mask="url(#mask-2)" transform="translate(10.294640, 6.673077) rotate(134.000000) translate(-10.294640, -6.673077) " points="-3.51488379 4.33974333 24.1041638 4.33974333 24.1041638 9.00641 -3.51488379 9.00641"></polygon>
+            </g>
+        </g>
+    </g>
 </svg>

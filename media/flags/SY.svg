@@ -1,17 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="600" viewBox="0 0 180 120">
-<rect width="180" height="120" fill="#000"/>
-<rect width="180" height="80" fill="#fff"/>
-<rect width="180" height="40" fill="#ce1126"/>
-<g id="s" fill="#007a3d">
-<g id="f">
-<g id="t">
-<path d="M54,47v13h8" transform="rotate(18,54,47)" id="o"/>
-<use xlink:href="#o" x="-108" transform="scale(-1,1)"/>
-</g>
-<use xlink:href="#t" transform="rotate(72,54,60)"/>
-</g>
-<use xlink:href="#t" transform="rotate(-72,54,60)"/>
-<use xlink:href="#f" transform="rotate(144,54,60)"/>
-</g>
-<use xlink:href="#s" x="72"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>SY</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-556.000000, -892.000000)">
+            <g id="SY" transform="translate(556.000000, 892.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <rect stroke="#F5F5F5" stroke-width="0.5" x="0.25" y="0.25" width="19.5" height="13.5" rx="1"></rect>
+                <rect id="Rectangle-2" fill="#262626" mask="url(#mask-2)" x="0" y="9.33333333" width="20" height="4.66666667"></rect>
+                <rect id="Rectangle-2" fill="#E32139" mask="url(#mask-2)" x="0" y="0" width="20" height="4.66666667"></rect>
+                <polygon id="Star-33" fill="#128A49" mask="url(#mask-2)" points="6.66666667 7.76533333 5.54707571 8.51016506 5.92393682 7.236501 4.85513045 6.42316828 6.20763438 6.38083233 6.66666667 5.13333333 7.12569895 6.38083233 8.47820289 6.42316828 7.40939651 7.236501 7.78625762 8.51016506"></polygon>
+                <polygon id="Star-33" fill="#128A49" mask="url(#mask-2)" points="13.3333333 7.76533333 12.2137424 8.51016506 12.5906035 7.236501 11.5217971 6.42316828 12.874301 6.38083233 13.3333333 5.13333333 13.7923656 6.38083233 15.1448696 6.42316828 14.0760632 7.236501 14.4529243 8.51016506"></polygon>
+            </g>
+        </g>
+    </g>
 </svg>

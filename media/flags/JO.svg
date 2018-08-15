@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="840" height="420">
-<rect width="840" height="420" fill="#007a3d"/>
-<rect width="840" height="280" fill="#fff"/>
-<rect width="840" height="140" fill="#000"/>
-<path d="M0,0V420L420,210z" fill="#ce1126"/>
-<path d="M129.787138,180 136.295394,196.485467 153.242082,191.295306 144.411056,206.662186 159.034975,216.675628 141.51461,219.352347 142.80365,237.029066 129.787138,225 116.770625,237.029066 118.059665,219.352347 100.5393,216.675628 115.163219,206.662186 106.332193,191.295306 123.278882,196.485467 129.787138,180z" fill="#fff"/>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>JO</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-76.000000, -460.000000)">
+            <g id="JO" transform="translate(76.000000, 460.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <rect stroke="#F5F5F5" stroke-width="0.5" x="0.25" y="0.25" width="19.5" height="13.5" rx="1"></rect>
+                <rect id="Rectangle-2" fill="#199E56" mask="url(#mask-2)" x="0" y="9.33333333" width="20" height="4.66666667"></rect>
+                <rect id="Rectangle-2" fill="#262626" mask="url(#mask-2)" x="0" y="0" width="20" height="4.66666667"></rect>
+                <polygon id="Rectangle-83" fill="#E6223A" mask="url(#mask-2)" points="0 0 9.52380952 7 0 14"></polygon>
+                <polygon id="Star-27" fill="#FFFFFF" mask="url(#mask-2)" points="3.33333333 7.7 2.71349942 8.26135642 2.77488227 7.43644286 1.94057917 7.31152931 2.63695625 6.84423535 2.21643122 6.12711428 3.02341638 6.36932179 3.33333333 5.6 3.64325029 6.36932179 4.45023545 6.12711428 4.02971041 6.84423535 4.72608749 7.31152931 3.89178439 7.43644286 3.95316725 8.26135642"></polygon>
+            </g>
+        </g>
+    </g>
 </svg>

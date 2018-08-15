@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="900" height="600">
-<rect width="900" height="600" fill="#377e3f" />
-<rect y="120" width="900" height="360" fill="#fff" />
-<rect y="180" width="900" height="240" fill="#b40a2d" />
-<path d="M 450,191.459 520.534,408.541 335.873,274.377 564.127,274.377 379.466,408.541 z" fill="#ecc81d" />
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>SR</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-412.000000, -892.000000)">
+            <g id="SR" transform="translate(412.000000, 892.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <rect stroke="#F5F5F5" stroke-width="0.5" x="0.25" y="0.25" width="19.5" height="13.5" rx="1"></rect>
+                <rect id="Rectangle-2" fill="#43924C" mask="url(#mask-2)" x="0" y="0" width="20" height="2.8"></rect>
+                <rect id="Rectangle-2" fill="#43924C" mask="url(#mask-2)" x="0" y="11.2" width="20" height="2.8"></rect>
+                <rect id="Rectangle-2-Copy-4" fill="#CD153A" mask="url(#mask-2)" x="0" y="4.66666667" width="20" height="4.66666667"></rect>
+                <polygon id="Star-33" fill="#F5D24B" mask="url(#mask-2)" points="10 8.18999999 8.6005113 9.12103965 9.07158769 7.52895959 7.73557972 6.51229368 9.42620964 6.45937375 10 4.9 10.5737904 6.45937375 12.2644203 6.51229368 10.9284123 7.52895959 11.3994887 9.12103965"></polygon>
+            </g>
+        </g>
+    </g>
 </svg>

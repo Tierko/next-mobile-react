@@ -1,6 +1,23 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400">
-<rect fill="#ce1126" width="600" height="400"/>
-<rect fill="#002868" y="100" width="600" height="200"/>
-<circle fill="#fff" cx="300" cy="200" r="80"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>LA</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-28.000000, -556.000000)">
+            <g id="LA" transform="translate(28.000000, 556.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <rect id="Rectangle-2-Copy-4" fill="#073A88" mask="url(#mask-2)" x="0" y="3.73333333" width="20" height="6.53333333"></rect>
+                <rect id="Rectangle-2" fill="#E2273E" mask="url(#mask-2)" x="0" y="0" width="20" height="3.73333333"></rect>
+                <rect id="Rectangle-2" fill="#E2273E" mask="url(#mask-2)" x="0" y="10.2666667" width="20" height="3.73333333"></rect>
+                <ellipse id="Oval-12" fill="#FFFFFF" mask="url(#mask-2)" cx="10" cy="7" rx="2.38095238" ry="2.33333333"></ellipse>
+            </g>
+        </g>
+    </g>
 </svg>

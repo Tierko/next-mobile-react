@@ -1,24 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="400">
-<path d="M0,400V0H800z" fill="#0051ba"/>
-<path d="M0,400H800V0z" fill="#215b33"/>
-<path d="M0,400 800,0" stroke="#fcd116" stroke-width="36"/>
-<g transform="translate(140,120)">
-<g id="s" fill="#fff">
-<g id="f">
-<g id="t">
-<path id="o" d="M0,-40V0H20z" transform="rotate(18,0,-40)"/>
-<use xlink:href="#o" transform="scale(-1,1)"/>
-</g>
-<use xlink:href="#t" transform="rotate(72)"/>
-</g>
-<use xlink:href="#t" transform="rotate(-72)"/>
-<use xlink:href="#f" transform="rotate(144)"/>
-</g>
-<g id="s2" transform="rotate(40.6)">
-<use id="s1" xlink:href="#s" x="-104" transform="rotate(-40.6,-104,0)"/>
-<use xlink:href="#s1" x="208"/>
-</g>
-<use xlink:href="#s2" transform="scale(-1,1)"/>
-</g>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>SB</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#1DBE4F" offset="0%"></stop>
+            <stop stop-color="#159B3F" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#0660D4" offset="0%"></stop>
+            <stop stop-color="#0051BB" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-5" points="0 0 20 0 0 14"></polygon>
+        <filter x="-7.5%" y="-10.7%" width="115.0%" height="121.4%" filterUnits="objectBoundingBox" id="filter-6">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.06 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-604.000000, -892.000000)">
+            <g id="SB" transform="translate(604.000000, 892.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <rect id="Mask-Copy" fill="url(#linearGradient-3)" mask="url(#mask-2)" x="0" y="0" width="20" height="14"></rect>
+                <g id="Rectangle-253" mask="url(#mask-2)">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                    <use fill="url(#linearGradient-4)" fill-rule="evenodd" xlink:href="#path-5"></use>
+                </g>
+                <polygon id="Rectangle-253" fill="#2C7442" mask="url(#mask-2)" transform="translate(10.000000, 7.000000) scale(-1, 1) translate(-10.000000, -7.000000) " points="0 0 20 14 0 14"></polygon>
+                <rect id="Rectangle-2" fill="#FFD646" mask="url(#mask-2)" x="-3.80952381" y="6.06666667" width="27.6190476" height="1.86666667"></rect>
+                <path d="M2.14285714,2.68333333 L1.44311279,3.04385316 L1.57675207,2.28025991 L1.010647,1.73948017 L1.79298497,1.62807342 L2.14285714,0.933333333 L2.49272932,1.62807342 L3.27506728,1.73948017 L2.70896221,2.28025991 L2.84260149,3.04385316 L2.14285714,2.68333333 Z M6.9047619,2.68333333 L6.20501756,3.04385316 L6.33865684,2.28025991 L5.77255177,1.73948017 L6.55488973,1.62807342 L6.9047619,0.933333333 L7.25463408,1.62807342 L8.03697204,1.73948017 L7.47086697,2.28025991 L7.60450625,3.04385316 L6.9047619,2.68333333 Z M6.9047619,5.48333333 L6.20501756,5.84385316 L6.33865684,5.08025991 L5.77255177,4.53948017 L6.55488973,4.42807342 L6.9047619,3.73333333 L7.25463408,4.42807342 L8.03697204,4.53948017 L7.47086697,5.08025991 L7.60450625,5.84385316 L6.9047619,5.48333333 Z M2.14285714,5.48333333 L1.44311279,5.84385316 L1.57675207,5.08025991 L1.010647,4.53948017 L1.79298497,4.42807342 L2.14285714,3.73333333 L2.49272932,4.42807342 L3.27506728,4.53948017 L2.70896221,5.08025991 L2.84260149,5.84385316 L2.14285714,5.48333333 Z M4.52380952,4.08333333 L3.82406518,4.44385316 L3.95770445,3.68025991 L3.39159939,3.13948017 L4.17393735,3.02807342 L4.52380952,2.33333333 L4.8736817,3.02807342 L5.65601966,3.13948017 L5.08991459,3.68025991 L5.22355387,4.44385316 L4.52380952,4.08333333 Z" id="Star-2" fill="#FFFFFF" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
 </svg>

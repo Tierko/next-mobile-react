@@ -91,7 +91,7 @@ class InterCalls extends Component {
           <div className="inter-calls__row inter-calls__row_selected">
             <div onClick={clear} className="inter-calls__clear" />
             <div className="inter-calls__selected">
-              <span className="inter-calls__country">
+              <span className="inter-calls__country" onClick={clear}>
                 {item.flag && <img src={`/media/flags/${item.flag}.svg`} alt="" />}
                 {item.title}
               </span>

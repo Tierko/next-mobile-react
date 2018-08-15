@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="600"  height="400" viewBox="0 0 15 10">
-<rect width="15" height="10" id="blue" style="fill:#6ab2e7"/>
-<rect width="15" height="5" y="5" id="green"  style="fill:#12ad2b"/>
-<path d="M 0,0 0,5 0,10 4.330127,7.5 8.660254,5 4.330127,2.5 0,0 z" id="path6904" style="fill:#fff"/>
-<path d="m 3.3143278,3.75 0.3102707,0.954915 1.0040571,0 L 3.8163564,5.295085 4.126627,6.25 3.3143278,5.65983 2.5020286,6.25 2.8122992,5.295085 2,4.704915 l 1.004057,0 L 3.3143278,3.75 z" id="path6929" style="fill:#d7141a"/></svg>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>DJ</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="14" rx="1"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags" transform="translate(-76.000000, -172.000000)">
+            <g id="DJ" transform="translate(76.000000, 172.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <rect id="Rectangle-2" fill="#1DC837" mask="url(#mask-2)" x="0" y="6.53333333" width="20" height="7.46666667"></rect>
+                <rect id="Rectangle-2" fill="#82C5F5" mask="url(#mask-2)" x="0" y="0" width="20" height="6.53333333"></rect>
+                <polygon id="Rectangle-83" fill="#FFFFFF" mask="url(#mask-2)" points="0 0 9.52380952 7 0 14"></polygon>
+                <polygon id="Star-8" fill="#E21C21" mask="url(#mask-2)" points="3.33333333 7.91000004 1.93384464 8.88770632 2.45020939 7.28120548 1.06891306 6.27896035 2.78753272 6.26379451 3.33333333 4.66666667 3.87913395 6.26379451 5.59775361 6.27896035 4.21645728 7.28120548 4.73282203 8.88770632"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
