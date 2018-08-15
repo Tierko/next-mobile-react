@@ -58,7 +58,7 @@ class RoamingCurrent extends Component {
         </div>
         <div className="roaming-current__regular">
           <div>
-            <span className="roaming-current__big">{formatCost(data.tariff.internet.byMb)}</span> <span className="roaming-current__note">/ Мб</span>
+            <span className="roaming-current__big">{formatCost(data.tariff.internet.byMb)}</span> <span className="roaming-current__note">/ МБ</span>
           </div>
           <CheckboxSlide className="checkbox-slide_roaming" value={slowInternet} name="slowInternet" onChange={onChange} />
         </div>

@@ -37,7 +37,7 @@ const operations = [
     time: '15:30',
     type: 10,
     count: 20,
-    unit: 'Мб',
+    unit: 'МБ',
     cost: 0,
     note: 'в домашней зоне',
   }, {
@@ -88,7 +88,7 @@ const operations = [
     time: '13:15',
     type: 2,
     count: 500,
-    unit: 'Мб',
+    unit: 'МБ',
     cost: 1200,
     note: 'с баланса',
   }, {
@@ -129,7 +129,7 @@ const operations = [
     time: '14:47',
     type: 10,
     count: 107,
-    unit: 'Мб',
+    unit: 'МБ',
     cost: 0,
     note: 'в Зоне 1',
   }, {

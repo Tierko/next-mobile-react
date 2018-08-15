@@ -33,7 +33,7 @@ const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
                   Помегабайтный интернет
                 </div>
                 <div className="roaming-dashboard__item-conditions">
-                  {formatCost(i.tariff.internet.byMb)} / Мб
+                  {formatCost(i.tariff.internet.byMb)} / МБ
                 </div>
               </div>
               <div>
@@ -59,7 +59,7 @@ const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
                   </tr>
                   <tr key={`${i.id}-r`}>
                     <td className="roaming-dashboard__item-desc roaming-dashboard__item-desc_regular">Помегабайтный интернет</td>
-                    <td>{formatCost(i.tariff.internet.byMb)} / Мб</td>
+                    <td>{formatCost(i.tariff.internet.byMb)} / МБ</td>
                   </tr>
                 </Fragment> :
                 <tr key={`${i.id}-r`} className="roaming-dashboard__tr">
@@ -67,7 +67,7 @@ const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
                     <Link to={Pages.ROAMING} className="link">{i.name}</Link>
                   </td>
                   <td className="roaming-dashboard__item-desc roaming-dashboard__item-desc_regular">Помегабайтный интернет</td>
-                  <td>{formatCost(i.tariff.internet.byMb)} / Мб</td>
+                  <td>{formatCost(i.tariff.internet.byMb)} / МБ</td>
                 </tr>
             ))
           }

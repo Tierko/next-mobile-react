@@ -40,12 +40,12 @@ const data = [{
     id: 1,
     title: 'Помегабитно',
     cost: 60,
-    unit: 'Мб',
+    unit: 'МБ',
   }, {
     id: 2,
     title: 'Пакет',
     cost: 700,
-    unit: '500 Мб',
+    unit: '500 МБ',
     from: true,
   }],
 }];
