@@ -24,7 +24,9 @@ class Detail extends Component {
 
   state = {
     startDate: '',
+    startDateRaw: null,
     endDate: '',
+    endDateRaw: null,
     email: 'Konstantinopolsky@gmail.com',
     format: Detail.formats[0],
   };
@@ -34,6 +36,22 @@ class Detail extends Component {
       [name]: value,
     });
   };
+
+  isInLimit = () => {
+    const { startDateRaw, endDateRaw } = this.state;
+    const { THIRTY_DAYS } = this;
+
+    if (!startDateRaw || !endDateRaw) {
+      return true;
+    }
+
+    const start = (new window.Date(startDateRaw.year, startDateRaw.month, startDateRaw.day)) * 1;
+    const end = (new window.Date(endDateRaw.year, endDateRaw.month, endDateRaw.day)) * 1;
+
+    return Math.abs(start - end) <= THIRTY_DAYS;
+  };
+
+  THIRTY_DAYS = 24 * 60 * 60 * 30 * 1000;
 
   order = () => {
     const { history } = this.props;
@@ -48,7 +66,7 @@ class Detail extends Component {
   };
 
   render() {
-    const { onChange, order } = this;
+    const { onChange, order, THIRTY_DAYS, isInLimit } = this;
     const { formats } = Detail;
     const {
       startDate,
@@ -66,6 +84,10 @@ class Detail extends Component {
             <LinkBack href={Pages.HISTORY} className="link-back_detail" />
             <div className="detail">
               <div className="dashboard__header dashboard__header_center">Детализация</div>
+              {
+                !isInLimit() &&
+                <div className="detail__error">Вы выбрали слишком большой период (максимум 30 дней)</div>
+              }
               <div className="detail__period-title">За период</div>
               <div className="detail__period">
                 <Date
@@ -73,7 +95,8 @@ class Detail extends Component {
                   name="startDate"
                   value={startDate}
                   onChange={onChange}
-                  initDate={new window.Date(window.Date.now() - 2592000 * 1000)}
+                  onChangeRaw={onChange}
+                  initDate={new window.Date(window.Date.now() - THIRTY_DAYS)}
                 />
                 <div className="detail__divider" />
                 <Date
@@ -81,6 +104,7 @@ class Detail extends Component {
                   name="endDate"
                   value={endDate}
                   onChange={onChange}
+                  onChangeRaw={onChange}
                   initDate={new window.Date()}
                 />
               </div>

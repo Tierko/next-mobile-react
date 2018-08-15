@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cs from 'classnames';
 import Input from './Input';
 import Calendar from './Calendar';
@@ -10,7 +11,12 @@ class Date extends Input {
   };
 
   dateUpdate = (date) => {
-    const { name, format } = this.props;
+    const {
+      name,
+      format,
+      onChange,
+      onChangeRaw,
+    } = this.props;
     const {
       month,
       day,
@@ -25,7 +31,16 @@ class Date extends Input {
       value = `${day} ${MONTHS_M[month]} ${year}`;
     }
 
-    this.props.onChange(name, value);
+    onChange(name, value);
+
+    if (onChangeRaw) {
+      onChangeRaw(`${name}Raw`, {
+        year,
+        month,
+        day,
+      });
+    }
+
     this.setState({
       show: false,
     });

@@ -9,7 +9,7 @@ const Transitions = ({
   className,
   timeout,
 }) => (
-  <TransitionGroup>
+  <TransitionGroup className="transitions">
     <CSSTransition
       enter
       exit
