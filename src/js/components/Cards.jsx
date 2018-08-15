@@ -114,7 +114,7 @@ class Cards extends Component {
       return e.dataset[attr];
     }
 
-    return e.getAttribute(attr);
+    return e.getAttribute(`data-${attr}`);
   };
 
   setOffset = () => {

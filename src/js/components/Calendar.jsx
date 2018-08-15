@@ -115,11 +115,19 @@ class Calendar extends Component {
     return days - 1;
   };
 
-  selectDay = (e) => {
+  getAttribute = (e, attr) => {
+    if (e.dataset) {
+      return e.dataset[attr];
+    }
+
+    return e.getAttribute(`data-${attr}`);
+  };
+
+  selectDay = ({ currentTarget }) => {
     const { selectedYear } = this.state;
-    let { day, month } = e.currentTarget.dataset;
-    day *= 1;
-    month *= 1;
+    const { getAttribute } = this;
+    const day = getAttribute(currentTarget, 'day') * 1;
+    const month = getAttribute(currentTarget, 'month') * 1;
 
     this.setState({
       day,
