@@ -15,11 +15,21 @@ class Confirm extends Component {
     history.push(`${Pages.RESULT}/success`);
   };
 
+  redirect = () => {
+    const { history } = this.props;
+
+    history.push(Pages.NOT_FOUND);
+  };
+
   render() {
     const { location } = this.props;
     const state = location.state || {};
     const { pack, sum } = state;
-    const { onPay } = this;
+    const { onPay, redirect } = this;
+
+    if (!pack || !sum) {
+      redirect();
+    }
 
     return [
       <MobileNav key="nav" type="dashboard" />,
@@ -30,7 +40,7 @@ class Confirm extends Component {
             <LinkBack href={Pages.ADD_PACKAGE} />
             <div className="confirm">
               <div className="dashboard__header dashboard__header_confirm">Оплатить {pack}?</div>
-              <div className="confirm__sum">{formatCost(sum)}</div>
+              <div className="confirm__sum">{formatCost(sum || 0)}</div>
               <Button className="button_confirm" onClick={onPay} >Оплатить</Button>
             </div>
           </div>

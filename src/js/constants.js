@@ -54,6 +54,7 @@ export const Pages = {
   INVITE: '/invite',
   INTERNET: '/internet',
   CONFIRM: '/confirm',
+  NOT_FOUND: '/not-found',
 };
 
 export const Statuses = {
