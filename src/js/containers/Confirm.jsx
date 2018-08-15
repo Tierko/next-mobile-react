@@ -18,7 +18,7 @@ class Confirm extends Component {
   redirect = () => {
     const { history } = this.props;
 
-    history.push(Pages.NOT_FOUND);
+    history.goBack();
   };
 
   render() {
