@@ -68,7 +68,7 @@ class Payment extends Component {
           isEditable &&
           <Fragment>
             <Input className="input_pay" onChange={onChange} value={payment} name="payment" clear />
-            <div className="payment__message">Для оплаты по тарифу Супервип на счету не хватает {formatCost(paymentInit, true)}</div>
+            <div className="payment__message">Для оплаты по тарифу Супервип на счету не хватает <span className="nobr">{formatCost(paymentInit, true)}</span></div>
           </Fragment>
         }
         <Button className="button_pay" onClick={() => onPay(card)} disabled={!payment || !payPermitted}>
