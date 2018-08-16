@@ -41,8 +41,9 @@ class AutoPay extends Component {
 
   constructor(props) {
     super(props);
+    const { data, data: { monthlyEnabled, lessEnabled } } = props;
 
-    this.state = props.data;
+    this.state = Object.assign(data, { alreadyEnabled: monthlyEnabled || lessEnabled });
   }
 
   onChange = (name, value) => {
@@ -111,11 +112,11 @@ class AutoPay extends Component {
       lessLess,
       lessSum,
       unsaved,
+      alreadyEnabled,
     } = this.state;
     const { onChange, onSave, getDefaultCard } = this;
     const { months, days } = AutoPay;
     const card = getDefaultCard();
-    const autoPayEnabled = monthlyEnabled || lessEnabled;
 
     return [
       <MobileNav key="nav" type="dashboard" />,
@@ -126,7 +127,7 @@ class AutoPay extends Component {
             <LinkBack className="link-back_offset-bottom" href={Pages.PAY} />
             <div className="dashboard__header">
               {
-                autoPayEnabled ? 'Ваш автоплатеж' : 'Подключение автоплатежа'
+                alreadyEnabled ? 'Ваш автоплатеж' : 'Подключение автоплатежа'
               }
             </div>
             <div className="auto-pay">
