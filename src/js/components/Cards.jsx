@@ -20,9 +20,17 @@ class Cards extends Component {
   };
 
   componentDidMount() {
-    const { setOffset, addClasses } = this;
+    const { setOffset, addClasses, onCardSelect } = this;
+    const { data: { defaultCard } } = this.props;
     setOffset();
     addClasses();
+    const card = document.getElementById(`card-${defaultCard}`);
+
+    if (card) {
+      onCardSelect({
+        currentTarget: card,
+      });
+    }
   }
 
   onChange = (name, value) => {

@@ -37,7 +37,7 @@ const Card = ({
   switch (type) {
   case 'card':
     return (
-      <div onClick={onSelect} data-id={id} className="card__wrapper">
+      <div onClick={onSelect} data-id={id} className="card__wrapper" id={`card-${id}`}>
         <div
           className={cs(`card card_${getPaySystem(id)}`, { card_selected: isSelected, card_default: isDefault })}
           style={style}
@@ -56,7 +56,7 @@ const Card = ({
     );
   case 'apple-pay':
     return (
-      <div onClick={onSelect} data-id={id} className="card__wrapper">
+      <div onClick={onSelect} data-id={id} className="card__wrapper" id={`card-${id}`}>
         <div className={cs('card card_apple-pay', { card_selected: isSelected })}>
           <img src="/media/cards/apple-pay.png" alt="" />
         </div>
@@ -64,7 +64,7 @@ const Card = ({
     );
   case 'new':
     return (
-      <div onClick={onSelect} data-id={id} className="card__wrapper">
+      <div onClick={onSelect} data-id={id} className="card__wrapper" id={`card-${id}`}>
         <div
           className={cs('card card_new', {
             'card_new-selected': isSelected,
