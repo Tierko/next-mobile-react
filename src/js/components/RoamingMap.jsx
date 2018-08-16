@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Map, GeoJSON, ZoomControl } from 'react-leaflet';
-import debonce from 'lodash/debounce';
 import ComboBox from './ComboBox';
 import { HOME } from '../constants';
 
