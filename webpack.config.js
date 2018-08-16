@@ -9,7 +9,7 @@ module.exports = (env) => {
 
   return {
     entry: {
-      bundle: ['babel-polyfill', 'scroll-behaviour/polyfill' , 'whatwg-fetch', './src/js/index.jsx'],
+      bundle: ['./src/js/polyfill.js', 'babel-polyfill', 'scroll-behaviour/polyfill' , 'whatwg-fetch', './src/js/index.jsx'],
     },
 
     output: {
