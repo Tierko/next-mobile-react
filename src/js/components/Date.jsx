@@ -51,6 +51,14 @@ class Date extends Input {
     });
   };
 
+  toggleCalendar = () => {
+    const { show } = this.state;
+
+    this.setState({
+      show: !show,
+    });
+  };
+
   componentDidMount() {
     const { outsideClick } = this;
 
@@ -84,7 +92,7 @@ class Date extends Input {
       initDate,
       fromToday,
     } = this.props;
-    const { dateUpdate, showCalendar } = this;
+    const { dateUpdate, showCalendar, toggleCalendar } = this;
     const { show } = this.state;
 
     return (
@@ -99,7 +107,7 @@ class Date extends Input {
             onFocus={showCalendar}
             onClick={showCalendar}
           />
-          <div className="input__icon input__icon_calendar" onClick={showCalendar} />
+          <div className="input__icon input__icon_calendar" onClick={toggleCalendar} />
         </div>
         <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>
           {placeholder}
