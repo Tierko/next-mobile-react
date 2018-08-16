@@ -2,6 +2,10 @@
   overflow-x: auto;
   margin: 0 -10px;
 
+  &_expense {
+    margin: 0 -10px 0 -38px;
+  }
+
   &__items {
     height: 120px;
     display: flex;
@@ -36,6 +40,7 @@
     .small;
     text-align: right;
     color: @GRAY;
+    transition: opacity 0.3s;
 
     &_selected {
       opacity: 0;
