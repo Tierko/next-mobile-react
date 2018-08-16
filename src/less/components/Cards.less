@@ -155,6 +155,7 @@
     padding-top: 20px;
     text-align: center;
     background-image: none;
+    overflow: hidden;
   }
 
   &_new-selected {
@@ -181,10 +182,6 @@
 
   &_auto-pay {
     margin: 50px 0 15px;
-  }
-
-  &__wrapper {
-
   }
 
   &__number {
@@ -225,6 +222,26 @@
 
   &__row {
     display: flex;
+  }
+
+  &__holder {
+    text-align: left;
+    position: relative;
+  }
+
+  &__error {
+    .gradient-red-purple;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    font-size: @FONT-SIZE-SMALL;
+    line-height: @LINE-HEIGHT-SMALL;
+    display: none;
+
+    &_show {
+      display: block;
+    }
   }
 
   &__input {

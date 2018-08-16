@@ -14,6 +14,7 @@ class Cards extends Component {
     selected: '',
     number: '',
     holder: '',
+    holderError: false,
     date: '',
     cvv: '',
     editCardId: '',
@@ -38,6 +39,7 @@ class Cards extends Component {
     const { isNewCardValid, state } = this;
     const tmp = name === 'holder' ? value.toUpperCase().replace(/[^a-z\s]/gi, '') : value;
     const nextState = Object.assign({}, state, { [name]: tmp });
+    const holderError = value.search(/[^a-z\s]/gi, '') !== -1 && name === 'holder';
     nextState[name] = value;
 
     const {
@@ -55,6 +57,7 @@ class Cards extends Component {
 
     this.setState({
       [name]: tmp,
+      holderError,
     });
 
     onPermitChange(isNewCardValid(nextState), isNewCardValid(nextState) ? card : undefined);
@@ -190,6 +193,7 @@ class Cards extends Component {
       holder,
       date,
       cvv,
+      holderError,
     } = this.state;
     const selected = this.state.selected || data.defaultCard;
 
@@ -234,6 +238,7 @@ class Cards extends Component {
                     holder,
                     date,
                     cvv,
+                    holderError,
                   }}
                 />
               </div>
