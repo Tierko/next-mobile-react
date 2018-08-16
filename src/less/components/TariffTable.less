@@ -61,14 +61,14 @@
 
   &__title {
     color: @GRAY-DARK;
-    transition: max-height 0.3s linear;
-    max-height: 0;
-    overflow: hidden;
+    transition: transform 0.3s linear;
+    transform: scaleY(0);
+    transform-origin: 50% 0;
     position: relative;
     z-index: 2;
 
     &_show {
-      max-height: 25px;
+      transform: scaleY(1);
     }
   }
 
