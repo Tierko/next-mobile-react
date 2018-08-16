@@ -5,7 +5,7 @@ import Select from '../components/Select';
 import Date from '../components/Date';
 import Button from '../components/Button';
 import Transitions from '../components/Transitions';
-import { Pages } from '../constants';
+import { Pages, Statuses } from '../constants';
 
 class SignUpStep4 extends Component {
   static times = [{
@@ -45,7 +45,7 @@ class SignUpStep4 extends Component {
             <div className="sign-up__message sign-up__message_step4">Когда вам будет удобно получить новую SIM-карту и подписать договор?</div>
             <Date name="date" value={date} onChange={onChange} placeholder="Дата" fromToday />
             <Select placeholder="Время" onSelect={v => onChange('time', v)} items={times} value={time} />
-            <Button className="button_sign-up-step4" onClick={() => toPage(Pages.REQUEST_STATUS)} disabled={!permit}>
+            <Button className="button_sign-up-step4" onClick={() => toPage(`${Pages.REQUEST_STATUS}/${Statuses.REQUEST_SENT}`)} disabled={!permit}>
               Продолжить
             </Button>
           </div>
