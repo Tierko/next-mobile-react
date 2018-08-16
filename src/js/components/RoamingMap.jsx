@@ -5,6 +5,11 @@ import ComboBox from './ComboBox';
 import { HOME } from '../constants';
 
 class RoamingMap extends Component {
+  state = {
+    minZoom: 5,
+
+  };
+
   onClick = (e) => {
     const { onCountrySelect } = this.props;
 
@@ -75,7 +80,7 @@ class RoamingMap extends Component {
               zoom={zoom}
               zoomControl={false}
               animate
-              minZoom={1.4}
+              minZoom={0.3}
               maxZoom={5}
             >
               <GeoJSON
