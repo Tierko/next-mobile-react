@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cs from 'classnames';
 import { Link } from 'react-router-dom';
 import RoamingCurrent from './RoamingCurrent';
+import Transitions from './Transitions';
 import { Pages, COUNTRIES, HOME } from '../constants';
 import { convertStrings } from '../utils';
 
@@ -28,16 +29,19 @@ class RoamingZone extends Component {
     const { active, data, history } = this.props;
 
     return (
-      <div className={cs('roaming-zone', { 'roaming-zone_show': data.id === active })}>
-        <div className="roaming__title roaming__title_desktop">Роуминг в {data.title}</div>
-        <Link to={`${Pages.ROAMING}/countries/${data.id}`} className="roaming-zone__countries">
-          {getCountries()}
-        </Link>
-        <RoamingCurrent data={data} history={history} />
-        <Link to={`${Pages.ROAMING}/zone-tariff/${data.id}`} className="roaming-zone__more">
-          Подробнее о тарифах в {data.title}
-        </Link>
-      </div>
+      data.id === active &&
+      <Transitions>
+        <div className={cs('roaming-zone', { 'roaming-zone_show': data.id === active })}>
+          <div className="roaming__title roaming__title_desktop">Роуминг в {data.title}</div>
+          <Link to={`${Pages.ROAMING}/countries/${data.id}`} className="roaming-zone__countries">
+            {getCountries()}
+          </Link>
+          <RoamingCurrent data={data} history={history} />
+          <Link to={`${Pages.ROAMING}/zone-tariff/${data.id}`} className="roaming-zone__more">
+            Подробнее о тарифах в {data.title}
+          </Link>
+        </div>
+      </Transitions>
     );
   }
 }

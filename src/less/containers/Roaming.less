@@ -19,6 +19,12 @@
     padding-left: 75px;
   }
 
+  &_zones-inner {
+    display: flex;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
   @media (max-width: @BREAK-POINT) {
     padding: 0;
 
@@ -67,14 +73,10 @@
 }
 
 .roaming-zone {
-  max-height: 0;
-  transition: max-height 0.4s;
-  overflow: hidden;
-
-  //display: none;
+  display: none;
 
   &_show {
-    max-height: 800px;
+    display: block;
   }
 
   &__countries {
