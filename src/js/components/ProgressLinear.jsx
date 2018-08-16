@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
+import { hsl2rgb } from '../utils';
 
 const offsetColors = (colorObject, percent) => {
   colorObject.max.forEach((n, i) => {
@@ -23,11 +24,14 @@ class ProgressLinear extends Component {
 
   render() {
     const {
+      colorStart,
+      colorEnd,
       max: maxValue,
       current,
       className,
       tall,
       dashed,
+      x,
     } = this.props;
     const percent = (current > maxValue || maxValue === 0) ? 1 : current / maxValue;
     const startColor = {
@@ -45,8 +49,12 @@ class ProgressLinear extends Component {
     offsetColors(startColor, percent);
     offsetColors(endColor, percent);
 
-    const min = startColor.current;
-    const max = endColor.current;
+    let min = startColor.current;
+    let max = endColor.current;
+    min = hsl2rgb(min[0], min[1], min[2]);
+    max = hsl2rgb(max[0], max[1], max[2]);
+    min = colorStart || `rgb(${min.r}, ${min.g}, ${min.b})`;
+    max = colorEnd || `rgb(${max.r}, ${max.g}, ${max.b})`;
 
     return (
       <div className={cs(`progress-linear ${className}`, { 'progress-linear_tall': tall, 'progress-linear_dashed': dashed })}>
@@ -56,12 +64,12 @@ class ProgressLinear extends Component {
             className={cs('progress-linear__line', { 'progress-linear__line_tall': tall })}
             style={{
               width: `${show ? percent * 100 : 0}%`,
-              backgroundImage: `linear-gradient(to right, hsl(${min[0]}, ${min[1]}%, ${min[2]}%), hsl(${max[0]}, ${max[1]}%, ${max[2]}%)`,
+              backgroundImage: `linear-gradient(to right, ${min}, ${max})`,
             }}
           />
         }
         <div className={cs('progress-linear__empty', {
-          'progress-linear__empty_show': current <= 0 && maxValue > 0,
+          'progress-linear__empty_show': current <= 0 && maxValue > 0 && x,
         })}
         />
       </div>
@@ -70,17 +78,23 @@ class ProgressLinear extends Component {
 }
 
 ProgressLinear.propTypes = {
+  colorStart: PropTypes.string,
+  colorEnd: PropTypes.string,
   max: PropTypes.number.isRequired,
   current: PropTypes.number.isRequired,
   className: PropTypes.string,
   tall: PropTypes.bool,
   dashed: PropTypes.bool,
+  x: PropTypes.bool,
 };
 
 ProgressLinear.defaultProps = {
+  colorStart: '',
+  colorEnd: '',
   className: '',
   tall: false,
   dashed: false,
+  x: false,
 };
 
 export default ProgressLinear;

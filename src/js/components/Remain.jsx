@@ -53,6 +53,7 @@ const Remain = ({
               color="red"
               max={i.max}
               current={i.current}
+              x
             />
           }
           {

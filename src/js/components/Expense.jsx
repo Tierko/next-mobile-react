@@ -42,18 +42,44 @@ class Expense extends Component {
             <Grade data={data} onItemSelect={onMonthSelect} wide />
             <div className="expense__total">
               <div className="expense__total-date">{MONTHS[item.date.month]} {item.date.year}</div>
-              <div className="expense__total-cost">{formatCost(cost)}</div>
+              <div className="expense__total-cost">{formatCost(cost, true)}</div>
             </div>
 
             <div className="expense__details">
               {
-                item.expense.map(e => (
-                  <div key={e.id} className="expense__detail">
-                    <div className="expense__detail-title">{e.title}</div>
-                    <ProgressLinear className="progress-linear_expense" current={e.cost} max={cost} tall />
-                    <div className="expense__detail-cost">{formatCost(e.cost)}</div>
-                  </div>
-                ))
+                item.expense.map((e) => {
+                  let colorStart;
+                  let colorEnd;
+
+                  switch (e.type) {
+                  case 'pay':
+                    colorStart = '#fe46cc';
+                    colorEnd = '#d800b4';
+                    break;
+                  case 'roaming':
+                    colorStart = '#7cfa1c';
+                    colorEnd = '#36c73d';
+                    break;
+                  default:
+                    colorStart = '#02c4fe';
+                    colorEnd = '#003eff';
+                  }
+
+                  return (
+                    <div key={e.id} className="expense__detail">
+                      <div className="expense__detail-title">{e.title}</div>
+                      <ProgressLinear
+                        className="progress-linear_expense"
+                        current={e.cost}
+                        max={cost}
+                        tall
+                        colorStart={colorStart}
+                        colorEnd={colorEnd}
+                      />
+                      <div className="expense__detail-cost">{formatCost(e.cost, true)}</div>
+                    </div>
+                  );
+                })
               }
             </div>
             <Button className="button_expense" onClick={orderDetails}>Заказать детализацию...</Button>

@@ -8,14 +8,17 @@ const history = [
     expense: [{
       id: 1,
       title: 'Абонентская плата',
+      type: 'pay',
       cost: 3000,
     }, {
       id: 2,
       title: 'Другие услуги',
+      type: 'other',
       cost: 2100,
     }, {
       id: 3,
       title: 'Роуминг',
+      type: 'roaming',
       cost: 500,
     }],
   }],
@@ -28,14 +31,17 @@ const history = [
     expense: [{
       id: 1,
       title: 'Абонентская плата',
+      type: 'pay',
       cost: 8000,
     }, {
       id: 2,
       title: 'Другие услуги',
+      type: 'other',
       cost: 42000,
     }, {
       id: 3,
       title: 'Роуминг',
+      type: 'roaming',
       cost: 3400,
     }],
   }, {
@@ -47,14 +53,17 @@ const history = [
     expense: [{
       id: 1,
       title: 'Абонентская плата',
+      type: 'pay',
       cost: 4000,
     }, {
       id: 2,
       title: 'Другие услуги',
+      type: 'other',
       cost: 2000,
     }, {
       id: 3,
       title: 'Роуминг',
+      type: 'roaming',
       cost: 1400,
     }],
   }],
@@ -68,14 +77,17 @@ const history = [
     expense: [{
       id: 1,
       title: 'Абонентская плата',
+      type: 'pay',
       cost: 8000,
     }, {
       id: 2,
       title: 'Другие услуги',
+      type: 'other',
       cost: 42000,
     }, {
       id: 3,
       title: 'Роуминг',
+      type: 'roaming',
       cost: 3400,
     }],
   }, {
@@ -87,14 +99,17 @@ const history = [
     expense: [{
       id: 1,
       title: 'Абонентская плата',
+      type: 'pay',
       cost: 4000,
     }, {
       id: 2,
       title: 'Другие услуги',
+      type: 'other',
       cost: 2000,
     }, {
       id: 3,
       title: 'Роуминг',
+      type: 'roaming',
       cost: 1400,
     }],
   }, {
@@ -106,14 +121,17 @@ const history = [
     expense: [{
       id: 1,
       title: 'Абонентская плата',
+      type: 'pay',
       cost: 4000,
     }, {
       id: 2,
       title: 'Другие услуги',
+      type: 'other',
       cost: 0,
     }, {
       id: 3,
       title: 'Роуминг',
+      type: 'roaming',
       cost: 0,
     }],
   }, {
@@ -125,14 +143,17 @@ const history = [
     expense: [{
       id: 1,
       title: 'Абонентская плата',
+      type: 'pay',
       cost: 4000,
     }, {
       id: 2,
       title: 'Другие услуги',
+      type: 'other',
       cost: 2000,
     }, {
       id: 3,
       title: 'Роуминг',
+      type: 'roaming',
       cost: 1400,
     }],
   }, {
@@ -144,14 +165,17 @@ const history = [
     expense: [{
       id: 1,
       title: 'Абонентская плата',
+      type: 'pay',
       cost: 4000,
     }, {
       id: 2,
       title: 'Другие услуги',
+      type: 'other',
       cost: 2000,
     }, {
       id: 3,
       title: 'Роуминг',
+      type: 'roaming',
       cost: 1400,
     }],
   }, {
@@ -163,14 +187,17 @@ const history = [
     expense: [{
       id: 1,
       title: 'Абонентская плата',
+      type: 'pay',
       cost: 4000,
     }, {
       id: 2,
       title: 'Другие услуги',
+      type: 'other',
       cost: 2000,
     }, {
       id: 3,
       title: 'Роуминг',
+      type: 'roaming',
       cost: 1400,
     }],
   }, {
@@ -182,14 +209,17 @@ const history = [
     expense: [{
       id: 1,
       title: 'Абонентская плата',
+      type: 'pay',
       cost: 4000,
     }, {
       id: 2,
       title: 'Другие услуги',
+      type: 'other',
       cost: 2000,
     }, {
       id: 3,
       title: 'Роуминг',
+      type: 'roaming',
       cost: 1400,
     }],
   }, {
@@ -201,14 +231,17 @@ const history = [
     expense: [{
       id: 1,
       title: 'Абонентская плата',
+      type: 'pay',
       cost: 4000,
     }, {
       id: 2,
       title: 'Другие услуги',
+      type: 'other',
       cost: 2000,
     }, {
       id: 3,
       title: 'Роуминг',
+      type: 'roaming',
       cost: 1400,
     }],
   }, {
@@ -220,14 +253,17 @@ const history = [
     expense: [{
       id: 1,
       title: 'Абонентская плата',
+      type: 'pay',
       cost: 4000,
     }, {
       id: 2,
       title: 'Другие услуги',
+      type: 'other',
       cost: 2000,
     }, {
       id: 3,
       title: 'Роуминг',
+      type: 'roaming',
       cost: 1400,
     }],
   }, {
@@ -239,14 +275,17 @@ const history = [
     expense: [{
       id: 1,
       title: 'Абонентская плата',
+      type: 'pay',
       cost: 4000,
     }, {
       id: 2,
       title: 'Другие услуги',
+      type: 'other',
       cost: 2000,
     }, {
       id: 3,
       title: 'Роуминг',
+      type: 'roaming',
       cost: 1400,
     }],
   }],
