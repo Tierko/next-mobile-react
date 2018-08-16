@@ -11,7 +11,11 @@
   &__expense {
     .h1;
     margin-bottom: 16px;
-    text-indent: -24px;
+    text-indent: -33px;
     text-transform: lowercase;
+
+    @media (max-width: @BREAK-POINT) {
+      text-indent: 0;
+    }
   }
 }
