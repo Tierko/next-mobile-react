@@ -52,8 +52,16 @@
   }
 
   &__row {
+    td {
+      vertical-align: top;
+    }
+
+    td > div {
+      position: relative;
+    }
+
     &:not(&_header):hover {
-      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #fff 10%, #fff 30%, #fff 50%, #fff 70%, #fff 90%, rgba(255, 255, 255, 0) 100%) 50% 50%;
+      background-color: rgba(255, 255, 255, 0.5);
     }
 
     &_header {
@@ -67,9 +75,9 @@
   }
 
   &__cell {
-    vertical-align: top;
     border-top: 1px solid @GRAY;
     padding: 20px 0;
+    min-height: 100%;
 
     &_date {
       padding-right: 10px;
@@ -98,6 +106,10 @@
     &_hide {
       border-top-color: transparent;
     }
+  }
+
+  &__cell-empty {
+    width: 15px;
   }
 
   &__note {

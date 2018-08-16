@@ -129,7 +129,10 @@ class Operations extends Component {
             {
               !!data.length &&
               <tr className="operations__row operations__row_header">
-                <td className="operations__cell_date">Дата</td>
+                <td className="operations__cell-empty">&nbsp;</td>
+                <td>
+                  <div className="operations__cell_date">Дата</div>
+                </td>
                 <td className="operations__cell_time">Время</td>
                 <td className="operations__cell_type">
                   <Select
@@ -141,62 +144,70 @@ class Operations extends Component {
                 </td>
                 <td className="operations__cell_count">Количество</td>
                 <td className="operations__cell_cost">Стоимость</td>
+                <td className="operations__cell-empty">&nbsp;</td>
               </tr>
             }
             {
               filteredData.map((d, i) => (
                 <tr key={d.id} className="operations__row">
+                  <td className="operations__cell-empty">&nbsp;</td>
                   {
-                    <td
-                      className={cs('operations__cell operations__cell_date', { operations__cell_hide: !showDate(filteredData, i) })}
-                    >
-                      {
-                        showDate(filteredData, i) && `${d.date.day} ${MONTHS_M[d.date.month]}`
-                      }
+                    <td>
+                      <div
+                        className={cs('operations__cell operations__cell_date', { operations__cell_hide: !showDate(filteredData, i) })}
+                      >
+                        {showDate(filteredData, i) && `${d.date.day} ${MONTHS_M[d.date.month]}`}
+                      </div>
                     </td>
                   }
-                  <td className="operations__cell operations__cell_time">
-                    {d.time}
+                  <td>
+                    <div className="operations__cell operations__cell_time">{d.time}</div>
                   </td>
-                  <td className="operations__cell operations__cell_type">
-                    <div className={`operations__type operations__type_${d.provider || ''}`}>
-                      {HISTORY_TITLES.find(f => f.id === d.type).title}
-                    </div>
-                    <div className="operations__note">{d.note}</div>
-                  </td>
-                  <td className="operations__cell operations__cell_count">
-                    {
-                      d.count && formatCount(d.count, d.unit)
-                    }
-                  </td>
-                  <td className="operations__cell operations__cell_cost">
-                    {formatCost(d.cost, true)}
-                    {
-                      d.tariff &&
-                      <div className="operations__note">
-                        {d.tariff} ₽ / {d.unit === 'time' ? 'мин' : d.unit}
+                  <td>
+                    <div className="operations__cell operations__cell_type">
+                      <div className={`operations__type operations__type_${d.provider || ''}`}>
+                        {HISTORY_TITLES.find(f => f.id === d.type).title}
                       </div>
-                    }
+                      <div className="operations__note">{d.note}</div>
+                    </div>
                   </td>
+                  <td>
+                    <div className="operations__cell operations__cell_count">
+                      {d.count && formatCount(d.count, d.unit)}
+                    </div>
+                  </td>
+                  <td>
+                    <div className="operations__cell operations__cell_cost">
+                      {formatCost(d.cost, true)}
+                      {
+                        d.tariff &&
+                        <div className="operations__note">
+                          {d.tariff} ₽ / {d.unit === 'time' ? 'мин' : d.unit}
+                        </div>
+                      }
+                    </div>
+                  </td>
+                  <td className="operations__cell-empty">&nbsp;</td>
                 </tr>
               ))
             }
             {
               !filteredData.length &&
                 <tr>
-                  <td colSpan={5} className="operations__empty">
+                  <td colSpan={7} className="operations__empty">
                     У вас нет данных за указанный период
                   </td>
                 </tr>
             }
             {
               !!filteredData.length &&
-              <tr>
+              <tr><td className="operations__cell-empty">&nbsp;</td>
                 <td colSpan={2}>&nbsp;</td>
                 <td className="operations__cell_button">
                   <Button onClick={loadMore} disabled={data.length <= show}>Загрузить еще</Button>
                 </td>
                 <td colSpan={2}>&nbsp;</td>
+                <td className="operations__cell-empty">&nbsp;</td>
               </tr>
             }
           </tbody>
