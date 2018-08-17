@@ -66,7 +66,7 @@ class SignIn extends Component {
           <div className="welcome__content">
             <Logo />
             <div className="sign-in__text">{ message }</div>
-            <form onSubmit={onSubmit} >
+            <form onSubmit={onSubmit} className="sign-in__form">
               {
                 isPhoneVisible &&
                 <Transitions classNames="slide">
