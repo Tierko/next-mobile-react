@@ -1,6 +1,7 @@
 .logo-animated {
-  max-width: 450px;
+  max-width: 600px;
   margin: auto;
+  padding-right: 22%;
 
   &__inner {
     padding-bottom: 93.33%;
@@ -24,22 +25,32 @@
   }
 
   &__square {
-    width: 30px;
-    height: 44px;
-    border-radius: 0 15px 0 0;
-    background-color: transparent;
+    width: 6.76%;
+    height: 0;
+    padding-bottom: 9.9%;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     margin: auto;
+    z-index: 1;
 
-    &_expand {
+    &:after {
+      content: '';
+      position: absolute;
+      border-top-right-radius: 50%;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &_expand:after {
       background-color: @WHITE;
     }
 
-    &:after {
+    &:before {
       content: '';
       position: absolute;
       top: 0;
@@ -54,7 +65,7 @@
       z-index: 1;
     }
 
-    &_expand:after {
+    &_expand:before {
       opacity: 0;
     }
   }
@@ -63,6 +74,11 @@
     position: absolute;
     top: calc(100% + 10px);
     left: calc(100% + 10px);
-    font-size: 30px;
+    width: 63px;
+    height: auto;
+
+    @media (max-width: 600px) {
+      width: 10.5vw;
+    }
   }
 }
