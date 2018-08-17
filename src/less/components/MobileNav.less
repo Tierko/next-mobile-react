@@ -21,7 +21,7 @@
 
     &_open {
       background-image: url("/media/icons/x.svg");
-      background-color: transparent;
+      background-color: #fff;
     }
   }
 
@@ -30,9 +30,10 @@
     top: 0;
     bottom: 0;
     left: 0;
-    background-color: @WHITE;
     width: 0;
+    background-color: @WHITE;
     overflow: hidden;
+    transition: width 0.5s;
 
     &_open {
       width: 260px;
@@ -41,6 +42,12 @@
 
   &__list-inner {
     padding: 80px 17px 17px;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    bottom: 0;
+    left: 0;
+    overflow-y: scroll;
   }
 
   &__link {
@@ -51,6 +58,10 @@
     padding: 12px 0 12px 33px;
     position: relative;
     text-align: left;
+
+    &:last-child {
+      margin-bottom: 20px;
+    }
 
     svg {
       position: absolute;
@@ -69,6 +80,22 @@
       svg {
         fill: @BLACK;
       }
+    }
+  }
+
+  &__drawer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 500;
+    width: 0;
+    transition: width 0.5s;
+
+    &_show {
+      width: 100%;
     }
   }
 }
