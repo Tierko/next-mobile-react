@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { formatCost } from '../utils';
 
 const RoamingTariff = ({ data }) => (
   <div className="roaming-tariff">
@@ -13,7 +14,7 @@ const RoamingTariff = ({ data }) => (
                 <div key={r.id} className="roaming-tariff__row">
                   <div className="roaming-tariff__area">{r.title}</div>
                   <div className="roaming-tariff__cost">
-                    {r.from && 'от '}{r.cost}<span> / {r.unit}</span>
+                    {r.from && 'от '}{formatCost(r.cost, true)}<span> / {r.unit}</span>
                   </div>
                 </div>
               ))

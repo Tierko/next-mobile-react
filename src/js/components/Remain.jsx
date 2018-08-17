@@ -63,7 +63,7 @@ const Remain = ({
         </div>
       ))
     }
-    <Button onClick={buy}>Докупить…</Button>
+    <Button className="button_remain" onClick={buy}>Докупить…</Button>
   </div>
 );
 
