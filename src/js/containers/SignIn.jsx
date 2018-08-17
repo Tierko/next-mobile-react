@@ -74,7 +74,7 @@ class SignIn extends Component {
                     name="phone"
                     value={phone}
                     onChange={onChange}
-                    className="input_phone"
+                    className="input_phone input_phone-sign-in"
                   />
                 </Transitions>
               }
