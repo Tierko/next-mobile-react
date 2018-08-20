@@ -55,8 +55,7 @@ class Invite extends Component {
             {
               count &&
               <div className="invite__subtitle">
-                Осталось {count}
-                {
+                Осталось {count} {
                   mode === 'link' ?
                     <Button className="button_code-mode" borderless onClick={() => setCopyMode('')}>
                       {convertStrings(count, PROMO_CODES)}
