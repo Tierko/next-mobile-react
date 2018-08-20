@@ -50,6 +50,7 @@ class Input extends Component {
       multiLine,
       clear,
       simplePlaceholder,
+      disabled,
     } = this.props;
     const {
       onChange,
@@ -85,6 +86,7 @@ class Input extends Component {
               onChange={onChange}
               onBlur={onBlur}
               placeholder={simplePlaceholder ? placeholder : ''}
+              disabled={disabled}
             />
         }
         {
@@ -117,6 +119,7 @@ Input.propTypes = {
   clear: PropTypes.bool,
   simplePlaceholder: PropTypes.bool,
   onKeyDown: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 Input.defaultProps = {
@@ -129,6 +132,7 @@ Input.defaultProps = {
   onFocus: null,
   simplePlaceholder: false,
   onKeyDown: null,
+  disabled: false,
 };
 
 export default Input;

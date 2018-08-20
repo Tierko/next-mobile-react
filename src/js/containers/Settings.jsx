@@ -100,6 +100,7 @@ class Settings extends Component {
                     name="expenseNoteSum"
                     value={expenseNoteSum}
                     onChange={onChange}
+                    disabled={!note}
                     clear
                   />
                   <div className="service__expense-sums">

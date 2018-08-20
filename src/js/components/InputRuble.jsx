@@ -31,6 +31,7 @@ class InputRuble extends Input {
       placeholder,
       errorText,
       clear,
+      disabled,
     } = this.props;
     const { onChange, onFocus } = this;
 
@@ -44,6 +45,7 @@ class InputRuble extends Input {
           onChange={onChange}
           onFocus={onFocus}
           ref={(e) => { this.input = e; }}
+          disabled={disabled}
         />
         <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>
           {placeholder}
@@ -52,7 +54,7 @@ class InputRuble extends Input {
         <div className={cs('input__indicator', { input__indicator_error: errorText })} />
         {
           clear &&
-          <div className="input__icon input__icon_clear" onClick={() => this.props.onChange(name, '')} role="button" />
+          <div className="input__icon input__icon_clear" onClick={() => !disabled && this.props.onChange(name, '')} role="button" />
         }
       </div>
     );
