@@ -121,7 +121,7 @@ class Overview extends Component {
                 subText="Спасибо, что всегда оплачиваетесчет вовремя"
                 color="green"
                 hideCont
-                show={getData('noteGreen')}
+                show={!!getData('noteGreen')}
               />
               <Note
                 className="note_dashboard"
@@ -129,14 +129,14 @@ class Overview extends Component {
                 subText="Перейти в настройки"
                 color="blue"
                 hideCont
-                show={getData('noteBlue')}
+                show={!!getData('noteBlue')}
               />
               <Note
                 className="note_dashboard"
                 message="Ваш номер заблокирован"
                 color="red"
                 hideCont
-                show={getData('noteRed')}
+                show={!!getData('noteRed')}
                 subText="Чтобы разблокровать номер, обратитесь в поддержку"
               />
               <Balance

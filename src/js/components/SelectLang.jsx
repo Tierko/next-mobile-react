@@ -31,6 +31,7 @@ class SelectLang extends Select {
                 className="select__item select__item_lang"
                 onClick={() => selectItem(i)}
                 role="button"
+                key={i.id}
               >
                 <img className="select__img" src={`/media/flags/${i.flag}`} alt={i.title} />
                 {i.title}

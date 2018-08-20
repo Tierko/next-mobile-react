@@ -168,7 +168,7 @@ class Chat extends Component {
             </div>
             {
               messages.map(m => (
-                <div className="chat__message">
+                <div key={`${m.date.year}${m.date.month}${m.date.day}${m.date.time}`} className="chat__message">
                   <div className="chat__avatar">
                     <img className="chat__avatar-img" src={m.avatar} alt="" />
                   </div>

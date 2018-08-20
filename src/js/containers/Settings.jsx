@@ -12,9 +12,21 @@ import Transitions from '../components/Transitions';
 import { TITLES } from '../constants';
 
 class Settings extends Component {
+  langs = [{
+    id: 1,
+    title: 'Русский',
+    value: 'ru',
+    flag: 'RU.svg',
+  }, {
+    id: 2,
+    title: 'English',
+    value: 'en',
+    flag: 'US.svg',
+  }];
+
   state = {
     email: 'Konstantinopolsky@gmail.com',
-    lang: { title: 'Русский', value: 'ru', flag: 'RU.svg' },
+    lang: this.langs[0],
     note: true,
     receipt: true,
     expenseNoteSum: '2 000 ₽',
@@ -63,6 +75,7 @@ class Settings extends Component {
       onLangSelect,
       setCash,
       onNoteFade,
+      langs,
     } = this;
     const {
       email,
@@ -90,7 +103,7 @@ class Settings extends Component {
                 <Select
                   className="select_settings"
                   placeholder="Язык"
-                  items={[{ title: 'Русский', value: 'ru', flag: 'RU.svg' }, { title: 'English', value: 'en', flag: 'US.svg' }]}
+                  items={langs}
                   value={lang}
                   onSelect={onLangSelect}
                 />
