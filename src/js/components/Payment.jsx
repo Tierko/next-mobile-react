@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import cs from 'classnames';
 import Input from './InputRuble';
 import Button from './Button';
 import Cards from './Cards';
@@ -56,6 +57,7 @@ class Payment extends Component {
       onPay,
       onEdit,
     } = this.props;
+    const inLimits = payment >= 100 && payment <= 15000;
 
     return (
       <div className="payment">
@@ -68,13 +70,13 @@ class Payment extends Component {
           isEditable &&
           <Fragment>
             <Input className="input_pay" onChange={onChange} value={payment} name="payment" clear />
-            <div className="payment__limit">
+            <div className={cs('payment__limit', { payment__limit_show: !inLimits })}>
               Введите сумму от 100 до {formatCost(15000)}
             </div>
             <div className="payment__message">Для оплаты по тарифу Супервип на счету не хватает <span className="nobr">{formatCost(paymentInit, true)}</span></div>
           </Fragment>
         }
-        <Button className="button_pay" onClick={() => onPay(card)} disabled={!payment || !payPermitted}>
+        <Button className="button_pay" onClick={() => onPay(card)} disabled={!payment || !payPermitted || !inLimits}>
           Пополнить
         </Button>
       </div>
