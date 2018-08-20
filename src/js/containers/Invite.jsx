@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import LinkBack from '../components/LinkBack';
@@ -6,7 +7,7 @@ import CopyCode from '../components/CopyCode';
 import Invites from '../components/Invites';
 import Button from '../components/Button';
 import Transitions from '../components/Transitions';
-import { Pages, PROMO_CODES, LINKS } from '../constants';
+import { Pages, PROMO_CODES, LINKS, TITLES } from '../constants';
 import { convertStrings } from '../utils';
 
 class Invite extends Component {
@@ -42,40 +43,45 @@ class Invite extends Component {
     }, 0);
     let code = items.find(i => !i.active);
     code = code ? code.code : '';
+    const meta = {
+      title: TITLES.INVITES,
+    };
 
-    return ([
-      <MobileNav key="nav" type="dashboard" />,
-      <div key="dashboard" className="dashboard">
-        <Aside />
-        <Transitions>
-          <div className="dashboard__content invite">
-            <LinkBack className="link-back_offset-bottom" href={Pages.OVERVIEW} />
-            <div className="dashboard__header">Подарите близким возможность присоединится к закрытому клубу Next Mobile</div>
-            <div>{desc}</div>
-            {
-              count &&
-              <div className="invite__subtitle">
-                Осталось {count} {
-                  mode === 'link' ?
-                    <Button className="button_code-mode" borderless onClick={() => setCopyMode('')}>
-                      {convertStrings(count, PROMO_CODES)}
-                    </Button> :
-                    convertStrings(count, PROMO_CODES)
-                } или {
-                  mode !== 'link' ?
-                    <Button className="button_code-mode" borderless onClick={() => setCopyMode('link')}>
-                      {convertStrings(count, LINKS)}
-                    </Button> :
-                    convertStrings(count, LINKS)
-                } для активации
-              </div>
-            }
-            <CopyCode code={code} mode={mode} />
-            <Invites items={items} />
-          </div>
-        </Transitions>
-      </div>,
-    ]);
+    return (
+      <DocumentMeta {...meta}>
+        <MobileNav key="nav" type="dashboard" />
+        <div key="dashboard" className="dashboard">
+          <Aside />
+          <Transitions>
+            <div className="dashboard__content invite">
+              <LinkBack className="link-back_offset-bottom" href={Pages.OVERVIEW} />
+              <div className="dashboard__header">Подарите близким возможность присоединится к закрытому клубу Next Mobile</div>
+              <div>{desc}</div>
+              {
+                count &&
+                <div className="invite__subtitle">
+                  Осталось {count} {
+                    mode === 'link' ?
+                      <Button className="button_code-mode" borderless onClick={() => setCopyMode('')}>
+                        {convertStrings(count, PROMO_CODES)}
+                      </Button> :
+                      convertStrings(count, PROMO_CODES)
+                  } или {
+                    mode !== 'link' ?
+                      <Button className="button_code-mode" borderless onClick={() => setCopyMode('link')}>
+                        {convertStrings(count, LINKS)}
+                      </Button> :
+                      convertStrings(count, LINKS)
+                  } для активации
+                </div>
+              }
+              <CopyCode code={code} mode={mode} />
+              <Invites items={items} />
+            </div>
+          </Transitions>
+        </div>
+      </DocumentMeta>
+    );
   }
 }
 

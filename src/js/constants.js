@@ -57,6 +57,29 @@ export const Pages = {
   NOT_FOUND: '/not-found',
 };
 
+export const TITLES = {
+  OVERVIEW: 'Обзор',
+  PAY: 'Пополнение',
+  SERVICES: 'Тарифы и услуги',
+  ROAMING: 'Роуминг',
+  HISTORY: 'История',
+  SETTINGS: 'Настройки',
+  SUPPORT: 'Поддержка',
+  ADD_PACKAGE: 'Купить дополнительный пакет',
+  AUTO_PAY: 'Автоплатеж',
+  INVITES: 'Инвайты',
+  KIT: 'Типовая',
+  MORE_INTERNET: 'Интернет',
+  MORE_CALLS: 'Звонки',
+  NOT_FOUND: 'Страница не найдена',
+  DETAIL: 'Детализация',
+  DATA: 'Демо данные',
+  SITE_MAP: 'Карта сайта',
+  CONDITIONS: 'Условия перехода',
+  SIGN_UP: 'Регистрация',
+  SIGN_IN: 'Вход',
+};
+
 export const Statuses = {
   REQUEST_SENT: 'request-sent',
   INFORMATION_CHECKED: 'information-checked',

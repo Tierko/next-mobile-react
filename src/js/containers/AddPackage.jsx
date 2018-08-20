@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Package from '../components/Package';
 import LinkBack from '../components/LinkBack';
 import Transitions from '../components/Transitions';
-import { Pages } from '../constants';
+import { Pages, TITLES } from '../constants';
 import getPackages from '../actions/Packages';
 import { getData } from '../utils';
 
@@ -20,23 +21,28 @@ class AddPackage extends Component {
   render() {
     const { data } = this.props;
     const remain = getData('remain');
+    const meta = {
+      title: TITLES.ADD_PACKAGE,
+    };
 
-    return ([
-      <MobileNav key="nav" type="dashboard" />,
-      <div key="dashboard" className="dashboard">
-        <Aside />
-        <Transitions>
-          <div className="dashboard__content">
-            <LinkBack href={Pages.OVERVIEW} className="link-back_offset-bottom" />
-            <div className="dashboard__header">Дополнительный пакет</div>
-            <div className="dashboard__text">Через 10&nbsp;дней будут начислены 200 мин и&nbsp;2&nbsp;ГБ по&nbsp;тарифу Супервип</div>
-            {
-              data.map((d, i) => <Package key={d.id} data={d} remain={remain[i]} />)
-            }
-          </div>
-        </Transitions>
-      </div>,
-    ]);
+    return (
+      <DocumentMeta {...meta}>
+        <MobileNav key="nav" type="dashboard" />
+        <div key="dashboard" className="dashboard">
+          <Aside />
+          <Transitions>
+            <div className="dashboard__content">
+              <LinkBack href={Pages.OVERVIEW} className="link-back_offset-bottom" />
+              <div className="dashboard__header">Дополнительный пакет</div>
+              <div className="dashboard__text">Через 10&nbsp;дней будут начислены 200 мин и&nbsp;2&nbsp;ГБ по&nbsp;тарифу Супервип</div>
+              {
+                data.map((d, i) => <Package key={d.id} data={d} remain={remain[i]} />)
+              }
+            </div>
+          </Transitions>
+        </div>
+      </DocumentMeta>
+    );
   }
 }
 

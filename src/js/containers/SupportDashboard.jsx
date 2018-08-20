@@ -1,13 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Chat from '../components/Chat';
 import Transitions from '../components/Transitions';
+import { TITLES } from '../constants';
 
-class SupportDashboard extends Component {
-  render() {
-    return [
-      <MobileNav key="nav" type="dashboard" />,
+const SupportDashboard = () => {
+  const meta = {
+    title: TITLES.SUPPORT,
+  };
+
+  return (
+    <DocumentMeta {...meta}>
+      <MobileNav key="nav" type="dashboard" />
       <div key="dashboard" className="dashboard">
         <Aside />
         <Transitions>
@@ -15,9 +21,9 @@ class SupportDashboard extends Component {
             <Chat className="chat_dashboard" />
           </div>
         </Transitions>
-      </div>,
-    ];
-  }
-}
+      </div>
+    </DocumentMeta>
+  );
+};
 
 export default SupportDashboard;

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import NavLobby from '../components/NavLobby';
 import Input from '../components/InputPhone';
 import Logo from '../components/Logo';
 import MobileCode from '../components/MobileCode';
 import Transitions from '../components/Transitions';
-import { Pages } from '../constants';
+import { Pages, TITLES } from '../constants';
 
 class SignIn extends Component {
   state = {
@@ -57,35 +58,40 @@ class SignIn extends Component {
       mobileCode,
     } = this;
     const { phone, message, isPhoneVisible } = this.state;
+    const meta = {
+      title: TITLES.SIGN_IN,
+    };
 
     return (
-      <div className="welcome">
-        <MobileNav type="enter" />
-        <NavLobby />
-        <Transitions classNames="slide">
-          <div className="welcome__content">
-            <Logo />
-            <div className="sign-in__text">{ message }</div>
-            <form onSubmit={onSubmit} className="sign-in__form">
-              {
-                isPhoneVisible &&
-                <Transitions classNames="slide">
-                  <Input
-                    name="phone"
-                    value={phone}
-                    onChange={onChange}
-                    className="input_phone input_phone-sign-in"
-                  />
-                </Transitions>
-              }
-            </form>
-            <MobileCode className="mobile-code_sign-in" phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} ref={mobileCode} />
-            <div className="welcome__footer">
-              <Link className="link-nav" to={Pages.SIGN_UP}>Регистрация</Link>
+      <DocumentMeta {...meta}>
+        <div className="welcome">
+          <MobileNav type="enter" />
+          <NavLobby />
+          <Transitions classNames="slide">
+            <div className="welcome__content">
+              <Logo />
+              <div className="sign-in__text">{ message }</div>
+              <form onSubmit={onSubmit} className="sign-in__form">
+                {
+                  isPhoneVisible &&
+                  <Transitions classNames="slide">
+                    <Input
+                      name="phone"
+                      value={phone}
+                      onChange={onChange}
+                      className="input_phone input_phone-sign-in"
+                    />
+                  </Transitions>
+                }
+              </form>
+              <MobileCode className="mobile-code_sign-in" phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} ref={mobileCode} />
+              <div className="welcome__footer">
+                <Link className="link-nav" to={Pages.SIGN_UP}>Регистрация</Link>
+              </div>
             </div>
-          </div>
-        </Transitions>
-      </div>
+          </Transitions>
+        </div>
+      </DocumentMeta>
     );
   }
 }

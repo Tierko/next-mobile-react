@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import NavLobby from '../components/NavLobby';
 import InputPhone from '../components/InputPhone';
@@ -117,7 +118,6 @@ class RequestStatus extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const { mobileCode: { current: { sendCode } } } = this;
-    const { phone } = this.state;
 
     sendCode();
   };
@@ -127,7 +127,13 @@ class RequestStatus extends Component {
   render() {
     const { status } = this.props.match.params;
     const { phone, codeSent } = this.state;
-    const { onChange, onSubmit, onEnter, onCodeSend, mobileCode } = this;
+    const {
+      onChange,
+      onSubmit,
+      onEnter,
+      onCodeSend,
+      mobileCode,
+    } = this;
     let content;
     let type;
 
@@ -135,51 +141,57 @@ class RequestStatus extends Component {
       ({ content, type } = data[status]);
     }
 
+    const meta = {
+      title: content.header,
+    };
+
     return (
-      <div className="welcome">
-        <MobileNav type="enter" />
-        <NavLobby />
-        <Transitions classNames="slide" className="slide-init">
-          {
-            !status &&
-            <div className="welcome__content request-status">
-              <div className="request-status__title">Статус заявки</div>
-              {
-                codeSent &&
-                <div className="request-status__message">
-                  Введите код, который мы прислали на номер {phone}
-                </div>
-              }
-              {
-                !codeSent &&
-                <div className="request-status__message">
-                  Введите номер, с которым вы оставляли заявку
-                </div>
-              }
-              {
-                !codeSent &&
-                <form onSubmit={onSubmit}>
-                  <InputPhone onChange={onChange} value={phone} name="phone" className="input_phone" />
-                </form>
-              }
-              <MobileCode phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} buttonTitle="Проверить статус" ref={mobileCode} />
-            </div>
-          }
-          {
-            type === 'simple' &&
-            <RequestStatusSimple
-              header={content.header}
-              message={content.message}
-              color={content.color}
-            />
-          }
-          {
-            type === 'delivery' &&
-            <RequestStatusDelivery data={content} />
-          }
-          <RequestStatusFooter />
-        </Transitions>
-      </div>
+      <DocumentMeta {...meta}>
+        <div className="welcome">
+          <MobileNav type="enter" />
+          <NavLobby />
+          <Transitions classNames="slide" className="slide-init">
+            {
+              !status &&
+              <div className="welcome__content request-status">
+                <div className="request-status__title">Статус заявки</div>
+                {
+                  codeSent &&
+                  <div className="request-status__message">
+                    Введите код, который мы прислали на номер {phone}
+                  </div>
+                }
+                {
+                  !codeSent &&
+                  <div className="request-status__message">
+                    Введите номер, с которым вы оставляли заявку
+                  </div>
+                }
+                {
+                  !codeSent &&
+                  <form onSubmit={onSubmit}>
+                    <InputPhone onChange={onChange} value={phone} name="phone" className="input_phone" />
+                  </form>
+                }
+                <MobileCode phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} buttonTitle="Проверить статус" ref={mobileCode} />
+              </div>
+            }
+            {
+              type === 'simple' &&
+              <RequestStatusSimple
+                header={content.header}
+                message={content.message}
+                color={content.color}
+              />
+            }
+            {
+              type === 'delivery' &&
+              <RequestStatusDelivery data={content} />
+            }
+            <RequestStatusFooter />
+          </Transitions>
+        </div>
+      </DocumentMeta>
     );
   }
 }

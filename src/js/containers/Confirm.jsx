@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import LinkBack from '../components/LinkBack';
@@ -26,27 +27,33 @@ class Confirm extends Component {
     const state = location.state || {};
     const { pack, sum } = state;
     const { onPay, redirect } = this;
+    const title = `Оплатить ${pack}?`;
+    const meta = {
+      title,
+    };
 
     if (!pack || !sum) {
       redirect();
     }
 
-    return [
-      <MobileNav key="nav" type="dashboard" />,
-      <div key="dashboard" className="dashboard">
-        <Aside />
-        <Transition>
-          <div className="dashboard__content">
-            <LinkBack href={Pages.ADD_PACKAGE} />
-            <div className="confirm">
-              <div className="dashboard__header dashboard__header_confirm">Оплатить {pack}?</div>
-              <div className="confirm__sum">{formatCost(sum || 0)}</div>
-              <Button className="button_confirm" onClick={onPay} >Оплатить</Button>
+    return (
+      <DocumentMeta {...meta}>
+        <MobileNav key="nav" type="dashboard" />
+        <div key="dashboard" className="dashboard">
+          <Aside />
+          <Transition>
+            <div className="dashboard__content">
+              <LinkBack href={Pages.ADD_PACKAGE} />
+              <div className="confirm">
+                <div className="dashboard__header dashboard__header_confirm">{title}</div>
+                <div className="confirm__sum">{formatCost(sum || 0)}</div>
+                <Button className="button_confirm" onClick={onPay} >Оплатить</Button>
+              </div>
             </div>
-          </div>
-        </Transition>
-      </div>,
-    ];
+          </Transition>
+        </div>
+      </DocumentMeta>
+    );
   }
 }
 

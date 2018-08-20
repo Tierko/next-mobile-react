@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Payment from '../components/Payment';
@@ -19,24 +20,28 @@ class PayPackage extends Component {
     const state = location.state || {};
     const { pack, sum } = state;
     const { onPay } = this;
+    const title = (!pack || !sum) ? 'Вы не выбрали услугу' : `Оплата ${pack}`;
+    const meta = {
+      title,
+    };
 
-    return [
-      <MobileNav key="nav" type="dashboard" />,
-      <div key="dashboard" className="dashboard">
-        <Aside />
-        <Transitions>
-          <div className="dashboard__content pay-package">
-            <LinkBack href={Pages.ADD_PACKAGE} className="link-back_offset-bottom" />
-            <div className="pay-package__header">
-              {
-                (!pack || !sum) ? 'Вы не выбрали услугу' : `Оплата ${pack}`
-              }
+    return (
+      <DocumentMeta {...meta}>
+        <MobileNav key="nav" type="dashboard" />
+        <div key="dashboard" className="dashboard">
+          <Aside />
+          <Transitions>
+            <div className="dashboard__content pay-package">
+              <LinkBack href={Pages.ADD_PACKAGE} className="link-back_offset-bottom" />
+              <div className="pay-package__header">
+                {title}
+              </div>
+              <Payment isEditable={false} sum={sum} onPay={onPay} />
             </div>
-            <Payment isEditable={false} sum={sum} onPay={onPay} />
-          </div>
-        </Transitions>
-      </div>,
-    ];
+          </Transitions>
+        </div>
+      </DocumentMeta>
+    );
   }
 }
 

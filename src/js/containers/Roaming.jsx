@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import RoamingMap from '../components/RoamingMap';
@@ -11,7 +12,7 @@ import RoamingInternet from '../components/RoamingInternet';
 import RoamingTariffZone from '../components/RoamingTariffZone';
 import RoamingTariffCountry from '../components/RoamingTariffCountry';
 import Transitions from '../components/Transitions';
-import { Pages } from '../constants';
+import { Pages, TITLES } from '../constants';
 
 class Roaming extends Component {
   state = {
@@ -142,75 +143,80 @@ class Roaming extends Component {
     } = this.props;
     const zones = fillEmptyZone(roamingZones.items, features.items);
     const zone = roamingZones.items.find(z => z.id === zoneId * 1);
+    const meta = {
+      title: TITLES.ROAMING,
+    };
 
-    return ([
-      <MobileNav key="nav" type="dashboard" />,
-      <div key="dashboard" className="dashboard">
-        <Aside />
-        <div className="dashboard__content dashboard__content_roaming">
-          <Transitions>
-            <RoamingMap
-              zone={getCurrentZone()}
-              features={features.items}
-              country={country}
-              onCountrySelect={onCountrySelect}
-            />
-            {
-              !zoneId &&
-              <Transitions>
-                <div className="roaming roaming_zones">
-                  {
+    return (
+      <DocumentMeta {...meta}>
+        <MobileNav key="nav" type="dashboard" />
+        <div key="dashboard" className="dashboard">
+          <Aside />
+          <div className="dashboard__content dashboard__content_roaming">
+            <Transitions>
+              <RoamingMap
+                zone={getCurrentZone()}
+                features={features.items}
+                country={country}
+                onCountrySelect={onCountrySelect}
+              />
+              {
+                !zoneId &&
+                <Transitions>
+                  <div className="roaming roaming_zones">
+                    {
 
-                  }
-                  <Tabs
-                    tabs={zones}
-                    active={tab}
-                    onTabChange={onTabChange}
-                    disable={!!country.properties}
-                  />
-                  {
-                    zones && zones.map(z => (
-                      <RoamingZone
-                        key={z.id}
-                        data={z}
-                        active={tab}
-                        history={history}
-                        features={features.items}
-                        zones={zones}
-                      />
-                    ))
-                  }
-                </div>
-              </Transitions>
-            }
-            {
-              zone && type === 'countries' &&
-              <Transitions>
-                <RoamingCountries items={features.items} zone={zone} />
-              </Transitions>
-            }
-            {
-              zoneId && type === 'internet' &&
-              <Transitions>
-                <RoamingInternet zoneId={zoneId} />
-              </Transitions>
-            }
-            {
-              zoneId && type === 'zone-tariff' &&
-              <Transitions>
-                <RoamingTariffZone id={zoneId} />
-              </Transitions>
-            }
-            {
-              countryId && type === 'country-tariff' && zone &&
-              <Transitions>
-                <RoamingTariffCountry zone={zone} items={features.items} id={countryId} />
-              </Transitions>
-            }
-          </Transitions>
+                    }
+                    <Tabs
+                      tabs={zones}
+                      active={tab}
+                      onTabChange={onTabChange}
+                      disable={!!country.properties}
+                    />
+                    {
+                      zones && zones.map(z => (
+                        <RoamingZone
+                          key={z.id}
+                          data={z}
+                          active={tab}
+                          history={history}
+                          features={features.items}
+                          zones={zones}
+                        />
+                      ))
+                    }
+                  </div>
+                </Transitions>
+              }
+              {
+                zone && type === 'countries' &&
+                <Transitions>
+                  <RoamingCountries items={features.items} zone={zone} />
+                </Transitions>
+              }
+              {
+                zoneId && type === 'internet' &&
+                <Transitions>
+                  <RoamingInternet zoneId={zoneId} />
+                </Transitions>
+              }
+              {
+                zoneId && type === 'zone-tariff' &&
+                <Transitions>
+                  <RoamingTariffZone id={zoneId} />
+                </Transitions>
+              }
+              {
+                countryId && type === 'country-tariff' && zone &&
+                <Transitions>
+                  <RoamingTariffCountry zone={zone} items={features.items} id={countryId} />
+                </Transitions>
+              }
+            </Transitions>
+          </div>
         </div>
-      </div>,
-    ]);
+      </DocumentMeta>
+    );
   }
 }
 

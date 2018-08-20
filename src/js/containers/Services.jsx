@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import TariffServices from '../components/TariffServices';
 import TariffTable from '../components/TariffTable';
 import InterCalls from '../components/InterCalls';
 import Transitions from '../components/Transitions';
-import { Pages } from '../constants';
+import { Pages, TITLES } from '../constants';
 import tariff from '../../data/tariff';
 
 class Services extends Component {
@@ -54,22 +55,27 @@ class Services extends Component {
   render() {
     const { services, currentTariff } = this.state;
     const { toggleService, changeTariff } = this;
+    const meta = {
+      title: TITLES.SERVICES,
+    };
 
-    return [
-      <MobileNav key="nav" type="dashboard" />,
-      <div key="dashboard" className="dashboard">
-        <Aside />
-        <Transitions>
-          <div className="dashboard__content">
-            <div className="dashboard__header">Тарифы</div>
-            <div className="dashboard__text">При подключении нового тарифа вы оплачиваете первый месяц абонентской платы</div>
-            <TariffTable data={tariff} current={currentTariff} onChange={changeTariff} />
-            <InterCalls className="inter-calls_services" />
-            <TariffServices services={services} onChange={toggleService} />
-          </div>
-        </Transitions>
-      </div>,
-    ];
+    return (
+      <DocumentMeta {...meta}>
+        <MobileNav key="nav" type="dashboard" />
+        <div key="dashboard" className="dashboard">
+          <Aside />
+          <Transitions>
+            <div className="dashboard__content">
+              <div className="dashboard__header">Тарифы</div>
+              <div className="dashboard__text">При подключении нового тарифа вы оплачиваете первый месяц абонентской платы</div>
+              <TariffTable data={tariff} current={currentTariff} onChange={changeTariff} />
+              <InterCalls className="inter-calls_services" />
+              <TariffServices services={services} onChange={toggleService} />
+            </div>
+          </Transitions>
+        </div>
+      </DocumentMeta>
+    );
   }
 }
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import DocumentMeta from 'react-document-meta';
 import Transitions from '../components/Transitions';
 
 import MobileNav from '../components/MobileNav';
@@ -16,7 +17,7 @@ import OverviewInvite from '../components/OverviewInvite';
 import OverviewRoamingCurrent from '../components/OverviewRoamingCurrent';
 import OverviewAutoPay from '../components/OverviewAutoPay';
 
-import { Pages, DAYS } from '../constants';
+import { Pages, DAYS, TITLES } from '../constants';
 import { getData, formatCost, convertStrings } from '../utils';
 
 class Overview extends Component {
@@ -76,7 +77,6 @@ class Overview extends Component {
         state: { sum },
       });
     }
-
   };
 
   sumChange = (n, v) => {
@@ -95,6 +95,9 @@ class Overview extends Component {
     const { sum, invites: { message, items } } = this.state;
     const data = getData('payment');
     const code = items.find(i => !i.active);
+    const meta = {
+      title: TITLES.OVERVIEW,
+    };
     let status = '';
 
     if (data.days > 5 && data.days <= 10 && getData('balance') < getData('tariff').payment) {
@@ -105,58 +108,60 @@ class Overview extends Component {
       status = 'error';
     }
 
-    return [
-      <MobileNav key="nav" type="dashboard" />,
-      <div key="dashboard" className="dashboard">
-        <Aside hideLink />
-        <Transitions id="Overview">
-          <div className="dashboard__content">
-            <Note
-              className="note_dashboard"
-              message="Добавлено 3ГБ бесплатного интернета до 5 марта"
-              subText="Спасибо, что всегда оплачиваетесчет вовремя"
-              color="green"
-              hideCont
-              show={getData('noteGreen')}
-            />
-            <Note
-              className="note_dashboard"
-              message="Добавьте электронную почту в настройках, чтобы получать квитанции"
-              subText="Перейти в настройки"
-              color="blue"
-              hideCont
-              show={getData('noteBlue')}
-            />
-            <Note
-              className="note_dashboard"
-              message="Ваш номер заблокирован"
-              color="red"
-              hideCont
-              show={getData('noteRed')}
-              subText="Чтобы разблокровать номер, обратитесь в поддержку"
-            />
-            <Balance
-              sum={getData('balance')}
-              message={`Следующий платеж: ${formatCost(getData('tariff').payment)} через ${getData('payment').days} ${convertStrings(getData('payment').days, DAYS)}`}
-              status={status}
-            />
-            <OverviewPayment onChange={sumChange} onPay={onPay} sum={sum} />
-            <OverviewAutoPay />
-            <OverviewRoamingCurrent history={history} data={roaming} />
-            <Remain
-              data={getData('remain')}
-              tariff={getData('tariff')}
-              buy={onBuy}
-              inRoaming={!!roaming.currentZoneId}
-            />
-            <History data={getData('history')} />
-            <RoamingDashboard data={roaming} />
-            <OverviewInvite message={message} code={code ? code.code : ''} />
-            <Footer als />
-          </div>
-        </Transitions>
-      </div>,
-    ];
+    return (
+      <DocumentMeta {...meta}>
+        <MobileNav key="nav" type="dashboard" />
+        <div key="dashboard" className="dashboard">
+          <Aside hideLink />
+          <Transitions id="Overview">
+            <div className="dashboard__content">
+              <Note
+                className="note_dashboard"
+                message="Добавлено 3ГБ бесплатного интернета до 5 марта"
+                subText="Спасибо, что всегда оплачиваетесчет вовремя"
+                color="green"
+                hideCont
+                show={getData('noteGreen')}
+              />
+              <Note
+                className="note_dashboard"
+                message="Добавьте электронную почту в настройках, чтобы получать квитанции"
+                subText="Перейти в настройки"
+                color="blue"
+                hideCont
+                show={getData('noteBlue')}
+              />
+              <Note
+                className="note_dashboard"
+                message="Ваш номер заблокирован"
+                color="red"
+                hideCont
+                show={getData('noteRed')}
+                subText="Чтобы разблокровать номер, обратитесь в поддержку"
+              />
+              <Balance
+                sum={getData('balance')}
+                message={`Следующий платеж: ${formatCost(getData('tariff').payment)} через ${getData('payment').days} ${convertStrings(getData('payment').days, DAYS)}`}
+                status={status}
+              />
+              <OverviewPayment onChange={sumChange} onPay={onPay} sum={sum} />
+              <OverviewAutoPay />
+              <OverviewRoamingCurrent history={history} data={roaming} />
+              <Remain
+                data={getData('remain')}
+                tariff={getData('tariff')}
+                buy={onBuy}
+                inRoaming={!!roaming.currentZoneId}
+              />
+              <History data={getData('history')} />
+              <RoamingDashboard data={roaming} />
+              <OverviewInvite message={message} code={code ? code.code : ''} />
+              <Footer als />
+            </div>
+          </Transitions>
+        </div>
+      </DocumentMeta>
+    );
   }
 }
 

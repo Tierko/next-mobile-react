@@ -1,18 +1,34 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import InterCalls from '../components/InterCalls';
 import LinkBack from '../components/LinkBack';
 import Transitions from '../components/Transitions';
-import { Pages } from '../constants';
+import { Pages, TITLES } from '../constants';
 
-class More extends Component {
-  render() {
-    const { match: { params: { type } } } = this.props;
+const More = ({ match: { params: { type } } }) => {
+  let title;
 
-    return ([
-      <MobileNav key="nav" type="dashboard" />,
+  switch (type) {
+  case 'calls':
+    title = TITLES.MORE_CALLS;
+    break;
+  case 'internet':
+    title = TITLES.MORE_INTERNET;
+    break;
+  default:
+    title = '';
+  }
+
+  const meta = {
+    title,
+  };
+
+  return (
+    <DocumentMeta {...meta}>
+      <MobileNav key="nav" type="dashboard" />
       <div key="dashboard" className="dashboard">
         <Aside />
         <Transitions>
@@ -51,10 +67,10 @@ class More extends Component {
             </div>
           </div>
         </Transitions>
-      </div>,
-    ]);
-  }
-}
+      </div>
+    </DocumentMeta>
+  );
+};
 
 More.propTypes = {
   match: PropTypes.shape().isRequired,
