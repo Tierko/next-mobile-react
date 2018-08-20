@@ -8,7 +8,7 @@ const NavLobby = ({ back }) => (
     {
       back &&
       <Link to={back} className="nav-lobby__back">
-        <img src="/media/icons/back.svg" />
+        <img src="/media/icons/back.svg" alt="" />
       </Link>
     }
     <NavLink className="nav-lobby__item" to={Pages.SIGN_IN} exact>Вход</NavLink>

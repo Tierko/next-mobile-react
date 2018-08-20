@@ -124,7 +124,7 @@ class Operations extends Component {
             </div>
           </div>
         }
-        <table className="operations__table" cellSpacing={0} cellPadding={0}>
+        <table className="operations__table">
           <tbody>
             {
               !!data.length &&

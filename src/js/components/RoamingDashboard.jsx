@@ -42,7 +42,7 @@ const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
           ))
         }
       </div>
-      <table className="roaming-dashboard__table" cellSpacing={0} cellPadding={0}>
+      <table className="roaming-dashboard__table">
         <tbody>
           {
             zones.items.filter(i => i.id !== currentZoneId).map(i => (

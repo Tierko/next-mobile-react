@@ -6,7 +6,7 @@ import { Pages } from '../constants';
 const MobileNavDashboard = () => (
   <div className="mobile-nav__list-inner">
     <NavLink className="mobile-nav__link" to={Pages.OVERVIEW}>
-      <InlineSvg src={require('../../../media/nav/roaming.svg')} raw /> Обзор
+      <InlineSvg src={require('../../../media/nav/overview.svg')} raw /> Обзор
     </NavLink>
     <NavLink className="mobile-nav__link" to={Pages.SERVICES}>
       <InlineSvg src={require('../../../media/nav/prices.svg')} raw /> Тарифы
