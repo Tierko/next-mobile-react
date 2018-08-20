@@ -255,6 +255,10 @@ class Operations extends Component {
               </div>
             ))
           }
+          {
+            !filteredData.length &&
+            <div className="operations__list-empty">У вас нет данных за указанный период</div>
+          }
           <Button className="button_operations-list" onClick={loadMore} disabled={data.length <= show}>Загрузить еще</Button>
         </div>
       </div>
