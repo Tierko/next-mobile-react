@@ -68,6 +68,9 @@ class Payment extends Component {
           isEditable &&
           <Fragment>
             <Input className="input_pay" onChange={onChange} value={payment} name="payment" clear />
+            <div className="payment__limit">
+              Введите сумму от 100 до {formatCost(15000)}
+            </div>
             <div className="payment__message">Для оплаты по тарифу Супервип на счету не хватает <span className="nobr">{formatCost(paymentInit, true)}</span></div>
           </Fragment>
         }
