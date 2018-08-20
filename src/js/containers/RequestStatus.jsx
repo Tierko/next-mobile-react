@@ -9,7 +9,7 @@ import RequestStatusSimple from '../components/RequestStatusSimple';
 import RequestStatusDelivery from '../components/RequestStatusDelivery';
 import RequestStatusFooter from '../components/RequestStatusFooter';
 import Transitions from '../components/Transitions';
-import { Statuses, Pages } from '../constants';
+import { Statuses, Pages, TITLES } from '../constants';
 
 const data = {
   [Statuses.REQUEST_SENT]: {
@@ -142,7 +142,7 @@ class RequestStatus extends Component {
     }
 
     const meta = {
-      title: content.header,
+      title: content ? content.header : TITLES.REQUEST_STATUS,
     };
 
     return (

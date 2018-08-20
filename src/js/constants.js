@@ -78,6 +78,7 @@ export const TITLES = {
   CONDITIONS: 'Условия перехода',
   SIGN_UP: 'Регистрация',
   SIGN_IN: 'Вход',
+  REQUEST_STATUS: 'Статус заявки',
 };
 
 export const Statuses = {
