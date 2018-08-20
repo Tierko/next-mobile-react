@@ -19,7 +19,7 @@ const zonesRequestSuccess = items => ({
 });
 
 export const getZonesAction = () => (
-  dispatch => ajax('/data/roaming-zones.json', dispatch, zonesRequest, zonesRequestFail, zonesRequestSuccess)
+  dispatch => ajax('/media/data/roaming-zones.json', dispatch, zonesRequest, zonesRequestFail, zonesRequestSuccess)
 );
 
 const featuresRequest = () => ({
@@ -36,7 +36,7 @@ const featuresRequestSuccess = items => ({
 });
 
 export const getFeaturesAction = () => (
-  dispatch => ajax('/data/map.geo.json', dispatch, featuresRequest, featuresRequestFail, featuresRequestSuccess)
+  dispatch => ajax('/media/data/map.geo.json', dispatch, featuresRequest, featuresRequestFail, featuresRequestSuccess)
 );
 
 const roamingInternetRequest = () => ({
@@ -53,5 +53,5 @@ const roamingInternetRequestSuccess = data => ({
 });
 
 export const getRoamingInternetAction = () => (
-  dispatch => ajax('/data/roaming-internet.json', dispatch, roamingInternetRequest, roamingInternetRequestFail, roamingInternetRequestSuccess)
+  dispatch => ajax('/media/data/roaming-internet.json', dispatch, roamingInternetRequest, roamingInternetRequestFail, roamingInternetRequestSuccess)
 );
