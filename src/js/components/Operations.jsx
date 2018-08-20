@@ -81,6 +81,31 @@ class Operations extends Component {
     });
   };
 
+  // blockHeightObserver = () => {
+  //   const { container } = this;
+  //   let prevHeight = 0;
+  //
+  //   this.interval = setInterval(() => {
+  //     const height = container.clientHeight;
+  //
+  //     if (prevHeight !== height && prevHeight < height) {
+  //       console.log(container.style)
+  //       container.style.minHeight = `${height}px`;
+  //       prevHeight = height;
+  //     }
+  //   }, 50);
+  // };
+  //
+  // componentDidMount() {
+  //   const { blockHeightObserver } = this;
+  //
+  //   blockHeightObserver();
+  // }
+  //
+  // componentWillUnmount() {
+  //   clearTimeout(this.interval);
+  // }
+
   render() {
     const { onChange, filter, loadMore } = this;
     const {
@@ -98,7 +123,7 @@ class Operations extends Component {
     } = Operations;
 
     return (
-      <div className="operations">
+      <div className="operations" ref={(e) => { this.container = e; }}>
         {
           !data.length &&
           <div className="operations__empty">У вас нет данных за указанный период</div>
