@@ -131,19 +131,27 @@ class Operations extends Component {
               <tr className="operations__row operations__row_header">
                 <td className="operations__cell-empty">&nbsp;</td>
                 <td>
-                  <div className="operations__cell_date">Дата</div>
+                  <div className="operations__cell_date-h">Дата</div>
                 </td>
-                <td className="operations__cell_time">Время</td>
-                <td className="operations__cell_type">
-                  <Select
-                    className="select_operations-filter"
-                    onSelect={v => onChange('filterBy', v)}
-                    items={HISTORY_FILTERS}
-                    value={filterBy}
-                  />
+                <td>
+                  <div className="operations__cell_time-h">Время</div>
                 </td>
-                <td className="operations__cell_count">Количество</td>
-                <td className="operations__cell_cost">Стоимость</td>
+                <td>
+                  <div className="operations__cell_type-h">
+                    <Select
+                      className="select_operations-filter"
+                      onSelect={v => onChange('filterBy', v)}
+                      items={HISTORY_FILTERS}
+                      value={filterBy}
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div className="operations__cell_count-h">Количество</div>
+                </td>
+                <td>
+                  <div className="operations__cell_cost-h">Стоимость</div>
+                </td>
                 <td className="operations__cell-empty">&nbsp;</td>
               </tr>
             }

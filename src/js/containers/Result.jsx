@@ -45,7 +45,7 @@ const Result = ({ match, location }) => {
               }
               {
                 links && links.map(l => (
-                  <div>
+                  <div key={l.url}>
                     <Link className="result__link" to={l.url}>{l.title}</Link>
                   </div>
                 ))
