@@ -216,7 +216,7 @@ class Calendar extends Component {
         >
           <span>{i + 1}</span>
         </div>
-      )
+      );
     });
   };
 
