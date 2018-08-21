@@ -16,12 +16,11 @@ const NotFound = () => {
     <DocumentMeta {...meta}>
       <MobileNav key="nav" type="dashboard" />
       <div key="dashboard" className="dashboard">
-        <Aside />
         <Transitions>
-          <div className="dashboard__content">
+          <div className="dashboard__content not-found">
             <div className="dashboard__header">Страница не найдена</div>
             <div className="not-found__message">
-              Неправильно набран адрес, или такой страницы на&nbsp;сайте больше не&nbsp;существует
+              Неправильно набран адрес, или такой страницы на&nbsp;сайте больше не&nbsp;существует.
             </div>
             <div className="not-found__nav">
               <div className="not-found__nav-item">

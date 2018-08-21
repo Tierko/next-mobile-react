@@ -71,7 +71,7 @@ export const TITLES = {
   KIT: 'Типовая',
   MORE_INTERNET: 'Интернет',
   MORE_CALLS: 'Звонки',
-  NOT_FOUND: 'Страница не найдена',
+  NOT_FOUND: 'Ошибка 404: страница не найдена',
   DETAIL: 'Детализация',
   DATA: 'Демо данные',
   SITE_MAP: 'Карта сайта',
