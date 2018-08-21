@@ -1,48 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cs from 'classnames';
 import Input from './Input';
 import Calendar from './Calendar';
-import { MONTHS_M, WEEKDAYS } from '../constants';
+import { MONTHS_M } from '../constants';
+
+const formatFunction = (date) => {
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const day = date.getDate();
+
+  return `${day} ${MONTHS_M[month]} ${year}`;
+};
 
 class Date extends Input {
   state = {
     show: false,
-  };
-
-  dateUpdate = (date) => {
-    const {
-      name,
-      format,
-      onChange,
-      onChangeRaw,
-    } = this.props;
-    const {
-      month,
-      day,
-      weekday,
-      year,
-    } = date;
-    let value;
-
-    if (format === 'dmw') {
-      value = `${day} ${MONTHS_M[month]} (${WEEKDAYS[weekday]})`;
-    } else {
-      value = `${day} ${MONTHS_M[month]} ${year}`;
-    }
-
-    onChange(name, value);
-
-    if (onChangeRaw) {
-      onChangeRaw(`${name}Raw`, {
-        year,
-        month,
-        day,
-      });
-    }
-
-    this.setState({
-      show: false,
-    });
   };
 
   showCalendar = () => {
@@ -81,6 +54,18 @@ class Date extends Input {
     }
   };
 
+  onChange = (v) => {
+    const { name, onChange } = this.props;
+
+    this.setState({
+      show: false,
+    });
+
+    if (onChange) {
+      onChange(name, v);
+    }
+  };
+
   render() {
     const {
       name,
@@ -88,11 +73,10 @@ class Date extends Input {
       className,
       placeholder,
       errorText,
-      clear,
-      initDate,
-      fromToday,
+      fromTomorrow,
+      formatter,
     } = this.props;
-    const { dateUpdate, showCalendar, toggleCalendar } = this;
+    const { showCalendar, toggleCalendar, onChange } = this;
     const { show } = this.state;
 
     return (
@@ -102,7 +86,7 @@ class Date extends Input {
             type="text"
             className="input__value"
             name={name}
-            value={value}
+            value={formatter(value)}
             onChange={() => {}}
             onFocus={showCalendar}
             onClick={showCalendar}
@@ -119,14 +103,25 @@ class Date extends Input {
             input__indicator_hide: show,
           })}
         />
-        {
-          clear &&
-          <div className="input__icon_clear" onClick={() => this.props.onChange(name, '')} role="button" />
-        }
-        <Calendar onUpdateDate={dateUpdate} show={show} initDate={initDate} fromToday={fromToday} />
+        <Calendar
+          onChange={onChange}
+          show={show}
+          date={value}
+          fromTomorrow={fromTomorrow}
+        />
       </div>
     );
   }
 }
+
+Date.propTypes = {
+  value: PropTypes.shape(),
+  formatter: PropTypes.func,
+};
+
+Date.defaultProps = {
+  value: new window.Date(),
+  formatter: formatFunction,
+};
 
 export default Date;

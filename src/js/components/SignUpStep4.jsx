@@ -5,7 +5,7 @@ import Select from '../components/Select';
 import Date from '../components/Date';
 import Button from '../components/Button';
 import Transitions from '../components/Transitions';
-import { Pages, Statuses } from '../constants';
+import { MONTHS_M, Pages, Statuses, WEEKDAYS } from '../constants';
 
 class SignUpStep4 extends Component {
   static times = [{
@@ -17,7 +17,7 @@ class SignUpStep4 extends Component {
   }];
 
   state = {
-    date: '',
+    date: new window.Date(window.Date.now() + (60 * 60 * 24 * 1000)),
     time: {
       id: 1,
       title: '9:00 — 13:00',
@@ -30,9 +30,17 @@ class SignUpStep4 extends Component {
     });
   };
 
+  formatDate = (date) => {
+    const month = date.getMonth();
+    const day = date.getDate();
+    const w = date.getDay();
+
+    return `${day} ${MONTHS_M[month]} (${WEEKDAYS[w]})`;
+  };
+
   render() {
     const { date, time } = this.state;
-    const { onChange } = this;
+    const { onChange, formatDate } = this;
     const { toPage } = this.props;
     const { times } = SignUpStep4;
     const permit = !!date && !!time;
@@ -45,7 +53,14 @@ class SignUpStep4 extends Component {
             <div className="sign-up__message sign-up__message_step4">
               Когда вам будет удобно подписать договор и получить новую сим-карту?
             </div>
-            <Date name="date" value={date} onChange={onChange} placeholder="Дата" fromToday />
+            <Date
+              name="date"
+              value={date}
+              onChange={onChange}
+              placeholder="Дата"
+              fromTomorrow
+              formatter={formatDate}
+            />
             <Select placeholder="Время" onSelect={v => onChange('time', v)} items={times} value={time} />
             <Button className="button_sign-up-step4" onClick={() => toPage(`${Pages.REQUEST_STATUS}/${Statuses.REQUEST_SENT}`)} disabled={!permit}>
               Отправить заявку

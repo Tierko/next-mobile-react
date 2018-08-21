@@ -7,9 +7,9 @@ import Button from '../components/Button';
 import { formatCost } from '../utils';
 import {
   HISTORY_FILTERS,
-  MONTHS_M,
-  HISTORY_TITLES,
+  HISTORY_TITLES, MONTHS_M,
   MONTHS_SHORT,
+  THIRTY_DAYS,
 } from '../constants';
 
 class Operations extends Component {
@@ -22,6 +22,14 @@ class Operations extends Component {
     }
 
     return `${count} ${unit}`;
+  };
+
+  static formatDate = (date) => {
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+
+    return `${day} ${MONTHS_SHORT[month]} ${year}`;
   };
 
   static showDate = (data, index) => {
@@ -44,20 +52,24 @@ class Operations extends Component {
     return true;
   };
 
-  static replaceMonth = (value) => {
-    const index = MONTHS_M.findIndex(d => value.indexOf(d) !== -1);
-
-    return value.replace(MONTHS_M[index], MONTHS_SHORT[index]);
-  };
-
   state = {
     filterBy: HISTORY_FILTERS[0],
-    periodStart: '29 сентября 2020',
-    periodEnd: '30 сентября 2020',
+    periodStart: new window.Date(window.Date.now() - THIRTY_DAYS),
+    periodEnd: new window.Date(),
     show: 10,
   };
 
   onChange = (name, value) => {
+    const { periodStart, periodEnd } = this.state;
+
+    if (name === 'periodStart' && value.getTime() >= periodEnd.getTime()) {
+      return;
+    }
+
+    if (name === 'periodEnd' && value.getTime() <= periodStart.getTime()) {
+      return;
+    }
+
     this.setState({
       [name]: value,
     });
@@ -81,31 +93,6 @@ class Operations extends Component {
     });
   };
 
-  // blockHeightObserver = () => {
-  //   const { container } = this;
-  //   let prevHeight = 0;
-  //
-  //   this.interval = setInterval(() => {
-  //     const height = container.clientHeight;
-  //
-  //     if (prevHeight !== height && prevHeight < height) {
-  //       console.log(container.style)
-  //       container.style.minHeight = `${height}px`;
-  //       prevHeight = height;
-  //     }
-  //   }, 50);
-  // };
-  //
-  // componentDidMount() {
-  //   const { blockHeightObserver } = this;
-  //
-  //   blockHeightObserver();
-  // }
-  //
-  // componentWillUnmount() {
-  //   clearTimeout(this.interval);
-  // }
-
   render() {
     const { onChange, filter, loadMore } = this;
     const {
@@ -119,11 +106,11 @@ class Operations extends Component {
     const {
       showDate,
       formatCount,
-      replaceMonth,
+      formatDate,
     } = Operations;
 
     return (
-      <div className="operations" ref={(e) => { this.container = e; }}>
+      <div className="operations">
         {
           !data.length &&
           <div className="operations__empty">У вас нет данных за указанный период</div>
@@ -251,14 +238,16 @@ class Operations extends Component {
               className="input_operations-date-list"
               onChange={onChange}
               name="periodStart"
-              value={replaceMonth(periodStart)}
+              value={periodStart}
+              formatter={formatDate}
             />
             <div className="operations__list-dates-divider" />
             <Date
               className="input_operations-date-list"
               onChange={onChange}
               name="periodEnd"
-              value={replaceMonth(periodEnd)}
+              value={periodEnd}
+              formatter={formatDate}
             />
           </div>
           <Select

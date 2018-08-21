@@ -214,3 +214,5 @@ export const WEEKDAYS_SHORT = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', '
 export const units = {
   currency: '₽',
 };
+
+export const THIRTY_DAYS = 24 * 60 * 60 * 30 * 1000;

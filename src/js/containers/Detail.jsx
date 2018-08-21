@@ -9,7 +9,7 @@ import Input from '../components/Input';
 import Select from '../components/Select';
 import Button from '../components/Button';
 import Transitions from '../components/Transitions';
-import { Pages, TITLES } from '../constants';
+import { Pages, TITLES, THIRTY_DAYS } from '../constants';
 
 class Detail extends Component {
   static formats = [{
@@ -24,35 +24,36 @@ class Detail extends Component {
   }];
 
   state = {
-    startDate: '',
-    startDateRaw: null,
-    endDate: '',
-    endDateRaw: null,
+    startDate: new window.Date(window.Date.now() - THIRTY_DAYS),
+    endDate: new window.Date(),
     email: 'Konstantinopolsky@gmail.com',
     format: Detail.formats[0],
   };
 
   onChange = (name, value) => {
+    const { startDate, endDate } = this.state;
+
+    if (name === 'startDate' && value.getTime() >= endDate.getTime()) {
+      return;
+    }
+
+    if (name === 'endDate' && value.getTime() <= startDate.getTime()) {
+      return;
+    }
+
     this.setState({
       [name]: value,
     });
   };
 
   isInLimit = () => {
-    const { startDateRaw, endDateRaw } = this.state;
-    const { THIRTY_DAYS } = this;
+    const { startDate, endDate } = this.state;
 
-    if (!startDateRaw || !endDateRaw) {
-      return true;
-    }
-
-    const start = (new window.Date(startDateRaw.year, startDateRaw.month, startDateRaw.day)) * 1;
-    const end = (new window.Date(endDateRaw.year, endDateRaw.month, endDateRaw.day)) * 1;
+    const start = startDate.getTime();
+    const end = endDate.getTime();
 
     return Math.abs(start - end) <= THIRTY_DAYS;
   };
-
-  THIRTY_DAYS = 24 * 60 * 60 * 30 * 1000;
 
   order = () => {
     const { history } = this.props;
@@ -67,7 +68,7 @@ class Detail extends Component {
   };
 
   render() {
-    const { onChange, order, THIRTY_DAYS, isInLimit } = this;
+    const { onChange, order, isInLimit } = this;
     const { formats } = Detail;
     const {
       startDate,
@@ -96,8 +97,6 @@ class Detail extends Component {
                     name="startDate"
                     value={startDate}
                     onChange={onChange}
-                    onChangeRaw={onChange}
-                    initDate={new window.Date(window.Date.now() - THIRTY_DAYS)}
                     errorText={!isInLimit()}
                   />
                   <div className="detail__divider" />
@@ -106,8 +105,6 @@ class Detail extends Component {
                     name="endDate"
                     value={endDate}
                     onChange={onChange}
-                    onChangeRaw={onChange}
-                    initDate={new window.Date()}
                     errorText={!isInLimit()}
                   />
                 </div>
