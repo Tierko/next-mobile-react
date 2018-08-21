@@ -155,13 +155,13 @@ class Operations extends Component {
               !!data.length &&
               <tr className="operations__row operations__row_header">
                 <td className="operations__cell-empty">&nbsp;</td>
-                <td>
+                <td className="operations__td_date">
                   <div className="operations__cell_date-h">Дата</div>
                 </td>
-                <td>
+                <td className="operations__td_time">
                   <div className="operations__cell_time-h">Время</div>
                 </td>
-                <td>
+                <td className="operations__td_type">
                   <div className="operations__cell_type-h">
                     <Select
                       className="select_operations-filter"
@@ -171,10 +171,10 @@ class Operations extends Component {
                     />
                   </div>
                 </td>
-                <td>
+                <td className="operations__td_count">
                   <div className="operations__cell_count-h">Количество</div>
                 </td>
-                <td>
+                <td className="operations__td_cost">
                   <div className="operations__cell_cost-h">Стоимость</div>
                 </td>
                 <td className="operations__cell-empty">&nbsp;</td>
