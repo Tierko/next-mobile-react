@@ -13,7 +13,7 @@ import { Pages, TITLES } from '../constants';
 class SignIn extends Component {
   state = {
     phone: '',
-    message: 'На этот номер Next мы вышлем код для входа',
+    message: 'На указанный номер Next Mobile будет отправлен код для входа в Личный кабинет',
     isPhoneVisible: true,
   };
 
@@ -27,7 +27,7 @@ class SignIn extends Component {
     const { phone } = this.state;
 
     this.setState({
-      message: `Введите код, который мы прислали на номер ${phone}`,
+      message: `Введите код, присланный на номер ${phone}`,
       isPhoneVisible: false,
     });
   };

@@ -40,9 +40,9 @@ class SignUp extends Component {
   };
 
   MESSAGES = {
-    INIT: 'Введите промокод, чтобы начать работу с Next Mobile',
+    INIT: 'Введите промо-код, чтобы начать работу',
     PROMO: '8 ГБ интернета, безлимит СМС и 1 000 мин в месяц бесплатно в течение 6 месяцев. Плата после – от 1 000 ₽ в месяц',
-    NO_PROMO: 'Next Mobile - закрытая сотовая сеть. Присоедениться к ней можно, отправив запрос. Мы перезвоним, как только рассмотрим его',
+    NO_PROMO: 'Подключиться к сети Next Mobile можно только после получения приглашения. Оставьте запрос — и мы расскажем, что делать дальше',
   };
 
   render() {
@@ -91,9 +91,10 @@ class SignUp extends Component {
           mode === 'no-promo' &&
           <Transitions classNames="slide">
             <form onSubmit={onSubmitNoPromo}>
+              <div>Введите номер для связи</div>
               <Input className="input_phone" name="phone" value={phone} onChange={onChange} />
               <Button className="button_request" onClick={onSubmitNoPromo} disabled={!checkPhone(phone)}>
-                Отправить запрос
+                Продолжить…
               </Button>
             </form>
           </Transitions>

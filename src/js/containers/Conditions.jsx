@@ -17,10 +17,10 @@ const Conditions = ({ history }) => (
             <div className="conditions__header">Условия перехода</div>
             <div>Номер оформлен на ваше имя</div>
             <div>Нет задолженности перед оператором</div>
-            <div>Вы не меняли оператора в последние 2 месяца</div>
-            <div className="conditions__desc">Если хоть один пункт нарушен – обратитесь <Link to={Pages.SUPPORT} className="link">в поддержку</Link>, и мы подскажем, что делать</div>
+            <div>Вы не меняли оператора за последние 2 месяца</div>
+            <div className="conditions__desc">Если хоть одно из условий не выполняется, обратитесь в <Link to={Pages.SUPPORT} className="link">службу поддержки</Link> — и мы подскажем, что делать</div>
             <Button className="button_conditions" onClick={() => { history.push(`${Pages.SIGN_UP}/step/1`); }}>Далее</Button>
-            <div className="conditions__note">К заполнению заявки</div>
+            <div className="conditions__note">К началу заполнения заявки</div>
           </div>
         </Transitions>
       </div>

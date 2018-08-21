@@ -76,7 +76,7 @@ class MobileCode extends Component {
         {
           status === 'init' &&
           <Transitions classNames="slide">
-            <Button className="button_mobile-code" onClick={sendCode} disabled={!checkPhone(phone)}>Прислать код</Button>
+            <Button className="button_mobile-code" onClick={sendCode} disabled={!checkPhone(phone)}>Получить код</Button>
           </Transitions>
         }
         {
@@ -90,14 +90,14 @@ class MobileCode extends Component {
         {
           status === 'sent' &&
           <Transitions classNames="slide">
-            <div className="mobile-code__timer">Прислать код еще раз можно через {seconds} c</div>
+            <div className="mobile-code__timer">Код действителен еще {seconds} сек.</div>
           </Transitions>
         }
         {
           status === 'timed out' &&
           <Transitions classNames="slide">
             <Button className="button_mobile-code-again" onClick={sendCode} borderless>
-              Прислать код еще раз
+              Получить код повторно
             </Button>
           </Transitions>
         }

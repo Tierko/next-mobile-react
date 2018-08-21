@@ -89,7 +89,7 @@ class SignUpStep3 extends Component {
             </Button>
           </form>
           <div className={cs('sign-up__note', { 'sign-up__note_show': isFilled() })}>
-            Ко времени доставки
+            Перейти ко времени доставки
           </div>
         </div>
       </Transitions>

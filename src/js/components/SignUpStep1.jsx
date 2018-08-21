@@ -35,12 +35,12 @@ class SignUpStep1 extends Component {
     return (
       <Transitions classNames="slide">
         <div className="welcome__content sign-up">
-          <div className="sign-up__header">Текущий номер телефона</div>
+          <div className="sign-up__header">Ваш номер телефона</div>
           <form onSubmit={onSubmit} className="sign-up__form">
             <Input name="phone" value={phone} onChange={onChange} className="input_phone" />
           </form>
           <Button className="button_sign-up-continue" onClick={onSubmit} disabled={!isPhoneValid}>Продолжить</Button>
-          <div className={cs('sign-up__note', { 'sign-up__note_show': isPhoneValid })}>К личной информации</div>
+          <div className={cs('sign-up__note', { 'sign-up__note_show': isPhoneValid })}>Перейти к персональной информации</div>
         </div>
       </Transitions>
     );

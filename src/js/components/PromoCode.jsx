@@ -32,7 +32,7 @@ class PromoCode extends Component {
       <div className={`promo-code ${className}`}>
         <MultipleInput onChange={onChange} name="promoCode" count={5} className="multiple-input_promo-code" onKeyDown={onKeyDown} />
         <Button className="button_promo-code-continue" onClick={() => onCodeEnter(promoCode)} disabled={promoCode.length < 5}>Продолжить</Button>
-        <Button className="button_no-promo-code" onClick={onCodeReject} borderless>У меня нет промокода</Button>
+        <Button className="button_no-promo-code" onClick={onCodeReject} borderless>У меня нет промо-кода</Button>
       </div>
     );
   }

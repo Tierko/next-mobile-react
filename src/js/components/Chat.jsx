@@ -18,7 +18,7 @@ class Chat extends Component {
         day: 4,
         time: '12:22',
       },
-      text: 'Здраствуйте! Чем могу помочь?',
+      text: 'Здравствуйте! Чем могу помочь?',
       docs: [],
     }, {
       user: null,
@@ -30,6 +30,17 @@ class Chat extends Component {
         time: '12:25',
       },
       text: 'Привет! Почему-то не срабатывает оплата по моей кредитке ',
+      docs: [],
+    }, {
+      user: 'Наталья',
+      avatar: '/media/content/support.png',
+      date: {
+        year: 2018,
+        month: 4,
+        day: 4,
+        time: '12:23',
+      },
+      text: 'Вы пробовали провести оплату по карте Сбербанка или Альфа-Банка?',
       docs: [],
     }],
   };
@@ -154,7 +165,7 @@ class Chat extends Component {
             <div className="chat__avatar">
               <img className="chat__avatar-img" src="/media/content/support.png" alt="" />
             </div>
-            <div className="chat__companion_title">Ваш персональный ассистент – Наталья</div>
+            <div className="chat__companion_title">Ваш персональный ассистент &mdash; Наталья</div>
           </div>
           <div className="chat__header-control">
             <ButtonIcon onClick={audioCall} icon="phone.svg" />
@@ -164,7 +175,7 @@ class Chat extends Component {
         <div className="chat__content">
           <div className="chat__messages" ref={(e) => { this.messages = e; }}>
             <div className="chat__date">
-              <div className="chat__date-inner">6 мая 2018</div>
+              <div className="chat__date-inner">6 мая 2018 г.</div>
             </div>
             {
               messages.map(m => (
