@@ -7,11 +7,15 @@ import TariffServices from '../components/TariffServices';
 import TariffTable from '../components/TariffTable';
 import InterCalls from '../components/InterCalls';
 import Transitions from '../components/Transitions';
+import Button from '../components/Button';
+import Note from '../components/Note';
 import { Pages, TITLES } from '../constants';
 import tariff from '../../data/tariff';
 
 class Services extends Component {
   state = {
+    unsaved: false,
+    showNote: false,
     services: [{
       id: 1,
       name: 'Кто звонил',
@@ -37,6 +41,7 @@ class Services extends Component {
 
       this.setState({
         services,
+        unsaved: true,
       });
     }
   };
@@ -52,9 +57,22 @@ class Services extends Component {
     localStorage.setItem('tariff', id - 1);
   };
 
+  onSave = () => {
+    this.setState({
+      unsaved: false,
+      showNote: true,
+    });
+  };
+
+  onNoteFade = () => {
+    this.setState({
+      showNote: false,
+    });
+  };
+
   render() {
-    const { services, currentTariff } = this.state;
-    const { toggleService, changeTariff } = this;
+    const { services, currentTariff, showNote, unsaved } = this.state;
+    const { toggleService, changeTariff, onSave, onNoteFade } = this;
     const meta = {
       title: TITLES.SERVICES,
     };
@@ -71,6 +89,16 @@ class Services extends Component {
               <TariffTable data={tariff} current={currentTariff} onChange={changeTariff} />
               <InterCalls className="inter-calls_services" />
               <TariffServices services={services} onChange={toggleService} />
+              <Button className="button_services" onClick={onSave} disabled={!unsaved}>
+                Сохранить изменения
+              </Button>
+              <Note
+                className="note_settings"
+                message="Изменения сохранены"
+                color="green"
+                onFadeOut={onNoteFade}
+                show={showNote}
+              />
             </div>
           </Transitions>
         </div>

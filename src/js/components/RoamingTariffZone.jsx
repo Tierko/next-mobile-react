@@ -38,7 +38,7 @@ const data = [{
   title: 'Интернет',
   items: [{
     id: 1,
-    title: 'Помегабитно',
+    title: 'Помегабайтно',
     cost: 60,
     unit: 'МБ',
   }, {
