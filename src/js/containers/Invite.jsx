@@ -55,12 +55,14 @@ class Invite extends Component {
           <Transitions>
             <div className="dashboard__content invite">
               <LinkBack className="link-back_offset-bottom" href={Pages.OVERVIEW} />
-              <div className="dashboard__header">Подарите близким возможность присоединится к закрытому клубу Next Mobile</div>
+              <div className="dashboard__header">
+                Подарите близким возможность присоединиться к закрытому клубу Next Mobile
+              </div>
               <div>{desc}</div>
               {
                 count &&
                 <div className="invite__subtitle">
-                  Осталось {count} {
+                  Осталось {count} неактивированных {
                     mode === 'link' ?
                       <Button className="button_code-mode" borderless onClick={() => setCopyMode('')}>
                         {convertStrings(count, PROMO_CODES)}

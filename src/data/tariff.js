@@ -1,6 +1,6 @@
 const tariff = [{
   id: 1,
-  title: 'Супервип',
+  title: 'СуперВИП',
   payment: 3000,
   internet: 32,
   nextCalls: 'Безлимит',

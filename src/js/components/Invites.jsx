@@ -43,7 +43,7 @@ class Invites extends Component {
               {
                 i.active ?
                   <div className="invites__note">{i.note}</div> :
-                  <Button className="button_invites" borderless onClick={() => onCopy(i.id)}>Скопировать промокод</Button>
+                  <Button className="button_invites" borderless onClick={() => onCopy(i.id)}>Скопировать</Button>
               }
             </div>
           ))

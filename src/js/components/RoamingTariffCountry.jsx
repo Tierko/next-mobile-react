@@ -12,12 +12,12 @@ const data = [{
     id: 1,
     title: 'Внутри зоны',
     cost: 17,
-    unit: 'мин',
+    unit: 'мин.',
   }, {
     id: 2,
     title: 'Вне зоны',
     cost: 56,
-    unit: 'мин',
+    unit: 'мин.',
   }],
 }, {
   id: 2,

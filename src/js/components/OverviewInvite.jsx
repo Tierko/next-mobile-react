@@ -33,7 +33,7 @@ class OverviewInvite extends Component {
         <div className="overview-invite__subtitle">
           По {
             mode === 'link' ?
-              <Button className="button_code-mode" borderless onClick={() => setCopyMode('')}>промокоду</Button> :
+              <Button className="button_code-mode" borderless onClick={() => setCopyMode('')}>промо-коду</Button> :
               'промокоду'
           } или {
             mode !== 'link' ?

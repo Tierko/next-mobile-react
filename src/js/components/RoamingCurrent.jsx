@@ -34,7 +34,7 @@ class RoamingCurrent extends Component {
           additionalPackage &&
           <Fragment>
             <div className="roaming-current__subtitle roaming-current__subtitle_fast">
-              Пакет быстрого интернета <span className="roaming-current__note roaming-current__note_desktop">(еще {additionalPackage.expired} {convertStrings(additionalPackage.expired, DAYS)})</span>
+              Пакет быстрого интернет-трафика <span className="roaming-current__note roaming-current__note_desktop">(еще {additionalPackage.expired} {convertStrings(additionalPackage.expired, DAYS)})</span>
             </div>
             <div>
               <span className="roaming-current__big">
@@ -54,7 +54,7 @@ class RoamingCurrent extends Component {
           </Button>
         }
         <div className="roaming-current__subtitle">
-          Помегабайтный интернет <span className="roaming-current__note">(заработает, когда закончится пакет)</span>
+          Помегабайтный трафик <span className="roaming-current__note">(заработает, когда закончится пакет)</span>
         </div>
         <div className="roaming-current__regular">
           <div>

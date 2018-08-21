@@ -17,7 +17,7 @@ const Package = ({
       !simple &&
       <Fragment>
         <div className="package__title">
-          {data.title}:<span> {remain.current.toString().replace('.', ',')} {data.unit} из {remain.max}</span>
+          {data.title}:<span> {remain.current.toString().replace('.', ',')} из {remain.max} {data.unit}</span>
         </div>
         <ProgressLinear className="progress-linear_add-package" current={remain.current} max={remain.max} />
       </Fragment>

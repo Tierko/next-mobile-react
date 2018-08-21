@@ -117,7 +117,7 @@ class Overview extends Component {
             <div className="dashboard__content">
               <Note
                 className="note_dashboard"
-                message="Добавлено 3ГБ бесплатного интернета до 5 марта"
+                message="Вы докупили пакет с 30 ГБ трафика, действующий до 5 марта"
                 subText="Спасибо, что всегда оплачиваетесчет вовремя"
                 color="green"
                 hideCont
@@ -141,7 +141,7 @@ class Overview extends Component {
               />
               <Balance
                 sum={getData('balance')}
-                message={`Следующий платеж: ${formatCost(getData('tariff').payment)} через ${getData('payment').days} ${convertStrings(getData('payment').days, DAYS)}`}
+                message={`Через ${getData('payment').days} дней нужно внести ${formatCost(getData('tariff').payment)} по тарифу «${getData('tariff').title}»`}
                 status={status}
               />
               <OverviewPayment onChange={sumChange} onPay={onPay} sum={sum} />

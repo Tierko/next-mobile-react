@@ -29,13 +29,13 @@ const Remain = ({
             {
               i.max > 0 &&
               <div>
-                <span>{(i.current + '').replace('.', ',')} {i.unit}</span> из {i.max}
+                <span>{(i.current + '').replace('.', ',')}</span> из {i.max} {i.unit}
               </div>
             }
             {
               i.max === 0 &&
               <div>
-                <span>Безлимит</span>
+                <span>Безлимит {i.unit}</span>
               </div>
             }
             {
