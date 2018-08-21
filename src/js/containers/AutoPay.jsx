@@ -191,7 +191,6 @@ class AutoPay extends Component {
                         onSelect={v => onChange('monthlyUntil', v)}
                         items={months}
                         value={monthlyUntil}
-                        hideIcon
                       />
                     </div>
                   </div>
