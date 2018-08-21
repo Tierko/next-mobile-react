@@ -233,11 +233,11 @@ class Operations extends Component {
                 </tr>
             }
             {
-              !!filteredData.length &&
+              !!filteredData.length && data.length > show &&
               <tr><td className="operations__cell-empty">&nbsp;</td>
                 <td colSpan={2}>&nbsp;</td>
                 <td className="operations__cell_button">
-                  <Button onClick={loadMore} disabled={data.length <= show}>Загрузить еще</Button>
+                  <Button onClick={loadMore}>Загрузить еще</Button>
                 </td>
                 <td colSpan={2}>&nbsp;</td>
                 <td className="operations__cell-empty">&nbsp;</td>
@@ -292,7 +292,10 @@ class Operations extends Component {
             !filteredData.length &&
             <div className="operations__list-empty">У вас нет данных за указанный период</div>
           }
-          <Button className="button_operations-list" onClick={loadMore} disabled={data.length <= show}>Загрузить еще</Button>
+          {
+            data.length > show &&
+            <Button className="button_operations-list" onClick={loadMore}>Загрузить еще</Button>
+          }
         </div>
       </div>
     );
