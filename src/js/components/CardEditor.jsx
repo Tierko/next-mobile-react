@@ -30,13 +30,13 @@ const CardEditor = ({
           <span className="card__edit-icon">
             <InlineSvg src={require('../../../media/icons/card.svg')} raw />
           </span>
-          Карта по умолчанию
+          <span className="card__edit-title">Карта по умолчанию</span>
         </div>
         <div className="card__edit-item" onClick={() => { removeCard(id); onClose(); }}>
           <span className="card__edit-icon">
             <InlineSvg src={require('../../../media/icons/bucket.svg')} raw />
           </span>
-          удалить
+          <span className="card__edit-title">Удалить</span>
         </div>
       </div>
     </div>
