@@ -62,7 +62,7 @@ class Detail extends Component {
       pathname: `${Pages.RESULT}/success`,
       state: {
         title: 'Детализация заказана',
-        text: 'О расходах с 10 сентября по 21 октября 2018 в формате PDF на почту konstantinopolsky@gmail.com',
+        text: 'Отчет о расходах с 1 сентября по 30 сентября 2018 г. отправлен в виде файла PDF на адрес konstantinopolsky@gmail.com',
       },
     });
   };

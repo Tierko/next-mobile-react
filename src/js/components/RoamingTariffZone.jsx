@@ -12,12 +12,12 @@ const data = [{
     id: 1,
     title: 'Внутри зоны',
     cost: 17,
-    unit: 'мин',
+    unit: 'мин.',
   }, {
     id: 2,
     title: 'Вне зоны',
     cost: 56,
-    unit: 'мин',
+    unit: 'мин.',
   }],
 }, {
   id: 2,
@@ -58,8 +58,8 @@ const RoamingTariffZone = ({ id }) => (
     </div>
     <RoamingTariff data={data} />
     <div className="roaming__note">
-      <Link className="link" to={`${Pages.ROAMING}/internet/${id}`}>Выбрать пакет интернета</Link>
-      <div className="roaming__note-text">У вас осталось 0,44 ГБ стандартного интернета еще на 10 дней в этой Зоне</div>
+      <Link className="link" to={`${Pages.ROAMING}/internet/${id}`}>Выбрать интернет-пакет </Link>
+      <div className="roaming__note-text">У вас осталось 0,44 ГБ трафика на стандартной скорости на 10 дней в этой зоне</div>
     </div>
   </div>
 );

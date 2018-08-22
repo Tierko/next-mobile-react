@@ -34,12 +34,12 @@ class RoamingCurrent extends Component {
           additionalPackage &&
           <Fragment>
             <div className="roaming-current__subtitle roaming-current__subtitle_fast">
-              Пакет быстрого интернет-трафика <span className="roaming-current__note roaming-current__note_desktop">(еще {additionalPackage.expired} {convertStrings(additionalPackage.expired, DAYS)})</span>
+              Пакет быстрого интернет-трафика <span className="roaming-current__note roaming-current__note_desktop">(действует еще {additionalPackage.expired} {convertStrings(additionalPackage.expired, DAYS)})</span>
             </div>
             <div>
               <span className="roaming-current__big">
-                12,01 ГБ
-              </span> <span className="roaming-current__note">из 20</span> <span className="roaming-current__note roaming-current__note_mobile">(еще {additionalPackage.expired} {convertStrings(additionalPackage.expired, DAYS)})</span>
+                12,01
+              </span> <span className="roaming-current__note">из 20 ГБ</span> <span className="roaming-current__note roaming-current__note_mobile">(еще {additionalPackage.expired} {convertStrings(additionalPackage.expired, DAYS)})</span>
             </div>
             <ProgressLinear className="progress-linear_roaming" max={20} current={12.01} />
             <Button className="button_roaming-add" onClick={addPackage}>
@@ -54,7 +54,7 @@ class RoamingCurrent extends Component {
           </Button>
         }
         <div className="roaming-current__subtitle">
-          Помегабайтный трафик <span className="roaming-current__note">(заработает, когда закончится пакет)</span>
+          Помегабайтный трафик <span className="roaming-current__note">(тариф начнет действовать после израсходования пакета)</span>
         </div>
         <div className="roaming-current__regular">
           <div>
@@ -66,7 +66,7 @@ class RoamingCurrent extends Component {
           <div className="roaming-current__tariff-item">
             <div>Звонки</div>
             <div>
-              <span className="roaming-current__big">от {data.tariff.calls} ₽</span> <span>/ мин</span>
+              <span className="roaming-current__big">от {data.tariff.calls} ₽</span> <span>/ мин.</span>
             </div>
           </div>
           <div className="roaming-current__tariff-item">

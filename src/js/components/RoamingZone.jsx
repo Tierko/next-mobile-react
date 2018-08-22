@@ -9,16 +9,23 @@ import { convertStrings } from '../utils';
 
 class RoamingZone extends Component {
   getCountries = () => {
-    const { data, features } = this.props;
+    const { data, features, country } = this.props;
     let countries = features.filter(f => (
       data.countries.indexOf(f.properties.iso_a2) !== -1 && f.properties.iso_a2 !== HOME
     ));
 
     countries = countries.map(c => c.properties.name);
 
-    if (countries.length > 2) {
+    if (countries.length > 2 && !country.properties) {
       const count = countries.length - 2;
       return [countries[0], countries[1], `и еще ${count} ${convertStrings(count, COUNTRIES)}`].join(', ');
+    }
+
+    if (countries.length > 2 && country.properties) {
+      const count = countries.length - 1;
+      const selected = country.properties.name;
+
+      return [selected, `и еще ${count} ${convertStrings(count, COUNTRIES)}`].join(', ');
     }
 
     return countries.join(', ');
@@ -32,7 +39,9 @@ class RoamingZone extends Component {
       data.id === active &&
       <Transitions>
         <div className={cs('roaming-zone', { 'roaming-zone_show': data.id === active })}>
-          <div className="roaming__title roaming__title_desktop">Роуминг в {data.title}</div>
+          <div className="roaming__title roaming__title_desktop">
+            Роуминг в <span>{data.title}</span>
+          </div>
           <Link to={`${Pages.ROAMING}/countries/${data.id}`} className="roaming-zone__countries">
             {getCountries()}
           </Link>
@@ -51,6 +60,7 @@ RoamingZone.propTypes = {
   active: PropTypes.number.isRequired,
   history: PropTypes.shape().isRequired,
   features: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+
 };
 
 export default RoamingZone;

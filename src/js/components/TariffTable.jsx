@@ -22,13 +22,13 @@ class TariffTable extends Component {
   }, {
     id: 3,
     title: 'Звонков на «Next» по России',
-    unit: 'МИН',
+    unit: 'мин.',
     field: 'nextCalls',
     shortHide: true,
   }, {
     id: 4,
     title: 'Звонков на всех операторов Москвы по всей России',
-    unit: 'МИН',
+    unit: 'мин.',
     field: 'calls',
   }, {
     id: 5,

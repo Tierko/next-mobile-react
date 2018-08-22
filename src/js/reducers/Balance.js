@@ -12,7 +12,7 @@ const initState = {
   calls: {
     current: 0,
     max: 0,
-    unit: 'мин',
+    unit: 'мин.',
     name: 'Звонки',
     link: true,
   },

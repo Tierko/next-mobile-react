@@ -18,7 +18,7 @@ class Operations extends Component {
       const sec = count % 60;
       const min = (count - sec) / 60;
 
-      return `${min} мин ${sec} с`;
+      return `${min} мин. ${sec} сек.`;
     }
 
     return `${count} ${unit}`;
@@ -202,7 +202,7 @@ class Operations extends Component {
                       {
                         d.tariff &&
                         <div className="operations__note">
-                          {d.tariff} ₽ / {d.unit === 'time' ? 'мин' : d.unit}
+                          {d.tariff} ₽ / {d.unit === 'time' ? 'мин.' : d.unit}
                         </div>
                       }
                     </div>

@@ -90,11 +90,11 @@ class Services extends Component {
               <InterCalls className="inter-calls_services" />
               <TariffServices services={services} onChange={toggleService} />
               <Button className="button_services" onClick={onSave} disabled={!unsaved}>
-                Сохранить изменения
+                Сохранить настройки
               </Button>
               <Note
                 className="note_settings"
-                message="Изменения сохранены"
+                message="Настройки сохранены"
                 color="green"
                 onFadeOut={onNoteFade}
                 show={showNote}

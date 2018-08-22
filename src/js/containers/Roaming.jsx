@@ -63,12 +63,10 @@ class Roaming extends Component {
   };
 
   getCurrentZone = () => {
-    const { fillEmptyZone } = this;
     const { tab } = this.state;
-    const { zones, features } = this.props.data;
-    const roamingZones = fillEmptyZone(zones.items, features.items);
+    const { zones } = this.props.data;
 
-    return roamingZones.find(z => z.id === tab) || {};
+    return zones.items.find(z => z.id === tab) || {};
   };
 
   getCenter = (f) => {
@@ -97,39 +95,11 @@ class Roaming extends Component {
     return [lon, lat];
   };
 
-  fillEmptyZone = (zones, features) => {
-    const filtered = [];
-    const emptyZoneIndex = zones.findIndex(z => z.countries.length === 0);
-
-    if (emptyZoneIndex === -1) {
-      return zones;
-    }
-
-    zones.forEach(z => {
-      if (z.countries) {
-        z.countries.forEach(c => filtered.push(c));
-      }
-    });
-
-    const countries = features.map(f => {
-      if (filtered.indexOf(f.properties.iso_a2) === -1) {
-        return f.properties.iso_a2;
-      }
-
-      return null;
-    });
-
-    zones[emptyZoneIndex].countries = countries.filter(c => c);
-
-    return zones;
-  };
-
   render() {
     const {
       onTabChange,
       getCurrentZone,
       onCountrySelect,
-      fillEmptyZone,
     } = this;
     const {
       tab,
@@ -141,7 +111,7 @@ class Roaming extends Component {
       data: { zones: roamingZones },
       data: { features },
     } = this.props;
-    const zones = fillEmptyZone(roamingZones.items, features.items);
+    const zones = roamingZones.items;
     const zone = roamingZones.items.find(z => z.id === zoneId * 1);
     const meta = {
       title: TITLES.ROAMING,
@@ -182,6 +152,7 @@ class Roaming extends Component {
                           history={history}
                           features={features.items}
                           zones={zones}
+                          country={country}
                         />
                       ))
                     }

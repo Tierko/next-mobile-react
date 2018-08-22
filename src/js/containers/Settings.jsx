@@ -134,14 +134,14 @@ class Settings extends Component {
                     <div className="service__name">Квитанции об оплате</div>
                     <CheckboxSlide className="checkbox_settings" value={receipt} name="receipt" onChange={onChange} />
                   </div>
-                  <div className="service__desc">Отправлять квитанцию после каждого платежа на почту</div>
+                  <div className="service__desc">После совершения платежа отправлять квитанцию на адрес</div>
                 </div>
                 <Button className="button_settings" onClick={onSave} disabled={!edited}>
-                  Сохранить изменения
+                  Сохранить настройки
                 </Button>
                 <Note
                   className="note_settings"
-                  message="Изменения сохранены"
+                  message="Настройки сохранены"
                   color="green"
                   onFadeOut={onNoteFade}
                   show={showNote}
