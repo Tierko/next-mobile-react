@@ -103,16 +103,21 @@ h2,
 .link-nav {
   color: @GRAY-DARK;
   text-decoration: none;
-  border-bottom: 1px solid @GRAY;
-  transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  background: linear-gradient(to right, @GRAY, @GRAY) no-repeat 0 calc(50% + 0.5em);
+  background-size: 100% 1px;
+  transition: color 0.2s ease-in;
 
   &:hover {
-    border-bottom-color: @BLACK;
     color: @BLACK;
+    animation-fill-mode: both;
+    animation-name: link-nav;
+    animation-duration: 2s;
+    background: linear-gradient(to right, @BLACK, @BLACK) no-repeat 0 calc(50% + 0.5em);
+    background-size: 100% 1px;
   }
 
   &.active {
-    border-bottom-color: transparent;
+    background: none;
     color: @BLACK;
     cursor: default;
   }
