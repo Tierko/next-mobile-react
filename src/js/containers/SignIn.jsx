@@ -5,7 +5,6 @@ import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import NavLobby from '../components/NavLobby';
 import Input from '../components/InputPhone';
-import Logo from '../components/Logo';
 import LogoAnimated from '../components/LogoAnimated';
 import MobileCode from '../components/MobileCode';
 import Transitions from '../components/Transitions';
@@ -84,13 +83,12 @@ class SignIn extends Component {
           <NavLobby />
           <Transitions classNames="slide">
             <div className="welcome__content">
-              {/*<Logo />*/}
               <LogoAnimated expand={expandLogo} />
               <div className="sign-in__text">{ message }</div>
               <form onSubmit={onSubmit} className="sign-in__form">
                 {
                   isPhoneVisible &&
-                  <Transitions classNames="slide">
+                  <Transitions>
                     <Input
                       name="phone"
                       value={phone}

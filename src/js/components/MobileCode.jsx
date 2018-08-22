@@ -69,19 +69,19 @@ class MobileCode extends Component {
       <div className={`mobile-code ${className}`}>
         {
           (status === 'sent' || status === 'timed out') &&
-          <Transitions classNames="slide">
+          <Transitions>
             <MultipleInput className="multiple-input_mobile-code" onChange={onChange} name="code" onKeyDown={onKeyDown} />
           </Transitions>
         }
         {
           status === 'init' &&
-          <Transitions classNames="slide">
+          <Transitions>
             <Button className="button_mobile-code" onClick={sendCode} disabled={!checkPhone(phone)}>Получить код</Button>
           </Transitions>
         }
         {
           (status === 'sent' || status === 'timed out') &&
-          <Transitions classNames="slide">
+          <Transitions>
             <Button className="button_mobile-code" onClick={() => onEnter(code)} disabled={code.length < 4}>
               {buttonTitle}
             </Button>
@@ -89,13 +89,13 @@ class MobileCode extends Component {
         }
         {
           status === 'sent' &&
-          <Transitions classNames="slide">
+          <Transitions>
             <div className="mobile-code__timer">Код действителен еще {seconds} сек.</div>
           </Transitions>
         }
         {
           status === 'timed out' &&
-          <Transitions classNames="slide">
+          <Transitions>
             <Button className="button_mobile-code-again" onClick={sendCode} borderless>
               Получить код повторно
             </Button>

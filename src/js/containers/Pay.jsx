@@ -89,7 +89,7 @@ class Pay extends Component {
         <MobileNav key="nav" type="dashboard" />
         <div key="dashboard" className="dashboard">
           <Aside />
-          <Transitions id="pay">
+          <Transitions>
             <div className="dashboard__content dashboard__content_pay pay">
               <div className={cs('pay__inner', { pay__inner_fade: !!editCardId })}>
                 <div className="dashboard__header">Пополнение</div>

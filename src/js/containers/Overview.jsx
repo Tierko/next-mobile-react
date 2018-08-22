@@ -113,7 +113,7 @@ class Overview extends Component {
         <MobileNav key="nav" type="dashboard" />
         <div key="dashboard" className="dashboard">
           <Aside hideLink />
-          <Transitions id="Overview">
+          <Transitions>
             <div className="dashboard__content">
               <Note
                 className="note_dashboard"

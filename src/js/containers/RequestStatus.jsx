@@ -150,7 +150,7 @@ class RequestStatus extends Component {
         <div className="welcome">
           <MobileNav type="enter" />
           <NavLobby />
-          <Transitions classNames="slide" className="slide-init">
+          <Transitions classNames="slide">
             {
               !status &&
               <div className="welcome__content request-status">
@@ -158,7 +158,7 @@ class RequestStatus extends Component {
                 {
                   codeSent &&
                   <div className="request-status__message">
-                    Введите код, который мы прислали на номер {phone}
+                    Введите код, который мы прислали на номер <span className="nobr">{phone}</span>
                   </div>
                 }
                 {
