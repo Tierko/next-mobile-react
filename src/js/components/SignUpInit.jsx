@@ -60,25 +60,25 @@ class SignUp extends Component {
 
     return (
       <div className="welcome__content sign-up">
-        <Transitions classNames="slide">
+        <Transitions>
           <LogoAnimated expand={mode === 'promo'} />
         </Transitions>
         <div className="sign-up__message">
           {
             !mode &&
-            <Transitions classNames="slide">
+            <Transitions>
               {MESSAGES.INIT}
             </Transitions>
           }
           {
             mode === 'promo' &&
-            <Transitions classNames="slide">
+            <Transitions>
               {MESSAGES.PROMO}
             </Transitions>
           }
           {
             mode === 'no-promo' &&
-            <Transitions classNames="slide">
+            <Transitions>
               {MESSAGES.NO_PROMO}
             </Transitions>
           }
@@ -89,7 +89,7 @@ class SignUp extends Component {
         }
         {
           mode === 'no-promo' &&
-          <Transitions classNames="slide">
+          <Transitions>
             <form onSubmit={onSubmitNoPromo}>
               <div>Введите номер для связи</div>
               <Input className="input_phone" name="phone" value={phone} onChange={onChange} />
@@ -101,7 +101,7 @@ class SignUp extends Component {
         }
         {
           mode === 'promo' &&
-          <Transitions classNames="slide">
+          <Transitions>
             <Fragment>
               <Button className="button_to-next-mobile" onClick={() => nextStep(1)}>Перейти на Next Mobile</Button>
               <div className="sign-up__agreement">

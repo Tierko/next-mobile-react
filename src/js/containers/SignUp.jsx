@@ -40,7 +40,7 @@ class SignUp extends Component {
           <Transitions classNames="slide">
             {
               step &&
-              <Transitions classNames="slide">
+              <Transitions>
                 <ProgressBar count={4} current={step} />
               </Transitions>
             }
