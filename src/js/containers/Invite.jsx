@@ -7,7 +7,7 @@ import CopyCode from '../components/CopyCode';
 import Invites from '../components/Invites';
 import Button from '../components/Button';
 import Transitions from '../components/Transitions';
-import { Pages, PROMO_CODES, LINKS, TITLES } from '../constants';
+import { Pages, PROMO_CODES, LINKS, TITLES, LEFT, NOT_ACTIVATED } from '../constants';
 import { convertStrings } from '../utils';
 
 class Invite extends Component {
@@ -62,7 +62,7 @@ class Invite extends Component {
               {
                 count &&
                 <div className="invite__subtitle">
-                  Осталось {count} неактивированных {
+                  {convertStrings(count, LEFT)} {count} {convertStrings(count, NOT_ACTIVATED)} {
                     mode === 'link' ?
                       <Button className="button_code-mode" borderless onClick={() => setCopyMode('')}>
                         {convertStrings(count, PROMO_CODES)}

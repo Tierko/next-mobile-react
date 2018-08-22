@@ -206,6 +206,8 @@ export const WEEKDAYS = [
 
 export const DAYS = ['день', 'дня', 'дней'];
 export const COUNTRIES = ['страна', 'страны', 'стран'];
+export const LEFT = ['Остался', 'Осталось', 'Осталось'];
+export const NOT_ACTIVATED = ['неактивированный', 'неактивированных', 'неактивированных'];
 export const PROMO_CODES = ['промо-код', 'промо-кода', 'промо-кодов'];
 export const LINKS = ['ссылка', 'ссылки', 'ссылок'];
 
