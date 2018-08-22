@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Map, GeoJSON, ZoomControl } from 'react-leaflet';
 import ComboBox from './ComboBox';
+import Loader from './Loader';
 import { HOME } from '../constants';
 
 class RoamingMap extends Component {
@@ -72,6 +73,10 @@ class RoamingMap extends Component {
     return (
       <div className="map">
         <div className="map__container" id="map">
+          {
+            !features.length &&
+            <Loader className="loader_map" />
+          }
           {
             !!features.length &&
             <Map

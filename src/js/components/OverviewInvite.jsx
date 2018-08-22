@@ -28,7 +28,9 @@ class OverviewInvite extends Component {
     return (
       <div className="overview-invite">
         <Link className="overview-invite__header" to={Pages.INVITE}>
-          <span>{message}</span>
+          <span>
+            <span>{message}</span>
+          </span>
         </Link>
         <div className="overview-invite__subtitle">
           По {

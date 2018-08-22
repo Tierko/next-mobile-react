@@ -1,9 +1,18 @@
-@diametr: 56;
+@diametr: 58;
 
 .loader {
   position: relative;
   width: 60px;
   height: 60px;
+
+  &_map {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
 
   &__svg {
     width: 60px;
@@ -13,8 +22,9 @@
   &__circle {
     fill: transparent;
     stroke-dasharray: 0, 3.14 * @diametr;
-    stroke-width: 2px;
-    animation: loader 1s infinite linear;
+    stroke-width: 1px;
+    stroke: #1F63FF;
+    animation: loader 1.5s infinite linear;
   }
 }
 
@@ -22,15 +32,18 @@
   0% {
     stroke-dasharray: 0, 3.14 * @diametr;
     stroke-dashoffset: 3.14 * @diametr / 4;
+    stroke: #1F63FF;
   }
 
   50% {
     stroke-dasharray: 3.14 * @diametr / 2, 3.14 * @diametr / 2;
     stroke-dashoffset: 3.14 * @diametr / 4;
+    stroke: #1FDDFF;
   }
 
   100% {
     stroke-dashoffset: 3.14 * -@diametr / 4 * 3;
     stroke-dasharray: 0, 3.14 * @diametr;
+    stroke: #1F63FF;
   }
 }

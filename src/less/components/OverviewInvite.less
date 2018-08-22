@@ -10,16 +10,19 @@
 
   &__header {
     .h1;
-    .gradient-black-blue;
     text-decoration: none;
     display: block;
 
-    span {
-      background: linear-gradient(to right, @GRAY, @GRAY) repeat-x 0 95%;
+    & > span {
+      .gradient-black-blue;
+    }
+
+    & > span > span {
+      background: linear-gradient(to right, #000, #003cff) repeat-x 0 calc(50% + 0.43em);
       background-size: 100% 1px;
     }
 
-    &:hover span {
+    &:hover > span > span {
       background-image: linear-gradient(to right, @BLACK);
     }
   }
