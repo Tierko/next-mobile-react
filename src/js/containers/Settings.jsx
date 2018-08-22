@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DocumentMeta from 'react-document-meta';
+import cs from 'classnames';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Input from '../components/Input';
@@ -63,9 +64,12 @@ class Settings extends Component {
 
   setCash = (e) => {
     const { cash } = e.target.dataset;
+    const { note } = this.state;
     const { onChange } = this;
 
-    onChange('expenseNoteSum', `${cash} ₽`);
+    if (note) {
+      onChange('expenseNoteSum', `${cash} ₽`);
+    }
   };
 
   render() {
@@ -123,9 +127,33 @@ class Settings extends Component {
                       clear
                     />
                     <div className="service__expense-sums">
-                      <div onClick={setCash} className="service__expense-sum" data-cash="2 000" >2 000 ₽</div>
-                      <div onClick={setCash} className="service__expense-sum" data-cash="5 000">5 000 ₽</div>
-                      <div onClick={setCash} className="service__expense-sum" data-cash="10 000">10 000 ₽</div>
+                      <div
+                        onClick={setCash}
+                        className={cs('service__expense-sum', {
+                          'service__expense-sum_disabled': !note,
+                        })}
+                        data-cash="2 000"
+                      >
+                        2 000 ₽
+                      </div>
+                      <div
+                        onClick={setCash}
+                        className={cs('service__expense-sum', {
+                          'service__expense-sum_disabled': !note,
+                        })}
+                        data-cash="5 000"
+                      >
+                        5 000 ₽
+                      </div>
+                      <div
+                        onClick={setCash}
+                        className={cs('service__expense-sum', {
+                          'service__expense-sum_disabled': !note,
+                        })}
+                        data-cash="10 000"
+                      >
+                        10 000 ₽
+                      </div>
                     </div>
                   </div>
                 </div>
