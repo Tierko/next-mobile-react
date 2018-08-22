@@ -1,0 +1,36 @@
+@diametr: 56;
+
+.loader {
+  position: relative;
+  width: 60px;
+  height: 60px;
+
+  &__svg {
+    width: 60px;
+    height: 60px;
+  }
+
+  &__circle {
+    fill: transparent;
+    stroke-dasharray: 0, 3.14 * @diametr;
+    stroke-width: 2px;
+    animation: loader 1s infinite linear;
+  }
+}
+
+@keyframes loader {
+  0% {
+    stroke-dasharray: 0, 3.14 * @diametr;
+    stroke-dashoffset: 3.14 * @diametr / 4;
+  }
+
+  50% {
+    stroke-dasharray: 3.14 * @diametr / 2, 3.14 * @diametr / 2;
+    stroke-dashoffset: 3.14 * @diametr / 4;
+  }
+
+  100% {
+    stroke-dashoffset: 3.14 * -@diametr / 4 * 3;
+    stroke-dasharray: 0, 3.14 * @diametr;
+  }
+}
