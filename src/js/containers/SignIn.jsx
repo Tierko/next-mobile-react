@@ -6,6 +6,7 @@ import MobileNav from '../components/MobileNav';
 import NavLobby from '../components/NavLobby';
 import Input from '../components/InputPhone';
 import Logo from '../components/Logo';
+import LogoAnimated from '../components/LogoAnimated';
 import MobileCode from '../components/MobileCode';
 import Transitions from '../components/Transitions';
 import { Pages, TITLES } from '../constants';
@@ -15,6 +16,7 @@ class SignIn extends Component {
     phone: '',
     message: 'На указанный номер Next Mobile будет отправлен код для входа в Личный кабинет',
     isPhoneVisible: true,
+    expandLogo: false,
   };
 
   onChange = (name, value) => {
@@ -40,6 +42,14 @@ class SignIn extends Component {
     }
   };
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        expandLogo: true,
+      });
+    }, 400);
+  }
+
   onSubmit = (e) => {
     e.preventDefault();
     const { mobileCode: { current: { sendCode } } } = this;
@@ -57,7 +67,12 @@ class SignIn extends Component {
       onSubmit,
       mobileCode,
     } = this;
-    const { phone, message, isPhoneVisible } = this.state;
+    const {
+      phone,
+      message,
+      isPhoneVisible,
+      expandLogo,
+    } = this.state;
     const meta = {
       title: TITLES.SIGN_IN,
     };
@@ -69,7 +84,8 @@ class SignIn extends Component {
           <NavLobby />
           <Transitions classNames="slide">
             <div className="welcome__content">
-              <Logo />
+              {/*<Logo />*/}
+              <LogoAnimated expand={expandLogo} />
               <div className="sign-in__text">{ message }</div>
               <form onSubmit={onSubmit} className="sign-in__form">
                 {
