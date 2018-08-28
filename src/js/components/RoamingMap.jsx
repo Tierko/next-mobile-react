@@ -49,7 +49,7 @@ class RoamingMap extends Component {
 
   featureDefaultStyle = () => ({
     color: '#e6e6f3',
-    fillColor: '#fff',
+    fillColor: 'rgba(255, 255, 255, 0.65)',
     fillOpacity: 1,
     weight: 1,
   });
