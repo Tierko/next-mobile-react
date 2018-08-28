@@ -15,7 +15,7 @@ const packagesRequestSuccess = (items) => ({
 });
 
 const getPackages = () => (
-  dispatch => (ajax('/media/data/packages.json', dispatch, packagesRequest, packagesRequestFail, packagesRequestSuccess))
+  dispatch => (ajax('/media/info/packages.json', dispatch, packagesRequest, packagesRequestFail, packagesRequestSuccess))
 );
 
 export default getPackages();

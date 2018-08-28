@@ -99,6 +99,7 @@ export const ajax = (url, dispatch, onRequest, onFail, onSuccess) => {
   fetch(url, {
     headers: new Headers({
       'Content-Types': 'text/json',
+      'same-origin': 'same-origin',
     }),
   })
     .then(items => items.json())

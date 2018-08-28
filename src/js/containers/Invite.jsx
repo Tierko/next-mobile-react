@@ -20,7 +20,7 @@ class Invite extends Component {
   };
 
   componentDidMount() {
-    fetch('/media/data/invites.json')
+    fetch('/media/info/invites.json')
       .then(invites => invites.json())
       .then(invites => this.setState({ invites }));
   }

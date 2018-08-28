@@ -14,7 +14,7 @@ class InterCalls extends Component {
   };
 
   componentDidMount() {
-    fetch('/media/data/internation-calls.json', {
+    fetch('/media/info/internation-calls.json', {
       headers: new Headers({
         'Content-Types': 'text/json',
       }),
