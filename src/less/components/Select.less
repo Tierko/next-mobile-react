@@ -109,6 +109,7 @@
     cursor: pointer;
     color: @GRAY-DARK;
     transition: color 0.2s linear, background-color 0.2s linear;
+    user-select: none;
 
     &_lang {
       padding-left: 1em;
@@ -123,6 +124,12 @@
       color: @BLACK;
       background: url("/media/icons/regular.svg") 0.7em 50% no-repeat;
       background-size: 0.8em auto;
+    }
+
+    &_disabled:hover {
+      color: @GRAY-DARK;
+      cursor: default;
+      background-color: transparent;
     }
   }
 

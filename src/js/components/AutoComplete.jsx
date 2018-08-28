@@ -79,7 +79,7 @@ class AutoComplete extends Select {
           }
           {
             value && itemsFiltered.length === 0 &&
-            <div className="select__item">
+            <div className="select__item select__item_disabled">
               {emptyText}
             </div>
           }
