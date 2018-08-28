@@ -28,7 +28,7 @@ class SignIn extends Component {
     const { phone } = this.state;
 
     this.setState({
-      message: `Введите код, присланный на номер ${phone}`,
+      message: `Введите код, присланный на номер \n ${phone}`,
       isPhoneVisible: false,
     });
   };
