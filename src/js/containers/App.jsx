@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
+import { animateScroll } from 'react-scroll';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import RequestStatus from './RequestStatus';
@@ -39,6 +40,14 @@ class App extends Component {
     const { getZones, getFeatures } = this.props;
     getZones();
     getFeatures();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      animateScroll.scrollToTop({
+        smooth: true,
+      });
+    }
   }
 
   render() {
