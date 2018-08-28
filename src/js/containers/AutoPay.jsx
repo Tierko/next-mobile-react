@@ -32,10 +32,10 @@ class AutoPay extends Component {
       let monthName = MONTHS_M[tmp.getMonth()];
       monthName = `${monthName[0].toUpperCase()}${monthName.substr(1)}`;
 
-      return `${monthName} ${tmp.getFullYear()}`;
+      return `${monthName.toLowerCase()} ${tmp.getFullYear()}`;
     });
 
-    mm.push('Бессрочно');
+    mm.push('бессрочно');
 
     return mm;
   })();
