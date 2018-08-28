@@ -3,18 +3,22 @@
 }
 
 .tariff-table {
-  overflow: auto;
   width: calc(100% + 30px);
   margin: 0 -15px 46px;
+  max-width: 100%;
 
-  @media (max-width: @BREAK-POINT) {
-    max-width: 630px;
+  @media (max-width: 630px) {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
   }
 
   &__inner {
     padding-top: 5px;
     margin: 0 15px;
-    min-width: 570px;
+
+    @media (max-width: 630px) {
+      min-width: 570px;
+    }
   }
 
   &__row {
