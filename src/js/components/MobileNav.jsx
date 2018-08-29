@@ -25,6 +25,19 @@ class MobileNav extends Component {
     }
   };
 
+  toggleScroll = (isOpen) => {
+    const html = document.documentElement;
+    const { body } = document;
+
+    if (isOpen) {
+      html.style.overflow = 'hidden';
+      body.style.overflow = 'hidden';
+    } else {
+      html.removeAttribute('style');
+      body.removeAttribute('style');
+    }
+  };
+
   componentWillMount() {
     const { outsideClick } = this;
     document.addEventListener('click', outsideClick);
@@ -38,7 +51,9 @@ class MobileNav extends Component {
   render() {
     const { open } = this.state;
     const { type } = this.props;
-    const { toggle } = this;
+    const { toggle, toggleScroll } = this;
+
+    toggleScroll(open);
 
     return (
       <Fragment>

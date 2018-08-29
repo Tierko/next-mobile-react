@@ -4,7 +4,7 @@
   left: 0;
   bottom: 0;
   display: none;
-  z-index: 500;
+  z-index: 1001;
 
   @media (max-width: @BREAK-POINT) {
     display: block;
@@ -85,13 +85,13 @@
   }
 
   &__drawer {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 500;
+    z-index: 1001;
     width: 0;
     transition: width 0.5s;
 
