@@ -60,7 +60,7 @@
       position: absolute;
       height: 0.7em;
       left: 0;
-      top: 0.2em;
+      top: calc(0.2em + 3px);
 
       @media (max-width: @BREAK-POINT) {
         position: static;
@@ -77,7 +77,7 @@
   }
 
   &__tr &__item-desc:after {
-    top: calc(0.2em + 26px);
+    top: calc(0.2em + 29px);
   }
 
   &__item-conditions {
