@@ -43,10 +43,16 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    const html = document.documentElement;
+    const { body } = document;
+
     if (prevProps.location.pathname !== this.props.location.pathname) {
       animateScroll.scrollToTop({
         smooth: true,
       });
+
+      html.removeAttribute('style');
+      body.removeAttribute('style');
     }
   }
 
