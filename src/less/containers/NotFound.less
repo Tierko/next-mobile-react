@@ -1,5 +1,11 @@
 .not-found {
   max-width: 450px;
+  align-items: flex-start;
+
+  @media (max-width: @BREAK-POINT) {
+    margin-right: auto;
+    margin-left: auto;
+  }
 
   &__message {
     max-width: 450px;
