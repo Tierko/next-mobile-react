@@ -20,6 +20,55 @@
     overflow: hidden;
   }
 
+  &__controls {
+    position: absolute;
+    right: 37px;
+    bottom: 35px;
+    border: 1px solid #dcdcdc;
+    z-index: 500;
+  }
+
+  &__span {
+    width: 17px;
+    height: 1px;
+    margin: auto;
+    background-color: #dcdcdc;
+  }
+
+  &__button {
+    width: 21px;
+    height: 18px;
+    position: relative;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      height: 1px;
+      width: 11px;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      background-color: @BLACK;
+    }
+
+    &_plus:after {
+      transform: rotate(90deg);
+    }
+
+    &_disabled {
+      cursor: default;
+    }
+
+    &_disabled:before,
+    &_disabled:after {
+      background-color: @GRAY;
+    }
+  }
+
   .leaflet-container {
     height: 100%;
     background-color: #e6e6f3;

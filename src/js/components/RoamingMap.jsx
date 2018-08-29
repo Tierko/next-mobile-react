@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Map, GeoJSON, ZoomControl } from 'react-leaflet';
+import { Map, GeoJSON } from 'react-leaflet';
+import cs from 'classnames';
 import ComboBox from './ComboBox';
 import Loader from './Loader';
 import { HOME } from '../constants';
 
 class RoamingMap extends Component {
   state = {
-    minZoom: 1.3,
+    zoomInDisabled: false,
+    zoomOutDisabled: false,
+    maxZoom: 5,
+    minZoom: 0.3,
   };
 
   onClick = (e) => {
@@ -61,14 +65,69 @@ class RoamingMap extends Component {
     weight: 1,
   });
 
+  zoomIn = () => {
+    const { map, getCurrentZoom } = this;
+    const { maxZoom } = this.state;
+    const currentZoom = getCurrentZoom();
+
+    this.setState({
+      zoomInDisabled: currentZoom !== -1 && currentZoom >= maxZoom,
+    });
+
+    map.leafletElement.zoomIn();
+  };
+
+  zoomOut = () => {
+    const { map } = this;
+
+    map.leafletElement.zoomOut();
+  };
+
+  onZoomLevelsChange = () => {
+    const { getCurrentZoom } = this;
+    const { minZoom, maxZoom } = this.state;
+    const currentZoom = getCurrentZoom();
+
+    console.log(currentZoom)
+
+    if (currentZoom !== -1) {
+      this.setState({
+        zoomInDisabled: currentZoom >= maxZoom,
+        zoomOutDisabled: currentZoom <= minZoom,
+      });
+    }
+  };
+
+  getCurrentZoom = () => {
+    const { map } = this;
+
+    if (map) {
+      return map.leafletElement._zoom;
+    }
+
+    return -1;
+  };
+
   render() {
-    const { onClick, setStyle } = this;
+    const {
+      onClick,
+      setStyle,
+      zoomIn,
+      zoomOut,
+      onZoomLevelsChange,
+    } = this;
     const {
       zone: { center, zoom, title },
       features,
       country,
       onCountrySelect,
     } = this.props;
+    const {
+      zoomInDisabled,
+      zoomOutDisabled,
+      maxZoom,
+      minZoom,
+    } = this.state;
 
     return (
       <div className="map">
@@ -84,17 +143,33 @@ class RoamingMap extends Component {
               zoom={zoom}
               zoomControl={false}
               animate
-              minZoom={0.3}
-              maxZoom={5}
+              minZoom={minZoom}
+              maxZoom={maxZoom}
+              ref={(e) => { this.map = e; }}
+              onzoom={onZoomLevelsChange}
             >
               <GeoJSON
                 data={features}
                 style={setStyle}
                 onclick={onClick}
               />
-              <ZoomControl position="bottomright" />
             </Map>
           }
+          <div className="map__controls">
+            <div
+              className={cs('map__button map__button_plus', {
+                map__button_disabled: zoomInDisabled,
+              })}
+              onClick={zoomIn}
+            />
+            <div className="map__span" />
+            <div
+              className={cs('map__button map__button_minus', {
+                map__button_disabled: zoomOutDisabled,
+              })}
+              onClick={zoomOut}
+            />
+          </div>
         </div>
         <ComboBox
           items={features}
