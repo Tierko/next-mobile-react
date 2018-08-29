@@ -88,8 +88,6 @@ class RoamingMap extends Component {
     const { minZoom, maxZoom } = this.state;
     const currentZoom = getCurrentZoom();
 
-    console.log(currentZoom)
-
     if (currentZoom !== -1) {
       this.setState({
         zoomInDisabled: currentZoom >= maxZoom,
