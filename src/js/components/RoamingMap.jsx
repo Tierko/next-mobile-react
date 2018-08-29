@@ -16,8 +16,11 @@ class RoamingMap extends Component {
 
   onClick = (e) => {
     const { onCountrySelect } = this.props;
+    const { map } = this;
+
 
     onCountrySelect(e.layer.toGeoJSON());
+    map.leafletElement.fitBounds(e.layer.getBounds(), { maxZoom: 5 });
   };
 
   setStyle = (f) => {
@@ -138,7 +141,7 @@ class RoamingMap extends Component {
             !!features.length &&
             <Map
               center={country.center || center}
-              zoom={zoom}
+              zoom={0}
               zoomControl={false}
               animate
               minZoom={minZoom}
