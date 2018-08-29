@@ -48,21 +48,21 @@ class RoamingMap extends Component {
     color: '#e6e6f3',
     fillColor: '#5a961a',
     fillOpacity: 1,
-    weight: 1,
+    weight: 0.5,
   });
 
   featureDefaultStyle = () => ({
     color: '#e6e6f3',
     fillColor: 'rgba(255, 255, 255, 0.65)',
     fillOpacity: 1,
-    weight: 1,
+    weight: 0.5,
   });
 
   featureSelectZone = () => ({
     color: '#e6e6f3',
     fillColor: '#97da34',
     fillOpacity: 1,
-    weight: 1,
+    weight: 0.5,
   });
 
   zoomIn = () => {

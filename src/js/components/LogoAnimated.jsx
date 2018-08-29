@@ -8,7 +8,6 @@ const LogoAnimated = ({ expand }) => (
       <div className={cs('logo-animated__shadow', { 'logo-animated__shadow_expand': expand })} />
       <div className={cs('logo-animated__square', { 'logo-animated__square_expand': expand })}>
         <img className="logo-animated__text" src="/media/images/logo-next.svg" alt="Next Mobile" />
-        {/*<div className="logo-animated__text">next</div>*/}
       </div>
     </div>
   </div>

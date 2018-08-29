@@ -17,10 +17,13 @@
     bottom: 0;
     left: 0;
     transform: scale(0);
-    transition: transform 0.3s linear;
+    transition: transform 1s;
+    filter: saturate(1.2);
+    z-index: 1;
 
     &_expand {
       transform: scale(1);
+      filter: saturate(1);
     }
   }
 
@@ -34,16 +37,20 @@
     bottom: 0;
     left: 0;
     margin: auto;
-    z-index: 1;
+    z-index: 2;
+    transform: translateZ(0);
+    opacity: .99;
 
     &:after {
       content: '';
       position: absolute;
-      border-top-right-radius: 50%;
+      border-top-right-radius: 14px;
       top: 0;
       right: 0;
       bottom: 0;
       left: 0;
+      z-index: 2;
+      transition: background-color 1s;
     }
 
     &_expand:after {
@@ -57,16 +64,11 @@
       right: 0;
       bottom: 0;
       left: 0;
-      border-radius: 0 15px 0 0;
+      border-top-right-radius: 14px;
       background: url("/media/images/sim.png") no-repeat 50% 50%;
       background-size: cover;
       opacity: 1;
-      transition: opacity 0.3s linear;
-      z-index: 1;
-    }
-
-    &_expand:before {
-      opacity: 0;
+      z-index: 2;
     }
   }
 
