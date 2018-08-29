@@ -15,7 +15,7 @@ const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
           zones.items.map(i => (
             <div key={i.id} className="roaming-dashboard__item">
               <div className="roaming-dashboard__item-name">
-                <Link to={Pages.ROAMING} className="link">{i.name}</Link>
+                <Link to={`${Pages.ROAMING}/${i.id}`} className="link">{i.name}</Link>
               </div>
               <div className="roaming-dashboard__item-info">
                 {
@@ -50,7 +50,7 @@ const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
                 <Fragment key={i.id}>
                   <tr key={`${i.id}-f`} className="roaming-dashboard__tr">
                     <td rowSpan={2} className="roaming-dashboard__item-name">
-                      <Link to={Pages.ROAMING} className="link">{i.name}</Link>
+                      <Link to={`${Pages.ROAMING}/${i.id}`} className="link">{i.name}</Link>
                     </td>
                     <td className="roaming-dashboard__item-desc roaming-dashboard__item-desc_fast">Пакет быстрого интернет-трафика</td>
                     <td>
@@ -64,7 +64,7 @@ const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
                 </Fragment> :
                 <tr key={`${i.id}-r`} className="roaming-dashboard__tr">
                   <td className="roaming-dashboard__item-name">
-                    <Link to={Pages.ROAMING} className="link">{i.name}</Link>
+                    <Link to={`${Pages.ROAMING}/${i.id}`} className="link">{i.name}</Link>
                   </td>
                   <td className="roaming-dashboard__item-desc roaming-dashboard__item-desc_regular">Помегабайтный трафик</td>
                   <td>{formatCost(i.tariff.internet.byMb)} / МБ</td>

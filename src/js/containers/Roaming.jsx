@@ -15,10 +15,17 @@ import Transitions from '../components/Transitions';
 import { Pages, TITLES } from '../constants';
 
 class Roaming extends Component {
-  state = {
-    tab: 1,
-    country: {},
-  };
+  constructor(props) {
+    super(props);
+    const {
+      match: { params: { zoneId } },
+    } = this.props;
+
+    this.state = {
+      tab: zoneId * 1 || 1,
+      country: {},
+    };
+  }
 
   onTabChange = (tab) => {
     const { country } = this.state;
@@ -131,7 +138,7 @@ class Roaming extends Component {
                 onCountrySelect={onCountrySelect}
               />
               {
-                !zoneId &&
+                !type &&
                 <Transitions>
                   <div className="roaming roaming_zones">
                     {

@@ -87,6 +87,7 @@ class App extends Component {
           <Route path={`${Pages.RESULT}/:status`} component={Result} />
           <Route path={`${Pages.ROAMING}/:type/:zoneId/:countryId`} component={Roaming} />
           <Route path={`${Pages.ROAMING}/:type/:zoneId`} component={Roaming} />
+          <Route path={`${Pages.ROAMING}/:zoneId`} component={Roaming} />
           <Route path={Pages.ROAMING} component={Roaming} exact />
           <Route path={Pages.INVITE} component={Invite} />
           <Route path={Pages.CONFIRM} component={Confirm} />
