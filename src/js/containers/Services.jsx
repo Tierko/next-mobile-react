@@ -93,7 +93,7 @@ class Services extends Component {
                 Сохранить
               </Button>
               <Note
-                className="note_settings"
+                className="note_services"
                 message="Настройки сохранены"
                 color="green"
                 onFadeOut={onNoteFade}
