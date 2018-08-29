@@ -16,6 +16,7 @@ const NotFound = () => {
     <DocumentMeta {...meta}>
       <MobileNav key="nav" type="dashboard" />
       <div key="dashboard" className="dashboard">
+        <Aside hideNav />
         <Transitions>
           <div className="dashboard__content not-found">
             <div className="dashboard__header">Страница не найдена</div>
