@@ -261,7 +261,7 @@ class Operations extends Component {
               <div key={d.id} className="operations__item">
                 {
                   showDate(filteredData, i) &&
-                  <div className="operations__item-date">{d.date.day} {MONTHS_M[d.date.month]}</div>
+                  <div className="operations__item-date">{d.date.day}&nbsp;{MONTHS_M[d.date.month]}</div>
                 }
                 <div className="operations__item-row">
                   <div>{HISTORY_TITLES.find(f => f.id === d.type).title}</div>
