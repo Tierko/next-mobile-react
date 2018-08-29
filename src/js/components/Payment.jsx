@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import cs from 'classnames';
 import Input from './InputRuble';
 import Button from './Button';
 import Cards from './Cards';
+import Limit from './Limit';
 import { formatCost } from '../utils';
 
 class Payment extends Component {
@@ -70,9 +70,7 @@ class Payment extends Component {
           isEditable &&
           <Fragment>
             <Input className="input_pay" onChange={onChange} value={payment} name="payment" clear />
-            <div className={cs('payment__limit', { payment__limit_show: !inLimits })}>
-              Введите сумму от 100 до {formatCost(15000)}
-            </div>
+            <Limit className="limit_payment" sum={payment} />
             <div className="payment__message">Для оплаты по тарифу Супервип на счету не хватает <span className="nobr">{formatCost(paymentInit, true)}</span></div>
           </Fragment>
         }
