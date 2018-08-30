@@ -47,7 +47,7 @@ class RoamingZone extends Component {
           </Link>
           <RoamingCurrent data={data} history={history} />
           <Link to={`${Pages.ROAMING}/zone-tariff/${data.id}`} className="roaming-zone__more">
-            Подробнее о тарифах в {data.title}
+            Подробнее о тарифах в {data.title.toLowerCase()}
           </Link>
         </div>
       </Transitions>

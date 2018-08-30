@@ -11,7 +11,7 @@ const RoamingCountries = ({ items, zone }) => {
     <div className="roaming">
       <div className="roaming__title">
         <LinkBack className="link-back_roaming" href={Pages.ROAMING} />
-        Страны <span>{zone.title_}</span>
+        Страны <span>{zone.title_.toLowerCase()}</span>
       </div>
       <div>
         {

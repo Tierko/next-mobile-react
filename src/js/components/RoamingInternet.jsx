@@ -27,7 +27,7 @@ class RoamingInternet extends Component {
       <div className="roaming">
         <div className="roaming__title">
           <LinkBack href={Pages.ROAMING} className="link-back_roaming" />
-          Интернет в {zone.title}
+          Интернет в {zone.title.toLowerCase()}
         </div>
         {
           zone.additionalPackage &&

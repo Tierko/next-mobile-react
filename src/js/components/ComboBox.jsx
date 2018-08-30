@@ -73,7 +73,7 @@ class ComboBox extends Select {
           <div className="combo-box__title">
             <img className="select__img" src={`/media/flags/${value.properties.iso_a2}.svg`} alt={value.properties.name} />
             {value.properties.name}
-            <span className="combo-box__zone"> находится в зоне {zoneName}</span>
+            <span className="combo-box__zone"> находится в зоне {zoneName.toLowerCase()}</span>
           </div>
         }
         <div className={cs('select__list', { select__list_open: !!valueSearch.length && open })}>

@@ -42,13 +42,13 @@ class Roaming extends Component {
   onCountrySelect = (country) => {
     const { tab } = this.state;
     const { history, data: { zones: roamingZones } } = this.props;
-    const { getCenter, getZoneByCountry } = this;
+    const { getZoneByCountry } = this;
     const zone = getZoneByCountry(roamingZones, country);
 
     if (!country.properties || country.properties.iso_a2 !== 'RU') {
       this.setState({
-        country: Object.assign(country, { center: getCenter(country) }),
         tab: zone || tab,
+        country,
       });
 
       history.push(Pages.ROAMING);
@@ -74,32 +74,6 @@ class Roaming extends Component {
     const { zones } = this.props.data;
 
     return zones.items.find(z => z.id === tab) || {};
-  };
-
-  getCenter = (f) => {
-    const coordinates = [];
-
-    if (!f.geometry) {
-      return false;
-    }
-
-    f.geometry.coordinates.forEach(a => (
-      a.forEach(c => (
-        f.geometry.type === 'MultiPolygon' ? c.forEach(m => coordinates.push(m)) : coordinates.push(c)
-      ))
-    ));
-
-    const x = coordinates.map(c => c[0]);
-    const y = coordinates.map(c => c[1]);
-    const minX = Math.min.apply(null, x);
-    const minY = Math.min.apply(null, y);
-    const maxX = Math.max.apply(null, x);
-    const maxY = Math.max.apply(null, y);
-
-    const lat = (minX + maxX) / 2;
-    const lon = (minY + maxY) / 2;
-
-    return [lon, lat];
   };
 
   render() {
