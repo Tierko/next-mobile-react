@@ -82,15 +82,21 @@ class Date extends Input {
     return (
       <div className={`input ${className}`} ref={(e) => { this.date = e; }}>
         <div className="input__inner">
-          <input
-            type="text"
-            className="input__value"
-            name={name}
-            value={formatter(value)}
-            onChange={() => {}}
-            onFocus={showCalendar}
+          <div
+            className="input__value input__value_date"
             onClick={showCalendar}
-          />
+          >
+            {formatter(value)}
+          </div>
+          {/*<input*/}
+            {/*type="text"*/}
+            {/*name={name}*/}
+            {/*onChange={() => {}}*/}
+            {/*onFocus={showCalendar}*/}
+            {/*value={formatter(value)}*/}
+            {/*className="input__value"*/}
+            {/*onClick={showCalendar}*/}
+          {/*/>*/}
           <div className="input__icon input__icon_calendar" onClick={toggleCalendar} />
         </div>
         <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>

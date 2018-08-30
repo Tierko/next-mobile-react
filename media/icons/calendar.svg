@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="13px" height="14px" viewBox="0 0 13 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
-    <title>сalendar</title>
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>calendar2-02</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="30-05" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
-        <g id="guide" transform="translate(-530.000000, -1962.000000)">
-            <g id="Group-3" transform="translate(373.000000, 1937.000000)">
-                <g id="сalendar" transform="translate(157.000000, 25.000000)">
-                    <rect id="Rectangle-2" stroke="#000000" x="3.5" y="7.5" width="1" height="1"></rect>
-                    <rect id="Rectangle-2-Copy-4" stroke="#000000" x="3.5" y="10.5" width="1" height="1"></rect>
-                    <rect id="Rectangle-2-Copy" stroke="#000000" x="6.5" y="7.5" width="1" height="1"></rect>
-                    <rect id="Rectangle-2-Copy-5" stroke="#000000" x="6.5" y="10.5" width="1" height="1"></rect>
-                    <rect id="Rectangle-2-Copy-2" stroke="#000000" x="9.5" y="7.5" width="1" height="1"></rect>
-                    <rect id="Rectangle-2-Copy-3" stroke="#000000" x="9.5" y="10.5" width="1" height="1"></rect>
-                    <rect id="Rectangle" stroke="#000000" x="0.5" y="1.5" width="12" height="12" rx="2"></rect>
-                    <rect id="Rectangle-14" stroke="#000000" x="3.5" y="0.5" width="1" height="2" rx="0.5"></rect>
-                    <rect id="Rectangle-14-Copy" stroke="#000000" x="9.5" y="0.5" width="1" height="2" rx="0.5"></rect>
-                    <rect id="Rectangle-27" fill="#000000" x="1" y="4" width="11" height="1"></rect>
-                </g>
-            </g>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="calendar2-02">
+            <path d="M11.5,1.5 L1.5,1.5 C0.9,1.5 0.5,1.9 0.5,2.5 L0.5,12.5 C0.5,13.1 0.9,13.5 1.5,13.5 L11.5,13.5 C12.1,13.5 12.5,13.1 12.5,12.5 L12.5,2.5 C12.5,1.9 12.1,1.5 11.5,1.5 Z" id="Shape" stroke="#969697"></path>
+            <rect id="Rectangle-path" fill="#969697" fill-rule="nonzero" x="3" y="0" width="1" height="3" rx="0.5"></rect>
+            <rect id="Rectangle-path" fill="#969697" fill-rule="nonzero" x="3" y="7" width="1" height="1"></rect>
+            <rect id="Rectangle-path" fill="#969697" fill-rule="nonzero" x="3" y="10" width="1" height="1"></rect>
+            <rect id="Rectangle-path" fill="#969697" fill-rule="nonzero" x="6" y="7" width="1" height="1"></rect>
+            <rect id="Rectangle-path" fill="#969697" fill-rule="nonzero" x="6" y="10" width="1" height="1"></rect>
+            <rect id="Rectangle-path" fill="#969697" fill-rule="nonzero" x="9" y="7" width="1" height="1"></rect>
+            <rect id="Rectangle-path" fill="#969697" fill-rule="nonzero" x="9" y="10" width="1" height="1"></rect>
+            <rect id="Rectangle-path" fill="#969697" fill-rule="nonzero" x="9" y="0" width="1" height="3" rx="0.5"></rect>
+            <rect id="Rectangle-path" fill="#969697" fill-rule="nonzero" x="0" y="4" width="13" height="1"></rect>
         </g>
     </g>
 </svg>
