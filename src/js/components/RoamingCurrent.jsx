@@ -49,7 +49,7 @@ class RoamingCurrent extends Component {
         }
         {
           !additionalPackage &&
-          <Button className="button_roaming-add" onClick={addPackage}>
+          <Button className="button_roaming-add button_roaming-add-empty" onClick={addPackage}>
             Добавить пакет интернета
           </Button>
         }
