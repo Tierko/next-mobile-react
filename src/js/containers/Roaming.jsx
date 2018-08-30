@@ -123,6 +123,17 @@ class Roaming extends Component {
     const meta = {
       title: TITLES.ROAMING,
     };
+    const featuresSorted = features.items.slice().sort((a, b) => {
+      if (a.properties.name > b.properties.name) {
+        return 1;
+      }
+
+      if (a.properties.name < b.properties.name) {
+        return -1;
+      }
+
+      return 0;
+    });
 
     return (
       <DocumentMeta {...meta}>
@@ -133,7 +144,7 @@ class Roaming extends Component {
             <Transitions>
               <RoamingMap
                 zone={getCurrentZone()}
-                features={features.items}
+                features={featuresSorted}
                 country={country}
                 onCountrySelect={onCountrySelect}
               />
@@ -157,7 +168,7 @@ class Roaming extends Component {
                           data={z}
                           active={tab}
                           history={history}
-                          features={features.items}
+                          features={featuresSorted}
                           zones={zones}
                           country={country}
                         />
@@ -169,7 +180,7 @@ class Roaming extends Component {
               {
                 zone && type === 'countries' &&
                 <Transitions>
-                  <RoamingCountries items={features.items} zone={zone} />
+                  <RoamingCountries items={featuresSorted} zone={zone} />
                 </Transitions>
               }
               {
