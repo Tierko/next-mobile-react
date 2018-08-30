@@ -167,3 +167,7 @@ export const hsl2rgb = (h, s, l) => {
 
   return { r, g, b };
 };
+
+export const mapNumbers = (x, inMin, inMax, outMin, outMax) => {
+  return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+};

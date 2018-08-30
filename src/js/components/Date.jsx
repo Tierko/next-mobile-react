@@ -88,15 +88,6 @@ class Date extends Input {
           >
             {formatter(value)}
           </div>
-          {/*<input*/}
-            {/*type="text"*/}
-            {/*name={name}*/}
-            {/*onChange={() => {}}*/}
-            {/*onFocus={showCalendar}*/}
-            {/*value={formatter(value)}*/}
-            {/*className="input__value"*/}
-            {/*onClick={showCalendar}*/}
-          {/*/>*/}
           <div className="input__icon input__icon_calendar" onClick={toggleCalendar} />
         </div>
         <div className={cs('input__placeholder', { input__placeholder_filled: !!value && placeholder })}>

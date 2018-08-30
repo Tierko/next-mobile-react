@@ -5,6 +5,7 @@ import cs from 'classnames';
 import ComboBox from './ComboBox';
 import Loader from './Loader';
 import { HOME } from '../constants';
+import { mapNumbers } from '../utils';
 
 class RoamingMap extends Component {
   state = {
@@ -109,6 +110,25 @@ class RoamingMap extends Component {
     return -1;
   };
 
+  getMinZoom = () => {
+    const map = document.getElementById('map');
+    let width = 0;
+
+    if (map) {
+      width = map.clientWidth;
+    }
+
+    if (width > 1200) {
+      width = 1200;
+    }
+
+    if (width < 320) {
+      width = 320;
+    }
+
+    return mapNumbers(width, 320, 1200, 0.3, 1.4);
+  };
+
   render() {
     const {
       onClick,
@@ -116,6 +136,7 @@ class RoamingMap extends Component {
       zoomIn,
       zoomOut,
       onZoomLevelsChange,
+      getMinZoom,
     } = this;
     const {
       zone: { center, zoom, title },
@@ -127,7 +148,6 @@ class RoamingMap extends Component {
       zoomInDisabled,
       zoomOutDisabled,
       maxZoom,
-      minZoom,
     } = this.state;
 
     return (
@@ -144,7 +164,7 @@ class RoamingMap extends Component {
               zoom={0}
               zoomControl={false}
               animate
-              minZoom={minZoom}
+              minZoom={getMinZoom()}
               maxZoom={maxZoom}
               ref={(e) => { this.map = e; }}
               onzoom={onZoomLevelsChange}
