@@ -25,9 +25,13 @@ class RoamingMap extends Component {
   };
 
   setStyle = (f) => {
-    const { zone: { countries } } = this.props;
+    const { zone: { countries }, countryId } = this.props;
     const { featureDefaultStyle, featureSelectZone, featureSelectCountry } = this;
     const { country } = this.props;
+
+    if (countryId && f.properties.iso_a2 === countryId) {
+      return featureSelectCountry();
+    }
 
     if (
       country.properties &&
@@ -49,21 +53,21 @@ class RoamingMap extends Component {
   };
 
   featureSelectCountry = () => ({
-    color: '#e6e6f3',
+    color: '#E3E3EC',
     fillColor: '#5a961a',
     fillOpacity: 1,
     weight: 0.5,
   });
 
   featureDefaultStyle = () => ({
-    color: '#e6e6f3',
+    color: '#E3E3EC',
     fillColor: 'rgba(255, 255, 255, 0.65)',
     fillOpacity: 1,
     weight: 0.5,
   });
 
   featureSelectZone = () => ({
-    color: '#e6e6f3',
+    color: '#E3E3EC',
     fillColor: '#97da34',
     fillOpacity: 1,
     weight: 0.5,
@@ -129,6 +133,19 @@ class RoamingMap extends Component {
     return mapNumbers(width, 320, 1200, 0.3, 1.4);
   };
 
+  fitCountry = (e) => {
+    const { countryId } = this.props;
+    const { map } = this;
+    const geoJSON = e && e.layer.toGeoJSON && e.layer.toGeoJSON();
+
+
+    if (map && countryId && geoJSON && geoJSON.properties) {
+      if (geoJSON.properties.iso_a2 === countryId) {
+        map.leafletElement.fitBounds(e.layer.getBounds(), { maxZoom: 5 });
+      }
+    }
+  };
+
   render() {
     const {
       onClick,
@@ -139,7 +156,8 @@ class RoamingMap extends Component {
       getMinZoom,
     } = this;
     const {
-      zone: { center, zoom, title },
+      zone,
+      zone: { zoom, title },
       features,
       country,
       onCountrySelect,
@@ -149,6 +167,7 @@ class RoamingMap extends Component {
       zoomOutDisabled,
       maxZoom,
     } = this.state;
+    const center = country.properties ? undefined : zone.center;
 
     return (
       <div className="map">
@@ -160,14 +179,17 @@ class RoamingMap extends Component {
           {
             !!features.length &&
             <Map
-              center={country.center || center}
+              center={center}
               zoom={0}
               zoomControl={false}
+              zoomAnimation
+              zoomAnimationThreshold={5}
               animate
               minZoom={getMinZoom()}
               maxZoom={maxZoom}
               ref={(e) => { this.map = e; }}
               onzoom={onZoomLevelsChange}
+              onlayeradd={this.fitCountry}
             >
               <GeoJSON
                 data={features}
@@ -209,6 +231,11 @@ RoamingMap.propTypes = {
   features: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   country: PropTypes.shape().isRequired,
   onCountrySelect: PropTypes.func.isRequired,
+  countryId: PropTypes.string,
+};
+
+RoamingMap.defaultProps = {
+  countryId: '',
 };
 
 export default RoamingMap;

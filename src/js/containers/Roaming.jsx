@@ -120,6 +120,7 @@ class Roaming extends Component {
                 zone={getCurrentZone()}
                 features={featuresSorted}
                 country={country}
+                countryId={countryId}
                 onCountrySelect={onCountrySelect}
               />
               {
