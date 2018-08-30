@@ -7,6 +7,10 @@
   &__inner {
     display: flex;
     align-items: center;
+
+    @media (max-width: @BREAK-POINT) {
+      display: block;
+    }
   }
 
   @media (max-width: @BREAK-POINT) {
@@ -19,5 +23,9 @@
 
   &__title {
     .link;
+
+    @media (max-width: @BREAK-POINT) {
+      display: inline-block;
+    }
   }
 }
