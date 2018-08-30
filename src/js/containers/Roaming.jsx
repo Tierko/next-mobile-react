@@ -164,9 +164,9 @@ class Roaming extends Component {
                 </Transitions>
               }
               {
-                zoneId && type === 'zone-tariff' &&
+                zone && type === 'zone-tariff' &&
                 <Transitions>
-                  <RoamingTariffZone id={zoneId} />
+                  <RoamingTariffZone zone={zone} />
                 </Transitions>
               }
               {

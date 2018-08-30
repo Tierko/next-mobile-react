@@ -50,22 +50,22 @@ const data = [{
   }],
 }];
 
-const RoamingTariffZone = ({ id }) => (
+const RoamingTariffZone = ({ zone }) => (
   <div className="roaming">
     <div className="roaming__title">
       <LinkBack className="link-back_roaming" href={Pages.ROAMING} />
-      Тарифы в Зоне 1
+      Тарифы в {zone.title.toLowerCase()}
     </div>
     <RoamingTariff data={data} />
     <div className="roaming__note">
-      <Link className="link" to={`${Pages.ROAMING}/internet/${id}`}>Выбрать интернет-пакет </Link>
+      <Link className="link" to={`${Pages.ROAMING}/internet/${zone.id}`}>Выбрать интернет-пакет </Link>
       <div className="roaming__note-text">У вас осталось 0,44 ГБ трафика на стандартной скорости на 10 дней в этой зоне</div>
     </div>
   </div>
 );
 
 RoamingTariffZone.propTypes = {
-  id: PropTypes.string.isRequired,
+  zone: PropTypes.shape().isRequired,
 };
 
 export default RoamingTariffZone;
