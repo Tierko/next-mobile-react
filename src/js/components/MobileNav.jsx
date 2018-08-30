@@ -57,7 +57,7 @@ class MobileNav extends Component {
 
     return (
       <Fragment>
-        <div className={cs('mobile-nav__drawer', { 'mobile-nav__drawer_show': open })} />
+        <div className={cs('mobile-nav__drawer', { 'mobile-nav__drawer_show': open })} onClick={toggle} />
         <div className="mobile-nav" ref={(e) => { this.nav = e; }}>
           <div onClick={toggle} className={cs('mobile-nav__button', { 'mobile-nav__button_open': open })} />
           <div className={cs('mobile-nav__list', { 'mobile-nav__list_open': open })}>
