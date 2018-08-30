@@ -8,7 +8,10 @@
       67.566247,
       20.784641
     ],
-    "zoom": 2,
+    "zoom": {
+      "min": 1.5,
+      "max": 2
+    },
     "additionalPackage": {
       "max": 12,
       "current": 8.32,
@@ -87,7 +90,10 @@
       42.626491,
       0
     ],
-    "zoom": 1,
+    "zoom": {
+      "min": 0.3,
+      "max": 2.45
+    },
     "additionalPackage": {
       "max": 12,
       "current": 2.01,
@@ -166,7 +172,10 @@
       17.644750,
       9.608218
     ],
-    "zoom": 1,
+    "zoom": {
+      "min": 0.45,
+      "max": 2.6
+    },
     "additionalPackage": null,
     "byMegabytes": true,
     "countries": [
@@ -241,7 +250,10 @@
       12.263806,
       18.485171
     ],
-    "zoom": 1,
+    "zoom": {
+      "min": 0.5,
+      "max": 3
+    },
     "additionalPackage": null,
     "countries": [
       "SA","DO","GN","BH","AF","CO","ZM","AZ","SR","TD","RW","XK","CG","BS","KW","GA","FJ","PG","TO","VU","AI","AG","AW","BB","BM","о. Бонэйр","VG","KY","CW","DO","GD","HT","JM","MS","Сен-Бартельми","KN","LC","VC","SX","TC","PY","IR","NE","CI","HN","MA","BO","MM","SS","OM","CG","MW","CV","GM","MU","DZ","CR","IQ","VE","PK","UZ","MD","CU","VN","ML","JO","SL","YE","SD","Над морем","NP","BT","MG","NA","TT","MN","GQ","MZ","LB","LR","NL","PF","TM","BI","AD","BF","LY","BW","ZW","CM","ET","ST","MV","GU","SC","BJ","AO","MR","TG"

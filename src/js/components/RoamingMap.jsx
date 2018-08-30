@@ -15,13 +15,93 @@ class RoamingMap extends Component {
     minZoom: 0.3,
   };
 
+  shouldComponentUpdate(nextProps) {
+    const {
+      zone,
+      features,
+      countryId,
+      country: { properties },
+    } = this.props;
+
+    if (zone.zoom !== nextProps.zone.zoom) {
+      return true;
+    }
+
+    if (features.length !== nextProps.features.length) {
+      return true;
+    }
+
+    if (countryId !== nextProps.countryId) {
+      return true;
+    }
+
+    return properties !== nextProps.country.properties;
+  }
+
+  onZoomLevelsChange = () => {
+    const { getCurrentZoom } = this;
+    const { minZoom, maxZoom } = this.state;
+    const currentZoom = getCurrentZoom();
+
+    if (currentZoom !== -1) {
+      this.setState({
+        zoomInDisabled: currentZoom >= maxZoom,
+        zoomOutDisabled: currentZoom <= minZoom,
+      });
+    }
+  };
+
   onClick = (e) => {
     const { onCountrySelect } = this.props;
-    const { map } = this;
-
 
     onCountrySelect(e.layer.toGeoJSON());
-    map.leafletElement.fitBounds(e.layer.getBounds(), { maxZoom: 5 });
+  };
+
+  getCurrentZoom = () => {
+    const { map } = this;
+
+    if (map) {
+      return map.leafletElement._zoom;
+    }
+
+    return 0;
+  };
+
+  getMinZoom = () => {
+    const map = document.getElementById('map');
+    let width = 0;
+
+    if (map) {
+      width = map.clientWidth;
+    }
+
+    if (width > 1200) {
+      width = 1200;
+    }
+
+    if (width < 320) {
+      width = 320;
+    }
+
+    return mapNumbers(width, 320, 1200, 0.3, 1.4);
+  };
+
+  zoomIn = () => {
+    const { map, getCurrentZoom } = this;
+    const { maxZoom } = this.state;
+    const currentZoom = getCurrentZoom();
+
+    this.setState({
+      zoomInDisabled: currentZoom !== -1 && currentZoom >= maxZoom,
+    });
+
+    map.leafletElement.zoomIn();
+  };
+
+  zoomOut = () => {
+    const { map } = this;
+
+    map.leafletElement.zoomOut();
   };
 
   setStyle = (f) => {
@@ -73,75 +153,42 @@ class RoamingMap extends Component {
     weight: 0.5,
   });
 
-  zoomIn = () => {
-    const { map, getCurrentZoom } = this;
-    const { maxZoom } = this.state;
-    const currentZoom = getCurrentZoom();
-
-    this.setState({
-      zoomInDisabled: currentZoom !== -1 && currentZoom >= maxZoom,
-    });
-
-    map.leafletElement.zoomIn();
-  };
-
-  zoomOut = () => {
-    const { map } = this;
-
-    map.leafletElement.zoomOut();
-  };
-
-  onZoomLevelsChange = () => {
-    const { getCurrentZoom } = this;
-    const { minZoom, maxZoom } = this.state;
-    const currentZoom = getCurrentZoom();
-
-    if (currentZoom !== -1) {
-      this.setState({
-        zoomInDisabled: currentZoom >= maxZoom,
-        zoomOutDisabled: currentZoom <= minZoom,
-      });
-    }
-  };
-
-  getCurrentZoom = () => {
-    const { map } = this;
-
-    if (map) {
-      return map.leafletElement._zoom;
-    }
-
-    return -1;
-  };
-
-  getMinZoom = () => {
+  fitZoom = (zoom) => {
     const map = document.getElementById('map');
     let width = 0;
+
+    if (!zoom) {
+      return 0;
+    }
 
     if (map) {
       width = map.clientWidth;
     }
 
-    if (width > 1200) {
-      width = 1200;
+    if (width > 900) {
+      width = 900;
     }
 
     if (width < 320) {
       width = 320;
     }
+    console.log(zoom)
 
-    return mapNumbers(width, 320, 1200, 0.3, 1.4);
+    return mapNumbers(width, 320, 1200, zoom.min, zoom.max);
   };
 
-  fitCountry = (e) => {
-    const { countryId } = this.props;
-    const { map } = this;
-    const geoJSON = e && e.layer.toGeoJSON && e.layer.toGeoJSON();
+  fitCountry = () => {
+    const { map, prevL } = this;
+    const { countryId, country } = this.props;
+    const countryAbbr = countryId || (country.properties && country.properties.iso_a2)
 
+    if (map && map.leafletElement._layers && countryAbbr) {
+      const layers = Object.values(map.leafletElement._layers);
+      const l = layers.find(l => l.feature && l.feature.properties.iso_a2 === countryAbbr);
 
-    if (map && countryId && geoJSON && geoJSON.properties) {
-      if (geoJSON.properties.iso_a2 === countryId) {
-        map.leafletElement.fitBounds(e.layer.getBounds(), { maxZoom: 5 });
+      if (l && l._leaflet_id !== prevL) {
+        map.leafletElement.fitBounds(l.getBounds());
+        this.prevL = l._leaflet_id;
       }
     }
   };
@@ -154,6 +201,8 @@ class RoamingMap extends Component {
       zoomOut,
       onZoomLevelsChange,
       getMinZoom,
+      fitCountry,
+      fitZoom,
     } = this;
     const {
       zone,
@@ -168,6 +217,7 @@ class RoamingMap extends Component {
       maxZoom,
     } = this.state;
     const center = country.properties ? undefined : zone.center;
+    fitCountry();
 
     return (
       <div className="map">
@@ -180,16 +230,15 @@ class RoamingMap extends Component {
             !!features.length &&
             <Map
               center={center}
-              zoom={0}
+              zoom={fitZoom(zoom)}
               zoomControl={false}
               zoomAnimation
-              zoomAnimationThreshold={5}
+              zoomAnimationThreshold={100}
               animate
               minZoom={getMinZoom()}
               maxZoom={maxZoom}
               ref={(e) => { this.map = e; }}
               onzoom={onZoomLevelsChange}
-              onlayeradd={this.fitCountry}
             >
               <GeoJSON
                 data={features}

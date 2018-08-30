@@ -27,6 +27,14 @@ class Roaming extends Component {
     };
   }
 
+  componentDidUpdate({ match: { params: { countryId: prevCountryId } } }) {
+    const { match: { params: { countryId } } } = this.props;
+
+    if (prevCountryId && prevCountryId !== countryId) {
+      this.render();
+    }
+  }
+
   onTabChange = (tab) => {
     const { country } = this.state;
 
