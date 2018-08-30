@@ -121,6 +121,8 @@ class AutoPay extends Component {
     const meta = {
       title: TITLES.AUTO_PAY,
     };
+    const monthlyInLimits = monthlySum >= 100 && monthlySum <= 15000;
+    const lessSumInLimits = lessSum >= 100 && lessSum <= 15000;
 
     return (
       <DocumentMeta {...meta}>
@@ -216,7 +218,7 @@ class AutoPay extends Component {
                     </div>
                   </div>
                 </div>
-                <Button onClick={onSave} disabled={!unsaved || !card}>Сохранить</Button>
+                <Button onClick={onSave} disabled={!unsaved || !card || !monthlyInLimits || !lessSumInLimits}>Сохранить</Button>
               </div>
             </div>
           </Transitions>
