@@ -55,7 +55,8 @@ class Chat extends Component {
     const { keyCode } = e;
     const { message, messages } = this.state;
 
-    if (message && (keyCode === 10 || keyCode === 13)) {
+
+    if (message.replace(/\s/ig, '') && (keyCode === 10 || keyCode === 13)) {
       e.preventDefault();
       const newMessages = messages.slice();
       const date = new Date();
