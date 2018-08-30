@@ -31,28 +31,28 @@ const Aside = ({ hideLink, hideNav }) => {
           </div>
           <nav className="aside__nav">
             <div className="aside__nav-item">
-              <NavLink exact to={Pages.OVERVIEW} className="aside__link">Обзор</NavLink>
+              <NavLink to={Pages.OVERVIEW} className="aside__link">Обзор</NavLink>
             </div>
             <div className="aside__nav-item">
-              <NavLink exact to={Pages.PAY} className="aside__link">Пополнение</NavLink>
+              <NavLink to={Pages.PAY} className="aside__link">Пополнение</NavLink>
             </div>
             <div className="aside__nav-item">
-              <NavLink exact to={Pages.SERVICES} className="aside__link">Тарифы и услуги</NavLink>
+              <NavLink to={Pages.SERVICES} className="aside__link">Тарифы и услуги</NavLink>
             </div>
             <div className="aside__nav-item">
-              <NavLink exact to={Pages.ROAMING} className="aside__link">Роуминг</NavLink>
+              <NavLink to={Pages.ROAMING} className="aside__link">Роуминг</NavLink>
             </div>
             <div className="aside__nav-item">
-              <NavLink exact to={Pages.HISTORY} className="aside__link">История</NavLink>
+              <NavLink to={Pages.HISTORY} className="aside__link">История</NavLink>
             </div>
             <div className="aside__nav-item">
-              <NavLink exact to={Pages.SETTINGS} className="aside__link">Настройки</NavLink>
+              <NavLink to={Pages.SETTINGS} className="aside__link">Настройки</NavLink>
             </div>
             <div className="aside__nav-item">
-              <NavLink exact to={Pages.SUPPORT_DASHBOARD} className="aside__link">Поддержка</NavLink>
+              <NavLink to={Pages.SUPPORT_DASHBOARD} className="aside__link">Поддержка</NavLink>
             </div>
             <div className="aside__nav-item aside__nav-item_exit">
-              <NavLink exact to={Pages.Exit} className="aside__link" exact>Выход</NavLink>
+              <NavLink to={Pages.Exit} className="aside__link">Выход</NavLink>
             </div>
           </nav>
         </div>

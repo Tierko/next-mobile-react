@@ -5,28 +5,28 @@ import { Pages } from '../constants';
 
 const MobileNavDashboard = () => (
   <div className="mobile-nav__list-inner">
-    <NavLink exact className="mobile-nav__link" to={Pages.OVERVIEW}>
+    <NavLink className="mobile-nav__link" to={Pages.OVERVIEW}>
       <InlineSvg src={require('../../../media/nav/overview.svg')} raw /> Обзор
     </NavLink>
-    <NavLink exact className="mobile-nav__link" to={Pages.SERVICES}>
+    <NavLink className="mobile-nav__link" to={Pages.SERVICES}>
       <InlineSvg src={require('../../../media/nav/prices.svg')} raw /> Тарифы
     </NavLink>
-    <NavLink exact className="mobile-nav__link" to={Pages.PAY}>
+    <NavLink className="mobile-nav__link" to={Pages.PAY}>
       <InlineSvg src={require('../../../media/nav/plus.svg')} raw /> Пополнение
     </NavLink>
-    <NavLink exact className="mobile-nav__link" to={Pages.ROAMING}>
+    <NavLink className="mobile-nav__link" to={Pages.ROAMING}>
       <InlineSvg src={require('../../../media/nav/roaming.svg')} raw /> Роуминг
     </NavLink>
-    <NavLink exact className="mobile-nav__link" to={Pages.HISTORY}>
+    <NavLink className="mobile-nav__link" to={Pages.HISTORY}>
       <InlineSvg src={require('../../../media/nav/history.svg')} raw /> История
     </NavLink>
-    <NavLink exact className="mobile-nav__link" to={Pages.SUPPORT}>
+    <NavLink className="mobile-nav__link" to={Pages.SUPPORT}>
       <InlineSvg src={require('../../../media/nav/support.svg')} raw /> Чат
     </NavLink>
-    <NavLink exact className="mobile-nav__link" to={Pages.SETTINGS}>
+    <NavLink className="mobile-nav__link" to={Pages.SETTINGS}>
       <InlineSvg src={require('../../../media/nav/settings.svg')} raw /> Настройки
     </NavLink>
-    <NavLink exact className="mobile-nav__link" to={Pages.Exit} exact>
+    <NavLink className="mobile-nav__link" to={Pages.Exit}>
       <InlineSvg src={require('../../../media/nav/exit.svg')} raw /> Выход
     </NavLink>
   </div>
