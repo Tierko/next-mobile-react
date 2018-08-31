@@ -13,4 +13,19 @@
     display: block;
     opacity: 1;
   }
+
+  &_overview-desktop {
+    @media (max-width: @BREAK-POINT) {
+      display: none;
+    }
+  }
+
+  &_overview-mobile {
+    margin-top: -20px;
+    margin-bottom: 20px;
+
+    @media (min-width: @BREAK-POINT + 1) {
+      display: none;
+    }
+  }
 }
