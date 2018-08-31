@@ -17,8 +17,8 @@ import OverviewInvite from '../components/OverviewInvite';
 import OverviewRoamingCurrent from '../components/OverviewRoamingCurrent';
 import OverviewAutoPay from '../components/OverviewAutoPay';
 
-import { Pages, DAYS, TITLES } from '../constants';
-import { getData, formatCost, convertStrings } from '../utils';
+import { Pages, TITLES } from '../constants';
+import { getData, formatCost } from '../utils';
 
 class Overview extends Component {
   state = {
@@ -31,7 +31,10 @@ class Overview extends Component {
   };
 
   componentDidMount() {
-    fetch('/media/info/invites.json')
+    fetch('/media/info/invites.json', {
+      credentials: 'same-origin',
+      method: 'GET',
+    })
       .then(invites => invites.json())
       .then(invites => this.setState({ invites }));
   }

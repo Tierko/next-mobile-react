@@ -20,7 +20,10 @@ class Invite extends Component {
   };
 
   componentDidMount() {
-    fetch('/media/info/invites.json')
+    fetch('/media/info/invites.json', {
+      credentials: 'same-origin',
+      method: 'GET',
+    })
       .then(invites => invites.json())
       .then(invites => this.setState({ invites }));
   }
