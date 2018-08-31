@@ -12,7 +12,7 @@ class TariffTable extends Component {
   rows = [{
     id: 1,
     title: 'Абонентская плата',
-    unit: ' / месяц',
+    unit: ' / мес.',
     field: 'payment',
   }, {
     id: 2,
@@ -27,13 +27,13 @@ class TariffTable extends Component {
     shortHide: true,
   }, {
     id: 4,
-    title: 'Звонков на всех операторов Москвы по всей России',
-    unit: 'мин.',
+    title: 'Минуты разговора при звонках на номера Next Mobile по России',
+    unit: 'мин. / мес.',
     field: 'calls',
   }, {
     id: 5,
-    title: 'СМС на всех операторов Москвы по всей России',
-    unit: 'СМС',
+    title: 'СМС на номера всех операторов по России',
+    unit: '',
     field: 'sms',
   }];
 
@@ -93,7 +93,7 @@ class TariffTable extends Component {
                 dataFiltered.map(d => (
                   <div key={d.id} className="tariff-table__action">
                     {
-                      d.id === current ? 'Текущий тариф' :
+                      d.id === current ? 'Ваш тариф' :
                         <Button className="button_tariff-change" onClick={() => onChange(d.id)} borderless>Перейти</Button>
                     }
                   </div>

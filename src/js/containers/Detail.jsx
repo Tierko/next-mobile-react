@@ -61,7 +61,7 @@ class Detail extends Component {
     history.push({
       pathname: `${Pages.RESULT}/success`,
       state: {
-        title: 'Детализация заказана',
+        title: 'Детализация отправлена',
         text: 'Отчет о расходах с 1 сентября по 30 сентября 2018 г. отправлен в виде файла PDF на адрес konstantinopolsky@gmail.com',
       },
     });

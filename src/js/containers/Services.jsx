@@ -85,7 +85,7 @@ class Services extends Component {
           <Transitions>
             <div className="dashboard__content">
               <div className="dashboard__header">Тарифы</div>
-              <div className="dashboard__text">При подключении нового тарифа вы оплачиваете первый месяц абонентской платы</div>
+              <div className="dashboard__text">При смене тарифа первый месяц использования оплачивается сразу</div>
               <TariffTable data={tariff} current={currentTariff} onChange={changeTariff} />
               <InterCalls className="inter-calls_services" />
               <TariffServices services={services} onChange={toggleService} />

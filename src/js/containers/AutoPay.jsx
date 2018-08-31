@@ -141,14 +141,14 @@ class AutoPay extends Component {
                 {
                   card &&
                   <div className="auto-pay__card">
-                    <div className="auto-pay__note">С карты по умолчанию</div>
+                    <div className="auto-pay__note">Используется карта по умолчанию</div>
                     <div
                       className={`card card_default card_auto-pay card_${getPaySystem(card.token)}`}
                     >
                       <div className="card__number">{getShortPan(card.token)}</div>
                     </div>
                     <div className="auto-pay__note">
-                      Чтобы привязать автоплатеж к другой карте, установите ее картой по умолчанию
+                      Для совершения автоплатежей с другой карты нужно сделать ее картой по умолчанию
                     </div>
                   </div>
                 }
@@ -199,7 +199,7 @@ class AutoPay extends Component {
                 </div>
                 <div className="auto-pay__section">
                   <div className="auto-pay__title">
-                    <div>Если на счету мало денег</div>
+                    <div>Если на счете недостаточно денег</div>
                     <Checkbox value={lessEnabled} name="lessEnabled" onChange={onChange} />
                   </div>
                   <div className={cs('auto-pay__block', { 'auto-pay__block_show': lessEnabled })}>
