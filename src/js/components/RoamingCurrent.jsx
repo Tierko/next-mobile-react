@@ -54,7 +54,9 @@ class RoamingCurrent extends Component {
           </Button>
         }
         <div className="roaming-current__subtitle">
-          Помегабайтный трафик <span className="roaming-current__note">(тариф начнет действовать после израсходования пакета)</span>
+          Помегабайтный трафик {
+            additionalPackage && <span className="roaming-current__note">(тариф начнет действовать после израсходования пакета)</span>
+          }
         </div>
         <div className="roaming-current__regular">
           <div>
