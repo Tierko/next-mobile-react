@@ -46,7 +46,6 @@ const NotFound = () => {
                 <Link className="link-nav" to={Pages.ROAMING}>Роуминг</Link>
               </div>
             </div>
-            <Footer />
           </div>
         </Transitions>
       </div>
