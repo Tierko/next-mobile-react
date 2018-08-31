@@ -140,7 +140,10 @@ class Pay extends Component {
                   </div>
                 }
               </div>
-              <CardEditor card={currentCard} onClose={onClose} />
+              {
+                currentCard &&
+                <CardEditor card={currentCard} onClose={onClose} defaultCard={cards.defaultCard} />
+              }
             </div>
           </Transitions>
         </div>

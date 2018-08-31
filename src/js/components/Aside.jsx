@@ -52,7 +52,7 @@ const Aside = ({ hideLink, hideNav }) => {
               <NavLink to={Pages.SUPPORT_DASHBOARD} className="aside__link">Поддержка</NavLink>
             </div>
             <div className="aside__nav-item aside__nav-item_exit">
-              <NavLink to={Pages.Exit} className="aside__link">Выход</NavLink>
+              <NavLink exact to={Pages.Exit} className="aside__link">Выход</NavLink>
             </div>
           </nav>
         </div>
