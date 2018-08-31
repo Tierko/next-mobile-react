@@ -102,12 +102,13 @@ class Operations extends Component {
       show,
     } = this.state;
     const { data } = this.props;
-    const filteredData = filter(data.slice(0, show));
+    const filteredData = filter(data).slice(0, show);
     const {
       showDate,
       formatCount,
       formatDate,
     } = Operations;
+    const showMoreButton = data.length > show && filteredData.length < filter(data).length;
 
     return (
       <div className="operations">
@@ -220,7 +221,7 @@ class Operations extends Component {
                 </tr>
             }
             {
-              !!filteredData.length && data.length > show &&
+              showMoreButton &&
               <tr><td className="operations__cell-empty">&nbsp;</td>
                 <td colSpan={2}>&nbsp;</td>
                 <td className="operations__cell_button">
@@ -282,7 +283,7 @@ class Operations extends Component {
             <div className="operations__list-empty">У вас нет данных за указанный период</div>
           }
           {
-            data.length > show &&
+            showMoreButton &&
             <Button className="button_operations-list" onClick={loadMore}>Загрузить еще</Button>
           }
         </div>
