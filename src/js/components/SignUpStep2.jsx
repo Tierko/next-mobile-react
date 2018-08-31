@@ -9,10 +9,18 @@ class SignUpStep2 extends Component {
     surname: '',
     name: '',
     middleName: '',
+    surnameError: false,
+    nameError: false,
+    middleNameError: false,
   };
 
   onChange = (name, value) => {
     let tmp = value.replace(/[^а-яё]/gi, '');
+    let error = false;
+
+    if (value.search(/[^а-яё]/gi) !== -1) {
+      error = true;
+    }
 
     if (tmp.length !== 0) {
       tmp = `${tmp[0].toUpperCase()}${tmp.substr(1)}`;
@@ -20,6 +28,7 @@ class SignUpStep2 extends Component {
 
     this.setState({
       [name]: tmp,
+      [`${name}Error`]: error,
     });
   };
 
@@ -40,16 +49,41 @@ class SignUpStep2 extends Component {
   };
 
   render() {
-    const { name, surname, middleName } = this.state;
     const { onChange, onSubmit, isFilled } = this;
+    const {
+      name,
+      surname,
+      middleName,
+      nameError,
+      surnameError,
+      middleNameError,
+    } = this.state;
 
     return (
       <div className="welcome__content sign-up">
         <div className="sign-up__header">Владелец номера</div>
         <form onSubmit={onSubmit} className="sign-up__form">
-          <Input name="surname" value={surname} onChange={onChange} placeholder="Фамилия" />
-          <Input name="name" value={name} onChange={onChange} placeholder="Имя" />
-          <Input name="middleName" value={middleName} onChange={onChange} placeholder="Отчество" />
+          <Input
+            name="surname"
+            value={surname}
+            onChange={onChange}
+            placeholder="Фамилия"
+            errorText={surnameError && 'Только русские буквы'}
+          />
+          <Input
+            name="name"
+            value={name}
+            onChange={onChange}
+            placeholder="Имя"
+            errorText={nameError && 'Только русские буквы'}
+          />
+          <Input
+            name="middleName"
+            value={middleName}
+            onChange={onChange}
+            placeholder="Отчество"
+            errorText={middleNameError && 'Только русские буквы'}
+          />
           <Button
             className="button_sign-up-continue"
             onClick={onSubmit}

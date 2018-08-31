@@ -110,7 +110,7 @@ Input.propTypes = {
   onBlur: PropTypes.func,
   className: PropTypes.string,
   placeholder: PropTypes.string,
-  errorText: PropTypes.string,
+  errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   multiLine: PropTypes.bool,
   clear: PropTypes.bool,
   simplePlaceholder: PropTypes.bool,
