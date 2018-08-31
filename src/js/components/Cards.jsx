@@ -129,9 +129,9 @@ class Cards extends Component {
   };
 
   setOffset = () => {
-    const { calculateOffsetStart, calculateOfssetEnd, inner } = this;
+    const { calculateOffsetStart, calculateOffsetEnd, inner } = this;
     const offsetStart = calculateOffsetStart();
-    const offsetEnd = calculateOfssetEnd();
+    const offsetEnd = calculateOffsetEnd();
     inner.style.paddingLeft = `${offsetStart}px`;
     inner.style.paddingRight = `${offsetEnd}px`;
   };
@@ -146,7 +146,7 @@ class Cards extends Component {
     });
   };
 
-  calculateOfssetEnd = () => {
+  calculateOffsetEnd = () => {
     const { row } = this;
     const CARD_WIDTH = 285 + 16;
 

@@ -14,46 +14,60 @@ import {
 } from '../utils';
 
 const CardEditor = ({
-  id,
   onClose,
   makeDefault,
   removeCard,
-}) => (
-  <div className={cs('card-editor', { 'card-editor_show': !!id })}>
-    <ButtonIcon onClick={onClose} icon="back.svg" className="button-icon_card-editor" />
-    <div>
-      <div className={`card card_big card_${getPaySystem(id)}`}>
-        <div className="card__number">{getShortPan(id)}</div>
-      </div>
-      <div className="card__edit">
-        <div className="card__edit-item" onClick={() => { makeDefault(id); onClose(); }}>
-          <span className="card__edit-icon">
-            <InlineSvg src={require('../../../media/icons/card.svg')} raw />
-          </span>
-          <span className="card__edit-title">Карта по умолчанию</span>
+  card: { token, colors },
+}) => {
+  if (!token) {
+    return false;
+  }
+
+  const style = colors && colors.length === 2 ?
+    { backgroundImage: `linear-gradient(to top right, ${colors[0]}, ${colors[1]})` } :
+    { backgroundColor: '#e72b2b' };
+
+  return (
+    <div className={cs('card-editor', { 'card-editor_show': !!token })}>
+      <ButtonIcon onClick={onClose} icon="back.svg" className="button-icon_card-editor" />
+      <div>
+        <div className={`card card_big card_${getPaySystem(token)}`} style={style}>
+          <div className="card__number">{getShortPan(token)}</div>
         </div>
-        <div className="card__edit-item" onClick={() => { removeCard(id); onClose(); }}>
-          <span className="card__edit-icon">
-            <InlineSvg src={require('../../../media/icons/bucket.svg')} raw />
-          </span>
-          <span className="card__edit-title">Удалить</span>
+        <div className="card__edit">
+          <div className="card__edit-item" onClick={() => { makeDefault(token); onClose(); }}>
+            <span className="card__edit-icon">
+              <InlineSvg src={require('../../../media/icons/card.svg')} raw />
+            </span>
+            <span className="card__edit-title">Карта по умолчанию</span>
+          </div>
+          <div className="card__edit-item" onClick={() => { removeCard(token); onClose(); }}>
+            <span className="card__edit-icon">
+              <InlineSvg src={require('../../../media/icons/bucket.svg')} raw />
+            </span>
+            <span className="card__edit-title">Удалить</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 CardEditor.propTypes = {
-  id: PropTypes.string.isRequired,
+  card: PropTypes.shape(),
   onClose: PropTypes.func.isRequired,
   removeCard: PropTypes.func.isRequired,
   makeDefault: PropTypes.func.isRequired,
 };
 
+CardEditor.defaultProps = {
+  card: {},
+};
+
 function mapDispatchToProps(dispatch) {
   return {
-    removeCard: id => dispatch(removeCardAction(id)),
-    makeDefault: id => dispatch(makeDefaultAction(id)),
+    removeCard: token => dispatch(removeCardAction(token)),
+    makeDefault: token => dispatch(makeDefaultAction(token)),
   };
 }
 

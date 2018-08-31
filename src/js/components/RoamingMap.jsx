@@ -172,7 +172,6 @@ class RoamingMap extends Component {
     if (width < 320) {
       width = 320;
     }
-    console.log(zoom)
 
     return mapNumbers(width, 320, 1200, zoom.min, zoom.max);
   };

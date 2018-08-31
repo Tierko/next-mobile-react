@@ -83,6 +83,7 @@ class Pay extends Component {
     const meta = {
       title: TITLES.PAY,
     };
+    const currentCard = cards.items.find(c => c.token === editCardId);
 
     return (
       <DocumentMeta {...meta}>
@@ -139,7 +140,7 @@ class Pay extends Component {
                   </div>
                 }
               </div>
-              <CardEditor id={editCardId} onClose={onClose} />
+              <CardEditor card={currentCard} onClose={onClose} />
             </div>
           </Transitions>
         </div>
