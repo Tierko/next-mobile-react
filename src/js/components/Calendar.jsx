@@ -36,7 +36,9 @@ class Calendar extends Component {
   };
 
   constructor(props) {
-    const today = props.initDate || new Date();
+    const { fromToday } = props;
+    const offset = Date.now() + (24 * 60 * 60 * 1000);
+    const today = props.initDate || (fromToday ? new Date(offset) : new Date());
 
     super(props);
     this.state = {
@@ -156,6 +158,60 @@ class Calendar extends Component {
     });
   };
 
+  isActiveDay = (i) => {
+    const {
+      year,
+      month,
+      day,
+      selectedMonth,
+      selectedYear,
+    } = this.state;
+
+    return day === i + 1 && selectedMonth === month && selectedYear === year;
+  };
+
+  renderDays = (days, month) => {
+    const { isActiveDay, selectDay } = this;
+    const { fromToday } = this.props;
+    const today = new Date();
+    const currentDay = today.getDate();
+    const currentMonth = today.getMonth();
+    const currentYear = today.getFullYear();
+    const {
+      year,
+    } = this.state;
+
+    return days.map((_, i) => {
+      if (
+        fromToday &&
+        ((i + 1 <= currentDay && month === currentMonth) || month < currentMonth)
+        && year === currentYear
+      ) {
+        return (
+          <div key={i + (month + 1)} className="calendar__day calendar__day_disabled">
+            <span>{i + 1}</span>
+          </div>
+        );
+      }
+
+      return (
+        <div
+          key={i * (month + 2)}
+          className={
+            cs('calendar__day', {
+              calendar__day_active: isActiveDay(i),
+            })
+          }
+          data-day={i + 1}
+          data-month={month}
+          onClick={selectDay}
+        >
+          <span>{i + 1}</span>
+        </div>
+      )
+    });
+  };
+
   componentDidMount() {
     const date = this.props.initDate || new Date();
     const year = date.getFullYear();
@@ -166,13 +222,14 @@ class Calendar extends Component {
   }
 
   render() {
-    const { changeMonth, selectDay } = this;
+    const {
+      changeMonth,
+      renderDays,
+    } = this;
     const { show } = this.props;
     const {
       year,
       month,
-      day,
-      selectedMonth,
     } = this.state;
     const daysPerMonth = Calendar.getDaysPerMonth(month, year);
     const offsetStart = Calendar.getMonthOffsetStart(month, year);
@@ -206,19 +263,7 @@ class Calendar extends Component {
             ))
           }
           {
-            days.map((_, i) => (
-              <div
-                key={i * (month + 2)}
-                className={cs('calendar__day', {
-                  calendar__day_active: day === i + 1 && selectedMonth === month })
-                }
-                data-day={i + 1}
-                data-month={month}
-                onClick={selectDay}
-              >
-                <span>{i + 1}</span>
-              </div>
-            ))
+            renderDays(days, month)
           }
           {
             nextMonthDays.map(d => (
@@ -237,10 +282,12 @@ Calendar.propTypes = {
   onUpdateDate: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
   initDate: PropTypes.shape(),
+  fromToday: PropTypes.bool,
 };
 
 Calendar.defaultProps = {
   initDate: null,
+  fromToday: false,
 };
 
 export default Calendar;

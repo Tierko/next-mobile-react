@@ -68,6 +68,7 @@ class Date extends Input {
       errorText,
       clear,
       initDate,
+      fromToday,
     } = this.props;
     const { dateUpdate, showCalendar } = this;
     const { show } = this.state;
@@ -100,7 +101,7 @@ class Date extends Input {
           clear &&
           <div className="input__icon_clear" onClick={() => this.props.onChange(name, '')} role="button" />
         }
-        <Calendar onUpdateDate={dateUpdate} show={show} initDate={initDate} />
+        <Calendar onUpdateDate={dateUpdate} show={show} initDate={initDate} fromToday={fromToday} />
       </div>
     );
   }
