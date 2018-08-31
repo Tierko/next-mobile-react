@@ -43,14 +43,14 @@ class RoamingCurrent extends Component {
             </div>
             <ProgressLinear className="progress-linear_roaming" max={20} current={12.01} />
             <Button className="button_roaming-add" onClick={addPackage}>
-              Добавить пакет
+              Добавить трафик
             </Button>
           </Fragment>
         }
         {
           !additionalPackage &&
           <Button className="button_roaming-add button_roaming-add-empty" onClick={addPackage}>
-            Добавить пакет интернета
+            Добавить трафик
           </Button>
         }
         <div className="roaming-current__subtitle">

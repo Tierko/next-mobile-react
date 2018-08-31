@@ -31,7 +31,7 @@ class Invites extends Component {
                 {
                   i.active ?
                     <div className="invites__code invites__code_active">{i.code}</div> :
-                    <input className="invites__code invites__code_input" value={i.code} id={`promo-code-${i.id}`} onChange={() => {}} />
+                    <textarea className="invites__code invites__code_input" value={i.code} id={`promo-code-${i.id}`} onChange={() => {}} />
                 }
                 <div className={cs('invites__span', { invites__span_active: i.active })} />
                 {

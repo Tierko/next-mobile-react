@@ -11,7 +11,17 @@ class OverviewInvite extends Component {
     code.select();
 
     try {
+      setTimeout(() => {
+        code.setSelectionRange(0, 9999);
+      }, 1);
+    } catch (e) {}
+
+    try {
       document.execCommand('copy');
+    } catch (e) {}
+
+    try {
+      navigator.clipboard.readText();
     } catch (e) {}
   };
 
@@ -30,7 +40,7 @@ class OverviewInvite extends Component {
 
     return (
       <div className="copy-code">
-        <input className="copy-code__code" value={code} ref={(e) => { this.code = e; }} onChange={() => {}} />
+        <textarea className="copy-code__code" value={code} ref={(e) => { this.code = e; }} onChange={() => {}} />
         <Button className="button_copy-code" onClick={onCopy}>Скопировать</Button>
       </div>
     );

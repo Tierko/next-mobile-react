@@ -17,6 +17,12 @@ class MobileNav extends Component {
     });
   };
 
+  hide = () => {
+    this.setState({
+      open: false,
+    });
+  };
+
   outsideClick = (e) => {
     if (!this.nav.contains(e.target)) {
       this.setState({
@@ -51,13 +57,13 @@ class MobileNav extends Component {
   render() {
     const { open } = this.state;
     const { type } = this.props;
-    const { toggle, toggleScroll } = this;
+    const { toggle, toggleScroll, hide } = this;
 
     toggleScroll(open);
 
     return (
       <Fragment>
-        <div className={cs('mobile-nav__drawer', { 'mobile-nav__drawer_show': open })} onClick={toggle} />
+        <div className={cs('mobile-nav__drawer', { 'mobile-nav__drawer_show': open })} onClick={hide} />
         <div className="mobile-nav" ref={(e) => { this.nav = e; }}>
           <div onClick={toggle} className={cs('mobile-nav__button', { 'mobile-nav__button_open': open })} />
           <div className={cs('mobile-nav__list', { 'mobile-nav__list_open': open })}>
