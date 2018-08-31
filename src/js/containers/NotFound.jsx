@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
-import Footer from '../components/Footer';
 import Transitions from '../components/Transitions';
 import { Pages, TITLES } from '../constants';
 
