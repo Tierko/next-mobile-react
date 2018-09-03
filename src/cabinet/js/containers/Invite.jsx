@@ -5,7 +5,7 @@ import Aside from '../components/Aside';
 import LinkBack from '../components/LinkBack';
 import CopyCode from '../components/CopyCode';
 import Invites from '../components/Invites';
-import Button from '../components/Button';
+import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
 import { Pages, PROMO_CODES, LINKS, TITLES, LEFT, NOT_ACTIVATED } from '../constants';
 import { convertStrings } from '../utils';

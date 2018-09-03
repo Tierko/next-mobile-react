@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import DocumentMeta from 'react-document-meta';
 import Header from '../../../common/js/components/Header';
-import Button from '../components/Button';
+import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
 import { Pages, TITLES } from '../constants';
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cs from 'classnames';
 import Select from '../components/Select';
 import Date from '../components/Date';
-import Button from '../components/Button';
+import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
 import { MONTHS_M, Pages, Statuses, WEEKDAYS } from '../constants';
 

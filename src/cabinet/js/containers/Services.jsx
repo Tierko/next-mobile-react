@@ -7,7 +7,7 @@ import TariffServices from '../components/TariffServices';
 import TariffTable from '../components/TariffTable';
 import InterCalls from '../components/InterCalls';
 import Transitions from '../components/Transitions';
-import Button from '../components/Button';
+import Button from '../../../common/js/components/Button';
 import Note from '../components/Note';
 import { Pages, TITLES } from '../constants';
 import tariff from '../../data/tariff';

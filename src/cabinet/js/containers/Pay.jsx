@@ -7,7 +7,7 @@ import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Payment from '../components/Payment';
-import Button from '../components/Button';
+import Button from '../../../common/js/components/Button';
 import CardEditor from '../components/CardEditor';
 import Transitions from '../components/Transitions';
 import { Pages, TITLES } from '../constants';

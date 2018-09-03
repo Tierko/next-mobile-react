@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import Input from './InputPhone';
-import Button from './Button';
+import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
 import { checkPhone } from '../utils';
 

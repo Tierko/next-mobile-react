@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import ProgressLinear from './ProgressLinear';
-import Button from './Button';
+import Button from '../../../common/js/components/Button';
 import CheckboxSlide from './CheckboxSlide';
 import { formatCost, convertStrings } from '../utils';
 import { Pages, DAYS } from '../constants';

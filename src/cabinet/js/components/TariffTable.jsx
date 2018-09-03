@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import Button from '../components/Button';
+import Button from '../../../common/js/components/Button';
 import { formatCost } from '../utils';
 
 class TariffTable extends Component {

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Input from './InputRuble';
-import Button from './Button';
+import Button from '../../../common/js/components/Button';
 import Limit from './Limit';
 import { Pages } from '../constants';
 

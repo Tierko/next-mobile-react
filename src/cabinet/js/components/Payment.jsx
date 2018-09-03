@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Input from './InputRuble';
-import Button from './Button';
+import Button from '../../../common/js/components/Button';
 import Cards from './Cards';
 import Limit from './Limit';
 import { formatCost } from '../utils';

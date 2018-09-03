@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import Button from './Button';
+import Button from '../../../common/js/components/Button';
 
 class Invites extends Component {
   onCopy = (id) => {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import Input from './Input';
-import Button from './Button';
+import Button from '../../../common/js/components/Button';
 import AutoComplete from './AutoComplete';
 import Transitions from '../components/Transitions';
 

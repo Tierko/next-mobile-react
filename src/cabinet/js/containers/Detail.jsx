@@ -7,7 +7,7 @@ import LinkBack from '../components/LinkBack';
 import Date from '../components/Date';
 import Input from '../components/Input';
 import Select from '../components/Select';
-import Button from '../components/Button';
+import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
 import { Pages, TITLES, THIRTY_DAYS } from '../constants';
 

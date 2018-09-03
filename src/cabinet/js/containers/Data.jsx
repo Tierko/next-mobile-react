@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
-import Button from '../components/Button';
+import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
 import { TITLES } from '../constants';
 import { toggleRoaming } from '../actions/Roaming';

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import PromoCode from './PromoCode';
 import Input from './InputPhone';
-import Button from './Button';
+import Button from '../../../common/js/components/Button';
 import LogoAnimated from './LogoAnimated';
 import Transitions from './Transitions';
 import { Pages, Statuses } from '../constants';

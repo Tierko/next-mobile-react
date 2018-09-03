@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Grade from './Grade';
 import ProgressLinear from './ProgressLinear';
-import Button from './Button';
+import Button from '../../../common/js/components/Button';
 import { formatCost } from '../utils';
 import { MONTHS, Pages } from '../constants';
 

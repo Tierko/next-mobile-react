@@ -4,7 +4,7 @@ import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import LinkBack from '../components/LinkBack';
-import Button from '../components/Button';
+import Button from '../../../common/js/components/Button';
 import Transition from '../components/Transitions';
 import { Pages } from '../constants';
 import { formatCost } from '../utils';

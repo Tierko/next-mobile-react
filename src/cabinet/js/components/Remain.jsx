@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import ProgressLinear from './ProgressLinear';
-import Button from './Button';
+import Button from '../../../common/js/components/Button';
 import { Pages } from '../constants';
 
 const Remain = ({

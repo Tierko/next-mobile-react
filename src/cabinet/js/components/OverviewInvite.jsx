@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import CopyCode from './CopyCode';
 import { Pages } from '../constants';
-import Button from './Button';
+import Button from '../../../common/js/components/Button';
 
 class OverviewInvite extends Component {
   state = {

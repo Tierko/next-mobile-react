@@ -9,7 +9,7 @@ import Select from '../components/Select';
 import MultipleInput from '../components/MultipleInput';
 import InputRuble from '../components/InputRuble';
 import Tabs from '../components/Tabs';
-import Button from '../components/Button';
+import Button from '../../../common/js/components/Button';
 import { TITLES } from '../constants';
 
 class Kit extends Component {

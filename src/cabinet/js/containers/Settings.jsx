@@ -5,7 +5,7 @@ import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
 import Input from '../components/Input';
 import InputRuble from '../components/InputRuble';
-import Button from '../components/Button';
+import Button from '../../../common/js/components/Button';
 import CheckboxSlide from '../components/CheckboxSlide';
 import Select from '../components/SelectLang';
 import Note from '../components/Note';
