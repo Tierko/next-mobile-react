@@ -4,18 +4,25 @@ let webpack = require('webpack');
 let autoprefixer = require('autoprefixer');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = (env) => {
-  let { development } = env;
+module.exports = (env, { mode }) => {
+  const isDevelopment = mode === 'development';
+  const { type } = env;
 
   return {
     entry: {
-      bundle: ['./src/js/polyfill.js', 'babel-polyfill', 'scroll-behaviour/polyfill' , 'whatwg-fetch', './src/js/index.jsx'],
+      bundle: [
+        './src/common/js/polyfill.js',
+        'babel-polyfill',
+        'scroll-behaviour/polyfill',
+        'whatwg-fetch',
+        `./src/${type}/js/index.jsx`,
+      ],
     },
 
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].js',
-      publicPath: development ? '/dist/' : '',
+      publicPath: isDevelopment ? '/dist/' : '',
     },
 
     module: {
@@ -26,7 +33,7 @@ module.exports = (env) => {
       }, {
         test: /\.less$/,
         loaders: [
-          development ? 'style-loader' :  MiniCssExtractPlugin.loader,
+          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'postcss-loader',
@@ -43,7 +50,7 @@ module.exports = (env) => {
       }, {
         test: /\.css/,
         loaders: [
-          development ? 'style-loader' :  MiniCssExtractPlugin.loader,
+          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
         ],
       }, {
@@ -69,7 +76,7 @@ module.exports = (env) => {
       extensions: ['.js', '.jsx', '.css', '.less'],
     },
 
-    devtool: development && 'cheap-inline-module-source-map',
+    devtool: isDevelopment && 'cheap-inline-module-source-map',
 
     devServer: {
       contentBase: path.resolve(__dirname),
