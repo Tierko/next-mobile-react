@@ -1,3 +1,5 @@
+@duration: 1s;
+
 .logo-animated {
   max-width: 600px;
   margin: auto;
@@ -17,7 +19,7 @@
     bottom: 0;
     left: 0;
     transform: scale(0);
-    transition: transform 1s;
+    transition: transform @duration;
     filter: saturate(1.2);
     z-index: 1;
 
@@ -37,25 +39,10 @@
     bottom: 0;
     left: 0;
     margin: auto;
-    z-index: 2;
+    z-index: 200;
     transform: translateZ(0);
     opacity: .99;
-
-    &:after {
-      content: '';
-      position: absolute;
-      border-top-right-radius: 14px;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 2;
-      transition: background-color 1s;
-    }
-
-    &_expand:after {
-      background-color: @WHITE;
-    }
+    background: url("/media/icons/sim-white.svg") no-repeat 50% 0 / contain;
 
     &:before {
       content: '';
@@ -64,11 +51,15 @@
       right: 0;
       bottom: 0;
       left: 0;
-      border-top-right-radius: 14px;
-      background: url("/media/images/sim.png") no-repeat 50% 50%;
+      background: url("/media/icons/sim-color.svg") no-repeat 50% 0 / contain;
       background-size: cover;
-      opacity: 1;
+      opacity: 0.99;
       z-index: 2;
+      transition: opacity @duration;
+    }
+
+    &_expand:before {
+      opacity: 0;
     }
   }
 

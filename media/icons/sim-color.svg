@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="43px" viewBox="0 0 28 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>sim-color</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="81.7397048%" y1="108.386272%" x2="0%" y2="-4.3168041%" id="linearGradient-1">
+            <stop stop-color="#297EFE" offset="0%"></stop>
+            <stop stop-color="#6FFAFE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="30-05" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,43 L0,0 L10.206235,0 C14.8729017,0 17.1558753,0.17063492 18.6666667,0.546031746 C23.6354916,1.74047619 26.3884892,4.81190476 27.4628297,9.52142861 C27.8321343,11.0912698 28,13.4801587 28,19.281746 L28,43 L0,43 Z" id="sim-color" fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
+    </g>
+</svg>
