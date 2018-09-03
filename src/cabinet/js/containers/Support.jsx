@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
-import NavLobby from '../components/NavLobby';
+import Header from '../../../common/js/components/Header';
 import Chat from '../components/Chat';
 import Transitions from '../components/Transitions';
 import { TITLES } from '../constants';
@@ -11,7 +11,7 @@ class Support extends Component {
     return (
       <DocumentMeta title={TITLES.SUPPORT}>
         <MobileNav type="enter" />
-        <NavLobby />
+        <Header />
         <Transitions classNames="slide">
           <div className="support">
             <div className="support__aside" />

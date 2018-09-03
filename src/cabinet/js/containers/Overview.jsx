@@ -6,7 +6,7 @@ import Transitions from '../components/Transitions';
 
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
-import Footer from '../components/Footer';
+import Footer from '../../../common/js/components/Footer';
 import Balance from '../components/Balance';
 import OverviewPayment from '../components/OverviewPayment';
 import Remain from '../components/Remain';

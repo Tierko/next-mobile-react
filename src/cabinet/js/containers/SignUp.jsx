@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
-import NavLobby from '../components/NavLobby';
+import Header from '../../../common/js/components/Header';
 import ProgressBar from '../components/ProgressBar';
 import SignUpInit from '../components/SignUpInit';
 import SingUpStep1 from '../components/SignUpStep1';
@@ -36,7 +36,7 @@ class SignUp extends Component {
       <DocumentMeta {...meta}>
         <div className="welcome">
           <MobileNav type="enter" />
-          <NavLobby />
+          <Header />
           <Transitions classNames="slide">
             {
               step &&

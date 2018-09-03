@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
-import NavLobby from '../components/NavLobby';
+import Header from '../../../common/js/components/Header';
 import InputPhone from '../components/InputPhone';
 import MobileCode from '../components/MobileCode';
 import RequestStatusSimple from '../components/RequestStatusSimple';
@@ -149,7 +149,7 @@ class RequestStatus extends Component {
       <DocumentMeta {...meta}>
         <div className="welcome">
           <MobileNav type="enter" />
-          <NavLobby />
+          <Header />
           <Transitions classNames="slide">
             {
               !status &&

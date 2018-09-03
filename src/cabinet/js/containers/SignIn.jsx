@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
-import NavLobby from '../components/NavLobby';
+import Header from '../../../common/js/components/Header';
 import Input from '../components/InputPhone';
 import LogoAnimated from '../components/LogoAnimated';
 import MobileCode from '../components/MobileCode';
@@ -80,7 +80,7 @@ class SignIn extends Component {
       <DocumentMeta {...meta}>
         <div className="welcome">
           <MobileNav type="enter" />
-          <NavLobby />
+          <Header />
           <Transitions classNames="slide">
             <div className="welcome__content">
               <LogoAnimated expand={expandLogo} />
