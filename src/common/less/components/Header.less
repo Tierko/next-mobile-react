@@ -1,10 +1,11 @@
 .header {
   display: flex;
-  justify-content: center;
-  padding: 46px 15px;
+  padding: 0 15px;
   position: relative;
-  max-width: 600px;
+  max-width: 1200px;
   margin: auto;
+  align-items: flex-start;
+  height: 110px;
 
   @media (max-width: @BREAK-POINT) {
     display: none;
@@ -14,6 +15,30 @@
     position: absolute;
     top: 40px;
     left: 15px;
+  }
+
+  &__left {
+    flex: 1 1 25%;
+  }
+
+  &__logo {
+    width: 121px;
+    height: 75px;
+    background: url("/media/images/logo-mini.png") no-repeat 50% 50%;
+  }
+
+  &__center {
+    flex: 1 1 50%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+
+  &__right {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1 1 25%;
+    align-self: center;
   }
 
   &__item {
