@@ -6,6 +6,10 @@
   order: 50;
   margin-top: auto;
 
+  &_light {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
   @media (max-width: @BREAK-POINT) {
     display: block;
     width: 100%;
@@ -29,6 +33,7 @@
   &__dev-img {
     margin-top: 4px;
     border: none;
+    fill: #f00;
   }
 
   &__dev-text {
@@ -47,5 +52,16 @@
   &__link {
     .link;
     color: inherit;
+
+    &_light {
+      color: rgba(255, 255, 255, 0.3);
+      background: linear-gradient(to right, rgba(255, 255, 255, 0.3)) 0 93% repeat-x;
+      background-size: 100% 1px;
+
+      &:hover {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.3)) 0 93% repeat-x;
+        background-size: 100% 1px;
+      }
+    }
   }
 }

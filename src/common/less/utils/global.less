@@ -109,9 +109,6 @@ h2,
 
   &:hover {
     color: @BLACK;
-    animation-fill-mode: both;
-    animation-name: link-nav;
-    animation-duration: 2s;
     background: linear-gradient(to right, @BLACK, @BLACK) no-repeat 0 calc(50% + 0.5em);
     background-size: 100% 1px;
   }
@@ -119,6 +116,24 @@ h2,
   &.active {
     background: none;
     color: @BLACK;
+    cursor: default;
+  }
+}
+
+.link-nav-light {
+  color: rgba(255, 255, 255, 0.5);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) no-repeat 0 calc(50% + 0.5em);
+  background-size: 100% 0.5px;
+
+  &:hover {
+    color: @WHITE;
+    background: linear-gradient(to right, @WHITE, @WHITE) no-repeat 0 calc(50% + 0.5em);
+    background-size: 100% 0.5px;
+  }
+
+  &.active {
+    background: none;
+    color: @WHITE;
     cursor: default;
   }
 }

@@ -24,7 +24,11 @@
   &__logo {
     width: 121px;
     height: 75px;
-    background: url("/media/images/logo-mini.png") no-repeat 50% 50%;
+    background: url("/media/images/logo-mini-dark.png") no-repeat 50% 50%;
+
+    &_light {
+      background-image: url("/media/images/logo-mini-light.png");
+    }
   }
 
   &__center {
@@ -45,6 +49,10 @@
     .link-nav;
     line-height: @FONT-SIZE-BASE;
     font-size: @FONT-SIZE-SMALL;
+
+    &_light {
+      .link-nav-light;
+    }
   }
 
   &__span {
