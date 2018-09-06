@@ -8,12 +8,21 @@ class Invites extends Component {
     const input = document.getElementById(`promo-code-${id}`);
 
     if (input) {
-
       input.focus();
       input.select();
 
       try {
+        setTimeout(() => {
+          input.setSelectionRange(0, 9999);
+        }, 1);
+      } catch (e) {}
+
+      try {
         document.execCommand('copy');
+      } catch (e) {}
+
+      try {
+        navigator.clipboard.readText();
       } catch (e) {}
     }
   };
