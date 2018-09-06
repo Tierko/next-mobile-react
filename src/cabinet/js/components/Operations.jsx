@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import Date from '../components/Date';
-import Select from '../components/Select';
+import Select from '../../../common/js/components/Select';
 import Button from '../../../common/js/components/Button';
 import { formatCost } from '../utils';
 import {

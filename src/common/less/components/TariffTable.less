@@ -7,6 +7,10 @@
   margin: 0 -15px 46px;
   max-width: 100%;
 
+  &_home {
+    color: @WHITE;
+  }
+
   @media (max-width: 630px) {
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
@@ -43,7 +47,7 @@
       border-top: 1px solid @GRAY-LIGHT;
     }
 
-    &:hover:not(:first-child):before {
+    &:hover:not(:first-child):not(&_home):before {
       background-color: rgba(255, 255, 255, 0.5);
     }
   }
@@ -56,6 +60,12 @@
     .cell;
     .h2;
     position: relative;
+
+    &_home {
+      color: @WHITE;
+      font-size: @FONT-SIZE-BASE;
+      line-height: @LINE-HEIGHT-BASE;
+    }
   }
 
   &__actions {
@@ -95,5 +105,11 @@
     margin-top: 30px;
     cursor: pointer;
     display: inline-block;
+  }
+
+  &__cost_home {
+    font-size: 40px;
+    line-height: 46px;
+    font-weight: 100;
   }
 }

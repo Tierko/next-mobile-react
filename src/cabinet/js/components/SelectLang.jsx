@@ -1,6 +1,6 @@
 import React from 'react';
 import cs from 'classnames';
-import Select from './Select';
+import Select from '../../../common/js/components/Select';
 
 class SelectLang extends Select {
   render() {

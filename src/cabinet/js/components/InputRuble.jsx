@@ -1,6 +1,6 @@
 import React from 'react';
 import cs from 'classnames';
-import Input from './Input';
+import Input from '../../../common/js/components/Input';
 import { formatCost } from '../utils';
 
 class InputRuble extends Input {

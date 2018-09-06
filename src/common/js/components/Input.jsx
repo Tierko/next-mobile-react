@@ -51,6 +51,7 @@ class Input extends Component {
       clear,
       simplePlaceholder,
       disabled,
+      light,
     } = this.props;
     const {
       onChange,
@@ -80,7 +81,9 @@ class Input extends Component {
           !multiLine &&
             <input
               type="text"
-              className="input__value"
+              className={cs('input__value', {
+                input__value_light: light,
+              })}
               name={name}
               value={value}
               onChange={onChange}
@@ -96,7 +99,12 @@ class Input extends Component {
           </div>
         }
         <div className="input__error">{errorText}</div>
-        <div className={cs('input__indicator', { input__indicator_error: errorText })} />
+        <div
+          className={cs('input__indicator', {
+            input__indicator_error: errorText,
+            input__indicator_light: light,
+          })}
+        />
         {
           clear &&
           <div className="input__clear" onClick={() => this.props.onChange(name, '')} role="button" />

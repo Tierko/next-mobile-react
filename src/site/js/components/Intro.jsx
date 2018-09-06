@@ -8,11 +8,12 @@ class Intro extends Component {
 
   render() {
     const { go } = this;
+
     return (
       <div className="intro">
         <div className="intro__text">Next выходит за&nbsp;рамки обычного оператора</div>
         <div className="intro__note">Общайтесь без ограничения зоны покрытия дома и&nbsp;в&nbsp;роуминге</div>
-        <Button onClick={go}>Перейти на Next</Button>
+        <Button className="button_light" onClick={go}>Перейти на Next</Button>
       </div>
     );
   }

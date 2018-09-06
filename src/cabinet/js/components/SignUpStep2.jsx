@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import Input from '../components/Input';
+import Input from '../../../common/js/components/Input';
 import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
 

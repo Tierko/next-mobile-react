@@ -1,6 +1,6 @@
 import React from 'react';
 import cs from 'classnames';
-import Select from '../components/Select';
+import Select from '../../../common/js/components/Select';
 
 class ComboBox extends Select {
   state = {

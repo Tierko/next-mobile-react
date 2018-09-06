@@ -159,6 +159,14 @@
       color: @GRAY-DARK;
     }
 
+    &_light {
+      color: #fff;
+
+      &::placeholder {
+        color: #fff;
+      }
+    }
+
     &_multiline {
       resize: none;
       overflow: hidden;
@@ -204,6 +212,10 @@
     height: 1px;
     background-color: @GRAY;
 
+    &_light {
+      background-image: linear-gradient(rgba(255, 255, 255, 0.5));
+    }
+
     &_error {
       background-color: transparent;
       background-image: linear-gradient(#f97a7c, #f97ad2);
@@ -217,6 +229,11 @@
   &__value:focus ~ &__indicator,
   &_active &__indicator {
     background-color: @BLACK;
+  }
+
+  &__value:focus ~ &__indicator_light,
+  &_active &__indicator_light {
+    background-color: @WHITE;
   }
 
   &__icon {

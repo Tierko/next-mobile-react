@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import Input from './Input';
+import Input from '../../../common/js/components/Input';
 import Button from '../../../common/js/components/Button';
-import AutoComplete from './AutoComplete';
+import AutoComplete from '../../../common/js/components/AutoComplete';
 import Transitions from '../components/Transitions';
 
 class SignUpStep3 extends Component {

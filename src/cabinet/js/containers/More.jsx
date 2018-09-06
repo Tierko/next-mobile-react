@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DocumentMeta from 'react-document-meta';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
-import InterCalls from '../components/InterCalls';
+import InterCalls from '../../../common/js/components/InterCalls';
 import LinkBack from '../components/LinkBack';
 import Transitions from '../components/Transitions';
 import { Pages, TITLES } from '../constants';

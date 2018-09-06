@@ -1,0 +1,47 @@
+.cabinet {
+  display: flex;
+  color: #fff;
+  justify-content: space-between;
+
+  &__image {
+    padding-right: 15px;
+  }
+
+  &__img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__desc {
+    padding-top: 112px;
+    max-width: 528px;
+  }
+
+  &__header {
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: 100;
+    margin-bottom: 25px;
+  }
+
+  &__text {
+    font-weight: 100;
+    margin-bottom: 35px;
+  }
+
+  &__stores {
+
+  }
+
+  &__store {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  &__store-img {
+    max-width: 171px;
+    height: auto;
+    border: none;
+  }
+}

@@ -50,6 +50,7 @@ class AutoComplete extends Select {
       name,
       simplePlaceholder,
       emptyText,
+      light,
     } = this.props;
     const itemsFiltered = items.filter(i => isItemValid(i, value));
 
@@ -61,6 +62,7 @@ class AutoComplete extends Select {
           onChange={onChange}
           placeholder={placeholder}
           simplePlaceholder={simplePlaceholder}
+          light={light}
         />
         <div className={cs('select__list select__list_auto-complete', { select__list_open: open && value.length })}>
           {
@@ -91,10 +93,12 @@ class AutoComplete extends Select {
 
 AutoComplete.propTypes = {
   emptyText: PropTypes.string,
+  light: PropTypes.bool,
 };
 
 AutoComplete.defaultProps = {
   emptyText: 'Ничего не найдено',
+  light: false,
 };
 
 export default AutoComplete;

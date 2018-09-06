@@ -1,7 +1,7 @@
 import React from 'react';
 import cs from 'classnames';
 import InputMask from 'react-input-mask';
-import Input from './Input';
+import Input from '../../../common/js/components/Input';
 
 class InputPhone extends Input {
   render() {

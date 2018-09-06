@@ -1,17 +1,30 @@
 .best {
-  max-width: 620px;
-  margin: 0 auto 319px;
+  margin: 0 auto;
+  padding: 192px 0 150px;
   text-align: center;
   color: @WHITE;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position:
+          100% 20%,
+          0 50%,
+          30% 90%,
+          85% 100%;
+  background-image:
+          url("/media/images/figure-1.svg"),
+          url("/media/images/figure-2.svg"),
+          url("/media/images/figure-3.svg"),
+          url("/media/images/figure-4.svg");
 
   &__header {
     font-size: 60px;
     line-height: 70px;
     font-weight: 100;
-    margin-bottom: 27px;
+    margin: 0 auto 27px;
+    max-width: 620px;
   }
 
   &__text {
-    margin-bottom: 35px;
+    margin: 0 auto 35px;
+    max-width: 600px;
   }
 }

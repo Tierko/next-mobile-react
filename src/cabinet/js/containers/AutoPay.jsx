@@ -8,7 +8,7 @@ import Aside from '../components/Aside';
 import LinkBack from '../components/LinkBack';
 import Checkbox from '../components/CheckboxSlide';
 import InputRuble from '../components/InputRuble';
-import Select from '../components/Select';
+import Select from '../../../common/js/components/Select';
 import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
 import { Pages, MONTHS_M, TITLES } from '../constants';

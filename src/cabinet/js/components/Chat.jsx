@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import InlineSvg from 'svg-inline-react';
 import cs from 'classnames';
-import Input from '../components/Input';
+import Input from '../../../common/js/components/Input';
 import ButtonIcon from '../components/ButtonIcon';
 
 class Chat extends Component {

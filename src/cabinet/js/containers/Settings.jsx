@@ -3,7 +3,7 @@ import DocumentMeta from 'react-document-meta';
 import cs from 'classnames';
 import MobileNav from '../components/MobileNav';
 import Aside from '../components/Aside';
-import Input from '../components/Input';
+import Input from '../../../common/js/components/Input';
 import InputRuble from '../components/InputRuble';
 import Button from '../../../common/js/components/Button';
 import CheckboxSlide from '../components/CheckboxSlide';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import Input from './Input';
+import Input from '../../../common/js/components/Input';
 import Calendar from './Calendar';
 import { MONTHS_M } from '../constants';
 
