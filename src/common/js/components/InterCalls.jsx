@@ -59,7 +59,12 @@ class InterCalls extends Component {
 
   render() {
     const { value, item, data } = this.state;
-    const { more, className, home } = this.props;
+    const {
+      more,
+      className,
+      home,
+      tariff,
+    } = this.props;
     const {
       onChange,
       onSelect,
@@ -70,7 +75,7 @@ class InterCalls extends Component {
     return (
       <div className={`inter-calls ${className}`}>
         {
-          !home &&
+          !home && !tariff &&
           <div className={cs('inter-calls__header', { 'inter-calls__header_light': more })}>
             Звонки за границу
           </div>
@@ -115,7 +120,7 @@ class InterCalls extends Component {
           </div>
         }
         {
-          (!more && !home) && <div className="inter-calls__note">Одинаковая цена для всех тарифов</div>
+          !more && !home && !tariff && <div className="inter-calls__note">Одинаковая цена для всех тарифов</div>
         }
       </div>
     );
@@ -126,12 +131,14 @@ InterCalls.propTypes = {
   className: PropTypes.string,
   more: PropTypes.bool,
   home: PropTypes.bool,
+  tariff: PropTypes.bool,
 };
 
 InterCalls.defaultProps = {
   className: '',
   more: false,
   home: false,
+  tariff: false,
 };
 
 export default InterCalls;

@@ -98,6 +98,7 @@ class TariffTable extends Component {
       current,
       onChange,
       home,
+      tariff,
     } = this.props;
     const isDetail = this.state.mode === 'detail';
     const currentTariff = data.find(d => d.id === current);
@@ -108,7 +109,7 @@ class TariffTable extends Component {
       <div className={cs('tariff-table', { 'tariff-table_home': home })}>
         <div className="tariff-table__inner">
           <div className="tariff-table__row">
-            <div className="tariff-table__names">
+            <div className={cs('tariff-table__names', { 'tariff-table__names_tariff': tariff })}>
               {
                 dataFiltered.map(d => (
                   home ?
@@ -129,7 +130,7 @@ class TariffTable extends Component {
               }
             </div>
             {
-              !home &&
+              !home && !tariff &&
               <div className="tariff-table__actions">
                 {
                   dataFiltered.map(d => (
@@ -150,7 +151,7 @@ class TariffTable extends Component {
             ))
           }
           {
-            !home &&
+            !home && !tariff &&
             <div className="tariff-table__toggle" onClick={toggleMode}>
               {
                 isDetail ? 'Краткая информация' : 'Подробная информация'
@@ -168,11 +169,13 @@ TariffTable.propTypes = {
   current: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
   home: PropTypes.bool,
+  tariff: PropTypes.bool,
   mode: PropTypes.string,
 };
 
 TariffTable.defaultProps = {
   home: false,
+  tariff: false,
   mode: 'short',
 };
 
