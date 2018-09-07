@@ -19,11 +19,11 @@ const Header = ({ back, light }) => (
       <NavLink className={cs('header__item', { header__item_light: light })} to={Pages.REQUEST_STATUS}>
         Тарифы и услуги
       </NavLink>
-      <div className="header__span" />
+      <div className={cs('header__span', { header__span_light: light })} />
       <NavLink className={cs('header__item', { header__item_light: light })} to={Pages.REQUEST_STATUS}>
         Статус заявки
       </NavLink>
-      <div className="header__span" />
+      <div className={cs('header__span', { header__span_light: light })} />
       <NavLink className={cs('header__item', { header__item_light: light })} to={Pages.SUPPORT}>
         Поддержка
       </NavLink>
@@ -32,7 +32,7 @@ const Header = ({ back, light }) => (
       <NavLink className={cs('header__item', { header__item_light: light })} to={Pages.SIGN_IN} exact>
         Вход
       </NavLink>
-      <div className="header__span" />
+      <div className={cs('header__span', { header__span_light: light })} />
       <NavLink className={cs('header__item', { header__item_light: light })} to={Pages.SIGN_UP}>
         Регистрация
       </NavLink>
