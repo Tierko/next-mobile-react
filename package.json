@@ -12,7 +12,8 @@
     "deploy-cabinet": "node deploy.js next/mobile",
     "deploy-site": "node deploy.js next/promo",
     "flow-cabinet": "git pull && git push && npm run build-cabinet && npm run deploy-cabinet",
-    "flow-site": "git pull && git push && npm run build-site && npm run deploy-site"
+    "flow-site": "git pull && git push && npm run build-site && npm run deploy-site",
+    "flow": "git pull && git push && npm run build-site && npm run deploy-site && npm run build-cabinet && npm run deploy-cabinet"
   },
   "author": "artlebedev",
   "license": "EULA",

@@ -4,9 +4,20 @@ let webpack = require('webpack');
 let autoprefixer = require('autoprefixer');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const PORT = {
+  cabinet: '8081',
+  site: '8082',
+};
+const URL = {
+  cabinet: 'http://next-mobile.dev.design.ru',
+  site: 'http://next-promo.dev.design.ru',
+};
+
 module.exports = (env, { mode }) => {
   const isDevelopment = mode === 'development';
   const { type } = env;
+  const port = PORT[type] || '8080';
+  const url = isDevelopment ? `http://localhost:${port}` : URL[type];
 
   return {
     entry: {
@@ -60,6 +71,9 @@ module.exports = (env, { mode }) => {
     },
 
     plugins: [
+      new webpack.DefinePlugin({
+        SERVICE_URL: JSON.stringify(url),
+      }),
       new MiniCssExtractPlugin({
         filename: '[name].css',
       }),
@@ -82,7 +96,8 @@ module.exports = (env, { mode }) => {
       contentBase: path.resolve(__dirname),
       hot: true,
       host: '0.0.0.0',
-      public: 'localhost:8080',
+      public: `localhost:${port}`,
+      port,
       headers: {
         'Access-Control-Allow-Origin': '*',
       },
