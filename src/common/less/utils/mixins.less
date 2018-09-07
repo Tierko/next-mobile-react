@@ -126,6 +126,16 @@
   }
 }
 
+.gradient-button {
+  .text-gradient;
+  background-image: linear-gradient(to right, #003cff 0%, #35befe 100%, #35befe 100%);
+
+  @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    background-image: none;
+    color: #003cff;
+  }
+}
+
 .gradient-red-purple {
   .text-gradient;
   background-image: linear-gradient(to right, #f00 0%, #ff007a 90%);
