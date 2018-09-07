@@ -21,10 +21,14 @@
       max-width: 308px;
       height: auto;
       margin-top: -50px;
-      margin-left: -53px;
+      margin-left: -48px;
 
       @media (max-width: @MAX-WIDTH) {
-        margin-left: -20%;
+        margin-left: calc((100% - 516px) / 2);
+      }
+
+      @media (max-width: 880px) {
+        margin-left: -104px;
       }
     }
   }
