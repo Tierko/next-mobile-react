@@ -55,6 +55,8 @@ export const Pages = {
   INTERNET: '/internet',
   CONFIRM: '/confirm',
   NOT_FOUND: '/not-found',
+  HOME: '/',
+  TARIFF: '/tariff',
 };
 
 export const TITLES = {

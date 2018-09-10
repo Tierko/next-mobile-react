@@ -17,7 +17,8 @@ module.exports = (env, { mode }) => {
   const isDevelopment = mode === 'development';
   const { type } = env;
   const port = PORT[type] || '8080';
-  const url = isDevelopment ? `http://localhost:${port}` : URL[type];
+  const urlPort = type === 'cabinet' ? '8082' : '8081';
+  const url = isDevelopment ? `http://localhost:${urlPort}` : URL[type];
 
   return {
     entry: {

@@ -6,10 +6,10 @@ import TariffServices from '../components/TariffServices';
 
 const Tariff = () => (
   <div className="tariff">
-    <Header />
+    <Header mode="site" />
     <div className="tariff__inner">
       <TariffTariff />
-      <TariffRoaming  />
+      <TariffRoaming />
       <TariffServices />
     </div>
   </div>

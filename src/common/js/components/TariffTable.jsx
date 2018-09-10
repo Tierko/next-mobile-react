@@ -113,7 +113,7 @@ class TariffTable extends Component {
               {
                 dataFiltered.map(d => (
                   home ?
-                    <div className="tariff-table__name tariff-table__name_home">
+                    <div key={d.id} className="tariff-table__name tariff-table__name_home">
                       <Link to="#" className="home__link">
                         {d.title}
                       </Link>
@@ -137,7 +137,7 @@ class TariffTable extends Component {
                     <div key={d.id} className="tariff-table__action">
                       {
                         d.id === current ? 'Ваш тариф' :
-                          <Button className="button_tariff-change" onClick={() => onChange(d.id)} borderless>Перейти</Button>
+                          <Button className="button_tariff-change" onClick={() => onChange && onChange(d.id)} borderless>Перейти</Button>
                       }
                     </div>
                   ))
@@ -166,14 +166,16 @@ class TariffTable extends Component {
 
 TariffTable.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  current: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
+  current: PropTypes.number,
+  onChange: PropTypes.func,
   home: PropTypes.bool,
   tariff: PropTypes.bool,
   mode: PropTypes.string,
 };
 
 TariffTable.defaultProps = {
+  current: -1,
+  onChange: null,
   home: false,
   tariff: false,
   mode: 'short',

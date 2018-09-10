@@ -10,7 +10,7 @@ import Footer from '../../../common/js/components/Footer';
 
 const Home = () => (
   <div className="home">
-    <Header light />
+    <Header mode="site" light />
     <div className="home__inner">
       <Intro />
       <Best />
