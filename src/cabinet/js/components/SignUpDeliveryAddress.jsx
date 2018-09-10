@@ -6,7 +6,7 @@ import Button from '../../../common/js/components/Button';
 import AutoComplete from '../../../common/js/components/AutoComplete';
 import Transitions from '../components/Transitions';
 
-class SignUpStep3 extends Component {
+class SignUpDeliveryAddress extends Component {
   state = {
     city: '',
     street: '',
@@ -27,7 +27,7 @@ class SignUpStep3 extends Component {
     const { isFilled } = this;
 
     if (isFilled()) {
-      nextStep(4);
+      nextStep('delivery-date');
     }
   };
 
@@ -97,8 +97,8 @@ class SignUpStep3 extends Component {
   }
 }
 
-SignUpStep3.propTypes = {
+SignUpDeliveryAddress.propTypes = {
   nextStep: PropTypes.func.isRequired,
 };
 
-export default SignUpStep3;
+export default SignUpDeliveryAddress;

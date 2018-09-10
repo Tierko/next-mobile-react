@@ -7,7 +7,7 @@ import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
 import { MONTHS_M, Pages, Statuses, WEEKDAYS } from '../constants';
 
-class SignUpStep4 extends Component {
+class SignUpDeliveryDate extends Component {
   static times = [{
     id: 1,
     title: '9:00 — 13:00',
@@ -42,7 +42,7 @@ class SignUpStep4 extends Component {
     const { date, time } = this.state;
     const { onChange, formatDate } = this;
     const { toPage } = this.props;
-    const { times } = SignUpStep4;
+    const { times } = SignUpDeliveryDate;
     const permit = !!date && !!time;
 
     return (
@@ -75,8 +75,8 @@ class SignUpStep4 extends Component {
   }
 }
 
-SignUpStep4.propTypes = {
+SignUpDeliveryDate.propTypes = {
   toPage: PropTypes.func.isRequired,
 };
 
-export default SignUpStep4;
+export default SignUpDeliveryDate;

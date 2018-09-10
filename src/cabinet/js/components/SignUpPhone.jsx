@@ -6,7 +6,7 @@ import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
 import { checkPhone } from '../utils';
 
-class SignUpStep1 extends Component {
+class SignUpPhone extends Component {
   state = {
     phone: '',
   };
@@ -23,7 +23,7 @@ class SignUpStep1 extends Component {
     const { phone } = this.state;
 
     if (checkPhone(phone)) {
-      nextStep(2);
+      nextStep('personal');
     }
   };
 
@@ -47,8 +47,8 @@ class SignUpStep1 extends Component {
   }
 }
 
-SignUpStep1.propTypes = {
+SignUpPhone.propTypes = {
   nextStep: PropTypes.func.isRequired,
 };
 
-export default SignUpStep1;
+export default SignUpPhone;

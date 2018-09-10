@@ -103,7 +103,7 @@ class SignUp extends Component {
           mode === 'promo' &&
           <Transitions>
             <Fragment>
-              <Button className="button_to-next-mobile" onClick={() => nextStep(1)}>Перейти на Next Mobile</Button>
+              <Button className="button_to-next-mobile" onClick={() => nextStep('phone')}>Перейти на Next Mobile</Button>
               <div className="sign-up__agreement">
                 Я ознакомлен с <Link to={Pages.CONDITIONS} className="link">условиями перехода</Link>
               </div>

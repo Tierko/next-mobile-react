@@ -5,7 +5,7 @@ import Input from '../../../common/js/components/Input';
 import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
 
-class SignUpStep2 extends Component {
+class SignUpPersonal extends Component {
   state = {
     surname: '',
     name: '',
@@ -39,7 +39,7 @@ class SignUpStep2 extends Component {
     const { isFilled } = this;
 
     if (isFilled()) {
-      nextStep(3);
+      nextStep('delivery-address');
     }
   };
 
@@ -119,8 +119,8 @@ class SignUpStep2 extends Component {
   }
 }
 
-SignUpStep2.propTypes = {
+SignUpPersonal.propTypes = {
   nextStep: PropTypes.func.isRequired,
 };
 
-export default SignUpStep2;
+export default SignUpPersonal;
