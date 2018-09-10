@@ -5,10 +5,12 @@ import MobileNav from '../components/MobileNav';
 import Header from '../../../common/js/components/Header';
 import ProgressBar from '../components/ProgressBar';
 import SignUpInit from '../components/SignUpInit';
+import SignUpInitAfter from '../components/SignUpInitAfter';
 import SingUpStep1 from '../components/SignUpPhone';
 import SignUpPersonal from '../components/SignUpPersonal';
 import SignUpDeliveryAddress from '../components/SignUpDeliveryAddress';
 import SignUpDeliveryDate from '../components/SignUpDeliveryDate';
+import SignUpNumberSelect from '../components/SignUpNumberSelect';
 import Transitions from '../components/Transitions';
 import { Pages, TITLES } from '../constants';
 
@@ -38,15 +40,23 @@ class SignUp extends Component {
           <MobileNav type="enter" />
           <Header />
           <Transitions classNames="slide">
+            <div className="sign-up__transition">
+              Переход на Next
+            </div>
             {
               step &&
               <Transitions>
                 <ProgressBar count={4} current={step} />
               </Transitions>
             }
+            {/*<SignUpInitAfter nextStep={nextStep} />*/}
             {
               !step &&
               <SignUpInit nextStep={nextStep} toPage={toPage} mode={mode || ''} />
+            }
+            {
+              step === 'select-number' &&
+              <SignUpNumberSelect nextStep={nextStep} />
             }
             {
               step === 'phone' &&

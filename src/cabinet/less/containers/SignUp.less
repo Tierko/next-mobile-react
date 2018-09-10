@@ -5,16 +5,30 @@
     padding-top: 40px;
   }
 
+  &__transition {
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: 100;
+    text-align: center;
+    margin: 17px 0 21px
+  }
+
   &__header {
-    margin: 50px 0 28px;
+    margin: 24px 0 28px;
     color: @GRAY-DARK;
   }
 
   &__message {
     margin-top: -120px;
+    position: relative;
+    z-index: 1;
 
     &_step4 {
       margin-top: 0;
+    }
+
+    &_select-number {
+      margin-top: 24px;
     }
 
     @media (max-width: 600px) {
@@ -52,5 +66,12 @@
   &__row {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__scenario {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 24px 0 10px;
   }
 }
