@@ -14,11 +14,21 @@ import {
 } from '../utils';
 
 class CardEditor extends Component {
+  state = {
+    cardUnzoomed: false,
+  };
+
   componentDidMount() {
     const { onKeyDown, onClick } = this;
 
     document.addEventListener('keydown', onKeyDown);
     document.addEventListener('click', onClick);
+
+    setTimeout(() => {
+      this.setState({
+        cardUnzoomed: true,
+      });
+    }, 1);
   }
 
   componentWillUnmount() {
@@ -55,6 +65,7 @@ class CardEditor extends Component {
       removeCard,
       card: { token, colors },
     } = this.props;
+    const { cardUnzoomed } = this.state;
 
     const isCardDefault = defaultCard === token;
 
@@ -66,7 +77,12 @@ class CardEditor extends Component {
       <div className={cs('card-editor', { 'card-editor_show': !!token })}>
         <ButtonIcon onClick={onClose} icon="back.svg" className="button-icon_card-editor" />
         <div className="card-editor__inner" ref={(e) => { this.cardEditor = e; }}>
-          <div className={`card card_big card_${getPaySystem(token)}`} style={style}>
+          <div
+            className={cs(`card card_editor card_big card_${getPaySystem(token)}`, {
+              'card_editor-unzoomed': cardUnzoomed,
+            })}
+            style={style}
+          >
             <div className="card__number">{getShortPan(token)}</div>
           </div>
           <div className="card__edit">

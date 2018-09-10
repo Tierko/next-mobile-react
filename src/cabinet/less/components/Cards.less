@@ -187,6 +187,16 @@
     cursor: default;
   }
 
+  &_editor {
+    transform: scale(0.7);
+    transition: transform 0.3s;
+    will-change: transform;
+  }
+
+  &_editor-unzoomed {
+    transform: scale(1);
+  }
+
   &__number {
     color: @WHITE;
     font-size: 15px;
