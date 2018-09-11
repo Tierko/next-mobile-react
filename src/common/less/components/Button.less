@@ -191,20 +191,22 @@
     border-color: @BLACK;
   }
 
-  &:active {
+  &:active:not(:disabled) {
     .gradient-button;
     border-image: linear-gradient(to right, #003cff 0%, #35befe 100%, #35befe 100%) 1 stretch;
   }
 
   &:disabled,
-  &_disabled {
+  &_disabled,
+  &:disabled:hover,
+  &_disabled:hover{
     cursor: default;
     color: @GRAY;
+    border-color: @GRAY;
   }
 
   &:disabled:hover,
   &_disabled:hover {
-    border-color: @GRAY;
   }
 
   &_light {

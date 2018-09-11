@@ -1,3 +1,21 @@
 .small-tabs {
+  display: flex;
+  justify-content: center;
 
+  &_numbers {
+    margin: 49px 0 14px;
+  }
+
+  &__item {
+    .link-dashed;
+    user-select: none;
+    cursor: pointer;
+    margin: 0 17px;
+
+    &_active {
+      background-image: none;
+      cursor: default;
+      color: @BLACK;
+    }
+  }
 }

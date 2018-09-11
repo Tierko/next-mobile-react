@@ -40,9 +40,12 @@ class SignUp extends Component {
           <MobileNav type="enter" />
           <Header />
           <Transitions classNames="slide">
-            <div className="sign-up__transition">
-              Переход на Next
-            </div>
+            {
+              step &&
+              <div className="sign-up__transition">
+                Переход на Next
+              </div>
+            }
             {
               step &&
               <Transitions>
@@ -55,7 +58,7 @@ class SignUp extends Component {
               <SignUpInit nextStep={nextStep} toPage={toPage} mode={mode || ''} />
             }
             {
-              step === 'select-number' &&
+              step === 'choose-number' &&
               <SignUpNumberSelect nextStep={nextStep} />
             }
             {

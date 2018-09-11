@@ -30,6 +30,10 @@ export const getPaySystem = (pan) => {
 export const getShortPan = pan => `*${pan.substring(12)}`;
 
 export const formatCost = (source, zeroByDefault) => {
+  if (source === undefined) {
+    return source;
+  }
+
   const arr = [];
   let str = source.toString().replace(/[^\d/.]/g, '');
   let tail = '';
@@ -170,4 +174,16 @@ export const hsl2rgb = (h, s, l) => {
 
 export const mapNumbers = (x, inMin, inMax, outMin, outMax) => {
   return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+};
+
+export const formatPhone = (phone) => {
+  if (!phone) {
+    return phone;
+  }
+
+  if (phone.length !== 12) {
+    return phone;
+  }
+
+  return `${phone.substr(0, 2)} (${phone.substr(2, 3)}) ${phone.substr(5, 3)}-${phone.substr(8, 2)}-${phone.substr(10, 2)}`;
 };

@@ -5,6 +5,10 @@
     padding-top: 40px;
   }
 
+  &_numbers {
+    max-width: 950px;
+  }
+
   &__transition {
     font-size: 60px;
     line-height: 70px;
@@ -36,6 +40,10 @@
 
       &_step4 {
         margin-top: 0;
+      }
+
+      &_select-number {
+        margin-top: 24px;
       }
     }
   }
@@ -73,5 +81,51 @@
     z-index: 1;
     display: inline-block;
     padding: 24px 0 10px;
+  }
+
+  &__chosen-number {
+    font-size: 40px;
+    font-weight: 100;
+    line-height: 50px;
+    position: relative;
+    padding-left: 46px;
+    display: inline-block;
+  }
+
+  &__chosen-number-p {
+    font-size: @FONT-SIZE-BASE;
+    color: @GRAY-DARK;
+    display: inline-block;
+    margin-left: 15px;
+    min-width: 59px;
+    text-align: left;
+    font-weight: 300;
+  }
+
+  &__update {
+    width: 40px;
+    height: 40px;
+    background: url("/media/icons/update.svg") 50% 50% no-repeat;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &__toggle-numbers {
+    .link-dashed;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 49px;
   }
 }
