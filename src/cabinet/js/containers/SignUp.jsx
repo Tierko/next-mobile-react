@@ -11,6 +11,7 @@ import SignUpPersonal from '../components/SignUpPersonal';
 import SignUpDeliveryAddress from '../components/SignUpDeliveryAddress';
 import SignUpDeliveryDate from '../components/SignUpDeliveryDate';
 import SignUpNumberSelect from '../components/SignUpNumberSelect';
+import SingUpTariffSelect from '../components/SignUpTariffSelect';
 import Transitions from '../components/Transitions';
 import { Pages, TITLES } from '../constants';
 
@@ -60,6 +61,10 @@ class SignUp extends Component {
             {
               step === 'choose-number' &&
               <SignUpNumberSelect nextStep={nextStep} />
+            }
+            {
+              step === 'choose-tariff' &&
+              <SingUpTariffSelect nextStep={nextStep} />
             }
             {
               step === 'phone' &&

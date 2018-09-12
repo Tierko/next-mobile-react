@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Radio from './Radio';
+import Radio from '../../../common/js/components/Radio';
 import Pagination from './Pagination';
 import { formatPhone, formatCost } from '../utils';
 

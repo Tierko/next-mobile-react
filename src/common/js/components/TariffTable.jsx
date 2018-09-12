@@ -3,7 +3,37 @@ import PropTypes from 'prop-types';
 import cs from 'classnames';
 import { Link } from 'react-router-dom';
 import Button from './Button';
+import Radio from './Radio';
 import { formatCost } from '../../../cabinet/js/utils';
+
+const tariffs = [{
+  id: 1,
+  title: 'СуперВИП',
+  payment: 3000,
+  internet: 32,
+  nextCalls: 'Безлимит',
+  calls: 700,
+  sms: 'Безлимит',
+}, {
+  id: 2,
+  current: false,
+  title: 'Премиум',
+  payment: 2000,
+  internet: 16,
+  calls: 700,
+  nextCalls: 700,
+  sms: 'Безлимит',
+}, {
+  id: 3,
+  current: false,
+  title: 'Лайт',
+  payment: 1500,
+  internet: 8,
+  calls: 700,
+  nextCalls: 700,
+  sms: 'Безлимит',
+}];
+
 
 class TariffTable extends Component {
   constructor(props) {
@@ -94,24 +124,25 @@ class TariffTable extends Component {
   render() {
     const { toggleMode, rows, RenderRow } = this;
     const {
-      data,
       current,
       onChange,
       home,
       tariff,
+      signUp,
+      className,
     } = this.props;
     const isDetail = this.state.mode === 'detail';
-    const currentTariff = data.find(d => d.id === current);
-    const dataFiltered = currentTariff ?
-      [currentTariff, ...data.filter(d => d.id !== current)] : data;
+    const currentTariff = tariffs.find(d => d.id === current);
+    const dataFiltered = currentTariff && !signUp ?
+      [currentTariff, ...tariffs.filter(d => d.id !== current)] : tariffs;
 
     return (
-      <div className={cs('tariff-table', { 'tariff-table_home': home })}>
+      <div className={cs(`tariff-table ${className}`, { 'tariff-table_home': home })}>
         <div className="tariff-table__inner">
           <div className="tariff-table__row">
             <div className={cs('tariff-table__names', { 'tariff-table__names_tariff': tariff })}>
               {
-                dataFiltered.map(d => (
+                !signUp && dataFiltered.map(d => (
                   home ?
                     <div key={d.id} className="tariff-table__name tariff-table__name_home">
                       <Link to="#" className="home__link">
@@ -128,9 +159,22 @@ class TariffTable extends Component {
                     </div>
                 ))
               }
+              {
+                signUp && dataFiltered.map(d => (
+                  <Radio
+                    name="current"
+                    value={d.id}
+                    selected={current}
+                    onChange={onChange}
+                    className="radio_tariff"
+                  >
+                    {d.title}
+                  </Radio>
+                ))
+              }
             </div>
             {
-              !home && !tariff &&
+              !home && !tariff && !signUp &&
               <div className="tariff-table__actions">
                 {
                   dataFiltered.map(d => (
@@ -165,12 +209,13 @@ class TariffTable extends Component {
 }
 
 TariffTable.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   current: PropTypes.number,
   onChange: PropTypes.func,
   home: PropTypes.bool,
   tariff: PropTypes.bool,
+  signUp: PropTypes.bool,
   mode: PropTypes.string,
+  className: PropTypes.string,
 };
 
 TariffTable.defaultProps = {
@@ -178,7 +223,9 @@ TariffTable.defaultProps = {
   onChange: null,
   home: false,
   tariff: false,
+  signUp: false,
   mode: 'short',
+  className: '',
 };
 
 export default TariffTable;

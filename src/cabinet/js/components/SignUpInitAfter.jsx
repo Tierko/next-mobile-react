@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import LogoAnimated from '../components/LogoAnimated';
-import Radio from '../components/Radio';
+import Radio from '../../../common/js/components/Radio';
 import Button from '../../../common/js/components/Button';
 import { Pages } from '../constants';
 
