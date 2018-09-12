@@ -48,9 +48,13 @@ class SignUpNumberSelect extends Component {
   }
 
   changeTab = (tab) => {
+    const { setRandomNumber } = this;
+
     this.setState({
       tab,
     });
+
+    setRandomNumber(tab);
   };
 
   toggleNumbers = () => {
@@ -61,8 +65,9 @@ class SignUpNumberSelect extends Component {
     });
   };
 
-  setRandomNumber = () => {
-    const { tab, numbers } = this.state;
+  setRandomNumber = (currentTab) => {
+    const { numbers } = this.state;
+    const tab = typeof currentTab === 'string' ? currentTab : this.state.tab;
     const { selectPhone } = this;
     const filteredNumbers = numbers.filter(n => tab === 'all' || n.type === tab);
     let index = Math.random() * filteredNumbers.length;
