@@ -19,16 +19,16 @@ class EarthTariff extends Component {
         </div>
         <div className="earth-tariff__numbers">
           <div className="earth-tariff__row">
-            <div className="earth-tariff__cell">Интернет</div>
+            <div className="earth-tariff__cell earth-tariff__cell_small">Интернет</div>
             <div className="earth-tariff__cell earth-tariff__cell_big">14 ₽ / Мб</div>
-            <div className="earth-tariff__cell">Или 2000 ₽ / 1 ГБ</div>
+            <div className="earth-tariff__cell earth-tariff__cell_small">Или 2000 ₽ / 1 ГБ</div>
           </div>
           <div className="earth-tariff__row">
-            <div className="earth-tariff__cell">Звонки</div>
+            <div className="earth-tariff__cell earth-tariff__cell_small">Звонки</div>
             <div className="earth-tariff__cell earth-tariff__cell_big">200 ₽ / мин.</div>
           </div>
           <div className="earth-tariff__row">
-            <div className="earth-tariff__cell">Сообщения</div>
+            <div className="earth-tariff__cell earth-tariff__cell_small">Сообщения</div>
             <div className="earth-tariff__cell earth-tariff__cell_big">7 ₽ / СМС</div>
           </div>
         </div>

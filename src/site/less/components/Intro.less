@@ -14,4 +14,19 @@
   &__note {
     margin-bottom: 44px;
   }
+
+  @media (max-width: @BREAK-POINT) {
+    max-width: 600px;
+
+    &__text {
+      font-size: 35px;
+      line-height: 41px;
+      margin-bottom: 12px;
+    }
+
+    &__note {
+      margin-bottom: 16px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
 }

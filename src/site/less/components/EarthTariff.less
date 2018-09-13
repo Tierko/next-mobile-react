@@ -20,7 +20,7 @@
 
   &__text {
     max-width: 528px;
-    margin-bottom: 32px;
+    margin: 0 auto 32px;
   }
 
   &_tariff &__numbers {
@@ -37,6 +37,40 @@
     &_big {
       font-size: 40px;
       line-height: 46px;
+    }
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    display: block;
+    max-width: 600px;
+    margin: auto;
+
+    &__header {
+      text-align: center;
+    }
+
+    &__text {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    &__numbers {
+      margin-top: 18px;
+    }
+
+    &__cell {
+      font-weight: 300;
+
+      &_small {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 21px;
+      }
+
+      &_big {
+        font-size: 18px;
+        line-height: 25px;
+      }
     }
   }
 }

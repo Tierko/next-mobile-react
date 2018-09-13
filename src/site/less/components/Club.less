@@ -1,7 +1,8 @@
 .club {
   color: #fff;
-  padding: 170px 0 242px;
+  padding: 170px 15px 242px;
   background: url("/media/images/card.png") 100% 50% no-repeat;
+  margin: 0 -15px;
 
   @media (min-width: 1000px) {
     margin-right: calc((100vw - 1000px) / -2);
@@ -15,13 +16,33 @@
 
   &__header {
     .page-title;
-    margin-bottom: 27px;
+    margin: 0 auto 27px;
     max-width: 537px;
   }
 
   &__text {
     font-weight: 100;
-    margin-bottom: 35px;
+    margin: 0 auto 35px;
     max-width: 537px;
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    text-align: center;
+    padding: 275px 15px 150px;
+    background-size: 500px auto;
+    background-position: 50% 0;
+
+    &__inner {
+      //max-width: 290px;
+      margin: auto;
+    }
+
+    &__header {
+      margin-bottom: 13px;
+    }
+
+    &__text {
+      font-size: 15px;
+    }
   }
 }

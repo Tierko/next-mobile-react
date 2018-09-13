@@ -210,15 +210,18 @@
   }
 
   &_light {
-    .gradient-button;
-    border-image: linear-gradient(to right, #003cff 0%, #35befe 100%, #35befe 100%) 1 stretch;
+    border-color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.5);
 
     &:hover {
       border-color: @WHITE;
-      border-image: none;
       background: none;
       -webkit-background-clip: border-box;
       -webkit-text-fill-color: @WHITE;
     }
+  }
+
+  &_club {
+    display: inline-block;
   }
 }
