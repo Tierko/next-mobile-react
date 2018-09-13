@@ -16,11 +16,13 @@ class Select extends Component {
   }
 
   outsideClick = (e) => {
-    if (!this.select.contains(e.target)) {
-      this.setState({
-        open: false,
-      });
-    }
+    try {
+      if (!this.select.contains(e.target)) {
+        this.setState({
+          open: false,
+        });
+      }
+    } catch (e) {}
   };
 
   toggle = () => {

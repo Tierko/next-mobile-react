@@ -47,11 +47,13 @@ class Date extends Input {
   outsideClick = (e) => {
     const { date } = this;
 
-    if (!date.contains(e.target)) {
-      this.setState({
-        show: false,
-      });
-    }
+    try {
+      if (!date.contains(e.target)) {
+        this.setState({
+          show: false,
+        });
+      }
+    } catch (e) {}
   };
 
   onChange = (v) => {
