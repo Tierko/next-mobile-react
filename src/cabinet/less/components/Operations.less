@@ -230,7 +230,6 @@
     .small;
     display: none;
     margin: 40px auto 0;
-    overflow: hidden;
 
     @media (max-width: 1000px) {
       display: block;
@@ -291,5 +290,15 @@
 
   &__list-empty {
     padding: 15px 0;
+    text-align: center;
+  }
+
+  &__loader {
+    color: @GRAY-DARK;
+    text-align: center;
+
+    @media (max-width: 1000px) {
+      margin-top: 40px;
+    }
   }
 }

@@ -4,6 +4,7 @@ import cs from 'classnames';
 import Date from '../components/Date';
 import Select from '../../../common/js/components/Select';
 import Button from '../../../common/js/components/Button';
+import Loader from './Loader';
 import { formatCost } from '../utils';
 import {
   HISTORY_FILTERS,
@@ -41,15 +42,9 @@ class Operations extends Component {
 
     const prevDate = data[index - 1].date;
 
-    if (
-      date.year === prevDate.year &&
+    return date.year === prevDate.year &&
       date.month === prevDate.month &&
-      date.day === prevDate.day
-    ) {
-      return false;
-    }
-
-    return true;
+      date.day === prevDate.day;
   };
 
   state = {
@@ -57,7 +52,16 @@ class Operations extends Component {
     periodStart: new window.Date(window.Date.now() - THIRTY_DAYS),
     periodEnd: new window.Date(),
     show: 10,
+    loaded: false,
   };
+
+  componentDidMount() {
+    // setTimeout(() => {
+    //   this.setState({
+    //     loaded: true,
+    //   });
+    // }, 1500);
+  }
 
   onChange = (name, value) => {
     const { periodStart, periodEnd } = this.state;
@@ -70,9 +74,22 @@ class Operations extends Component {
       return;
     }
 
-    this.setState({
-      [name]: value,
-    });
+    if (name === 'filterBy') {
+      this.setState({
+        [name]: value,
+        loaded: false,
+      });
+
+      setTimeout(() => {
+        this.setState({
+          loaded: true,
+        });
+      }, 1000);
+    } else {
+      this.setState({
+        [name]: value,
+      });
+    }
   };
 
   filter = (data) => {
@@ -100,6 +117,7 @@ class Operations extends Component {
       periodStart,
       periodEnd,
       show,
+      loaded,
     } = this.state;
     const { data } = this.props;
     const filteredData = filter(data).slice(0, show);
@@ -169,7 +187,7 @@ class Operations extends Component {
               </tr>
             }
             {
-              filteredData.map((d, i) => (
+              loaded && filteredData.map((d, i) => (
                 <tr key={d.id} className="operations__row">
                   <td className="operations__cell-empty">&nbsp;</td>
                   {
@@ -213,7 +231,18 @@ class Operations extends Component {
               ))
             }
             {
-              !filteredData.length &&
+              !loaded &&
+                <tr>
+                  <td colSpan={7}>
+                    <div className="operations__loader">
+                      <Loader className="loader_operations" />
+                      <div>Подгружаем данные за выбранный период</div>
+                    </div>
+                  </td>
+                </tr>
+            }
+            {
+              !filteredData.length && loaded &&
                 <tr>
                   <td colSpan={7} className="operations__empty">
                     У вас нет данных за указанный период
@@ -221,7 +250,7 @@ class Operations extends Component {
                 </tr>
             }
             {
-              showMoreButton &&
+              showMoreButton && loaded &&
               <tr><td className="operations__cell-empty">&nbsp;</td>
                 <td colSpan={2}>&nbsp;</td>
                 <td className="operations__cell_button">
@@ -258,7 +287,7 @@ class Operations extends Component {
             value={filterBy}
           />
           {
-            filteredData.map((d, i) => (
+            loaded && filteredData.map((d, i) => (
               <div key={d.id} className="operations__item">
                 {
                   showDate(filteredData, i) &&
@@ -279,12 +308,19 @@ class Operations extends Component {
             ))
           }
           {
-            !filteredData.length &&
+            loaded && !filteredData.length &&
             <div className="operations__list-empty">У вас нет данных за указанный период</div>
           }
           {
-            showMoreButton &&
+            loaded && showMoreButton &&
             <Button className="button_operations-list" onClick={loadMore}>Загрузить еще</Button>
+          }
+          {
+            !loaded &&
+            <div className="operations__loader">
+              <Loader className="loader_operations" />
+              <div>Подгружаем данные за выбранный период</div>
+            </div>
           }
         </div>
       </div>
