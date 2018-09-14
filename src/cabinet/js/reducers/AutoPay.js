@@ -4,7 +4,7 @@ const initState = {
   monthlyEnabled: false,
   monthlySum: 1000,
   monthlyDay: 2,
-  monthlyUntil: 'август 2018',
+  monthlyUntil: 'августа 2018',
   lessEnabled: false,
   lessSum: 1000,
   lessLess: 100,

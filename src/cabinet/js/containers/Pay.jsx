@@ -103,29 +103,24 @@ class Pay extends Component {
                 />
                 {
                   autoPayEnabled &&
-                  <div className="dashboard__header">Подключен автоплатеж</div>
+                  <div className="dashboard__header">
+                    Подключен автоплатеж
+                    <div className="dashboard__header-sub">
+                      С карты по умолчанию {getShortPan(cards.defaultCard)}
+                    </div>
+                  </div>
                 }
                 {
                   autoPay.monthlyEnabled &&
-                  <Fragment>
-                    <div className="pay__auto-pay-from">
-                      {formatCost(autoPay.monthlySum)} с карты {getShortPan(cards.defaultCard)}
-                    </div>
-                    <div>
-                      Оплата каждый месяц {autoPay.monthlyDay} числа до {autoPay.monthlyUntil}
-                    </div>
-                  </Fragment>
+                  <div className="pay__auto-pay-from">
+                    Оплата {formatCost(autoPay.monthlySum)} каждый месяц {autoPay.monthlyDay} числа до {autoPay.monthlyUntil}
+                  </div>
                 }
                 {
                   autoPay.lessEnabled &&
-                  <Fragment>
-                    <div className="pay__auto-pay-from">
-                      {formatCost(autoPay.lessSum)} с карты {getShortPan(cards.defaultCard)}
-                    </div>
-                    <div>
-                      Если сумма на балансе меньше {formatCost(autoPay.lessLess)}
-                    </div>
-                  </Fragment>
+                  <div className="pay__auto-pay-from">
+                    Пополнять счет не {formatCost(autoPay.lessSum)}, если баланс меньше {formatCost(autoPay.lessLess)}
+                  </div>
                 }
                 {
                   autoPayEnabled &&
