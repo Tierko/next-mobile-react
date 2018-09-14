@@ -18,11 +18,12 @@
     right: 0;
     bottom: 0;
     left: 0;
-    mask-image: data-uri('/media/images/radial-mask.svg');
-    mask-size: 0 0;
+    mask-image: radial-gradient(closest-side, #000, #000, transparent);
+    mask-size: 1% 1%;
     mask-repeat: no-repeat;
     mask-position: 50% 50%;
-    transition: transform @duration, mask-size 1.5s;
+    transform: translateZ(0);
+    transition: filter @duration, mask-size @duration;
     filter: saturate(1.2);
     z-index: 1;
 
