@@ -6,6 +6,7 @@
   width: calc(100% + 30px);
   margin: 0 -15px 46px;
   max-width: 100%;
+  white-space: nowrap;
 
   &_home {
     color: @WHITE;
@@ -95,7 +96,7 @@
     z-index: 2;
 
     &_show {
-      max-height: 75px;
+      max-height: 25px;
     }
   }
 
@@ -103,6 +104,13 @@
     display: flex;
     z-index: 2;
     position: relative;
+    max-height: 25px;
+    transition: max-height 0.3s;
+    overflow: hidden;
+
+    &_hidden {
+      max-height: 0;
+    }
   }
 
   &__cell {

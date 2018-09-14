@@ -14,6 +14,7 @@ const tariffs = [{
   nextCalls: 'Безлимит',
   calls: 700,
   sms: 'Безлимит',
+  transition: 0,
 }, {
   id: 2,
   current: false,
@@ -23,6 +24,7 @@ const tariffs = [{
   calls: 700,
   nextCalls: 700,
   sms: 'Безлимит',
+  transition: 0,
 }, {
   id: 3,
   current: false,
@@ -32,6 +34,7 @@ const tariffs = [{
   calls: 700,
   nextCalls: 700,
   sms: 'Безлимит',
+  transition: 0,
 }];
 
 
@@ -73,6 +76,11 @@ class TariffTable extends Component {
     title: 'СМС на номера всех операторов по России',
     unit: '',
     field: 'sms',
+  }, {
+    id: 6,
+    title: 'Стоимость перехода на тариф',
+    unit: '',
+    field: 'transition',
   }];
 
   RenderRow = ({
@@ -91,17 +99,25 @@ class TariffTable extends Component {
         'tariff-table__row_home': isHome,
       })}
       >
-        <div className={cs('tariff-table__title', { 'tariff-table__title_show': isDetail })}>
+        <div
+          className={cs('tariff-table__title', {
+            'tariff-table__title_show': isDetail,
+          })}
+        >
           {row.title}
         </div>
-        <div className="tariff-table__cells">
+        <div
+          className={cs('tariff-table__cells', {
+            'tariff-table__cells_hidden': row.field === 'transition' && !isDetail,
+          })}
+        >
           {
             data.map(d => (
               <div key={d.id} className="tariff-table__cell">
                 {
-                  row.field === 'payment' ?
+                  row.field === 'payment' || row.field === 'transition' ?
                     <span className={cs('tariff-table__cost', { 'tariff-table__cost_home': isHome })}>
-                      {formatCost(d[row.field])}
+                      {formatCost(d[row.field], true)}
                     </span> :
                     d[row.field]
                 } {row.unit}
