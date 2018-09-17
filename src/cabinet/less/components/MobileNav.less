@@ -14,9 +14,10 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 56px;
-    height: 56px;
+    width: 52px;
+    height: 52px;
     background: #e2e2ec url("/media/icons/menu.svg") no-repeat 50% 50%;
+    background-size: 20px auto;
     z-index: 1;
 
     &_open {
@@ -51,12 +52,19 @@
     -webkit-overflow-scrolling: touch;
   }
 
+  &__phone {
+    position: absolute;
+    top: 12px;
+    left: 52px;
+    white-space: nowrap;
+  }
+
   &__link {
     display: block;
     align-items: center;
     text-decoration: none;
     color: @GRAY-DARK;
-    padding: 12px 0 12px 33px;
+    padding: 12px 0 12px 35px;
     position: relative;
     text-align: left;
     white-space: nowrap;

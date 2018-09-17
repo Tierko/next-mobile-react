@@ -5,6 +5,7 @@ import { Pages } from '../constants';
 
 const MobileNavDashboard = () => (
   <div className="mobile-nav__list-inner">
+    <div className="mobile-nav__phone">+ 7 905 123-23-44</div>
     <NavLink className="mobile-nav__link" to={Pages.OVERVIEW}>
       <InlineSvg src={require('../../../../media/nav/overview.svg')} raw /> Обзор
     </NavLink>
