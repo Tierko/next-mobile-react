@@ -44,7 +44,10 @@ class AutoPay extends Component {
     super(props);
     const { data, data: { monthlyEnabled, lessEnabled } } = props;
 
-    this.state = Object.assign(data, { alreadyEnabled: monthlyEnabled || lessEnabled });
+    this.state = Object.assign(data, {
+      alreadyEnabled: monthlyEnabled || lessEnabled,
+      overflowHidden: false,
+    });
   }
 
   onChange = (name, value) => {
@@ -52,6 +55,18 @@ class AutoPay extends Component {
       if (value.toString().length > 5) {
         return;
       }
+    }
+
+    if (name === 'monthlyEnabled' || name === 'lessEnabled') {
+      this.setState({
+        overflowHidden: true,
+      });
+
+      setTimeout(() => {
+        this.setState({
+          overflowHidden: false,
+        });
+      }, 1000);
     }
 
     this.setState({
@@ -114,6 +129,7 @@ class AutoPay extends Component {
       lessSum,
       unsaved,
       alreadyEnabled,
+      overflowHidden,
     } = this.state;
     const { onChange, onSave, getDefaultCard } = this;
     const { months, days } = AutoPay;
@@ -161,7 +177,12 @@ class AutoPay extends Component {
                     <div>Ежемесячно</div>
                     <Checkbox name="monthlyEnabled" value={monthlyEnabled} onChange={onChange} />
                   </div>
-                  <div className={cs('auto-pay__block', { 'auto-pay__block_show': monthlyEnabled })}>
+                  <div
+                    className={cs('auto-pay__block', {
+                      'auto-pay__block_show': monthlyEnabled,
+                      'auto-pay__block_overflow': overflowHidden,
+                    })}
+                  >
                     <div className="auto-pay__row">
                       <div className="auto-pay__cell">
                         На сумму
@@ -202,7 +223,12 @@ class AutoPay extends Component {
                     <div>Если на счете недостаточно денег</div>
                     <Checkbox value={lessEnabled} name="lessEnabled" onChange={onChange} />
                   </div>
-                  <div className={cs('auto-pay__block', { 'auto-pay__block_show': lessEnabled })}>
+                  <div
+                    className={cs('auto-pay__block', {
+                      'auto-pay__block_show': lessEnabled,
+                      'auto-pay__block_overflow': overflowHidden,
+                    })}
+                  >
                     <div className="auto-pay__row">
                       <div className="auto-pay__cell">
                         На сумму
