@@ -148,7 +148,7 @@ class RoamingMap extends Component {
 
   featureSelectZone = () => ({
     color: '#E3E3EC',
-    fillColor: '#97da34',
+    fillColor: '#84C935',
     fillOpacity: 1,
     weight: 0.5,
   });
