@@ -23,7 +23,7 @@
     mask-repeat: no-repeat;
     mask-position: 50% 50%;
     transform: translateZ(0);
-    transition: filter @duration, mask-size @duration;
+    transition: filter @duration cubic-bezier(0.25, 0.46, 0.45, 0.94), mask-size @duration cubic-bezier(0.25, 0.46, 0.45, 0.94);
     filter: saturate(1.2);
     z-index: 1;
 
@@ -59,7 +59,7 @@
       background-size: cover;
       opacity: 0.99;
       z-index: 2;
-      transition: opacity 1.5s;
+      transition: opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     &_expand:before {
