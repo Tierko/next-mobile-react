@@ -56,11 +56,11 @@ class Operations extends Component {
   };
 
   componentDidMount() {
-    // setTimeout(() => {
-    //   this.setState({
-    //     loaded: true,
-    //   });
-    // }, 1500);
+    setTimeout(() => {
+      this.setState({
+        loaded: true,
+      });
+    }, 1500);
   }
 
   onChange = (name, value) => {
