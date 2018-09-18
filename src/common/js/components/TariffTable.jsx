@@ -208,7 +208,13 @@ class TariffTable extends Component {
           </div>
           {
             rows.map(r => (
-              <RenderRow key={r.id} data={dataFiltered} row={r} isDetail={isDetail} isHome={home} />
+              <RenderRow
+                key={r.id}
+                data={dataFiltered}
+                row={r}
+                isDetail={isDetail}
+                isHome={home}
+              />
             ))
           }
           {

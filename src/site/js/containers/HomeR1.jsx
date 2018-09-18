@@ -8,7 +8,7 @@ import EarthTariff from '../components/EarthTariff';
 import Cabinet from '../components/Cabinet';
 import Footer from '../../../common/js/components/Footer';
 
-class Home extends Component {
+class HomeR1 extends Component {
   to = (page) => {
     location.href = `${SERVICE_URL}/#/${page || ''}`;
   };
@@ -25,7 +25,7 @@ class Home extends Component {
           <Club to={() => to('signup')} />
           <HomeTariff />
           <EarthTariff home />
-          <Cabinet to={() => to()} />
+          <Cabinet to={() => to('signin')} />
           <Footer als light />
         </div>
       </div>
@@ -33,4 +33,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default HomeR1;

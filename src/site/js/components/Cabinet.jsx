@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Cabinet = ({ to }) => (
@@ -24,5 +23,9 @@ const Cabinet = ({ to }) => (
     </div>
   </div>
 );
+
+Cabinet.propTypes = {
+  to: PropTypes.func.isRequired,
+};
 
 export default Cabinet;
