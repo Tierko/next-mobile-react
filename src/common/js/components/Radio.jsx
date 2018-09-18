@@ -17,7 +17,7 @@ const Radio = ({
     onClick={() => onChange(name, value)}
   >
     <div className="radio__input-wrapper">
-      <input className="radio__input" type="radio" name={name} checked={value === selected} />
+      <input className="radio__input" type="radio" name={name} defaultChecked={value === selected} />
     </div>
     <div className="radio__value">{children || value}</div>
   </div>

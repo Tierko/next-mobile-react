@@ -14,6 +14,7 @@ import SignUpNumberSelect from '../components/SignUpNumberSelect';
 import SingUpTariffSelect from '../components/SignUpTariffSelect';
 import Transitions from '../components/Transitions';
 import { Pages, TITLES } from '../constants';
+import { getData } from '../utils';
 
 class SignUp extends Component {
   nextStep = (step) => {
@@ -29,8 +30,9 @@ class SignUp extends Component {
   };
 
   render() {
-    const { match: { params: { step, mode } } } = this.props;
+    const { match: { params: { step, mode, number } } } = this.props;
     const { nextStep, toPage } = this;
+    const signUpMode = getData('signup');
     const meta = {
       title: TITLES.SIGN_UP,
     };
@@ -50,12 +52,15 @@ class SignUp extends Component {
             {
               step &&
               <Transitions>
-                <ProgressBar count={4} current={step} />
+                <ProgressBar step={step} mode={signUpMode} />
               </Transitions>
             }
-            {/*<SignUpInitAfter nextStep={nextStep} />*/}
             {
-              !step &&
+              !step && !!signUpMode &&
+              <SignUpInitAfter nextStep={nextStep} />
+            }
+            {
+              !step && !signUpMode &&
               <SignUpInit nextStep={nextStep} toPage={toPage} mode={mode || ''} />
             }
             {
@@ -64,7 +69,7 @@ class SignUp extends Component {
             }
             {
               step === 'choose-tariff' &&
-              <SingUpTariffSelect nextStep={nextStep} />
+              <SingUpTariffSelect nextStep={nextStep} number={number} />
             }
             {
               step === 'phone' &&

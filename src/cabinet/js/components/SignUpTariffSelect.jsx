@@ -15,9 +15,11 @@ class SignUpTariffSelect extends Component {
   };
 
   render() {
-    const { nextStep } = this.props;
+    const { nextStep, number } = this.props;
     const { current } = this.state;
     const { onChange } = this;
+    const message = number === 'new' ? 'К информации о номере' : 'К персональной информации';
+    const step = number === 'new' ? 'choose-number' : 'personal/number/new';
 
     return (
       <div className="welcome__content sign-up sign-up_tariff-select">
@@ -25,8 +27,8 @@ class SignUpTariffSelect extends Component {
           Выберите подходящий тариф
         </div>
         <TariffTable className="tariff-table_sign-up" onChange={onChange} current={current} signUp />
-        <Button onClick={() => nextStep('')} className="button_sign-up-continue">Продолжить</Button>
-        <div className="sign-up__note sign-up__note_show">К  информации о номере</div>
+        <Button onClick={() => nextStep(step)} className="button_sign-up-continue">Продолжить</Button>
+        <div className="sign-up__note sign-up__note_show">{message}</div>
       </div>
     );
   }

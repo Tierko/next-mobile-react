@@ -12,6 +12,14 @@ const SiteMap = () => (
           <div>
             <Link className="link" to={Pages.DATA}>Демо данные</Link>
             <br />
+            <a className="link" href={`${SERVICE_URL}/#/home_r1`}>Главная (релиз 1)</a>
+            <br />
+            <a className="link" href={`${SERVICE_URL}/#/home_r2`}>Главная (релиз 2)</a>
+            <br />
+            <a className="link" href={`${SERVICE_URL}/#/tariff_r1`}>Тарифы (релиз 1)</a>
+            <br />
+            <a className="link" href={`${SERVICE_URL}/#/tariff_r2`}>Тарифы (релиз 2)</a>
+            <br />
             <Link className="link" to={Pages.SIGN_IN}>Вход</Link>
             <br />
             <Link className="link" to={Pages.SIGN_UP}>Регистрация</Link>
@@ -20,13 +28,17 @@ const SiteMap = () => (
             <br />
             <Link className="link" to={`${Pages.SIGN_UP}/promo`}>Регистрация, промо</Link>
             <br />
-            <Link className="link" to={`${Pages.SIGN_UP}/step/phone`}>Регистрация шаг 1</Link>
+            <Link className="link" to={`${Pages.SIGN_UP}/step/phone`}>Регистрация (текущий номер)</Link>
             <br />
-            <Link className="link" to={`${Pages.SIGN_UP}/step/personal`}>Регистрация шаг 2</Link>
+            <Link className="link" to={`${Pages.SIGN_UP}/step/choose-tariff`}>Регистрация (выбор тарифа)</Link>
             <br />
-            <Link className="link" to={`${Pages.SIGN_UP}/step/delivery-address`}>Регистрация шаг 3</Link>
+            <Link className="link" to={`${Pages.SIGN_UP}/step/choose-number`}>Регистрация (выбор номера)</Link>
             <br />
-            <Link className="link" to={`${Pages.SIGN_UP}/step/delivery-date`}>Регистрация шаг 4</Link>
+            <Link className="link" to={`${Pages.SIGN_UP}/step/personal`}>Регистрация (персональная информация)</Link>
+            <br />
+            <Link className="link" to={`${Pages.SIGN_UP}/step/delivery-address`}>Регистрация (адрес доставки)</Link>
+            <br />
+            <Link className="link" to={`${Pages.SIGN_UP}/step/delivery-date`}>Регистрация (дата доставки)</Link>
             <br />
             <Link className="link" to={Pages.CONDITIONS}>Условия перехода</Link>
             <br />

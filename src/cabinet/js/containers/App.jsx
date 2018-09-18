@@ -67,6 +67,8 @@ class App extends Component {
           <Route path={Pages.KIT} component={Kit} />
           <Route path={Pages.SIGN_UP} component={SignUp} exact />
           <Route path={`${Pages.SIGN_UP}/step/:step`} component={SignUp} exact />
+          <Route path={`${Pages.SIGN_UP}/step/:step/number/:number`} component={SignUp} exact />
+          <Route path={`${Pages.SIGN_UP}/tariff/:id`} component={SignUp} exact />
           <Route path={`${Pages.SIGN_UP}/:mode`} component={SignUp} exact />
           <Route path={Pages.REQUEST_STATUS} component={RequestStatus} exact />
           <Route path={`${Pages.REQUEST_STATUS}/:status`} component={RequestStatus} />

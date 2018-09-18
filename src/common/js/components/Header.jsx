@@ -5,7 +5,12 @@ import cs from 'classnames';
 import HeaderCabinet from './HeaderCabinet';
 import HeaderSite from './HeaderSite';
 
-const Header = ({ back, light, mode }) => (
+const Header = ({
+  back,
+  light,
+  mode,
+  r,
+}) => (
   <nav className="header">
     <div className="header__left">
       <div className={cs('header__logo', { header__logo_light: light })} />
@@ -18,7 +23,7 @@ const Header = ({ back, light, mode }) => (
     </div>
     {
       mode === 'site' ?
-        <HeaderSite light={light} /> :
+        <HeaderSite light={light} r={r} /> :
         <HeaderCabinet light={light} />
     }
   </nav>
@@ -28,12 +33,14 @@ Header.propTypes = {
   back: PropTypes.string,
   light: PropTypes.bool,
   mode: PropTypes.string,
+  r: PropTypes.number,
 };
 
 Header.defaultProps = {
   back: '',
   light: false,
   mode: 'cabinet',
+  r: 1,
 };
 
 export default Header;

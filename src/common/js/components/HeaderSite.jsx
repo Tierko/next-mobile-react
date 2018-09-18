@@ -4,10 +4,10 @@ import { NavLink } from 'react-router-dom';
 import cs from 'classnames';
 import { Pages } from '../../../cabinet/js/constants';
 
-const HeaderSite = ({ light }) => (
+const HeaderSite = ({ light, r }) => (
   <Fragment>
     <div className="header__center">
-      <NavLink className={cs('header__item', { header__item_light: light })} to={Pages.TARIFF}>
+      <NavLink className={cs('header__item', { header__item_light: light })} to={Pages[`TARIFF_R${r}`]}>
         Тарифы и услуги
       </NavLink>
       <div className={cs('header__span', { header__span_light: light })} />
@@ -33,6 +33,7 @@ const HeaderSite = ({ light }) => (
 
 HeaderSite.propTypes = {
   light: PropTypes.bool.isRequired,
+  r: PropTypes.number.isRequired,
 };
 
 export default HeaderSite;

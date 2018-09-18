@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import TariffTable from '../../../common/js/components/TariffTable';
 import Button from '../../../common/js/components/Button';
-import { PAGES } from '../constants';
+import { Pages } from '../../../cabinet/js/constants';
 
 const HomeTariff = ({ to, r }) => (
   <div className="home-tariff">
     <div className="home-tariff__header">
-      <Link className="home__link" to={PAGES[`TARIFF_R${r}`]}>Тарифы</Link>, с&nbsp;которыми не&nbsp;нужно заботиться об&nbsp;остатках
+      <Link className="home__link" to={Pages[`TARIFF_R${r}`]}>Тарифы</Link>, с&nbsp;которыми не&nbsp;нужно заботиться об&nbsp;остатках
     </div>
     <TariffTable home />
     {

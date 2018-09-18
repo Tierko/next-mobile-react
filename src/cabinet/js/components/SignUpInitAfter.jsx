@@ -21,6 +21,7 @@ class SignUpInitAfter extends Component {
     const { whichNumber } = this.state;
     const { nextStep } = this.props;
     const { onChange } = this;
+    const step = whichNumber === 'current' ? 'choose-tariff/number/current' : 'choose-tariff/number/new';
 
     return (
       <div className="welcome__content sign-up">
@@ -37,7 +38,7 @@ class SignUpInitAfter extends Component {
             Новый номер
           </Radio>
         </div>
-        <Button onClick={() => nextStep('')} className="button_sign-up-continue">Продолжить</Button>
+        <Button onClick={() => nextStep(step)} className="button_sign-up-continue">Продолжить</Button>
         <div className="sign-up__agreement">
           Я ознакомлен с <Link to={Pages.CONDITIONS} className="link">условиями перехода</Link>
         </div>
