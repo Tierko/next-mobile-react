@@ -3,13 +3,8 @@
 }
 
 .tariff-table {
-  margin: 0 0 46px;
+  margin: 0 -15px 46px;
   overflow: hidden;
-
-  &_services {
-    margin-left: -15px;
-    margin-right: -15px;
-  }
 
   &_home {
     color: @WHITE;
@@ -25,6 +20,14 @@
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     margin-bottom: -20px;
+  }
+
+  &__inner_to &__row:nth-child(1) &__names {
+    padding-bottom: 9px;
+  }
+
+  &__inner_to &__row:nth-child(2) {
+    border-top: none;
   }
 
   &_services &__inner {

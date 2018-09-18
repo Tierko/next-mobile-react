@@ -147,6 +147,7 @@ class TariffTable extends Component {
       tariff,
       signUp,
       className,
+      to,
     } = this.props;
     const isDetail = this.state.mode === 'detail';
     const currentTariff = tariffs.find(d => d.id === current);
@@ -155,7 +156,7 @@ class TariffTable extends Component {
 
     return (
       <div className={cs(`tariff-table ${className}`, { 'tariff-table_home': home })}>
-        <div className="tariff-table__inner">
+        <div className={cs('tariff-table__inner', { 'tariff-table__inner_to': !!to })}>
           <div className="tariff-table__row">
             <div className={cs('tariff-table__names', { 'tariff-table__names_tariff': tariff })}>
               {
@@ -173,6 +174,10 @@ class TariffTable extends Component {
                       })}
                     >
                       <span>{d.title}</span>
+                      {
+                        tariff && to &&
+                        <Button onClick={() => to(d.id)} className="button_tariff-table">Перейти</Button>
+                      }
                     </div>
                 ))
               }
@@ -239,6 +244,7 @@ TariffTable.propTypes = {
   signUp: PropTypes.bool,
   mode: PropTypes.string,
   className: PropTypes.string,
+  to: PropTypes.func,
 };
 
 TariffTable.defaultProps = {
@@ -249,6 +255,7 @@ TariffTable.defaultProps = {
   signUp: false,
   mode: 'short',
   className: '',
+  to: null,
 };
 
 export default TariffTable;

@@ -1,24 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import TariffTable from '../../../common/js/components/TariffTable';
 import Button from '../../../common/js/components/Button';
 import InterCalls from '../../../common/js/components/InterCalls';
 
-class TariffTariff extends Component {
-  go = () => {};
+const TariffTariff = ({ to, toTariff }) => (
+  <div className="tariff-tariff">
+    <div className="tariff-tariff__header">Тарифы</div>
+    <TariffTable mode="detail" tariff to={toTariff} />
+    <Button onClick={to}>Перейти на Next</Button>
+    <div className="tariff-tariff__note">С&nbsp;возможностью получить полгода бесплатной связи и&nbsp;10&nbsp;персональных приглашений для друзей</div>
+    <InterCalls className="inter-calls_tariff" />
+  </div>
+);
 
-  render() {
-    const { go } = this;
+TariffTariff.propTypes = {
+  to: PropTypes.func.isRequired,
+  toTariff: PropTypes.func,
+};
 
-    return (
-      <div className="tariff-tariff">
-        <div className="tariff-tariff__header">Тарифы</div>
-        <TariffTable mode="detail" tariff />
-        <Button onClick={go}>Перейти на Next</Button>
-        <div className="tariff-tariff__note">С&nbsp;возможностью получить полгода бесплатной связи и&nbsp;10&nbsp;персональных приглашений для друзей</div>
-        <InterCalls className="inter-calls_tariff" />
-      </div>
-    );
-  }
-}
+TariffTariff.defaultProps = {
+  toTariff: null,
+};
 
 export default TariffTariff;

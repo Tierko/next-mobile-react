@@ -21,11 +21,11 @@ class Home extends Component {
         <Header mode="site" light />
         <div className="home__inner">
           <Intro to={() => to('signup')} />
-          <Best />
-          <Club to={() => to('signup')} />
-          <HomeTariff r={1} />
-          <EarthTariff home />
+          <Best className="best_r2" />
+          <HomeTariff to={to} r={2} />
+          <EarthTariff className="earth-tariff_home-r2" home />
           <Cabinet to={() => to('signin')} />
+          <Club className="club_home-r2" to={() => to('signup')} />
           <Footer als light />
         </div>
       </div>
