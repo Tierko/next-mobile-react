@@ -109,6 +109,7 @@ class TariffTable extends Component {
         <div
           className={cs('tariff-table__cells', {
             'tariff-table__cells_hidden': row.field === 'transition' && !isDetail,
+            'tariff-table__cells_cost-home': isHome,
           })}
         >
           {

@@ -9,8 +9,8 @@ const PORT = {
   site: '8082',
 };
 const URL = {
-  cabinet: 'http://next-mobile.dev.design.ru',
-  site: 'http://next-promo.dev.design.ru',
+  cabinet: 'http://next-promo.dev.design.ru',
+  site: 'http://next-mobile.dev.design.ru',
 };
 
 module.exports = (env, { mode }) => {
@@ -81,7 +81,7 @@ module.exports = (env, { mode }) => {
       new webpack.NamedModulesPlugin(),
       new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: './index.html',
         hash: true,
         inject: true,
       }),

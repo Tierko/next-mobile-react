@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from '../../../common/js/components/Header';
 import Intro from '../components/Intro';
 import Best from '../components/Best';
@@ -8,19 +8,29 @@ import EarthTariff from '../components/EarthTariff';
 import Cabinet from '../components/Cabinet';
 import Footer from '../../../common/js/components/Footer';
 
-const Home = () => (
-  <div className="home">
-    <Header mode="site" light />
-    <div className="home__inner">
-      <Intro />
-      <Best />
-      <Club />
-      <HomeTariff />
-      <EarthTariff home />
-      <Cabinet />
-      <Footer als light />
-    </div>
-  </div>
-);
+class Home extends Component {
+  to = (page) => {
+    location.href = `${SERVICE_URL}/#/${page || ''}`;
+  };
+
+  render() {
+    const { to } = this;
+
+    return (
+      <div className="home">
+        <Header mode="site" light />
+        <div className="home__inner">
+          <Intro to={() => to('signup')} />
+          <Best />
+          <Club to={() => to('signup')} />
+          <HomeTariff />
+          <EarthTariff home />
+          <Cabinet to={() => to()} />
+          <Footer als light />
+        </div>
+      </div>
+    );
+  }
+}
 
 export default Home;
