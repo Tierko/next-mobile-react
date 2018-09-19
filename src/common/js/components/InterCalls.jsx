@@ -35,9 +35,15 @@ class InterCalls extends Component {
   };
 
   onSelect = (_, value) => {
+    const { onChange } = this.props;
+
     this.setState({
       item: value,
     });
+
+    if (onChange) {
+      onChange(value);
+    }
   };
 
   getCost = () => {
@@ -51,10 +57,16 @@ class InterCalls extends Component {
   };
 
   clear = () => {
+    const { onChange } = this.props;
+
     this.setState({
       item: null,
       value: '',
     });
+
+    if (onChange) {
+      onChange(null);
+    }
   };
 
   render() {
@@ -132,6 +144,7 @@ InterCalls.propTypes = {
   more: PropTypes.bool,
   home: PropTypes.bool,
   tariff: PropTypes.bool,
+  onChange: PropTypes.func,
 };
 
 InterCalls.defaultProps = {
@@ -139,6 +152,7 @@ InterCalls.defaultProps = {
   more: false,
   home: false,
   tariff: false,
+  onChange: null,
 };
 
 export default InterCalls;

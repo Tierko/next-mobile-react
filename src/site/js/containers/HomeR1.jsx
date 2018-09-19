@@ -24,7 +24,7 @@ class Home extends Component {
           <Best />
           <Club to={() => to('signup')} />
           <HomeTariff r={1} />
-          <EarthTariff home />
+          <EarthTariff home type="dark" size="big" />
           <Cabinet to={() => to('signin')} />
           <Footer als light />
         </div>

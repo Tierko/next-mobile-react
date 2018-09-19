@@ -8,11 +8,16 @@ const Button = ({
   disabled,
   children,
   borderless,
+  primary,
 }) => (
   <button
     onClick={onClick}
     className={
-      cs(`button ${className}`, { button_borderless: borderless })
+      cs(`button ${className}`, {
+        button_borderless: borderless,
+        button_primary: primary,
+        button_secondary: !primary,
+      })
     }
     disabled={disabled}
   >
@@ -26,12 +31,14 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   children: PropTypes.node.isRequired,
   borderless: PropTypes.bool,
+  primary: PropTypes.bool,
 };
 
 Button.defaultProps = {
   className: '',
   disabled: false,
   borderless: false,
+  primary: true,
 };
 
 export default Button;

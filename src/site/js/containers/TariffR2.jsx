@@ -21,7 +21,7 @@ class Tariff extends Component {
         <Header mode="site" />
         <div className="tariff__inner">
           <TariffTariff to={() => to('signup')} toTariff={toTariff} />
-          <TariffRoaming />
+          <TariffRoaming size="small" type="light" />
           <TariffServices />
         </div>
       </div>

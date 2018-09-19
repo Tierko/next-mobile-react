@@ -4,6 +4,7 @@
   justify-content: space-between;
   padding-top: 200px;
   padding-bottom: 200px;
+  position: relative;
 
   &_tariff {
     color: inherit;
@@ -25,6 +26,21 @@
   &__text {
     max-width: 528px;
     margin: 0 0 32px;
+  }
+
+  &__other,
+  &__numbers {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__numbers {
+    opacity: 0;
+    transition: opacity 0.5s;
+
+    &_show {
+      opacity: 1;
+    }
   }
 
   &_tariff &__numbers {

@@ -1,0 +1,53 @@
+.earth {
+  position: absolute;
+  top: 0;
+  right: -35px;
+  bottom: 0;
+  border-radius: 50%;
+  margin: auto;
+
+  &_dark {
+    background-image: radial-gradient(circle 276px at 152.1% 533.21%, #051151 0%, #051152 100%);
+  }
+
+  &_light {
+    background-image: linear-gradient(180deg, #e2e2ec 0%, #d6d6e4 100%);
+  }
+
+  &_small {
+    width: 451px;
+    height: 451px;
+  }
+
+  &_big {
+    width: 556px;
+    height: 556px;
+  }
+
+  &__canvas {
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 1%, #000, #000);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__marker {
+    width: 20px;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background: url("/media/icons/marker.svg") no-repeat;
+    opacity: 0;
+    transition: opacity 0.5s;
+
+    &_show {
+      opacity: 1;
+    }
+  }
+}

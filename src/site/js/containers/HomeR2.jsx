@@ -23,7 +23,7 @@ class Home extends Component {
           <Intro to={() => to('signup')} />
           <Best className="best_r2" />
           <HomeTariff to={to} r={2} />
-          <EarthTariff className="earth-tariff_home-r2" home />
+          <EarthTariff className="earth-tariff_home-r2" home type="dark" size="big" />
           <Cabinet to={() => to('signin')} />
           <Club className="club_home-r2" to={() => to('signup')} />
           <Footer als light />
