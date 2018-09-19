@@ -19,7 +19,7 @@ class SignUpTariffSelect extends Component {
     const { current } = this.state;
     const { onChange } = this;
     const message = number === 'new' ? 'К информации о номере' : 'К персональной информации';
-    const step = number === 'new' ? 'choose-number' : 'personal/number/new';
+    const step = number === 'new' ? 'choose-number' : 'personal';
 
     return (
       <div className="welcome__content sign-up sign-up_tariff-select">
@@ -36,6 +36,11 @@ class SignUpTariffSelect extends Component {
 
 SignUpTariffSelect.propTypes = {
   nextStep: PropTypes.func.isRequired,
+  number: PropTypes.string,
+};
+
+SignUpTariffSelect.defaultProps = {
+  number: '',
 };
 
 export default SignUpTariffSelect;

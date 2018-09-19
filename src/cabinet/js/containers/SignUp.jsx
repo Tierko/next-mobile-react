@@ -19,8 +19,14 @@ import { getData } from '../utils';
 class SignUp extends Component {
   nextStep = (step) => {
     const { history } = this.props;
+    const { match: { params: { number } } } = this.props;
+    let stepStr = `${Pages.SIGN_UP}/step/${step}`;
 
-    history.push(`${Pages.SIGN_UP}/step/${step}`);
+    if (number) {
+      stepStr = `${stepStr}/number/${number}`;
+    }
+
+    history.push(stepStr);
   };
 
   toPage = (page) => {
