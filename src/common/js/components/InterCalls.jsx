@@ -110,6 +110,7 @@ class InterCalls extends Component {
               fromStart
               emptyText="Такой страны нет в списке"
               light={home}
+              flag
             />
           </div>
         }

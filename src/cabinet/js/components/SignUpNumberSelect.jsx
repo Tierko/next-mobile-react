@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import SmallTabs from './SmallTabs';
 import Button from '../../../common/js/components/Button';
 import Numbers from './Numbers';
+import Transitions from './Transitions';
 import { formatPhone, formatCost } from '../utils';
 
 class SignUpNumberSelect extends Component {
@@ -104,36 +105,38 @@ class SignUpNumberSelect extends Component {
     const currentPhone = filteredNumbers.find(f => f.phone === selectedPhone);
 
     return (
-      <div className="welcome__content sign-up sign-up_numbers">
-        <div className="sign-up__message sign-up__message_select-number">
-          Выберите новый номер телефона
-        </div>
-        <SmallTabs className="small-tabs_numbers" onChange={changeTab} active={tab} items={tabs} />
-        {
-          showList &&
-          <Numbers
-            numbers={filteredNumbers}
-            selectPhone={selectPhone}
-            selectedPhone={selectedPhone}
-          />
-        }
-        {
-          !showList && currentPhone &&
-          <div>
-            <div className="sign-up__chosen-number">
-              <div className="sign-up__update" onClick={setRandomNumber} />
-              {formatPhone(currentPhone.phone)}
-              <span className="sign-up__chosen-number-p">{formatCost(currentPhone.price, true)}</span>
-            </div>
+      <Transitions>
+        <div className="welcome__content sign-up sign-up_numbers">
+          <div className="sign-up__message sign-up__message_select-number">
+            Выберите новый номер телефона
           </div>
-        }
-        <div className="sign-up__toggle-numbers" onClick={toggleNumbers}>
+          <SmallTabs className="small-tabs_numbers" onChange={changeTab} active={tab} items={tabs} />
           {
-            showList ? 'Показать случайный номер' : 'Показать номера списком'
+            showList &&
+            <Numbers
+              numbers={filteredNumbers}
+              selectPhone={selectPhone}
+              selectedPhone={selectedPhone}
+            />
           }
+          {
+            !showList && currentPhone &&
+            <div>
+              <div className="sign-up__chosen-number">
+                <div className="sign-up__update" onClick={setRandomNumber} />
+                {formatPhone(currentPhone.phone)}
+                <span className="sign-up__chosen-number-p">{formatCost(currentPhone.price, true)}</span>
+              </div>
+            </div>
+          }
+          <div className="sign-up__toggle-numbers" onClick={toggleNumbers}>
+            {
+              showList ? 'Показать случайный номер' : 'Показать номера списком'
+            }
+          </div>
+          <Button onClick={() => nextStep('personal')} className="button_sign-up-continue">Продолжить</Button>
         </div>
-        <Button onClick={() => nextStep('personal')} className="button_sign-up-continue">Продолжить</Button>
-      </div>
+      </Transitions>
     );
   }
 }

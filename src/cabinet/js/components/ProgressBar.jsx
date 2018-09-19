@@ -2,37 +2,73 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 
-const convertSteps = (step, mode) => {
-  if (!mode && step === 'phone') {
+const convertSteps = (step, number) => {
+  if (step === 'phone') {
     return 1;
   }
 
-  if (!mode && step === 'personal') {
+  if (!number && step === 'personal') {
     return 2;
   }
 
-  if (!mode && step === 'delivery-address') {
+  if (!number && step === 'delivery-address') {
     return 3;
   }
 
-  if (!mode && step === 'delivery-date') {
+  if (!number && step === 'delivery-date') {
     return 4;
+  }
+
+  if (number && step === 'choose-tariff') {
+    return 2;
+  }
+
+  if (number === 'current' && step === 'personal') {
+    return 3;
+  }
+
+  if (number === 'current' && step === 'delivery-address') {
+    return 4;
+  }
+
+  if (number === 'current' && step === 'delivery-date') {
+    return 5;
+  }
+
+  if (number === 'new' && step === 'choose-number') {
+    return 3;
+  }
+
+  if (number === 'new' && step === 'personal') {
+    return 4;
+  }
+
+  if (number === 'new' && step === 'delivery-address') {
+    return 5;
+  }
+
+  if (number === 'new' && step === 'delivery-date') {
+    return 6;
   }
 
   return 0;
 };
 
-const getCount = (mode) => {
-  if (!mode) {
+const getCount = (number) => {
+  if (!number) {
     return 4;
+  }
+
+  if (number === 'current') {
+    return 5;
   }
 
   return 6;
 };
 
-const ProgressBar = ({ mode, step, className }) => {
-  const count = getCount(mode);
-  const current = convertSteps(step, mode);
+const ProgressBar = ({ step, className, number }) => {
+  const count = getCount(number);
+  const current = convertSteps(step, number);
   const steps = Array((count * 2) - 1).fill(null);
   const elements = steps.map((_, i) => {
     if (i % 2 === 0) {
@@ -62,12 +98,13 @@ const ProgressBar = ({ mode, step, className }) => {
 
 ProgressBar.propTypes = {
   step: PropTypes.string.isRequired,
-  mode: PropTypes.number.isRequired,
   className: PropTypes.string,
+  number: PropTypes.string,
 };
 
 ProgressBar.defaultProps = {
   className: '',
+  number: '',
 };
 
 export default ProgressBar;

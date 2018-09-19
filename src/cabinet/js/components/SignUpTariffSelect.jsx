@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../common/js/components/Button';
 import TariffTable from '../../../common/js/components/TariffTable';
+import Transitions from '../components/Transitions';
 
 class SignUpTariffSelect extends Component {
   state = {
@@ -22,14 +23,16 @@ class SignUpTariffSelect extends Component {
     const step = number === 'new' ? 'choose-number' : 'personal';
 
     return (
-      <div className="welcome__content sign-up sign-up_tariff-select">
-        <div className="sign-up__message sign-up__message_select-tariff">
-          Выберите подходящий тариф
+      <Transitions>
+        <div className="welcome__content sign-up sign-up_tariff-select">
+          <div className="sign-up__message sign-up__message_select-tariff">
+            Выберите подходящий тариф
+          </div>
+          <TariffTable className="tariff-table_sign-up" onChange={onChange} current={current} signUp />
+          <Button onClick={() => nextStep(step)} className="button_sign-up-continue">Продолжить</Button>
+          <div className="sign-up__note sign-up__note_show">{message}</div>
         </div>
-        <TariffTable className="tariff-table_sign-up" onChange={onChange} current={current} signUp />
-        <Button onClick={() => nextStep(step)} className="button_sign-up-continue">Продолжить</Button>
-        <div className="sign-up__note sign-up__note_show">{message}</div>
-      </div>
+      </Transitions>
     );
   }
 }

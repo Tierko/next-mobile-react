@@ -58,16 +58,16 @@ class SignUp extends Component {
             {
               step &&
               <Transitions>
-                <ProgressBar step={step} mode={signUpMode} />
+                <ProgressBar step={step} number={number} />
               </Transitions>
             }
             {
-              !step && !!signUpMode &&
+              !step && !!signUpMode && !mode &&
               <SignUpInitAfter nextStep={nextStep} />
             }
             {
-              !step && !signUpMode &&
-              <SignUpInit nextStep={nextStep} toPage={toPage} mode={mode || ''} />
+              !step && mode &&
+              <SignUpInit nextStep={nextStep} toPage={toPage} mode={mode === 'promo-after' ? '' : mode} />
             }
             {
               step === 'choose-number' &&
@@ -79,7 +79,7 @@ class SignUp extends Component {
             }
             {
               step === 'phone' &&
-              <SingUpStep1 nextStep={nextStep} />
+              <SingUpStep1 nextStep={nextStep} number={number} />
             }
             {
               step === 'personal' &&

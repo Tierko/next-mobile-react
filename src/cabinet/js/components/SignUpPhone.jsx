@@ -19,18 +19,25 @@ class SignUpPhone extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { nextStep } = this.props;
+    const { nextStep, number } = this.props;
     const { phone } = this.state;
+    let step = 'personal';
+
+    if (number) {
+      step = 'choose-tariff';
+    }
 
     if (checkPhone(phone)) {
-      nextStep('personal');
+      nextStep(step);
     }
   };
 
   render() {
     const { phone } = this.state;
     const { onChange, onSubmit } = this;
+    const { number } = this.props;
     const isPhoneValid = checkPhone(phone);
+    const message = number ? 'Перейти к информации о тарифах' : 'Перейти к персональной информации';
 
     return (
       <Transitions classNames="slide">
@@ -40,7 +47,7 @@ class SignUpPhone extends Component {
             <Input name="phone" value={phone} onChange={onChange} className="input_phone" />
           </form>
           <Button className="button_sign-up-continue" onClick={onSubmit} disabled={!isPhoneValid}>Продолжить</Button>
-          <div className={cs('sign-up__note', { 'sign-up__note_show': isPhoneValid })}>Перейти к персональной информации</div>
+          <div className={cs('sign-up__note', { 'sign-up__note_show': isPhoneValid })}>{ message }</div>
         </div>
       </Transitions>
     );
@@ -49,6 +56,11 @@ class SignUpPhone extends Component {
 
 SignUpPhone.propTypes = {
   nextStep: PropTypes.func.isRequired,
+  number: PropTypes.string,
+};
+
+SignUpPhone.defaultProps = {
+  number: '',
 };
 
 export default SignUpPhone;

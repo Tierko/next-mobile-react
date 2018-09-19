@@ -51,6 +51,7 @@ class AutoComplete extends Select {
       simplePlaceholder,
       emptyText,
       light,
+      flag,
     } = this.props;
     const itemsFiltered = items.filter(i => isItemValid(i, value));
 
@@ -68,11 +69,17 @@ class AutoComplete extends Select {
           {
             itemsFiltered.map(i => (
               <div
-                className="select__item"
+                className={cs('select__item', { select__item_flag: flag })}
                 onClick={() => onSelect(i)}
                 role="button"
                 key={i.id || i.title}
               >
+                {
+                  flag &&
+                    <span className="select__flag">
+                      <img src={`/media/flags/${i.flag}.svg`} alt="" />
+                    </span>
+                }
                 {
                   (typeof i === 'string' || typeof i === 'number') ? i : i.title
                 }
@@ -94,11 +101,13 @@ class AutoComplete extends Select {
 AutoComplete.propTypes = {
   emptyText: PropTypes.string,
   light: PropTypes.bool,
+  flag: PropTypes.bool,
 };
 
 AutoComplete.defaultProps = {
   emptyText: 'Ничего не найдено',
   light: false,
+  flag: false,
 };
 
 export default AutoComplete;
