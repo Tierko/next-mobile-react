@@ -25,6 +25,12 @@
     overflow: hidden;
   }
 
+  &_countries {
+    @media (min-width: 1000px) {
+      margin-right: calc((100vw - 1000px) / -2);
+    }
+  }
+
   @media (max-width: @BREAK-POINT) {
     padding: 0;
 
@@ -101,6 +107,13 @@
   margin-top: 60px;
   padding-left: 150px;
   position: relative;
+
+  @media (min-width: 1200px) {
+    &__items {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
 }
 
 .roaming-country {
@@ -109,6 +122,14 @@
   padding: 10px 0 10px 30px;
   position: relative;
   color: inherit;
+
+  @media (min-width: 1200px) {
+    flex: 0 0 50%;
+  }
+
+  @media (min-width: 1900px) {
+    flex: 0 0 33.33%;
+  }
 
   &__img {
     position: absolute;

@@ -8,12 +8,12 @@ const RoamingCountries = ({ items, zone }) => {
   const countries = items.filter(c => zone.countries.indexOf(c.properties.iso_a2) !== -1);
 
   return (
-    <div className="roaming">
+    <div className="roaming roaming_countries">
       <div className="roaming__title">
         <LinkBack className="link-back_roaming" href={Pages.ROAMING} />
         Страны <span>{zone.title_.toLowerCase()}</span>
       </div>
-      <div>
+      <div className="roaming-countries__items">
         {
           countries.map(i => (
             <Link
