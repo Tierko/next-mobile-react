@@ -20,7 +20,7 @@ class Tariff extends Component {
         <MobileNav type="home" />
         <Header mode="site" />
         <div className="tariff__inner">
-          <TariffTariff to={() => to('signup')} />
+          <TariffTariff to={() => to('signup')} r={1} />
           <TariffRoaming size="small" type="light" />
           <TariffServices />
         </div>

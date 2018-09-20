@@ -38,7 +38,7 @@ Button.defaultProps = {
   className: '',
   disabled: false,
   borderless: false,
-  primary: true,
+  primary: false,
 };
 
 export default Button;
