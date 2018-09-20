@@ -124,7 +124,9 @@ class InterCalls extends Component {
                 'inter-calls__clear_light': home,
               })}
             />
-            <div className="inter-calls__selected">
+            <div className={cs('inter-calls__selected', {
+              'inter-calls__selected_light': home,
+            })}>
               <span className="inter-calls__country" onClick={clear}>
                 {item.flag && <img src={`/media/flags/${item.flag}.svg`} alt="" />}
                 {item.title}
