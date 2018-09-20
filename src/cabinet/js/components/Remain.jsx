@@ -47,19 +47,12 @@ const Remain = ({
                 <div className="remain__service">{i.name}</div>
             }
           </div>
-          {
-            i.max > 0 &&
-            <ProgressLinear
-              color="red"
-              max={i.max}
-              current={i.current}
-              x
-            />
-          }
-          {
-            i.max === 0 &&
-            <div className="remain__dash" />
-          }
+          <ProgressLinear
+            color="red"
+            max={i.max}
+            current={i.current}
+            x
+          />
         </div>
       ))
     }
