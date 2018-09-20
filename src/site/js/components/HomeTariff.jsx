@@ -13,7 +13,7 @@ const HomeTariff = ({ to, r }) => (
     <TariffTable home />
     {
       to &&
-      <Button className="button_light button_tariff-home" onClick={to}>Перейти на Next</Button>
+      <Button className="button_light button_tariff-home" onClick={() => to('signup/after')}>Перейти на Next</Button>
     }
   </div>
 );

@@ -10,6 +10,7 @@ class Tariff extends Component {
   };
 
   toTariff = (id) => {
+    console.log(id)
     location.href = `${SERVICE_URL}/#/signup/after/tariff/${id}`;
   };
 

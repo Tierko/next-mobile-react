@@ -24,7 +24,7 @@ const HeaderSite = ({ light, r }) => (
         Вход
       </a>
       <div className={cs('header__span', { header__span_light: light })} />
-      <a className={cs('header__item', { header__item_light: light })} href={`${SERVICE_URL}/#${Pages.SIGN_UP}`}>
+      <a className={cs('header__item', { header__item_light: light })} href={`${SERVICE_URL}/#${Pages.SIGN_UP}${r === 2 ? '/after' : ''}`}>
         Регистрация
       </a>
     </div>

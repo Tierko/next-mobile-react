@@ -18,7 +18,7 @@ class Home extends Component {
 
     return (
       <div className="home">
-        <Header mode="site" light />
+        <Header mode="site" light r={2} />
         <div className="home__inner">
           <Intro to={() => to('signup/after')} />
           <Best className="best_r2" />
