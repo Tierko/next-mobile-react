@@ -202,8 +202,9 @@ class TariffTable extends Component {
                   dataFiltered.map(d => (
                     <div key={d.id} className="tariff-table__action">
                       {
-                        d.id === current ? 'Ваш тариф' :
-                          <Button className="button_tariff-change" onClick={() => onChange && onChange(d.id)} borderless>Перейти</Button>
+                        d.id === current ?
+                          <span className="tariff-table__current">Ваш текущий тариф</span> :
+                          <Button className="button_tariff-change" onClick={() => onChange && onChange(d.id)}>Перейти</Button>
                       }
                     </div>
                   ))
