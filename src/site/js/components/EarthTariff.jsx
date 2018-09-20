@@ -35,11 +35,19 @@ class EarthTariff extends Component {
           {
             home && <div className="earth-tariff__text">Выезжая в&nbsp;командировку или на&nbsp;отдых, вы&nbsp;сразу увидите текущую стоимость связи и&nbsp;сможете легко проследить за&nbsp;расходами</div>
           }
-          <InterCalls className="inter-calls_home" home={home} tariff={tariff} onChange={onChange} />
+          <InterCalls
+            className="inter-calls_home"
+            home={home}
+            tariff={tariff}
+            onChange={onChange}
+            hidePrice
+          />
         </div>
-        <div className={cs('earth-tariff__numbers', {
-          'earth-tariff__numbers_show': !!country,
-        })}>
+        <div
+          className={cs('earth-tariff__numbers', {
+            'earth-tariff__numbers_show': !!country,
+          })}
+        >
           <div className="earth-tariff__row">
             <div className="earth-tariff__cell earth-tariff__cell_small">Интернет</div>
             <div className="earth-tariff__cell earth-tariff__cell_big">14 ₽ / Мб</div>

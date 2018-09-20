@@ -76,6 +76,7 @@ class InterCalls extends Component {
       className,
       home,
       tariff,
+      hidePrice,
     } = this.props;
     const {
       onChange,
@@ -128,7 +129,10 @@ class InterCalls extends Component {
                 {item.flag && <img src={`/media/flags/${item.flag}.svg`} alt="" />}
                 {item.title}
               </span>
-              <span>{formatCost(getCost())} / мин</span>
+              {
+                !hidePrice &&
+                <span>{formatCost(getCost())} / мин</span>
+              }
             </div>
           </div>
         }
@@ -146,6 +150,7 @@ InterCalls.propTypes = {
   home: PropTypes.bool,
   tariff: PropTypes.bool,
   onChange: PropTypes.func,
+  hidePrice: PropTypes.bool,
 };
 
 InterCalls.defaultProps = {
@@ -154,6 +159,7 @@ InterCalls.defaultProps = {
   home: false,
   tariff: false,
   onChange: null,
+  hidePrice: false,
 };
 
 export default InterCalls;
