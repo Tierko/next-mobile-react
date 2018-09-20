@@ -76,13 +76,25 @@ class MobileCode extends Component {
         {
           status === 'init' &&
           <Transitions>
-            <Button className="button_mobile-code" onClick={sendCode} disabled={!checkPhone(phone)}>Получить код</Button>
+            <Button
+              className="button_mobile-code"
+              onClick={sendCode}
+              disabled={!checkPhone(phone)}
+              primary
+            >
+              Получить код
+            </Button>
           </Transitions>
         }
         {
           (status === 'sent' || status === 'timed out') &&
           <Transitions>
-            <Button className="button_mobile-code" onClick={() => onEnter(code)} disabled={code.length < 4}>
+            <Button
+              className="button_mobile-code"
+              onClick={() => onEnter(code)}
+              disabled={code.length < 4}
+              primary
+            >
               {buttonTitle}
             </Button>
           </Transitions>

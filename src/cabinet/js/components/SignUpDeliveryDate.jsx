@@ -62,7 +62,12 @@ class SignUpDeliveryDate extends Component {
               formatter={formatDate}
             />
             <Select placeholder="Время" onSelect={v => onChange('time', v)} items={times} value={time} />
-            <Button className="button_sign-up-step4" onClick={() => nextStep('delivery-address')} disabled={!permit}>
+            <Button
+              className="button_sign-up-step4"
+              onClick={() => nextStep('delivery-address')}
+              disabled={!permit}
+              primary
+            >
               Продолжить
             </Button>
           </div>

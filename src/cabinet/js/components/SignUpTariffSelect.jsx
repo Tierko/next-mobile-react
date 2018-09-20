@@ -29,7 +29,14 @@ class SignUpTariffSelect extends Component {
             Выберите подходящий тариф
           </div>
           <TariffTable className="tariff-table_sign-up" onChange={onChange} current={current} signUp />
-          <Button onClick={() => nextStep(step)} className="button_sign-up-continue">Продолжить</Button>
+          <Button
+            onClick={() => nextStep(step)}
+            className="button_sign-up-continue"
+            primary
+            disabled={current === -1}
+          >
+            Продолжить
+          </Button>
           <div className="sign-up__note sign-up__note_show">{message}</div>
         </div>
       </Transitions>

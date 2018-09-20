@@ -93,7 +93,7 @@ class SignUp extends Component {
             <form onSubmit={onSubmitNoPromo}>
               <div>Введите номер для связи</div>
               <Input className="input_phone" name="phone" value={phone} onChange={onChange} />
-              <Button className="button_request" onClick={onSubmitNoPromo} disabled={!checkPhone(phone)}>
+              <Button primary className="button_request" onClick={onSubmitNoPromo} disabled={!checkPhone(phone)}>
                 Продолжить…
               </Button>
             </form>
@@ -103,7 +103,7 @@ class SignUp extends Component {
           mode === 'promo' &&
           <Transitions>
             <Fragment>
-              <Button className="button_to-next-mobile" onClick={() => nextStep('phone')}>Перейти на Next Mobile</Button>
+              <Button primary className="button_to-next-mobile" onClick={() => nextStep('phone')}>Перейти на Next Mobile</Button>
               <div className="sign-up__agreement">
                 Я ознакомлен с <Link to={Pages.CONDITIONS} className="link">условиями перехода</Link>
               </div>

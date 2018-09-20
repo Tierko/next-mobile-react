@@ -106,6 +106,7 @@ class SignUpPersonal extends Component {
               className="button_sign-up-continue"
               onClick={onSubmit}
               disabled={!isFilled()}
+              primary
             >
               Продолжить
             </Button>

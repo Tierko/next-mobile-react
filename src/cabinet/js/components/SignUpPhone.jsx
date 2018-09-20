@@ -58,7 +58,7 @@ class SignUpPhone extends Component {
           <form onSubmit={onSubmit} className="sign-up__form">
             <Input name="phone" value={phone} onChange={onChange} className="input_phone" />
           </form>
-          <Button className="button_sign-up-continue" onClick={onSubmit} disabled={!isPhoneValid}>Продолжить</Button>
+          <Button primary className="button_sign-up-continue" onClick={onSubmit} disabled={!isPhoneValid}>Продолжить</Button>
           <div className={cs('sign-up__note', { 'sign-up__note_show': isPhoneValid })}>{ message }</div>
         </div>
       </Transitions>

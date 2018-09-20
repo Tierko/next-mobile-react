@@ -85,7 +85,12 @@ class SignUpDeliveryAddress extends Component {
                 placeholder="Квартира"
               />
             </div>
-            <Button className="button_sign-up-address" onClick={onSubmit} disabled={!isFilled()}>
+            <Button
+              className="button_sign-up-address"
+              onClick={onSubmit}
+              disabled={!isFilled()}
+              primary
+            >
               Отправить заявку
             </Button>
           </form>

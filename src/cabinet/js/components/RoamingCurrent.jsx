@@ -25,7 +25,7 @@ class RoamingCurrent extends Component {
 
   render() {
     const { addPackage, onChange } = this;
-    const { data, data: { additionalPackage } } = this.props;
+    const { data, data: { additionalPackage }, inRoaming } = this.props;
     const { slowInternet } = this.state;
 
     return (
@@ -42,14 +42,18 @@ class RoamingCurrent extends Component {
               </span> <span className="roaming-current__note">из 20 ГБ</span> <span className="roaming-current__note roaming-current__note_mobile">(еще {additionalPackage.expired} {convertStrings(additionalPackage.expired, DAYS)})</span>
             </div>
             <ProgressLinear className="progress-linear_roaming" max={20} current={12.01} />
-            <Button className="button_roaming-add" onClick={addPackage}>
+            <Button className="button_roaming-add" onClick={addPackage} primary={inRoaming}>
               Добавить трафик
             </Button>
           </Fragment>
         }
         {
           !additionalPackage &&
-          <Button className="button_roaming-add button_roaming-add-empty" onClick={addPackage}>
+          <Button
+            className="button_roaming-add button_roaming-add-empty"
+            onClick={addPackage}
+            primary={inRoaming}
+          >
             Добавить трафик
           </Button>
         }
@@ -86,6 +90,11 @@ class RoamingCurrent extends Component {
 RoamingCurrent.propTypes = {
   history: PropTypes.shape().isRequired,
   data: PropTypes.shape().isRequired,
+  inRoaming: PropTypes.bool,
+};
+
+RoamingCurrent.defaultProps = {
+  inRoaming: false,
 };
 
 export default RoamingCurrent;

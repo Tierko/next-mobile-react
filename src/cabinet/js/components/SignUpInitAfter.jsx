@@ -40,7 +40,11 @@ class SignUpInitAfter extends Component {
               Новый номер
             </Radio>
           </div>
-          <Button onClick={() => nextStep(step)} className="button_sign-up-continue">Продолжить</Button>
+          <Button
+            onClick={() => nextStep(step)}
+            className="button_sign-up-continue"
+            primary
+          >Продолжить</Button>
           <div className="sign-up__agreement">
             Я ознакомлен с <Link to={Pages.CONDITIONS} className="link">условиями перехода</Link>
           </div>

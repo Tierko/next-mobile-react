@@ -134,7 +134,13 @@ class SignUpNumberSelect extends Component {
               showList ? 'Показать случайный номер' : 'Показать номера списком'
             }
           </div>
-          <Button onClick={() => nextStep('personal')} className="button_sign-up-continue">Продолжить</Button>
+          <Button
+            onClick={() => nextStep('personal')}
+            className="button_sign-up-continue"
+            primary
+          >
+            Продолжить
+          </Button>
         </div>
       </Transitions>
     );

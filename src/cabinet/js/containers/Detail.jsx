@@ -120,7 +120,13 @@ class Detail extends Component {
                   className="input_detain-email"
                 />
                 <Select placeholder="Формат" onSelect={v => onChange('format', v)} items={formats} value={format} />
-                <Button className="button_detail" onClick={order}>Заказать детализацию</Button>
+                <Button
+                  className="button_detail"
+                  onClick={order}
+                  primary
+                >
+                  Заказать детализацию
+                </Button>
               </div>
             </div>
           </Transitions>

@@ -74,7 +74,12 @@ class Payment extends Component {
             <div className="payment__message">Для оплаты по тарифу Супервип на счету не хватает <span className="nobr">{formatCost(paymentInit, true)}</span></div>
           </Fragment>
         }
-        <Button className="button_pay" onClick={() => onPay(card)} disabled={!payment || !payPermitted || !inLimits}>
+        <Button
+          className="button_pay"
+          onClick={() => onPay(card)}
+          disabled={!payment || !payPermitted || !inLimits}
+          primary
+        >
           Пополнить
         </Button>
       </div>
