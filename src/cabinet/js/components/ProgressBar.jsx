@@ -11,11 +11,11 @@ const convertSteps = (step, number) => {
     return 2;
   }
 
-  if (!number && step === 'delivery-address') {
+  if (!number && step === 'delivery-date') {
     return 3;
   }
 
-  if (!number && step === 'delivery-date') {
+  if (!number && step === 'delivery-address') {
     return 4;
   }
 
@@ -27,11 +27,11 @@ const convertSteps = (step, number) => {
     return 3;
   }
 
-  if (number === 'current' && step === 'delivery-address') {
+  if (number === 'current' && step === 'delivery-date') {
     return 4;
   }
 
-  if (number === 'current' && step === 'delivery-date') {
+  if (number === 'current' && step === 'delivery-address') {
     return 5;
   }
 
@@ -43,11 +43,11 @@ const convertSteps = (step, number) => {
     return 4;
   }
 
-  if (number === 'new' && step === 'delivery-address') {
+  if (number === 'new' && step === 'delivery-date') {
     return 5;
   }
 
-  if (number === 'new' && step === 'delivery-date') {
+  if (number === 'new' && step === 'delivery-address') {
     return 6;
   }
 

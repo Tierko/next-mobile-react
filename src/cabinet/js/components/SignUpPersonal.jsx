@@ -39,7 +39,7 @@ class SignUpPersonal extends Component {
     const { isFilled } = this;
 
     if (isFilled()) {
-      nextStep('delivery-address');
+      nextStep('delivery-date');
     }
   };
 
@@ -111,7 +111,7 @@ class SignUpPersonal extends Component {
             </Button>
           </form>
           <div className={cs('sign-up__note', { 'sign-up__note_show': isFilled() })}>
-            Перейти к адресу доставки сим-карты
+            Перейти к дате доставки сим-карты
           </div>
         </div>
       </Transitions>

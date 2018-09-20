@@ -5,6 +5,7 @@ import Input from '../../../common/js/components/Input';
 import Button from '../../../common/js/components/Button';
 import AutoComplete from '../../../common/js/components/AutoComplete';
 import Transitions from '../components/Transitions';
+import { Pages, Statuses } from '../constants';
 
 class SignUpDeliveryAddress extends Component {
   state = {
@@ -23,11 +24,11 @@ class SignUpDeliveryAddress extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { nextStep } = this.props;
+    const { toPage } = this.props;
     const { isFilled } = this;
 
     if (isFilled()) {
-      nextStep('delivery-date');
+      toPage(`${Pages.REQUEST_STATUS}/${Statuses.REQUEST_SENT}`);
     }
   };
 
@@ -84,12 +85,12 @@ class SignUpDeliveryAddress extends Component {
                 placeholder="Квартира"
               />
             </div>
-            <Button className="button_sign-up-continue" onClick={onSubmit} disabled={!isFilled()}>
-              Продолжить
+            <Button className="button_sign-up-address" onClick={onSubmit} disabled={!isFilled()}>
+              Отправить заявку
             </Button>
           </form>
           <div className={cs('sign-up__note', { 'sign-up__note_show': isFilled() })}>
-            Перейти ко времени доставки
+            Я соглашаюсь с условиями пользования сайтом и с правилами обработки персональных данных
           </div>
         </div>
       </Transitions>
@@ -98,7 +99,7 @@ class SignUpDeliveryAddress extends Component {
 }
 
 SignUpDeliveryAddress.propTypes = {
-  nextStep: PropTypes.func.isRequired,
+  toPage: PropTypes.func.isRequired,
 };
 
 export default SignUpDeliveryAddress;

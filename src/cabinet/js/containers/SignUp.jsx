@@ -84,12 +84,12 @@ class SignUp extends Component {
               <SignUpPersonal nextStep={nextStep} />
             }
             {
-              step === 'delivery-address' &&
-              <SignUpDeliveryAddress nextStep={nextStep} />
+              step === 'delivery-date' &&
+              <SignUpDeliveryDate nextStep={nextStep} />
             }
             {
-              step === 'delivery-date' &&
-              <SignUpDeliveryDate toPage={toPage} />
+              step === 'delivery-address' &&
+              <SignUpDeliveryAddress toPage={toPage} />
             }
           </Transitions>
         </div>

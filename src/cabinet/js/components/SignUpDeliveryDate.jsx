@@ -5,7 +5,7 @@ import Select from '../../../common/js/components/Select';
 import Date from '../components/Date';
 import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
-import { MONTHS_M, Pages, Statuses, WEEKDAYS } from '../constants';
+import { MONTHS_M, WEEKDAYS } from '../constants';
 
 class SignUpDeliveryDate extends Component {
   static times = [{
@@ -41,7 +41,7 @@ class SignUpDeliveryDate extends Component {
   render() {
     const { date, time } = this.state;
     const { onChange, formatDate } = this;
-    const { toPage } = this.props;
+    const { nextStep } = this.props;
     const { times } = SignUpDeliveryDate;
     const permit = !!date && !!time;
 
@@ -62,12 +62,12 @@ class SignUpDeliveryDate extends Component {
               formatter={formatDate}
             />
             <Select placeholder="Время" onSelect={v => onChange('time', v)} items={times} value={time} />
-            <Button className="button_sign-up-step4" onClick={() => toPage(`${Pages.REQUEST_STATUS}/${Statuses.REQUEST_SENT}`)} disabled={!permit}>
-              Отправить заявку
+            <Button className="button_sign-up-step4" onClick={() => nextStep('delivery-address')} disabled={!permit}>
+              Продолжить
             </Button>
           </div>
           <div className={cs('sign-up__note', { 'sign-up__note_show': permit })}>
-            Я соглашаюсь с условиями пользования сайтом и с правилами обработки персональных данных
+            Перейти к адресу доставки сим-карты
           </div>
         </div>
       </Transitions>
@@ -76,7 +76,7 @@ class SignUpDeliveryDate extends Component {
 }
 
 SignUpDeliveryDate.propTypes = {
-  toPage: PropTypes.func.isRequired,
+  nextStep: PropTypes.func.isRequired,
 };
 
 export default SignUpDeliveryDate;
