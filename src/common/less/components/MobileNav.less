@@ -16,9 +16,14 @@
     left: 0;
     width: 52px;
     height: 52px;
-    background: #e2e2ec url("/media/icons/menu.svg") no-repeat 50% 50%;
+    background: #e2e2ec url("/media/icons/menu-black.svg") no-repeat 50% 50%;
     background-size: 20px auto;
     z-index: 1;
+
+    &_dark {
+      background-color: #040e44;
+      background-image: url("/media/icons/menu-white.svg");
+    }
 
     &_open {
       background-image: url("/media/icons/x.svg");

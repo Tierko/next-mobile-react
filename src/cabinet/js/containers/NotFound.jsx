@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DocumentMeta from 'react-document-meta';
-import MobileNav from '../components/MobileNav';
+import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import Transitions from '../components/Transitions';
 import { Pages, TITLES } from '../constants';

@@ -1,0 +1,29 @@
+.logo-mobile {
+  width: 148px;
+  height: 138px;
+  background: url("/media/images/logo-site-mobile-light.png") no-repeat 50% 50%;
+  position: absolute;
+  display: none;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+
+  &_dark {
+    background-image: url("/media/images/logo-site-mobile-dark.png");
+  }
+
+  &__link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+
+  @media (max-width: @BREAK-POINT) {
+    display: block;
+  }
+}

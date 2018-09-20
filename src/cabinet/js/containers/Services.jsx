@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DocumentMeta from 'react-document-meta';
-import MobileNav from '../components/MobileNav';
+import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import TariffServices from '../components/TariffServices';
 import TariffTable from '../../../common/js/components/TariffTable';

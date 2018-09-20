@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import MobileNav from '../../../common/js/components/MobileNav';
+import LogoMobile from '../components/LogoMobile';
 import Header from '../../../common/js/components/Header';
 import Intro from '../components/Intro';
 import Best from '../components/Best';
@@ -18,6 +20,8 @@ class Home extends Component {
 
     return (
       <div className="home">
+        <LogoMobile toHome={false} dark />
+        <MobileNav type="home" dark />
         <Header mode="site" light r={1} />
         <div className="home__inner">
           <Intro to={() => to('signup')} />

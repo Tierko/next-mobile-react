@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MobileNav from '../../../common/js/components/MobileNav';
 import Header from '../../../common/js/components/Header';
 import Intro from '../components/Intro';
 import Best from '../components/Best';
@@ -7,6 +8,7 @@ import HomeTariff from '../components/HomeTariff';
 import EarthTariff from '../components/EarthTariff';
 import Cabinet from '../components/Cabinet';
 import Footer from '../../../common/js/components/Footer';
+import LogoMobile from '../components/LogoMobile';
 
 class Home extends Component {
   to = (page) => {
@@ -18,6 +20,8 @@ class Home extends Component {
 
     return (
       <div className="home">
+        <LogoMobile toHome={false} r={2} dark />
+        <MobileNav type="home" r={2} dark />
         <Header mode="site" light r={2} />
         <div className="home__inner">
           <Intro to={() => to('signup/after')} />

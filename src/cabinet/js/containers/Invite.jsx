@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DocumentMeta from 'react-document-meta';
-import MobileNav from '../components/MobileNav';
+import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import LinkBack from '../components/LinkBack';
 import CopyCode from '../components/CopyCode';

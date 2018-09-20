@@ -28,7 +28,11 @@
     margin: 0 0 32px;
   }
 
-  &__other,
+  &__other {
+    position: relative;
+    z-index: 2;
+  }
+
   &__numbers {
     position: relative;
     z-index: 1;
@@ -92,6 +96,14 @@
         font-size: 18px;
         line-height: 25px;
       }
+    }
+
+    &_tariff &__cell_small {
+      color: @BLACK;
+    }
+
+    &_tariff &__numbers {
+      margin-top: 20px;
     }
   }
 }

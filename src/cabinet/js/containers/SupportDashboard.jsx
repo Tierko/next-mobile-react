@@ -1,6 +1,6 @@
 import React from 'react';
 import DocumentMeta from 'react-document-meta';
-import MobileNav from '../components/MobileNav';
+import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import Chat from '../components/Chat';
 import Transitions from '../components/Transitions';

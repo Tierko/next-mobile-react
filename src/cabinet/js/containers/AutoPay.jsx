@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cs from 'classnames';
 import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
-import MobileNav from '../components/MobileNav';
+import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import LinkBack from '../components/LinkBack';
 import Checkbox from '../components/CheckboxSlide';

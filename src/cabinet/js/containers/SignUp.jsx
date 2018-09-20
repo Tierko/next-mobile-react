@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DocumentMeta from 'react-document-meta';
-import MobileNav from '../components/MobileNav';
+import MobileNav from '../../../common/js/components/MobileNav';
 import Header from '../../../common/js/components/Header';
 import ProgressBar from '../components/ProgressBar';
 import SignUpInit from '../components/SignUpInit';

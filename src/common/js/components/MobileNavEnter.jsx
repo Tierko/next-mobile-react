@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import InlineSvg from 'svg-inline-react';
-import { Pages } from '../constants';
+import { Pages } from '../../../cabinet/js/constants';
 
 const MobileNavDashboard = () => (
   <div className="mobile-nav__list-inner">

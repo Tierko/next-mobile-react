@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import MobileNavEnter from '../components/MobileNavEnter';
-import MobileNavDashboard from '../components/MobileNavDashboard';
+import MobileNavEnter from './MobileNavEnter';
+import MobileNavDashboard from './MobileNavDashboard';
+import MobileNavHome from './MobileNavHome';
 
 class MobileNav extends Component {
   state = {
@@ -56,7 +57,7 @@ class MobileNav extends Component {
 
   render() {
     const { open } = this.state;
-    const { type } = this.props;
+    const { type, r, dark } = this.props;
     const { toggle, toggleScroll, hide } = this;
 
     toggleScroll(open);
@@ -65,7 +66,13 @@ class MobileNav extends Component {
       <Fragment>
         <div className={cs('mobile-nav__drawer', { 'mobile-nav__drawer_show': open })} onClick={hide} />
         <div className="mobile-nav" ref={(e) => { this.nav = e; }}>
-          <div onClick={toggle} className={cs('mobile-nav__button', { 'mobile-nav__button_open': open })} />
+          <div
+            onClick={toggle}
+            className={cs('mobile-nav__button', {
+              'mobile-nav__button_open': open,
+              'mobile-nav__button_dark': dark,
+            })}
+          />
           <div className={cs('mobile-nav__list', { 'mobile-nav__list_open': open })}>
             {
               type === 'enter' &&
@@ -74,6 +81,10 @@ class MobileNav extends Component {
             {
               type === 'dashboard' &&
               <MobileNavDashboard />
+            }
+            {
+              type === 'home' &&
+              <MobileNavHome r={r} />
             }
           </div>
         </div>
@@ -84,6 +95,13 @@ class MobileNav extends Component {
 
 MobileNav.propTypes = {
   type: PropTypes.string.isRequired,
+  r: PropTypes.number,
+  dark: PropTypes.bool,
+};
+
+MobileNav.defaultProps = {
+  r: 1,
+  dark: false,
 };
 
 export default MobileNav;
