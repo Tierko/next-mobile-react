@@ -6,7 +6,7 @@ import { Pages, Statuses, TITLES } from '../constants';
 
 const SiteMap = () => (
   <DocumentMeta title={TITLES.SITE_MAP}>
-    <div key="dashboard" className="dashboard" style={{ maxWidth: 400, margin: '0 auto' }}>
+    <div key="dashboard" className="dashboard" style={{ maxWidth: 650, margin: '0 auto' }}>
       <Transitions>
         <div className="dashboard__content">
           <div>
@@ -22,23 +22,43 @@ const SiteMap = () => (
             <br />
             <Link className="link" to={Pages.SIGN_IN}>Вход</Link>
             <br />
-            <Link className="link" to={Pages.SIGN_UP}>Регистрация</Link>
+            <Link className="link" to={`${Pages.SIGN_UP}/promo`}>Регистрация (промо)</Link>
             <br />
-            <Link className="link" to={`${Pages.SIGN_UP}/no-promo`}>Регистрация, без промо</Link>
+            <Link className="link" to={`${Pages.SIGN_UP}/no-promo`}>Регистрация (без промо)</Link>
             <br />
-            <Link className="link" to={`${Pages.SIGN_UP}/promo`}>Регистрация, промо</Link>
+            <Link className="link" to={Pages.SIGN_UP}>Регистрация (до старта продаж)</Link>
             <br />
             <Link className="link" to={`${Pages.SIGN_UP}/step/phone`}>Регистрация (текущий номер)</Link>
-            <br />
-            <Link className="link" to={`${Pages.SIGN_UP}/step/choose-tariff`}>Регистрация (выбор тарифа)</Link>
-            <br />
-            <Link className="link" to={`${Pages.SIGN_UP}/step/choose-number`}>Регистрация (выбор номера)</Link>
             <br />
             <Link className="link" to={`${Pages.SIGN_UP}/step/personal`}>Регистрация (персональная информация)</Link>
             <br />
             <Link className="link" to={`${Pages.SIGN_UP}/step/delivery-address`}>Регистрация (адрес доставки)</Link>
             <br />
             <Link className="link" to={`${Pages.SIGN_UP}/step/delivery-date`}>Регистрация (дата доставки)</Link>
+            <br />
+            <Link className="link" to={`${Pages.SIGN_UP}/after`}>Регистрация (после старта продаж)</Link>
+            <br />
+            <Link className="link" to={`${Pages.SIGN_UP}/step/phone/number/current`}>Регистрация (текущий номер, переход с имеющегося номера)</Link>
+            <br />
+            <Link className="link" to={`${Pages.SIGN_UP}/step/choose-tariff/number/current`}>Регистрация (выбор тарифа, переход с имеющегося номера)</Link>
+            <br />
+            <Link className="link" to={`${Pages.SIGN_UP}/step/personal/number/current`}>Регистрация (персональная информация, переход с имеющегося номера)</Link>
+            <br />
+            <Link className="link" to={`${Pages.SIGN_UP}/step/delivery-address/number/current`}>Регистрация (адрес доставки, переход с имеющегося номера)</Link>
+            <br />
+            <Link className="link" to={`${Pages.SIGN_UP}/step/delivery-date/number/current`}>Регистрация (дата доставки, переход с имеющегося номера)</Link>
+            <br />
+            <Link className="link" to={`${Pages.SIGN_UP}/step/phone/number/new`}>Регистрация (текущий номер, переход на новый номер)</Link>
+            <br />
+            <Link className="link" to={`${Pages.SIGN_UP}/step/choose-tariff/number/new`}>Регистрация (выбор тарифа, переход на новый номер)</Link>
+            <br />
+            <Link className="link" to={`${Pages.SIGN_UP}/step/choose-number/number/new`}>Регистрация (выбор номера, переход на новый номер)</Link>
+            <br />
+            <Link className="link" to={`${Pages.SIGN_UP}/step/personal/number/new`}>Регистрация (персональная информация, переход на новый номер)</Link>
+            <br />
+            <Link className="link" to={`${Pages.SIGN_UP}/step/delivery-address/number/new`}>Регистрация (адрес доставки, переход на новый номер)</Link>
+            <br />
+            <Link className="link" to={`${Pages.SIGN_UP}/step/delivery-date/number/new`}>Регистрация (дата доставки, переход на новый номер)</Link>
             <br />
             <Link className="link" to={Pages.CONDITIONS}>Условия перехода</Link>
             <br />

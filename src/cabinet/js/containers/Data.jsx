@@ -166,15 +166,15 @@ class Calls extends Component {
                     Включить
                   </Button>
                 </div>
-                <h2>Регистрация</h2>
-                <div>
-                  <Button className="button_data" onClick={() => setData('signup', 0)} disabled={!getData('signup')}>
-                    Перед началом продаж
-                  </Button>
-                  <Button className="button_data" onClick={() => setData('signup', 1)} disabled={getData('signup')}>
-                    После начала продаж
-                  </Button>
-                </div>
+                {/*<h2>Регистрация</h2>*/}
+                {/*<div>*/}
+                  {/*<Button className="button_data" onClick={() => setData('signup', 0)} disabled={!getData('signup')}>*/}
+                    {/*Перед началом продаж*/}
+                  {/*</Button>*/}
+                  {/*<Button className="button_data" onClick={() => setData('signup', 1)} disabled={getData('signup')}>*/}
+                    {/*После начала продаж*/}
+                  {/*</Button>*/}
+                {/*</div>*/}
               </div>
             </div>
           </Transitions>

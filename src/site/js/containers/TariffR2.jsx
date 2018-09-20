@@ -10,7 +10,7 @@ class Tariff extends Component {
   };
 
   toTariff = (id) => {
-    location.href = `${SERVICE_URL}/#/signup/tariff/${id}`;
+    location.href = `${SERVICE_URL}/#/signup/after/tariff/${id}`;
   };
 
   render() {
@@ -20,7 +20,7 @@ class Tariff extends Component {
       <div className="tariff">
         <Header mode="site" />
         <div className="tariff__inner">
-          <TariffTariff to={() => to('signup')} toTariff={toTariff} />
+          <TariffTariff to={() => to('signup/after')} toTariff={toTariff} />
           <TariffRoaming size="small" type="light" />
           <TariffServices />
         </div>
