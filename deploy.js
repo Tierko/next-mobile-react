@@ -15,7 +15,7 @@ const configMain = {
   port: 21,
   localRoot: path.join(__dirname, 'dist'),
   remoteRoot: `/${folder}/www/`,
-  include: ['bundle.js', 'bundle.css', 'index.html'],
+  include: ['*.js', 'bundle.css', 'index.html'],
   exclude: [],
 };
 
