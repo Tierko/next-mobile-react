@@ -68,6 +68,7 @@ class App extends Component {
           <Route path={Pages.SIGN_UP} component={SignUp} exact />
           <Route path={`${Pages.SIGN_UP}/step/:step`} component={SignUp} exact />
           <Route path={`${Pages.SIGN_UP}/step/:step/number/:number`} component={SignUp} exact />
+          <Route path={`${Pages.SIGN_UP}/step/:step/number/:number/tariff/:tariff`} component={SignUp} exact />
           <Route path={`${Pages.SIGN_UP}/tariff/:id`} component={SignUp} exact />
           <Route path={`${Pages.SIGN_UP}/:mode`} component={SignUp} exact />
           <Route path={`${Pages.SIGN_UP}/:mode/tariff/:tariff`} component={SignUp} exact />

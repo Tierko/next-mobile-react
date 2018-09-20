@@ -2,9 +2,37 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 
-const convertSteps = (step, number) => {
+const convertSteps = (step, number, tariff) => {
   if (step === 'phone') {
     return 1;
+  }
+
+  if (tariff && number === 'current' && step === 'personal') {
+    return 2;
+  }
+
+  if (tariff && number === 'current' && step === 'delivery-date') {
+    return 3;
+  }
+
+  if (tariff && number === 'new' && step === 'choose-number') {
+    return 2;
+  }
+
+  if (tariff && number === 'new' && step === 'personal') {
+    return 3;
+  }
+
+  if (tariff && number === 'new' && step === 'delivery-date') {
+    return 4;
+  }
+
+  if (tariff && number === 'new' && step === 'delivery-address') {
+    return 5;
+  }
+
+  if (tariff && number === 'current' && step === 'delivery-address') {
+    return 4;
   }
 
   if (!number && step === 'personal') {
@@ -54,7 +82,15 @@ const convertSteps = (step, number) => {
   return 0;
 };
 
-const getCount = (number) => {
+const getCount = (number, tariff) => {
+  if (tariff && number === 'current') {
+    return 4;
+  }
+
+  if (tariff && number === 'new') {
+    return 5;
+  }
+
   if (!number) {
     return 4;
   }
@@ -66,9 +102,14 @@ const getCount = (number) => {
   return 6;
 };
 
-const ProgressBar = ({ step, className, number }) => {
-  const count = getCount(number);
-  const current = convertSteps(step, number);
+const ProgressBar = ({
+  step,
+  className,
+  number,
+  tariff,
+}) => {
+  const count = getCount(number, tariff);
+  const current = convertSteps(step, number, tariff);
   const steps = Array((count * 2) - 1).fill(null);
   const elements = steps.map((_, i) => {
     if (i % 2 === 0) {
@@ -97,14 +138,17 @@ const ProgressBar = ({ step, className, number }) => {
 };
 
 ProgressBar.propTypes = {
-  step: PropTypes.string.isRequired,
+  step: PropTypes.string,
   className: PropTypes.string,
   number: PropTypes.string,
+  tariff: PropTypes.string,
 };
 
 ProgressBar.defaultProps = {
+  step: '',
   className: '',
   number: '',
+  tariff: '',
 };
 
 export default ProgressBar;

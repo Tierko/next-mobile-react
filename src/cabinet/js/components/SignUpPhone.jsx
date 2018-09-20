@@ -19,12 +19,16 @@ class SignUpPhone extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { nextStep, number } = this.props;
+    const { nextStep, number, tariff } = this.props;
     const { phone } = this.state;
     let step = 'personal';
 
-    if (number) {
+    if (number && !tariff) {
       step = 'choose-tariff';
+    }
+
+    if (number && tariff) {
+      step = 'choose-number';
     }
 
     if (checkPhone(phone)) {
@@ -35,9 +39,17 @@ class SignUpPhone extends Component {
   render() {
     const { phone } = this.state;
     const { onChange, onSubmit } = this;
-    const { number } = this.props;
+    const { number, tariff } = this.props;
     const isPhoneValid = checkPhone(phone);
-    const message = number ? 'Перейти к информации о тарифах' : 'Перейти к персональной информации';
+    let message = 'Перейти к персональной информации';
+
+    if (number && !tariff) {
+      message = 'Перейти к информации о тарифах';
+    }
+
+    if (number && tariff) {
+      message = 'Перейти к выбору номер телефона';
+    }
 
     return (
       <Transitions classNames="slide">
@@ -57,10 +69,12 @@ class SignUpPhone extends Component {
 SignUpPhone.propTypes = {
   nextStep: PropTypes.func.isRequired,
   number: PropTypes.string,
+  tariff: PropTypes.string,
 };
 
 SignUpPhone.defaultProps = {
-  number: '',
+  number: 0,
+  tariff: 0,
 };
 
 export default SignUpPhone;

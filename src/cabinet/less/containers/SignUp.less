@@ -18,7 +18,16 @@
     line-height: 70px;
     font-weight: 100;
     text-align: center;
-    margin: 17px 0 21px
+    margin: 17px 0 21px;
+    white-space: pre-wrap;
+
+    & > span {
+      display: block;
+
+      @media (max-width: @BREAK-POINT) {
+        display: inline;
+      }
+    }
   }
 
   &__header {
