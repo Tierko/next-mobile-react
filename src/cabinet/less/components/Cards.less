@@ -79,6 +79,10 @@
       & {
         opacity: 1;
         mix-blend-mode: overlay;
+
+        @media (max-width: @BREAK-POINT) {
+          mix-blend-mode: normal;
+        }
       }
     }
   }
