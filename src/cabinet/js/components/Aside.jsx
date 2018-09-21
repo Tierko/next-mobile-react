@@ -5,28 +5,6 @@ import cs from 'classnames';
 import { formatCost, getData } from '../utils';
 import { Pages } from '../constants';
 
-// const getIsActive = (exact, modifier) => {
-//   const links = document.querySelectorAll('.aside__link');
-//
-//   if (links.length) {
-//     Array.prototype.forEach.call(links, (l) => {
-//       l.classList.remove('aside__link_not-exact');
-//     });
-//   }
-//
-//   if (exact && !exact.isExact) {
-//     const link = document.querySelector(`.aside__link_${modifier}`);
-//
-//     if (link) {
-//       link.classList.add('aside__link_not-exact');
-//     }
-//
-//     console.log(link)
-//   }
-//
-//   return 'active---';
-// };
-
 class Aside extends Component {
   state = {
     current: '',
