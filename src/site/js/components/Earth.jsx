@@ -125,7 +125,7 @@ class Earth extends Component {
       this.fastAnimation = false;
     }
 
-    window.removeEventListener(onResize);
+    window.removeEventListener('resize', onResize);
   }
 
   render() {

@@ -4,6 +4,10 @@ import { NavLink, Link } from 'react-router-dom';
 import { formatCost, getData } from '../utils';
 import { Pages } from '../constants';
 
+const getIsActive = (a, b) => {
+  console.log(a, b)
+}
+
 const Aside = ({ hideLink, hideNav }) => {
   const traffic = getData('remain')[0].current.toString().replace('.', ',');
   const calls = getData('remain')[1].current;
