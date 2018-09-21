@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
+import { Link } from 'react-router-dom';
 import Transitions from '../components/Transitions';
 
 import MobileNav from '../../../common/js/components/MobileNav';
@@ -121,27 +122,30 @@ class Overview extends Component {
               <Note
                 className="note_dashboard"
                 message="Вы докупили пакет с 30 ГБ трафика, действующий до 5 марта"
-                subText="Спасибо, что всегда оплачиваетесчет вовремя"
                 color="green"
                 hideCont
                 show={!!getData('noteGreen')}
-              />
+              >
+                Спасибо, что всегда оплачиваетесчете вовремя
+              </Note>
               <Note
                 className="note_dashboard"
                 message="Добавьте электронную почту в настройках, чтобы получать квитанции"
-                subText="Перейти в настройки"
                 color="blue"
                 hideCont
                 show={!!getData('noteBlue')}
-              />
+              >
+                Перейти в <Link className="link" to={Pages.SETTINGS}>настройки</Link>
+              </Note>
               <Note
                 className="note_dashboard"
                 message="Ваш номер заблокирован"
                 color="red"
                 hideCont
                 show={!!getData('noteRed')}
-                subText="Чтобы разблокровать номер, обратитесь в поддержку"
-              />
+              >
+                Чтобы разблокровать номер, обратитесь в <Link className="link" to={Pages.SUPPORT_DASHBOARD}>поддержку</Link>
+              </Note>
               <Balance
                 sum={getData('balance')}
                 message={`Через ${getData('payment').days} дней нужно внести ${formatCost(getData('tariff').payment)} по тарифу «${getData('tariff').title}»`}

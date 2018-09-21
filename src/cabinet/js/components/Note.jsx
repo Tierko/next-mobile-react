@@ -25,7 +25,7 @@ class Note extends Component {
       color,
       show,
       hideCont,
-      subText,
+      children,
     } = this.props;
 
     this.createTimer();
@@ -36,7 +36,7 @@ class Note extends Component {
           {message}
         </div>
         {
-          subText && <div className="note__sub">{subText}</div>
+          children && <div className="note__sub">{children}</div>
         }
       </div>
     );
