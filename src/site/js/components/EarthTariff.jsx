@@ -25,7 +25,6 @@ class EarthTariff extends Component {
     } = this.props;
     const { onChange } = this;
     const { country } = this.state;
-    console.log(home)
 
     return (
       <div className={`earth-tariff ${className}`}>

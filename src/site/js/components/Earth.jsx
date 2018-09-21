@@ -12,8 +12,6 @@ class Earth extends Component {
     const size = d3.min([width, height]);
 
     d3.select('#earth')
-      .transition()
-      .duration(1000)
       .attr('width', `${width}px`)
       .attr('height', `${height}px`);
 
@@ -47,7 +45,6 @@ class Earth extends Component {
 
       if (!defaultAnimation && fastAnimation) {
         projection.rotate(center);
-        // console.log(center, prevAngles)
       }
 
       context.lineWidth = 1;
@@ -72,10 +69,6 @@ class Earth extends Component {
       });
   };
 
-  approximateAngle = (current, target) => {
-    target - current
-  };
-
   setCenter = () => {
     const { country } = this.props;
     const countryCode = country.flag;
@@ -86,13 +79,28 @@ class Earth extends Component {
       const center = d3.geoCentroid(feature);
       this.defaultAnimation = false;
       this.fastAnimation = true;
-      this.center = [-center[0], -center[1]]
+      this.center = [-center[0], -center[1]];
       // projection.rotate([-center[0], -center[1]]);
     }
   };
 
+  onResize = () => {
+    const { projection, d3, cont } = this;
+    const width = cont.clientWidth;
+    const height = cont.clientHeight;
+    const size = d3.min([width, height]);
+
+    d3.select('#earth')
+      .attr('width', `${width}px`)
+      .attr('height', `${height}px`);
+
+    projection.clipAngle(90)
+      .scale(0.5 * size)
+      .translate([0.5 * width, 0.5 * height]);
+  };
+
   componentDidMount() {
-    const { globe } = this;
+    const { globe, onResize } = this;
     this.defaultAnimation = true;
 
     require.ensure(['d3'], (require) => {
@@ -100,10 +108,12 @@ class Earth extends Component {
 
       globe();
     });
+
+    window.addEventListener('resize', onResize);
   }
 
   componentDidUpdate(prevProps) {
-    const { setCenter } = this;
+    const { setCenter, onResize } = this;
     const { country } = this.props;
 
     if (!prevProps.country && country) {
@@ -114,6 +124,8 @@ class Earth extends Component {
       this.defaultAnimation = true;
       this.fastAnimation = false;
     }
+
+    window.removeEventListener(onResize);
   }
 
   render() {
