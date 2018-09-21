@@ -21,7 +21,7 @@ const MobileNavDashboard = () => (
     <NavLink className="mobile-nav__link" to={Pages.HISTORY}>
       <InlineSvg src={require('../../../../media/nav/history.svg')} raw /> История
     </NavLink>
-    <NavLink className="mobile-nav__link" to={Pages.SUPPORT}>
+    <NavLink className="mobile-nav__link" to={Pages.SUPPORT_DASHBOARD}>
       <InlineSvg src={require('../../../../media/nav/support.svg')} raw /> Чат
     </NavLink>
     <NavLink className="mobile-nav__link" to={Pages.SETTINGS}>

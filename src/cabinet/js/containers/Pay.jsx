@@ -1,9 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import cs from 'classnames';
 import DocumentMeta from 'react-document-meta';
+import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import Payment from '../components/Payment';
@@ -87,6 +88,7 @@ class Pay extends Component {
 
     return (
       <DocumentMeta {...meta}>
+        <HeaderMobile />
         <MobileNav key="nav" type="dashboard" />
         <div key="dashboard" className="dashboard">
           <Aside />

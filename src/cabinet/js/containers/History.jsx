@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DocumentMeta from 'react-document-meta';
+import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import Expense from '../components/Expense';
@@ -16,6 +17,7 @@ const History = ({ history }) => {
 
   return (
     <DocumentMeta {...meta}>
+      <HeaderMobile />
       <MobileNav key="nav" type="dashboard" />
       <div key="dashboard" className="dashboard">
         <Aside />

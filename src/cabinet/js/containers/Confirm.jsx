@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DocumentMeta from 'react-document-meta';
+import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import LinkBack from '../components/LinkBack';
@@ -38,6 +39,7 @@ class Confirm extends Component {
 
     return (
       <DocumentMeta {...meta}>
+        <HeaderMobile />
         <MobileNav key="nav" type="dashboard" />
         <div key="dashboard" className="dashboard">
           <Aside />

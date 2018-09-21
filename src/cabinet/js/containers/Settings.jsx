@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DocumentMeta from 'react-document-meta';
 import cs from 'classnames';
+import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import Input from '../../../common/js/components/Input';
@@ -96,6 +97,7 @@ class Settings extends Component {
 
     return (
       <DocumentMeta {...meta}>
+        <HeaderMobile />
         <MobileNav type="dashboard" />
         <div className="dashboard">
           <Aside />

@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import DocumentMeta from 'react-document-meta';
+import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import InterCalls from '../../../common/js/components/InterCalls';
@@ -28,6 +29,7 @@ const More = ({ match: { params: { type } } }) => {
 
   return (
     <DocumentMeta {...meta}>
+      <HeaderMobile />
       <MobileNav key="nav" type="dashboard" />
       <div key="dashboard" className="dashboard">
         <Aside />

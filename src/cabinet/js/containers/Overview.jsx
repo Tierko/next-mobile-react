@@ -5,6 +5,7 @@ import DocumentMeta from 'react-document-meta';
 import { Link } from 'react-router-dom';
 import Transitions from '../components/Transitions';
 
+import HeaderMobile from '../components/HeaderMobile'
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import Footer from '../../../common/js/components/Footer';
@@ -114,6 +115,7 @@ class Overview extends Component {
 
     return (
       <DocumentMeta {...meta}>
+        <HeaderMobile hideHomeLink />
         <MobileNav key="nav" type="dashboard" />
         <div key="dashboard" className="dashboard">
           <Aside hideLink />
