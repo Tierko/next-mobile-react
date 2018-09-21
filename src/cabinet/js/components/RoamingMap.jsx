@@ -179,7 +179,7 @@ class RoamingMap extends Component {
   fitCountry = () => {
     const { map, prevL } = this;
     const { countryId, country } = this.props;
-    const countryAbbr = countryId || (country.properties && country.properties.iso_a2)
+    const countryAbbr = countryId || (country.properties && country.properties.iso_a2);
 
     if (map && map.leafletElement._layers && countryAbbr) {
       const layers = Object.values(map.leafletElement._layers);

@@ -2,7 +2,7 @@
   height: 500px;
   background-color: @WHITE;
   position: relative;
-  max-height: 80vh;
+  max-height: 60vh;
   width: calc(100% + 30px);
   margin: 0 -15px;
 
@@ -26,6 +26,10 @@
     bottom: 35px;
     border: 1px solid #dcdcdc;
     z-index: 500;
+
+    @media (max-width: @BREAK-POINT) {
+      display: none;
+    }
   }
 
   &__span {
