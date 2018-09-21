@@ -102,7 +102,9 @@ class SignUp extends Component {
                 Переход на Next
                 {
                   currentTariff &&
-                  <span> с тарифом <Link className="link-dashed" to="#">{currentTariff.title}</Link></span>
+                  <span> с тарифом <Link className="sign-up__transition-link" to={`${Pages.SIGN_UP}/tariff/${currentTariff.id}`}>
+                    {currentTariff.title}
+                    </Link></span>
                 }
               </div>
             }
