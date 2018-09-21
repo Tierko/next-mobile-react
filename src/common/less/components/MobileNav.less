@@ -36,13 +36,14 @@
     top: 0;
     bottom: 0;
     left: 0;
-    width: 0;
     background-color: @WHITE;
     overflow: hidden;
-    transition: width 0.5s;
+    transition: transform 0.5s;
+    width: 260px;
+    transform: translateX(-100vw);
 
     &_open {
-      width: 260px;
+      transform: translateX(0);
     }
   }
 
@@ -106,11 +107,12 @@
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.8);
     z-index: 1001;
-    width: 0;
-    transition: width 0.5s;
+    transition: transform 0.5s;
+    width: 100vw;
+    transform: translateX(-100vw);
 
     &_show {
-      width: 100%;
+      transform: translateX(0);
     }
   }
 }
