@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import cs from 'classnames';
 import LogoAnimated from '../components/LogoAnimated';
 import Radio from '../../../common/js/components/Radio';
 import Button from '../../../common/js/components/Button';
@@ -20,15 +21,18 @@ class SignUpInitAfter extends Component {
 
   render() {
     const { whichNumber } = this.state;
-    const { nextStep } = this.props;
+    const { nextStep, tariff } = this.props;
     const { onChange } = this;
     const step = whichNumber === 'current' ? 'phone/number/current' : 'phone/number/new';
 
     return (
       <Transitions>
         <div className="welcome__content sign-up">
-          <LogoAnimated expand />
-          <div className="sign-up__message">
+          {
+            !tariff &&
+            <LogoAnimated expand />
+          }
+          <div className={cs('sign-up__message', { 'sign-up__message_no-logo': !!tariff })}>
             Выберите, с каким номером хотите перейти на Next
             или зарегистрируйтесь по <Link className="link" to={`${Pages.SIGN_UP}/promo-after`}>промокоду</Link>
           </div>
