@@ -72,5 +72,35 @@
 
   &__link {
     .link-nav;
+    position: relative;
+
+    &.active {
+      .gradient-link-nav;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -8px;
+        bottom: 0;
+        width: 1px;
+        background: #003cff;
+      }
+    }
+
+    &_not-exact.active {
+      cursor: pointer;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: linear-gradient(to right, #003cff, #148cff) no-repeat 0 calc(50% + 0.5em);
+        background-size: 100% 1px;
+      }
+    }
   }
 }
