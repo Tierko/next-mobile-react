@@ -10,7 +10,7 @@ const HomeTariff = ({ to, r }) => (
     <div className="home-tariff__header">
       <Link className="home__link" to={Pages[`TARIFF_R${r}`]}>Тарифы</Link>, с&nbsp;которыми не&nbsp;нужно заботиться об&nbsp;остатках
     </div>
-    <TariffTable home />
+    <TariffTable home r={r} />
     {
       to &&
       <Button className="button_light button_tariff-home" onClick={() => to('signup/after')}>Перейти на Next</Button>

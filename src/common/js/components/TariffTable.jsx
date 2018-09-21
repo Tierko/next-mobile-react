@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Button from './Button';
 import Radio from './Radio';
 import { formatCost } from '../../../cabinet/js/utils';
+import { Pages } from "../../../cabinet/js/constants";
 
 const tariffs = [{
   id: 1,
@@ -148,6 +149,7 @@ class TariffTable extends Component {
       signUp,
       className,
       to,
+      r,
     } = this.props;
     const isDetail = this.state.mode === 'detail';
     const currentTariff = tariffs.find(d => d.id === current);
@@ -163,7 +165,7 @@ class TariffTable extends Component {
                 !signUp && dataFiltered.map(d => (
                   home ?
                     <div key={d.id} className="tariff-table__name tariff-table__name_home">
-                      <Link to="#" className="home__link">
+                      <Link to={Pages[`TARIFF_R${r}`]} className="home__link">
                         {d.title}
                       </Link>
                     </div> :
@@ -246,6 +248,7 @@ TariffTable.propTypes = {
   mode: PropTypes.string,
   className: PropTypes.string,
   to: PropTypes.func,
+  r: PropTypes.number,
 };
 
 TariffTable.defaultProps = {
@@ -257,6 +260,7 @@ TariffTable.defaultProps = {
   mode: 'short',
   className: '',
   to: null,
+  r: 1,
 };
 
 export default TariffTable;
