@@ -22,7 +22,7 @@ class Home extends Component {
       <div className="home">
         <LogoMobile toHome={false} dark />
         <MobileNav type="home" dark />
-        <Header mode="site" light r={1} />
+        <Header mode="site" light r={1} hideHomeLink />
         <div className="home__inner">
           <Intro to={() => to('signup')} />
           <Best />

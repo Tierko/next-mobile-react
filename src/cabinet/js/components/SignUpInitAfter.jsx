@@ -48,7 +48,9 @@ class SignUpInitAfter extends Component {
             onClick={() => nextStep(step)}
             className="button_sign-up-continue"
             primary
-          >Продолжить</Button>
+          >
+            Продолжить
+          </Button>
           <div className="sign-up__agreement">
             Я ознакомлен с <Link to={Pages.CONDITIONS} className="link">условиями перехода</Link>
           </div>
