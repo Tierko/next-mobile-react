@@ -175,7 +175,12 @@ class AutoPay extends Component {
                 <div className="auto-pay__section">
                   <div className="auto-pay__title">
                     <div>Ежемесячно</div>
-                    <Checkbox name="monthlyEnabled" value={monthlyEnabled} onChange={onChange} />
+                    <Checkbox
+                      className="checkbox-slide_auto-pay"
+                      name="monthlyEnabled"
+                      value={monthlyEnabled}
+                      onChange={onChange}
+                    />
                   </div>
                   <div
                     className={cs('auto-pay__block', {
@@ -221,7 +226,12 @@ class AutoPay extends Component {
                 <div className="auto-pay__section">
                   <div className="auto-pay__title">
                     <div>Если на счете недостаточно денег</div>
-                    <Checkbox value={lessEnabled} name="lessEnabled" onChange={onChange} />
+                    <Checkbox
+                      value={lessEnabled}
+                      name="lessEnabled"
+                      onChange={onChange}
+                      className="checkbox-slide_auto-pay"
+                    />
                   </div>
                   <div
                     className={cs('auto-pay__block', {
