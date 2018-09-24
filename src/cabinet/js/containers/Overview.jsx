@@ -128,7 +128,7 @@ class Overview extends Component {
                 hideCont
                 show={!!getData('noteGreen')}
               >
-                Спасибо, что всегда оплачиваетесчете вовремя
+                Спасибо, что всегда оплачиваете счете вовремя
               </Note>
               <Note
                 className="note_dashboard"
