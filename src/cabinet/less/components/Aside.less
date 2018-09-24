@@ -1,5 +1,6 @@
 .aside {
   flex: 0 0 33.33%;
+  padding-left: 80px;
 
   @media (max-width: @BREAK-POINT) {
     display: none;
@@ -7,7 +8,7 @@
 
   &__inner {
     max-width: 200px;
-    margin: -90px auto 0;
+    margin: -25px 0 0;
     padding: 0 15px 15px;
     position: relative;
     z-index: 1;
@@ -15,21 +16,10 @@
 
   &__logo {
     position: relative;
+    padding-top: 12px;
 
     img {
-      width: 100%;
-      max-width: 308px;
-      height: auto;
-      margin-top: -50px;
-      margin-left: -90px;
-
-      @media (max-width: @MAX-WIDTH) {
-        margin-left: calc((100% - 516px) / 2);
-      }
-
-      @media (max-width: 880px) {
-        margin-left: -104px;
-      }
+      margin-left: -60px;
     }
   }
 
