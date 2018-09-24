@@ -68,12 +68,15 @@ class MobileNav extends Component {
         <div className="mobile-nav" ref={(e) => { this.nav = e; }}>
           <div
             onClick={toggle}
-            className={cs('mobile-nav__button', {
-              'mobile-nav__button_open': open,
+            className={cs('mobile-nav__menu', {
               'mobile-nav__button_dark': dark,
             })}
           />
           <div className={cs('mobile-nav__list', { 'mobile-nav__list_open': open })}>
+            <div
+              onClick={toggle}
+              className="mobile-nav__close"
+            />
             {
               type === 'enter' &&
               <MobileNavEnter />
