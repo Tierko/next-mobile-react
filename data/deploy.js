@@ -13,7 +13,7 @@ const configMain = {
   password: credentials.password,
   host: 'six',
   port: 21,
-  localRoot: path.join(__dirname, 'dist'),
+  localRoot: path.join(__dirname, '../www'),
   remoteRoot: `/${folder}/www/`,
   include: ['*.js', 'bundle.css', 'index.html'],
   exclude: [],

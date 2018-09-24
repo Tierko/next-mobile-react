@@ -32,7 +32,7 @@ module.exports = (env, { mode }) => {
     },
 
     output: {
-      path: path.resolve(__dirname, '../dist'),
+      path: path.resolve(__dirname, '../www'),
       filename: '[name].js',
       publicPath: isDevelopment ? '/dist/' : '',
     },

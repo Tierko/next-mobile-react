@@ -235,7 +235,7 @@ class Chat extends Component {
             onMouseLeave={audioMessageFinish}
             className={cs('button-icon button-icon_chat-footer button-icon_chat-audio', { 'button-icon_chat-audio-active': audio })}
           >
-            <InlineSvg src={require('../../../../../media/icons/microphone.svg')} raw />
+            <InlineSvg src={require('../../../../media/icons/microphone.svg')} raw />
           </button>
         </div>
       </div>
