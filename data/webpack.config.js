@@ -34,7 +34,7 @@ module.exports = (env, { mode }) => {
     output: {
       path: path.resolve(__dirname, '../www'),
       filename: '[name].js',
-      publicPath: isDevelopment ? '/dist/' : '',
+      publicPath: isDevelopment ? '/' : '',
     },
 
     module: {
@@ -78,7 +78,6 @@ module.exports = (env, { mode }) => {
       new MiniCssExtractPlugin({
         filename: '[name].css',
       }),
-      new webpack.NamedModulesPlugin(),
       new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
         template: './index.html',
