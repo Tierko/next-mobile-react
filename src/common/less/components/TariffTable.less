@@ -20,6 +20,10 @@
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     margin-bottom: -20px;
+
+    @media (max-width: @BREAK-POINT) {
+      mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+    }
   }
 
   &__inner_to &__row:nth-child(1) &__names {

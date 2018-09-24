@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Button from './Button';
 import Radio from './Radio';
 import { formatCost } from '../../../cabinet/js/utils';
-import { Pages } from "../../../cabinet/js/constants";
+import { Pages } from '../../../cabinet/js/constants';
 
 const tariffs = [{
   id: 1,
