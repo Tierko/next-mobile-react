@@ -18,13 +18,13 @@ const MobileNavDashboard = () => (
     <NavLink className="mobile-nav__link" to={Pages.ROAMING}>
       <InlineSvg src={require('../../../../media/nav/roaming.svg')} raw /> Роуминг
     </NavLink>
-    <NavLink className="mobile-nav__link" to={Pages.HISTORY}>
+    <NavLink className="mobile-nav__link mobile-nav__link_history" to={Pages.HISTORY}>
       <InlineSvg src={require('../../../../media/nav/history.svg')} raw /> История
     </NavLink>
     <NavLink className="mobile-nav__link" to={Pages.SUPPORT_DASHBOARD}>
       <InlineSvg src={require('../../../../media/nav/support.svg')} raw /> Чат
     </NavLink>
-    <NavLink className="mobile-nav__link" to={Pages.SETTINGS}>
+    <NavLink className="mobile-nav__link mobile-nav__link_settings" to={Pages.SETTINGS}>
       <InlineSvg src={require('../../../../media/nav/settings.svg')} raw /> Настройки
     </NavLink>
     <NavLink className="mobile-nav__link" to={Pages.Exit} exact>
