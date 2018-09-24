@@ -38,8 +38,10 @@ import {
 class App extends Component {
   componentDidMount() {
     const { getZones, getFeatures } = this.props;
+    const { detectIE10 } = this;
     getZones();
     getFeatures();
+    detectIE10();
   }
 
   componentDidUpdate(prevProps) {
@@ -55,6 +57,18 @@ class App extends Component {
       body.removeAttribute('style');
     }
   }
+
+  detectIE10 = () => {
+    const agent = navigator.userAgent;
+    const reg = /MSIE\s?(\d+)(?:\.(\d+))?/i;
+    const matches = agent.match(reg);
+    const root = document.getElementById('root');
+
+    if (matches && root) {
+      console.log(matches[1])
+      root.className += `ie${matches[1]}`;
+    }
+  };
 
   render() {
     const { location } = this.props;
