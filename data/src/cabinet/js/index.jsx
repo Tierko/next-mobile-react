@@ -6,7 +6,7 @@ import { createHashHistory } from 'history';
 import { ConnectedRouter } from 'react-router-redux';
 
 import App from './containers/App';
-import storage from './reducers';
+import storage from './reducers/index';
 import '../less/style.less';
 
 render(

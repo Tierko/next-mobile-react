@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cs from 'classnames';
 import Input from '../../../common/js/components/Input';
 import Button from '../../../common/js/components/Button';
-import Transitions from '../components/Transitions';
+import Transitions from './Transitions';
 
 class SignUpPersonal extends Component {
   state = {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import ButtonIcon from '../components/ButtonIcon';
+import ButtonIcon from './ButtonIcon';
 import { MONTHS, WEEKDAYS_SHORT } from '../constants';
 
 class Calendar extends Component {

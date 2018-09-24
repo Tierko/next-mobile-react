@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import LinkBack from '../components/LinkBack';
+import LinkBack from './LinkBack';
 import { Pages } from '../constants';
 
 const RoamingCountries = ({ items, zone }) => {

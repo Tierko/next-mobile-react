@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import InlineSvg from 'svg-inline-react';
 import cs from 'classnames';
 import Input from '../../../common/js/components/Input';
-import ButtonIcon from '../components/ButtonIcon';
+import ButtonIcon from './ButtonIcon';
 
 class Chat extends Component {
   state = {
@@ -235,7 +235,7 @@ class Chat extends Component {
             onMouseLeave={audioMessageFinish}
             className={cs('button-icon button-icon_chat-footer button-icon_chat-audio', { 'button-icon_chat-audio-active': audio })}
           >
-            <InlineSvg src={require('../../../../media/icons/microphone.svg')} raw />
+            <InlineSvg src={require('../../../../../media/icons/microphone.svg')} raw />
           </button>
         </div>
       </div>

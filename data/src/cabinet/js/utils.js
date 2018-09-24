@@ -1,5 +1,5 @@
 import { units } from './constants';
-import data from '../data';
+import data from '../data/index';
 
 export const checkCardNumber = str => str && str.replace(/\D/g, '').length === 16;
 

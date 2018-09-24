@@ -4,7 +4,7 @@ import cs from 'classnames';
 import Input from '../../../common/js/components/Input';
 import Button from '../../../common/js/components/Button';
 import AutoComplete from '../../../common/js/components/AutoComplete';
-import Transitions from '../components/Transitions';
+import Transitions from './Transitions';
 import { Pages, Statuses } from '../constants';
 
 class SignUpDeliveryAddress extends Component {

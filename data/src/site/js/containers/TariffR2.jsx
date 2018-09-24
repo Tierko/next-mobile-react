@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { animateScroll } from 'react-scroll';
-import MobileNav from './../../../common/js/components/MobileNav';
+import MobileNav from '../../../common/js/components/MobileNav';
 import Header from '../../../common/js/components/Header';
 import TariffTariff from '../components/TariffTariff';
 import TariffRoaming from '../components/TariffRoaming';
@@ -16,16 +16,20 @@ class Tariff extends Component {
     location.href = `${SERVICE_URL}/#/${page || ''}`;
   };
 
+  toTariff = (id) => {
+    location.href = `${SERVICE_URL}/#/signup/after/tariff/${id}`;
+  };
+
   render() {
-    const { to } = this;
+    const { to, toTariff } = this;
 
     return (
       <div className="tariff">
-        <LogoMobile />
+        <LogoMobile r={2} />
         <MobileNav type="home" />
-        <Header mode="site" />
+        <Header mode="site" r={2} />
         <div className="tariff__inner">
-          <TariffTariff to={() => to('signup')} r={1} />
+          <TariffTariff to={() => to('signup/after')} toTariff={toTariff} />
           <TariffRoaming size="small" type="light" />
           <TariffServices />
         </div>
