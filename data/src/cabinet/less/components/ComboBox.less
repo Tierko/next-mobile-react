@@ -4,6 +4,13 @@
   z-index: 401;
   background: #f1f0f6 url("/media/icons/search.svg") 30px 50% no-repeat;
 
+  &_desktop {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
   @media (max-width: @BREAK-POINT) {
     padding-left: 52px;
 
@@ -18,8 +25,6 @@
 
     &_mobile &__value {
       padding-right: 60px;
-      position: relative;
-      z-index: 1;
     }
 
     &_mobile &__title-wrapper {
@@ -72,6 +77,8 @@
     border: none;
     padding: 0 75px;
     background-color: transparent;
+    position: relative;
+    z-index: 1;
 
     @media (max-width: @BREAK-POINT) {
       padding: 8px;
