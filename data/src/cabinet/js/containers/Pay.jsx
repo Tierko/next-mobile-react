@@ -138,13 +138,17 @@ class Pay extends Component {
                   <div className="pay__auto-pay-from">
                     Оплата {
                       formatCost(autoPay.monthlySum)
-                    } каждый месяц {autoPay.monthlyDay} числа до {convertMonth(autoPay.monthlyUntil)}
+                    } каждый месяц {
+                      autoPay.monthlyDay
+                    } числа до {convertMonth(autoPay.monthlyUntil)}
                   </div>
                 }
                 {
                   autoPay.lessEnabled &&
                   <div className="pay__auto-pay-from">
-                    Пополнять счет не {formatCost(autoPay.lessSum)}, если баланс меньше {formatCost(autoPay.lessLess)}
+                    Пополнять счет не {
+                      formatCost(autoPay.lessSum)
+                    }, если баланс меньше {formatCost(autoPay.lessLess)}
                   </div>
                 }
                 {
