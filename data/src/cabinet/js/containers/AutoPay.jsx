@@ -12,7 +12,7 @@ import InputRuble from '../components/InputRuble';
 import Select from '../../../common/js/components/Select';
 import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
-import { Pages, MONTHS_M, TITLES } from '../constants';
+import { Pages, MONTHS, TITLES } from '../constants';
 import saveAutoPayAction from '../actions/AutoPay';
 import {
   getShortPan,
@@ -30,7 +30,7 @@ class AutoPay extends Component {
 
     const mm = m.map((d, i) => {
       const tmp = new Date(year, month + i + 1);
-      let monthName = MONTHS_M[tmp.getMonth()];
+      let monthName = MONTHS[tmp.getMonth()];
       monthName = `${monthName[0].toUpperCase()}${monthName.substr(1)}`;
 
       return `${monthName.toLowerCase()} ${tmp.getFullYear()}`;
@@ -256,7 +256,12 @@ class AutoPay extends Component {
                     </div>
                   </div>
                 </div>
-                <Button onClick={onSave} disabled={!unsaved || !card || !monthlyInLimits || !lessSumInLimits}>Сохранить</Button>
+                <Button
+                  onClick={onSave}
+                  disabled={!unsaved || !card || !monthlyInLimits || !lessSumInLimits}
+                >
+                  Сохранить
+                </Button>
               </div>
             </div>
           </Transitions>

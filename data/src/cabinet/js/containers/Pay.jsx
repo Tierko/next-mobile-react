@@ -11,7 +11,7 @@ import Payment from '../components/Payment';
 import Button from '../../../common/js/components/Button';
 import CardEditor from '../components/CardEditor';
 import Transitions from '../components/Transitions';
-import { Pages, TITLES } from '../constants';
+import { Pages, TITLES, MONTHS, MONTHS_M } from '../constants';
 import { formatCost, getShortPan } from '../utils';
 import { addCardAction } from '../actions/Cards';
 
@@ -70,6 +70,26 @@ class Pay extends Component {
     history.push(Pages.AUTO_PAY);
   };
 
+  convertMonth = (str) => {
+    if (!str) {
+      return str;
+    }
+
+    const monthYear = str.split(' ');
+
+    if (monthYear.length !== 2) {
+      return str;
+    }
+
+    const index = MONTHS.findIndex(m => m.toLowerCase() === monthYear[0].toLowerCase());
+
+    if (index === -1) {
+      return str;
+    }
+
+    return `${MONTHS_M[index]} ${monthYear[1]}`;
+  };
+
   render() {
     const { sum, editCardId } = this.state;
     const { autoPay, cards } = this.props;
@@ -80,6 +100,7 @@ class Pay extends Component {
       onSumChange,
       onEdit,
       onClose,
+      convertMonth,
     } = this;
     const meta = {
       title: TITLES.PAY,
@@ -115,7 +136,9 @@ class Pay extends Component {
                 {
                   autoPay.monthlyEnabled &&
                   <div className="pay__auto-pay-from">
-                    Оплата {formatCost(autoPay.monthlySum)} каждый месяц {autoPay.monthlyDay} числа до {autoPay.monthlyUntil}
+                    Оплата {
+                      formatCost(autoPay.monthlySum)
+                    } каждый месяц {autoPay.monthlyDay} числа до {convertMonth(autoPay.monthlyUntil)}
                   </div>
                 }
                 {
