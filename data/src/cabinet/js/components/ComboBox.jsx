@@ -60,22 +60,24 @@ class ComboBox extends Select {
             placeholder={placeholder}
           />
         }
-        {
-          value && value.properties && value.properties.name &&
-          <div
-            className="combo-box__clear"
-            onClick={clear}
-            role="button"
-          />
-        }
-        {
-          value && value.properties && value.properties.name &&
-          <div className="combo-box__title">
-            <img className="select__img" src={`/media/flags/${value.properties.iso_a2}.svg`} alt={value.properties.name} />
-            {value.properties.name}
-            <span className="combo-box__zone"> находится в зоне {zoneName.toLowerCase()}</span>
-          </div>
-        }
+        <div className="combo-box__title-wrapper">
+          {
+            value && value.properties && value.properties.name &&
+            <div className="combo-box__title">
+              <img className="select__img" src={`/media/flags/${value.properties.iso_a2}.svg`} alt={value.properties.name} />
+              {value.properties.name}
+              <span className="combo-box__zone"> находится в зоне {zoneName.toLowerCase()}</span>
+            </div>
+          }
+          {
+            value && value.properties && value.properties.name &&
+            <div
+              className="combo-box__clear"
+              onClick={clear}
+              role="button"
+            />
+          }
+        </div>
         <div className={cs('select__list', { select__list_open: !!valueSearch.length && open })}>
           {
             filter(valueSearch).map(i => (

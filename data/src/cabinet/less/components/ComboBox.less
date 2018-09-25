@@ -15,6 +15,34 @@
       background: #e2e2ec;
       height: 60px;
     }
+
+    &_mobile &__value {
+      padding-right: 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    &_mobile &__title-wrapper {
+      display: flex;
+      justify-content: center;
+      left: 60px;
+      right: 60px;
+    }
+
+    &_mobile &__title {
+      padding: 0;
+      max-width: calc(100% - 20px);
+      overflow: hidden;
+      text-oveflow: ellipsis;
+    }
+
+    &_mobile &__clear {
+      position: static;
+      height: 60px;
+      background-color: transparent;
+      width: 20px;
+      background-size: 12px auto;
+    }
   }
 
   &__clear {
@@ -51,6 +79,15 @@
     }
   }
 
+  &__title-wrapper {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
   &__title {
     position: relative;
     display: flex;
@@ -58,6 +95,8 @@
     height: 100%;
     margin-left: 75px;
     white-space: nowrap;
+    overflow: hidden;
+    text-oveflow: ellipsis;
 
     @media (max-width: @BREAK-POINT) {
       display: block;

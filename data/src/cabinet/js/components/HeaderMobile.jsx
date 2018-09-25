@@ -53,7 +53,7 @@ class HeaderMobile extends Component {
           showRoamingSearch &&
           <div
             className={cs('header-mobile__search-button', {
-              'header-mobile__search-button_zoom': !showSearch,
+              'header-mobile__search-button_zoom': !showSearch || country.properties,
               'header-mobile__search-button_close': showSearch,
             })}
             onClick={toggleSearch}
