@@ -7,7 +7,7 @@ use ALS\Helper\El;
 
 class Tariffs {
 	/**
-	 * Метод возвращает список услуг
+	 * Метод возвращает список тарифов
 	 * @param string $lang - Языковая версия
 	 * @return array
 	 */
