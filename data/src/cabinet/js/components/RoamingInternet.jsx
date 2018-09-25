@@ -40,7 +40,7 @@ class RoamingInternet extends Component {
               current={zone.additionalPackage.current}
               max={zone.additionalPackage.max}
             />
-            <div>Действует еще {zone.additionalPackage.expired} {convertStrings(zone.additionalPackage.expired, DAYS)}</div>
+            <div>Действует еще&nbsp;{zone.additionalPackage.expired} {convertStrings(zone.additionalPackage.expired, DAYS)}</div>
           </Fragment>
         }
         {
