@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MobileNav from '../../../common/js/components/MobileNav';
 import LogoMobile from '../components/LogoMobile';
 import Header from '../../../common/js/components/Header';
@@ -17,6 +18,11 @@ class Home extends Component {
 
   render() {
     const { to } = this;
+    const { data } = this.props;
+
+    if (!data.page_home || !data.page_tariff) {
+      return false;
+    }
 
     return (
       <div className="home">
@@ -24,17 +30,21 @@ class Home extends Component {
         <MobileNav type="home" dark />
         <Header mode="site" light r={1} hideHomeLink />
         <div className="home__inner">
-          <Intro to={() => to('signup')} />
-          <Best />
-          <Club to={() => to('signup')} />
-          <HomeTariff r={1} />
+          <Intro to={() => to('signup')} data={data.page_home} />
+          <Best data={data.page_home} />
+          <Club to={() => to('signup')} data={data.page_home} />
+          <HomeTariff r={1} data={data.page_home} />
           <EarthTariff home type="dark" size="big" />
-          <Cabinet to={() => to('signin')} />
+          <Cabinet to={() => to('signin')} data={data} />
           <Footer als light />
         </div>
       </div>
     );
   }
 }
+
+Home.propTypes = {
+  data: PropTypes.shape().isRequired,
+};
 
 export default Home;

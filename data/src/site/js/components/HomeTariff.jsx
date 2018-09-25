@@ -5,7 +5,7 @@ import TariffTable from '../../../common/js/components/TariffTable';
 import Button from '../../../common/js/components/Button';
 import { Pages } from '../../../cabinet/js/constants';
 
-const HomeTariff = ({ to, r }) => (
+const HomeTariff = ({ to, data, r }) => (
   <div className="home-tariff">
     <div className="home-tariff__header">
       <Link className="home__link" to={Pages[`TARIFF_R${r}`]}>Тарифы</Link>, с&nbsp;которыми не&nbsp;нужно заботиться об&nbsp;остатках
@@ -20,6 +20,7 @@ const HomeTariff = ({ to, r }) => (
 
 HomeTariff.propTypes = {
   to: PropTypes.func,
+  data: PropTypes.shape()
 };
 
 HomeTariff.defaultProps = {

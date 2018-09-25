@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Header from '../../../common/js/components/Header';
 import Intro from '../components/Intro';
@@ -17,6 +18,7 @@ class Home extends Component {
 
   render() {
     const { to } = this;
+    const { data } = this.props;
 
     return (
       <div className="home">
@@ -24,17 +26,21 @@ class Home extends Component {
         <MobileNav type="home" r={2} dark />
         <Header mode="site" light r={2} hideHomeLink />
         <div className="home__inner">
-          <Intro to={() => to('signup/after')} />
-          <Best className="best_r2" />
+          <Intro to={() => to('signup/after')} data={data.page_home} />
+          <Best className="best_r2" data={data.page_home} />
           <HomeTariff to={to} r={2} />
           <EarthTariff className="earth-tariff_home-r2" home type="dark" size="big" />
-          <Cabinet to={() => to('signin')} />
-          <Club className="club_home-r2" to={() => to('signup/after')} />
+          <Cabinet to={() => to('signin')} data={data} />
+          <Club className="club_home-r2" to={() => to('signup/after')} data={data.page_home} />
           <Footer als light />
         </div>
       </div>
     );
   }
 }
+
+Home.propTypes = {
+  data: PropTypes.shape().isRequired,
+};
 
 export default Home;

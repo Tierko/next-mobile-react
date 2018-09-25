@@ -2,16 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../common/js/components/Button';
 
-const Intro = ({ to }) => (
+const Intro = ({ to, data }) => (
   <div className="intro">
-    <div className="intro__text">Next выходит за&nbsp;рамки обычного оператора</div>
-    <div className="intro__note">Общайтесь без ограничения зоны покрытия дома и&nbsp;в&nbsp;роуминге</div>
-    <Button className="button_light" onClick={to}>Перейти на Next</Button>
+    <div className="intro__text" dangerouslySetInnerHTML={{ __html: data.intro_text }} />
+    <div className="intro__note" dangerouslySetInnerHTML={{ __html: data.intro_note }} />
+    <Button className="button_light" onClick={to}>
+      <div dangerouslySetInnerHTML={{ __html: data.intro_btn }} />
+    </Button>
   </div>
 );
 
 Intro.propTypes = {
   to: PropTypes.func.isRequired,
+  data: PropTypes.shape().isRequired,
 };
 
 export default Intro;

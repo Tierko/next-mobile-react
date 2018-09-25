@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../common/js/components/Button';
 
-const Club = ({ to, className }) => (
+const Club = ({ to, className, data }) => (
   <div className={`club ${className}`}>
     <div className="club__inner">
-      <div className="club__header">Закрытый клуб пользователей</div>
-      <div className="club__text">С&nbsp;первыми, кто пришлет заявки на&nbsp;SIM-карту, мы&nbsp;свяжемся и&nbsp;расскажем, как получить полгода бесплатной связи и&nbsp;10&nbsp;персональных приглашений для друзей</div>
-      <Button className="button_light button_club" onClick={to}>Перейти на Next</Button>
+      <div className="club__header" dangerouslySetInnerHTML={{ __html: data.club_header }} />
+      <div className="club__text" dangerouslySetInnerHTML={{ __html: data.club_text }} />
+      <Button className="button_light button_club" onClick={to}>
+        <div dangerouslySetInnerHTML={{ __html: data.club_btn }} />
+      </Button>
     </div>
   </div>
 );
@@ -15,6 +17,7 @@ const Club = ({ to, className }) => (
 Club.propTypes = {
   to: PropTypes.func.isRequired,
   className: PropTypes.string,
+  data: PropTypes.shape().isRequired,
 };
 
 Club.defaultProps = {
