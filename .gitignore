@@ -1,4 +1,10 @@
 node_modules
-www
+www/bitrix
+www/upload
+www/.htaccess
+www/0.js
+www/bundle.css
+www/bundle.js
+www/index.html
 .idea
 ftp-config.json
