@@ -1,0 +1,17 @@
+{
+    "name": "als/next-mobile",
+    "authors": [
+        {
+            "name": "Dok11",
+            "email": "dok@artlebedev.ru"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ALS\\": "local/modules/als.i18n/lib",
+			"ALS\\Helper\\": "local/modules/als.helper/lib",
+			"ALS\\Project\\": "local/modules/als.project/lib"
+        }
+    }
+}
