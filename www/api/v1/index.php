@@ -25,6 +25,10 @@ ob_start();
 
 
 switch ($requestData['action']) {
+	case 'services.getList':
+		$result = \ALS\Project\Services::getItems($requestLang);
+		break;
+
 	default:
 		$result = [];
 }

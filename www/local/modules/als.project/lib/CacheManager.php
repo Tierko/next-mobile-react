@@ -7,6 +7,7 @@ class CacheManager {
 	const CACHE_PATH = [
 		// 'BlockPageItems' => '/BlockPage/getItems/',
 		// 'BlockPageSections' => '/BlockPage/getList/',
+		'ServicesItems' => '/Services/getList/',
 	];
 
 	const DIR = '/als.project';
@@ -44,10 +45,9 @@ class CacheManager {
 		$iblockId = (int) $event['IBLOCK_ID'];
 		$iblockCode = \ALS\Helper\Help::getIblockCode($iblockId);
 
-		/*if ($iblockCode === 'BLOCK_PAGE') {
-			self::clear('BlockPageItems');
-			self::clear('BlockPageSections');
-		}*/
+		if ($iblockCode === 'SERVICES') {
+			self::clear('ServicesItems');
+		}
 	}
 
 }
