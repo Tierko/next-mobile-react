@@ -7,6 +7,7 @@ class CacheManager {
 	const CACHE_PATH = [
 		// 'BlockPageItems' => '/BlockPage/getItems/',
 		// 'BlockPageSections' => '/BlockPage/getList/',
+		'RoamingPriceGroupsItems' => '/RoamingPriceGroups/getList/',
 		'ServicesItems' => '/Services/getList/',
 		'TariffsItems' => '/Tariffs/getList/',
 	];
@@ -46,7 +47,10 @@ class CacheManager {
 		$iblockId = (int) $event['IBLOCK_ID'];
 		$iblockCode = \ALS\Helper\Help::getIblockCode($iblockId);
 
-		if ($iblockCode === 'SERVICES') {
+		if ($iblockCode === 'ROAMING_PRICE_GROUPS') {
+			self::clear('ServicesItems');
+
+		} elseif ($iblockCode === 'SERVICES') {
 			self::clear('ServicesItems');
 
 		} elseif ($iblockCode === 'TARIFFS') {

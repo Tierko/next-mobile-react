@@ -25,6 +25,10 @@ ob_start();
 
 
 switch ($requestData['action']) {
+	case 'roamingPriceGroups.getList':
+		$result = \ALS\Project\RoamingPriceGroups::getItems($requestLang);
+		break;
+
 	case 'services.getList':
 		$result = \ALS\Project\Services::getItems($requestLang);
 		break;
