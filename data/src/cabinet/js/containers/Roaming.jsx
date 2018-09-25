@@ -117,17 +117,24 @@ class Roaming extends Component {
 
       return 0;
     });
+    const currentZone = getCurrentZone();
 
     return (
       <DocumentMeta {...meta}>
-        <HeaderMobile />
+        <HeaderMobile
+          showRoamingSearch
+          zone={currentZone}
+          features={featuresSorted}
+          onCountrySelect={onCountrySelect}
+          country={country}
+        />
         <MobileNav key="nav" type="dashboard" />
         <div key="dashboard" className="dashboard">
           <Aside />
           <div className="dashboard__content dashboard__content_roaming">
             <Transitions>
               <RoamingMap
-                zone={getCurrentZone()}
+                zone={currentZone}
                 features={featuresSorted}
                 country={country}
                 countryId={countryId}

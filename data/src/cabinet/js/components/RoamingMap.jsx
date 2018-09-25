@@ -268,6 +268,7 @@ class RoamingMap extends Component {
           onSelect={onCountrySelect}
           placeholder="В какой стране вам нужен роуминг?"
           zoneName={title}
+          className="combo-box_desktop"
         />
       </div>
     );
