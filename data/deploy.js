@@ -3,15 +3,19 @@ const FtpDeploy = require('ftp-deploy');
 const credentials = require('./ftp-config.json');
 const ftpDeploy = new FtpDeploy();
 const folder = process.argv[2];
+const type = process.argv[3];
+const projectCredentials = credentials[type];
 
 if (!folder) {
   throw new Error('Folder is empty');
 }
 
+console.log(projectCredentials)
+
 const configMain = {
-  user: credentials.user,
-  password: credentials.password,
-  host: 'six',
+  user: projectCredentials.user,
+  password: projectCredentials.password,
+  host: projectCredentials.host,
   port: 21,
   localRoot: path.join(__dirname, '../www'),
   remoteRoot: `/${folder}/www/`,
@@ -20,9 +24,9 @@ const configMain = {
 };
 
 const configMedia = {
-  user: credentials.user,
-  password: credentials.password,
-  host: 'six',
+  user: projectCredentials.user,
+  password: projectCredentials.password,
+  host: projectCredentials.host,
   port: 21,
   localRoot: __dirname,
   remoteRoot: `/${folder}/www/`,
