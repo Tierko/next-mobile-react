@@ -5,15 +5,15 @@ namespace ALS\Project;
 
 use ALS\Helper\El;
 
-class Tariffs {
+class RoamingTariffs {
 	/**
-	 * Метод возвращает список тарифов
+	 * Метод возвращает список тарифов для роуминга
 	 * @param string $lang - Языковая версия
 	 * @return array
 	 */
 	public static function getItems($lang = 'ru') {
 		$params = [
-			'IBLOCK_CODE' => 'TARIFFS',
+			'IBLOCK_CODE' => 'ROAMING_TARIFFS',
 			'ORDER' => ['SORT' => 'ASC', 'NAME' => 'ASC'],
 			'FILTER' => ['ACTIVE' => 'Y'],
 			'SELECT' => self::getSelectField($lang),
@@ -22,7 +22,7 @@ class Tariffs {
 		];
 
 		$obCache = new \CPHPCache;
-		$cachePath = CacheManager::getPath('TariffsItems');
+		$cachePath = CacheManager::getPath('RoamingTariffsItems');
 
 		if ($obCache->InitCache(3600, serialize($params), $cachePath)) {
 			$vars = $obCache->GetVars();
@@ -49,13 +49,8 @@ class Tariffs {
 		$select = [
 			'ID:int>id',
 			'NAME>name',
-			'SORT:int>sort',
-			'PROPERTY_PAYMENT:int>payment',
-			'PROPERTY_INTERNET:int>internet',
-			'PROPERTY_NEXT_CALLS>nextCalls',
-			'PROPERTY_CALLS>calls',
-			'PROPERTY_SMS>sms',
-			'PROPERTY_TRANSITION>transition',
+			'PROPERTY_GROUP:int>group',
+			'PROPERTY_FLAG>flag',
 		];
 
 		return $select;
@@ -70,4 +65,5 @@ class Tariffs {
 	private static function getItemsWithData($params) {
 		return El::getList($params);
 	}
+
 }

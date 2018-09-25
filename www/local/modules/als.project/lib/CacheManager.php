@@ -8,6 +8,7 @@ class CacheManager {
 		// 'BlockPageItems' => '/BlockPage/getItems/',
 		// 'BlockPageSections' => '/BlockPage/getList/',
 		'RoamingPriceGroupsItems' => '/RoamingPriceGroups/getList/',
+		'RoamingTariffsItems' => '/RoamingTariffs/getList/',
 		'ServicesItems' => '/Services/getList/',
 		'TariffsItems' => '/Tariffs/getList/',
 	];
@@ -48,7 +49,10 @@ class CacheManager {
 		$iblockCode = \ALS\Helper\Help::getIblockCode($iblockId);
 
 		if ($iblockCode === 'ROAMING_PRICE_GROUPS') {
-			self::clear('ServicesItems');
+			self::clear('RoamingPriceGroupsItems');
+
+		} elseif ($iblockCode === 'ROAMING_TARIFFS') {
+			self::clear('RoamingTariffsItems');
 
 		} elseif ($iblockCode === 'SERVICES') {
 			self::clear('ServicesItems');

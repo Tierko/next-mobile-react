@@ -29,6 +29,10 @@ switch ($requestData['action']) {
 		$result = \ALS\Project\RoamingPriceGroups::getItems($requestLang);
 		break;
 
+	case 'roamingTariffs.getList':
+		$result = \ALS\Project\RoamingTariffs::getItems($requestLang);
+		break;
+
 	case 'services.getList':
 		$result = \ALS\Project\Services::getItems($requestLang);
 		break;
