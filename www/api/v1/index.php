@@ -29,6 +29,10 @@ switch ($requestData['action']) {
 		$result = \ALS\Project\Services::getItems($requestLang);
 		break;
 
+	case 'tariffs.getList':
+		$result = \ALS\Project\Tariffs::getItems($requestLang);
+		break;
+
 	default:
 		$result = [];
 }

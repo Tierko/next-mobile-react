@@ -8,6 +8,7 @@ class CacheManager {
 		// 'BlockPageItems' => '/BlockPage/getItems/',
 		// 'BlockPageSections' => '/BlockPage/getList/',
 		'ServicesItems' => '/Services/getList/',
+		'TariffsItems' => '/Tariffs/getList/',
 	];
 
 	const DIR = '/als.project';
@@ -47,6 +48,9 @@ class CacheManager {
 
 		if ($iblockCode === 'SERVICES') {
 			self::clear('ServicesItems');
+
+		} elseif ($iblockCode === 'TARIFFS') {
+			self::clear('TariffsItems');
 		}
 	}
 
