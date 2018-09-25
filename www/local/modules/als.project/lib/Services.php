@@ -64,7 +64,7 @@ class Services {
 	 * @return array
 	 */
 	private static function getItemsWithData($params) {
-		return El::getList($params);;
+		return El::getList($params);
 	}
 
 }
