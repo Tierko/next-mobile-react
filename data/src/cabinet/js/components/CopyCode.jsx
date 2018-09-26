@@ -41,7 +41,9 @@ class OverviewInvite extends Component {
     return (
       <div className="copy-code">
         <textarea className="copy-code__code" value={code} ref={(e) => { this.code = e; }} onChange={() => {}} />
-        <Button className="button_copy-code" onClick={onCopy}>Скопировать</Button>
+        <Button className="button_copy-code" onClick={onCopy}>
+          <span>Скопировать</span>
+        </Button>
       </div>
     );
   }
