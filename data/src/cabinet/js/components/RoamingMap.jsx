@@ -75,15 +75,15 @@ class RoamingMap extends Component {
       width = map.clientWidth;
     }
 
-    if (width > 1200) {
-      width = 1200;
+    if (width > 800) {
+      width = 800;
     }
 
     if (width < 320) {
       width = 320;
     }
 
-    return mapNumbers(width, 320, 1200, 0.3, 1.4);
+    return mapNumbers(width, 320, 800, 0.3, 1.4);
   };
 
   zoomIn = () => {
@@ -238,6 +238,7 @@ class RoamingMap extends Component {
               maxZoom={maxZoom}
               ref={(e) => { this.map = e; }}
               onzoom={onZoomLevelsChange}
+              zoomDelta={0.2}
             >
               <GeoJSON
                 data={features}
