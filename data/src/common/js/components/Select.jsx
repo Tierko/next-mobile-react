@@ -8,12 +8,26 @@ class Select extends Component {
   };
 
   componentDidMount() {
+    const { onESC } = this;
+
     document.addEventListener('click', this.outsideClick);
+    window.addEventListener('keyup', onESC);
   }
 
   componentWillUnmount() {
+    const { onESC } = this;
+
     document.removeEventListener('click', this.outsideClick);
+    window.removeEventListener('kyup', onESC);
   }
+
+  onESC = ({ keyCode }) => {
+    if (keyCode === 27) {
+      this.setState({
+        open: false,
+      });
+    }
+  };
 
   outsideClick = (e) => {
     try {
