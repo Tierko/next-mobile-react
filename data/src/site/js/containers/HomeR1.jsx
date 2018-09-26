@@ -21,12 +21,6 @@ class Home extends Component {
     const { translations } = this.props.data;
     const { intro, best, club } = translations.data;
 
-    console.log(club)
-
-    // if (!data.page_home || !data.page_tariff) {
-    //   return false;
-    // }
-
     return (
       <div className="home">
         <LogoMobile toHome={false} dark />
