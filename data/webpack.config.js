@@ -98,8 +98,9 @@ module.exports = (env, { mode }) => {
       host: '0.0.0.0',
       public: `localhost:${port}`,
       port,
+      // headers: { 'Access-Control-Allow-Origin': '*' },
       proxy: {
-        '/api/**': {
+        '/api//*': {
           target: 'http://next-promo.dev.design.ru',
           secure: false,
           changeOrigin: true,

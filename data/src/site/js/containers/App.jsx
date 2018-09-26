@@ -9,45 +9,121 @@ import { Pages } from '../../../cabinet/js/constants';
 
 class App extends Component {
   state = {
+    translations: {
+      data: {},
+      loaded: false,
+      error: false,
+    },
+    tariffs: {
+      data: {},
+      loaded: false,
+      error: false,
+    },
     data: {},
   };
 
   componentDidMount() {
+    const { getTranslations, getTariffs } = this;
+
+    getTranslations();
+    getTariffs();
+
+    // fetch('/api/i18n/ru.json', {
+    //   credentials: 'same-origin',
+    //   method: 'GET',
+    // })
+    //   .then(data => data.json())
+    //   .then(data => this.setState({
+    //     data,
+    //   }));
+  }
+
+  getTranslations = () => {
+    const { translations } = this.state;
+    const { formatTranslations } = this;
+
     fetch('/api/i18n/ru.json', {
       credentials: 'same-origin',
       method: 'GET',
     })
       .then(data => data.json())
       .then(data => this.setState({
-        data,
+        translations: Object.assign({}, translations, { data: formatTranslations(data) }),
       }));
-  }
+  };
+
+  getTariffs = () => {
+    const { tariffs } = this.state;
+
+    fetch('/api/v1/', {
+      credentials: 'same-origin',
+      method: 'POST',
+      body: JSON.stringify({
+        action: 'tariffs.getList',
+        lang: 'ru',
+      }),
+    })
+      .then(data => data.json())
+      .then(data => this.setState({
+        tariffs: Object.assign({}, tariffs, { data }),
+      }));
+  };
+
+  formatTranslations = (data) => {
+    const obj = {};
+    const { page_home: pageHome } = data;
+
+    obj.intro = {
+      text: pageHome.intro_text,
+      note: pageHome.intro_note,
+      btn: pageHome.intro_btn,
+    };
+
+    obj.best = {
+      header: pageHome.best_header,
+      text: pageHome.best_text,
+    };
+
+    obj.club = {
+      header: pageHome.club_header,
+      text: pageHome.club_text,
+      btn: pageHome.club_btn,
+    };
+
+    obj.tariff = {};
+
+    obj.roaming = {};
+
+    obj.cabinet = {};
+
+    return obj;
+  };
 
   render() {
-    const { data } = this.state;
+    const { state } = this;
 
     return (
       <div>
         <Switch>
           <Route
-            component={props => (<HomeR1 {...props} data={data} />)}
+            component={props => (<HomeR1 {...props} data={state} />)}
             path={Pages.HOME}
             exact
           />
           <Route
-            component={props => (<HomeR1 {...props} data={data} />)}
+            component={props => (<HomeR1 {...props} data={state} />)}
             path={Pages.HOME_R1}
           />
           <Route
-            component={props => (<HomeR2 {...props} data={data} />)}
+            component={props => (<HomeR2 {...props} data={state} />)}
             path={Pages.HOME_R2}
           />
           <Route
-            component={props => (<TariffR1 {...props} data={data} />)}
+            component={props => (<TariffR1 {...props} data={state} />)}
             path={Pages.TARIFF_R1}
           />
           <Route
-            component={props => (<TariffR2 {...props} data={data} />)}
+            component={props => (<TariffR2 {...props} data={state} />)}
             path={Pages.TARIFF_R2}
           />
         </Switch>

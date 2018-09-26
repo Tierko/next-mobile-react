@@ -18,11 +18,14 @@ class Home extends Component {
 
   render() {
     const { to } = this;
-    const { data } = this.props;
+    const { translations } = this.props.data;
+    const { intro, best, club } = translations.data;
 
-    if (!data.page_home || !data.page_tariff) {
-      return false;
-    }
+    console.log(club)
+
+    // if (!data.page_home || !data.page_tariff) {
+    //   return false;
+    // }
 
     return (
       <div className="home">
@@ -30,12 +33,12 @@ class Home extends Component {
         <MobileNav type="home" dark />
         <Header mode="site" light r={1} hideHomeLink />
         <div className="home__inner">
-          <Intro to={() => to('signup')} data={data.page_home} />
-          <Best data={data.page_home} />
-          <Club to={() => to('signup')} data={data.page_home} />
-          <HomeTariff r={1} data={data.page_home} />
-          <EarthTariff home type="dark" size="big" />
-          <Cabinet to={() => to('signin')} data={data} />
+          <Intro to={() => to('signup')} data={intro} />
+          <Best data={best} />
+          <Club to={() => to('signup')} data={club} />
+          {/*<HomeTariff r={1} data={data.page_home} />*/}
+          {/*<EarthTariff home type="dark" size="big" />*/}
+          {/*<Cabinet to={() => to('signin')} data={data} />*/}
           <Footer als light />
         </div>
       </div>
