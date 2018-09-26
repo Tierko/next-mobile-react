@@ -4,6 +4,10 @@
   z-index: 401;
   background: #f1f0f6 url("/media/icons/search.svg") 30px 50% no-repeat;
 
+  &_hide-icon {
+    background-image: none;
+  }
+
   &_desktop {
     background-position: 60px 50%;
     position: absolute;
@@ -69,6 +73,10 @@
     background-size: 18px auto;
     user-select: none;
     cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+    }
 
     @media (max-width: @BREAK-POINT) {
       left: 56px;

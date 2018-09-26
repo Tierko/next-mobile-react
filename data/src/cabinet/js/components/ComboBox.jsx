@@ -15,7 +15,7 @@ class ComboBox extends Select {
     });
   };
 
-  filter = (value) =>  {
+  filter = (value) => {
     const { items } = this.props;
 
     return items.filter(i => i.properties.name.toUpperCase().indexOf(value.toUpperCase()) !== -1);
@@ -40,16 +40,27 @@ class ComboBox extends Select {
 
   render() {
     const { open, valueSearch } = this.state;
-    const { onSelect, onChange, filter, clear } = this;
+    const {
+      onSelect,
+      onChange,
+      filter,
+      clear,
+    } = this;
     const {
       className,
       value,
       placeholder,
       zoneName,
     } = this.props;
+    const filtered = filter(valueSearch);
 
     return (
-      <div className={`combo-box ${className}`} ref={(e) => { this.select = e; }}>
+      <div
+        className={cs(`combo-box ${className}`, {
+          'combo-box_hide-icon': value && value.properties && value.properties.name
+        })}
+        ref={(e) => { this.select = e; }}
+      >
         {
           !(value && value.properties && value.properties.name) &&
           <input
@@ -80,7 +91,7 @@ class ComboBox extends Select {
         </div>
         <div className={cs('select__list', { select__list_open: !!valueSearch.length && open })}>
           {
-            filter(valueSearch).map(i => (
+            filtered.map(i => (
               <div
                 key={i.properties.iso_a2}
                 className="select__item select__item_lang"
@@ -91,6 +102,10 @@ class ComboBox extends Select {
                 {i.properties.name}
               </div>
             ))
+          }
+          {
+            valueSearch && !filtered.length &&
+            <div className="select__item select__item_disabled">Такой страны нет в списке</div>
           }
         </div>
       </div>
