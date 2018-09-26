@@ -45,6 +45,18 @@ class MobileNav extends Component {
     }
   };
 
+  onClick = ({ target }) => {
+    if (!target || !target.classList) {
+      return;
+    }
+
+    if (target.classList.contains('mobile-nav__link') && target.classList.contains('active')) {
+      this.setState({
+        open: false,
+      });
+    }
+  };
+
   componentWillMount() {
     const { outsideClick } = this;
     document.addEventListener('click', outsideClick);
@@ -58,7 +70,12 @@ class MobileNav extends Component {
   render() {
     const { open } = this.state;
     const { type, r, dark } = this.props;
-    const { toggle, toggleScroll, hide } = this;
+    const {
+      toggle,
+      toggleScroll,
+      hide,
+      onClick,
+    } = this;
 
     toggleScroll(open);
 
@@ -72,7 +89,10 @@ class MobileNav extends Component {
               'mobile-nav__button_dark': dark,
             })}
           />
-          <div className={cs('mobile-nav__list', { 'mobile-nav__list_open': open })}>
+          <div
+            className={cs('mobile-nav__list', { 'mobile-nav__list_open': open })}
+            onClick={onClick}
+          >
             <div
               onClick={toggle}
               className="mobile-nav__close"
