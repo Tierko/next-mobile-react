@@ -4,8 +4,13 @@
   min-height: 100vh;
   margin: auto;
 
+  @media (max-width: 1082px) {
+    padding: 0 42px;
+  }
+
   @media (max-width: @BREAK-POINT) {
     display: block;
+    padding: 0;
   }
 
   & > .transitions {
