@@ -35,13 +35,19 @@ class MobileNav extends Component {
   toggleScroll = (isOpen) => {
     const html = document.documentElement;
     const { body } = document;
+    const scrolled = body.scrollTop || html.scrollTop;
 
     if (isOpen) {
+      body.style.position = 'fixed';
+      body.style.top = `${-scrolled}px`;
       html.style.overflow = 'hidden';
-      body.style.overflow = 'hidden';
+      html.style.position = 'relative';
+      html.style.height = '100%';
+      this.scrolled = scrolled;
     } else {
-      html.removeAttribute('style');
       body.removeAttribute('style');
+      html.removeAttribute('style');
+      window.scroll(0, this.scrolled || 0);
     }
   };
 
