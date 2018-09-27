@@ -278,6 +278,14 @@
       cursor: pointer;
       user-select: none;
 
+      &:not(&_disabled) .card__edit-icon {
+        transition: opacity 0.5s;
+      }
+
+      &:not(&_disabled):hover .card__edit-icon {
+        opacity: 0.5;
+      }
+
       &_disabled {
         color: @GRAY-DARK;
         cursor: default;
