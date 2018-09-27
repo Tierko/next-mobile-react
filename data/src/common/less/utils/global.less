@@ -64,6 +64,12 @@ h2,
   color: rgba(0, 0, 0, 0.76);
 }
 
+.big {
+  font-size: @FONT-SIZE-BIG;
+  line-height: @LINE-HEIGHT-BIG;
+  font-weight: 100;
+}
+
 .base {
   font-size: @FONT-SIZE-BASE;
   line-height: @LINE-HEIGHT-BASE;
@@ -143,6 +149,18 @@ h2,
   color: @GRAY-DARK;
 
   &:hover {
+    color: @BLACK;
+  }
+}
+
+.link-overview {
+  color: rgba(0, 0, 0, 0.25);
+  background: linear-gradient(to right, @GRAY, @GRAY) 0 calc(50% + 0.43em) repeat-x;
+  background-size: 100% 1px;
+  text-decoration: none;
+
+  &:hover {
+    background-image: linear-gradient(to right, @BLACK, @BLACK);
     color: @BLACK;
   }
 }

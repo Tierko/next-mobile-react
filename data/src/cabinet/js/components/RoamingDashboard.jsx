@@ -7,9 +7,11 @@ import { convertStrings, formatCost } from '../utils';
 const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
   return (
     <div className={`roaming-dashboard ${className} ${currentZoneId ? 'roaming-dashboard_roaming' : ''}`}>
-      <Link className="roaming-dashboard__title" to={Pages.ROAMING}>
-        { currentZoneId ? 'Роуминг в других зонах' : 'Роуминг' }
-      </Link>
+      <div className="roaming-dashboard__title">
+        <Link className="link-overview" to={Pages.ROAMING}>
+          { currentZoneId ? 'Роуминг в других зонах' : 'Роуминг' }
+        </Link>
+      </div>
       <div className="roaming-dashboard__list">
         {
           zones.items.map(i => (

@@ -1,41 +1,115 @@
 .balance {
   order: 20;
-  margin-bottom: 17px;
+  width: 100%;
+  margin-bottom: 60px;
 
-  @media (max-width: @BREAK-POINT) {
-    width: 100%;
-    max-width: 450px;
-    margin: 0 auto 17px;
-  }
-
-  .note + & {
-    margin-top: 34px;
+  &__header {
+    .h1;
+    margin-bottom: 9px;
+    color: rgba(0, 0, 0, 0.25);
   }
 
   &__inner {
-    display: inline-block;
-    &_warn {
-      .gradient-orange;
-    }
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
 
-    &_error {
-      .gradient-red
-    }
+  &__left {
+      &_warn {
+        .gradient-orange;
+      }
+
+      &_error {
+        .gradient-red
+      }
   }
 
   &__sum {
-    .h1;
+    .big;
+    margin-bottom: 11px;
 
     &_negative {
-      text-indent: -0.4em;
+      text-indent: -25px;
     }
   }
 
-  &__next-pay {
+  &__message {
     color: @GRAY-DARK;
+  }
 
-    &_eror {
-      color: inherit;
+  &__center {
+    width: 34px;
+    height: 34px;
+    background: url("/media/icons/balance-arrow.svg") no-repeat 50% 50%;
+  }
+
+  &__right {
+    max-width: 392px;
+  }
+
+  &__pay {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__auto-pay {
+    margin-top: 6px;
+    color: @GRAY-DARK;
+  }
+
+  @media (max-width: @MAX-WIDTH) {
+    &__inner {
+      display: block;
+    }
+
+    &__center {
+      transform-origin: 50% 50%;
+      transform: rotate(90deg);
+      margin: 25px 0;
+    }
+
+    &__sum_negative {
+      text-indent: 0;
     }
   }
+
+  //margin-bottom: 17px;
+  //
+  //@media (max-width: @BREAK-POINT) {
+  //  width: 100%;
+  //  max-width: 450px;
+  //  margin: 0 auto 17px;
+  //}
+  //
+  //.note + & {
+  //  margin-top: 34px;
+  //}
+  //
+  //&__inner {
+  //  display: inline-block;
+  //  &_warn {
+  //    .gradient-orange;
+  //  }
+  //
+  //  &_error {
+  //    .gradient-red
+  //  }
+  //}
+  //
+  //&__sum {
+  //  .h1;
+  //
+  //  &_negative {
+  //    text-indent: -0.4em;
+  //  }
+  //}
+  //
+  //&__next-pay {
+  //  color: @GRAY-DARK;
+  //
+  //  &_eror {
+  //    color: inherit;
+  //  }
+  //}
 }

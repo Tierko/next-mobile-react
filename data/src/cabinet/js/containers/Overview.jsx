@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
-import { Link } from 'react-router-dom';
 import Transitions from '../components/Transitions';
 
 import HeaderMobile from '../components/HeaderMobile'
@@ -10,14 +9,11 @@ import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import Footer from '../../../common/js/components/Footer';
 import Balance from '../components/Balance';
-import OverviewPayment from '../components/OverviewPayment';
 import Remain from '../components/Remain';
 import History from '../components/History';
 import RoamingDashboard from '../components/RoamingDashboard';
-import Note from '../components/Note';
 import OverviewInvite from '../components/OverviewInvite';
 import OverviewRoamingCurrent from '../components/OverviewRoamingCurrent';
-import OverviewAutoPay from '../components/OverviewAutoPay';
 
 import { Pages, TITLES } from '../constants';
 import { getData, formatCost } from '../utils';
@@ -121,40 +117,14 @@ class Overview extends Component {
           <Aside hideLink />
           <Transitions>
             <div className="dashboard__content">
-              <Note
-                className="note_dashboard"
-                message="Вы докупили пакет с 30 ГБ трафика, действующий до 5 марта"
-                color="green"
-                hideCont
-                show={!!getData('noteGreen')}
-              >
-                Спасибо, что всегда оплачиваете счет вовремя
-              </Note>
-              <Note
-                className="note_dashboard"
-                message="Добавьте электронную почту в настройках, чтобы получать квитанции"
-                color="blue"
-                hideCont
-                show={!!getData('noteBlue')}
-              >
-                Перейти в <Link className="link" to={Pages.SETTINGS}>настройки</Link>
-              </Note>
-              <Note
-                className="note_dashboard"
-                message="Ваш номер заблокирован"
-                color="red"
-                hideCont
-                show={!!getData('noteRed')}
-              >
-                Чтобы разблокровать номер, обратитесь в <Link className="link" to={Pages.SUPPORT_DASHBOARD}>поддержку</Link>
-              </Note>
               <Balance
-                sum={getData('balance')}
-                message={`Через ${getData('payment').days} дней нужно внести ${formatCost(getData('tariff').payment)} по тарифу «${getData('tariff').title}»`}
+                balance={getData('balance')}
+                sum={sum}
+                message={`${formatCost(getData('tariff').payment)} через ${getData('payment').days} дней`}
                 status={status}
+                onPay={onPay}
+                onChange={sumChange}
               />
-              <OverviewPayment onChange={sumChange} onPay={onPay} sum={sum} />
-              <OverviewAutoPay />
               <OverviewRoamingCurrent history={history} data={roaming} />
               <Remain
                 data={getData('remain')}

@@ -13,14 +13,13 @@ const Remain = ({
   inRoaming,
 }) => (
   <div className={cs('remain', { 'remain_in-roaming': inRoaming })}>
-    {
-      inRoaming &&
-      <div className="remain__title-roaming">
-        Домашний тариф
-      </div>
-    }
+    <div className="remain__title-roaming">
+      {
+        inRoaming ? 'Домашний тариф' : 'Остаток'
+      }
+    </div>
     <div className="remain__title">
-      Остаток до 16 июня по тарифу <Link className="link" to={Pages.SERVICES}>«{tariff.title}»</Link>
+      По тарифу <Link className="link" to={Pages.SERVICES}>«{tariff.title}»</Link> до 16 июня
     </div>
     {
       data.map(i => (

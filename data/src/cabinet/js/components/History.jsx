@@ -32,7 +32,9 @@ class History extends Component {
         {
           selectedItem &&
           <Fragment>
-            <div className="history__title">Ваши <Link className="link" to={Pages.HISTORY}>расходы</Link></div>
+            <div className="history__title">
+              <Link className="link-overview" to={Pages.HISTORY}>Расходы</Link>
+            </div>
             <div className="history__expense">&minus;{formatCost(cost)} за {MONTHS[selectedItem.date.month]}</div>
             <Grade data={data} onItemSelect={selectMonth} />
           </Fragment>

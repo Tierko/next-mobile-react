@@ -42,14 +42,15 @@
     }
   }
 
-  &_payment {
-    margin-left: 19px;
-    margin-right: 15px;
-    width: 75px;
+  &_balance {
+    padding: 0;
+    margin-right: 12px;
+    max-width: 154px;
+  }
 
-    @media (max-width: @BREAK-POINT) {
-      display: inline-block;
-    }
+  &_balance &__value {
+    .big;
+    padding: 0 0 4px;
   }
 
   &_payment &__value {
