@@ -25,7 +25,9 @@ class MobileNav extends Component {
   };
 
   outsideClick = (e) => {
-    if (!this.nav.contains(e.target)) {
+    const { open } = this.state;
+
+    if (!this.nav.contains(e.target) && open) {
       this.setState({
         open: false,
       });
