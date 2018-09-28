@@ -168,9 +168,11 @@
   }
 
   &_detail {
-    width: 100%;
-    max-width: 290px;
-    margin: 40px auto 0;
+    margin: 40px 0 0;
+
+    @media (max-width: @BREAK-POINT) {
+      width: 100%;
+    }
   }
 
   &_roaming-add {

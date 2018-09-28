@@ -91,7 +91,7 @@ class Detail extends Component {
             <div className="dashboard__content">
               <LinkBack href={Pages.HISTORY} className="link-back_detail" />
               <div className="detail">
-                <div className="dashboard__header dashboard__header_center">Детализация</div>
+                <div className="dashboard__header">Детализация</div>
                 <div className="detail__period-title">За период</div>
                 <div className="detail__period">
                   <Date

@@ -10,8 +10,12 @@
     position: absolute;
     top: 0;
     bottom: -100px;
-    left: calc(100vw / -12);
+    left: -83px;
     border-left: 1px solid @GRAY-LIGHT;
+
+    @media (max-width: @MAX-WIDTH) {
+      left: calc(100vw / -12);
+    }
   }
 
   &_zones-inner {
