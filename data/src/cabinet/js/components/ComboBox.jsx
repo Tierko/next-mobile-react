@@ -18,7 +18,7 @@ class ComboBox extends Select {
   filter = (value) => {
     const { items } = this.props;
 
-    return items.filter(i => i.properties.name.toUpperCase().indexOf(value.toUpperCase()) !== -1);
+    return items.filter(i => i.properties.name.toUpperCase().indexOf(value.toUpperCase()) === 0);
   };
 
   onSelect = (item) => {
@@ -57,7 +57,8 @@ class ComboBox extends Select {
     return (
       <div
         className={cs(`combo-box ${className}`, {
-          'combo-box_hide-icon': value && value.properties && value.properties.name
+          'combo-box_hide-icon': value && value.properties && value.properties.name,
+          'combo-box_drawer': valueSearch && open,
         })}
         ref={(e) => { this.select = e; }}
       >
