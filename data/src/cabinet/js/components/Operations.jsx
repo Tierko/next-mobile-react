@@ -251,13 +251,10 @@ class Operations extends Component {
             }
             {
               showMoreButton && loaded &&
-              <tr><td className="operations__cell-empty">&nbsp;</td>
-                <td colSpan={2}>&nbsp;</td>
-                <td className="operations__cell_button">
+              <tr>
+                <td colSpan={7} className="operations__cell_button">
                   <Button onClick={loadMore}>Загрузить еще</Button>
                 </td>
-                <td colSpan={2}>&nbsp;</td>
-                <td className="operations__cell-empty">&nbsp;</td>
               </tr>
             }
           </tbody>

@@ -25,9 +25,7 @@ class MobileNav extends Component {
   };
 
   outsideClick = (e) => {
-    const { open } = this.state;
-
-    if (!this.nav.contains(e.target) && open) {
+    if (!this.nav.contains(e.target)) {
       this.setState({
         open: false,
       });
@@ -47,9 +45,13 @@ class MobileNav extends Component {
       html.style.height = '100%';
       this.scrolled = scrolled;
     } else {
+      const { position } = body.style;
       body.removeAttribute('style');
       html.removeAttribute('style');
-      window.scroll(0, this.scrolled || 0);
+
+      if (position === 'fixed') {
+        window.scroll(0, this.scrolled || 0);
+      }
     }
   };
 
