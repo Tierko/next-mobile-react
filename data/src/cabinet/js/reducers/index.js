@@ -7,6 +7,7 @@ import Balance from './Balance';
 import Cards from './Cards';
 import Packages from './Packages';
 import Roaming from './Roaming';
+import Notice from './Notice';
 
 const persistConfig = {
   key: 'root',
@@ -19,6 +20,7 @@ const reducers = combineReducers({
   Cards,
   Packages,
   Roaming,
+  Notice,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

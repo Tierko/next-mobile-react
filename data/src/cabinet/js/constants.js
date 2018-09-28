@@ -25,6 +25,8 @@ export const ACTION_TYPES = keyMirror({
   CARDS_ADD: undefined,
   CARDS_REMOVE: undefined,
   CARDS_MAKE_DEFAULT: undefined,
+  NOTICE_REMOVE: undefined,
+  NOTICE_READ: undefined,
 });
 
 export const Pages = {

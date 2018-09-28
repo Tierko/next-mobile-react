@@ -1,0 +1,132 @@
+.notice {
+  position: absolute;
+  z-index: 2;
+
+  &_overview {
+    right: 0;
+  }
+
+  &__button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #c0c0d7 url("/media/icons/bell-white.svg") no-repeat 50% 50%;
+    background-size: 18px 19px;
+    cursor: pointer;
+    user-select: none;
+
+    &_has-notice {
+      background: #c0c0d7 url("/media/icons/bell-blue.svg") no-repeat 50% 50%;
+    }
+
+    &_close {
+      background: #fff url("/media/icons/close-blue.svg") no-repeat 50% 50%;
+      background-size: 18px 17px;
+    }
+  }
+
+  &__count {
+    display: none;
+  }
+
+  &__inner {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 581px;
+    height: 508px;
+    box-shadow: 0 2px 14px rgba(146, 146, 164, 0.1);
+    background-color: #fff;
+    transform: scale(0);
+    transform-origin: 100% 0;
+    transition: transform 0.5s;
+    overflow: hidden;
+
+    &_show {
+      transform: scale(1);
+    }
+  }
+
+  &__header {
+    color: @GRAY-DARK;
+    padding: 13px 20px;
+    border: 1px solid rgba(188, 188, 213, 0.2);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 53px;
+  }
+
+  &__list {
+    position: absolute;
+    padding-top: 26px;
+    top: 53px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+  }
+
+  &__item {
+    padding: 0 0 39px 54px;
+  }
+
+  &__title {
+    position: relative;
+  }
+
+  &__date {
+    font-size: 11px;
+    color: @GRAY-DARK;
+    padding-right: 15px;
+  }
+
+  &__remove {
+    position: absolute;
+    top: 0;
+    right: 26px;
+    width: 25px;
+    height: 25px;
+    background: url("/media/icons/bucket-gray.svg") no-repeat 50% 50%;
+    background-size: 14px 15px;
+    cursor: pointer;
+
+    &:hover {
+      background-image: url("/media/icons/bucket-black.svg");
+    }
+  }
+
+  &__text {
+    margin-top: 4px;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 0;
+      left: -37px;
+    }
+
+    &_important-inread:before {
+      background: url("/media/icons/alert-red.svg") no-repeat 50% 50%;
+    }
+
+    &_important-red:before {
+      background: url("/media/icons/alert-red.svg") no-repeat 50% 50%;
+    }
+  }
+
+  &__note {
+    color: @GRAY-DARK;
+  }
+
+  &__action {
+
+  }
+}

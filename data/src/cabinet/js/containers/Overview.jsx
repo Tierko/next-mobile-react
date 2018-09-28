@@ -14,6 +14,7 @@ import History from '../components/History';
 import RoamingDashboard from '../components/RoamingDashboard';
 import OverviewInvite from '../components/OverviewInvite';
 import OverviewRoamingCurrent from '../components/OverviewRoamingCurrent';
+import Notice from '../components/Notice';
 
 import { Pages, TITLES } from '../constants';
 import { getData, formatCost } from '../utils';
@@ -117,6 +118,7 @@ class Overview extends Component {
           <Aside hideLink />
           <Transitions>
             <div className="dashboard__content">
+              <Notice className="notice_overview" />
               <Balance
                 balance={getData('balance')}
                 sum={sum}
