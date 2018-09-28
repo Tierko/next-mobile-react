@@ -18,61 +18,67 @@ const Balance = ({
   message,
   autoPay,
   balance,
-}) => (
-  <div className={`balance ${className}`}>
-    <div className="balance__header">
-      Баланс
-    </div>
-    <div className="balance__inner">
-      <div className={`balance__left balance__left_${status}`}>
-        <div className={cs('balance__sum', { balance__sum_negative: balance < 0 })}>
-          {balance < 0 && <span>&minus;</span>}{formatCost(Math.abs(balance), true)}
-        </div>
-        {
-          message &&
-          <div className="balance__message">
-            <div>Следующее списание:</div>
-            <div>{message}</div>
-          </div>
-        }
+}) => {
+  let fSum = formatCost(Math.abs(balance).toFixed(2), true);
+  fSum = fSum.split(' ');
+  fSum[0] = fSum[0].split(',');
+
+  return (
+    <div className={`balance ${className}`}>
+      <div className="balance__header">
+        Баланс
       </div>
-      <div className="balance__center" />
-      <div className="balance__right">
-        <div className="balance__pay">
-          <Input value={sum} onChange={onChange} name="sum" className="input_balance" />
-          <Button className="button_balance" onClick={onPay} disabled={sum >= 15000 || sum <= 100}>Оплатить</Button>
+      <div className="balance__inner">
+        <div className={`balance__left balance__left_${status}`}>
+          <div className={cs('balance__sum', { balance__sum_negative: balance < 0 })}>
+            {balance < 0 && <span>&minus;</span>}{fSum[0][0]}<span className="balance__coins">,{fSum[0][1]}</span> {fSum[1]}
+          </div>
+          {
+            message &&
+            <div className="balance__message">
+              <div>Следующее списание:</div>
+              <div>{message}</div>
+            </div>
+          }
         </div>
-        <Limit sum={sum} className="limit_balance" />
-        {
-          (autoPay.monthlyEnabled || autoPay.lessEnabled) &&
-          <div className="balance__auto-pay">
-            <div>Подключен <Link className="link-light" to={Pages.AUTO_PAY}>автоплатеж</Link></div>
-            {
-              autoPay.monthlyEnabled &&
-              <div>
-                на {
+        <div className="balance__center" />
+        <div className="balance__right">
+          <div className="balance__pay">
+            <Input value={sum} onChange={onChange} name="sum" className="input_balance" />
+            <Button className="button_balance" onClick={onPay} disabled={sum >= 15000 || sum <= 100}>Оплатить</Button>
+          </div>
+          <Limit sum={sum} className="limit_balance" />
+          {
+            (autoPay.monthlyEnabled || autoPay.lessEnabled) &&
+            <div className="balance__auto-pay">
+              <div>Подключен <Link className="link-light" to={Pages.AUTO_PAY}>автоплатеж</Link></div>
+              {
+                autoPay.monthlyEnabled &&
+                <div>
+                  на {
                   formatCost(autoPay.monthlySum)
                 } ежемесячно {
                   autoPay.monthlyDay
                 } числа
-              </div>
-            }
-            {
-              autoPay.lessEnabled &&
-              <div>
-                на {
+                </div>
+              }
+              {
+                autoPay.lessEnabled &&
+                <div>
+                  на {
                   formatCost(autoPay.lessSum)
                 }, если на счету меньше чем {
                   formatCost(autoPay.lessLess)
                 }
-              </div>
-            }
-          </div>
-        }
+                </div>
+              }
+            </div>
+          }
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 Balance.propTypes = {
   status: PropTypes.string,
