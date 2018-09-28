@@ -1,5 +1,4 @@
 .roaming {
-  padding: 0 75px 0 150px;
   position: relative;
 
   @media (max-width: @MAX-WIDTH) {
@@ -11,12 +10,8 @@
     position: absolute;
     top: 0;
     bottom: -100px;
-    left: -15px;
+    left: calc(100vw / -12);
     border-left: 1px solid @GRAY-LIGHT;
-  }
-
-  &_zones {
-    padding-left: 75px;
   }
 
   &_zones-inner {
