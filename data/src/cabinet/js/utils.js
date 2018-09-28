@@ -35,7 +35,7 @@ export const formatCost = (source, zeroByDefault) => {
   }
 
   const arr = [];
-  let str = source.toString().replace(/[^\d/.]/g, '');
+  let str = source.toString().replace(',', '.').replace(/[^\d/.]/g, '');
   let tail = '';
 
   if (source === 0 && !zeroByDefault) {
