@@ -45,7 +45,7 @@ const Balance = ({
         <div className="balance__right">
           <div className="balance__pay">
             <Input value={sum} onChange={onChange} name="sum" className="input_balance" />
-            <Button className="button_balance" onClick={onPay} disabled={sum >= 15000 || sum <= 100}>Оплатить</Button>
+            <Button className="button_balance" onClick={onPay} disabled={sum > 15000 || sum < 100}>Оплатить</Button>
           </div>
           <Limit sum={sum} className="limit_balance" />
           {
@@ -56,20 +56,20 @@ const Balance = ({
                 autoPay.monthlyEnabled &&
                 <div>
                   на {
-                  formatCost(autoPay.monthlySum)
-                } ежемесячно {
-                  autoPay.monthlyDay
-                } числа
+                    formatCost(autoPay.monthlySum)
+                  } ежемесячно {
+                    autoPay.monthlyDay
+                  } числа
                 </div>
               }
               {
                 autoPay.lessEnabled &&
                 <div>
                   на {
-                  formatCost(autoPay.lessSum)
-                }, если на счету меньше чем {
-                  formatCost(autoPay.lessLess)
-                }
+                    formatCost(autoPay.lessSum)
+                  }, если на счету меньше чем {
+                    formatCost(autoPay.lessLess)
+                  }
                 </div>
               }
             </div>

@@ -9,7 +9,7 @@ const Limit = ({
   limitEnd,
   sum,
 }) => (
-  <div className={cs(`limit ${className}`, { limit_show: sum <= limitStart || sum >= limitEnd })}>
+  <div className={cs(`limit ${className}`, { limit_show: sum < limitStart || sum > limitEnd })}>
     Введите сумму от {limitStart} до {formatCost(limitEnd)}
   </div>
 );

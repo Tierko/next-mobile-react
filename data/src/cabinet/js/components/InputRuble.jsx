@@ -13,8 +13,14 @@ class InputRuble extends Input {
   }
   onChange = ({ target }) => {
     const { name, onChange } = this.props;
-    const { value } = target;
-    const fValue = formatCost(value);
+    let { value } = target;
+    let fValue = formatCost(value);
+    const clearValue = value.replace(/[^\d/.,]/g, '').replace(',', '.') * 1;
+
+    if (clearValue > 15000) {
+      fValue = formatCost(15000);
+      value = 15000;
+    }
 
     this.setState({
       value: fValue,
@@ -22,7 +28,7 @@ class InputRuble extends Input {
       target.setSelectionRange(fValue.length - 2, fValue.length - 2);
     });
 
-    // onChange(name, value.replace(/[^\d/.]/g, '') * 1);
+    onChange(name, value.replace(/[^\d/.,]/g, '').replace(',', '.') * 1);
   };
 
   onFocus = ({ target }) => {

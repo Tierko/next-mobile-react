@@ -35,7 +35,7 @@ export const formatCost = (source, zeroByDefault) => {
   }
 
   const arr = [];
-  let str = source.toString().replace(',', '.').replace(/[^\d/.]/g, '');
+  let str = source.toString().replace(',', '.').replace(/\.+/g, '.').replace(/[^\d/.]/g, '');
   let tail = '';
 
   if (source === 0 && !zeroByDefault) {
@@ -60,6 +60,10 @@ export const formatCost = (source, zeroByDefault) => {
 
   if (source < 0) {
     arr.push('-');
+  }
+
+  if (tail) {
+    tail = tail.substr(0, 3);
   }
 
   return `${arr.reverse().join('') || ''}${tail} ${units.currency}`;
