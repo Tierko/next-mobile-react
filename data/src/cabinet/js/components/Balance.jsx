@@ -26,30 +26,34 @@ const Balance = ({
   const coins = fSum.substring(coinsPos + 1, rubPos);
   fSum = coinsPos !== -1 && rubPos !== -1 ? fSum.substring(0, coinsPos) : fSum;
 
+
   return (
     <div className={`balance ${className}`}>
       <div className="balance__header">
         Баланс
       </div>
       <div className="balance__inner">
-        <div className={cs(`balance__left balance__left_${status}`, { balance__left_negative: balance < 0 })}>
+        <div className={cs('balance__left', { balance__left_negative: balance < 0 })}>
           {
             coinsPos !== -1 && rubPos !== -1 ?
-
-              <div className="balance__sum">
+              <div className={`balance__sum balance__sum_${status}`}>
                 {balance < 0 && <span>&minus;</span>}{
                   fSum
-                },<span className="balance__coins">{coins}</span>{rub}
+                }{coins !== '00' ? ',' : ''}<span className="balance__coins">{coins !== '00' ? coins : ''}</span>{rub}
               </div> :
-              <div className="balance__sum">
+              <div className={`balance__sum balance__sum_${status}`}>
                 {balance < 0 && <span>&minus;</span>}{fSum}
               </div>
           }
           {
             message &&
             <div className="balance__message">
-              <div>Следующее списание:</div>
-              <div>{message}</div>
+              <div className={`balance__message-item balance__message-item_${status}`}>
+                Следующее списание:
+              </div>
+              <div className={`balance__message-item balance__message-item_${status}`}>
+                {message}
+              </div>
             </div>
           }
         </div>

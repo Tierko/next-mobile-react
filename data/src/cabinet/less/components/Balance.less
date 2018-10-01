@@ -19,6 +19,11 @@
     &_negative {
       margin-left: -25px;
     }
+  }
+
+  &__sum {
+    .big;
+    margin-bottom: 11px;
 
     &_warn {
       .gradient-orange;
@@ -29,11 +34,6 @@
     }
   }
 
-  &__sum {
-    .big;
-    margin-bottom: 11px;
-  }
-
   &__coins {
     font-size: 18px;
     font-weight: 300;
@@ -41,6 +41,16 @@
 
   &__message {
     color: @GRAY-DARK;
+  }
+
+  &__message-item {
+    &_warn {
+      .gradient-orange;
+    }
+
+    &_error {
+      .gradient-red
+    }
   }
 
   &__left_negative &__message {

@@ -51,7 +51,7 @@ export const formatCost = (source, zeroByDefault) => {
   str = str.split('').reverse();
 
   str.forEach((c, i) => {
-    if (i !== 0 && i % 3 === 0) {
+    if (i !== 0 && i % 3 === 0 && str.length > 4) {
       arr.push(' ');
     }
 
