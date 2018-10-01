@@ -13,14 +13,8 @@ class InputRuble extends Input {
   }
   onChange = ({ target }) => {
     const { name, onChange } = this.props;
-    let { value } = target;
-    let fValue = formatCost(value);
-    const clearValue = value.replace(/[^\d/.,]/g, '').replace(',', '.') * 1;
-
-    if (clearValue > 15000) {
-      fValue = formatCost(15000);
-      value = 15000;
-    }
+    const { value } = target;
+    const fValue = formatCost(value);
 
     this.setState({
       value: fValue,
