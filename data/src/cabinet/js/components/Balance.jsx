@@ -26,7 +26,6 @@ const Balance = ({
   const coins = fSum.substring(coinsPos + 1, rubPos);
   fSum = coinsPos !== -1 && rubPos !== -1 ? fSum.substring(0, coinsPos) : fSum;
 
-
   return (
     <div className={`balance ${className}`}>
       <div className="balance__header">
