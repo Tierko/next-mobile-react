@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import Button from '../../../common/js/components/Button';
 import { readNoticeAction, removeNoticeAction } from '../actions/Notice';
 
 class Notice extends Component {
@@ -10,15 +12,17 @@ class Notice extends Component {
   };
 
   componentDidMount() {
-    const { onESC } = this;
+    const { onESC, outsideClick } = this;
 
     document.addEventListener('keydown', onESC);
+    document.addEventListener('click', outsideClick);
   }
 
   componentWillUnmount() {
-    const { onESC } = this;
+    const { onESC, outsideClick } = this;
 
     document.removeEventListener('keydown', onESC);
+    document.removeEventListener('click', outsideClick);
   }
 
   onESC = ({ keyCode }) => {
@@ -29,6 +33,18 @@ class Notice extends Component {
     }
   };
 
+  outsideClick = ({ target }) => {
+    const { notice } = this;
+
+    try {
+      if (!notice.contains(target)) {
+        this.setState({
+          show: false,
+        });
+      }
+    } catch (e) {}
+  };
+
   toggle = () => {
     const { show } = this.state;
 
@@ -37,38 +53,88 @@ class Notice extends Component {
     });
   };
 
+  doAction = (action) => {
+    const { history } = this.props;
+
+    if (action.type === 'link') {
+      history.push(action.value);
+    }
+  };
+
   render() {
-    const { className, notice, readNotice, removeNotice } = this.props;
+    const {
+      className,
+      notice,
+      readNotice,
+      removeNotice,
+    } = this.props;
     const { show } = this.state;
-    const { toggle } = this;
-    console.log(this.props)
+    const { toggle, doAction } = this;
+    const unReadCount = notice.reduce((acc, n) => (
+      n.isRed ? acc : acc + 1
+    ), 0);
 
     return (
-      <div className={`notice ${className}`}>
+      <div className={`notice ${className}`} ref={(e) => { this.notice = e; }}>
         <div
           onClick={toggle}
           className={cs('notice__button', {
             notice__button_close: show,
+            notice__button_unread: !!unReadCount,
           })}
         >
-          <div className="notice__count">9</div>
+          {
+            !!unReadCount &&
+            <div
+              className={cs(`notice__count notice__count_${unReadCount.toString().length}`, {
+                notice__count_hide: show,
+              })}
+            >
+              {unReadCount}
+            </div>
+          }
         </div>
         <div className={cs('notice__inner', { notice__inner_show: show })}>
           <div className="notice__header">Уведомления</div>
           <div className="notice__list">
             {
               notice.slice().reverse().map(n => (
-                <div key={n.id} className="notice__item">
+                <div
+                  key={n.id}
+                  className="notice__item"
+                  onClick={() => readNotice(n.id)}
+                  onMouseEnter={() => readNotice(n.id)}
+                >
                   <div className="notice__title">
-                    <div className="notice__date">{n.date}</div>
-                    <div className="notice__remove" />
+                    <div
+                      className={cs('notice__date', {
+                        notice__date_unread: !n.isRed,
+                      })}
+                    >
+                      {n.date}
+                    </div>
+                    <div className="notice__remove" onClick={() => removeNotice(n.id)} />
                   </div>
-                  <div className="notice__text">{n.text}</div>
+                  <div
+                    className={cs('notice__text', {
+                      'notice__text_important-unread': n.important && !n.isRed,
+                      'notice__text_important-red': n.important && n.isRed,
+                    })}
+                  >
+                    {n.text}
+                  </div>
                   {
-                    n.note && <div className="notice__note">{n.note}</div>
+                    n.note &&
+                    <div className="notice__note">{n.note}</div>
                   }
                   {
-                    n.action && <div className="notice__action"></div>
+                    n.action &&
+                    <Button
+                      className="button_notice-action"
+                      onClick={() => doAction(n.action)}
+                    >
+                      {n.action.text}
+                    </Button>
                   }
                 </div>
               ))
@@ -93,4 +159,16 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Notice);
+Notice.propTypes = {
+  className: PropTypes.string,
+  notice: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  readNotice: PropTypes.func.isRequired,
+  removeNotice: PropTypes.func.isRequired,
+  history: PropTypes.shape().isRequired,
+};
+
+Notice.defaultProps = {
+  className: '',
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Notice));

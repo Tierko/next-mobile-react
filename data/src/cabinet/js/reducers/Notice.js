@@ -8,7 +8,7 @@ const initState = {
     note: '',
     action: null,
     isRed: false,
-    important: false,
+    important: true,
   }, {
     id: 2,
     date: '23 июля, 14:30',
@@ -17,6 +17,7 @@ const initState = {
     action: {
       type: 'link',
       text: 'Добавить',
+      value: '/settings',
     },
     isRed: false,
     important: false,
@@ -35,10 +36,16 @@ const Notice = (state = initState, action) => {
   switch (action.type) {
   case ACTION_TYPES.NOTICE_READ:
     return Object.assign({}, state, {
-      data: state.data.map(n => n.id === action.id ? n.isRed = true : n),
+      data: state.data.map((n) => {
+        if (n.id === action.id) {
+          n.isRed = true;
+        }
+
+        return n;
+      }),
     });
   case ACTION_TYPES.NOTICE_REMOVE:
-    return Object.assign({}, state, state.data.filter(n => n.id !== action.id));
+    return Object.assign({}, state, { data: state.data.filter(n => n.id !== action.id) });
   default:
     return state;
   }
