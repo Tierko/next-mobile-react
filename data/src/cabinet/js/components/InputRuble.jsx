@@ -25,6 +25,17 @@ class InputRuble extends Input {
     onChange(name, value.replace(/[^\d/.,]/g, '').replace(',', '.') * 1);
   };
 
+  change = (value) => {
+    const { name, onChange } = this.props;
+    const fValue = formatCost(value);
+
+    this.setState({
+      value: fValue,
+    });
+
+    onChange(name, value.replace(/[^\d/.,]/g, '').replace(',', '.') * 1);
+  };
+
   onFocus = ({ target }) => {
     const { value } = this.state;
 
@@ -40,7 +51,7 @@ class InputRuble extends Input {
       clear,
       disabled,
     } = this.props;
-    const { onChange, onFocus } = this;
+    const { onChange, onFocus, change } = this;
     const { value } = this.state;
 
     return (
@@ -62,7 +73,11 @@ class InputRuble extends Input {
         <div className={cs('input__indicator', { input__indicator_error: errorText })} />
         {
           clear &&
-          <div className="input__icon input__icon_clear" onClick={() => !disabled && this.props.onChange(name, '')} role="button" />
+          <div
+            className="input__icon input__icon_clear"
+            onClick={() => !disabled && change(0)}
+            role="button"
+          />
         }
       </div>
     );

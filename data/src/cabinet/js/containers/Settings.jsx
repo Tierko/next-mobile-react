@@ -26,12 +26,17 @@ class Settings extends Component {
     flag: 'US.svg',
   }];
 
+  constructor() {
+    super();
+    this.rubbleRef = React.createRef();
+  }
+
   state = {
     email: 'Konstantinopolsky@gmail.com',
     lang: this.langs[0],
     note: true,
     receipt: true,
-    expenseNoteSum: '2 000 ₽',
+    expenseNoteSum: 2000,
     edited: false,
     showNote: false,
   };
@@ -66,11 +71,15 @@ class Settings extends Component {
   setCash = (e) => {
     const { cash } = e.target.dataset;
     const { note } = this.state;
-    const { onChange } = this;
 
-    if (note) {
-      onChange('expenseNoteSum', `${cash} ₽`);
-    }
+    console.log(this.rubbleRef.current.change(cash))
+
+
+    // if (note) {
+    //   this.setState({
+    //     expenseNoteSum: cash,
+    //   });
+    // }
   };
 
   render() {
@@ -81,6 +90,7 @@ class Settings extends Component {
       setCash,
       onNoteFade,
       langs,
+      rubbleRef,
     } = this;
     const {
       email,
@@ -127,6 +137,7 @@ class Settings extends Component {
                       onChange={onChange}
                       disabled={!note}
                       clear
+                      ref={rubbleRef}
                     />
                     <div className="service__expense-sums">
                       <div
@@ -134,7 +145,7 @@ class Settings extends Component {
                         className={cs('service__expense-sum', {
                           'service__expense-sum_disabled': !note,
                         })}
-                        data-cash="2 000"
+                        data-cash="2000"
                       >
                         2 000 ₽
                       </div>
@@ -143,7 +154,7 @@ class Settings extends Component {
                         className={cs('service__expense-sum', {
                           'service__expense-sum_disabled': !note,
                         })}
-                        data-cash="5 000"
+                        data-cash="5000"
                       >
                         5 000 ₽
                       </div>
@@ -152,7 +163,7 @@ class Settings extends Component {
                         className={cs('service__expense-sum', {
                           'service__expense-sum_disabled': !note,
                         })}
-                        data-cash="10 000"
+                        data-cash="10000"
                       >
                         10 000 ₽
                       </div>
