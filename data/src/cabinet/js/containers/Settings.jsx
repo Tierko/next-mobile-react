@@ -72,14 +72,9 @@ class Settings extends Component {
     const { cash } = e.target.dataset;
     const { note } = this.state;
 
-    console.log(this.rubbleRef.current.change(cash))
-
-
-    // if (note) {
-    //   this.setState({
-    //     expenseNoteSum: cash,
-    //   });
-    // }
+    if (note) {
+      this.rubbleRef.current.change(cash);
+    }
   };
 
   render() {

@@ -6,6 +6,11 @@
   &_settings {
     font-size: @FONT-SIZE-H2;
     margin-bottom: 70px;
+
+    @media (max-width: @BREAK-POINT) {
+      font-size: @FONT-SIZE-BASE;
+      margin-bottom: 32px;
+    }
   }
 
   &_auto-pay-day {
