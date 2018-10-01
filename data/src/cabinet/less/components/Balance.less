@@ -16,22 +16,22 @@
   }
 
   &__left {
-      &_warn {
-        .gradient-orange;
-      }
+    &_negative {
+      margin-left: -25px;
+    }
 
-      &_error {
-        .gradient-red
-      }
+    &_warn {
+      .gradient-orange;
+    }
+
+    &_error {
+      .gradient-red
+    }
   }
 
   &__sum {
     .big;
     margin-bottom: 11px;
-
-    &_negative {
-      text-indent: -25px;
-    }
   }
 
   &__coins {
@@ -41,6 +41,10 @@
 
   &__message {
     color: @GRAY-DARK;
+  }
+
+  &__left_negative &__message {
+    padding-left: 25px;
   }
 
   &__center {
@@ -68,14 +72,18 @@
       display: block;
     }
 
+    &__left_negative {
+      margin-left: 0;
+    }
+
+    &__left_negative &__message {
+      padding-left: 0;
+    }
+
     &__center {
       transform-origin: 50% 50%;
       transform: rotate(90deg);
       margin: 25px 0;
-    }
-
-    &__sum_negative {
-      text-indent: 0;
     }
   }
 }

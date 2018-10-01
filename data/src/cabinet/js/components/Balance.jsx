@@ -20,8 +20,11 @@ const Balance = ({
   balance,
 }) => {
   let fSum = formatCost(Math.abs(balance).toFixed(2), true);
-  fSum = fSum.split(' ');
-  fSum[0] = fSum[0].split(',');
+  const rubPos = fSum.lastIndexOf(' ');
+  const coinsPos = fSum.lastIndexOf(',');
+  const rub = fSum.substr(rubPos);
+  const coins = fSum.substring(coinsPos + 1, rubPos);
+  fSum = coinsPos !== -1 && rubPos !== -1 ? fSum.substring(0, coinsPos) : fSum;
 
   return (
     <div className={`balance ${className}`}>
@@ -29,10 +32,19 @@ const Balance = ({
         Баланс
       </div>
       <div className="balance__inner">
-        <div className={`balance__left balance__left_${status}`}>
-          <div className={cs('balance__sum', { balance__sum_negative: balance < 0 })}>
-            {balance < 0 && <span>&minus;</span>}{fSum[0][0]}<span className="balance__coins">,{fSum[0][1]}</span> {fSum[1]}
-          </div>
+        <div className={cs(`balance__left balance__left_${status}`, { balance__left_negative: balance < 0 })}>
+          {
+            coinsPos !== -1 && rubPos !== -1 ?
+
+              <div className="balance__sum">
+                {balance < 0 && <span>&minus;</span>}{
+                  fSum
+                },<span className="balance__coins">{coins}</span>{rub}
+              </div> :
+              <div className="balance__sum">
+                {balance < 0 && <span>&minus;</span>}{fSum}
+              </div>
+          }
           {
             message &&
             <div className="balance__message">
