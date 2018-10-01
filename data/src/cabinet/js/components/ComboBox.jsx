@@ -95,7 +95,7 @@ class ComboBox extends Select {
             filtered.map(i => (
               <div
                 key={i.properties.iso_a2}
-                className="select__item select__item_lang"
+                className="select__item"
                 onClick={() => onSelect(i)}
                 role="button"
               >
