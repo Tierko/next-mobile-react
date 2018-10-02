@@ -9,6 +9,7 @@ const initState = {
     action: null,
     isRed: false,
     important: true,
+    deleted: false,
   }, {
     id: 2,
     date: '23 июля, 14:30',
@@ -21,6 +22,7 @@ const initState = {
     },
     isRed: false,
     important: false,
+    deleted: false,
   }, {
     id: 3,
     date: '29 июля, 14:30',
@@ -29,6 +31,7 @@ const initState = {
     action: null,
     isRed: false,
     important: false,
+    deleted: false,
   }],
 };
 
@@ -43,7 +46,28 @@ const Notice = (state = initState, action) => {
       }),
     });
   case ACTION_TYPES.NOTICE_REMOVE:
-    return Object.assign({}, state, { data: state.data.filter(n => n.id !== action.id) });
+    return Object.assign({}, state, {
+      data: state.data.map((n) => {
+
+        if (n.id === action.id) {
+          n.deleted = true;
+        }
+
+        return n;
+      }),
+    });
+  case ACTION_TYPES.NOTICE_EXCLUDE:
+    return Object.assign({}, state, { data: state.data.filter(n => !n.deleted) });
+  case ACTION_TYPES.NOTICE_REPAIR:
+    return Object.assign({}, state, {
+      data: state.data.map((n) => {
+        if (n.id === action.id) {
+          n.deleted = false;
+        }
+
+        return n;
+      }),
+    });
   default:
     return state;
   }

@@ -3,8 +3,13 @@ import PropTypes from 'prop-types';
 import cs from 'classnames';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import Button from '../../../common/js/components/Button';
-import { readNoticeAction, removeNoticeAction } from '../actions/Notice';
+import NoticeItem from './NoticeItem';
+import {
+  readNoticeAction,
+  removeNoticeAction,
+  excludeNoticeAction,
+  repairNoticeAction,
+} from '../actions/Notice';
 
 class Notice extends Component {
   state = {
@@ -19,11 +24,15 @@ class Notice extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { readNotice } = this.props;
+    const { readNotice, excludeNotice } = this.props;
     const { show } = this.state;
 
     if (prevState.show && !show) {
       readNotice();
+
+      setTimeout(() => {
+        excludeNotice();
+      }, 500);
     }
   }
 
@@ -46,6 +55,10 @@ class Notice extends Component {
     const { notice } = this;
 
     if (target.className.indexOf('notice__remove') !== -1) {
+      return;
+    }
+
+    if (target.className.indexOf('notice__item-cancel') !== -1) {
       return;
     }
 
@@ -79,6 +92,7 @@ class Notice extends Component {
       className,
       notice,
       removeNotice,
+      repairNotice,
     } = this.props;
     const { show } = this.state;
     const { toggle, doAction } = this;
@@ -110,44 +124,60 @@ class Notice extends Component {
           <div className="notice__header">Уведомления</div>
           <div className="notice__list">
             {
+              !notice.length &&
+              <div className="notice__empty">У вас нет уведомлений</div>
+            }
+            {
               notice.slice().reverse().map(n => (
-                <div
+                <NoticeItem
                   key={n.id}
-                  className="notice__item">
-                  <div className="notice__title">
-                    <div
-                      className={cs('notice__date', {
-                        notice__date_unread: !n.isRed,
-                      })}
-                    >
-                      {n.date}
-                    </div>
-                    <div className="notice__remove" onClick={() => removeNotice(n.id)} />
-                  </div>
-                  <div
-                    className={cs('notice__text', {
-                      'notice__text_important-unread': n.important && !n.isRed,
-                      'notice__text_important-red': n.important && n.isRed,
-                    })}
-                  >
-                    {n.text}
-                  </div>
-                  {
-                    n.note &&
-                    <div className="notice__note">{n.note}</div>
-                  }
-                  {
-                    n.action &&
-                    <Button
-                      className="button_notice-action"
-                      onClick={() => doAction(n.action)}
-                    >
-                      {n.action.text}
-                    </Button>
-                  }
-                </div>
+                  n={n}
+                  doAction={doAction}
+                  removeNotice={removeNotice}
+                  repairNotice={repairNotice}
+                />
               ))
             }
+            {/*{*/}
+              {/*notice.slice().reverse().map(n => !n.deleted && (*/}
+                {/*<div*/}
+                  {/*key={n.id}*/}
+                  {/*className="notice__item"*/}
+                {/*>*/}
+                  {/*<div className="notice__title">*/}
+                    {/*<div*/}
+                      {/*className={cs('notice__date', {*/}
+                        {/*notice__date_unread: !n.isRed,*/}
+                      {/*})}*/}
+                    {/*>*/}
+                      {/*{n.date}*/}
+                    {/*</div>*/}
+                    {/*<div className="notice__remove" onClick={() => removeNotice(n.id)} />*/}
+                  {/*</div>*/}
+                  {/*<div*/}
+                    {/*className={cs('notice__text', {*/}
+                      {/*'notice__text_important-unread': n.important && !n.isRed,*/}
+                      {/*'notice__text_important-red': n.important && n.isRed,*/}
+                    {/*})}*/}
+                  {/*>*/}
+                    {/*{n.text}*/}
+                  {/*</div>*/}
+                  {/*{*/}
+                    {/*n.note &&*/}
+                    {/*<div className="notice__note">{n.note}</div>*/}
+                  {/*}*/}
+                  {/*{*/}
+                    {/*n.action &&*/}
+                    {/*<Button*/}
+                      {/*className="button_notice-action"*/}
+                      {/*onClick={() => doAction(n.action)}*/}
+                    {/*>*/}
+                      {/*{n.action.text}*/}
+                    {/*</Button>*/}
+                  {/*}*/}
+                {/*</div>*/}
+              {/*))*/}
+            {/*}*/}
           </div>
         </div>
       </div>
@@ -165,6 +195,8 @@ function mapDispatchToProps(dispatch) {
   return {
     readNotice: () => dispatch(readNoticeAction()),
     removeNotice: id => dispatch(removeNoticeAction(id)),
+    excludeNotice: () => dispatch(excludeNoticeAction()),
+    repairNotice: id => dispatch(repairNoticeAction(id)),
   };
 }
 
@@ -173,6 +205,8 @@ Notice.propTypes = {
   notice: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   readNotice: PropTypes.func.isRequired,
   removeNotice: PropTypes.func.isRequired,
+  excludeNotice: PropTypes.func.isRequired,
+  repairNotice: PropTypes.func.isRequired,
   history: PropTypes.shape().isRequired,
 };
 

@@ -73,7 +73,6 @@
     top: 50px;
     right: 0;
     width: 581px;
-    height: 508px;
     box-shadow: 0 2px 14px rgba(146, 146, 164, 0.1);
     background-color: #fff;
     transform: scale(0);
@@ -90,25 +89,35 @@
     color: @GRAY-DARK;
     padding: 13px 20px;
     border: 1px solid rgba(188, 188, 213, 0.2);
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
     height: 53px;
   }
 
   &__list {
-    position: absolute;
     padding-top: 26px;
-    top: 53px;
-    right: 0;
-    bottom: 0;
-    left: 0;
     overflow: auto;
+    max-height: 466px;
   }
 
   &__item {
     padding: 0 0 39px 54px;
+  }
+
+  &__item-note {
+    display: inline-block;
+    padding-right: 20px;
+    background: url("/media/icons/deleted.svg") no-repeat 100% 50%;
+    margin-right: 20px;
+  }
+
+  &__item-cancel {
+    .link;
+    display: inline-block;
+    color: @GRAY-DARK;
+    cursor: pointer;
+
+    &:hover {
+      color: @BLACK;
+    }
   }
 
   &__title {
@@ -180,6 +189,23 @@
   &__note {
     color: @GRAY-DARK;
     padding-right: 50px;
+  }
+
+  &__empty {
+    height: 124px;
+    padding-bottom: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &:before {
+      content: '';
+      width: 24px;
+      height: 24px;
+      background: url("/media/icons/alert-gray.svg") no-repeat 50% 50%;
+      background-size: 24px 24px;
+    }
   }
 
   @media (max-width: @BREAK-POINT) {
