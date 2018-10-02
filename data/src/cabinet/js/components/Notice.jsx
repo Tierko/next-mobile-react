@@ -18,6 +18,15 @@ class Notice extends Component {
     document.addEventListener('click', outsideClick);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    const { readNotice } = this.props;
+    const { show } = this.state;
+
+    if (prevState.show && !show) {
+      readNotice();
+    }
+  }
+
   componentWillUnmount() {
     const { onESC, outsideClick } = this;
 
@@ -35,6 +44,10 @@ class Notice extends Component {
 
   outsideClick = ({ target }) => {
     const { notice } = this;
+
+    if (target.className.indexOf('notice__remove') !== -1) {
+      return;
+    }
 
     try {
       if (!notice.contains(target)) {
@@ -65,7 +78,6 @@ class Notice extends Component {
     const {
       className,
       notice,
-      readNotice,
       removeNotice,
     } = this.props;
     const { show } = this.state;
@@ -101,10 +113,7 @@ class Notice extends Component {
               notice.slice().reverse().map(n => (
                 <div
                   key={n.id}
-                  className="notice__item"
-                  onClick={() => readNotice(n.id)}
-                  onMouseEnter={() => readNotice(n.id)}
-                >
+                  className="notice__item">
                   <div className="notice__title">
                     <div
                       className={cs('notice__date', {
@@ -154,7 +163,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    readNotice: id => dispatch(readNoticeAction(id)),
+    readNotice: () => dispatch(readNoticeAction()),
     removeNotice: id => dispatch(removeNoticeAction(id)),
   };
 }

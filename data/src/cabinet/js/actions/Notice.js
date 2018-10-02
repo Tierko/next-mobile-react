@@ -1,8 +1,7 @@
 import { ACTION_TYPES } from '../constants';
 
-export const readNoticeAction = id => ({
+export const readNoticeAction = () => ({
   type: ACTION_TYPES.NOTICE_READ,
-  id,
 });
 
 export const removeNoticeAction = id => ({

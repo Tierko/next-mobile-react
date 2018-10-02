@@ -5,7 +5,7 @@ const initState = {
     id: 1,
     date: '21 июля, 14:30',
     text: 'Ваша SIM-карта заблокирована',
-    note: '',
+    note: 'Чтобы разблокировать карту – обратитесь в поддержку',
     action: null,
     isRed: false,
     important: true,
@@ -37,9 +37,7 @@ const Notice = (state = initState, action) => {
   case ACTION_TYPES.NOTICE_READ:
     return Object.assign({}, state, {
       data: state.data.map((n) => {
-        if (n.id === action.id) {
-          n.isRed = true;
-        }
+        n.isRed = true;
 
         return n;
       }),
