@@ -15,6 +15,7 @@ import RoamingDashboard from '../components/RoamingDashboard';
 import OverviewInvite from '../components/OverviewInvite';
 import OverviewRoamingCurrent from '../components/OverviewRoamingCurrent';
 import Notice from '../components/Notice';
+import FooterNav from '../components/FooterNav';
 
 import { Pages, TITLES } from '../constants';
 import { getData, formatCost } from '../utils';
@@ -137,6 +138,7 @@ class Overview extends Component {
               <History data={getData('history')} />
               <RoamingDashboard data={roaming} />
               <OverviewInvite message={message} code={code ? code.code : ''} />
+              <FooterNav />
               <Footer als />
             </div>
           </Transitions>
