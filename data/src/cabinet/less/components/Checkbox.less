@@ -42,6 +42,12 @@
     display: inline-block;
   }
 
+  &_sign-up-conditions &__content {
+    text-indent: 0;
+    padding-left: 29px;
+    max-width: 320px;
+  }
+
   &__value {
     position: absolute;
     top: 0;
@@ -58,5 +64,10 @@
   &__title {
     font-size: @FONT-SIZE-SMALL;
     line-height: @LINE-HEIGHT-SMALL;
+  }
+
+  &__content a {
+    position: relative;
+    z-index: 1;
   }
 }

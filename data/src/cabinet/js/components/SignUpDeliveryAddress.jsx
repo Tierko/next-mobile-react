@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
+import { Link } from 'react-router-dom';
 import Input from '../../../common/js/components/Input';
 import Button from '../../../common/js/components/Button';
 import AutoComplete from '../../../common/js/components/AutoComplete';
 import Transitions from './Transitions';
+import Checkbox from './Checkbox';
 import { Pages, Statuses } from '../constants';
 
 class SignUpDeliveryAddress extends Component {
@@ -14,6 +16,7 @@ class SignUpDeliveryAddress extends Component {
     house: '',
     flat: '',
     housing: '',
+    conditions: false,
   };
 
   onChange = (name, value) => {
@@ -33,9 +36,14 @@ class SignUpDeliveryAddress extends Component {
   };
 
   isFilled = () => {
-    const { city, street, house } = this.state;
+    const {
+      city,
+      street,
+      house,
+      conditions,
+    } = this.state;
 
-    return !!city && !!street && !!house;
+    return !!city && !!street && !!house && conditions;
   };
 
   render() {
@@ -45,6 +53,7 @@ class SignUpDeliveryAddress extends Component {
       house,
       flat,
       housing,
+      conditions,
     } = this.state;
     const { onChange, isFilled, onSubmit } = this;
 
@@ -84,6 +93,16 @@ class SignUpDeliveryAddress extends Component {
                 onChange={onChange}
                 placeholder="Квартира"
               />
+            </div>
+            <div className="sign-up__conditions">
+              <Checkbox
+                name="conditions"
+                value={conditions}
+                onChange={onChange}
+                className="checkbox_sign-up-conditions"
+              >
+                Я соглашаюсь с <Link className="link" to="/">условиями пользования</Link> и на обработку персональных данных
+              </Checkbox>
             </div>
             <Button
               className="button_sign-up-address"

@@ -19,7 +19,7 @@ const Conditions = ({ history }) => (
             <div>Нет задолженности перед оператором</div>
             <div>Вы не меняли оператора за последние 2 месяца</div>
             <div className="conditions__desc">Если хоть одно из условий не выполняется, обратитесь в <Link to={Pages.SUPPORT} className="link">службу поддержки</Link> — и мы подскажем, что делать</div>
-            <Button className="button_conditions" onClick={() => { history.push(`${Pages.SIGN_UP}/step/1`); }}>Далее</Button>
+            <Button className="button_conditions" onClick={() => { history.push(`${Pages.SIGN_UP}/step/phone`); }}>Далее</Button>
             <div className="conditions__note">К началу заполнения заявки</div>
           </div>
         </Transitions>
