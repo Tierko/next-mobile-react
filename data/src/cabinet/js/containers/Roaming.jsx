@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
+import cs from 'classnames';
 import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
@@ -144,15 +145,19 @@ class Roaming extends Component {
                 !type &&
                 <Transitions>
                   <div className="roaming roaming_zones">
-                    {
-
-                    }
                     <Tabs
                       tabs={zones}
                       active={tab}
                       onTabChange={onTabChange}
                       disable={!!country.properties}
+                      className={cs({
+                        'tabs_mobile-hide': !!country.properties,
+                      })}
                     />
+                    {
+                      !!country.properties && currentZone &&
+                      <div className="roaming__title-instead-tabs">Роуминг в {currentZone.title}</div>
+                    }
                     {
                       zones && zones.map(z => (
                         <RoamingZone

@@ -8,8 +8,9 @@ const Tabs = ({
   active,
   onTabChange,
   disable,
+  className,
 }) => (
-  <div className="tabs">
+  <div className={`tabs ${className}`}>
     <div className="tabs__scroll">
       <div className="tabs__inner">
         {
@@ -43,6 +44,11 @@ Tabs.propTypes = {
   active: PropTypes.number.isRequired,
   onTabChange: PropTypes.func.isRequired,
   disable: PropTypes.bool.isRequired,
+  className: PropTypes.string,
+};
+
+Tabs.defaultProps = {
+  className: '',
 };
 
 export default Tabs;
