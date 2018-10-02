@@ -16,7 +16,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: url("/media/icons/x.svg") no-repeat 50% 50%;
+    background: url("/media/icons/x-menu.svg") no-repeat 50% 50%;
     background-size: 20px auto;
     z-index: 1;
   }
@@ -64,8 +64,8 @@
 
   &__phone {
     position: absolute;
-    top: 16px;
-    left: 60px;
+    top: 18px;
+    left: 50px;
     white-space: nowrap;
   }
 
@@ -87,19 +87,75 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      left: 0;
       margin: auto;
       height: 21px;
       width: auto;
       fill: @GRAY-DARK;
     }
 
+    &_overview svg {
+      width: 17px;
+      height: 21px;
+      left: 5px;
+    }
+
+    &_services svg {
+      width: 17px;
+      height: 20px;
+      left: 5px;
+    }
+
+    &_pay svg {
+      width: 21px;
+      height: 21px;
+      left: 3px;
+    }
+
+    &_roaming svg {
+      width: 20px;
+      height: 20px;
+      left: 3px;
+    }
+
     &_history svg {
+      width: 18px;
       height: 16px;
+      left: 5px;
+    }
+
+    &_support svg {
+      width: 22px;
+      height: 21px;
+      left: 4px;
     }
 
     &_settings svg {
       height: 17px;
+      left: 2px;
+    }
+
+    &_exit svg {
+      width: 16px;
+      height: 21px;
+      left: 3px;
+    }
+
+    &_enter svg {
+      width: 16px;
+      height: 21px;
+      left: 3px;
+    }
+
+    &_reg svg {
+      width: 17px;
+      height: 21px;
+      left: 3px;
+    }
+
+    &_status svg {
+      width: 17px;
+      height: 22px;
+      left: 5px;
     }
 
     &.active {

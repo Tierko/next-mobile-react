@@ -6,28 +6,28 @@ import { Pages } from '../../../cabinet/js/constants';
 const MobileNavDashboard = () => (
   <div className="mobile-nav__list-inner">
     <div className="mobile-nav__phone">+ 7 905 123-23-44</div>
-    <NavLink className="mobile-nav__link" to={Pages.OVERVIEW}>
+    <NavLink className="mobile-nav__link mobile-nav__link_overview" to={Pages.OVERVIEW}>
       <InlineSvg src={require('../../../../media/nav/overview.svg')} raw /> Обзор
     </NavLink>
-    <NavLink className="mobile-nav__link" to={Pages.SERVICES}>
+    <NavLink className="mobile-nav__link mobile-nav__link_services" to={Pages.SERVICES}>
       <InlineSvg src={require('../../../../media/nav/prices.svg')} raw /> Тарифы
     </NavLink>
-    <NavLink className="mobile-nav__link" to={Pages.PAY}>
+    <NavLink className="mobile-nav__link mobile-nav__link_pay" to={Pages.PAY}>
       <InlineSvg src={require('../../../../media/nav/plus.svg')} raw /> Пополнение
     </NavLink>
-    <NavLink className="mobile-nav__link" to={Pages.ROAMING}>
+    <NavLink className="mobile-nav__link mobile-nav__link_roaming" to={Pages.ROAMING}>
       <InlineSvg src={require('../../../../media/nav/roaming.svg')} raw /> Роуминг
     </NavLink>
     <NavLink className="mobile-nav__link mobile-nav__link_history" to={Pages.HISTORY}>
       <InlineSvg src={require('../../../../media/nav/history.svg')} raw /> История
     </NavLink>
-    <NavLink className="mobile-nav__link" to={Pages.SUPPORT_DASHBOARD}>
+    <NavLink className="mobile-nav__link mobile-nav__link_support" to={Pages.SUPPORT_DASHBOARD}>
       <InlineSvg src={require('../../../../media/nav/support.svg')} raw /> Чат
     </NavLink>
     <NavLink className="mobile-nav__link mobile-nav__link_settings" to={Pages.SETTINGS}>
       <InlineSvg src={require('../../../../media/nav/settings.svg')} raw /> Настройки
     </NavLink>
-    <NavLink className="mobile-nav__link" to={Pages.Exit} exact>
+    <NavLink className="mobile-nav__link mobile-nav__link_exit" to={Pages.Exit} exact>
       <InlineSvg src={require('../../../../media/nav/exit.svg')} raw /> Выход
     </NavLink>
   </div>
