@@ -8,6 +8,7 @@ const Checkbox = ({
   onChange,
   className,
   title,
+  children,
 }) => (
   <div className={cs(`checkbox ${className}`, { checkbox_checked: value })}>
     <input
@@ -16,7 +17,14 @@ const Checkbox = ({
       onChange={() => onChange(name, !value)}
       checked={value}
     />
-    <div className="checkbox__title">{title}</div>
+    {
+      title &&
+      <div className="checkbox__title">{title}</div>
+    }
+    {
+      !!children.length &&
+      <div className="checkbox__content">{children}</div>
+    }
   </div>
 );
 
@@ -25,11 +33,12 @@ Checkbox.propTypes = {
   value: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   className: PropTypes.string,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };
 
 Checkbox.defaultProps = {
   className: '',
+  title: '',
 };
 
 export default Checkbox;
