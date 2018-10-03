@@ -136,6 +136,11 @@ class RequestStatus extends Component {
     } = this;
     let content;
     let type;
+    const action = {
+      title: 'К оплате',
+      type: 'link',
+      value: '/',
+    };
 
     if (status) {
       ({ content, type } = data[status]);
@@ -182,6 +187,7 @@ class RequestStatus extends Component {
                 header={content.header}
                 message={content.message}
                 color={content.color}
+                action={status === Statuses.TRANSITION_STOPPED ? action : null}
               />
             }
             {
