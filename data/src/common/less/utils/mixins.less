@@ -176,6 +176,26 @@
   }
 }
 
+.gradient-ok {
+  .text-gradient;
+  background-image: linear-gradient(270deg, #003edd 0%, #003284 100%);
+
+  @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    background-image: none;
+    color: #003284;
+  }
+}
+
+.gradient-error {
+  .text-gradient;
+  background-image: linear-gradient(270deg, #ff00ad 0%, #ff0000 100%);
+
+  @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    background-image: none;
+    color: #ff0000;
+  }
+}
+
 .shadow {
   box-shadow: 0 3px 15px @GRAY;
 }
