@@ -92,7 +92,7 @@ const Card = ({
                 <InputMask
                   className="card__input card__input_narrow"
                   mask="99 / 99"
-                  placeholder="мм / гг"
+                  placeholder="ММ / ГГ"
                   onChange={e => onChange('date', e.target.value)}
                   value={date}
                 />

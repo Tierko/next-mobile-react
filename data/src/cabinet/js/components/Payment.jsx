@@ -4,9 +4,18 @@ import Input from './InputRuble';
 import Button from '../../../common/js/components/Button';
 import Cards from './Cards';
 import Limit from './Limit';
+import Tabs from './PaymentTabs';
 import { formatCost } from '../utils';
 
 class Payment extends Component {
+  static tabs = [{
+    title: 'C карты',
+    id: 'card',
+  }, {
+    title: 'За счет компании',
+    id: 'company',
+  }];
+
   constructor(props) {
     super(props);
 
@@ -15,6 +24,7 @@ class Payment extends Component {
       paymentInit: props.sum,
       payPermitted: true,
       card: null,
+      tab: 'card',
     };
   }
 
@@ -41,16 +51,26 @@ class Payment extends Component {
     });
   };
 
+  changeTab = (e) => {
+    const { tab } = e.target.dataset;
+
+    this.setState({
+      tab,
+    });
+  };
+
   render() {
     const {
       onChange,
       onPermitChange,
+      changeTab,
     } = this;
     const {
       payment,
       payPermitted,
       card,
       paymentInit,
+      tab,
     } = this.state;
     const {
       isEditable,
@@ -61,7 +81,15 @@ class Payment extends Component {
 
     return (
       <div className="payment">
-        <Cards onPermitChange={onPermitChange} onEdit={onEdit} />
+        <Tabs items={Payment.tabs} onChange={changeTab} tab={tab} />
+        {
+          tab === 'company' ?
+            <div className="payment__company">
+              <img className="payment__img" src="/media/content/tyazhmash.png" alt="" />
+              <div className="payment__company-name">Оплатит «Тяжмаштрансмагистраль»</div>
+            </div>:
+            <Cards onPermitChange={onPermitChange} onEdit={onEdit} />
+        }
         {
           !isEditable &&
           <div className="payment__sum">{formatCost(paymentInit, true)}</div>
