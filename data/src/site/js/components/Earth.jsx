@@ -55,8 +55,8 @@ class Earth extends Component {
     };
 
     fetch('/media/info/map.geo.json', {
+      credentials: 'same-origin',
       headers: new Headers({
-        credentials: 'same-origin',
         method: 'GET',
         'Content-Types': 'text/json',
       }),

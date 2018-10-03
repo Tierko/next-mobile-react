@@ -15,8 +15,8 @@ class InterCalls extends Component {
 
   componentDidMount() {
     fetch('/media/info/internation-calls.json', {
+      credentials: 'same-origin',
       headers: new Headers({
-        credentials: 'same-origin',
         method: 'GET',
         'Content-Types': 'text/json',
       }),
