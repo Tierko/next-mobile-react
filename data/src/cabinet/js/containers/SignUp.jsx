@@ -99,7 +99,7 @@ class SignUp extends Component {
             {
               (step || tariff) &&
               <div className="sign-up__transition">
-                Переход на Next
+                Переход на&nbsp;Next
                 {
                   currentTariff &&
                   <span> с тарифом <Link className="sign-up__transition-link" to={`${Pages.SIGN_UP}/tariff/${currentTariff.id}`}>
