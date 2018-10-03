@@ -120,7 +120,7 @@ class Settings extends Component {
                 />
                 <div className="service">
                   <div className="service__control">
-                    <div className="service__name">Уведомление о расходах</div>
+                    <div className="service__name">Уведомление о&nbsp;расходах</div>
                     <CheckboxSlide className="checkbox-slide_settings" value={note} name="note" onChange={onChange} />
                   </div>
                   <div className="service__desc">СМС-оповещение после траты каждых</div>
@@ -167,10 +167,10 @@ class Settings extends Component {
                 </div>
                 <div className="service">
                   <div className="service__control">
-                    <div className="service__name">Квитанции об оплате</div>
+                    <div className="service__name">Квитанции об&nbsp;оплате</div>
                     <CheckboxSlide className="checkbox-slide_settings" value={receipt} name="receipt" onChange={onChange} />
                   </div>
-                  <div className="service__desc">После совершения платежа отправлять квитанцию на адрес</div>
+                  <div className="service__desc">После совершения платежа отправлять квитанцию на&nbsp;адрес</div>
                 </div>
                 <Button className="button_settings" onClick={onSave} disabled={!edited}>
                   Сохранить настройки
