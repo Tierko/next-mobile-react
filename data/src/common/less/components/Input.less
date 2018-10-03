@@ -129,7 +129,11 @@
     position: static;
     padding-top: 0;
     padding-bottom: 0;
-    flex: 0 0 50%;
+    flex: 1 1 auto;
+
+    @media (max-width: @BREAK-POINT) {
+      font-size: 15px;
+    }
   }
 
   &_detail &__value {

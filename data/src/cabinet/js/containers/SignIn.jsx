@@ -13,7 +13,7 @@ import { Pages, TITLES } from '../constants';
 class SignIn extends Component {
   state = {
     phone: '',
-    message: 'На указанный номер Next Mobile будет отправлен код для входа в Личный кабинет',
+    message: 'На\u00A0указанный номер Next Mobile будет отправлен код для входа в\u00A0Личный кабинет',
     isPhoneVisible: true,
     expandLogo: false,
   };
