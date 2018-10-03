@@ -21,13 +21,11 @@ const Card = ({
   colors,
   values: {
     number,
-    holder,
     date,
     cvv,
-    holderError,
   },
 }) => {
-  const isFilled = checkCardNumber(number) && holder &&
+  const isFilled = checkCardNumber(number) &&
     checkCardDate(date) && checkCVV(cvv);
   const isSelected = selected === id;
   const isDefault = defaultCard === id;
@@ -90,17 +88,6 @@ const Card = ({
                 onChange={e => onChange('number', e.target.value)}
                 value={number}
               />
-              <div className="card__holder">
-                <input
-                  className="card__input card__input_wide"
-                  placeholder="Имя держателя карты"
-                  onChange={e => onChange('holder', e.target.value)}
-                  value={holder}
-                />
-                <div className={cs('card__error', { card__error_show: holderError })}>
-                  Вводите латинскими буквами
-                </div>
-              </div>
               <div className="card__row">
                 <InputMask
                   className="card__input card__input_narrow"
