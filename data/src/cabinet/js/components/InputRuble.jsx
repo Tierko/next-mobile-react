@@ -57,7 +57,7 @@ class InputRuble extends Input {
     return (
       <div className={`input ${className}`}>
         <input
-          type="text"
+          type="number"
           className="input__value"
           name={name}
           value={value}
