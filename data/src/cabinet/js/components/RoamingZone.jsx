@@ -40,14 +40,14 @@ class RoamingZone extends Component {
       <Transitions>
         <div className={cs('roaming-zone', { 'roaming-zone_show': data.id === active })}>
           <div className="roaming__title roaming__title_desktop">
-            Роуминг в <span>{data.title}</span>
+            Роуминг в&nbsp;<span>{data.title}</span>
           </div>
           <Link to={`${Pages.ROAMING}/countries/${data.id}`} className="roaming-zone__countries">
             {getCountries()}
           </Link>
           <RoamingCurrent data={data} history={history} inRoaming />
           <Link to={`${Pages.ROAMING}/zone-tariff/${data.id}`} className="roaming-zone__more">
-            Подробнее о тарифах в {data.title.toLowerCase()}
+            Подробнее о&nbsp;тарифах в&nbsp;{data.title.toLowerCase()}
           </Link>
         </div>
       </Transitions>

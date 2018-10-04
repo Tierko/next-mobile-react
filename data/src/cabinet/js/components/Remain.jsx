@@ -19,7 +19,7 @@ const Remain = ({
       }
     </div>
     <div className="remain__title">
-      По тарифу <Link className="link" to={Pages.SERVICES}>«{tariff.title}»</Link> до 16 июня
+      По&nbsp;тарифу <Link className="link" to={Pages.SERVICES}>«{tariff.title}»</Link> до&nbsp;16&nbsp;июня
     </div>
     {
       data.map(i => (

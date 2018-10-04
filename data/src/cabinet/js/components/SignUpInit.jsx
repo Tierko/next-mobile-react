@@ -41,8 +41,8 @@ class SignUp extends Component {
 
   MESSAGES = {
     INIT: 'Введите промо-код, чтобы начать работу',
-    PROMO: '8 ГБ интернета, безлимит СМС и 1 000 мин в месяц бесплатно в течение 6 месяцев. Плата после – от 1 000 ₽ в месяц',
-    NO_PROMO: 'Подключиться к сети Next Mobile можно только после получения приглашения. Оставьте запрос — и мы расскажем, что делать дальше',
+    PROMO: 'В\u00A0течение полугода после подключения каждый месяц бесплатно предоставляются 8\u00A0ГБ трафика, 1000\u00A0мин. разговоров и\u00A0неограниченное число СМС. Затем плата составит от\u00A02000\u00A0₽/мес.',
+    NO_PROMO: 'Подключиться к\u00A0сети Next Mobile можно только после получения приглашения. Оставьте запрос\u00A0— и\u00A0мы\u00A0расскажем, что делать дальше',
   };
 
   render() {
@@ -103,9 +103,11 @@ class SignUp extends Component {
           mode === 'promo' &&
           <Transitions>
             <Fragment>
-              <Button primary className="button_to-next-mobile" onClick={() => nextStep('phone')}>Перейти на Next Mobile</Button>
+              <Button primary className="button_to-next-mobile" onClick={() => nextStep('phone')}>
+                Перейти на&nbsp;Next Mobile
+              </Button>
               <div className="sign-up__agreement">
-                Я ознакомлен с <Link to={Pages.CONDITIONS} className="link">условиями перехода</Link>
+                Я соглашаюсь с&nbsp;<Link to={Pages.CONDITIONS} className="link">условиями перехода</Link>
               </div>
             </Fragment>
           </Transitions>

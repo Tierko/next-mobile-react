@@ -132,7 +132,7 @@ class Operations extends Component {
       <div className="operations">
         {
           !data.length &&
-          <div className="operations__empty">У вас нет данных за указанный период</div>
+          <div className="operations__empty">У&nbsp;вас нет данных за&nbsp;указанный период</div>
         }
         {
           !!data.length &&
@@ -236,7 +236,7 @@ class Operations extends Component {
                   <td colSpan={7}>
                     <div className="operations__loader">
                       <Loader className="loader_operations" />
-                      <div>Подгружаем данные за выбранный период</div>
+                      <div>Подгружаем данные за&nbsp;выбранный период</div>
                     </div>
                   </td>
                 </tr>
@@ -245,7 +245,7 @@ class Operations extends Component {
               !filteredData.length && loaded &&
                 <tr>
                   <td colSpan={7} className="operations__empty">
-                    У вас нет данных за указанный период
+                    У&nbsp;вас нет данных за&nbsp;указанный период
                   </td>
                 </tr>
             }
@@ -306,7 +306,7 @@ class Operations extends Component {
           }
           {
             loaded && !filteredData.length &&
-            <div className="operations__list-empty">У вас нет данных за указанный период</div>
+            <div className="operations__list-empty">У&nbsp;вас нет данных за&nbsp;указанный период</div>
           }
           {
             loaded && showMoreButton &&
@@ -316,7 +316,7 @@ class Operations extends Component {
             !loaded &&
             <div className="operations__loader">
               <Loader className="loader_operations" />
-              <div>Подгружаем данные за выбранный период</div>
+              <div>Подгружаем данные за&nbsp;выбранный период</div>
             </div>
           }
         </div>

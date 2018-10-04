@@ -46,7 +46,7 @@ class Invites extends Component {
                 {
                   i.active ?
                     <div className="invites__status invites__status_active">Активирован</div> :
-                    <div className="invites__status">Не активирован</div>
+                    <div className="invites__status">Не&nbsp;активирован</div>
                 }
               </div>
               {

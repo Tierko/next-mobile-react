@@ -20,7 +20,7 @@ class PayPackage extends Component {
     const state = location.state || {};
     const { pack, sum } = state;
     const { onPay } = this;
-    const title = (!pack || !sum) ? 'Вы не выбрали услугу' : `Оплата ${pack}`;
+    const title = (!pack || !sum) ? 'Вы не\u00A0выбрали услугу' : `Оплата ${pack}`;
     const meta = {
       title,
     };

@@ -129,7 +129,7 @@ class Pay extends Component {
                   <div className="dashboard__header">
                     Подключен автоплатеж
                     <div className="dashboard__header-sub">
-                      С карты по умолчанию {getShortPan(cards.defaultCard)}
+                      С&nbsp;карты по&nbsp;умолчанию {getShortPan(cards.defaultCard)}
                     </div>
                   </div>
                 }
@@ -140,13 +140,13 @@ class Pay extends Component {
                       formatCost(autoPay.monthlySum)
                     } каждый месяц {
                       autoPay.monthlyDay
-                    } числа до {convertMonth(autoPay.monthlyUntil)}
+                    } числа до&nbsp;{convertMonth(autoPay.monthlyUntil)}
                   </div>
                 }
                 {
                   autoPay.lessEnabled &&
                   <div className="pay__auto-pay-from">
-                    Пополнять счет не {
+                    Пополнять счет не&nbsp;{
                       formatCost(autoPay.lessSum)
                     }, если баланс меньше {formatCost(autoPay.lessLess)}
                   </div>

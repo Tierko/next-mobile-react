@@ -16,7 +16,7 @@ const data = {
     type: 'simple',
     content: {
       header: 'Запрос принят',
-      message: 'Оператор свяжется с вами по номеру +7 905 123-43-43 для уточнения условий',
+      message: 'Оператор свяжется с\u00A0вами по\u00A0номеру\n+7\u00A0905 123-43-43 для уточнения условий',
       color: 'blue',
     },
   },
@@ -24,7 +24,7 @@ const data = {
     type: 'simple',
     content: {
       header: 'Информация проверена',
-      message: 'Вы будете подключены к сети Next Mobile в течение 8 дней. О смене оператора мы сообщим дополнительно',
+      message: 'Вы\u00A0будете подключены к\u00A0сети Next Mobile в\u00A0течение 8\u00A0дней. О\u00A0смене оператора мы\u00A0сообщим дополнительно',
       color: 'blue',
     },
   },
@@ -32,15 +32,15 @@ const data = {
     type: 'simple',
     content: {
       header: 'Изменения сохранены',
-      message: 'Спасибо, что исправили данные. Мы сообщим, как только\nих проверим',
+      message: 'Благодарим за\u00A0обновление информации. Как только данные пройдут проверку, мы\u00A0сообщим вам об\u00A0этом дополнительно',
       color: 'blue',
     },
   },
   [Statuses.TRANSITION_CONFIRMED]: {
     type: 'simple',
     content: {
-      header: 'Запрос одобрен',
-      message: 'Для перехода на Next Mobile осталось заполнить небольшую форму',
+      header: 'Переход подтвержден',
+      message: 'Смена оператора произойдет через 5\u00A0дней. Не\u00A0забудьте вставить новую сим-карту в\u00A0ночь со\u00A0среды на\u00A0четверг',
       color: 'green',
     },
   },
@@ -48,7 +48,7 @@ const data = {
     type: 'simple',
     content: {
       header: 'Переход приостановлен',
-      message: 'На вашем счету есть задолженность 2000 ₽ перед\nпредыдущим оператором. Пожалуйста, погасите ее,\nчтобы перейти на Next',
+      message: 'На\u00A0вашем счету есть задолженность 2000\u00A0₽ перед\nпредыдущим оператором. Пожалуйста, погасите\u00A0ее,\nчтобы перейти на\u00A0Next',
       color: 'red',
     },
   },
@@ -56,11 +56,11 @@ const data = {
     type: 'delivery',
     content: {
       header: 'Доставка сим-карты',
-      img: '/media/images/sim.png',
+      img: '/media/icons/sim-color.svg',
       meta: [{
         id: 1,
         title: 'Дата',
-        value: '27 апреля (вторник)',
+        value: '27\u00A0апреля (вторник)',
       }, {
         id: 2,
         title: 'Время',
@@ -68,7 +68,7 @@ const data = {
       }, {
         id: 3,
         title: 'Адрес',
-        value: 'Пл. Крестьянская Застава, д. 12, корп. 44, кв. 1',
+        value: 'Пл. Крестьянская Застава, д.\u00A012, корп.\u00A044, кв.\u00A01',
       }],
     },
   },
@@ -77,7 +77,7 @@ const data = {
     content: {
       header: 'Доставка сим-карты',
       img: '/media/content/deviver.png',
-      text: 'Ваш курьер — Максим. Сегодня он доставит сим-карту и договор. Пожалуйста, не забудьте паспорт. Документ нужен для составления договора',
+      text: 'Ваш курьер\u00A0– Максим. Сегодня он\u00A0доставит сим-карту и\u00A0договор. Пожалуйста, не\u00A0забудьте паспорт. Документ нужен для составления договора',
       meta: [{
         id: 1,
         title: 'Время',
@@ -85,7 +85,7 @@ const data = {
       }, {
         id: 2,
         title: 'Адрес',
-        value: 'Пл. Крестьянская Застава, д. 12, корп. 44, кв. 1',
+        value: 'Пл. Крестьянская Застава, д.\u00A012, корп.\u00A044, кв.\u00A01',
       }],
     },
   },
@@ -137,7 +137,7 @@ class RequestStatus extends Component {
     let content;
     let type;
     const action = {
-      title: 'К оплате',
+      title: 'Перейти к оплате',
       type: 'link',
       value: '/',
     };
@@ -163,7 +163,7 @@ class RequestStatus extends Component {
                 {
                   codeSent &&
                   <div className="request-status__message">
-                    Введите код, который мы прислали на номер <span className="nobr">{phone}</span>
+                    Введите код, который мы&nbsp;прислали на&nbsp;номер <span className="nobr">{phone}</span>
                   </div>
                 }
                 {
@@ -178,7 +178,13 @@ class RequestStatus extends Component {
                     <InputPhone onChange={onChange} value={phone} name="phone" className="input_phone" />
                   </form>
                 }
-                <MobileCode phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} buttonTitle="Проверить статус" ref={mobileCode} />
+                <MobileCode
+                  phone={phone}
+                  onCodeSend={onCodeSend}
+                  onEnter={onEnter}
+                  buttonTitle="Проверить статус заявки"
+                  ref={mobileCode}
+                />
               </div>
             }
             {

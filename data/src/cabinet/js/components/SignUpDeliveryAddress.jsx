@@ -101,7 +101,7 @@ class SignUpDeliveryAddress extends Component {
                 onChange={onChange}
                 className="checkbox_sign-up-conditions"
               >
-                Я соглашаюсь с <Link className="link" to="/">условиями пользования</Link> и на обработку персональных данных
+                Я соглашаюсь с <Link className="link" to="/">условиями пользования</Link> и&nbsp;на&nbsp;обработку персональных данных
               </Checkbox>
             </div>
             <Button
@@ -114,7 +114,7 @@ class SignUpDeliveryAddress extends Component {
             </Button>
           </form>
           <div className={cs('sign-up__note', { 'sign-up__note_show': isFilled() })}>
-            Я соглашаюсь с условиями пользования сайтом и с правилами обработки персональных данных
+            Я&nbsp;соглашаюсь с&nbsp;условиями пользования сайтом и&nbsp;с&nbsp;правилами обработки персональных данных
           </div>
         </div>
       </Transitions>

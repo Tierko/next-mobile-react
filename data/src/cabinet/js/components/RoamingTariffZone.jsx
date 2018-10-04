@@ -59,7 +59,7 @@ const RoamingTariffZone = ({ zone }) => (
     <RoamingTariff data={data} />
     <div className="roaming__note">
       <Link className="link" to={`${Pages.ROAMING}/internet/${zone.id}`}>Выбрать интернет-пакет </Link>
-      <div className="roaming__note-text">У вас осталось 0,44 ГБ трафика на стандартной скорости на 10 дней в этой зоне</div>
+      <div className="roaming__note-text">У&nbsp;вас осталось 0,44&nbsp;ГБ трафика на&nbsp;стандартной скорости на&nbsp;10&nbsp;дней в&nbsp;этой зоне</div>
     </div>
   </div>
 );

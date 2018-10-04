@@ -53,14 +53,14 @@ class Overview extends Component {
       title: 'Сделать платеж регулярным',
     }, {
       url: Pages.OVERVIEW,
-      title: 'Вернуться на главную',
+      title: 'Вернуться на\u00A0главную',
     }];
 
     history.push({
       pathname: `${Pages.RESULT}/success`,
       state: {
         title: 'Оплата прошла успешно',
-        text: `На ваш счет зачислено ${formatCost(sum)}`,
+        text: `На\u00A0ваш счет зачислено ${formatCost(sum)}`,
         links,
       },
     });
@@ -70,7 +70,7 @@ class Overview extends Component {
         pathname: `${Pages.RESULT}/success`,
         state: {
           title: 'Оплата прошла успешно',
-          text: `На ваш счет зачислено ${formatCost(sum)}`,
+          text: `На\u00A0ваш счет зачислено ${formatCost(sum)}`,
           links,
         },
       });

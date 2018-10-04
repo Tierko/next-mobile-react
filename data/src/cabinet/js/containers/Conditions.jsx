@@ -15,12 +15,12 @@ const Conditions = ({ history }) => (
         <Transitions classNames="slide">
           <div className="welcome__content conditions">
             <div className="conditions__header">Условия перехода</div>
-            <div>Номер оформлен на ваше имя</div>
+            <div>Номер оформлен на&nbsp;ваше имя</div>
             <div>Нет задолженности перед оператором</div>
-            <div>Вы не меняли оператора за последние 2 месяца</div>
-            <div className="conditions__desc">Если хоть одно из условий не выполняется, обратитесь в <Link to={Pages.SUPPORT} className="link">службу поддержки</Link> — и мы подскажем, что делать</div>
+            <div>Вы&nbsp;не&nbsp;меняли оператора за&nbsp;последние 2&nbsp;месяца</div>
+            <div className="conditions__desc">Если хоть одно из&nbsp;условий не&nbsp;выполняется, обратитесь в&nbsp;<Link to={Pages.SUPPORT} className="link">службу поддержки</Link> — и&nbsp;мы&nbsp;подскажем, что делать</div>
             <Button className="button_conditions" onClick={() => { history.push(`${Pages.SIGN_UP}/step/phone`); }}>Далее</Button>
-            <div className="conditions__note">К началу заполнения заявки</div>
+            <div className="conditions__note">К&nbsp;началу заполнения заявки</div>
           </div>
         </Transitions>
       </div>

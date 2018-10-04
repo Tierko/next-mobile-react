@@ -33,8 +33,8 @@ class SignUpInitAfter extends Component {
             <LogoAnimated expand />
           }
           <div className={cs('sign-up__message', { 'sign-up__message_no-logo': !!tariff })}>
-            Выберите, с каким номером хотите перейти на Next
-            или зарегистрируйтесь по <Link className="link" to={`${Pages.SIGN_UP}/promo-after`}>промо-коду</Link>
+            Выберите, с&nbsp;каким номером хотите перейти на&nbsp;Next
+            или зарегистрируйтесь по&nbsp;<Link className="link" to={`${Pages.SIGN_UP}/promo-after`}>промо-коду</Link>
           </div>
           <div className="sign-up__scenario">
             <Radio name="whichNumber" value="current" selected={whichNumber} onChange={onChange}>

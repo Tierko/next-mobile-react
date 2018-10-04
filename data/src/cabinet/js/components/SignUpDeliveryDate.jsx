@@ -51,7 +51,7 @@ class SignUpDeliveryDate extends Component {
           <div className="sign-up__header">Время доставки</div>
           <div className="sign-up__form">
             <div className="sign-up__message sign-up__message_step4">
-              Когда вам будет удобно подписать договор и получить новую сим-карту?
+              Когда вам будет удобно подписать договор и&nbsp;получить новую сим-карту?
             </div>
             <Date
               name="date"
@@ -72,7 +72,7 @@ class SignUpDeliveryDate extends Component {
             </Button>
           </div>
           <div className={cs('sign-up__note', { 'sign-up__note_show': permit })}>
-            Перейти к адресу доставки сим-карты
+            Перейти к&nbsp;адресу доставки сим-карты
           </div>
         </div>
       </Transitions>

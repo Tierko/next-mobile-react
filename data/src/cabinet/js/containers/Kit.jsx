@@ -37,18 +37,16 @@ class Kit extends Component {
             <div className="dashboard__content">
               <div className="kit">
                 <section>
-                  <h1>Н1. Самый большой заголовок на странице</h1>
+                  <h1>Н1. Самый большой заголовок на&nbsp;странице</h1>
                   <h2>
-                    Н2. Заголовок поменьше. Может быть в несколько строк. Используется, например, на страницах ошибки и
-                    успеха
+                    Н2. Заголовок поменьше. Может быть в&nbsp;несколько строк. Используется, например, на&nbsp;страницах ошибки и&nbsp;успеха
                   </h2>
                   <p>
-                    Стандартный текст, который используется для набора всей основной информации на страницах. Он может
-                    использоваться в двух цветах:
+                    Стандартный текст, который используется для набора всей основной информации на&nbsp;страницах. Он&nbsp;может использоваться в&nbsp;двух цветах:
                   </p>
                   <ul className="list">
-                    <li>Черный цвет – для важного текстаЧерный цвет – для важного текста</li>
-                    <li>Серый цвет – для второстепенного текста</li>
+                    <li>Черный цвет&nbsp;&mdash; для важного текстаЧерный цвет&nbsp;&mdash; для важного текста</li>
+                    <li>Серый цвет&nbsp;&mdash; для второстепенного текста</li>
                   </ul>
                 </section>
                 <section>
@@ -62,11 +60,11 @@ class Kit extends Component {
                 </section>
                 <section>
                   <h2>Уведомления</h2>
-                  <p className="gradient-orange">Cледующий платеж – через 4 дня. На вашем счету не хватает 2 000 ₽</p>
-                  <p className="gradient-red">Оплата по тарифу – через 1 день. На вашем счету не хватает 3 000 ₽</p>
-                  <p className="gradient-green">Добавлено 3 ГБ бесплатного интернета до 5 марта</p>
-                  <p className="gradient-purple">Лучше купить SIM -карту местного оператора</p>
-                  <p className="gradient-blue">Добавьте электронную почту в настройках, чтобы получать квитанции</p>
+                  <p className="gradient-orange">Cледующий платеж&nbsp;&mdash; через 4&nbsp;дня. На&nbsp;вашем счету не&nbsp;хватает 2000&nbsp;₽</p>
+                  <p className="gradient-red">Оплата по&nbsp;тарифу&nbsp;&mdash; через 1&nbsp;день. На&nbsp;вашем счету не&nbsp;хватает 3000&nbsp;₽</p>
+                  <p className="gradient-green">Добавлено 3&nbsp;ГБ бесплатного интернета до&nbsp;5&nbsp;марта</p>
+                  <p className="gradient-purple">Лучше купить SIM&nbsp;&mdash; карту местного оператора</p>
+                  <p className="gradient-blue">Добавьте электронную почту в&nbsp;настройках, чтобы получать квитанции</p>
                 </section>
                 <section>
                   <h2>Поля ввода</h2>
@@ -110,7 +108,7 @@ class Kit extends Component {
                   <h2>Кнопки</h2>
                 </section>
                 <section>
-                  <h2>Таблица в три колонки</h2>
+                  <h2>Таблица в&nbsp;три колонки</h2>
                 </section>
                 <section>
                   <h2>Успех / Ошибка</h2>
@@ -118,14 +116,14 @@ class Kit extends Component {
                     <span>Автоплатеж сохранен</span>
                   </div>
                   <div className="status status_error">
-                    <span>Что-то пошло не так</span>
+                    <span>Что-то пошло не&nbsp;так</span>
                   </div>
                 </section>
                 <section>
                   <h2>Карты</h2>
                 </section>
                 <section>
-                  <h2>Изображения в чате</h2>
+                  <h2>Изображения в&nbsp;чате</h2>
                 </section>
                 <section>
                   <h2>Другая графика</h2>

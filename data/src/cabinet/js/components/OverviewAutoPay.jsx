@@ -19,7 +19,7 @@ const OverviewAutoPay = ({ autoPay }) => {
         {
           autoPay.monthlyEnabled &&
           <li>
-            на {
+            на&nbsp;{
               formatCost(autoPay.monthlySum)
             } ежемесячно {
               autoPay.monthlyDay
@@ -29,9 +29,9 @@ const OverviewAutoPay = ({ autoPay }) => {
         {
           autoPay.lessEnabled &&
           <li>
-            на {
+            на&nbsp;{
               formatCost(autoPay.lessSum)
-            }, если на счету меньше чем {
+            }, если на&nbsp;счету меньше чем {
               formatCost(autoPay.lessLess)
             }
           </li>

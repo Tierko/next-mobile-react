@@ -159,20 +159,20 @@ class AutoPay extends Component {
                 {
                   card &&
                   <div className="auto-pay__card">
-                    <div className="auto-pay__note">Используется карта по умолчанию</div>
+                    <div className="auto-pay__note">Используется карта по&nbsp;умолчанию</div>
                     <div
                       className={`card card_default card_auto-pay card_${getPaySystem(card.token)}`}
                     >
                       <div className="card__number">{getShortPan(card.token)}</div>
                     </div>
                     <div className="auto-pay__note">
-                      Для совершения автоплатежей с другой карты нужно сделать ее картой по умолчанию
+                      Для совершения автоплатежей с&nbsp;другой карты нужно сделать ее&nbsp;картой по&nbsp;умолчанию
                     </div>
                   </div>
                 }
                 {
                   !card &&
-                  <div className="auto-pay__note">У вас не установлена карта по умолчанию, вы не сможете настроить автоплатеж</div>
+                  <div className="auto-pay__note">У&nbsp;вас не&nbsp;установлена карта по&nbsp;умолчанию, вы&nbsp;не&nbsp;сможете настроить автоплатеж</div>
                 }
                 <div className="auto-pay__section">
                   <div className="auto-pay__title">
@@ -192,8 +192,8 @@ class AutoPay extends Component {
                   >
                     <div className="auto-pay__row">
                       <div className="auto-pay__cell">
-                        На сумму
-                        <div className="auto-pay__note">От 100 до 15 000 ₽</div>
+                        На&nbsp;сумму
+                        <div className="auto-pay__note">От&nbsp;100 до&nbsp;15&nbsp;000&nbsp;₽</div>
                       </div>
                       <InputRuble className="input_auto-pay" name="monthlySum" value={monthlySum} onChange={onChange} />
                     </div>
@@ -201,7 +201,7 @@ class AutoPay extends Component {
                       <div className="auto-pay__cell">
                         Какого числа пополнять
                         <div className="auto-pay__note">
-                          Не позже трех дней до даты платежа по тарифу
+                          Не&nbsp;позже трех дней до&nbsp;даты платежа по&nbsp;тарифу
                         </div>
                       </div>
                       <Select
@@ -227,7 +227,7 @@ class AutoPay extends Component {
                 </div>
                 <div className="auto-pay__section">
                   <div className="auto-pay__title">
-                    <div>Если на счете недостаточно денег</div>
+                    <div>Если на&nbsp;счете недостаточно денег</div>
                     <Checkbox
                       value={lessEnabled}
                       name="lessEnabled"
@@ -244,13 +244,13 @@ class AutoPay extends Component {
                     <div className="auto-pay__row">
                       <div className="auto-pay__cell">
                         На сумму
-                        <div className="auto-pay__note">От 100 до 15 000 ₽</div>
+                        <div className="auto-pay__note">От&nbsp;100 до&nbsp;15&nbsp;000&nbsp;₽</div>
                       </div>
                       <InputRuble className="input_auto-pay" onChange={onChange} value={lessSum} name="lessSum" />
                     </div>
                     <div className="auto-pay__row">
                       <div className="auto-pay__cell">
-                        Пополнять, если на счету меньше, чем
+                        Пополнять, если на&nbsp;счету меньше, чем
                       </div>
                       <InputRuble className="input_auto-pay" onChange={onChange} value={lessLess} name="lessLess" />
                     </div>

@@ -9,7 +9,7 @@ const Pagination = ({ pages, currentPage, setPage }) => {
   if (pagesItems.length >= 7) {
     let start = currentPage < 4 ? 0 : currentPage - 4;
     start = pagesItems.length - start < 7 ? pagesItems.length - 7 : start;
-    let end = start + 7;
+    const end = start + 7;
 
     pagesItems = pagesItems.slice(start, end);
   }

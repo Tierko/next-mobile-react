@@ -63,7 +63,7 @@ class Detail extends Component {
       pathname: `${Pages.RESULT}/success`,
       state: {
         title: 'Детализация отправлена',
-        text: 'Отчет о расходах с 1 сентября по 30 сентября 2018 г. отправлен в виде файла PDF на адрес konstantinopolsky@gmail.com',
+        text: 'Отчет о\u00A0расходах с\u00A01\u00A0сентября по\u00A030\u00A0сентября 2018\u00A0г. отправлен в\u00A0виде файла PDF на\u00A0адрес konstantinopolsky@gmail.com',
       },
     });
   };
@@ -92,7 +92,7 @@ class Detail extends Component {
               <LinkBack href={Pages.HISTORY} className="link-back_detail" />
               <div className="detail">
                 <div className="dashboard__header">Детализация</div>
-                <div className="detail__period-title">За период</div>
+                <div className="detail__period-title">За&nbsp;период</div>
                 <div className="detail__period">
                   <Date
                     className="input_detail"
@@ -112,7 +112,7 @@ class Detail extends Component {
                 </div>
                 {
                   !isInLimit() &&
-                  <div className="detail__error">Вы выбрали слишком большой период <span className="nobr">(максимум 30 дней)</span></div>
+                  <div className="detail__error">Вы&nbsp;выбрали слишком большой период<span className="nobr">(максимум 30&nbsp;дней)</span></div>
                 }
                 <Input
                   placeholder="На какую почту отправить"

@@ -61,7 +61,7 @@ class Invite extends Component {
             <div className="dashboard__content invite">
               <LinkBack className="link-back_offset-bottom" href={Pages.OVERVIEW} />
               <div className="dashboard__header">
-                Подарите близким возможность присоединиться к закрытому клубу Next Mobile
+                Подарите близким возможность присоединиться к&nbsp;закрытому клубу Next Mobile
               </div>
               <div>{desc}</div>
               {

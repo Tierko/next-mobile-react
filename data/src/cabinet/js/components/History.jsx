@@ -35,13 +35,13 @@ class History extends Component {
             <div className="history__title">
               <Link className="link-overview" to={Pages.HISTORY}>Расходы</Link>
             </div>
-            <div className="history__expense">&minus;{formatCost(cost)} за {MONTHS[selectedItem.date.month]}</div>
+            <div className="history__expense">&minus;{formatCost(cost)} за&nbsp;{MONTHS[selectedItem.date.month]}</div>
             <Grade data={data} onItemSelect={selectMonth} />
           </Fragment>
         }
         {
           !selectedItem &&
-          <div className="history__title">У вас пока нет расходов</div>
+          <div className="history__title">У&nbsp;вас пока нет расходов</div>
         }
       </div>
     );

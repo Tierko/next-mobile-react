@@ -68,7 +68,9 @@ const RoamingTariffCountry = ({ zone, items, id }) => {
       <RoamingTariff data={data} />
       <div className="roaming__note">
         <Link className="link" to={`${Pages.ROAMING}/internet/${zone.id}`}>Выбрать пакет интернета</Link>
-        <div className="roaming__note-text">У вас осталось 0,44 ГБ стандартного интернета еще на 10 дней в этой Зоне</div>
+        <div className="roaming__note-text">
+          У&nbsp;вас осталось 0,44&nbsp;ГБ стандартного интернета еще на&nbsp;10&nbsp;дней в&nbsp;этой Зоне
+        </div>
       </div>
     </div>
   );

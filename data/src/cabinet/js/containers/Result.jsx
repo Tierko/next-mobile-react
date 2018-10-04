@@ -29,8 +29,8 @@ class Result extends Component {
     const state = location.state || {};
     const { links } = state;
     let { title, text } = state;
-    title = title || (status === 'success' ? 'Операция успешно завершена' : 'Не удалось завершить операцию');
-    text = text || (status === 'success' ? 'Все в порядке, изменения внесены' : 'Ой! Что-то произошло. Мы выясним что и свяжемся с вами')
+    title = title || (status === 'success' ? 'Операция успешно завершена' : 'Не\u00A0удалось завершить операцию');
+    text = text || (status === 'success' ? 'Все в\u00A0порядке, изменения внесены' : 'Ой! Что-то произошло. Мы\u00A0выясним что и\u00A0свяжемся с\u00A0вами');
 
     const meta = {
       title,

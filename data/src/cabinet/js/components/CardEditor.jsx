@@ -101,7 +101,7 @@ class CardEditor extends Component {
               <span className="card__edit-icon card__edit-icon_default">
                 <InlineSvg src={require('../../../../media/icons/card.svg')} raw />
               </span>
-              <span className="card__edit-title">Карта по умолчанию</span>
+              <span className="card__edit-title">Карта по&nbsp;умолчанию</span>
             </div>
             <div className="card__edit-item" onClick={() => { removeCard(token); onClose(); }}>
               <span className="card__edit-icon card__edit-icon_remove">

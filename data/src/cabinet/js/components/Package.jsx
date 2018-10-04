@@ -17,7 +17,7 @@ const Package = ({
       !simple &&
       <Fragment>
         <div className="package__title">
-          {data.title}:<span> {remain.current.toString().replace('.', ',')} из {remain.max} {data.unit}</span>
+          {data.title}:<span> {remain.current.toString().replace('.', ',')} из&nbsp;{remain.max} {data.unit}</span>
         </div>
         <ProgressLinear className="progress-linear_add-package" current={remain.current} max={remain.max} />
       </Fragment>
@@ -40,7 +40,7 @@ const Package = ({
             <div className={cs('package__cell package__cell_count', { 'package__cell_count-fast': fast })}>
               <span>+ {i.count} {data.unit}</span>
             </div>
-            <div className="package__cell package__cell_period">{i.period} дней</div>
+            <div className="package__cell package__cell_period">{i.period}&nbsp;дней</div>
             <div className="package__cell package__cell_price">{formatCost(i.price)}</div>
             <div className="package__cell package__cell_action">
               <Link

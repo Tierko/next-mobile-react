@@ -33,7 +33,7 @@ class OverviewInvite extends Component {
           </span>
         </Link>
         <div className="overview-invite__subtitle">
-          По {
+          По&nbsp;{
             mode === 'link' ?
               <Button className="button_code-mode" borderless onClick={() => setCopyMode('')}>промо-коду</Button> :
               'промо-коду'

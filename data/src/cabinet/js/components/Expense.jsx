@@ -34,7 +34,7 @@ class Expense extends Component {
       <div className="expense">
         {
           !item &&
-          <div className="expense__empty">У вас пока нет расходов</div>
+          <div className="expense__empty">У&nbsp;вас пока нет расходов</div>
         }
         {
           !!item &&

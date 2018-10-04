@@ -70,7 +70,7 @@ const Balance = ({
               {
                 autoPay.monthlyEnabled &&
                 <div>
-                  на {
+                  на&nbsp;{
                     formatCost(autoPay.monthlySum)
                   } ежемесячно {
                     autoPay.monthlyDay
@@ -80,9 +80,9 @@ const Balance = ({
               {
                 autoPay.lessEnabled &&
                 <div>
-                  на {
+                  на&nbsp;{
                     formatCost(autoPay.lessSum)
-                  }, если на счету меньше чем {
+                  }, если на&nbsp;счету меньше чем {
                     formatCost(autoPay.lessLess)
                   }
                 </div>

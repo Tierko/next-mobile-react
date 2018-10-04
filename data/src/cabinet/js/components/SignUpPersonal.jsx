@@ -76,7 +76,7 @@ class SignUpPersonal extends Component {
     return (
       <Transitions classNames="slide">
         <div className="welcome__content sign-up">
-          <div className="sign-up__header">Информация о владельце телефонного номера</div>
+          <div className="sign-up__header">Информация о&nbsp;владельце телефонного номера</div>
           <form onSubmit={onSubmit} className="sign-up__form">
             <Input
               name="surname"
@@ -112,7 +112,7 @@ class SignUpPersonal extends Component {
             </Button>
           </form>
           <div className={cs('sign-up__note', { 'sign-up__note_show': isFilled() })}>
-            Перейти к дате доставки сим-карты
+            Перейти к&nbsp;дате доставки сим-карты
           </div>
         </div>
       </Transitions>

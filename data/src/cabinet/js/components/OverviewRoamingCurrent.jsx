@@ -15,7 +15,7 @@ const OverviewRoamingCountry = ({ history, data }) => {
   return (
     <div className="overview-roaming-current">
       <div>
-        Вы в роуминге: {
+        Вы в&nbsp;роуминге: {
           country && country.properties.name
         } <Link to={Pages.ROAMING} className="link-light">({currentZone.name})</Link>
         <img className="overview-roaming-current__flag" src={`/media/flags/${data.currentCountry}.svg`} alt={country.properties.name} />
