@@ -63,7 +63,7 @@ const Card = ({
     );
   case 'new':
     return (
-      <div onClick={onSelect} data-id={id} className="card__wrapper" id={`card-${id}`}>
+      <div onClick={onSelect} data-id={id} className="card__wrapper card__wrapper_new" id={`card-${id}`}>
         <div
           className={cs('card card_new', {
             'card_new-selected': isSelected,

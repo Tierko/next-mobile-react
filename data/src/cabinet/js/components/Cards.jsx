@@ -86,19 +86,12 @@ class Cards extends Component {
     const maxScroll = inner.clientWidth - row.clientWidth;
     const cardNumber = getAttr(cardE, 'number') * 1;
     const scroll = id === 'new' ? maxScroll + 142 : cardNumber * 163;
-    let timeout = 0;
 
-    if (selected === 'new' || id === 'new') {
-      timeout = 400;
-    }
-
-    setTimeout(() => {
-      row.scroll({
-        left: scroll,
-        top: 0,
-        behavior: 'smooth',
-      });
-    }, timeout);
+    row.scroll({
+      left: scroll,
+      top: 0,
+      behavior: 'smooth',
+    });
 
     this.setState({
       selected: id,
