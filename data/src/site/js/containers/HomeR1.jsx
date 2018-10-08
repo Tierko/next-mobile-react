@@ -25,6 +25,7 @@ class Home extends Component {
       best,
       club,
       title,
+      cabinet,
     } = translations.data;
 
     return (
@@ -39,7 +40,7 @@ class Home extends Component {
             <Club to={() => to('signup')} data={club} />
             {/*<HomeTariff r={1} data={data.page_home} />*/}
             {/*<EarthTariff home type="dark" size="big" />*/}
-            {/*<Cabinet to={() => to('signin')} data={data} />*/}
+            <Cabinet to={() => to('signin')} data={cabinet} />
             <Footer als light />
           </div>
         </div>

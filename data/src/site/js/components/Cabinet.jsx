@@ -2,7 +2,11 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 const Cabinet = ({ to, data }) => {
-  const header = data.cabinet_header && data.cabinet_header.split('##');
+  if (!data.header || !data.text) {
+    return false;
+  }
+
+  const header = data.header && data.header.split('##');
 
   return (
     <div className="cabinet">
@@ -18,9 +22,8 @@ const Cabinet = ({ to, data }) => {
                 <span dangerouslySetInnerHTML={{ __html: header[0] }} /> <span className="home__link" onClick={to} dangerouslySetInnerHTML={{ __html: header[1] }} /> <span dangerouslySetInnerHTML={{ __html: header[2] }} />
               </Fragment>
           }
-          Удобный <span className="home__link" onClick={to}>личный кабинет</span> и&nbsp;приложение
         </div>
-        <div className="cabinet__text" dangerouslySetInnerHTML={{ __html: data.cabinet_text }} />
+        <div className="cabinet__text" dangerouslySetInnerHTML={{ __html: data.text }} />
         <div className="cabinet__stores">
           <a className="cabinet__store" href="#">
             <img className="cabinet__store-img" src="/media/images/as.svg" alt="App Store" />
@@ -36,7 +39,11 @@ const Cabinet = ({ to, data }) => {
 
 Cabinet.propTypes = {
   to: PropTypes.func.isRequired,
-  data: PropTypes.shape().isRequired,
+  data: PropTypes.shape(),
+};
+
+Cabinet.defaultProps = {
+  data: {},
 };
 
 export default Cabinet;

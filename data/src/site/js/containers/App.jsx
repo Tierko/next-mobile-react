@@ -99,7 +99,10 @@ class App extends Component {
 
     obj.roaming = {};
 
-    obj.cabinet = {};
+    obj.cabinet = {
+      header: pageHome.cabinet_header,
+      text: pageHome.cabinet_text,
+    };
 
     return obj;
   };
