@@ -64,7 +64,7 @@ const data = {
       }, {
         id: 2,
         title: 'Время',
-        value: '16:00—18:00',
+        value: '16:00 — 18:00',
       }, {
         id: 3,
         title: 'Адрес',
@@ -81,7 +81,7 @@ const data = {
       meta: [{
         id: 1,
         title: 'Время',
-        value: '16:00–18:00',
+        value: '16:00 — 18:00',
       }, {
         id: 2,
         title: 'Адрес',
