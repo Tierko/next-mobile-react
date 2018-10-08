@@ -18,7 +18,7 @@ const NotFound = () => {
         <Aside hideNav />
         <Transitions>
           <div className="dashboard__content not-found">
-            <div className="dashboard__header">Страница не найдена</div>
+            <div className="dashboard__header">Страница не&nbsp;найдена</div>
             <div className="not-found__message">
               Неправильно набран адрес, или такой страницы на&nbsp;сайте больше не&nbsp;существует.
             </div>
