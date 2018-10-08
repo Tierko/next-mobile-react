@@ -71,7 +71,12 @@ class App extends Component {
 
   formatTranslations = (data) => {
     const obj = {};
-    const { page_home: pageHome } = data;
+    const { page_home: pageHome, page_tariff: pageTariff } = data;
+
+    obj.title = {
+      home: pageHome.title,
+      tariff: pageTariff.title,
+    };
 
     obj.intro = {
       text: pageHome.intro_text,

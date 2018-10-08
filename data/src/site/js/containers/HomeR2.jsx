@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import DocumentMeta from 'react-document-meta';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Header from '../../../common/js/components/Header';
 import Intro from '../components/Intro';
@@ -19,22 +20,26 @@ class Home extends Component {
   render() {
     const { to } = this;
     const { data } = this.props;
+    const { translations } = this.props.data;
+    const { title } = translations.data;
 
     return (
-      <div className="home">
-        <LogoMobile toHome={false} r={2} dark />
-        <MobileNav type="home" r={2} dark />
-        <Header mode="site" light r={2} hideHomeLink />
-        <div className="home__inner">
-          <Intro to={() => to('signup/after')} data={data.page_home} />
-          <Best className="best_r2" data={data.page_home} />
-          <HomeTariff to={to} r={2} />
-          <EarthTariff className="earth-tariff_home-r2" home type="dark" size="big" />
-          <Cabinet to={() => to('signin')} data={data} />
-          <Club className="club_home-r2" to={() => to('signup/after')} data={data.page_home} />
-          <Footer als light />
+      <DocumentMeta title={title ? title.home : ''}>
+        <div className="home">
+          <LogoMobile toHome={false} r={2} dark />
+          <MobileNav type="home" r={2} dark />
+          <Header mode="site" light r={2} hideHomeLink />
+          <div className="home__inner">
+            <Intro to={() => to('signup/after')} data={data.page_home} />
+            <Best className="best_r2" data={data.page_home} />
+            <HomeTariff to={to} r={2} />
+            <EarthTariff className="earth-tariff_home-r2" home type="dark" size="big" />
+            <Cabinet to={() => to('signin')} data={data} />
+            <Club className="club_home-r2" to={() => to('signup/after')} data={data.page_home} />
+            <Footer als light />
+          </div>
         </div>
-      </div>
+      </DocumentMeta>
     );
   }
 }
