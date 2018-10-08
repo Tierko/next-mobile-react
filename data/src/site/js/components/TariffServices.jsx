@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class TariffServices extends Component {
   state = {
@@ -22,14 +23,15 @@ class TariffServices extends Component {
 
   render() {
     const { services } = this.state;
+    const { header } = this.props.data;
 
-    if (!services.length) {
+    if (!services.length || !header) {
       return false;
     }
 
     return (
       <div className="tariff-services">
-        <div className="tariff-services__header">Услуги</div>
+        <div className="tariff-services__header">{header}</div>
         {
           services.map(s => (
             <div className="tariff-services__row" key={s.id}>
@@ -43,5 +45,13 @@ class TariffServices extends Component {
     );
   }
 }
+
+TariffServices.propTypes = {
+  data: PropTypes.shape(),
+};
+
+TariffServices.defaultProps = {
+  data: {},
+};
 
 export default TariffServices;

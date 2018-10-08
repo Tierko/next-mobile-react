@@ -19,7 +19,6 @@ class App extends Component {
       loaded: false,
       error: false,
     },
-    data: {},
   };
 
   componentDidMount() {
@@ -27,15 +26,6 @@ class App extends Component {
 
     getTranslations();
     getTariffs();
-
-    // fetch('/api/i18n/ru.json', {
-    //   credentials: 'same-origin',
-    //   method: 'GET',
-    // })
-    //   .then(data => data.json())
-    //   .then(data => this.setState({
-    //     data,
-    //   }));
   }
 
   getTranslations = () => {
@@ -71,7 +61,7 @@ class App extends Component {
 
   formatTranslations = (data) => {
     const obj = {};
-    const { page_home: pageHome, page_tariff: pageTariff } = data;
+    const { page_home: pageHome, page_tariff: pageTariff, info } = data;
 
     obj.title = {
       home: pageHome.title,
@@ -95,7 +85,10 @@ class App extends Component {
       btn: pageHome.club_btn,
     };
 
-    obj.tariff = {};
+    obj.tariff = {
+      header: pageHome.tariff_header,
+      btn: pageHome.tariff_btn,
+    };
 
     obj.roaming = {};
 
@@ -104,19 +97,40 @@ class App extends Component {
       text: pageHome.cabinet_text,
     };
 
+    obj.services = {
+      header: pageTariff.services_header,
+    };
+
+    obj.info = info;
+
+    // console.log(data)
+
     return obj;
   };
 
   render() {
     const { state } = this;
+    const release = state.translations.data.info ? state.translations.data.info.release * 1 : 1;
 
     return (
       <div>
         <Switch>
           <Route
-            component={props => (<HomeR1 {...props} data={state} />)}
+            component={props => (
+              release === 1 ?
+                <HomeR1 {...props} data={state} /> :
+                <HomeR2 {...props} data={state} />
+            )}
             path={Pages.HOME}
             exact
+          />
+          <Route
+            component={props => (
+              release === 1 ?
+                <TariffR1 {...props} data={state} /> :
+                <TariffR2 {...props} data={state} />
+            )}
+            path={Pages.TARIFF}
           />
           <Route
             component={props => (<HomeR1 {...props} data={state} />)}

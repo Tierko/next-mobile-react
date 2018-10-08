@@ -13,30 +13,39 @@ class Tariff extends Component {
   componentDidMount() {
     animateScroll.scrollToTop();
   }
-
   to = (page) => {
-    location.href = `${SERVICE_URL}/#/${page || ''}`;
+    const { info } = this.props.data.translations.data;
+    const url = info ? info.lk_url : '';
+
+    if (url) {
+      location.href = `${url}/#/${page || ''}`;
+    }
   };
 
   toTariff = (id) => {
-    location.href = `${SERVICE_URL}/#/signup/after/tariff/${id}`;
+    const { info } = this.props.data.translations.data;
+    const url = info ? info.lk_url : '';
+
+    if (url) {
+      location.href = `${url}/#/signup/after/tariff/${id}`;
+    }
   };
 
   render() {
     const { to, toTariff } = this;
     const { translations } = this.props.data;
-    const { title } = translations.data;
+    const { title, services, info } = translations.data;
 
     return (
       <DocumentMeta title={title ? title.tariff : ''}>
         <div className="tariff">
           <LogoMobile r={2} />
           <MobileNav type="home" />
-          <Header mode="site" r={2} />
+          <Header mode="site" info={info} />
           <div className="tariff__inner">
             <TariffTariff to={() => to('signup/after')} toTariff={toTariff} />
             <TariffRoaming size="small" type="light" />
-            <TariffServices />
+            <TariffServices data={services} />
           </div>
         </div>
       </DocumentMeta>

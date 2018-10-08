@@ -14,28 +14,40 @@ import LogoMobile from '../components/LogoMobile';
 
 class Home extends Component {
   to = (page) => {
-    location.href = `${SERVICE_URL}/#/${page || ''}`;
+    const { info } = this.props.data.translations.data;
+    const url = info ? info.lk_url : '';
+
+    if (url) {
+      location.href = `${url}/#/${page || ''}`;
+    }
   };
 
   render() {
     const { to } = this;
-    const { data } = this.props;
     const { translations } = this.props.data;
-    const { title } = translations.data;
+    const {
+      intro,
+      best,
+      club,
+      title,
+      cabinet,
+      tariff,
+      info
+    } = translations.data;
 
     return (
       <DocumentMeta title={title ? title.home : ''}>
         <div className="home">
           <LogoMobile toHome={false} r={2} dark />
           <MobileNav type="home" r={2} dark />
-          <Header mode="site" light r={2} hideHomeLink />
+          <Header mode="site" info={info} light hideHomeLink />
           <div className="home__inner">
-            <Intro to={() => to('signup/after')} data={data.page_home} />
-            <Best className="best_r2" data={data.page_home} />
-            <HomeTariff to={to} r={2} />
+            <Intro to={() => to('signup/after')} data={intro} />
+            <Best className="best_r2" data={best} />
+            <HomeTariff to={to} r={2} data={tariff} />
             <EarthTariff className="earth-tariff_home-r2" home type="dark" size="big" />
-            <Cabinet to={() => to('signin')} data={data} />
-            <Club className="club_home-r2" to={() => to('signup/after')} data={data.page_home} />
+            <Cabinet to={() => to('signin')} data={cabinet} />
+            <Club className="club_home-r2" to={() => to('signup/after')} data={club} />
             <Footer als light />
           </div>
         </div>

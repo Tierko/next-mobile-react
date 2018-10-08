@@ -11,41 +11,46 @@ const Header = ({
   light,
   mode,
   hideHomeLink,
-  r,
-}) => (
-  <nav className="header">
-    <div className="header__left">
-      <div className={cs('header__logo', { header__logo_light: light })}>
+  info,
+}) => {
+  const url = info.lk_url || '';
+  const release = info.release * 1 || 1;
+
+  return (
+    <nav className="header">
+      <div className="header__left">
+        <div className={cs('header__logo', { header__logo_light: light })}>
+          {
+            !hideHomeLink && mode === 'site' &&
+            <Link to={Pages.HOME} className="header__home" />
+          }
+          {
+            !hideHomeLink && mode === 'cabinet' &&
+            <a href={url} className="header__home" />
+          }
+        </div>
         {
-          !hideHomeLink && mode === 'site' &&
-          <Link to={Pages[`HOME_R${r}`]} className="header__home" />
-        }
-        {
-          !hideHomeLink && mode === 'cabinet' &&
-          <a href={SERVICE_URL} className="header__home" />
+          back &&
+          <Link to={back} className="header__back">
+            <img src="/media/icons/back.svg" alt="" />
+          </Link>
         }
       </div>
       {
-        back &&
-        <Link to={back} className="header__back">
-          <img src="/media/icons/back.svg" alt="" />
-        </Link>
+        mode === 'site' ?
+          <HeaderSite light={light} release={release} url={url} /> :
+          <HeaderCabinet light={light} />
       }
-    </div>
-    {
-      mode === 'site' ?
-        <HeaderSite light={light} r={r} /> :
-        <HeaderCabinet light={light} />
-    }
-  </nav>
-);
+    </nav>
+  );
+};
 
 Header.propTypes = {
   back: PropTypes.string,
   light: PropTypes.bool,
   mode: PropTypes.string,
   hideHomeLink: PropTypes.bool,
-  r: PropTypes.number,
+  info: PropTypes.shape(),
 };
 
 Header.defaultProps = {
@@ -53,7 +58,7 @@ Header.defaultProps = {
   light: false,
   mode: 'cabinet',
   hideHomeLink: false,
-  r: 1,
+  info: {},
 };
 
 export default Header;

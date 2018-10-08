@@ -14,7 +14,12 @@ import Footer from '../../../common/js/components/Footer';
 
 class Home extends Component {
   to = (page) => {
-    location.href = `${SERVICE_URL}/#/${page || ''}`;
+    const { info } = this.props.data.translations.data;
+    const url = info ? info.lk_url : '';
+
+    if (url) {
+      location.href = `${url}/#/${page || ''}`;
+    }
   };
 
   render() {
@@ -26,6 +31,8 @@ class Home extends Component {
       club,
       title,
       cabinet,
+      tariff,
+      info,
     } = translations.data;
 
     return (
@@ -33,13 +40,13 @@ class Home extends Component {
         <div className="home">
           <LogoMobile toHome={false} dark />
           <MobileNav type="home" dark />
-          <Header mode="site" light r={1} hideHomeLink />
+          <Header mode="site" light hideHomeLink info={info} />
           <div className="home__inner">
             <Intro to={() => to('signup')} data={intro} />
             <Best data={best} />
             <Club to={() => to('signup')} data={club} />
-            {/*<HomeTariff r={1} data={data.page_home} />*/}
-            {/*<EarthTariff home type="dark" size="big" />*/}
+            <HomeTariff r={1} data={tariff} />
+            <EarthTariff home type="dark" size="big" />
             <Cabinet to={() => to('signin')} data={cabinet} />
             <Footer als light />
           </div>

@@ -15,24 +15,29 @@ class Tariff extends Component {
   }
 
   to = (page) => {
-    location.href = `${SERVICE_URL}/#/${page || ''}`;
+    const { info } = this.props.data.translations.data;
+    const url = info ? info.lk_url : '';
+
+    if (url) {
+      location.href = `${url}/#/${page || ''}`;
+    }
   };
 
   render() {
     const { to } = this;
     const { translations } = this.props.data;
-    const { title } = translations.data;
+    const { title, services, info } = translations.data;
 
     return (
       <DocumentMeta title={title ? title.tariff : ''}>
         <div className="tariff">
           <LogoMobile />
           <MobileNav type="home" />
-          <Header mode="site" />
+          <Header mode="site" info={info} />
           <div className="tariff__inner">
             <TariffTariff to={() => to('signup')} r={1} />
             <TariffRoaming size="small" type="light" />
-            <TariffServices />
+            <TariffServices data={services} />
           </div>
         </div>
       </DocumentMeta>
