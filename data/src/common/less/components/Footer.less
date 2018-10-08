@@ -48,7 +48,12 @@
   }
 
   &__dev-link:hover + &__dev-text &__link_stud {
-    background-image: linear-gradient(to right, @BLACK);
+    background-image: linear-gradient(to right, @BLACK, @BLACK);
+  }
+
+  &_light &__dev-link:hover + &__dev-text &__link_stud {
+    background-image: linear-gradient(to right, @WHITE, @WHITE);
+    color: @WHITE;
   }
 
   &__link {
@@ -61,8 +66,9 @@
       background-size: 100% 1px;
 
       &:hover {
-        background: linear-gradient(to right, rgba(255, 255, 255, 0.3)) 0 93% repeat-x;
+        background: linear-gradient(to right, rgba(255, 255, 255, 1)) 0 93% repeat-x;
         background-size: 100% 1px;
+        color: @WHITE;
       }
     }
   }
