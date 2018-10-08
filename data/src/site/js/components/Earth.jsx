@@ -6,10 +6,14 @@ class Earth extends Component {
   globe = () => {
     const { earth, cont, d3 } = this;
     const { style } = this.props;
-    const context = earth.getContext('2d');
-    const width = cont.clientWidth;
-    const height = cont.clientHeight;
-    const size = d3.min([width, height]);
+    const context = earth && earth.getContext('2d');
+    const width = cont && cont.clientWidth;
+    const height = cont && cont.clientHeight;
+    const size = cont && d3.min([width, height]);
+
+    if (!context || !cont) {
+      return;
+    }
 
     d3.select('#earth')
       .attr('width', `${width}px`)

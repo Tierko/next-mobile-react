@@ -1,13 +1,22 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { HashRouter } from 'react-router-dom';
+import { HashRouter, BrowserRouter } from 'react-router-dom';
 
 import App from './containers/App';
 import '../less/style.less';
 
-render(
-  <HashRouter>
-    <App />
-  </HashRouter>
-  , document.getElementById('root'),
-);
+if (NODE_ENV === 'development') {
+  render(
+    <HashRouter>
+      <App />
+    </HashRouter>
+    , document.getElementById('root'),
+  );
+} else {
+  render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+    , document.getElementById('root'),
+  );
+}

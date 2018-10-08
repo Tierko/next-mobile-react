@@ -75,7 +75,7 @@ class TariffTable extends Component {
   }, {
     id: 5,
     title: 'СМС на номера всех операторов по России',
-    unit: '',
+    unit: 'СМС',
     field: 'sms',
   }, {
     id: 6,

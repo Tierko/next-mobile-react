@@ -74,6 +74,7 @@ module.exports = (env, { mode }) => {
     plugins: [
       new webpack.DefinePlugin({
         SERVICE_URL: JSON.stringify(url),
+        NODE_ENV: isDevelopment ? JSON.stringify('development') : JSON.stringify('production'),
       }),
       new MiniCssExtractPlugin({
         filename: '[name].css',
