@@ -50,7 +50,7 @@ class EarthTariff extends Component {
         >
           <div className="earth-tariff__row">
             <div className="earth-tariff__cell earth-tariff__cell_small">Интернет</div>
-            <div className="earth-tariff__cell earth-tariff__cell_big">14 ₽ / Мб</div>
+            <div className="earth-tariff__cell earth-tariff__cell_big">14 ₽ / МБ</div>
             <div className="earth-tariff__cell earth-tariff__cell_small">Или 2000 ₽ / 1 ГБ</div>
           </div>
           <div className="earth-tariff__row">
