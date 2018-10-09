@@ -128,15 +128,15 @@ class InterCalls extends Component {
               'inter-calls__selected_light': home,
             })}
             >
-              <span className="inter-calls__country" onClick={clear}>
+              <div className="inter-calls__country" onClick={clear}>
                 {
                   item.flag &&
-                  <span>
+                  <div>
                     <img src={`/media/flags/${item.flag}.svg`} alt="" />
-                  </span>
+                  </div>
                 }
                 {item.title}
-              </span>
+              </div>
               {
                 !hidePrice &&
                 <span>{formatCost(getCost())} / мин</span>
