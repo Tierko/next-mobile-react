@@ -79,7 +79,12 @@ class MobileNav extends Component {
 
   render() {
     const { open } = this.state;
-    const { type, r, dark } = this.props;
+    const {
+      type,
+      r,
+      dark,
+      hideSpot,
+    } = this.props;
     const {
       toggle,
       toggleScroll,
@@ -97,28 +102,31 @@ class MobileNav extends Component {
             onClick={toggle}
             className={cs('mobile-nav__menu', {
               'mobile-nav__button_dark': dark,
+              'mobile-nav__menu_mask': !hideSpot,
             })}
           />
           <div
             className={cs('mobile-nav__list', { 'mobile-nav__list_open': open })}
             onClick={onClick}
           >
-            <div
-              onClick={toggle}
-              className="mobile-nav__close"
-            />
-            {
-              type === 'enter' &&
-              <MobileNavEnter />
-            }
-            {
-              type === 'dashboard' &&
-              <MobileNavDashboard />
-            }
-            {
-              type === 'home' &&
-              <MobileNavHome r={r} />
-            }
+            <div className="mobile-nav__list-inner">
+              <div
+                onClick={toggle}
+                className="mobile-nav__close"
+              />
+              {
+                type === 'enter' &&
+                <MobileNavEnter />
+              }
+              {
+                type === 'dashboard' &&
+                <MobileNavDashboard />
+              }
+              {
+                type === 'home' &&
+                <MobileNavHome r={r} />
+              }
+            </div>
           </div>
         </div>
       </Fragment>
@@ -130,11 +138,13 @@ MobileNav.propTypes = {
   type: PropTypes.string.isRequired,
   r: PropTypes.number,
   dark: PropTypes.bool,
+  hideSpot: PropTypes.bool,
 };
 
 MobileNav.defaultProps = {
   r: 1,
   dark: false,
+  hideSpot: false,
 };
 
 export default MobileNav;

@@ -27,9 +27,13 @@
     left: 0;
     width: 60px;
     height: 60px;
-    background: #e9e9f1 url("/media/icons/menu-black.svg") no-repeat 50% 50%;
+    background: url("/media/icons/menu-black.svg") no-repeat 50% 50%;
     background-size: 20px auto;
-    mask-image: radial-gradient(closest-side, #000, #000, transparent);
+
+    &_mask {
+      mask-image: radial-gradient(closest-side, #000, #000, transparent);
+      background-color: transparent;
+    }
 
     &_dark {
       background-color: #040e44;

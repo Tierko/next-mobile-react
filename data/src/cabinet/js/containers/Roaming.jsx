@@ -129,7 +129,7 @@ class Roaming extends Component {
           onCountrySelect={onCountrySelect}
           country={country}
         />
-        <MobileNav key="nav" type="dashboard" />
+        <MobileNav key="nav" type="dashboard" hideSpot />
         <div key="dashboard" className="dashboard">
           <Aside />
           <div className="dashboard__content dashboard__content_roaming">
