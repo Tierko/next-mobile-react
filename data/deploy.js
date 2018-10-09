@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const FtpDeploy = require('ftp-deploy');
 const credentials = require('./ftp-config.json');
 const ftpDeploy = new FtpDeploy();
@@ -10,8 +11,6 @@ if (!folder) {
   throw new Error('Folder is empty');
 }
 
-console.log(projectCredentials)
-
 const configMain = {
   user: projectCredentials.user,
   password: projectCredentials.password,
@@ -19,7 +18,7 @@ const configMain = {
   port: 21,
   localRoot: path.join(__dirname, '../www'),
   remoteRoot: `/${folder}/www/`,
-  include: ['*.js', 'bundle.css', 'index.html'],
+  include: ['*.js', 'bundle.css', 'index.html', 'index.php'],
   exclude: [],
 };
 
@@ -41,4 +40,11 @@ ftpDeploy.on('uploading', (data) => {
 ftpDeploy.deploy(configMain)
   .then(() => ftpDeploy.deploy(configMedia))
   .then(() => console.log('Finished', (new Date()).toLocaleString()))
-  .catch(e => console.log(e));
+  .catch(e => console.log(e))
+  .finally(() => {
+    fs.unlink('../www/0.js', () => {});
+    fs.unlink('../www/bundle.js', () => {});
+    fs.unlink('../www/bundle.css', () => {});
+    fs.unlink('../www/index.html', () => {});
+    fs.unlink('../www/index.php', () => {});
+  });

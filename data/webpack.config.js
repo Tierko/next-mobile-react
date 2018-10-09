@@ -84,6 +84,7 @@ module.exports = (env, { mode }) => {
         template: './index.html',
         hash: true,
         inject: true,
+        filename: type === 'site' && !isDevelopment ? 'index.php' : 'index.html',
       }),
     ],
 
