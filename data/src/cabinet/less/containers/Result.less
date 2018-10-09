@@ -4,98 +4,32 @@
   margin-top: 120px;
 
   &__image {
-    width: 54px;
-    height: 59px;
     margin: auto;
-    position: relative;
-  }
+    opacity: 0;
+    transition: opacity 0.5s;
 
-  &__image-inner {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      width: 2px;
-      height: 0;
-      background: #f00;
-      border-radius: 2px;
-      transform-origin: 0 0;
+    &_show {
+      opacity: 1;
     }
 
-    &_ok {
+    &_success {
       width: 54px;
       height: 49px;
-
-      &:before {
-        top: 33px;
-        left: 1px;
-        transform: rotate(-63deg);
-        background: #0037a9 linear-gradient(to bottom, #0f3e8c, #0037a9);
-        background-size: 2px 30px;
-        transition: height 0.3s 0s;
-      }
-
-      &:after {
-        top: 46px;
-        left: 28px;
-        transform: rotate(-155deg);
-        background: #0037a9 linear-gradient(to bottom, #0037a9, #003edb);
-        background-size: 2px 49px;
-        transition: height 0.3s 0.3s;
-      }
-
-      &-show {
-        &:before {
-          height: 30px;
-        }
-
-        &:after {
-          height: 49px;
-        }
-      }
+      margin-bottom: 14px;
+      background: url("/media/icons/ok.svg");
     }
 
     &_error {
       width: 43px;
       height: 43px;
-
-      &:before {
-        transform: rotate(45deg);
-        top: -1px;
-        right: -1px;
-        background: #f997db linear-gradient(to bottom, #f997db, #ff005c);
-        background-size: 2px 60px;
-        transition: height 0.3s 0s;
-      }
-
-      &:after {
-        transform: rotate(-45deg);
-        top: 1px;
-        left: 0;
-        background: #f997db linear-gradient(to bottom, #f997db, #ff005c);
-        background-size: 2px 60px;
-        transition: height 0.3s 0.3s;
-      }
-
-      &-show {
-        &:before,
-        &:after {
-          height: 60px;
-        }
-      }
+      margin-bottom: 16px;
+      background: url("/media/icons/error.svg");
     }
   }
 
   &__header {
     .h2;
-    padding: 30px 0;
+    padding-bottom: 26px;
     font-weight: 300;
 
     &_ok {
@@ -108,7 +42,7 @@
   }
 
   &__text {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
   }
 
   &__link {

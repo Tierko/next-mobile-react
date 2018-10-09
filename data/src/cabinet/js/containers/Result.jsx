@@ -45,16 +45,10 @@ class Result extends Component {
           <Transitions>
             <div className="dashboard__content">
               <div className="result">
-                <div className="result__image">
-                  <div
-                    className={cs('result__image-inner', {
-                      'result__image-inner_ok': status === 'success',
-                      'result__image-inner_ok-show': status === 'success' && show,
-                      'result__image-inner_error': status !== 'success',
-                      'result__image-inner_error-show': status !== 'success' && show,
-                    })}
-                  />
-                </div>
+                <div className={cs(`result__image result__image_${status}`, {
+                  result__image_show: show,
+                })}
+                />
                 <div
                   className={cs('result__header', {
                     result__header_ok: status === 'success',
@@ -73,7 +67,12 @@ class Result extends Component {
                 {
                   links && links.map(l => (
                     <div key={l.url}>
-                      <Link className="result__link" to={l.url}>{l.title}</Link>
+                      <Link
+                        className={l.primary ? 'button button_primary button_result' : 'result__link'}
+                        to={l.url}
+                      >
+                        {l.title}
+                      </Link>
                     </div>
                   ))
                 }
