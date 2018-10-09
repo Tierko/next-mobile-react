@@ -9,7 +9,6 @@
 
   &__tabs {
     display: flex;
-    justify-content: center;
     margin-bottom: 15px;
   }
 
@@ -19,6 +18,14 @@
     user-select: none;
     border-bottom: 1px dashed transparent;
     line-height: 20px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
 
     &_active {
       cursor: default;
