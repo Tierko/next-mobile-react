@@ -80,7 +80,9 @@ const Card = ({
           }
           {
             isSelected &&
-            <div className="card__form">
+            <div className={cs(`card__form card__form_${isFilled && getPaySystem(number)}`, {
+              'card__form_has-pay': !!getPaySystem(number) && isFilled,
+            })}>
               <InputMask
                 className="card__input card__input_wide card__input_number"
                 mask="9999 9999 9999 9999"
