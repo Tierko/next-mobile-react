@@ -12,13 +12,13 @@ const SiteMap = () => (
           <div>
             <Link className="link" to={Pages.DATA}>Демо данные</Link>
             <br />
-            <a className="link" href={`${SERVICE_URL}/#/home_r1`}>Главная (релиз 1)</a>
+            <a className="link" href={`${SERVICE_URL}/home_r1`}>Главная (релиз 1)</a>
             <br />
-            <a className="link" href={`${SERVICE_URL}/#/home_r2`}>Главная (релиз 2)</a>
+            <a className="link" href={`${SERVICE_URL}/home_r2`}>Главная (релиз 2)</a>
             <br />
-            <a className="link" href={`${SERVICE_URL}/#/tariff_r1`}>Тарифы (релиз 1)</a>
+            <a className="link" href={`${SERVICE_URL}/tariff_r1`}>Тарифы (релиз 1)</a>
             <br />
-            <a className="link" href={`${SERVICE_URL}/#/tariff_r2`}>Тарифы (релиз 2)</a>
+            <a className="link" href={`${SERVICE_URL}/tariff_r2`}>Тарифы (релиз 2)</a>
             <br />
             <Link className="link" to={Pages.SIGN_IN}>Вход</Link>
             <br />
