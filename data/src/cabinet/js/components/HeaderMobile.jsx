@@ -10,12 +10,29 @@ class HeaderMobile extends Component {
     showSearch: false,
   };
 
+  onSelect = (country) => {
+    const { onCountrySelect } = this.props;
+
+    if (!country.properties) {
+      this.setState({
+        showSearch: false,
+      });
+    }
+
+    onCountrySelect(country);
+  };
+
   toggleSearch = () => {
     const { showSearch } = this.state;
+    const { country, onCountrySelect } = this.props;
 
-    this.setState({
-      showSearch: !showSearch,
-    });
+    if (showSearch && country.properties) {
+      onCountrySelect({});
+    } else {
+      this.setState({
+        showSearch: !showSearch,
+      });
+    }
   };
 
   render() {
@@ -24,11 +41,10 @@ class HeaderMobile extends Component {
       showRoamingSearch,
       features,
       country,
-      onCountrySelect,
       zone,
     } = this.props;
     const { showSearch } = this.state;
-    const { toggleSearch } = this;
+    const { toggleSearch, onSelect } = this;
 
     return (
       <div className="header-mobile">
@@ -39,11 +55,11 @@ class HeaderMobile extends Component {
           }
         </div>
         {
-          showSearch && showRoamingSearch && features && country && onCountrySelect && zone &&
+          showSearch && showRoamingSearch && features && country && onSelect && zone &&
           <ComboBox
             items={features}
             value={country}
-            onSelect={onCountrySelect}
+            onSelect={onSelect}
             placeholder="В какой стране вам нужен роуминг?"
             zoneName={zone.title}
             className="combo-box_mobile"

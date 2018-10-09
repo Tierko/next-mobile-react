@@ -23,10 +23,9 @@ class ComboBox extends Select {
 
   onSelect = (item) => {
     const { selectItem } = this;
-    const valueSearch = (item.properties && item.properties.name) || '';
 
     this.setState({
-      valueSearch,
+      valueSearch: '',
     });
 
     selectItem(item);
