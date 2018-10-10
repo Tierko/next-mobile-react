@@ -2,17 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 
-const Footer = ({ als, light }) => {
+const Footer = ({ als, light, data }) => {
   const color = light ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.3)';
+  const domain = data.domain || '&copy; 2018&nbsp;Next Mobile';
+  const alsText = data.als || '\n' +
+    'Задизайнено в <a href="https://www.artlebedev.ru/" class="footer__link footer__link_stud">Студии Артемия&nbsp;Лебедева</a>\n' +
+    '<br />\n' +
+    '<a href="https://www.artlebedev.ru/" class="footer__link">Информация о&nbsp;сайте</a>';
 
   return (
     <div className={cs('footer', { footer_light: light })}>
-      <div className="footer__copy">
-        &copy; 2018 Next Mobile
-      </div>
+      <div
+        className="footer__copy"
+        dangerouslySetInnerHTML={{ __html: domain }}
+      />
       {
         als &&
-        <div className="footer__dev">
+        <div
+          className={cs('footer__dev', {
+            footer__dev_light: light,
+          })}
+        >
           <a className="footer__dev-link" href="https://www.artlebedev.ru/">
             <svg
               version="1"
@@ -30,11 +40,10 @@ const Footer = ({ als, light }) => {
               <path fill={color} d="M3.54,39.837c0-0.7-0.6-1.101-1.1-1.101s-1,0.3-1.4,0.601l-0.4-0.5c0.5-0.5,1.2-0.801,1.9-0.801c1,0,1.9,0.601,1.9,1.801c0,1.5-1.8,3.199-2.8,4.199h2.9v0.801h-4v-0.601C1.54,43.137,3.54,41.337,3.54,39.837z M8.439,44.937c-1.9,0-2.4-2-2.4-3.5s0.5-3.5,2.4-3.5s2.4,2,2.4,3.5S10.24,44.937,8.439,44.937z M8.439,38.637c-1.3,0-1.5,1.8-1.5,2.8s0.2,2.8,1.5,2.8c1.3,0,1.5-1.8,1.5-2.8C9.939,40.536,9.74,38.637,8.439,38.637z M12.339,39.337l1.9-1.2h0.6v6l1.2,0.2v0.399h-3.3v-0.399l1.2-0.2v-5l-1.5,0.5L12.339,39.337z M19.94,44.937c-1.2,0-2.2-0.6-2.2-1.8c0-0.9,0.8-1.5,1.399-1.8c-0.699-0.4-1.3-0.801-1.3-1.7c0-1,0.9-1.601,2-1.601c1.101,0,2,0.5,2,1.601c0,0.899-0.6,1.3-1.3,1.7c0.7,0.399,1.5,0.899,1.5,1.8C22.139,44.236,21.04,44.937,19.94,44.937z M19.839,41.637c-0.6,0.3-1.3,0.7-1.3,1.5c0,0.7,0.6,1.2,1.4,1.2c0.8,0,1.399-0.4,1.399-1.2S20.44,41.937,19.839,41.637z M19.94,38.637c-0.601,0-1.2,0.3-1.2,1s0.7,1.1,1.3,1.3c0.6-0.3,1.1-0.6,1.1-1.3C21.139,39.036,20.54,38.637,19.94,38.637z" />
             </svg>
           </a>
-          <div className="footer__dev-text">
-            Задизайнено в <a href="https://www.artlebedev.ru/" className={cs('footer__link footer__link_stud', { footer__link_light: light })}>Студии Артемия&nbsp;Лебедева</a>
-            <br />
-            <a href="https://www.artlebedev.ru/" className={cs('footer__link', { footer__link_light: light })}>Информация о сайте</a>
-          </div>
+          <div
+            className="footer__dev-text"
+            dangerouslySetInnerHTML={{ __html: alsText }}
+          />
         </div>
       }
     </div>
@@ -44,11 +53,13 @@ const Footer = ({ als, light }) => {
 Footer.propTypes = {
   als: PropTypes.bool,
   light: PropTypes.bool,
+  data: PropTypes.shape(),
 };
 
 Footer.defaultProps = {
   als: false,
   light: false,
+  data: {},
 };
 
 export default Footer;

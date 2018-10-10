@@ -60,16 +60,28 @@
     .link;
     color: inherit;
 
-    &_light {
-      color: rgba(255, 255, 255, 0.3);
-      background: linear-gradient(to right, rgba(255, 255, 255, 0.3)) 0 93% repeat-x;
-      background-size: 100% 1px;
+    //&_light {
+    //  color: rgba(255, 255, 255, 0.3);
+    //  background: linear-gradient(to right, rgba(255, 255, 255, 0.3)) 0 93% repeat-x;
+    //  background-size: 100% 1px;
+    //
+    //  &:hover {
+    //    background: linear-gradient(to right, rgba(255, 255, 255, 1)) 0 93% repeat-x;
+    //    background-size: 100% 1px;
+    //    color: @WHITE;
+    //  }
+    //}
+  }
 
-      &:hover {
-        background: linear-gradient(to right, rgba(255, 255, 255, 1)) 0 93% repeat-x;
-        background-size: 100% 1px;
-        color: @WHITE;
-      }
+  &_light &__link {
+    color: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.3)) 0 93% repeat-x;
+    background-size: 100% 1px;
+
+    &:hover {
+      background: linear-gradient(to right, rgba(255, 255, 255, 1)) 0 93% repeat-x;
+      background-size: 100% 1px;
+      color: @WHITE;
     }
   }
 }

@@ -33,22 +33,25 @@ class Home extends Component {
       cabinet,
       tariff,
       info,
+      earthTariff,
+      nav,
+      copyright,
     } = translations.data;
 
     return (
       <DocumentMeta title={title ? title.home : ''}>
         <div className="home">
           <LogoMobile toHome={false} dark />
-          <MobileNav type="home" dark />
-          <Header mode="site" light hideHomeLink info={info} />
+          <MobileNav type="home" dark data={nav} />
+          <Header mode="site" light hideHomeLink info={info} data={nav} />
           <div className="home__inner">
             <Intro to={() => to('signup')} data={intro} />
             <Best data={best} />
             <Club to={() => to('signup')} data={club} />
             <HomeTariff r={1} data={tariff} />
-            <EarthTariff home type="dark" size="big" />
+            <EarthTariff home type="dark" size="big" data={earthTariff} />
             <Cabinet to={() => to('signin')} data={cabinet} />
-            <Footer als light />
+            <Footer als light data={copyright} />
           </div>
         </div>
       </DocumentMeta>

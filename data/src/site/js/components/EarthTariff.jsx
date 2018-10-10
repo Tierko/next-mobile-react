@@ -17,23 +17,36 @@ class EarthTariff extends Component {
 
   render() {
     const {
-      home,
       tariff,
       className,
       type,
       size,
+      home,
+      data: { header, text },
     } = this.props;
     const { onChange } = this;
     const { country } = this.state;
+
+    if (home && (!header || !text)) {
+      return false;
+    }
 
     return (
       <div className={`earth-tariff ${className}`}>
         <div className="earth-tariff__other">
           {
-            home && <div className="earth-tariff__header">Выгодный и&nbsp;понятный роуминг</div>
+            home &&
+            <div
+              className="earth-tariff__header"
+              dangerouslySetInnerHTML={{ __html: header }}
+            />
           }
           {
-            home && <div className="earth-tariff__text">Выезжая в&nbsp;командировку или на&nbsp;отдых, вы&nbsp;сразу увидите текущую стоимость связи и&nbsp;сможете легко проследить за&nbsp;расходами</div>
+            home &&
+            <div
+              className="earth-tariff__text"
+              dangerouslySetInnerHTML={{ __html: text }}
+            />
           }
           <InterCalls
             className="inter-calls_home"
@@ -69,17 +82,19 @@ class EarthTariff extends Component {
 }
 
 EarthTariff.propTypes = {
-  home: PropTypes.bool,
   tariff: PropTypes.bool,
   className: PropTypes.string,
   type: PropTypes.string.isRequired,
   size: PropTypes.string.isRequired,
+  home: PropTypes.bool,
+  data: PropTypes.shape(),
 };
 
 EarthTariff.defaultProps = {
-  home: false,
   tariff: false,
   className: '',
+  home: false,
+  data: {},
 };
 
 export default EarthTariff;

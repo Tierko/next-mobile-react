@@ -34,17 +34,23 @@ class Tariff extends Component {
   render() {
     const { to, toTariff } = this;
     const { translations } = this.props.data;
-    const { title, services, info } = translations.data;
+    const {
+      title,
+      services,
+      info,
+      roamingTariff,
+      nav,
+    } = translations.data;
 
     return (
       <DocumentMeta title={title ? title.tariff : ''}>
         <div className="tariff">
           <LogoMobile r={2} />
-          <MobileNav type="home" />
-          <Header mode="site" info={info} />
+          <MobileNav type="home" data={nav} />
+          <Header mode="site" info={info} data={nav} />
           <div className="tariff__inner">
             <TariffTariff to={() => to('signup/after')} toTariff={toTariff} />
-            <TariffRoaming size="small" type="light" />
+            <TariffRoaming size="small" type="light" data={roamingTariff} />
             <TariffServices data={services} />
           </div>
         </div>

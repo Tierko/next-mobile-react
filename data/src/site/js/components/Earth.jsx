@@ -84,15 +84,18 @@ class Earth extends Component {
       this.defaultAnimation = false;
       this.fastAnimation = true;
       this.center = [-center[0], -center[1]];
-      // projection.rotate([-center[0], -center[1]]);
     }
   };
 
   onResize = () => {
     const { projection, d3, cont } = this;
-    const width = cont.clientWidth;
-    const height = cont.clientHeight;
-    const size = d3.min([width, height]);
+    const width = cont && cont.clientWidth;
+    const height = cont && cont.clientHeight;
+    const size = cont && d3.min([width, height]);
+
+    if (!cont) {
+      return;
+    }
 
     d3.select('#earth')
       .attr('width', `${width}px`)

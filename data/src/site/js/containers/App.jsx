@@ -68,6 +68,14 @@ class App extends Component {
       tariff: pageTariff.title,
     };
 
+    obj.nav = {
+      tariff: data.menu.tariff,
+      requestStatus: data.menu.request_status,
+      support: data.menu.support,
+      signIn: data.menu_auth.signin,
+      signUp: data.menu_auth.signup,
+    };
+
     obj.intro = {
       text: pageHome.intro_text,
       note: pageHome.intro_note,
@@ -101,7 +109,19 @@ class App extends Component {
       header: pageTariff.services_header,
     };
 
+    obj.earthTariff = {
+      header: pageHome.earth_tariff_header,
+      text: pageHome.earth_tariff_text,
+    };
+
+    obj.roamingTariff = {
+      header: pageTariff.roaming_header,
+      text: pageTariff.roaming_text,
+    };
+
     obj.info = info;
+
+    obj.copyright = data.copyright;
 
     // console.log(data)
 

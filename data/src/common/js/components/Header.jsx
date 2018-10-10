@@ -12,6 +12,7 @@ const Header = ({
   mode,
   hideHomeLink,
   info,
+  data,
 }) => {
   const url = info.lk_url || '';
   const release = info.release * 1 || 1;
@@ -38,7 +39,7 @@ const Header = ({
       </div>
       {
         mode === 'site' ?
-          <HeaderSite light={light} release={release} url={url} /> :
+          <HeaderSite light={light} release={release} url={url} data={data} /> :
           <HeaderCabinet light={light} />
       }
     </nav>
@@ -51,6 +52,7 @@ Header.propTypes = {
   mode: PropTypes.string,
   hideHomeLink: PropTypes.bool,
   info: PropTypes.shape(),
+  data: PropTypes.shape(),
 };
 
 Header.defaultProps = {
@@ -59,6 +61,7 @@ Header.defaultProps = {
   mode: 'cabinet',
   hideHomeLink: false,
   info: {},
+  data: {},
 };
 
 export default Header;
