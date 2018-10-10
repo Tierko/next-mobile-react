@@ -4,12 +4,12 @@ import { NavLink } from 'react-router-dom';
 import InlineSvg from 'svg-inline-react';
 import { Pages } from '../../../cabinet/js/constants';
 
-const MobileNavHome = ({ r, data }) => {
-  let tariff = data.tariff || 'Тарифы и услуги';
-  const requestStatus = data.requestStatus || 'Статус заявки';
-  const support = data.support || 'Поддержка';
-  const signIn = data.signIn || 'Вход';
-  const signUp = data.signUp || 'Регистрация';
+const MobileNavHome = ({ r, translate }) => {
+  let tariff = translate.tariff || 'Тарифы и услуги';
+  const requestStatus = translate.requestStatus || 'Статус заявки';
+  const support = translate.support || 'Поддержка';
+  const signIn = translate.signIn || 'Вход';
+  const signUp = translate.signUp || 'Регистрация';
 
   tariff = tariff.replace('&nbsp;', ' ');
 
@@ -34,7 +34,7 @@ const MobileNavHome = ({ r, data }) => {
 
 MobileNavHome.propTypes = {
   r: PropTypes.number.isRequired,
-  data: PropTypes.shape().isRequired,
+  translate: PropTypes.shape().isRequired,
 };
 
 export default MobileNavHome;

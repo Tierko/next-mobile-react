@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import EarthTariff from './EarthTariff';
 
-const TariffRoaming = ({ type, size, data }) => {
-  const { header, text } = data;
+const TariffRoaming = ({ type, size, translate }) => {
+  const { header, text } = translate;
 
   if (!header || !text) {
     return false;
@@ -24,11 +24,11 @@ const TariffRoaming = ({ type, size, data }) => {
 TariffRoaming.propTypes = {
   type: PropTypes.string.isRequired,
   size: PropTypes.string.isRequired,
-  data: PropTypes.shape(),
+  translate: PropTypes.shape(),
 };
 
 TariffRoaming.defaultProps = {
-  data: {},
+  translate: {},
 };
 
 export default TariffRoaming;

@@ -23,7 +23,7 @@ class TariffServices extends Component {
 
   render() {
     const { services } = this.state;
-    const { header } = this.props.data;
+    const { header } = this.props.translate;
 
     if (!services.length || !header) {
       return false;
@@ -47,11 +47,11 @@ class TariffServices extends Component {
 }
 
 TariffServices.propTypes = {
-  data: PropTypes.shape(),
+  translate: PropTypes.shape(),
 };
 
 TariffServices.defaultProps = {
-  data: {},
+  translate: {},
 };
 
 export default TariffServices;

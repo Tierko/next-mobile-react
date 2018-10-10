@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Best = ({ className, data }) => {
-  const { header, text } = data;
+const Best = ({ className, translate }) => {
+  const { header, text } = translate;
 
   if (!header && text) {
     return false;
@@ -10,20 +10,20 @@ const Best = ({ className, data }) => {
 
   return (
     <div className={`best ${className}`}>
-      <div className="best__header" dangerouslySetInnerHTML={{ __html: data.header }} />
-      <div className="best__text" dangerouslySetInnerHTML={{ __html: data.text }} />
+      <div className="best__header" dangerouslySetInnerHTML={{ __html: translate.header }} />
+      <div className="best__text" dangerouslySetInnerHTML={{ __html: translate.text }} />
     </div>
   );
 };
 
 Best.propTypes = {
   className: PropTypes.string,
-  data: PropTypes.shape(),
+  translate: PropTypes.shape(),
 };
 
 Best.defaultProps = {
   className: '',
-  data: {},
+  translate: {},
 };
 
 export default Best;

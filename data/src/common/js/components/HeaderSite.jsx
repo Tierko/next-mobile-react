@@ -8,13 +8,13 @@ const HeaderSite = ({
   light,
   url,
   release,
-  data,
+  translate,
 }) => {
-  let tariff = data.tariff || 'Тарифы и услуги';
-  const requestStatus = data.requestStatus || 'Статус заявки';
-  const support = data.support || 'Поддержка';
-  const signIn = data.signIn || 'Вход';
-  const signUp = data.signUp || 'Регистрация';
+  let tariff = translate.tariff || 'Тарифы и услуги';
+  const requestStatus = translate.requestStatus || 'Статус заявки';
+  const support = translate.support || 'Поддержка';
+  const signIn = translate.signIn || 'Вход';
+  const signUp = translate.signUp || 'Регистрация';
 
   tariff = tariff.replace('&nbsp;', ' ');
 
@@ -50,7 +50,7 @@ HeaderSite.propTypes = {
   light: PropTypes.bool.isRequired,
   url: PropTypes.string.isRequired,
   release: PropTypes.number.isRequired,
-  data: PropTypes.shape().isRequired,
+  translate: PropTypes.shape().isRequired,
 };
 
 export default HeaderSite;

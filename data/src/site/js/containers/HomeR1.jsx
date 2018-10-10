@@ -42,15 +42,15 @@ class Home extends Component {
       <DocumentMeta title={title ? title.home : ''}>
         <div className="home">
           <LogoMobile toHome={false} dark />
-          <MobileNav type="home" dark data={nav} />
-          <Header mode="site" light hideHomeLink info={info} data={nav} />
+          <MobileNav type="home" dark translate={nav} />
+          <Header mode="site" light hideHomeLink info={info} translate={nav} />
           <div className="home__inner">
-            <Intro to={() => to('signup')} data={intro} />
-            <Best data={best} />
-            <Club to={() => to('signup')} data={club} />
-            <HomeTariff r={1} data={tariff} />
-            <EarthTariff home type="dark" size="big" data={earthTariff} />
-            <Cabinet to={() => to('signin')} data={cabinet} />
+            <Intro to={() => to('signup')} translate={intro} />
+            <Best translate={best} />
+            <Club to={() => to('signup')} translate={club} />
+            <HomeTariff r={1} translate={tariff} />
+            <EarthTariff home type="dark" size="big" translate={earthTariff} />
+            <Cabinet to={() => to('signin')} translate={cabinet} />
             <Footer als light data={copyright} />
           </div>
         </div>

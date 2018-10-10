@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-const Cabinet = ({ to, data }) => {
-  if (!data.header || !data.text) {
+const Cabinet = ({ to, translate }) => {
+  if (!translate.header || !translate.text) {
     return false;
   }
 
-  const header = data.header && data.header.split('##');
+  const header = translate.header && translate.header.split('##');
 
   return (
     <div className="cabinet">
@@ -23,7 +23,7 @@ const Cabinet = ({ to, data }) => {
               </Fragment>
           }
         </div>
-        <div className="cabinet__text" dangerouslySetInnerHTML={{ __html: data.text }} />
+        <div className="cabinet__text" dangerouslySetInnerHTML={{ __html: translate.text }} />
         <div className="cabinet__stores">
           <a className="cabinet__store" href="#">
             <img className="cabinet__store-img" src="/media/images/as.svg" alt="App Store" />
@@ -39,11 +39,11 @@ const Cabinet = ({ to, data }) => {
 
 Cabinet.propTypes = {
   to: PropTypes.func.isRequired,
-  data: PropTypes.shape(),
+  translate: PropTypes.shape(),
 };
 
 Cabinet.defaultProps = {
-  data: {},
+  translate: {},
 };
 
 export default Cabinet;

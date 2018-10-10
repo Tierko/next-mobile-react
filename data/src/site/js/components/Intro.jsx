@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../common/js/components/Button';
 
-const Intro = ({ to, data }) => {
-  const { text, note, btn } = data;
+const Intro = ({ to, translate }) => {
+  const { text, note, btn } = translate;
 
   if (!text || !note || !btn) {
     return false;
@@ -22,11 +22,11 @@ const Intro = ({ to, data }) => {
 
 Intro.propTypes = {
   to: PropTypes.func.isRequired,
-  data: PropTypes.shape(),
+  translate: PropTypes.shape(),
 };
 
 Intro.defaultProps = {
-  data: {},
+  translate: {},
 };
 
 export default Intro;

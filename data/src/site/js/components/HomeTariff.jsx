@@ -5,8 +5,8 @@ import TariffTable from '../../../common/js/components/TariffTable';
 import Button from '../../../common/js/components/Button';
 import { Pages } from '../../../cabinet/js/constants';
 
-const HomeTariff = ({ to, data, r }) => {
-  const { header, btn } = data;
+const HomeTariff = ({ to, translate, r }) => {
+  const { header, btn } = translate;
   const headerArr = header && header.split('##');
 
   if (!header || !btn || !headerArr.length) {
@@ -32,12 +32,12 @@ const HomeTariff = ({ to, data, r }) => {
 
 HomeTariff.propTypes = {
   to: PropTypes.func,
-  data: PropTypes.shape(),
+  translate: PropTypes.shape(),
 };
 
 HomeTariff.defaultProps = {
   to: null,
-  data: {},
+  translate: {},
 };
 
 export default HomeTariff;

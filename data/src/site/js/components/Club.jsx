@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../common/js/components/Button';
 
-const Club = ({ to, className, data }) => {
-  const { header, text, btn } = data;
+const Club = ({ to, className, translate }) => {
+  const { header, text, btn } = translate;
 
   if (!header || !text || !btn) {
     return false;
@@ -25,12 +25,12 @@ const Club = ({ to, className, data }) => {
 Club.propTypes = {
   to: PropTypes.func.isRequired,
   className: PropTypes.string,
-  data: PropTypes.shape().isRequired,
+  translate: PropTypes.shape().isRequired,
 };
 
 Club.defaultProps = {
   className: '',
-  data: {},
+  translate: {},
 };
 
 export default Club;

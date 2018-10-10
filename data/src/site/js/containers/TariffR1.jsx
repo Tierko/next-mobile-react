@@ -38,12 +38,12 @@ class Tariff extends Component {
       <DocumentMeta title={title ? title.tariff : ''}>
         <div className="tariff">
           <LogoMobile />
-          <MobileNav type="home" data={nav} />
-          <Header mode="site" info={info} data={nav} />
+          <MobileNav type="home" translate={nav} />
+          <Header mode="site" info={info} translate={nav} />
           <div className="tariff__inner">
             <TariffTariff to={() => to('signup')} r={1} />
-            <TariffRoaming size="small" type="light" data={roamingTariff} />
-            <TariffServices data={services} />
+            <TariffRoaming size="small" type="light" translate={roamingTariff} />
+            <TariffServices translate={services} />
           </div>
         </div>
       </DocumentMeta>

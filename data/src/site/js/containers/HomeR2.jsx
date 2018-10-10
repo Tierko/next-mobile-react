@@ -42,16 +42,16 @@ class Home extends Component {
       <DocumentMeta title={title ? title.home : ''}>
         <div className="home">
           <LogoMobile toHome={false} r={2} dark />
-          <MobileNav type="home" r={2} dark data={nav} />
-          <Header mode="site" info={info} light hideHomeLink data={nav} />
+          <MobileNav type="home" r={2} dark translate={nav} />
+          <Header mode="site" info={info} light hideHomeLink translate={nav} />
           <div className="home__inner">
-            <Intro to={() => to('signup/after')} data={intro} />
-            <Best className="best_r2" data={best} />
-            <HomeTariff to={to} r={2} data={tariff} />
-            <EarthTariff className="earth-tariff_home-r2" type="dark" size="big" data={earthTariff} home />
-            <Cabinet to={() => to('signin')} data={cabinet} />
-            <Club className="club_home-r2" to={() => to('signup/after')} data={club} />
-            <Footer als light data={copyright} />
+            <Intro to={() => to('signup/after')} translate={intro} />
+            <Best className="best_r2" translate={best} />
+            <HomeTariff to={to} r={2} translate={tariff} />
+            <EarthTariff className="earth-tariff_home-r2" type="dark" size="big" translate={earthTariff} home />
+            <Cabinet to={() => to('signin')} translate={cabinet} />
+            <Club className="club_home-r2" to={() => to('signup/after')} translate={club} />
+            <Footer als light translate={copyright} />
           </div>
         </div>
       </DocumentMeta>

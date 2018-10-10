@@ -84,7 +84,7 @@ class MobileNav extends Component {
       r,
       dark,
       hideSpot,
-      data,
+      translate,
     } = this.props;
     const {
       toggle,
@@ -125,7 +125,7 @@ class MobileNav extends Component {
               }
               {
                 type === 'home' &&
-                <MobileNavHome r={r} data={data} />
+                <MobileNavHome r={r} translate={translate} />
               }
             </div>
           </div>
@@ -140,14 +140,14 @@ MobileNav.propTypes = {
   r: PropTypes.number,
   dark: PropTypes.bool,
   hideSpot: PropTypes.bool,
-  data: PropTypes.shape(),
+  translate: PropTypes.shape(),
 };
 
 MobileNav.defaultProps = {
   r: 1,
   dark: false,
   hideSpot: false,
-  data: {},
+  translate: {},
 };
 
 export default MobileNav;

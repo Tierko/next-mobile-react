@@ -22,7 +22,7 @@ class EarthTariff extends Component {
       type,
       size,
       home,
-      data: { header, text },
+      translate: { header, text },
     } = this.props;
     const { onChange } = this;
     const { country } = this.state;
@@ -87,14 +87,14 @@ EarthTariff.propTypes = {
   type: PropTypes.string.isRequired,
   size: PropTypes.string.isRequired,
   home: PropTypes.bool,
-  data: PropTypes.shape(),
+  translate: PropTypes.shape(),
 };
 
 EarthTariff.defaultProps = {
   tariff: false,
   className: '',
   home: false,
-  data: {},
+  translate: {},
 };
 
 export default EarthTariff;
