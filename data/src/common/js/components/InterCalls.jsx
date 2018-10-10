@@ -95,11 +95,12 @@ class InterCalls extends Component {
         }
         {
           !item &&
-          <div
-            className={cs('inter-calls__row inter-calls__row_complete', {
-              'inter-calls__row_complete-light': home,
-            })}
-          >
+          <div className="inter-calls__row">
+            <div
+              className={cs('inter-calls__img', {
+                'inter-calls__img_light': home,
+              })}
+            />
             <AutoComplete
               name="value"
               value={value}

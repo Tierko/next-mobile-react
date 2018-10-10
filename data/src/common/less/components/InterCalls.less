@@ -64,17 +64,16 @@
     .select__list {
       top: calc(100% - (0.3em + 1px));
     }
+  }
 
-    &_complete:before {
-      content: '';
-      height: 20px;
-      width: 20px;
-      background: url("/media/icons/search.svg") no-repeat 50% 50%;
-      margin: 0 10px 0 0;
-      flex-shrink: 0;
-    }
+  &__img {
+    height: 20px;
+    width: 20px;
+    background: url("/media/icons/search.svg") no-repeat 50% 50%;
+    margin: 0 10px 0 0;
+    flex-shrink: 0;
 
-    &_complete-light:before {
+    &_light {
       background: url("/media/icons/search-white.svg") no-repeat 50% 50%;
     }
   }
