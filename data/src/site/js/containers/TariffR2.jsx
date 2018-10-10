@@ -33,13 +33,14 @@ class Tariff extends Component {
 
   render() {
     const { to, toTariff } = this;
-    const { translations } = this.props.data;
+    const { translations, tariffs: tariffData } = this.props.data;
     const {
       title,
       services,
       info,
       roamingTariff,
       nav,
+      tariffTariff,
     } = translations.data;
 
     return (
@@ -49,7 +50,7 @@ class Tariff extends Component {
           <MobileNav type="home" translate={nav} />
           <Header mode="site" info={info} translate={nav} />
           <div className="tariff__inner">
-            <TariffTariff to={() => to('signup/after')} toTariff={toTariff} />
+            <TariffTariff to={() => to('signup/after')} toTariff={toTariff} data={tariffData.data} translate={tariffTariff} />
             <TariffRoaming size="small" type="light" translate={roamingTariff} />
             <TariffServices translate={services} />
           </div>

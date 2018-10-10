@@ -5,11 +5,16 @@ import TariffTable from '../../../common/js/components/TariffTable';
 import Button from '../../../common/js/components/Button';
 import { Pages } from '../../../cabinet/js/constants';
 
-const HomeTariff = ({ to, translate, r }) => {
+const HomeTariff = ({
+  to,
+  translate,
+  r,
+  data,
+}) => {
   const { header, btn } = translate;
   const headerArr = header && header.split('##');
 
-  if (!header || !btn || !headerArr.length) {
+  if (!header || !btn || !headerArr.length || !data.length) {
     return false;
   }
 
@@ -19,7 +24,7 @@ const HomeTariff = ({ to, translate, r }) => {
         <Link className="home__link" to={Pages[`TARIFF_R${r}`]} dangerouslySetInnerHTML={{ __html: headerArr[0] }} />
         <span dangerouslySetInnerHTML={{ __html: headerArr[1] }} />
       </div>
-      <TariffTable home r={r} />
+      <TariffTable home r={r} data={data} />
       {
         to &&
         <Button className="button_light button_tariff-home" onClick={() => to('signup/after')}>
@@ -33,11 +38,15 @@ const HomeTariff = ({ to, translate, r }) => {
 HomeTariff.propTypes = {
   to: PropTypes.func,
   translate: PropTypes.shape(),
+  r: PropTypes.number,
+  data: PropTypes.arrayOf(PropTypes.shape()),
 };
 
 HomeTariff.defaultProps = {
   to: null,
   translate: {},
+  r: 1,
+  data: [],
 };
 
 export default HomeTariff;

@@ -24,7 +24,7 @@ class Home extends Component {
 
   render() {
     const { to } = this;
-    const { translations } = this.props.data;
+    const { translations, tariffs: tariffData } = this.props.data;
     const {
       intro,
       best,
@@ -47,7 +47,7 @@ class Home extends Component {
           <div className="home__inner">
             <Intro to={() => to('signup/after')} translate={intro} />
             <Best className="best_r2" translate={best} />
-            <HomeTariff to={to} r={2} translate={tariff} />
+            <HomeTariff to={to} r={2} translate={tariff} data={tariffData} />
             <EarthTariff className="earth-tariff_home-r2" type="dark" size="big" translate={earthTariff} home />
             <Cabinet to={() => to('signin')} translate={cabinet} />
             <Club className="club_home-r2" to={() => to('signup/after')} translate={club} />

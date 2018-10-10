@@ -7,7 +7,7 @@ import Radio from './Radio';
 import { formatCost } from '../../../cabinet/js/utils';
 import { Pages } from '../../../cabinet/js/constants';
 
-const tariffs = [{
+const localTariffs = [{
   id: 1,
   title: 'СуперВИП',
   payment: 3000,
@@ -150,8 +150,10 @@ class TariffTable extends Component {
       className,
       to,
       r,
+      data,
     } = this.props;
     const isDetail = this.state.mode === 'detail';
+    const tariffs = data || localTariffs;
     const currentTariff = tariffs.find(d => d.id === current);
     const dataFiltered = currentTariff && !signUp ?
       [currentTariff, ...tariffs.filter(d => d.id !== current)] : tariffs;
@@ -249,6 +251,7 @@ TariffTable.propTypes = {
   className: PropTypes.string,
   to: PropTypes.func,
   r: PropTypes.number,
+  data: PropTypes.arrayOf(PropTypes.shape()),
 };
 
 TariffTable.defaultProps = {
@@ -261,6 +264,7 @@ TariffTable.defaultProps = {
   className: '',
   to: null,
   r: 1,
+  data: null,
 };
 
 export default TariffTable;

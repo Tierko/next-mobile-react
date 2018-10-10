@@ -15,7 +15,7 @@ class App extends Component {
       error: false,
     },
     tariffs: {
-      data: {},
+      data: [],
       loaded: false,
       error: false,
     },
@@ -119,11 +119,17 @@ class App extends Component {
       text: pageTariff.roaming_text,
     };
 
+    obj.tariffTariff = {
+      header: pageTariff.header,
+      btn: pageTariff.btn,
+      note: pageTariff.table_note,
+    };
+
     obj.info = info;
 
     obj.copyright = data.copyright;
 
-    // console.log(data)
+    // console.log(obj.tariffTariff)
 
     return obj;
   };
