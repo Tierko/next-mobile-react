@@ -89,7 +89,7 @@
   }
 
   &__wrapper_new {
-    width: 301px;
+    width: 295px;
   }
 
   &_mir:after {
@@ -152,8 +152,8 @@
   }
 
   &_new-selected {
-    width: 285px;
-    height: 189px;
+    width: 279px;
+    height: 177px;
     cursor: default;
     padding: 13px 15px;
   }
@@ -220,22 +220,13 @@
   &__form {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 62px 0 20px 22px;
     position: relative;
-    transition: padding 0.3s;
-
-    &_has-pay {
-      padding-top: 73px;
-    }
 
     &:after {
       content: '';
       position: absolute;
-      top: 23px;
-      left: 22px;
+      top: 15px;
+      left: 10px;
       width: 63px;
       height: 50px;
       background-repeat: no-repeat;
@@ -257,6 +248,9 @@
 
   &__row {
     display: flex;
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
   }
 
   &__holder {
@@ -283,13 +277,21 @@
     font-family: inherit;
     font-size: 18px;
     font-weight: 300;
+    line-height: 22px;
     padding: 0;
     border: none;
     background-color: transparent;
     color: @BLACK;
+    width: 500px;
 
     &_wide {
       max-width: 100%;
+      height: 22px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 10px;
+      margin: auto;
     }
 
     &_narrow {
@@ -297,7 +299,7 @@
     }
 
     &_number {
-      letter-spacing: 2px;
+      letter-spacing: 3px;
     }
   }
 
