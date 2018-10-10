@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import LinkBack from './LinkBack';
+import Breadcrumbs from './Breadcrumbs';
 import RoamingTariff from './RoamingTariff';
 import { Pages } from '../constants';
 
@@ -60,8 +60,12 @@ const RoamingTariffCountry = ({ zone, items, id }) => {
   return (
     <div className="roaming">
       <div className="roaming__title">
-        <div className="roaming__title-inner">{zone.name}</div>
-        <LinkBack className="link-back_roaming-country" href={Pages.ROAMING} />
+        <Breadcrumbs
+          items={[
+            { title: 'Роуминг', link: Pages.ROAMING },
+            { title: zone.name, link: `${Pages.ROAMING}/${zone.id}` },
+          ]}
+        />
         Тарифы: {country.properties.name}
         <img className="roaming__flag" src={`/media/flags/${id}.svg`} alt="" />
       </div>

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import LinkBack from './LinkBack';
+import Breadcrumbs from './Breadcrumbs';
 import ProgressLinear from './ProgressLinear';
 import Package from './Package';
 import { Pages, DAYS } from '../constants';
@@ -26,7 +26,12 @@ class RoamingInternet extends Component {
     return (
       <div className="roaming">
         <div className="roaming__title">
-          <LinkBack href={Pages.ROAMING} className="link-back_roaming" />
+          <Breadcrumbs
+            items={[
+              { title: 'Роуминг', link: Pages.ROAMING },
+              { title: zone.name, link: `${Pages.ROAMING}/${zone.id}` },
+            ]}
+          />
           Интернет в {zone.title.toLowerCase()}
         </div>
         {

@@ -4,7 +4,7 @@ import DocumentMeta from 'react-document-meta';
 import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
-import LinkBack from '../components/LinkBack';
+import Breadcrumbs from '../components/Breadcrumbs';
 import Button from '../../../common/js/components/Button';
 import Transition from '../components/Transitions';
 import { Pages } from '../constants';
@@ -45,7 +45,12 @@ class Confirm extends Component {
           <Aside />
           <Transition>
             <div className="dashboard__content">
-              <LinkBack href={Pages.ADD_PACKAGE} />
+              <Breadcrumbs
+                items={[
+                  { title: 'Обзор', link: Pages.OVERVIEW },
+                  { title: 'Дополнительный пакет', link: Pages.ADD_PACKAGE },
+                ]}
+              />
               <div className="confirm">
                 <div className="dashboard__header dashboard__header_confirm">{title}</div>
                 <div className="confirm__sum">{formatCost(sum || 0)}</div>

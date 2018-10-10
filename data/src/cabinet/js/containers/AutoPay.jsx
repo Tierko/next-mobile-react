@@ -6,7 +6,7 @@ import DocumentMeta from 'react-document-meta';
 import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
-import LinkBack from '../components/LinkBack';
+import Breadcrumbs from '../components/Breadcrumbs';
 import Checkbox from '../components/CheckboxSlide';
 import InputRuble from '../components/InputRuble';
 import Select from '../../../common/js/components/Select';
@@ -149,7 +149,7 @@ class AutoPay extends Component {
           <Aside />
           <Transitions>
             <div className="dashboard__content">
-              <LinkBack className="link-back_offset-bottom" href={Pages.PAY} />
+              <Breadcrumbs items={[{ title: 'Пополнение', link: Pages.PAY }]} />
               <div className="dashboard__header">
                 {
                   alreadyEnabled ? 'Ваш автоплатеж' : 'Подключение автоплатежа'

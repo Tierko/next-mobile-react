@@ -6,8 +6,8 @@ import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import Package from '../components/Package';
-import LinkBack from '../components/LinkBack';
 import Transitions from '../components/Transitions';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { Pages, TITLES } from '../constants';
 import getPackages from '../actions/Packages';
 import { getData } from '../utils';
@@ -34,7 +34,7 @@ class AddPackage extends Component {
           <Aside />
           <Transitions>
             <div className="dashboard__content">
-              <LinkBack href={Pages.OVERVIEW} className="link-back_offset-bottom" />
+              <Breadcrumbs items={[{ title: 'Обзор', link: Pages.OVERVIEW }]} />
               <div className="dashboard__header">Дополнительный пакет</div>
               <div className="dashboard__text">Через 10&nbsp;дней по&nbsp;тарифу «СуперВИП» будут начислены 200&nbsp;мин. и&nbsp;2&nbsp;ГБ</div>
               {

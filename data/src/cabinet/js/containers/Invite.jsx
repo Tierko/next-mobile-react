@@ -3,7 +3,7 @@ import DocumentMeta from 'react-document-meta';
 import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
-import LinkBack from '../components/LinkBack';
+import Breadcrumbs from '../components/Breadcrumbs';
 import CopyCode from '../components/CopyCode';
 import Invites from '../components/Invites';
 import Button from '../../../common/js/components/Button';
@@ -59,7 +59,7 @@ class Invite extends Component {
           <Aside />
           <Transitions>
             <div className="dashboard__content invite">
-              <LinkBack className="link-back_offset-bottom" href={Pages.OVERVIEW} />
+              <Breadcrumbs items={[{ title: 'Обзор', link: Pages.OVERVIEW }]} />
               <div className="dashboard__header">
                 Подарите близким возможность присоединиться к&nbsp;закрытому клубу Next Mobile
               </div>

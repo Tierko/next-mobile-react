@@ -4,7 +4,7 @@ import DocumentMeta from 'react-document-meta';
 import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
-import LinkBack from '../components/LinkBack';
+import Breadcrumbs from '../components/Breadcrumbs';
 import Date from '../components/Date';
 import Input from '../../../common/js/components/Input';
 import Select from '../../../common/js/components/Select';
@@ -89,7 +89,7 @@ class Detail extends Component {
           <Aside />
           <Transitions>
             <div className="dashboard__content">
-              <LinkBack href={Pages.HISTORY} className="link-back_detail" />
+              <Breadcrumbs items={[{ title: 'История', link: Pages.HISTORY }]} />
               <div className="detail">
                 <div className="dashboard__header">Детализация</div>
                 <div className="detail__period-title">За&nbsp;период</div>

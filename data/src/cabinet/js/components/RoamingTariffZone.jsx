@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import LinkBack from './LinkBack';
+import Breadcrumbs from './Breadcrumbs';
 import RoamingTariff from './RoamingTariff';
 import { Pages } from '../constants';
 
@@ -53,7 +53,12 @@ const data = [{
 const RoamingTariffZone = ({ zone }) => (
   <div className="roaming">
     <div className="roaming__title">
-      <LinkBack className="link-back_roaming" href={Pages.ROAMING} />
+      <Breadcrumbs
+        items={[
+          { title: 'Роуминг', link: Pages.ROAMING },
+          { title: zone.name, link: `${Pages.ROAMING}/${zone.id}` },
+        ]}
+      />
       Тарифы в {zone.title.toLowerCase()}
     </div>
     <RoamingTariff data={data} />

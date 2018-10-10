@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import LinkBack from './LinkBack';
+import Breadcrumbs from './Breadcrumbs';
 import { Pages } from '../constants';
 
 const RoamingCountries = ({ items, zone }) => {
@@ -10,7 +10,12 @@ const RoamingCountries = ({ items, zone }) => {
   return (
     <div className="roaming roaming_countries">
       <div className="roaming__title">
-        <LinkBack className="link-back_roaming" href={Pages.ROAMING} />
+        <Breadcrumbs
+          items={[
+            { title: 'Роуминг', link: Pages.ROAMING },
+            { title: zone.name, link: `${Pages.ROAMING}/${zone.id}` },
+          ]}
+        />
         Страны <span>{zone.title_.toLowerCase()}</span>
       </div>
       <div className="roaming-countries__items">

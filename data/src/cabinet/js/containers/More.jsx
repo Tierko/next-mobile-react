@@ -5,7 +5,7 @@ import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import InterCalls from '../../../common/js/components/InterCalls';
-import LinkBack from '../components/LinkBack';
+import Breadcrumbs from '../components/Breadcrumbs';
 import Transitions from '../components/Transitions';
 import { Pages, TITLES } from '../constants';
 
@@ -35,7 +35,7 @@ const More = ({ match: { params: { type } } }) => {
         <Aside />
         <Transitions>
           <div className="dashboard__content">
-            <LinkBack className="link-back_offset-bottom" href={Pages.OVERVIEW} />
+            <Breadcrumbs items={[{ title: 'Обзор', link: Pages.OVERVIEW }]} />
             <div>
               {
                 type === 'calls' &&

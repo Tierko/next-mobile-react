@@ -1,5 +1,11 @@
 .breadcrumbs {
   display: flex;
+  font-size: @FONT-SIZE-BASE;
+  line-height: @LINE-HEIGHT-BASE;
+  font-weight: 300;
+  margin-bottom: -12px;
+  position: relative;
+  z-index: 1;
 
   &__link {
     .link-light;
@@ -7,7 +13,9 @@
 
   &__arrow {
     width: 10px;
-    height: 6px;
+    height: 25px;
     margin: 0 6px;
+    background: url("/media/icons/arrow-breadcrumbs.svg") 50% 50% no-repeat;
+    background-size: 10px 6px;
   }
 }

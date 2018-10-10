@@ -54,7 +54,10 @@ class Services extends Component {
       currentTariff: id,
     });
 
-    history.push(Pages.PAY);
+    history.push({
+      pathname: Pages.PAY,
+      state: {},
+    });
     localStorage.setItem('tariff', id - 1);
   };
 
@@ -72,8 +75,18 @@ class Services extends Component {
   };
 
   render() {
-    const { services, currentTariff, showNote, unsaved } = this.state;
-    const { toggleService, changeTariff, onSave, onNoteFade } = this;
+    const {
+      services,
+      currentTariff,
+      showNote,
+      unsaved,
+    } = this.state;
+    const {
+      toggleService,
+      changeTariff,
+      onSave,
+      onNoteFade,
+    } = this;
     const meta = {
       title: TITLES.SERVICES,
     };

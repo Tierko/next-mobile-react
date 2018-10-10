@@ -11,6 +11,7 @@ import Payment from '../components/Payment';
 import Button from '../../../common/js/components/Button';
 import CardEditor from '../components/CardEditor';
 import Transitions from '../components/Transitions';
+import BreadCrumbs from '../components/Breadcrumbs';
 import { Pages, TITLES, MONTHS, MONTHS_M } from '../constants';
 import { formatCost, getShortPan } from '../utils';
 import { addCardAction } from '../actions/Cards';
@@ -93,7 +94,7 @@ class Pay extends Component {
 
   render() {
     const { sum, editCardId } = this.state;
-    const { autoPay, cards } = this.props;
+    const { autoPay, cards, history } = this.props;
     const autoPayEnabled = autoPay.lessEnabled || autoPay.monthlyEnabled;
     const {
       onPay,
@@ -117,9 +118,19 @@ class Pay extends Component {
           <Transitions>
             <div className="dashboard__content dashboard__content_pay pay">
               <div className={cs('pay__inner', { pay__inner_fade: !!editCardId })}>
-                <div className="dashboard__header">Пополнение</div>
+                {
+                  history.location.state &&
+                  <BreadCrumbs items={[{ title: 'Тарифы', link: Pages.SERVICES }]} />
+                }
+                <div className="dashboard__header">
+                  {
+                    history.location.state ?
+                      'Оплата' :
+                      'Пополнение'
+                  }
+                </div>
                 <Payment
-                  isEditable
+                  isEditable={false}
                   onPay={onPay}
                   sum={sum}
                   onSumChange={onSumChange}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Breadcrumbs = ({ className, items }) => {
-  const el = Array(items.length).fill(null).map((_, i) => {
+  const el = Array((items.length * 2) - 1).fill(null).map((_, i) => {
     if (i % 2 === 0) {
       const item = items[i / 2];
 

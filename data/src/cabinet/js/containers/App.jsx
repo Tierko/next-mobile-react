@@ -65,7 +65,6 @@ class App extends Component {
     const root = document.getElementById('root');
 
     if (matches && root) {
-      console.log(matches[1])
       root.className += `ie${matches[1]}`;
     }
   };
@@ -90,13 +89,13 @@ class App extends Component {
           <Route path={`${Pages.REQUEST_STATUS}/:status`} component={RequestStatus} />
           <Route path={Pages.CONDITIONS} component={Conditions} />
           <Route path={Pages.SUPPORT} component={Support} />
-          <Route path={Pages.DASHBOARD} component={Overview} />
+          <Route path={Pages.DASHBOARD} component={Overview} exact />
           <Route path={`${Pages.MORE}/:type`} component={More} />
           <Route path={Pages.ADD_PACKAGE} component={AddPackage} />
-          <Route path={Pages.PAY} component={Pay} />
+          <Route path={Pages.PAY} component={Pay} exact />
           <Route path={Pages.SERVICES} component={Services} />
           <Route path={Pages.SETTINGS} component={Settings} />
-          <Route path={Pages.HISTORY} component={History} />
+          <Route path={Pages.HISTORY} component={History} exact />
           <Route path={Pages.DETAIL} component={Detail} />
           <Route path={Pages.PAY_PACKAGE} component={PayPackage} />
           <Route path={Pages.AUTO_PAY} component={AutoPay} />
