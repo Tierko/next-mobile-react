@@ -1,0 +1,826 @@
+{
+  "AU": {
+    "title": "Австралия",
+    "flag": "AU"
+  },
+  "AT": {
+    "title": "Австрия",
+    "flag": "AT"
+  },
+  "AZ": {
+    "title": "Азербайджан",
+    "flag": "AZ"
+  },
+  "AL": {
+    "title": "Албания",
+    "flag": "AL"
+  },
+  "DZ": {
+    "title": "Алжир",
+    "flag": "DZ"
+  },
+  "AO": {
+    "title": "Ангола",
+    "flag": "AO"
+  },
+  "AI": {
+    "title": "Ангилья",
+    "flag": "AI"
+  },
+  "AD": {
+    "title": "Андорра",
+    "flag": "AD"
+  },
+  "AG": {
+    "title": "Антигуа и Барбуда",
+    "flag": "AG"
+  },
+  "AR": {
+    "title": "Аргентина",
+    "flag": "AR"
+  },
+  "AM": {
+    "title": "Армения",
+    "flag": "AM"
+  },
+  "AW": {
+    "title": "Аруба",
+    "flag": "AW"
+  },
+  "AF": {
+    "title": "Афганистан",
+    "flag": "AF"
+  },
+  "BS": {
+    "title": "Багамские острова",
+    "flag": "BS"
+  },
+  "BD": {
+    "title": "Бангладеш",
+    "flag": "BD"
+  },
+  "BB": {
+    "title": "Барбадос",
+    "flag": "BB"
+  },
+  "BH": {
+    "title": "Бахрейн",
+    "flag": "BH"
+  },
+  "BZ": {
+    "title": "Белиз",
+    "flag": "BZ"
+  },
+  "BY": {
+    "title": "Беларусь",
+    "flag": "BY"
+  },
+  "BE": {
+    "title": "Бельгия",
+    "flag": "BE"
+  },
+  "BJ": {
+    "title": "Бенин",
+    "flag": "BJ"
+  },
+  "BM": {
+    "title": "Бермудские Острова",
+    "flag": "BM"
+  },
+  "BG": {
+    "title": "Болгария",
+    "flag": "BG"
+  },
+  "BO": {
+    "title": "Боливия",
+    "flag": "BO"
+  },
+  "BA": {
+    "title": "Босния и Герцеговина",
+    "flag": "BA"
+  },
+  "BW": {
+    "title": "Ботсвана",
+    "flag": "BW"
+  },
+  "BR": {
+    "title": "Бразилия",
+    "flag": "BR"
+  },
+  "VG": {
+    "title": "Британские Виргинские Острова",
+    "flag": "VG"
+  },
+  "BN": {
+    "title": "Бруней",
+    "flag": "BN"
+  },
+  "BF": {
+    "title": "Буркина-Фасо",
+    "flag": "BF"
+  },
+  "BI": {
+    "title": "Бурунди",
+    "flag": "BI"
+  },
+  "BT": {
+    "title": "Бутан",
+    "flag": "BT"
+  },
+  "VU": {
+    "title": "Вануату",
+    "flag": "VU"
+  },
+  "GB": {
+    "title": "Великобритания",
+    "flag": "GB"
+  },
+  "HU": {
+    "title": "Венгрия",
+    "flag": "HU"
+  },
+  "VE": {
+    "title": "Венесуэла",
+    "flag": "VE"
+  },
+  "VN": {
+    "title": "Вьетнам",
+    "flag": "VN"
+  },
+  "GA": {
+    "title": "Габон",
+    "flag": "GA"
+  },
+  "HT": {
+    "title": "Гаити",
+    "flag": "HT"
+  },
+  "GY": {
+    "title": "Гайана",
+    "flag": "GY"
+  },
+  "GM": {
+    "title": "Гамбия",
+    "flag": "GM"
+  },
+  "GH": {
+    "title": "Гана",
+    "flag": "GH"
+  },
+  "GP": {
+    "title": "Гваделупа",
+    "flag": "GP"
+  },
+  "GT": {
+    "title": "Гватемала",
+    "flag": "GT"
+  },
+  "GN": {
+    "title": "Гвинея",
+    "flag": "GN"
+  },
+  "DE": {
+    "title": "Германия",
+    "flag": "DE"
+  },
+  "GG": {
+    "title": "Гернси",
+    "flag": "GG"
+  },
+  "GI": {
+    "title": "Гибралтар",
+    "flag": "GI"
+  },
+  "HN": {
+    "title": "Гондурас",
+    "flag": "HN"
+  },
+  "HK": {
+    "title": "Гонконг",
+    "flag": "HK"
+  },
+  "GD": {
+    "title": "Гренада",
+    "flag": "GD"
+  },
+  "GL": {
+    "title": "Гренландия",
+    "flag": "GL"
+  },
+  "GR": {
+    "title": "Греция",
+    "flag": "GR"
+  },
+  "GE": {
+    "title": "Грузия",
+    "flag": "GE"
+  },
+  "DK": {
+    "title": "Дания",
+    "flag": "DK"
+  },
+  "DJ": {
+    "title": "Джибути",
+    "flag": "DJ"
+  },
+  "JE": {
+    "title": "Джерси",
+    "flag": "JE"
+  },
+  "DM": {
+    "title": "Доминика",
+    "flag": "DM"
+  },
+  "DO": {
+    "title": "Доминиканская Республика",
+    "flag": "DO"
+  },
+  "EG": {
+    "title": "Египет",
+    "flag": "EG"
+  },
+  "ZM": {
+    "title": "Замбия",
+    "flag": "ZM"
+  },
+  "ZW": {
+    "title": "Зимбабве",
+    "flag": "ZW"
+  },
+  "IL": {
+    "title": "Израиль",
+    "flag": "IL"
+  },
+  "IN": {
+    "title": "Индия",
+    "flag": "IN"
+  },
+  "ID": {
+    "title": "Индонезия",
+    "flag": "ID"
+  },
+  "JO": {
+    "title": "Иордания",
+    "flag": "JO"
+  },
+  "IQ": {
+    "title": "Ирак",
+    "flag": "IQ"
+  },
+  "IR": {
+    "title": "Иран",
+    "flag": "IR"
+  },
+  "IE": {
+    "title": "Ирландия",
+    "flag": "IE"
+  },
+  "IS": {
+    "title": "Исландия",
+    "flag": "IS"
+  },
+  "ES": {
+    "title": "Испания",
+    "flag": "ES"
+  },
+  "IT": {
+    "title": "Италия",
+    "flag": "IT"
+  },
+  "YE": {
+    "title": "Йеменская Арабская Республика",
+    "flag": "YE"
+  },
+  "CV": {
+    "title": "Кабо-Верде",
+    "flag": "CV"
+  },
+  "KZ": {
+    "title": "Казахстан",
+    "flag": "KZ"
+  },
+  "KY": {
+    "title": "Каймановы Острова",
+    "flag": "KY"
+  },
+  "KH": {
+    "title": "Камбоджа",
+    "flag": "KH"
+  },
+  "CM": {
+    "title": "Камерун",
+    "flag": "CM"
+  },
+  "CA": {
+    "title": "Канада",
+    "flag": "CA"
+  },
+  "QA": {
+    "title": "Катар",
+    "flag": "QA"
+  },
+  "KE": {
+    "title": "Кения",
+    "flag": "KE"
+  },
+  "CY": {
+    "title": "Кипр",
+    "flag": "CY"
+  },
+  "KG": {
+    "title": "Кыргызстан",
+    "flag": "KG"
+  },
+  "CN": {
+    "title": "Китай",
+    "flag": "CN"
+  },
+  "CO": {
+    "title": "Колумбия",
+    "flag": "CO"
+  },
+  "CG": {
+    "title": "Конго",
+    "flag": "CG"
+  },
+  "CD": {
+    "title": "Демократическая Республика Конго",
+    "flag": "CD"
+  },
+  "XK": {
+    "title": "Косово",
+    "flag": "XK"
+  },
+  "CR": {
+    "title": "Коста-Рика",
+    "flag": "CR"
+  },
+  "CI": {
+    "title": "Кот-д'Ивуар",
+    "flag": "CI"
+  },
+  "CU": {
+    "title": "Куба",
+    "flag": "CU"
+  },
+  "KW": {
+    "title": "Кувейт",
+    "flag": "KW"
+  },
+  "CW": {
+    "title": "Кюрасао",
+    "flag": "CW"
+  },
+  "LA": {
+    "title": "Лаос",
+    "flag": "LA"
+  },
+  "LV": {
+    "title": "Латвия",
+    "flag": "LV"
+  },
+  "LR": {
+    "title": "Либерия",
+    "flag": "LR"
+  },
+  "LB": {
+    "title": "Ливан",
+    "flag": "LB"
+  },
+  "LY": {
+    "title": "Ливия",
+    "flag": "LY"
+  },
+  "LT": {
+    "title": "Литва",
+    "flag": "LT"
+  },
+  "LI": {
+    "title": "Лихтенштейн",
+    "flag": "LI"
+  },
+  "LU": {
+    "title": "Люксембург",
+    "flag": "LU"
+  },
+  "MU": {
+    "title": "Маврикий",
+    "flag": "MU"
+  },
+  "MR": {
+    "title": "Мавритания",
+    "flag": "MR"
+  },
+  "MG": {
+    "title": "Мадагаскар",
+    "flag": "MG"
+  },
+  "MAYOTTE": {
+    "title": "Майотте",
+    "flag": "MAYOTTE"
+  },
+  "MO": {
+    "title": "Макао",
+    "flag": "MO"
+  },
+  "MK": {
+    "title": "Македония",
+    "flag": "MK"
+  },
+  "MW": {
+    "title": "Малави",
+    "flag": "MW"
+  },
+  "MY": {
+    "title": "Малайзия",
+    "flag": "MY"
+  },
+  "ML": {
+    "title": "Мали",
+    "flag": "ML"
+  },
+  "MV": {
+    "title": "Мальдивы",
+    "flag": "MV"
+  },
+  "MT": {
+    "title": "Мальта",
+    "flag": "MT"
+  },
+  "MA": {
+    "title": "Марокко",
+    "flag": "MA"
+  },
+  "MX": {
+    "title": "Мексика",
+    "flag": "MX"
+  },
+  "MZ": {
+    "title": "Мозамбик",
+    "flag": "MZ"
+  },
+  "MD": {
+    "title": "Молдавия",
+    "flag": "MD"
+  },
+  "MC": {
+    "title": "Монако",
+    "flag": "MC"
+  },
+  "MN": {
+    "title": "Монголия",
+    "flag": "MN"
+  },
+  "MS": {
+    "title": "Монтсеррат",
+    "flag": "MS"
+  },
+  "MM": {
+    "title": "Мьянма (Бирма)",
+    "flag": "MM"
+  },
+  "NA": {
+    "title": "Намибия",
+    "flag": "NA"
+  },
+  "NP": {
+    "title": "Непал",
+    "flag": "NP"
+  },
+  "NE": {
+    "title": "Нигер",
+    "flag": "NE"
+  },
+  "NG": {
+    "title": "Нигерия",
+    "flag": "NG"
+  },
+  "NL": {
+    "title": "Нидерланды",
+    "flag": "NL"
+  },
+  "NI": {
+    "title": "Никарагуа",
+    "flag": "NI"
+  },
+  "NZ": {
+    "title": "Новая Зеландия",
+    "flag": "NZ"
+  },
+  "NC": {
+    "title": "Новая Каледония",
+    "flag": "NC"
+  },
+  "NO": {
+    "title": "Норвегия",
+    "flag": "NO"
+  },
+  "AE": {
+    "title": "Объединённые Арабские Эмираты",
+    "flag": "AE"
+  },
+  "OM": {
+    "title": "Оман",
+    "flag": "OM"
+  },
+  "BQ-BO": {
+    "title": "Остров Бонэйр",
+    "flag": "BQ-BO"
+  },
+  "GU": {
+    "title": "Остров Гуам",
+    "flag": "GU"
+  },
+  "MARTINIKA": {
+    "title": "Остров Мартиника",
+    "flag": "MARTINIKA"
+  },
+  "IM": {
+    "title": "Остров Мэн",
+    "flag": "IM"
+  },
+  "REYUNYON": {
+    "title": "Острова Реюньон",
+    "flag": "REYUNYON"
+  },
+  "PK": {
+    "title": "Пакистан",
+    "flag": "PK"
+  },
+  "PS": {
+    "title": "Палестина",
+    "flag": "PS"
+  },
+  "PA": {
+    "title": "Панама",
+    "flag": "PA"
+  },
+  "PG": {
+    "title": "Папуа - Новая Гвинея",
+    "flag": "PG"
+  },
+  "PY": {
+    "title": "Парагвай",
+    "flag": "PY"
+  },
+  "PE": {
+    "title": "Перу",
+    "flag": "PE"
+  },
+  "PL": {
+    "title": "Польша",
+    "flag": "PL"
+  },
+  "PT": {
+    "title": "Португалия",
+    "flag": "PT"
+  },
+  "RU": {
+    "title": "Российская Федерация",
+    "flag": "RU"
+  },
+  "RW": {
+    "title": "Руанда",
+    "flag": "RW"
+  },
+  "RO": {
+    "title": "Румыния",
+    "flag": "RO"
+  },
+  "PR": {
+    "title": "Пуэрто-Рико",
+    "flag": "PR"
+  },
+  "SV": {
+    "title": "Сальвадор",
+    "flag": "SV"
+  },
+  "ST": {
+    "title": "Сан-Томе и Принсипи",
+    "flag": "ST"
+  },
+  "SA": {
+    "title": "Саудовская Аравия",
+    "flag": "SA"
+  },
+  "SC": {
+    "title": "Сейшельские острова",
+    "flag": "SC"
+  },
+  "BL": {
+    "title": "Сен-Бартельми",
+    "flag": "BL"
+  },
+  "SN": {
+    "title": "Сенегал",
+    "flag": "SN"
+  },
+  "VC": {
+    "title": "Сент-Винсент и Гренадины",
+    "flag": "VC"
+  },
+  "KN": {
+    "title": "Сент-Китс и Невис",
+    "flag": "KN"
+  },
+  "LC": {
+    "title": "Сент-Люсия",
+    "flag": "LC"
+  },
+  "RS": {
+    "title": "Сербия",
+    "flag": "RS"
+  },
+  "SG": {
+    "title": "Сингапур",
+    "flag": "SG"
+  },
+  "SX": {
+    "title": "Синт-Мартен",
+    "flag": "SX"
+  },
+  "SY": {
+    "title": "Сирия",
+    "flag": "SY"
+  },
+  "SK": {
+    "title": "Словакия",
+    "flag": "SK"
+  },
+  "SI": {
+    "title": "Словения",
+    "flag": "SI"
+  },
+  "SD": {
+    "title": "Судан",
+    "flag": "SD"
+  },
+  "SR": {
+    "title": "Суринам",
+    "flag": "SR"
+  },
+  "US": {
+    "title": "США",
+    "flag": "US"
+  },
+  "SL": {
+    "title": "Сьерра-Леоне",
+    "flag": "SL"
+  },
+  "TC": {
+    "title": "Терк и Кайкос",
+    "flag": "TC"
+  },
+  "TJ": {
+    "title": "Таджикистан",
+    "flag": "TJ"
+  },
+  "TH": {
+    "title": "Таиланд",
+    "flag": "TH"
+  },
+  "TW": {
+    "title": "Тайвань",
+    "flag": "TW"
+  },
+  "TZ": {
+    "title": "Танзания",
+    "flag": "TZ"
+  },
+  "TG": {
+    "title": "Того",
+    "flag": "TG"
+  },
+  "TO": {
+    "title": "Тонга",
+    "flag": "TO"
+  },
+  "TT": {
+    "title": "Тринидад и Тобаго",
+    "flag": "TT"
+  },
+  "TN": {
+    "title": "Тунис",
+    "flag": "TN"
+  },
+  "TM": {
+    "title": "Туркмения",
+    "flag": "TM"
+  },
+  "TR": {
+    "title": "Турция",
+    "flag": "TR"
+  },
+  "UG": {
+    "title": "Уганда",
+    "flag": "UG"
+  },
+  "": {
+    "title": "Узбекистан",
+    "flag": ""
+  },
+  "UA": {
+    "title": "Украина",
+    "flag": "UA"
+  },
+  "UY": {
+    "title": "Уругвай",
+    "flag": "UY"
+  },
+  "FO": {
+    "title": "Фарерские острова",
+    "flag": "FO"
+  },
+  "FJ": {
+    "title": "Фиджи",
+    "flag": "FJ"
+  },
+  "PH": {
+    "title": "Филиппины",
+    "flag": "PH"
+  },
+  "FI": {
+    "title": "Финляндия",
+    "flag": "FI"
+  },
+  "FR": {
+    "title": "Франция",
+    "flag": "FR"
+  },
+  "GF": {
+    "title": "Французская Гвиана",
+    "flag": "FR"
+  },
+  "PF": {
+    "title": "Французская Полинезия",
+    "flag": "PR"
+  },
+  "HR": {
+    "title": "Хорватия",
+    "flag": "HR"
+  },
+  "TD": {
+    "title": "Чад",
+    "flag": "TD"
+  },
+  "ME": {
+    "title": "Черногория",
+    "flag": "ME"
+  },
+  "CZ": {
+    "title": "Чехия",
+    "flag": "CZ"
+  },
+  "CL": {
+    "title": "Чили",
+    "flag": "CL"
+  },
+  "CH": {
+    "title": "Швейцария",
+    "flag": "CH"
+  },
+  "SE": {
+    "title": "Швеция",
+    "flag": "SE"
+  },
+  "LK": {
+    "title": "Шри-Ланка",
+    "flag": "LK"
+  },
+  "EC": {
+    "title": "Эквадор",
+    "flag": "EC"
+  },
+  "GQ": {
+    "title": "Экваториальная Гвинея",
+    "flag": "GQ"
+  },
+  "EE": {
+    "title": "Эстония",
+    "flag": "EE"
+  },
+  "ET": {
+    "title": "Эфиопия",
+    "flag": "ET"
+  },
+  "ZA": {
+    "title": "Южная Африка",
+    "flag": "ZA"
+  },
+  "KR": {
+    "title": "Южная Корея",
+    "flag": "KR"
+  },
+  "SS": {
+    "title": "Южный Судан",
+    "flag": "SS"
+  },
+  "JM": {
+    "title": "Ямайка",
+    "flag": "JM"
+  },
+  "JP": {
+    "title": "Япония",
+    "flag": "JP"
+  }
+}
