@@ -101,7 +101,7 @@
     },
     "byMegabytes": false,
     "countries": [
-      "US","AU","CA","HK","SG","TH","TR","GF","GI","Гваделупа","LI","Остров Мартиника","Майотте","Острова Реюньон","SX","CN","KZ","NZ","CH","IL","KR"
+      "US","AU","CA","HK","SG","TH","TR","GF","GI","GP","LI","MARTINIKA","MAYOTTE","REYUNYON","SX","CN","KZ","NZ","CH","IL","KR"
     ],
     "tariff": {
       "calls": 200,
@@ -256,7 +256,7 @@
     },
     "additionalPackage": null,
     "countries": [
-      "SA","DO","GN","BH","AF","CO","ZM","AZ","SR","TD","RW","XK","CG","BS","KW","GA","FJ","PG","TO","VU","AI","AG","AW","BB","BM","о. Бонэйр","VG","KY","CW","DO","GD","HT","JM","MS","Сен-Бартельми","KN","LC","VC","SX","TC","PY","IR","NE","CI","HN","MA","BO","MM","SS","OM","CG","MW","CV","GM","MU","DZ","CR","IQ","VE","PK","UZ","MD","CU","VN","ML","JO","SL","YE","SD","Над морем","NP","BT","MG","NA","TT","MN","GQ","MZ","LB","LR","NL","PF","TM","BI","AD","BF","LY","BW","ZW","CM","ET","ST","MV","GU","SC","BJ","AO","MR","TG"
+      "TN", "AE", "BY", "MO", "PH", "NI", "UY", "EC", "LA", "PA", "ID", "GH", "EG", "LK", "MC", "SN", "KG", "GE", "GL", "NG", "BD", "BN", "TZ", "IN", "GT", "GY", "SV", "PS", "TJ", "TW", "SA", "DO", "PG", "BH", "AF", "CO", "ZM", "AZ", "SR", "TD", "RW", "XK", "CD", "BS", "KW", "GA", "FJ", "PG", "TO", "VU", "AI", "AG", "AW", "BB", "BM", "BQ-BO", "VG", "KY", "CW", "DM", "GD", "HT", "JM", "MS", "BL", "KN", "LC", "VC", "SX", "TC", "PY", "IR", "NE", "CI", "HN", "MA", "BO", "MM", "SS", "OM", "CG", "MW", "CV", "GM", "MU", "DZ", "CR", "IQ", "VE", "PK", "UZ", "MD", "CU", "VN", "ML", "JO", "SL", "YE", "SD", "NP", "BT", "MG", "NA", "TT", "MN", "GQ", "MZ", "LB", "LR", "NC", "PR", "TM", "BI", "AD", "BF", "LY", "BW", "ZW", "CM", "ET", "ST", "MV", "GU", "SC", "BJ", "AO", "MR", "TG"
     ],
     "tariff": {
       "calls": 200,
