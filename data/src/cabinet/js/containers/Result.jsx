@@ -21,6 +21,8 @@ const Result = ({ match, location }) => {
     title,
   };
 
+  console.log(status)
+
   return (
     <DocumentMeta {...meta}>
       <HeaderMobile />
