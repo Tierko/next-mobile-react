@@ -11,7 +11,7 @@ class RoamingMap extends Component {
   state = {
     zoomInDisabled: false,
     zoomOutDisabled: false,
-    maxZoom: 5,
+    maxZoom: 25,
     minZoom: 0.3,
   };
 
