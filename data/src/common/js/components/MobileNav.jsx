@@ -102,7 +102,7 @@ class MobileNav extends Component {
           <div
             onClick={toggle}
             className={cs('mobile-nav__menu', {
-              'mobile-nav__button_dark': dark,
+              'mobile-nav__menu_dark': dark,
               'mobile-nav__menu_mask': !hideSpot,
             })}
           />
