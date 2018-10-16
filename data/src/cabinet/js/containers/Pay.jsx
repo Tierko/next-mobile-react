@@ -130,7 +130,7 @@ class Pay extends Component {
                   }
                 </div>
                 <Payment
-                  isEditable={false}
+                  isEditable={!this.props.location.state}
                   onPay={onPay}
                   sum={sum}
                   onSumChange={onSumChange}
@@ -193,6 +193,7 @@ Pay.propTypes = {
   addCard: PropTypes.func.isRequired,
   autoPay: PropTypes.shape().isRequired,
   cards: PropTypes.shape().isRequired,
+  location: PropTypes.shape().isRequired,
 };
 
 function mapStateToProps(state) {
