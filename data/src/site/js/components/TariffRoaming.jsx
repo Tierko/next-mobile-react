@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import EarthTariff from './EarthTariff';
 
-const TariffRoaming = ({ type, size, translate }) => {
+const TariffRoaming = ({
+  type,
+  size,
+  translate,
+  countries,
+}) => {
   const { header, text } = translate;
 
   if (!header || !text) {
@@ -16,7 +21,7 @@ const TariffRoaming = ({ type, size, translate }) => {
         dangerouslySetInnerHTML={{ __html: header }}
       />
       <div dangerouslySetInnerHTML={{ __html: text }} />
-      <EarthTariff className="earth-tariff_tariff" tariff type={type} size={size} />
+      <EarthTariff className="earth-tariff_tariff" tariff type={type} size={size} countries={countries} />
     </div>
   );
 };
@@ -25,6 +30,7 @@ TariffRoaming.propTypes = {
   type: PropTypes.string.isRequired,
   size: PropTypes.string.isRequired,
   translate: PropTypes.shape(),
+  countries: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 TariffRoaming.defaultProps = {

@@ -55,7 +55,7 @@ class Roaming extends Component {
     const { getZoneByCountry } = this;
     const zone = getZoneByCountry(roamingZones, country);
 
-    if (!country.properties || country.properties.iso_a2 !== 'RU') {
+    if (!country.properties || country.properties.code !== 'RU') {
       this.setState({
         tab: zone || tab,
         country,
@@ -70,7 +70,7 @@ class Roaming extends Component {
       return 0;
     }
 
-    const zone = zones.items.find(z => z.countries.indexOf(country.properties.iso_a2) !== -1);
+    const zone = zones.items.find(z => z.countries.indexOf(country.properties.code) !== -1);
 
     if (!zone) {
       return 0;
@@ -108,11 +108,11 @@ class Roaming extends Component {
       title: TITLES.ROAMING,
     };
     const featuresSorted = features.items.slice().sort((a, b) => {
-      if (a.properties.name > b.properties.name) {
+      if (a.properties.name.ru > b.properties.name.ru) {
         return 1;
       }
 
-      if (a.properties.name < b.properties.name) {
+      if (a.properties.name.ru < b.properties.name.ru) {
         return -1;
       }
 

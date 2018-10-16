@@ -4,12 +4,43 @@ import TariffTable from '../../../common/js/components/TariffTable';
 import Button from '../../../common/js/components/Button';
 import InterCalls from '../../../common/js/components/InterCalls';
 
+export function dataBuffer() {
+  const interCallsData = {
+    groups: {},
+    items: [],
+  };
+
+  return (countries, interCalls) => {
+    if (!interCallsData.items.length && countries.length && interCalls.items.length) {
+      return {
+        groups: Object.assign({}, interCalls.groups),
+        items: interCalls.items.map((item) => {
+          const country = countries.find(c => c.properties.code === item.code);
+
+          if (country) {
+            item.code = country.properties.code;
+            item.name = country.properties.name;
+          }
+
+          return item;
+        }),
+      };
+    }
+
+    return interCallsData;
+  };
+}
+
+const mergeDate = dataBuffer();
+
 const TariffTariff = ({
   to,
   toTariff,
   r,
-  data,
+  tariffs,
   translate,
+  interCalls,
+  countries,
 }) => {
   const { header, btn, note } = translate;
 
@@ -23,7 +54,7 @@ const TariffTariff = ({
         className="tariff-tariff__header"
         dangerouslySetInnerHTML={{ __html: header }}
       />
-      <TariffTable mode="detail" tariff to={toTariff} data={data} />
+      <TariffTable mode="detail" tariff to={toTariff} data={tariffs} />
       <Button onClick={to} primary={r === 1}>
         <span dangerouslySetInnerHTML={{ __html: btn }} />
       </Button>
@@ -31,7 +62,7 @@ const TariffTariff = ({
         className="tariff-tariff__note"
         dangerouslySetInnerHTML={{ __html: note }}
       />
-      <InterCalls className="inter-calls_tariff" />
+      <InterCalls className="inter-calls_tariff" data={mergeDate(countries, interCalls)} />
     </div>
   );
 };
@@ -40,14 +71,16 @@ TariffTariff.propTypes = {
   to: PropTypes.func.isRequired,
   toTariff: PropTypes.func,
   r: PropTypes.number,
-  data: PropTypes.arrayOf(PropTypes.shape()),
+  tariffs: PropTypes.arrayOf(PropTypes.shape()),
   translate: PropTypes.shape(),
+  interCalls: PropTypes.shape().isRequired,
+  countries: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 TariffTariff.defaultProps = {
   toTariff: null,
   r: 0,
-  data: [],
+  tariffs: [],
   translate: {},
 };
 

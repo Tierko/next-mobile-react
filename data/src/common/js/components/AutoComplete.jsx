@@ -33,7 +33,8 @@ class AutoComplete extends Select {
     const { fromStart } = this.props;
 
     if (fromStart) {
-      return item.title.toUpperCase().indexOf(value.toUpperCase()) === 0;
+      return (item.title && item.title.toUpperCase().indexOf(value.toUpperCase()) === 0) ||
+        (item.name && item.name.ru.toUpperCase().indexOf(value.toUpperCase()) === 0);
     }
 
     return item.title.toUpperCase().indexOf(value.toUpperCase()) !== -1;
@@ -75,13 +76,13 @@ class AutoComplete extends Select {
                 key={i.id || i.title}
               >
                 {
-                  flag &&
+                  flag && i.code &&
                     <span className="select__flag">
-                      <img src={`/media/flags/${i.flag}.svg`} alt="" />
+                      <img src={`/media/flags/${i.code}.svg`} alt="" />
                     </span>
                 }
                 {
-                  (typeof i === 'string' || typeof i === 'number') ? i : i.title
+                  (typeof i === 'string' || typeof i === 'number') ? i : (i.name ? i.name.ru : i.title)
                 }
               </div>
             ))

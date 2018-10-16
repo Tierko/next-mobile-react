@@ -29,6 +29,7 @@ import Invite from './Invite';
 import Confirm from './Confirm';
 import NotFound from './NotFound';
 import { Pages } from '../constants';
+import getInterCallsAction from '../actions/InterCalls';
 import {
   getZonesAction,
   getFeaturesAction,
@@ -37,10 +38,11 @@ import {
 
 class App extends Component {
   componentDidMount() {
-    const { getZones, getFeatures } = this.props;
+    const { getZones, getFeatures, getInterCalls } = this.props;
     const { detectIE10 } = this;
     getZones();
     getFeatures();
+    getInterCalls();
     detectIE10();
   }
 
@@ -118,6 +120,7 @@ class App extends Component {
 App.propTypes = {
   getZones: PropTypes.func.isRequired,
   getFeatures: PropTypes.func.isRequired,
+  getInterCalls: PropTypes.func.isRequired,
   location: PropTypes.shape().isRequired,
 };
 
@@ -125,6 +128,7 @@ function mapDispatchToProps(dispatch) {
   return {
     getZones: () => dispatch(getZonesAction()),
     getFeatures: () => dispatch(getFeaturesAction()),
+    getInterCalls: () => dispatch(getInterCallsAction()),
   };
 }
 

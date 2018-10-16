@@ -109,22 +109,22 @@ class RoamingMap extends Component {
     const { featureDefaultStyle, featureSelectZone, featureSelectCountry } = this;
     const { country } = this.props;
 
-    if (countryId && f.properties.iso_a2 === countryId) {
+    if (countryId && f.properties.code === countryId) {
       return featureSelectCountry();
     }
 
     if (
       country.properties &&
-      f.properties.iso_a2 === country.properties.iso_a2 &&
-      f.properties.iso_a2 !== HOME
+      f.properties.code === country.properties.code &&
+      f.properties.code !== HOME
     ) {
       return featureSelectCountry();
     }
 
     if (
       countries &&
-      countries.indexOf(f.properties.iso_a2) !== -1 &&
-      f.properties.iso_a2 !== HOME
+      countries.indexOf(f.properties.code) !== -1 &&
+      f.properties.code !== HOME
     ) {
       return featureSelectZone();
     }
@@ -179,11 +179,11 @@ class RoamingMap extends Component {
   fitCountry = () => {
     const { map, prevL } = this;
     const { countryId, country } = this.props;
-    const countryAbbr = countryId || (country.properties && country.properties.iso_a2);
+    const countryAbbr = countryId || (country.properties && country.properties.code);
 
     if (map && map.leafletElement._layers && countryAbbr) {
       const layers = Object.values(map.leafletElement._layers);
-      const l = layers.find(l => l.feature && l.feature.properties.iso_a2 === countryAbbr);
+      const l = layers.find(l => l.feature && l.feature.properties.code === countryAbbr);
 
       if (l && l._leaflet_id !== prevL) {
         map.leafletElement.fitBounds(l.getBounds());

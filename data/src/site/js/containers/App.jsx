@@ -19,13 +19,30 @@ class App extends Component {
       loaded: false,
       error: false,
     },
+    countries: {
+      data: [],
+      loaded: false,
+      error: false,
+    },
+    interCalls: {
+      data: {},
+      loaded: false,
+      error: false,
+    },
   };
 
   componentDidMount() {
-    const { getTranslations, getTariffs } = this;
+    const {
+      getTranslations,
+      getTariffs,
+      getCountries,
+      getInterCalls,
+    } = this;
 
     getTranslations();
     getTariffs();
+    getCountries();
+    getInterCalls();
   }
 
   getTranslations = () => {
@@ -56,6 +73,32 @@ class App extends Component {
       .then(data => data.json())
       .then(data => this.setState({
         tariffs: Object.assign({}, tariffs, { data }),
+      }));
+  };
+
+  getCountries = () => {
+    const { countries } = this.state;
+
+    fetch('/media/info/map.geo.json', {
+      credentials: 'same-origin',
+      method: 'GET',
+    })
+      .then(data => data.json())
+      .then(data => this.setState({
+        countries: Object.assign({}, countries, { data }),
+      }));
+  };
+
+  getInterCalls = () => {
+    const { interCalls } = this.state;
+
+    fetch('/media/info/internation-calls.json', {
+      credentials: 'same-origin',
+      method: 'GET',
+    })
+      .then(data => data.json())
+      .then(data => this.setState({
+        interCalls: Object.assign({}, interCalls, { data }),
       }));
   };
 
@@ -128,8 +171,6 @@ class App extends Component {
     obj.info = info;
 
     obj.copyright = data.copyright;
-
-    // console.log(obj.tariffTariff)
 
     return obj;
   };

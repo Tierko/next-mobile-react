@@ -10,6 +10,8 @@ class Earth extends Component {
     const width = cont && cont.clientWidth;
     const height = cont && cont.clientHeight;
     const size = cont && d3.min([width, height]);
+    const { features } = this.props;
+    const test = features;
 
     if (!context || !cont) {
       return;
@@ -30,21 +32,19 @@ class Earth extends Component {
 
     this.projection = projection;
 
-    const drawFeatures = () => {
-      const { features } = this;
+    const drawFeatures = (fts) => {
       context.beginPath();
-      geoGenerator({ type: 'FeatureCollection', features });
+      geoGenerator({ type: 'FeatureCollection', features: fts });
       context.fill();
     };
 
     const update = (t) => {
-      const { features, defaultAnimation, fastAnimation, center, prevAngles } = this;
+      const { defaultAnimation, fastAnimation, center } = this;
       const currentAngles = [-t / 100 % 360, 0];
       context.clearRect(0, 0, width, height);
 
       if (defaultAnimation && !fastAnimation) {
         projection.rotate(currentAngles);
-        this.prevAngles = currentAngles;
       }
 
       if (!defaultAnimation && fastAnimation) {
@@ -53,31 +53,19 @@ class Earth extends Component {
 
       context.lineWidth = 1;
       context.fillStyle = style === 'dark' ? '#06145f' : '#eaeaf6';
-      drawFeatures(features);
 
+      drawFeatures(test);
       window.requestAnimationFrame(update);
     };
 
-    fetch('/media/info/map.geo.json', {
-      credentials: 'same-origin',
-      headers: new Headers({
-        method: 'GET',
-        'Content-Types': 'text/json',
-      }),
-    })
-      .then(data => data.json())
-      .then((data) => {
-        this.features = data;
-
-        window.requestAnimationFrame(update);
-      });
+    window.requestAnimationFrame(update);
   };
 
   setCenter = () => {
-    const { country } = this.props;
-    const countryCode = country.flag;
-    const { features, d3, projection } = this;
-    const feature = features.find(l => l.properties.iso_a2 === countryCode);
+    const { country, features } = this.props;
+    const countryCode = country.code;
+    const { d3 } = this;
+    const feature = features.find(l => l.properties.code === countryCode);
 
     if (feature) {
       const center = d3.geoCentroid(feature);
@@ -120,7 +108,7 @@ class Earth extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { setCenter, onResize } = this;
+    const { setCenter } = this;
     const { country } = this.props;
 
     if (!prevProps.country && country) {
@@ -131,6 +119,11 @@ class Earth extends Component {
       this.defaultAnimation = true;
       this.fastAnimation = false;
     }
+
+  }
+
+  componentWillUnmount() {
+    const { onResize } = this;
 
     window.removeEventListener('resize', onResize);
   }
@@ -152,6 +145,7 @@ Earth.propTypes = {
   style: PropTypes.string.isRequired,
   size: PropTypes.string.isRequired,
   country: PropTypes.shape(),
+  features: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 Earth.defaultProps = {

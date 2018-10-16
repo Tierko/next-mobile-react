@@ -4,6 +4,23 @@ import cs from 'classnames';
 import InterCalls from '../../../common/js/components/InterCalls';
 import Earth from './Earth';
 
+function dataBuffer() {
+  const data = [];
+
+  return (countries) => {
+    if (!data.length && countries.length) {
+      return countries.map(c => ({
+        name: c.properties.name,
+        code: c.properties.code,
+      }));
+    }
+
+    return data;
+  };
+}
+
+const filteredData = dataBuffer();
+
 class EarthTariff extends Component {
   state = {
     country: null,
@@ -23,11 +40,13 @@ class EarthTariff extends Component {
       size,
       home,
       translate: { header, text },
+      countries,
     } = this.props;
     const { onChange } = this;
     const { country } = this.state;
+    const autoCompleteCountries = filteredData(countries);
 
-    if (home && (!header || !text)) {
+    if (home && (!header || !text || !countries.length)) {
       return false;
     }
 
@@ -54,6 +73,7 @@ class EarthTariff extends Component {
             tariff={tariff}
             onChange={onChange}
             hidePrice
+            data={{ items: autoCompleteCountries }}
           />
         </div>
         <div
@@ -75,7 +95,7 @@ class EarthTariff extends Component {
             <div className="earth-tariff__cell earth-tariff__cell_big">7 ₽ / СМС</div>
           </div>
         </div>
-        <Earth style={type} size={size} country={country} />
+        <Earth style={type} size={size} country={country} features={countries} />
       </div>
     );
   }
@@ -88,6 +108,7 @@ EarthTariff.propTypes = {
   size: PropTypes.string.isRequired,
   home: PropTypes.bool,
   translate: PropTypes.shape(),
+  countries: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 EarthTariff.defaultProps = {

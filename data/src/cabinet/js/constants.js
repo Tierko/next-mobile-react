@@ -29,6 +29,9 @@ export const ACTION_TYPES = keyMirror({
   NOTICE_READ: undefined,
   NOTICE_EXCLUDE: undefined,
   NOTICE_REPAIR: undefined,
+  INTER_CALLS_REQUEST: undefined,
+  INTER_CALLS_REQUEST_FAIL: undefined,
+  INTER_CALLS_REQUEST_SUCCESS: undefined,
 });
 
 export const Pages = {

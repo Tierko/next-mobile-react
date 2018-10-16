@@ -5,7 +5,7 @@ import Breadcrumbs from './Breadcrumbs';
 import { Pages } from '../constants';
 
 const RoamingCountries = ({ items, zone }) => {
-  const countries = items.filter(c => zone.countries.indexOf(c.properties.iso_a2) !== -1);
+  const countries = items.filter(c => zone.countries.indexOf(c.properties.code) !== -1);
 
   return (
     <div className="roaming roaming_countries">
@@ -22,12 +22,12 @@ const RoamingCountries = ({ items, zone }) => {
         {
           countries.map(i => (
             <Link
-              key={i.properties.iso_a2}
+              key={i.properties.code}
               className="roaming-country"
-              to={`${Pages.ROAMING}/country-tariff/${zone.id}/${i.properties.iso_a2}`}
+              to={`${Pages.ROAMING}/country-tariff/${zone.id}/${i.properties.code}`}
             >
-              <img className="roaming-country__img" src={`/media/flags/${i.properties.iso_a2}.svg`} alt={i.title} />
-              <span className="roaming-country__name">{i.properties.name}</span>
+              <img className="roaming-country__img" src={`/media/flags/${i.properties.code}.svg`} alt={i.title} />
+              <span className="roaming-country__name">{i.properties.name.ru}</span>
             </Link>
           ))
         }

@@ -55,7 +55,7 @@ const RoamingTariffCountry = ({ zone, items, id }) => {
     return false;
   }
 
-  const country = items.find(i => i.properties.iso_a2 === id);
+  const country = items.find(i => i.properties.code === id);
 
   return (
     <div className="roaming">
@@ -66,7 +66,7 @@ const RoamingTariffCountry = ({ zone, items, id }) => {
             { title: zone.name, link: `${Pages.ROAMING}/${zone.id}` },
           ]}
         />
-        Тарифы: {country.properties.name}
+        Тарифы: {country.properties.name.ru}
         <img className="roaming__flag" src={`/media/flags/${id}.svg`} alt="" />
       </div>
       <RoamingTariff data={data} />

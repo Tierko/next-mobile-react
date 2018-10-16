@@ -191,3 +191,30 @@ export const formatPhone = (phone) => {
 
   return `${phone.substr(0, 2)} (${phone.substr(2, 3)}) ${phone.substr(5, 3)}-${phone.substr(8, 2)}-${phone.substr(10, 2)}`;
 };
+
+export function dataBuffer() {
+  const interCallsData = {
+    groups: {},
+    items: [],
+  };
+
+  return (countries, interCalls) => {
+    if (!interCallsData.items.length && countries.length && interCalls.items.length) {
+      return {
+        groups: Object.assign({}, interCalls.groups),
+        items: interCalls.items.map((item) => {
+          const country = countries.find(c => c.properties.code === item.code);
+
+          if (country) {
+            item.code = country.properties.code;
+            item.name = country.properties.name;
+          }
+
+          return item;
+        }),
+      };
+    }
+
+    return interCallsData;
+  };
+}

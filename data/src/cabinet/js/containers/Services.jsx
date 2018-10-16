@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DocumentMeta from 'react-document-meta';
+import { connect } from 'react-redux';
 import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
@@ -12,6 +13,9 @@ import Button from '../../../common/js/components/Button';
 import Note from '../components/Note';
 import { Pages, TITLES } from '../constants';
 import tariff from '../../data/tariff';
+import { dataBuffer } from '../utils';
+
+const mergeDate = dataBuffer();
 
 class Services extends Component {
   state = {
@@ -90,6 +94,8 @@ class Services extends Component {
     const meta = {
       title: TITLES.SERVICES,
     };
+    const { countries, interCalls } = this.props;
+    const data = mergeDate(countries, interCalls.data);
 
     return (
       <DocumentMeta {...meta}>
@@ -102,7 +108,7 @@ class Services extends Component {
               <div className="dashboard__header">Тарифы</div>
               <div className="dashboard__text">При смене тарифа первый месяц использования оплачивается сразу</div>
               <TariffTable className="tariff-table_services" current={currentTariff} onChange={changeTariff} />
-              <InterCalls className="inter-calls_services" />
+              <InterCalls data={data} />
               <TariffServices services={services} onChange={toggleService} />
               <Button className="button_services" onClick={onSave} disabled={!unsaved}>
                 Сохранить
@@ -124,6 +130,15 @@ class Services extends Component {
 
 Services.propTypes = {
   history: PropTypes.shape().isRequired,
+  countries: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  interCalls: PropTypes.shape().isRequired,
 };
 
-export default Services;
+function mapStateToProps(state) {
+  return {
+    countries: state.Roaming.features.items,
+    interCalls: state.InterCalls,
+  };
+}
+
+export default connect(mapStateToProps)(Services);

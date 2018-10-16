@@ -18,7 +18,7 @@ class ComboBox extends Select {
   filter = (value) => {
     const { items } = this.props;
 
-    return items.filter(i => i.properties.name.toUpperCase().indexOf(value.toUpperCase()) === 0);
+    return items.filter(i => i.properties.name.ru.toUpperCase().indexOf(value.toUpperCase()) === 0);
   };
 
   onSelect = (item) => {
@@ -56,13 +56,13 @@ class ComboBox extends Select {
     return (
       <div
         className={cs(`combo-box ${className}`, {
-          'combo-box_hide-icon': value && value.properties && value.properties.name,
+          'combo-box_hide-icon': value && value.properties && value.properties.name.ru,
           'combo-box_drawer': valueSearch && open,
         })}
         ref={(e) => { this.select = e; }}
       >
         {
-          !(value && value.properties && value.properties.name) &&
+          !(value && value.properties && value.properties.name.ru) &&
           <input
             className="combo-box__value"
             type="text"
@@ -73,15 +73,15 @@ class ComboBox extends Select {
         }
         <div className="combo-box__title-wrapper">
           {
-            value && value.properties && value.properties.name &&
+            value && value.properties && value.properties.name.ru &&
             <div className="combo-box__title">
-              <img className="select__img" src={`/media/flags/${value.properties.iso_a2}.svg`} alt={value.properties.name} />
-              {value.properties.name}
+              <img className="select__img" src={`/media/flags/${value.properties.code}.svg`} alt={value.properties.name.ru} />
+              {value.properties.name.ru}
               <span className="combo-box__zone"> находится в&nbsp;{zoneName.toLowerCase()}</span>
             </div>
           }
           {
-            value && value.properties && value.properties.name &&
+            value && value.properties && value.properties.name.ru &&
             <div
               className="combo-box__clear"
               onClick={clear}
@@ -93,13 +93,13 @@ class ComboBox extends Select {
           {
             filtered.map(i => (
               <div
-                key={i.properties.iso_a2}
+                key={i.properties.code}
                 className="select__item"
                 onClick={() => onSelect(i)}
                 role="button"
               >
-                <img className="select__img" src={`/media/flags/${i.properties.iso_a2}.svg`} alt={i.properties.name} />
-                {i.properties.name}
+                <img className="select__img" src={`/media/flags/${i.properties.code}.svg`} alt={i.properties.name.ru} />
+                {i.properties.name.ru}
               </div>
             ))
           }

@@ -24,7 +24,7 @@ class Home extends Component {
 
   render() {
     const { to } = this;
-    const { translations, tariffs: tariffData } = this.props.data;
+    const { translations, tariffs: tariffData, countries } = this.props.data;
     const {
       intro,
       best,
@@ -38,7 +38,6 @@ class Home extends Component {
       copyright,
     } = translations.data;
 
-
     return (
       <DocumentMeta title={title ? title.home : ''}>
         <div className="home">
@@ -50,7 +49,7 @@ class Home extends Component {
             <Best translate={best} />
             <Club to={() => to('signup')} translate={club} />
             <HomeTariff translate={tariff} data={tariffData.data} />
-            <EarthTariff home type="dark" size="big" translate={earthTariff} />
+            <EarthTariff home type="dark" size="big" translate={earthTariff} countries={countries.data} />
             <Cabinet to={() => to('signin')} translate={cabinet} />
             <Footer als light data={copyright} />
           </div>

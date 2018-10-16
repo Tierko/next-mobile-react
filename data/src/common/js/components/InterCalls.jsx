@@ -8,25 +8,7 @@ class InterCalls extends Component {
   state = {
     value: '',
     item: null,
-    data: {
-      items: [],
-    },
   };
-
-  componentDidMount() {
-    fetch('/media/info/internation-calls.json', {
-      credentials: 'same-origin',
-      headers: new Headers({
-        method: 'GET',
-        'Content-Types': 'text/json',
-      }),
-    })
-      .then(data => data.json())
-      .then(data => this.setState({
-        data,
-      }))
-      .catch();
-  }
 
   onChange = (name, value) => {
     this.setState({
@@ -47,7 +29,8 @@ class InterCalls extends Component {
   };
 
   getCost = () => {
-    const { data, item } = this.state;
+    const { item } = this.state;
+    const { data } = this.props;
 
     if (!item) {
       return 0;
@@ -70,13 +53,14 @@ class InterCalls extends Component {
   };
 
   render() {
-    const { value, item, data } = this.state;
+    const { value, item } = this.state;
     const {
       more,
       className,
       home,
       tariff,
       hidePrice,
+      data,
     } = this.props;
     const {
       onChange,
@@ -131,12 +115,12 @@ class InterCalls extends Component {
             >
               <div className="inter-calls__country" onClick={clear}>
                 {
-                  item.flag &&
+                  item.code &&
                   <div>
-                    <img src={`/media/flags/${item.flag}.svg`} alt="" />
+                    <img src={`/media/flags/${item.code}.svg`} alt="" />
                   </div>
                 }
-                {item.title}
+                {item.name ? item.name.ru : item.title}
               </div>
               {
                 !hidePrice &&
@@ -160,6 +144,7 @@ InterCalls.propTypes = {
   tariff: PropTypes.bool,
   onChange: PropTypes.func,
   hidePrice: PropTypes.bool,
+  data: PropTypes.shape().isRequired,
 };
 
 InterCalls.defaultProps = {

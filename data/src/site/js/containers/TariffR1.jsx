@@ -9,6 +9,8 @@ import TariffRoaming from '../components/TariffRoaming';
 import TariffServices from '../components/TariffServices';
 import LogoMobile from '../components/LogoMobile';
 
+
+
 class Tariff extends Component {
   componentDidMount() {
     animateScroll.scrollToTop();
@@ -25,7 +27,12 @@ class Tariff extends Component {
 
   render() {
     const { to } = this;
-    const { translations, tariffs: tariffData } = this.props.data;
+    const {
+      translations,
+      tariffs: tariffData,
+      countries,
+      interCalls,
+    } = this.props.data;
     const {
       title,
       services,
@@ -42,8 +49,20 @@ class Tariff extends Component {
           <MobileNav type="home" translate={nav} />
           <Header mode="site" info={info} translate={nav} />
           <div className="tariff__inner">
-            <TariffTariff to={() => to('signup')} r={1} data={tariffData.data} translate={tariffTariff} />
-            <TariffRoaming size="small" type="light" translate={roamingTariff} />
+            <TariffTariff
+              to={() => to('signup')}
+              r={1}
+              tariffs={tariffData.data}
+              translate={tariffTariff}
+              countries={countries.data}
+              interCalls={interCalls.data}
+            />
+            <TariffRoaming
+              size="small"
+              type="light"
+              translate={roamingTariff}
+              countries={countries.data}
+            />
             <TariffServices translate={services} />
           </div>
         </div>
