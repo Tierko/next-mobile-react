@@ -113,7 +113,7 @@ class InterCalls extends Component {
               'inter-calls__selected_light': home,
             })}
             >
-              <div className="inter-calls__country" onClick={clear}>
+              <div className="inter-calls__country">
                 {
                   item.code &&
                   <div>
