@@ -18,7 +18,7 @@ import Transitions from '../components/Transitions';
 import { Pages, TITLES } from '../constants';
 
 const tariffs = [{
-  id: 1,
+  id: 37,
   title: 'СуперВИП',
   payment: 3000,
   internet: 32,
@@ -27,7 +27,7 @@ const tariffs = [{
   sms: 'Безлимит',
   transition: 0,
 }, {
-  id: 2,
+  id: 38,
   current: false,
   title: 'Премиум',
   payment: 2000,
@@ -37,7 +37,7 @@ const tariffs = [{
   sms: 'Безлимит',
   transition: 0,
 }, {
-  id: 3,
+  id: 39,
   current: false,
   title: 'Лайт',
   payment: 1500,
