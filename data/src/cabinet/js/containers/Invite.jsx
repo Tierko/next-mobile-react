@@ -63,7 +63,7 @@ class Invite extends Component {
               <div className="dashboard__header">
                 Подарите близким возможность присоединиться к&nbsp;закрытому клубу Next Mobile
               </div>
-              <div>{desc}</div>
+              <div className="invite__text">{desc}</div>
               {
                 count &&
                 <div className="invite__subtitle">
