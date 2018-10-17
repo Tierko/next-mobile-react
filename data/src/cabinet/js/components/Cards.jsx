@@ -18,6 +18,8 @@ class Cards extends Component {
     date: '',
     cvv: '',
     editCardId: '',
+    prevShow: false,
+    nextShow: false,
   };
 
   componentDidMount() {
@@ -71,7 +73,6 @@ class Cards extends Component {
       holder,
       date,
       cvv,
-      selected,
     } = this.state;
     const id = getAttr(cardE, 'id');
     const card = id === 'new' ? {
@@ -85,7 +86,7 @@ class Cards extends Component {
     const { row, inner } = this;
     const maxScroll = inner.clientWidth - row.clientWidth;
     const cardNumber = getAttr(cardE, 'number') * 1;
-    const scroll = id === 'new' ? maxScroll + 142 : cardNumber * 163;
+    const scroll = id === 'new' ? maxScroll + 142 : cardNumber * 159;
 
     row.scroll({
       left: scroll,
@@ -95,6 +96,8 @@ class Cards extends Component {
 
     this.setState({
       selected: id,
+      prevShow: cardNumber > 0 || id === 'new',
+      nextShow: id !== 'new',
     });
   };
 
@@ -122,10 +125,8 @@ class Cards extends Component {
   };
 
   setOffset = () => {
-    const { calculateOffsetStart, calculateOffsetEnd, inner } = this;
-    const offsetStart = calculateOffsetStart();
+    const { calculateOffsetEnd, inner } = this;
     const offsetEnd = calculateOffsetEnd();
-    inner.style.paddingLeft = `${offsetStart}px`;
     inner.style.paddingRight = `${offsetEnd}px`;
   };
 
@@ -141,24 +142,13 @@ class Cards extends Component {
 
   calculateOffsetEnd = () => {
     const { row } = this;
-    const CARD_WIDTH = 285 + 16;
+    const CARD_WIDTH = 279 + 16;
 
     if (!row) {
       return 0;
     }
 
-    return (row.clientWidth - CARD_WIDTH) / 2;
-  };
-
-  calculateOffsetStart = () => {
-    const { row } = this;
-    const CARD_WIDTH = 168 + 16;
-
-    if (!row) {
-      return 0;
-    }
-
-    return (row.clientWidth - CARD_WIDTH) / 2;
+    return (row.clientWidth - CARD_WIDTH);
   };
 
   isNewCardValid = (nextState) => {
@@ -173,12 +163,43 @@ class Cards extends Component {
       checkCardDate(date) && checkCVV(cvv);
   };
 
+  rollCard = ({ target }) => {
+    const { selected } = this.state;
+    const { onCardSelect } = this;
+    const direction = target.getAttribute('data-direction');
+    const currentCard = document.getElementById(`card-${selected}`);
+    let card = null;
+
+    if (currentCard && direction === 'next') {
+      card = currentCard.nextSibling;
+    }
+
+    if (currentCard && direction === 'prev') {
+      card = currentCard.previousSibling;
+    }
+
+    if (currentCard && direction === 'next' && selected !== 'new') {
+      currentCard.classList.add('card__wrapper_hide');
+    }
+
+    if (currentCard.previousSibling && direction === 'prev') {
+      currentCard.previousSibling.classList.remove('card__wrapper_hide');
+    }
+
+    if (card) {
+      onCardSelect({
+        currentTarget: card,
+      });
+    }
+  };
+
   render() {
     const { className, data } = this.props;
     const {
       onChange,
       onCardSelect,
       onCardEdit,
+      rollCard,
     } = this;
     const {
       number,
@@ -186,11 +207,27 @@ class Cards extends Component {
       date,
       cvv,
       holderError,
+      prevShow,
+      nextShow,
     } = this.state;
     const selected = this.state.selected || data.defaultCard;
 
     return (
       <div className={cs('cards__wrapper', { cards__wrapper_new: selected === 'new' })}>
+        <div
+          className={cs('cards__arrow cards__arrow_prev', {
+            cards__arrow_hide: !prevShow,
+          })}
+          data-direction="prev"
+          onClick={rollCard}
+        />
+        <div
+          className={cs('cards__arrow cards__arrow_next', {
+            cards__arrow_hide: !nextShow,
+          })}
+          data-direction="next"
+          onClick={rollCard}
+        />
         <div className={`cards ${className}`}>
           <div className="cards__row" ref={(e) => { this.row = e; }}>
             <div className="cards__inner" ref={(e) => { this.inner = e; }}>

@@ -3,7 +3,7 @@
   margin: 0 -8px;
   position: relative;
   overflow: hidden;
-  mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent);
+  //mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent);
 
   @media (max-width: @BREAK-POINT) {
     margin: 0 -15px;
@@ -45,6 +45,36 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &__arrow {
+    width: 30px;
+    background: #f00;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: url("/media/icons/cards-arrow.svg") no-repeat 50% 50%;
+    background-size: 12px 25px;
+
+    @media(max-width: @BREAK-POINT) {
+      display: none;
+    }
+
+    &_hide {
+      opacity: 0;
+      cursor: default;
+    }
+
+    &_prev {
+      left: -40px;
+    }
+
+    &_next {
+      right: -40px;
+      transform: rotate(180deg);
+    }
   }
 }
 
@@ -88,8 +118,20 @@
     }
   }
 
-  &__wrapper_new {
-    width: 295px;
+  &__wrapper {
+    transition: opacity 0.3s;
+
+    &_hide {
+      opacity: 0;
+
+      @media (max-width: @BREAK-POINT) {
+        opacity: 1;
+      }
+    }
+
+    &_new {
+      width: 295px;
+    }
   }
 
   &_mir:after {
