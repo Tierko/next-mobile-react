@@ -69,9 +69,12 @@ class Earth extends Component {
 
     if (feature) {
       const center = d3.geoCentroid(feature);
+      const firstCoords = feature.geometry.coordinates[0][0];
+
       this.defaultAnimation = false;
       this.fastAnimation = true;
-      this.center = [-center[0], -center[1]];
+
+      this.center = [-center[0] || -firstCoords[0], -center[1] || -firstCoords[1]];
     }
   };
 
