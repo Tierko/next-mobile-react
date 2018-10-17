@@ -9,10 +9,12 @@ function dataBuffer() {
 
   return (countries) => {
     if (!data.length && countries.length) {
-      return countries.map(c => ({
-        name: c.properties.name,
-        code: c.properties.code,
-      }));
+      return countries
+        .filter(c => !c.properties.exclude)
+        .map(c => ({
+          name: c.properties.name,
+          code: c.properties.code,
+        }));
     }
 
     return data;

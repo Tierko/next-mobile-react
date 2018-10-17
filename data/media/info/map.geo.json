@@ -2507,6 +2507,7 @@
     "properties": {
       "code": "RU",
       "flag": "RU",
+      "exclude": true,
       "name": {
         "ru": "Российская Федерация"
       }
@@ -3154,6 +3155,7 @@
     "properties": {
       "code": "BZ",
       "flag": "BZ",
+      "exclude": true,
       "name": {
         "ru": "Белиз"
       }
@@ -13959,6 +13961,7 @@
     "properties": {
       "code": "FK",
       "flag": "FK",
+      "exclude": true,
       "name": {
         "ru": "Фолклендские острова"
       }
@@ -21127,6 +21130,7 @@
     "properties": {
       "code": "KP",
       "flag": "KP",
+      "exclude": true,
       "name": {
         "ru": "Корея, Народно-Демократическая Республика"
       }
@@ -25161,6 +25165,7 @@
     "properties": {
       "code": "SY",
       "flag": "SY",
+      "exclude": true,
       "name": {
         "ru": "Сирия"
       }
@@ -25518,6 +25523,7 @@
     "properties": {
       "code": "TL",
       "flag": "TL",
+      "exclude": true,
       "name": {
         "ru": "Тимор-Лесте"
       }
@@ -26756,6 +26762,7 @@
     "properties": {
       "code": "SB",
       "flag": "SB",
+      "exclude": true,
       "name": {
         "ru": "Соломоновы острова"
       }
@@ -34366,6 +34373,7 @@
     "properties": {
       "code": "CF",
       "flag": "CF",
+      "exclude": true,
       "name": {
         "ru": "Центрально-Африканская Республика"
       }
@@ -36326,6 +36334,7 @@
     "properties": {
       "code": "DJ",
       "flag": "DJ",
+      "exclude": true,
       "name": {
         "ru": "Джибути"
       }
@@ -36455,6 +36464,7 @@
     "properties": {
       "code": "ER",
       "flag": "ER",
+      "exclude": true,
       "name": {
         "ru": "Эритрея"
       }
@@ -37135,6 +37145,7 @@
     "properties": {
       "code": "GN",
       "flag": "GN",
+      "exclude": true,
       "name": {
         "ru": "Гвинея"
       }
@@ -37482,6 +37493,7 @@
     "properties": {
       "code": "GW",
       "flag": "GW",
+      "exclude": true,
       "name": {
         "ru": "Гвинея-Бисау"
       }
@@ -37998,6 +38010,7 @@
     "properties": {
       "code": "LS",
       "flag": "LS",
+      "exclude": true,
       "name": {
         "ru": "Лесото"
       }
@@ -39830,6 +39843,7 @@
     "properties": {
       "code": "EH",
       "flag": "EH",
+      "exclude": true,
       "name": {
         "ru": "Западная Сахара"
       }
@@ -40791,6 +40805,7 @@
     "properties": {
       "code": "SZ",
       "flag": "SZ",
+      "exclude": true,
       "name": {
         "ru": "Свазиленд"
       }
@@ -41539,6 +41554,7 @@
     "properties": {
       "code": "SO",
       "flag": "SO",
+      "exclude": true,
       "name": {
         "ru": "Свазиленд"
       }

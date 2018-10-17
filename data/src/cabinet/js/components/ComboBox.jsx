@@ -18,7 +18,9 @@ class ComboBox extends Select {
   filter = (value) => {
     const { items } = this.props;
 
-    return items.filter(i => i.properties.name.ru.toUpperCase().indexOf(value.toUpperCase()) === 0);
+    return items.filter(i =>
+      i.properties.name.ru.toUpperCase().indexOf(value.toUpperCase()) === 0 && !i.properties.exclude
+    );
   };
 
   onSelect = (item) => {

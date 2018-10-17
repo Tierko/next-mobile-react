@@ -116,7 +116,7 @@ class RoamingMap extends Component {
     if (
       country.properties &&
       f.properties.code === country.properties.code &&
-      f.properties.code !== HOME
+      !f.properties.exclude
     ) {
       return featureSelectCountry();
     }
@@ -124,7 +124,7 @@ class RoamingMap extends Component {
     if (
       countries &&
       countries.indexOf(f.properties.code) !== -1 &&
-      f.properties.code !== HOME
+      !f.properties.exclude
     ) {
       return featureSelectZone();
     }
