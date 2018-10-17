@@ -10,8 +10,17 @@ class Earth extends Component {
     const width = cont && cont.clientWidth;
     const height = cont && cont.clientHeight;
     const size = cont && d3.min([width, height]);
-    const { features } = this.props;
-    const test = features;
+    let { features } = this.props;
+
+    features = features.map((f) => {
+      const excludes = ['MARTINIKA', 'REYUNYON', 'BQ-BO', 'GP', 'MAYOTTE'];
+
+      if (excludes.indexOf(f.properties.code) !== -1) {
+        f.geometry.type = 'MultiPolygon';
+      }
+
+      return f;
+    });
 
     if (!context || !cont) {
       return;
@@ -54,7 +63,7 @@ class Earth extends Component {
       context.lineWidth = 1;
       context.fillStyle = style === 'dark' ? '#06145f' : '#eaeaf6';
 
-      drawFeatures(test);
+      drawFeatures(features);
       window.requestAnimationFrame(update);
     };
 
