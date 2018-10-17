@@ -167,11 +167,10 @@ class Cards extends Component {
       number,
       date,
       cvv,
-      holder,
     } = state;
 
     return checkCardNumber(number) &&
-      checkCardDate(date) && holder && checkCVV(cvv);
+      checkCardDate(date) && checkCVV(cvv);
   };
 
   render() {

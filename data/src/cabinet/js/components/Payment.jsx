@@ -87,7 +87,7 @@ class Payment extends Component {
             <div className="payment__company">
               <img className="payment__img" src="/media/content/tyazhmash.png" alt="" />
               <div className="payment__company-name">Оплатит «Тяжмаштрансмагистраль»</div>
-            </div>:
+            </div> :
             <Cards onPermitChange={onPermitChange} onEdit={onEdit} />
         }
         {
