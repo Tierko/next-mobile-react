@@ -38,6 +38,7 @@ class Tariff extends Component {
       tariffs: tariffData,
       countries,
       interCalls,
+      roaming,
     } = this.props.data;
     const {
       title,
@@ -68,6 +69,7 @@ class Tariff extends Component {
               type="light"
               translate={roamingTariff}
               countries={countries.data}
+              roaming={roaming.data}
             />
             <TariffServices translate={services} />
           </div>

@@ -43,10 +43,13 @@ class EarthTariff extends Component {
       home,
       translate: { header, text },
       countries,
+      roaming,
     } = this.props;
     const { onChange } = this;
     const { country } = this.state;
     const autoCompleteCountries = filteredData(countries);
+    let currentRoaming = country && roaming.find(r => r.code === country.code);
+    currentRoaming = currentRoaming || {};
 
     if (home && (!header || !text || !countries.length)) {
       return false;
@@ -83,19 +86,38 @@ class EarthTariff extends Component {
             'earth-tariff__numbers_show': !!country,
           })}
         >
-          <div className="earth-tariff__row">
-            <div className="earth-tariff__cell earth-tariff__cell_small">Интернет</div>
-            <div className="earth-tariff__cell earth-tariff__cell_big">14 ₽ / МБ</div>
-            <div className="earth-tariff__cell earth-tariff__cell_small">Или 2000 ₽ / 1 ГБ</div>
-          </div>
-          <div className="earth-tariff__row">
-            <div className="earth-tariff__cell earth-tariff__cell_small">Звонки</div>
-            <div className="earth-tariff__cell earth-tariff__cell_big">200 ₽ / мин.</div>
-          </div>
-          <div className="earth-tariff__row">
-            <div className="earth-tariff__cell earth-tariff__cell_small">Сообщения</div>
-            <div className="earth-tariff__cell earth-tariff__cell_big">7 ₽ / СМС</div>
-          </div>
+          {
+            currentRoaming.internet &&
+            <div className="earth-tariff__row">
+              <div className="earth-tariff__cell earth-tariff__cell_small">Интернет</div>
+              <div className="earth-tariff__cell earth-tariff__cell_big">
+                {currentRoaming.internet.mb.price} ₽ / МБ
+              </div>
+              <div className="earth-tariff__cell earth-tariff__cell_small">
+                Или {
+                  currentRoaming.internet.packet.price
+                } ₽ / {currentRoaming.internet.packet.size} ГБ
+              </div>
+            </div>
+          }
+          {
+            currentRoaming.calls &&
+            <div className="earth-tariff__row">
+              <div className="earth-tariff__cell earth-tariff__cell_small">Звонки</div>
+              <div className="earth-tariff__cell earth-tariff__cell_big">
+                {currentRoaming.calls.price} ₽ / мин.
+              </div>
+            </div>
+          }
+          {
+            currentRoaming.sms &&
+            <div className="earth-tariff__row">
+              <div className="earth-tariff__cell earth-tariff__cell_small">Сообщения</div>
+              <div className="earth-tariff__cell earth-tariff__cell_big">
+                {currentRoaming.sms.price} ₽ / СМС
+              </div>
+            </div>
+          }
         </div>
         <Earth style={type} size={size} country={country} features={countries} />
       </div>
@@ -111,6 +133,7 @@ EarthTariff.propTypes = {
   home: PropTypes.bool,
   translate: PropTypes.shape(),
   countries: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  roaming: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 EarthTariff.defaultProps = {

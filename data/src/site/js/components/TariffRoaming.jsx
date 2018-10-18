@@ -7,6 +7,7 @@ const TariffRoaming = ({
   size,
   translate,
   countries,
+  roaming,
 }) => {
   const { header, text } = translate;
 
@@ -21,7 +22,7 @@ const TariffRoaming = ({
         dangerouslySetInnerHTML={{ __html: header }}
       />
       <div dangerouslySetInnerHTML={{ __html: text }} />
-      <EarthTariff className="earth-tariff_tariff" tariff type={type} size={size} countries={countries} />
+      <EarthTariff className="earth-tariff_tariff" tariff type={type} size={size} countries={countries} roaming={roaming} />
     </div>
   );
 };
@@ -31,6 +32,7 @@ TariffRoaming.propTypes = {
   size: PropTypes.string.isRequired,
   translate: PropTypes.shape(),
   countries: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  roaming: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 TariffRoaming.defaultProps = {

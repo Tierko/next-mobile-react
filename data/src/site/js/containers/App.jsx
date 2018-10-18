@@ -29,6 +29,11 @@ class App extends Component {
       loaded: false,
       error: false,
     },
+    roaming: {
+      data: [],
+      loaded: false,
+      error: false,
+    },
   };
 
   componentDidMount() {
@@ -37,12 +42,14 @@ class App extends Component {
       getTariffs,
       getCountries,
       getInterCalls,
+      getRoaming,
     } = this;
 
     getTranslations();
     getTariffs();
     getCountries();
     getInterCalls();
+    getRoaming();
   }
 
   getTranslations = () => {
@@ -99,6 +106,19 @@ class App extends Component {
       .then(data => data.json())
       .then(data => this.setState({
         interCalls: Object.assign({}, interCalls, { data }),
+      }));
+  };
+
+  getRoaming = () => {
+    const { roaming } = this.state;
+
+    fetch('/media/info/roaming.json', {
+      credentials: 'same-origin',
+      method: 'GET',
+    })
+      .then(data => data.json())
+      .then(data => this.setState({
+        roaming: Object.assign({}, roaming, { data }),
       }));
   };
 
