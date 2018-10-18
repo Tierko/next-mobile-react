@@ -62,6 +62,11 @@ class SignUpInitAfter extends Component {
 
 SignUpInitAfter.propTypes = {
   nextStep: PropTypes.func.isRequired,
+  tariff: PropTypes.shape(),
+};
+
+SignUpInitAfter.defaultProps = {
+  tariff: {},
 };
 
 export default SignUpInitAfter;

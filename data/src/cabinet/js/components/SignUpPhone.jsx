@@ -31,6 +31,10 @@ class SignUpPhone extends Component {
       step = 'choose-number';
     }
 
+    if (number === 'current' && tariff) {
+      step = 'personal';
+    }
+
     if (checkPhone(phone)) {
       nextStep(step);
     }

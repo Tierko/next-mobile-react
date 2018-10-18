@@ -21,8 +21,6 @@ const Result = ({ match, location }) => {
     title,
   };
 
-  console.log(status)
-
   return (
     <DocumentMeta {...meta}>
       <HeaderMobile />
@@ -45,7 +43,7 @@ const Result = ({ match, location }) => {
               {
                 (!links || !links.length) &&
                 <div>
-                  <Link className="button button_secondary button_result" to={Pages.OVERVIEW}>
+                  <Link className="button button_primary button_result" to={Pages.OVERVIEW}>
                     Продолжить работу
                   </Link>
                 </div>

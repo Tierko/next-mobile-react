@@ -51,6 +51,7 @@ class Overview extends Component {
     const links = [{
       url: Pages.AUTO_PAY,
       title: 'Сделать платеж регулярным',
+      primary: true,
     }, {
       url: Pages.OVERVIEW,
       title: 'Вернуться на\u00A0главную',

@@ -4,7 +4,7 @@ import InlineSvg from 'svg-inline-react';
 import { Pages } from '../../../cabinet/js/constants';
 
 const MobileNavDashboard = () => ([
-  <div className="mobile-nav__phone">+ 7 905 123-23-44</div>,
+  <div key="phone" className="mobile-nav__phone">+ 7 905 123-23-44</div>,
   <NavLink key="overview" className="mobile-nav__link mobile-nav__link_overview" to={Pages.OVERVIEW}>
     <InlineSvg src={require('../../../../media/nav/overview.svg')} raw /> Обзор
   </NavLink>,

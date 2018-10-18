@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import cs from 'classnames';
-import { Link } from 'react-router-dom';
 import Input from '../../../common/js/components/Input';
 import Button from '../../../common/js/components/Button';
 import AutoComplete from '../../../common/js/components/AutoComplete';
@@ -101,7 +99,7 @@ class SignUpDeliveryAddress extends Component {
                 onChange={onChange}
                 className="checkbox_sign-up-conditions"
               >
-                Я соглашаюсь с <Link className="link" to="/">условиями пользования</Link> и&nbsp;на&nbsp;обработку персональных данных
+                Я соглашаюсь с&nbsp;<a className="link" target="_blank" href="/media/oferta.pdf">условиями пользования</a> и&nbsp;на&nbsp;обработку персональных данных
               </Checkbox>
             </div>
             <Button
@@ -113,9 +111,6 @@ class SignUpDeliveryAddress extends Component {
               Отправить заявку
             </Button>
           </form>
-          <div className={cs('sign-up__note', { 'sign-up__note_show': isFilled() })}>
-            Я&nbsp;соглашаюсь с&nbsp;условиями пользования сайтом и&nbsp;с&nbsp;правилами обработки персональных данных
-          </div>
         </div>
       </Transitions>
     );
