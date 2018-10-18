@@ -39,7 +39,7 @@ class Pay extends Component {
     }
 
     history.push({
-      pathname: `${Pages.RESULT}/success`,
+      pathname: `${Pages.ALFA}`,
       state: {
         title: 'Оплата прошла успешно',
         text: `На ваш счет зачислено ${formatCost(sum)}`,

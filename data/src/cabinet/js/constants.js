@@ -61,6 +61,7 @@ export const Pages = {
   INVITE: '/cabinet/invite',
   INTERNET: '/internet',
   CONFIRM: '/confirm',
+  ALFA: '/alfa',
   NOT_FOUND: '/not-found',
   HOME: '/',
   TARIFF: '/tariff',

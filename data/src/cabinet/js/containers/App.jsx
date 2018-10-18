@@ -27,6 +27,7 @@ import Result from './Result';
 import Roaming from './Roaming';
 import Invite from './Invite';
 import Confirm from './Confirm';
+import Alfa from './Alfa';
 import NotFound from './NotFound';
 import { Pages } from '../constants';
 import getInterCallsAction from '../actions/InterCalls';
@@ -110,6 +111,7 @@ class App extends Component {
           <Route path={Pages.ROAMING} component={Roaming} exact />
           <Route path={Pages.INVITE} component={Invite} />
           <Route path={Pages.CONFIRM} component={Confirm} />
+          <Route path={Pages.ALFA} component={Alfa} />
           <Route component={NotFound} />
         </Switch>
       </div>
