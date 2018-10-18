@@ -34,7 +34,7 @@ class Services extends Component {
       desc: 'Ваш номер нельзя будет определить при звонке.',
       price: 'Бесплатно',
     }],
-    currentTariff: tariff[(localStorage.getItem('tariff') || 0) * 1].id,
+    currentTariff: (localStorage.getItem('tariff') || 0) * 1 || 37,
   };
 
   toggleService = (id, value) => {

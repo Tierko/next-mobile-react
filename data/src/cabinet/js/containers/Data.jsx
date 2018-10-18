@@ -39,13 +39,13 @@ class Calls extends Component {
                 </div>
                 <h2>Тариф</h2>
                 <div>
-                  <Button className="button_data" onClick={() => setData('tariff', 0)} disabled={getData('tariff').id === 1}>
+                  <Button className="button_data" onClick={() => setData('tariff', 37)} disabled={getData('tariff').id === 37}>
                     Супервип
                   </Button>
-                  <Button className="button_data" onClick={() => setData('tariff', 1)} disabled={getData('tariff').id === 2}>
+                  <Button className="button_data" onClick={() => setData('tariff', 38)} disabled={getData('tariff').id === 38}>
                     Премиум
                   </Button>
-                  <Button className="button_data" onClick={() => setData('tariff', 2)} disabled={getData('tariff').id === 3}>
+                  <Button className="button_data" onClick={() => setData('tariff', 39)} disabled={getData('tariff').id === 39}>
                     Лайт
                   </Button>
                 </div>
