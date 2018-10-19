@@ -74,6 +74,10 @@ export const getData = (type) => {
     return localStorage[type] * 1;
   }
 
+  if (type === 'tariff' && localStorage[type]) {
+    return data[type].find(d => d.id === localStorage[type] * 1);
+  }
+
   return data[type][localStorage[type] || 0] || {};
 };
 

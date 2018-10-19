@@ -6,13 +6,12 @@ import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import TariffServices from '../components/TariffServices';
-import TariffTable from '../../../common/js/components/TariffTable';
+import Tariffs from '../../../common/js/components/Tariffs';
 import InterCalls from '../../../common/js/components/InterCalls';
 import Transitions from '../components/Transitions';
 import Button from '../../../common/js/components/Button';
 import Note from '../components/Note';
 import { Pages, TITLES } from '../constants';
-import tariff from '../../data/tariff';
 import { dataBuffer } from '../utils';
 
 const mergeDate = dataBuffer();
@@ -62,7 +61,8 @@ class Services extends Component {
       pathname: Pages.PAY,
       state: {},
     });
-    localStorage.setItem('tariff', id - 1);
+
+    localStorage.setItem('tariff', id);
   };
 
   onSave = () => {
@@ -107,7 +107,7 @@ class Services extends Component {
             <div className="dashboard__content">
               <div className="dashboard__header">Тарифы</div>
               <div className="dashboard__text">При смене тарифа первый месяц использования оплачивается сразу</div>
-              <TariffTable className="tariff-table_services" current={currentTariff} onChange={changeTariff} />
+              <Tariffs current={currentTariff} onChange={changeTariff} />
               <InterCalls data={data} />
               <TariffServices services={services} onChange={toggleService} />
               <Button className="button_services" onClick={onSave} disabled={!unsaved}>

@@ -1,0 +1,114 @@
+.tariffs {
+  margin: 0 -15px 46px;
+  overflow: hidden;
+
+  &__inner {
+    padding: 5px 15px 20px;
+    width: 100%;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: -20px;
+    max-width: calc(66.66vw - 30px);
+
+    @media (max-width: @BREAK-POINT) {
+      max-width: calc(100vw);
+    }
+  }
+
+  &__wrapper {
+    min-width: 578px;
+
+    @media (max-width: @BREAK-POINT) {
+      min-width: 593px;
+      padding-right: 15px;
+    }
+  }
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__item {
+    border: 1px solid @GRAY;
+    border-radius: 2px;
+    padding: 16px 5px 5px;
+    flex-basis: 186px;
+
+    &:hover {
+      border: 1px solid #277afe;
+      border-image: linear-gradient(to right, #277afe, #58d1fe) 1 round;
+
+      @media (max-width: @BREAK-POINT) {
+        border-color: @GRAY;
+        border-image: none;
+      }
+    }
+  }
+
+  &__item-inner {
+    padding: 0 15px;
+  }
+
+  &__name {
+    font-size: 26px;
+    line-height: 31px;
+    color: rgba(0, 0, 0, 0.76);
+  }
+
+  &__current {
+    font-size: 11px;
+    line-height: 21px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    min-height: 21px;
+  }
+
+  &__traffic {
+    font-size: 50px;
+    line-height: 59px;
+    margin-bottom: 4px;
+    font-weight: 100;
+  }
+
+  &__over {
+    margin: 13px 0 11px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s;
+
+    &:before {
+      content: '';
+      display: block;
+      height: 12px;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      height: 11px;
+    }
+
+    &_show {
+      max-height: 125px;
+    }
+  }
+
+  &__over-title {
+    line-height: 20px;
+    color: @GRAY-DARK;
+    margin-bottom: 5px;
+  }
+
+  &__pay {
+    margin: 0 0 25px; //22
+  }
+
+  &__toggle {
+    .link-dashed;
+    margin-top: 30px;
+    cursor: pointer;
+    display: inline-block;
+  }
+}
