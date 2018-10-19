@@ -69,22 +69,43 @@ class TariffTable extends Component {
     });
   };
 
+  filter = (current, all) => {
+    const min = all.reduce((acc, item) => {
+      if (acc === -1) {
+        return item.payment;
+      }
+
+      if (item.payment < acc) {
+        return item.payment;
+      }
+
+      return acc;
+    }, -1);
+    const filtered = all.filter(t => t.id !== current.id);
+
+    filtered.sort();
+
+    if (current.payment === min) {
+      filtered.reverse();
+    }
+
+    return [current, ...filtered];
+  };
+
   render() {
-    const { toggleMode } = this;
+    const { toggleMode, filter } = this;
     const {
       current,
       onChange,
       home,
       tariff,
-      signUp,
       className,
       data,
     } = this.props;
     const isDetail = this.state.mode === 'detail';
     const tariffs = data || localTariffs;
     const currentTariff = tariffs.find(d => d.id === current);
-    const dataFiltered = currentTariff && !signUp ?
-      [currentTariff, ...tariffs.filter(d => d.id !== current)] : tariffs;
+    const dataFiltered = currentTariff ? filter(currentTariff, tariffs) : tariffs;
 
     return (
       <div className={`tariffs ${className}`}>
@@ -92,13 +113,14 @@ class TariffTable extends Component {
           <div className="tariffs__wrapper">
             <div className="tariffs__items">
               {
-                dataFiltered.map(t => (
+                dataFiltered.map((t, i) => (
                   <TariffsItem
                     key={t.id}
                     onClick={onChange}
                     isDetail={isDetail}
                     data={t}
                     current={currentTariff}
+                    index={i}
                   />
                 ))
               }
@@ -123,7 +145,6 @@ TariffTable.propTypes = {
   onChange: PropTypes.func,
   home: PropTypes.bool,
   tariff: PropTypes.bool,
-  signUp: PropTypes.bool,
   mode: PropTypes.string,
   className: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.shape()),
@@ -134,7 +155,6 @@ TariffTable.defaultProps = {
   onChange: null,
   home: false,
   tariff: false,
-  signUp: false,
   mode: 'short',
   className: '',
   data: null,
