@@ -40,8 +40,19 @@
     user-select: none;
     cursor: pointer;
 
+    &:hover {
+
+      border: 1px solid #277afe;
+      border-image: linear-gradient(to right, #277afe, #58d1fe) 1 round;
+    }
+
     &_current {
       cursor: default;
+
+      &:hover {
+        border-color: @GRAY;
+        border-image: none;
+      }
     }
 
     &_focus {
