@@ -4,16 +4,6 @@ import cs from 'classnames';
 import Button from './Button';
 
 class TariffsItem extends Component {
-  state = {
-    selected: false,
-  };
-
-  onSelect = (selected) => {
-    this.setState({
-      selected,
-    });
-  };
-
   render() {
     const {
       onClick,
@@ -21,14 +11,14 @@ class TariffsItem extends Component {
       data,
       current,
       index,
+      selected,
+      onSelect,
     } = this.props;
-    const { onSelect } = this;
-    const { selected } = this.state;
-    const inFocus = index === 1 || selected === data.id;
+    const inFocus = selected === index;
 
     return (
       <div
-        onClick={() => onSelect(data.id)}
+        onClick={() => index !== 0 && onSelect(index)}
         className={cs('tariffs__item', {
           tariffs__item_current: current.id === data.id,
           tariffs__item_focus: inFocus && current.id !== data.id,
@@ -54,7 +44,7 @@ class TariffsItem extends Component {
           <div className="tariffs__pay">{data.payment} ₽ / месяц</div>
         </div>
         {
-          current.id !== data.id && inFocus &&
+          current.id !== data.id && selected === index &&
           <Button className="button_tariffs" primary onClick={() => onClick(data.id)}>Перейти</Button>
         }
       </div>
@@ -68,6 +58,8 @@ TariffsItem.propTypes = {
   data: PropTypes.shape().isRequired,
   current: PropTypes.shape(),
   index: PropTypes.number.isRequired,
+  selected: PropTypes.number.isRequired,
+  onSelect: PropTypes.func.isRequired,
 };
 
 TariffsItem.defaultProps = {

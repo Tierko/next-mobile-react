@@ -54,11 +54,14 @@ class TariffTable extends Component {
     super(props);
     this.state = {
       mode: props.mode,
+      selected: 1,
     };
   }
 
-  state = {
-    mode: 'short',
+  onSelect = (selected) => {
+    this.setState({
+      selected,
+    });
   };
 
   toggleMode = () => {
@@ -93,7 +96,7 @@ class TariffTable extends Component {
   };
 
   render() {
-    const { toggleMode, filter } = this;
+    const { toggleMode, filter, onSelect } = this;
     const {
       current,
       onChange,
@@ -102,7 +105,8 @@ class TariffTable extends Component {
       className,
       data,
     } = this.props;
-    const isDetail = this.state.mode === 'detail';
+    const { mode, selected } = this.state;
+    const isDetail = mode === 'detail';
     const tariffs = data || localTariffs;
     const currentTariff = tariffs.find(d => d.id === current);
     const dataFiltered = currentTariff ? filter(currentTariff, tariffs) : tariffs;
@@ -121,6 +125,8 @@ class TariffTable extends Component {
                     data={t}
                     current={currentTariff}
                     index={i}
+                    selected={selected}
+                    onSelect={onSelect}
                   />
                 ))
               }
