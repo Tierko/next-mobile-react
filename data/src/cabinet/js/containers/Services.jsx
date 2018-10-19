@@ -50,19 +50,21 @@ class Services extends Component {
     }
   };
 
-  changeTariff = (id) => {
+  changeTariff = (tariff) => {
     const { history } = this.props;
 
     this.setState({
-      currentTariff: id,
+      currentTariff: tariff.id,
     });
 
     history.push({
       pathname: Pages.PAY,
-      state: {},
+      state: {
+        tariff,
+      },
     });
 
-    localStorage.setItem('tariff', id);
+    localStorage.setItem('tariff', tariff.id);
   };
 
   onSave = () => {

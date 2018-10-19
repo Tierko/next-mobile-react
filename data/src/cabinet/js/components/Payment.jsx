@@ -76,6 +76,7 @@ class Payment extends Component {
       isEditable,
       onPay,
       onEdit,
+      showNote,
     } = this.props;
     const inLimits = payment >= 100 && payment <= 15000;
 
@@ -102,6 +103,10 @@ class Payment extends Component {
             <div className="payment__message">Для оплаты по&nbsp;тарифу Супервип на&nbsp;счету не&nbsp;хватает <span className="nobr">{formatCost(paymentInit, true)}</span></div>
           </Fragment>
         }
+        {
+          showNote &&
+            <div className="payment__note">Тарифф будет подключен после абонентской платы за первый месяц</div>
+        }
         <Button
           className="button_pay"
           onClick={() => onPay(card)}
@@ -121,11 +126,13 @@ Payment.propTypes = {
   onPay: PropTypes.func.isRequired,
   onSumChange: PropTypes.func,
   onEdit: PropTypes.func.isRequired,
+  showNote: PropTypes.bool,
 };
 
 Payment.defaultProps = {
   sum: 0,
   onSumChange: null,
+  showNote: false,
 };
 
 export default Payment;

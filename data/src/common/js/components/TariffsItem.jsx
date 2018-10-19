@@ -45,7 +45,7 @@ class TariffsItem extends Component {
         </div>
         {
           current.id !== data.id && selected === index &&
-          <Button className="button_tariffs" primary onClick={() => onClick(data.id)}>Перейти</Button>
+          <Button className="button_tariffs" primary onClick={() => onClick(data)}>Перейти</Button>
         }
       </div>
     );

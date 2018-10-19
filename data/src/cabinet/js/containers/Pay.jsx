@@ -108,6 +108,7 @@ class Pay extends Component {
       title: TITLES.PAY,
     };
     const currentCard = cards.items.find(c => c.token === editCardId);
+    const { state } = history.location;
 
     return (
       <DocumentMeta {...meta}>
@@ -119,22 +120,23 @@ class Pay extends Component {
             <div className="dashboard__content dashboard__content_pay pay">
               <div className={cs('pay__inner', { pay__inner_fade: !!editCardId })}>
                 {
-                  history.location.state &&
+                  state &&
                   <BreadCrumbs items={[{ title: 'Тарифы', link: Pages.SERVICES }]} />
                 }
                 <div className="dashboard__header">
                   {
-                    history.location.state ?
-                      'Оплата' :
+                    state && state.tariff ?
+                      `Оплата за тариф ${state.tariff.title}` :
                       'Пополнение'
                   }
                 </div>
                 <Payment
-                  isEditable={!this.props.location.state}
+                  isEditable={!state}
                   onPay={onPay}
                   sum={sum}
                   onSumChange={onSumChange}
                   onEdit={onEdit}
+                  showNote={state && state.tariff}
                 />
                 {
                   autoPayEnabled &&
