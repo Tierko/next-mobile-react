@@ -63,6 +63,7 @@ export const Pages = {
   CONFIRM: '/confirm',
   ALFA: '/alfa',
   NOT_FOUND: '/not-found',
+  FAQ: '/faq',
   HOME: '/',
   TARIFF: '/tariff',
   HOME_R1: '/home_r1',
