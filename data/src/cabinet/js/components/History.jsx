@@ -28,7 +28,7 @@ class History extends Component {
     const cost = selectedItem ? selectedItem.expense.reduce((acc, d) => (acc + d.cost), 0) : 0;
 
     return (
-      <div className="block">
+      <div className="block block_round">
         {
           selectedItem &&
           <Fragment>

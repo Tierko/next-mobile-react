@@ -17,7 +17,7 @@ const Balance = ({
   const fBalance = formatCost(Math.abs(balance).toFixed(2), true);
 
   return (
-    <div className={`block ${className}`}>
+    <div className={`block block_round ${className}`}>
       <div className="block__header">
         Баланс
       </div>

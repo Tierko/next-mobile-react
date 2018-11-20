@@ -10,7 +10,7 @@ const Remain = ({
   data,
   buy,
 }) => (
-  <div className="block">
+  <div className="block block_round">
     <div className="block__header">
       Остаток до 16 ноября
     </div>

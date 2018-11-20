@@ -26,7 +26,7 @@ class OverviewInvite extends Component {
     }
 
     return (
-      <div className="block overview-invite">
+      <div className="block block_round overview-invite">
         <Link className="overview-invite__header" to={Pages.INVITE}>
           Подарок близким
         </Link>

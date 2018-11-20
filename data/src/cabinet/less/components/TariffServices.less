@@ -1,17 +1,21 @@
 .tariff-services {
-  max-width: 600px;
-
   &__header {
     .h1;
-    padding: 20px 0;
-    border-bottom: 1px solid @GRAY-LIGHT;
   }
 }
 
 .tariff-service {
-  color: @GRAY-DARK;
+  color: #798199;
   border-bottom: 1px solid @GRAY-LIGHT;
-  padding: 20px 0 29px;
+  padding: 22px 0 29px;
+
+  &_first {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
 
   &__control {
     display: flex;
@@ -21,9 +25,7 @@
 
   &__name {
     .h2;
-    color: rgba(0, 0, 0, 0.76);
     margin-bottom: 10px;
-    transition: color 0.3s linear;
   }
 
   &__desc {

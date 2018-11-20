@@ -1,12 +1,8 @@
 .progress-linear {
   position: relative;
-  height: 2px;
+  height: 3px;
   padding: 1px 0;
   background-color: @GRAY-LIGHT;
-
-  &_tall {
-    height: 4px;
-  }
 
   &_dashed {
     background: transparent linear-gradient(to right, @GRAY-LIGHT 0%, @GRAY-LIGHT 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
@@ -48,16 +44,10 @@
 
   &__line {
     position: absolute;
-    top: -1px;
-    bottom: -1px;
+    top: 0;
+    bottom: 0;
     left: 0;
     transition: width 0.5s ease-out;
-
-    &_tall {
-      top: 0;
-      bottom: 0;
-      border-radius: 2px;
-    }
   }
 
   &__empty {

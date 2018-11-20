@@ -1,15 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cs from 'classnames';
 import CheckboxSlide from './CheckboxSlide';
 
 const TariffServices = ({ services, onChange }) => (
-  <div className="tariff-services">
+  <div className="block tariff-services">
     <div className="tariff-services__header">
       Услуги
     </div>
     {
-      services.map(s => (
-        <div key={s.id} className="tariff-service">
+      services.map((s, i) => (
+        <div
+          key={s.id}
+          className={cs('tariff-service', {
+            'tariff-service_first': i === 0,
+          })}
+        >
           <div className="tariff-service__control">
             <div className="tariff-service__name">
               {s.name}

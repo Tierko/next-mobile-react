@@ -107,10 +107,11 @@ class Services extends Component {
           <Aside />
           <Transitions>
             <div className="dashboard__content">
-              <div className="dashboard__header">Тарифы</div>
-              <div className="dashboard__text">При смене тарифа первый месяц использования оплачивается сразу</div>
-              <Tariffs current={currentTariff} onChange={changeTariff} />
-              <InterCalls data={data} />
+              <div className="block">
+                <div className="dashboard__header">Тарифы</div>
+                <Tariffs current={currentTariff} onChange={changeTariff} />
+                <InterCalls data={data} />
+              </div>
               <TariffServices services={services} onChange={toggleService} />
               <Button className="button_services" onClick={onSave} disabled={!unsaved}>
                 Сохранить

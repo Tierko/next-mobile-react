@@ -1,10 +1,14 @@
 .package {
   padding: 25px 0;
-  max-width: 450px;
+  max-width: 484px;
   width: 100%;
 
   &__title {
-    margin-bottom: 2px;
+    margin-bottom: 5px;
+
+    span {
+      color: #6c7284;
+    }
   }
 
   &__desc {
@@ -13,8 +17,7 @@
   }
 
   &__table {
-    width: 100%;
-    margin-top: 10px;
+    margin: 10px -24px 0;
   }
 
   &__row {
@@ -31,7 +34,7 @@
     }
 
     &:hover {
-      background-color: @WHITE;
+      background-color: rgba(149, 155, 173, 0.1);
     }
 
     &_simple:hover {
@@ -47,23 +50,11 @@
 
     &_count {
       flex-basis: 30%;
-    }
-
-    &_count-fast span {
-      display: inline-block;
-
-      &:after {
-        content: '';
-        display: inline-block;
-        width: 13px;
-        height: 13px;
-        background: url("/media/icons/fast-purple.svg") no-repeat 100% 100%;
-      }
+      padding-left: 24px;
     }
 
     &_period {
       text-align: center;
-      color: @GRAY-DARK;
       flex-basis: 20%;
     }
 
@@ -75,6 +66,7 @@
     &_action {
       flex-basis: 30%;
       text-align: right;
+      padding-right: 24px;
     }
 
     @media screen and (max-width: 500px) {
@@ -94,6 +86,20 @@
         text-align: left;
         width: 100%;
       }
+    }
+  }
+
+  &__link {
+    color: @ORANGE;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(to right, rgba(255, 85, 0, 0.1), rgba(255, 85, 0, 0.1));
+    background-position: 50% calc(50% + 0.5em);
+    background-size: 100% 1px;
+
+    &:hover {
+      background-image: none;
+      color: inherit;
     }
   }
 }

@@ -44,7 +44,7 @@ const Package = ({
             <div className="package__cell package__cell_price">{formatCost(i.price)}</div>
             <div className="package__cell package__cell_action">
               <Link
-                className="link"
+                className="package__link"
                 to={{ pathname: Pages.CONFIRM, state: { sum: i.price, pack: `${i.count} ${data.unit} ${data.title_}` } }}
               >
                 Купить

@@ -6,7 +6,7 @@ import { convertStrings, formatCost } from '../utils';
 
 const RoamingDashboard = ({ data: { zones, currentZoneId } }) => {
   return (
-    <div className="block">
+    <div className="block block_round">
       <div className="block__header">
         Подключенный <Link className="link" to={Pages.ROAMING}>роуминг</Link>
       </div>
@@ -75,7 +75,7 @@ const RoamingDashboard = ({ data: { zones, currentZoneId } }) => {
                     </td>
                   </tr>
                 </Fragment> :
-                <Fragment>
+                <Fragment key={i.id}>
                   <tr key={`${i.id}-r`} className="roaming-dashboard__tr">
                     <td className="roaming-dashboard__item-name">
                       <Link to={`${Pages.ROAMING}/${i.id}`} className="link">{i.name}</Link>

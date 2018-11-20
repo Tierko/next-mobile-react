@@ -8,7 +8,17 @@
   z-index: 1;
 
   &__link {
-    //.link-light;
+    text-decoration: none;
+    color: #6c7284;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    background-position: 50% calc(50% + 0.5em);
+    background-size: 100% 1px;
+
+    &:hover {
+      color: @ORANGE;
+      background-image: none;
+    }
   }
 
   &__arrow {
