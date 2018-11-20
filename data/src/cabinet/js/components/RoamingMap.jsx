@@ -4,7 +4,6 @@ import { Map, GeoJSON } from 'react-leaflet';
 import cs from 'classnames';
 import ComboBox from './ComboBox';
 import Loader from './Loader';
-import { HOME } from '../constants';
 import { mapNumbers } from '../utils';
 
 class RoamingMap extends Component {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import Input from '../components/Input';
 import FaqItem from '../components/FaqItem';
 
@@ -10,6 +11,7 @@ class Faq extends Component {
     data: [{
       title: 'Баланс и оплата',
       items: [{
+        id: 1,
         title: 'Как узнать баланс',
         text: 'Выберите один из способов:\n'+
         '1. В мобильном приложении\n'+
@@ -35,7 +37,8 @@ class Faq extends Component {
       return {
         title: s.title,
         items: s.items.slice().filter(i => (
-          i.title.indexOf(search) !== -1 || i.text.indexOf(search) !== -1
+          i.title.toUpperCase().indexOf(search.toUpperCase()) !== -1 ||
+          i.text.toUpperCase().indexOf(search.toUpperCase()) !== -1
         )),
       };
     });
@@ -54,16 +57,25 @@ class Faq extends Component {
           {
             filteredData.map(section => (
               !!section.items.length &&
-              <div className="faq__section">
-                <div className="faq__subheader">{section.title}</div>
-                <div className="faq__questions">
-                  {
-                    section.items.map(i => (
-                      <FaqItem title={i.title} text={i.text} search={search} />
-                    ))
-                  }
-                </div>
-              </div>
+                <Element name={`q${section.id}`}>
+                  <div className="faq__section">
+                    <div className="faq__subheader">{section.title}</div>
+                    <div className="faq__questions">
+                      {
+                        section.items.map(i => (
+                          <FaqItem title={i.title} text={i.text} search={search} />
+                        ))
+                      }
+                    </div>
+                  </div>
+                </Element>
+            ))
+          }
+        </div>
+        <div className="faq__aside">
+          {
+            data.map(i => (
+              <Link to={`q${i.id}`}>{i.title}</Link>
             ))
           }
         </div>

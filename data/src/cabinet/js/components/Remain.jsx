@@ -9,17 +9,10 @@ import { Pages } from '../constants';
 const Remain = ({
   data,
   buy,
-  tariff,
-  inRoaming,
 }) => (
-  <div className={cs('remain', { 'remain_in-roaming': inRoaming })}>
-    <div className="remain__title-roaming">
-      {
-        inRoaming ? 'Домашний тариф' : 'Остаток'
-      }
-    </div>
-    <div className="remain__title">
-      По&nbsp;тарифу <Link className="link" to={Pages.SERVICES}>«{tariff.title}»</Link> до&nbsp;16&nbsp;июня
+  <div className="block">
+    <div className="block__header">
+      Остаток до 16 ноября
     </div>
     {
       data.map(i => (
@@ -28,7 +21,7 @@ const Remain = ({
             {
               i.max > 0 &&
               <div>
-                <span>{(i.current + '').replace('.', ',')}</span> из {i.max} {i.unit}
+                <span>{i.current.toString().replace('.', ',')}</span> из {i.max} {i.unit}
               </div>
             }
             {
@@ -55,15 +48,13 @@ const Remain = ({
         </div>
       ))
     }
-    <Button className="button_remain" onClick={buy}>Докупить…</Button>
+    <Button className="button_remain" onClick={buy} primary>Докупить…</Button>
   </div>
 );
 
 Remain.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  tariff: PropTypes.PropTypes.shape().isRequired,
   buy: PropTypes.func.isRequired,
-  inRoaming: PropTypes.bool.isRequired,
 };
 
 export default Remain;

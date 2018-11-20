@@ -107,7 +107,7 @@ class Settings extends Component {
         <div className="dashboard">
           <Aside />
           <Transitions>
-            <div className="dashboard__content">
+            <div className="dashboard__content dashboard__content_white">
               <div className="settings">
                 <div className="dashboard__header">Настройки</div>
                 <Input className="input_settings-email" name="email" value={email} onChange={onChange} placeholder="Почта" />

@@ -7,7 +7,6 @@ const CheckboxSlide = ({
   name,
   onChange,
   className,
-  color,
 }) => (
   <div className={cs(`checkbox-slide ${className}`, { 'checkbox-slide_checked': value })}>
     <input
@@ -19,7 +18,6 @@ const CheckboxSlide = ({
     />
     <div
       className={cs('checkbox-slide__point', {
-        [`checkbox-slide__point_checked-${color}`]: value,
         'checkbox-slide__point_checked': value,
       })}
     />
@@ -30,13 +28,11 @@ CheckboxSlide.propTypes = {
   value: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  color: PropTypes.string,
   className: PropTypes.string,
 };
 
 CheckboxSlide.defaultProps = {
   className: '',
-  color: 'green',
 };
 
 export default CheckboxSlide;

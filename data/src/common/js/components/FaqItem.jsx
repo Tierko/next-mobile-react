@@ -24,19 +24,32 @@ class FaqItem extends Component {
     });
   };
 
+  markMatches = (title, search) => {
+    const index = title.toUpperCase().indexOf(search.toUpperCase());
 
+    if (!search || index === -1) {
+      return title;
+    }
+
+    if (index !== title.indexOf(search)) {
+      search = title.substr(index, search.length);
+    }
+
+    return title.replace(search, `<b>${search}</b>`);
+  };
 
   render() {
     const { title, text, search } = this.props;
     const { open, height } = this.state;
-    const { toggle } = this;
+    const { toggle, markMatches } = this;
+    const matchedTitle = markMatches(title, search);
 
     return (
       <div
         className={cs('faq__question', { faq__question_expand: open })}
         onClick={toggle}
       >
-        <div className="faq__question-title" dangerouslySetInnerHTML={{ __html: title }} />
+        <div className="faq__question-title" dangerouslySetInnerHTML={{ __html: matchedTitle }} />
         <div
           className={cs('faq__question-text', { 'faq__question-text_expand': open })}
           style={{ maxHeight: `${height}px` }}

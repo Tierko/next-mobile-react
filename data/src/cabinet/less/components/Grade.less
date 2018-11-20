@@ -1,15 +1,11 @@
 .grade {
   overflow-x: auto;
-  margin: 0 -10px;
-
-  &_expense {
-    margin: 0 -10px 0 -38px;
-  }
 
   &__items {
     height: 120px;
     display: flex;
     align-items: end;
+    padding-top: 10px;
   }
 
   &__item {
@@ -21,29 +17,33 @@
     flex-direction: column;
 
     &_wide {
-      min-width: 53px;
+      min-width: 56px;
+    }
+
+    &:first-child {
+      padding-left: 0;
+      min-width: 46px;
     }
   }
 
   &__line {
-    border-right: 3px solid @GRAY-LIGHT;
+    border-left: 3px solid @GRAY-LIGHT;
     cursor: pointer;
     margin-top: auto;
-    transition: border-right-color 0.3s;
+    transition: border-left-color 0.3s;
 
     &_selected {
-      border-right-color: @BLACK;
+      border-left-color: @BLUE;
     }
   }
 
   &__month {
     .small;
-    text-align: right;
     color: @GRAY;
-    transition: opacity 0.3s;
+    transition: color 0.3s;
 
     &_selected {
-      opacity: 0;
+      color: @BLUE;
     }
   }
 }

@@ -76,7 +76,7 @@ class Aside extends Component {
     return (
       <div className="aside">
         <div className="aside__logo">
-          <img src="/media/images/logo-aside.png" alt="Next Mobile" />
+          <img src="/media/images/logo-aside.svg" alt="Next Mobile" />
           {
             !hideLink && <Link className="aside__home" to={Pages.OVERVIEW} />
           }

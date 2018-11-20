@@ -11,7 +11,7 @@ const OverviewAutoPay = ({ autoPay }) => {
   }
 
   return (
-    <div className="overview-auto-pay">
+    <div className="block overview-auto-pay">
       <div className="overview-auto-pay__title">
         Подключен <Link className="link" to={Pages.AUTO_PAY}>автоплатеж</Link>
       </div>

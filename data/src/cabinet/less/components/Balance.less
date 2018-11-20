@@ -1,100 +1,25 @@
 .balance {
   order: 20;
   width: 100%;
-  margin-bottom: 60px;
-
-  &__header {
-    .h1;
-    margin-bottom: 9px;
-    color: rgba(0, 0, 0, 0.25);
-  }
-
-  &__inner {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-  &__left {
-    &_negative {
-      margin-left: -25px;
-    }
-  }
 
   &__sum {
-    .big;
-    margin-bottom: 11px;
+    .h1;
+    position: relative;
 
-    &_warn {
-      .gradient-orange;
+    span {
+      position: absolute;
+      left: -30px;
     }
-
-    &_error {
-      .gradient-red
-    }
-  }
-
-  &__coins {
-    font-size: 18px;
-    font-weight: 300;
   }
 
   &__message {
-    color: @GRAY-DARK;
-  }
-
-  &__message-item {
-    &_warn {
-      .gradient-orange;
-    }
-
-    &_error {
-      .gradient-red
-    }
-  }
-
-  &__left_negative &__message {
-    padding-left: 25px;
-  }
-
-  &__center {
-    width: 34px;
-    height: 34px;
-    background: url("/media/icons/balance-arrow.svg") no-repeat 50% 50%;
-    margin-top: 6px;
-  }
-
-  &__right {
-    max-width: 392px;
+    color: @GRAY;
+    margin-bottom: 26px;
   }
 
   &__pay {
+    margin-top: 26px;
     display: flex;
     align-items: flex-start;
-  }
-
-  &__auto-pay {
-    margin-top: 6px;
-    color: @GRAY-DARK;
-  }
-
-  @media (max-width: @MAX-WIDTH) {
-    &__inner {
-      display: block;
-    }
-
-    &__left_negative {
-      margin-left: 0;
-    }
-
-    &__left_negative &__message {
-      padding-left: 0;
-    }
-
-    &__center {
-      transform-origin: 50% 50%;
-      transform: rotate(90deg);
-      margin: 25px 0;
-    }
   }
 }

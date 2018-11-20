@@ -21,25 +21,23 @@ class OverviewInvite extends Component {
     const { mode } = this.state;
     const { setCopyMode } = this;
 
-    if (!message || !code) {
+    if (!code) {
       return false;
     }
 
     return (
-      <div className="overview-invite">
+      <div className="block overview-invite">
         <Link className="overview-invite__header" to={Pages.INVITE}>
-          <span>
-            <span>{message}</span>
-          </span>
+          Подарок близким
         </Link>
-        <div className="overview-invite__subtitle">
-          По&nbsp;{
+        <div>
+          { message ? `${message} по` : 'По'}&nbsp;{
             mode === 'link' ?
-              <Button className="button_code-mode" borderless onClick={() => setCopyMode('')}>промо-коду</Button> :
+              <Button className="button_code-mode" onClick={() => setCopyMode('')}>промо-коду</Button> :
               'промо-коду'
           } или {
             mode !== 'link' ?
-              <Button className="button_code-mode" borderless onClick={() => setCopyMode('link')}>ссылке</Button> :
+              <Button className="button_code-mode" onClick={() => setCopyMode('link')}>ссылке</Button> :
               'ссылке'
           }
         </div>

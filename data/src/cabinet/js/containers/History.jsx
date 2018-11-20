@@ -23,9 +23,7 @@ const History = ({ history }) => {
         <Aside />
         <Transitions>
           <div className="dashboard__content">
-            <div className="dashboard__header">Расходы</div>
             <Expense history={history} data={getData('history')} />
-            <div className="dashboard__header">История операций</div>
             <Operations data={getData('operations')} />
           </div>
         </Transitions>

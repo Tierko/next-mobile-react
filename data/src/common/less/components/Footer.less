@@ -1,24 +1,21 @@
 .footer {
   display: flex;
-  color: rgba(0, 0, 0, 0.3);
-  padding-top: 100px;
+  padding:  100px 0 14px;
+  max-width: 638px;
   width: 100%;
-  order: 50;
-  margin-top: auto;
+  margin: auto auto 0;
+  letter-spacing: -0.28px;
+  justify-content: space-between;
+  color: @GRAY-DARK;
+  font-size: 14px;
+  line-height: @LINE-HEIGHT-SMALL;
 
   &_light {
     color: rgba(255, 255, 255, 0.3);
   }
 
-  @media (max-width: @BREAK-POINT) {
-    display: block;
-    width: 100%;
-    max-width: 450px;
-    margin: auto;
-  }
-
   &__copy {
-    margin-right: 43px;
+    margin-bottom: 10px;
   }
 
   &__dev {
@@ -37,7 +34,6 @@
   }
 
   &__dev-text {
-    .small;
     margin-left: 10px;
     max-width: calc(100% - 110px);
 
@@ -48,7 +44,8 @@
   }
 
   &__dev-link:hover + &__dev-text &__link_stud {
-    background-image: linear-gradient(to right, @BLACK, @BLACK);
+    background-image: none;
+    color: @ORANGE;
   }
 
   &_light &__dev-link:hover + &__dev-text &__link_stud {
@@ -58,7 +55,6 @@
 
   &__link {
     .link;
-    color: inherit;
   }
 
   &_light &__link {
@@ -71,5 +67,15 @@
       background-size: 100% 1px;
       color: @WHITE;
     }
+  }
+
+  &__chats {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__chat {
+    margin-left: 14px;
   }
 }

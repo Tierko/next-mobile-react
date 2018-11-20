@@ -4,13 +4,11 @@ import { Link } from 'react-router-dom';
 import { Pages, DAYS } from '../constants';
 import { convertStrings, formatCost } from '../utils';
 
-const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
+const RoamingDashboard = ({ data: { zones, currentZoneId } }) => {
   return (
-    <div className={`roaming-dashboard ${className} ${currentZoneId ? 'roaming-dashboard_roaming' : ''}`}>
-      <div className="roaming-dashboard__title">
-        <Link className="link-overview" to={Pages.ROAMING}>
-          { currentZoneId ? 'Роуминг в других зонах' : 'Роуминг' }
-        </Link>
+    <div className="block">
+      <div className="block__header">
+        Подключенный <Link className="link" to={Pages.ROAMING}>роуминг</Link>
       </div>
       <div className="roaming-dashboard__list">
         {
@@ -52,25 +50,47 @@ const RoamingDashboard = ({ className, data: { zones, currentZoneId } }) => {
                 <Fragment key={i.id}>
                   <tr key={`${i.id}-f`} className="roaming-dashboard__tr">
                     <td rowSpan={2} className="roaming-dashboard__item-name">
-                      <Link to={`${Pages.ROAMING}/${i.id}`} className="link">{i.name}</Link>
+                      <Link to={`${Pages.ROAMING}/${i.id}`} className="link">
+                        {i.name}
+                      </Link>
                     </td>
-                    <td className="roaming-dashboard__item-desc roaming-dashboard__item-desc_fast">Пакет быстрого интернет-трафика</td>
+                    <td className="roaming-dashboard__item-desc">
+                      Пакет быстрого интернет-трафика
+                    </td>
                     <td>
                       {i.additionalPackage.current.toString().replace('.', ',')} ГБ еще {i.additionalPackage.expired} {convertStrings(i.additionalPackage.expired, DAYS)}
                     </td>
                   </tr>
                   <tr key={`${i.id}-r`}>
-                    <td className="roaming-dashboard__item-desc roaming-dashboard__item-desc_regular">Помегабайтный трафик</td>
-                    <td>{formatCost(i.tariff.internet.byMb)} / МБ</td>
+                    <td className="roaming-dashboard__item-desc">
+                      Помегабайтный трафик
+                    </td>
+                    <td>
+                      {formatCost(i.tariff.internet.byMb)} / МБ
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colSpan={3}>
+                      <div className="roaming-dashboard__divider" />
+                    </td>
                   </tr>
                 </Fragment> :
-                <tr key={`${i.id}-r`} className="roaming-dashboard__tr">
-                  <td className="roaming-dashboard__item-name">
-                    <Link to={`${Pages.ROAMING}/${i.id}`} className="link">{i.name}</Link>
-                  </td>
-                  <td className="roaming-dashboard__item-desc roaming-dashboard__item-desc_regular">Помегабайтный трафик</td>
-                  <td>{formatCost(i.tariff.internet.byMb)} / МБ</td>
-                </tr>
+                <Fragment>
+                  <tr key={`${i.id}-r`} className="roaming-dashboard__tr">
+                    <td className="roaming-dashboard__item-name">
+                      <Link to={`${Pages.ROAMING}/${i.id}`} className="link">{i.name}</Link>
+                    </td>
+                    <td className="roaming-dashboard__item-desc">
+                      Помегабайтный трафик
+                    </td>
+                    <td>{formatCost(i.tariff.internet.byMb)} / МБ</td>
+                  </tr>
+                  <tr>
+                    <td colSpan={3}>
+                      <div className="roaming-dashboard__divider" />
+                    </td>
+                  </tr>
+                </Fragment>
             ))
           }
         </tbody>

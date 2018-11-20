@@ -132,7 +132,7 @@ class Roaming extends Component {
         <MobileNav key="nav" type="dashboard" hideSpot />
         <div key="dashboard" className="dashboard">
           <Aside />
-          <div className="dashboard__content dashboard__content_roaming">
+          <div className="dashboard__content dashboard__content_white dashboard__content_roaming">
             <Transitions>
               <RoamingMap
                 zone={currentZone}

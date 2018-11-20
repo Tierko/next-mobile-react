@@ -31,7 +31,8 @@ class Expense extends Component {
     const cost = item && item.expense.reduce((acc, d) => (acc + d.cost), 0);
 
     return (
-      <div className="expense">
+      <div className="block">
+        <div className="h1">Расходы</div>
         {
           !item &&
           <div className="expense__empty">У&nbsp;вас пока нет расходов</div>

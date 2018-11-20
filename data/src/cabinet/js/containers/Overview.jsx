@@ -14,7 +14,7 @@ import History from '../components/History';
 import RoamingDashboard from '../components/RoamingDashboard';
 import OverviewInvite from '../components/OverviewInvite';
 import OverviewRoamingCurrent from '../components/OverviewRoamingCurrent';
-import Notice from '../components/Notice';
+import OverviewAutoPay from '../components/OverviewAutoPay';
 import FooterNav from '../components/FooterNav';
 
 import { Pages, TITLES } from '../constants';
@@ -120,21 +120,20 @@ class Overview extends Component {
           <Aside hideLink />
           <Transitions>
             <div className="dashboard__content">
-              <Notice className="notice_overview" />
               <Balance
                 balance={getData('balance')}
                 sum={sum}
-                message={`${formatCost(getData('tariff').payment)} через ${getData('payment').days} дней`}
+                message={`Следующее списание: ${formatCost(getData('tariff').payment)} через ${getData('payment').days} дней`}
                 status={status}
                 onPay={onPay}
                 onChange={sumChange}
               />
+              <OverviewAutoPay />
               <OverviewRoamingCurrent history={history} data={roaming} />
               <Remain
                 data={getData('remain')}
                 tariff={getData('tariff')}
                 buy={onBuy}
-                inRoaming={!!roaming.currentZoneId}
               />
               <History data={getData('history')} />
               <RoamingDashboard data={roaming} />

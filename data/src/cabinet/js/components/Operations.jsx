@@ -129,7 +129,8 @@ class Operations extends Component {
     const showMoreButton = data.length > show && filteredData.length < filter(data).length;
 
     return (
-      <div className="operations">
+      <div className="block">
+        <div className="h1">История операций</div>
         {
           !data.length &&
           <div className="operations__empty">У&nbsp;вас нет данных за&nbsp;указанный период</div>

@@ -1,22 +1,9 @@
 .roaming {
   position: relative;
 
-  @media (max-width: @MAX-WIDTH) {
-    padding: 0 15px;
-  }
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: -100px;
-    left: -83px;
-    border-left: 1px solid @GRAY-LIGHT;
-
-    @media (max-width: @MAX-WIDTH) {
-      left: calc(100vw / -12);
-    }
-  }
+  //@media (max-width: @MAX-WIDTH) {
+  //  padding: 0 15px;
+  //}
 
   &_zones {
     min-height: 665px;
@@ -28,23 +15,23 @@
     overflow: hidden;
   }
 
-  &_countries {
-    @media (min-width: 1000px) {
-      margin-right: calc((100vw - 1000px) / -2);
-    }
-  }
+  //&_countries {
+  //  @media (min-width: 1000px) {
+  //    margin-right: calc((100vw - 1000px) / -2);
+  //  }
+  //}
 
-  @media (max-width: @BREAK-POINT) {
-    padding: 0;
-
-    &:before {
-      display: none;
-    }
-
-    &_zones {
-      padding-left: 0;
-    }
-  }
+  //@media (max-width: @BREAK-POINT) {
+  //  padding: 0;
+  //
+  //  &:before {
+  //    display: none;
+  //  }
+  //
+  //  &_zones {
+  //    padding-left: 0;
+  //  }
+  //}
 
   &__title {
     .h1;
