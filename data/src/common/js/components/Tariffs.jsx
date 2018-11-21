@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TariffsItem from './TariffsItem';
+import Tabs from '../../../cabinet/js/components/Tabs';
 
 const localTariffs = [{
   id: 37,
@@ -64,11 +65,11 @@ class TariffTable extends Component {
     });
   };
 
-  toggleMode = () => {
-    const { mode } = this.state;
+  toggleMode = ({ target }) => {
+    const mode = target.getAttribute('data-tab');
 
     this.setState({
-      mode: mode === 'short' ? 'detail' : 'short',
+      mode,
     });
   };
 
@@ -95,8 +96,16 @@ class TariffTable extends Component {
     return [current, ...filtered];
   };
 
+  tabs = [{
+    title: 'Краткая информация',
+    id: 'short',
+  }, {
+    title: 'Подробная информация',
+    id: 'detail',
+  }];
+
   render() {
-    const { toggleMode, filter, onSelect } = this;
+    const { toggleMode, filter, onSelect, tabs } = this;
     const {
       current,
       onChange,
@@ -113,6 +122,10 @@ class TariffTable extends Component {
 
     return (
       <div className={`tariffs ${className}`}>
+        {
+          !home && !tariff &&
+          <Tabs className="tabs_tariffs" onChange={toggleMode} items={tabs} tab={mode} />
+        }
         <div className="tariffs__inner">
           <div className="tariffs__wrapper">
             <div className="tariffs__items">
@@ -132,14 +145,6 @@ class TariffTable extends Component {
               }
             </div>
           </div>
-          {
-            !home && !tariff &&
-            <div className="tariff-table__toggle" onClick={toggleMode}>
-              {
-                isDetail ? 'Краткая информация' : 'Подробная информация'
-              }
-            </div>
-          }
         </div>
       </div>
     );

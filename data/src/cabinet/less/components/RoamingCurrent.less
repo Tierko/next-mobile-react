@@ -2,40 +2,6 @@
   &__subtitle {
     margin-top: 40px;
     position: relative;
-
-    @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
-      max-width: 600px;
-    }
-
-    .ie10 & {
-      max-width: calc(66.66vw - 200px);
-    }
-
-    &_fast:after,
-    &_regular:after {
-      content: '';
-      position: absolute;
-      height: 1em;
-      top: 0;
-
-      @media (max-width: @BREAK-POINT) {
-        position: static;
-        display: inline-block;
-        margin-left: 0.3em;
-      }
-    }
-
-    &_fast:after {
-      left: -15px;
-      width: 9px;
-      background: url("/media/icons/fast.svg") no-repeat 50% 90%;
-    }
-
-    &_regular:after {
-      left: -20px;
-      width: 14px;
-      background: url("/media/icons/regular.svg") no-repeat 50% 90%;
-    }
   }
 
   &__regular {

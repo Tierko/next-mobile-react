@@ -84,20 +84,6 @@ h2,
   color: @GRAY;
 }
 
-.link-mixin(@color: inherit, @dash1: @GRAY-LIGHT, @dash2: @GRAY-LIGHT, @hover: @ORANGE) {
-  color: @color;
-  background: linear-gradient(to right, @dash1 50%, @dash2 50%) 0 calc(50% + 0.5em) repeat-x;
-  background-size: 6px 1px;
-  text-decoration: none;
-  transition: color 0.3s;
-  cursor: pointer;
-
-  &:hover {
-    background-image: none;
-    color: @hover;
-  }
-}
-
 .link {
   .link-mixin();
 }

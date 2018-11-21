@@ -8,7 +8,7 @@ import Date from '../components/Date';
 import Select from '../../../common/js/components/Select';
 import MultipleInput from '../components/MultipleInput';
 import InputRuble from '../components/InputRuble';
-import Tabs from '../components/Tabs';
+import TabsRoaming from '../components/TabsRoaming';
 import Button from '../../../common/js/components/Button';
 import { TITLES } from '../constants';
 
@@ -97,7 +97,7 @@ class Kit extends Component {
                 </section>
                 <section>
                   <h2>Табы</h2>
-                  <Tabs
+                  <TabsRoaming
                     tabs={[{id: 1, name: 'Зона 1'}, {id: 2, name: 'Зона 2'}, {id: 3, name: 'Зона 3'}, {id: 4, name: 'Остальной мир'}]}
                     active={this.state.tab}
                     onTabChange={v => this.onChange('tab', v)}

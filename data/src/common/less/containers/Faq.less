@@ -1,18 +1,20 @@
 .faq {
-  max-width: 55vw;
+
   &__content {
+    max-width: 456px;
   }
 
   &__aside {
     position: fixed;
     top: 0;
     right: 0;
-    bottom: 0;
-    padding: 0 45px;
+    padding: 58px 45px 45px;
     background-color: @WHITE;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+    width: 300px;
   }
 
   &__aside-item {
@@ -33,9 +35,7 @@
   }
 
   &__subheader {
-    font-size: 35px;
-    font-weight: 300;
-    line-height: 56px;
+    .h2;
     margin-bottom: 6px;
   }
 
@@ -47,7 +47,7 @@
     border-width: 1px 0;
     border-style: solid;
     border-color: rgba(149, 155, 173, 0.25);
-    padding: 12px 30px 16px 0;
+    padding: 12px 30px 0 0;
     position: relative;
 
     &:before {
@@ -75,6 +75,7 @@
     font-weight: 400;
     user-select: none;
     cursor: pointer;
+    padding-bottom: 12px;
   }
 
   &__question-text {
@@ -83,7 +84,7 @@
     transition: max-height 0.5s;
   }
 
-  &__question-inner {
-    padding-top: 16px;
+  &__question-text-inner {
+    padding-bottom: 16px;
   }
 }

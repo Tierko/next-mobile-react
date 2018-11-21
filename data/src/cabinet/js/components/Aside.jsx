@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 import cs from 'classnames';
 import { formatCost, getData } from '../utils';
 import { Pages } from '../constants';
+import { showChatAction, showNoticeAction } from "../actions/App";
 
 class Aside extends Component {
   state = {
@@ -67,7 +69,12 @@ class Aside extends Component {
   }];
 
   render() {
-    const { hideLink, hideNav } = this.props;
+    const {
+      hideLink,
+      hideNav,
+      showChat,
+      showNotice,
+    } = this.props;
     const { setActiveLink, items } = this;
     const { current } = this.state;
     const traffic = getData('remain')[0].current.toString().replace('.', ',');
@@ -94,6 +101,10 @@ class Aside extends Component {
                 <div>{traffic} ГБ, {calls} мин., БЕЗЛИМИТ СМС</div>
               </div>
             </div>
+            <div className="aside__control">
+              <div className="aside__button aside__button_notice" />
+              <div className="aside__button aside__button_chat" />
+            </div>
             <nav className="aside__nav">
               {
                 items.map(i => (
@@ -119,6 +130,8 @@ class Aside extends Component {
 Aside.propTypes = {
   hideLink: PropTypes.bool,
   hideNav: PropTypes.bool,
+  showChat: PropTypes.func.isRequired,
+  showNotice: PropTypes.func.isRequired,
 };
 
 Aside.defaultProps = {
@@ -126,4 +139,11 @@ Aside.defaultProps = {
   hideNav: false,
 };
 
-export default Aside;
+function mapDispatchToProps(dispatch) {
+  return {
+    showChat: () => dispatch(showChatAction()),
+    showNotice: () => dispatch(showNoticeAction()),
+  };
+}
+
+export default connect(null, mapDispatchToProps)(Aside);

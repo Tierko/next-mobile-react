@@ -39,12 +39,35 @@
 
   &__info {
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     letter-spacing: 1.7px;
     font-size: @FONT-SIZE-SMALL;
 
     span {
       color: @WHITE-TRANSPARENT;
+    }
+  }
+
+  &__control {
+    margin-bottom: 30px;
+    display: flex;
+  }
+
+  &__button {
+    width: 30px;
+    height: 30px;
+    margin-right: 16px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    cursor: pointer;
+
+    &_notice {
+      background-image: url("/media/icons/notice.svg");
+    }
+
+    &_chat {
+      background-image: url("/media/icons/chat.svg");
     }
   }
 

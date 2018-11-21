@@ -7,7 +7,7 @@ import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import RoamingMap from '../components/RoamingMap';
-import Tabs from '../components/Tabs';
+import TabsRoaming from '../components/TabsRoaming';
 import RoamingZone from '../components/RoamingZone';
 import RoamingCountries from '../components/RoamingCountries';
 import RoamingInternet from '../components/RoamingInternet';
@@ -145,7 +145,7 @@ class Roaming extends Component {
                 !type &&
                 <Transitions>
                   <div className="roaming roaming_zones">
-                    <Tabs
+                    <TabsRoaming
                       tabs={zones}
                       active={tab}
                       onTabChange={onTabChange}

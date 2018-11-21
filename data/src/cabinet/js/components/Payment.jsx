@@ -4,7 +4,7 @@ import Input from './InputRuble';
 import Button from '../../../common/js/components/Button';
 import Cards from './Cards';
 import Limit from './Limit';
-import Tabs from './PaymentTabs';
+import Tabs from './Tabs';
 import { formatCost } from '../utils';
 
 class Payment extends Component {
@@ -82,7 +82,7 @@ class Payment extends Component {
 
     return (
       <div className="payment">
-        <Tabs items={Payment.tabs} onChange={changeTab} tab={tab} />
+        <Tabs className="tabs_payment" items={Payment.tabs} onChange={changeTab} tab={tab} />
         {
           tab === 'company' ?
             <div className="payment__company">

@@ -5,6 +5,10 @@ export const URL = 'http://localhost';
 export const HOME = 'RU';
 
 export const ACTION_TYPES = keyMirror({
+  APP_NOTICE_SHOW: undefined,
+  APP_NOTICE_HIDE: undefined,
+  APP_CHAT_SHOW: undefined,
+  APP_CHAT_HIDE: undefined,
   PACKAGES_REQUEST: undefined,
   PACKAGES_REQUEST_FAIL: undefined,
   PACKAGES_REQUEST_SUCCESS: undefined,
