@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import DocumentMeta from 'react-document-meta';
+import Transitions from '../../../cabinet/js/components/Transitions';
+import Aside from '../../../cabinet/js/components/Aside';
 import Input from '../components/Input';
 import FaqItem from '../components/FaqItem';
 
@@ -50,36 +53,43 @@ class Faq extends Component {
     const filteredData = filter(data, search);
 
     return (
-      <div className="faq">
-        <div className="faq__content">
-          <div className="faq__header">Часто задаваемые вопросы</div>
-          <Input name="search" value={search} onChange={onChange} />
-          {
-            filteredData.map(section => (
-              !!section.items.length &&
-                <Element name={`q${section.id}`}>
-                  <div className="faq__section">
-                    <div className="faq__subheader">{section.title}</div>
-                    <div className="faq__questions">
-                      {
-                        section.items.map(i => (
-                          <FaqItem title={i.title} text={i.text} search={search} />
-                        ))
-                      }
-                    </div>
-                  </div>
-                </Element>
-            ))
-          }
+      <DocumentMeta>
+        <div key="dashboard" className="dashboard">
+          <Aside hideLink />
+          <Transitions>
+            <div className="dashboard__content dashboard__content_white faq">
+              <div className="faq__content">
+                <div className="faq__header">Часто задаваемые вопросы</div>
+                <Input name="search" value={search} onChange={onChange} placeholder="Поиск" />
+                {
+                  filteredData.map(section => (
+                    !!section.items.length &&
+                      <Element name={`q${section.id}`}>
+                        <div className="faq__section">
+                          <div className="faq__subheader">{section.title}</div>
+                          <div className="faq__questions">
+                            {
+                              section.items.map(i => (
+                                <FaqItem title={i.title} text={i.text} search={search} />
+                              ))
+                            }
+                          </div>
+                        </div>
+                      </Element>
+                  ))
+                }
+              </div>
+              <div className="faq__aside">
+                {
+                  data.map(i => (
+                    <Link className="faq__aside-item" smooth spy to={`q${i.id}`}>{i.title}</Link>
+                  ))
+                }
+              </div>
+            </div>
+          </Transitions>
         </div>
-        <div className="faq__aside">
-          {
-            data.map(i => (
-              <Link to={`q${i.id}`}>{i.title}</Link>
-            ))
-          }
-        </div>
-      </div>
+      </DocumentMeta>
     );
   }
 }

@@ -57,9 +57,9 @@ class Aside extends Component {
     title: 'Настройки',
     modifier: 'settings',
   }, {
-    to: Pages.SUPPORT_DASHBOARD,
-    title: 'Поддержка',
-    modifier: 'support-dashboard',
+    to: Pages.FAQ,
+    title: 'FAQ',
+    modifier: 'faq',
   }, {
     to: Pages.Exit,
     title: 'Выход',

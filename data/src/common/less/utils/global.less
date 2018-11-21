@@ -84,28 +84,26 @@ h2,
   color: @GRAY;
 }
 
-.link {
-  color: inherit;
-  background: linear-gradient(to right, @GRAY-LIGHT, @GRAY-LIGHT) 0 calc(50% + 0.5em) repeat-x;
-  background-size: 100% 1px;
+.link-mixin(@color: inherit, @dash1: @GRAY-LIGHT, @dash2: @GRAY-LIGHT, @hover: @ORANGE) {
+  color: @color;
+  background: linear-gradient(to right, @dash1 50%, @dash2 50%) 0 calc(50% + 0.5em) repeat-x;
+  background-size: 6px 1px;
   text-decoration: none;
+  transition: color 0.3s;
+  cursor: pointer;
 
   &:hover {
     background-image: none;
-    color: @ORANGE;
+    color: @hover;
   }
 }
 
-.link-nav {
-  color: @WHITE-TRANSPARENT;
-  text-decoration: none;
-  background: linear-gradient(to right, @WHITE-TRANSPARENT, @WHITE-TRANSPARENT) no-repeat 0 calc(50% + 0.5em);
-  background-size: 100% 1px;
-  transition: color 0.3s;
+.link {
+  .link-mixin();
+}
 
-  &:hover {
-    color: @WHITE;
-  }
+.link-nav {
+  .link-mixin(@WHITE-TRANSPARENT, @WHITE-TRANSPARENT, @WHITE-TRANSPARENT, @WHITE);
 
   &.active {
     color: @WHITE;

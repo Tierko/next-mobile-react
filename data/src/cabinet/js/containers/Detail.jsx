@@ -88,7 +88,7 @@ class Detail extends Component {
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transitions>
-            <div className="dashboard__content">
+            <div className="dashboard__content dashboard__content_white">
               <Breadcrumbs items={[{ title: 'История', link: Pages.HISTORY }]} />
               <div className="detail">
                 <div className="dashboard__header">Детализация</div>

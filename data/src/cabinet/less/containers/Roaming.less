@@ -1,10 +1,6 @@
 .roaming {
   position: relative;
 
-  //@media (max-width: @MAX-WIDTH) {
-  //  padding: 0 15px;
-  //}
-
   &_zones {
     min-height: 665px;
   }
@@ -14,24 +10,6 @@
     max-width: 100%;
     overflow: hidden;
   }
-
-  //&_countries {
-  //  @media (min-width: 1000px) {
-  //    margin-right: calc((100vw - 1000px) / -2);
-  //  }
-  //}
-
-  //@media (max-width: @BREAK-POINT) {
-  //  padding: 0;
-  //
-  //  &:before {
-  //    display: none;
-  //  }
-  //
-  //  &_zones {
-  //    padding-left: 0;
-  //  }
-  //}
 
   &__title {
     .h1;
@@ -89,12 +67,9 @@
     display: block;
   }
 
-  &__countries {
-    .link-dashed;
-  }
-
+  &__countries,
   &__more {
-    .link-dashed;
+    .link-mixin(#798199, @GRAY-DARK, transparent);
   }
 
   &__big {
@@ -140,10 +115,11 @@
   }
 
   &__name {
-    border-bottom: 1px solid @GRAY;
+    .link-mixin()
   }
 
   &:hover &__name {
-    border-bottom-color: @BLACK;
+    color: @ORANGE;
+    background-image: none;
   }
 }

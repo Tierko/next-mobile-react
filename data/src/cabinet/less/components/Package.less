@@ -90,16 +90,6 @@
   }
 
   &__link {
-    color: @ORANGE;
-    text-decoration: none;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(to right, rgba(255, 85, 0, 0.1), rgba(255, 85, 0, 0.1));
-    background-position: 50% calc(50% + 0.5em);
-    background-size: 100% 1px;
-
-    &:hover {
-      background-image: none;
-      color: inherit;
-    }
+    .link-mixin(@ORANGE, rgba(255, 85, 0, 0.1), rgba(255, 85, 0, 0.1), inherit);
   }
 }

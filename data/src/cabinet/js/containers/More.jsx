@@ -39,7 +39,7 @@ const More = ({ countries, interCalls, match: { params: { type } } }) => {
       <div key="dashboard" className="dashboard">
         <Aside />
         <Transitions>
-          <div className="dashboard__content">
+          <div className="dashboard__content dashboard__content_white">
             <Breadcrumbs items={[{ title: 'Обзор', link: Pages.OVERVIEW }]} />
             <div>
               {

@@ -110,7 +110,7 @@ class Services extends Component {
               <div className="block">
                 <div className="dashboard__header">Тарифы</div>
                 <Tariffs current={currentTariff} onChange={changeTariff} />
-                <InterCalls data={data} />
+                <InterCalls data={data} more />
               </div>
               <TariffServices services={services} onChange={toggleService} />
               <Button className="button_services" onClick={onSave} disabled={!unsaved}>

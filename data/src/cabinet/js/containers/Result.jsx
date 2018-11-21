@@ -28,7 +28,7 @@ const Result = ({ match, location }) => {
       <div key="dashboard" className="dashboard">
         <Aside />
         <Transitions>
-          <div className="dashboard__content">
+          <div className="dashboard__content dashboard__content_white">
             <div className="result">
               <div className={`result__image result__image_${status}`} />
               <div

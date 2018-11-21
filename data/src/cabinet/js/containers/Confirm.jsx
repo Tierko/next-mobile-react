@@ -44,7 +44,7 @@ class Confirm extends Component {
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transition>
-            <div className="dashboard__content">
+            <div className="dashboard__content dashboard__content_white">
               <Breadcrumbs
                 items={[
                   { title: 'Обзор', link: Pages.OVERVIEW },
