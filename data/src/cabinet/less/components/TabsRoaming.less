@@ -32,41 +32,36 @@
   }
 
   &__item {
-    .h2;
-    color: @GRAY-DARK;
-    font-weight: 100;
+    .link-mixin(#798199, @GRAY-LIGHT, transparent);
+    font-size: @FONT-SIZE-H2;
+    line-height: @LINE-HEIGHT-H2;
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
     position: relative;
-    padding-top: 10px;
-    background: linear-gradient(to right, @GRAY, @GRAY) no-repeat 0 90%;
-    background-size: 100% 1px;
-    transition: color 0.3s;
+    padding: 10px 0;
+    margin-right: 20px;
 
-    &:hover:not(&_disable) {
-      color: @BLACK;
-      background: linear-gradient(to right, @GRAY-DARK, @GRAY-DARK) no-repeat 0 90%;
-      background-size: 100% 1px;
-    }
-
-    &:not(:last-child) {
-      margin-right: 20px;
+    &:last-child {
+      margin-right: 0;
     }
 
     &_active,
     &_active:hover:not(&_disable) {
-      color: rgba(0, 0, 0, 0.76);
+      color: inherit;
       font-weight: 300;
       background: none;
       cursor: default;
     }
 
-    &_disable {
+    &_disable,
+    &_disable:hover{
       color: @GRAY;
-      background: linear-gradient(to right, @GRAY-LIGHT, @GRAY-LIGHT) no-repeat 0 90%;
-      background-size: 100% 1px;
       cursor: default;
+    }
+
+    &_disable:hover:not(&_active) {
+      background-image: linear-gradient(to right, @GRAY-LIGHT, transparent);
     }
   }
 }

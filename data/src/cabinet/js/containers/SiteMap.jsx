@@ -8,7 +8,7 @@ const SiteMap = () => (
   <DocumentMeta title={TITLES.SITE_MAP}>
     <div key="dashboard" className="dashboard" style={{ maxWidth: 650, margin: '0 auto' }}>
       <Transitions>
-        <div className="dashboard__content">
+        <div className="dashboard__content dashboard__content_white">
           <div>
             <Link className="link" to={Pages.DATA}>Демо данные</Link>
             <br />

@@ -17,7 +17,10 @@ const TabsRoaming = ({
           tabs.map(t => (
             <div
               key={t.id}
-              className={cs('tabs-roaming__item', { tab_active: t.id === active, tab_disable: disable })}
+              className={cs('tabs-roaming__item', {
+                'tabs-roaming__item_active': t.id === active,
+                'tabs-roaming__item_disable': disable,
+              })}
               onClick={() => onTabChange(t.id)}
               role="button"
             >

@@ -12,6 +12,7 @@ import InputRuble from '../components/InputRuble';
 import Select from '../../../common/js/components/Select';
 import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
+import Hider from '../components/Hider';
 import { Pages, MONTHS, TITLES } from '../constants';
 import saveAutoPayAction from '../actions/AutoPay';
 import {
@@ -47,7 +48,6 @@ class AutoPay extends Component {
 
     this.state = Object.assign(data, {
       alreadyEnabled: monthlyEnabled || lessEnabled,
-      overflowHidden: false,
     });
   }
 
@@ -56,18 +56,6 @@ class AutoPay extends Component {
       if (value.toString().length > 5) {
         return;
       }
-    }
-
-    if (name === 'monthlyEnabled' || name === 'lessEnabled') {
-      this.setState({
-        overflowHidden: true,
-      });
-
-      setTimeout(() => {
-        this.setState({
-          overflowHidden: false,
-        });
-      }, 1000);
     }
 
     this.setState({
@@ -130,7 +118,6 @@ class AutoPay extends Component {
       lessSum,
       unsaved,
       alreadyEnabled,
-      overflowHidden,
     } = this.state;
     const { onChange, onSave, getDefaultCard } = this;
     const { months, days } = AutoPay;
@@ -184,12 +171,7 @@ class AutoPay extends Component {
                       onChange={onChange}
                     />
                   </div>
-                  <div
-                    className={cs('auto-pay__block', {
-                      'auto-pay__block_show': monthlyEnabled,
-                      'auto-pay__block_overflow': overflowHidden,
-                    })}
-                  >
+                  <Hider show={monthlyEnabled}>
                     <div className="auto-pay__row">
                       <div className="auto-pay__cell">
                         На&nbsp;сумму
@@ -223,7 +205,7 @@ class AutoPay extends Component {
                         value={monthlyUntil}
                       />
                     </div>
-                  </div>
+                  </Hider>
                 </div>
                 <div className="auto-pay__section">
                   <div className="auto-pay__title">
@@ -235,12 +217,7 @@ class AutoPay extends Component {
                       className="checkbox-slide_auto-pay"
                     />
                   </div>
-                  <div
-                    className={cs('auto-pay__block', {
-                      'auto-pay__block_show': lessEnabled,
-                      'auto-pay__block_overflow': overflowHidden,
-                    })}
-                  >
+                  <Hider show={lessEnabled}>
                     <div className="auto-pay__row">
                       <div className="auto-pay__cell">
                         На сумму
@@ -254,7 +231,7 @@ class AutoPay extends Component {
                       </div>
                       <InputRuble className="input_auto-pay" onChange={onChange} value={lessLess} name="lessLess" />
                     </div>
-                  </div>
+                  </Hider>
                 </div>
                 <Button
                   onClick={onSave}
