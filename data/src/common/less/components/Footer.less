@@ -10,6 +10,10 @@
   font-size: 14px;
   line-height: @LINE-HEIGHT-SMALL;
 
+  @media (max-width: @BREAK-POINT) {
+    max-width: none;
+  }
+
   &_light {
     color: rgba(255, 255, 255, 0.3);
   }

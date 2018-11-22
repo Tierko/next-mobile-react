@@ -70,35 +70,37 @@ class Grade extends Component {
 
     return (
       <div className={`grade ${className}`} onMouseEnter={onEnter} onMouseLeave={onBlur}>
-        <div className="grade__items">
-          {
-            data.map(e => (
-              <div
-                onClick={selectItem}
-                onMouseEnter={selectItem}
-                key={e.id}
-                data-id={e.id}
-                className={cs('grade__item', {
-                  grade__item_selected: e.id === selected,
-                  grade__item_wide: wide,
-                })}
-              >
+        <div className="grade__inner">
+          <div className="grade__items">
+            {
+              data.map(e => (
                 <div
-                  className={cs('grade__line', {
-                    grade__line_selected: e.id === selected,
-                    grade__line_wide: wide,
+                  onClick={selectItem}
+                  onMouseEnter={selectItem}
+                  key={e.id}
+                  data-id={e.id}
+                  className={cs('grade__item', {
+                    grade__item_selected: e.id === selected,
+                    grade__item_wide: wide,
                   })}
-                  style={{ height: (Grade.countExpense(e.expense) / maxExpense) * 100 }}
-                />
-                {
-                  wide &&
-                  <div className={cs('grade__month', { grade__month_selected: e.id === selected })}>
-                    {MONTHS_SHORT[e.date.month]}
-                  </div>
-                }
-              </div>
-            ))
-          }
+                >
+                  <div
+                    className={cs('grade__line', {
+                      grade__line_selected: e.id === selected,
+                      grade__line_wide: wide,
+                    })}
+                    style={{ height: (Grade.countExpense(e.expense) / maxExpense) * 100 }}
+                  />
+                  {
+                    wide &&
+                    <div className={cs('grade__month', { grade__month_selected: e.id === selected })}>
+                      {MONTHS_SHORT[e.date.month]}
+                    </div>
+                  }
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
     );

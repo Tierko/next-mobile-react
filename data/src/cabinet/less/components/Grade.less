@@ -1,5 +1,12 @@
 .grade {
-  overflow-x: auto;
+  overflow: hidden;
+
+  &__inner {
+    margin-bottom: -20px;
+    padding-bottom: 20px;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
 
   &__items {
     height: 120px;
