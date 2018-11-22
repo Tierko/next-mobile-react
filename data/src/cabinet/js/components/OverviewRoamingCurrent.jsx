@@ -13,11 +13,11 @@ const OverviewRoamingCountry = ({ history, data }) => {
   }
 
   return (
-    <div className="overview-roaming-current">
+    <div className="block block_round overview-roaming-current">
       <div>
         Вы в&nbsp;роуминге: {
           country && country.properties.name.ru
-        } <Link to={Pages.ROAMING} className="link-light">({currentZone.name})</Link>
+        } <Link to={Pages.ROAMING} className="link">({currentZone.name})</Link>
         <img className="overview-roaming-current__flag" src={`/media/flags/${data.currentCountry}.svg`} alt={country.properties.name.ru} />
       </div>
       <RoamingCurrent history={history} data={currentZone} />
