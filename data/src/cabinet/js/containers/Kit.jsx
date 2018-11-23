@@ -4,21 +4,11 @@ import Aside from '../components/Aside';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Transitions from '../components/Transitions';
 import Input from '../../../common/js/components/Input';
-import Date from '../components/Date';
-import Select from '../../../common/js/components/Select';
-import MultipleInput from '../components/MultipleInput';
-import InputRuble from '../components/InputRuble';
-import TabsRoaming from '../components/TabsRoaming';
-import Button from '../../../common/js/components/Button';
 import Switch from '../components/CheckboxSlide';
 import Calendar from '../components/Calendar';
 import { TITLES } from '../constants';
 
 class Kit extends Component {
-  state = {
-    tab: 1,
-  };
-
   onChange = (name, value) => {
     this.setState({
       [name]: value,
