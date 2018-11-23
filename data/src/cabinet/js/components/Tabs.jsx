@@ -17,7 +17,9 @@ const Tabs = ({
           onClick={onChange}
           data-tab={t.id}
         >
-          {t.title}
+          <span>
+            {t.title}
+          </span>
         </div>
       ))
     }

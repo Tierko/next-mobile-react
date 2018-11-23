@@ -31,7 +31,7 @@ class Calls extends Component {
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transitions>
-            <div className="dashboard__content">
+            <div className="dashboard__content dashboard__content_white">
               <div>
                 <h2>Сброс</h2>
                 <div>

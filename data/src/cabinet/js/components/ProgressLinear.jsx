@@ -26,7 +26,7 @@ class ProgressLinear extends Component {
     } = this.props;
     const percent = (current > maxValue || maxValue === 0) ? 100 : (current / maxValue) * 100;
     const { show } = this.state;
-    const color = percent > 10 ? '#211f5e' : '#ff5500';
+    const color = percent > 15 ? '#211f5e' : '#ff5500';
 
     return (
       <div className={cs(`progress-linear ${className}`, { 'progress-linear_dashed': dashed })}>

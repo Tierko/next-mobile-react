@@ -1,18 +1,14 @@
 .tariffs {
-  margin: 0 -36px 46px;
+  margin: 0 -60px 46px;
   overflow: hidden;
 
   &__inner {
     width: 100%;
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
-    margin-bottom: -20px;
-    padding-bottom: 20px;
-    max-width: calc(66.66vw - 30px);
-
-    @media (max-width: @BREAK-POINT) {
-      max-width: calc(100vw);
-    }
+    margin: 0 0 -20px;
+    padding: 0 24px 20px;
+    max-width: calc(66.66vw - 22px);
   }
 
   &__wrapper {
@@ -109,13 +105,20 @@
   }
 
   &__pay {
-    margin: 0 0 25px; //22
+    margin: 0 0 25px;
   }
 
-  &__toggle {
-    .link-dashed;
-    margin-top: 30px;
-    cursor: pointer;
-    display: inline-block;
+
+
+  @media (max-width: @BREAK-POINT) {
+    margin: 0 -20px 46px;
+
+    &__inner {
+      max-width: none;
+      margin-left: -16px;
+      margin-right: -16px;
+      padding: 0 0 20px;
+      width: auto;
+    }
   }
 }

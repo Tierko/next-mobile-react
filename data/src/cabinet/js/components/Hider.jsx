@@ -14,7 +14,13 @@ class Hider extends Component {
   }
 
   componentDidMount() {
+    const parent = this.parent.current;
+    const { show } = this.props;
     this.updateHeight();
+
+    if (show) {
+      parent.style.overflow = 'visible';
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -29,7 +35,7 @@ class Hider extends Component {
     if (show) {
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
-        if (this.show) {
+        if (this.props.show) {
           parent.style.overflow = 'visible';
         }
       }, 1000);

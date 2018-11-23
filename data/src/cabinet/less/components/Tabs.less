@@ -6,15 +6,19 @@
   }
 
   &_tariffs {
-    padding: 0 36px;
+    padding: 0 60px;
     margin-bottom: 35px;
+    display: none;
   }
 
   &__item {
-    .link-mixin(#6c7284, @GRAY-LIGHT, transparent);
     margin: 10px;
     user-select: none;
     line-height: 20px;
+
+    span {
+      .link-mixin(#6c7284, @GRAY-LIGHT, transparent);
+    }
 
     &:first-child {
       margin-left: 0;
@@ -24,7 +28,7 @@
       margin-right: 0;
     }
 
-    &_active {
+    &_active span {
       cursor: default;
       background-image: none;
       color: inherit;
