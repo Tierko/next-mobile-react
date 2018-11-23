@@ -246,6 +246,11 @@
       background-color: @ORANGE;
     }
 
+    &_error:before,
+    &_error:after {
+      background-color: @ORANGE;
+    }
+
     &_hide {
       opacity: 0;
     }
@@ -254,6 +259,24 @@
   &__value:focus ~ &__indicator,
   &_active &__indicator {
     background-color: @BLUE-MAIN;
+
+    &:before,
+    &:after {
+      opacity: 1;
+    }
+
+    &:before {
+      transform: translateY(2px);
+    }
+
+    &:after {
+      transform: translateY(4px);
+    }
+  }
+
+  &__value:focus ~ &__indicator_error,
+  &_active &__indicator_error {
+    background-color: @ORANGE;
 
     &:before,
     &:after {
