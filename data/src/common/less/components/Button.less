@@ -7,6 +7,7 @@
   cursor: pointer;
   display: block;
   font-weight: 300;
+  transition: color 0.3s, background-color 0.3s, border-color 0.3s;
 
   &_primary {
     background-color: @BLUE-DARK;
@@ -15,16 +16,19 @@
     padding: 11px 28px 13px;
 
     &:hover,
-    &:focus {
+    &_hover {
       background-color: @BLUE-LIGHT;
     }
 
-    &:active {
+    &:active,
+    &_active {
       background-color: @BLUE;
     }
 
     &:disabled,
-    &:disabled:hover {
+    &:disabled:hover,
+    &_disabled,
+    &_disabled:hover {
       cursor: default;
       color: @WHITE;
       background-color: @GRAY-LIGHT;
@@ -38,18 +42,22 @@
     padding: 9px 27px 11px;
 
     &:hover,
-    &:focus {
+    &_hover {
       background-color: @BLUE-DARK;
       border-color: transparent;
       color: @WHITE;
     }
 
-    &:active {
+    &:active,
+    &_active {
       background-color: @BLUE;
+      color: @WHITE;
     }
 
     &:disabled,
-    &:disabled:hover {
+    &:disabled:hover,
+    &_disabled,
+    &_disabled:hover {
       cursor: default;
       color: @GRAY;
       border-color: @GRAY;
@@ -205,11 +213,14 @@
   }
 
   &_invites {
-    .dashed;
+    .link-mixin();
     padding: 0;
     margin-left: auto;
-    color: @GRAY-DARK;
-    min-width: auto;
+    border: none;
+
+    &:hover {
+      background-color: transparent;
+    }
 
     @media (max-width: @BREAK-POINT) {
       span:after {

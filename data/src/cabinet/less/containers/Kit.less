@@ -1,37 +1,28 @@
 .kit {
-  &__colors {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  &__color {
-    width: 106px;
-    height: 53px;
-    border-radius: 6px;
-    margin-right: 17px;
-
-    &_black {
-      background-color: @BLACK;
-    }
-
-    &_gray-dark {
-      background-color: @GRAY-DARK;
-    }
-
-    &_gray {
-      background-color: @GRAY;
-    }
-
-    &_gray-light {
-      background-color: @GRAY-LIGHT;
-    }
-  }
-
   &__input {
     max-width: 400px;
   }
 
-  .tabs__inner {
-    padding-top: 0;
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  &__button {
+    margin-right: 16px;
+  }
+
+  &__switches {
+    display: flex;
+
+    .checkbox-slide:first-child {
+      margin-right: 7px;
+    }
+  }
+
+  &__calendar {
+    position: relative;
+    height: 378px;
   }
 }

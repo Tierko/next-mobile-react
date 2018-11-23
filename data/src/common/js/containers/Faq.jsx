@@ -12,19 +12,20 @@ class Faq extends Component {
     search: '',
     loaded: false,
     error: false,
-    data: [{
-      title: 'Баланс и оплата',
-      items: [{
-        id: 1,
-        title: 'Как узнать баланс',
-        text: 'Выберите один из способов:\n'+
-        '1. В мобильном приложении\n'+
-        '2. Наберите на телефоне команду *100# и нажмите клавишу вызова\n'+
-        '3. Задайте вопрос оператору в мобильном приложении, с помощью чата,  Viber, Telegram или WhatsApp (номер +7 900 616 6677)\n'+
-        '4. Позвоните в контактный центр: 6677, либо  8-800-600-6677. Звонок бесплатный',
-      }],
-    }],
+    data: [],
   };
+
+  componentDidMount() {
+    fetch('/media/info/faq.json', {
+      credentials: 'same-origin',
+      method: 'GET',
+    })
+      .then(faq => faq.json())
+      .then(faq => this.setState({
+        loaded: true,
+        data: faq,
+      }));
+  }
 
   onChange = (name, value) => {
     this.setState({

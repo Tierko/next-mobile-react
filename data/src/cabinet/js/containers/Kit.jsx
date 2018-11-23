@@ -10,6 +10,8 @@ import MultipleInput from '../components/MultipleInput';
 import InputRuble from '../components/InputRuble';
 import TabsRoaming from '../components/TabsRoaming';
 import Button from '../../../common/js/components/Button';
+import Switch from '../components/CheckboxSlide';
+import Calendar from '../components/Calendar';
 import { TITLES } from '../constants';
 
 class Kit extends Component {
@@ -34,99 +36,80 @@ class Kit extends Component {
         <div key="dasnboard" className="dashboard">
           <Aside />
           <Transitions>
-            <div className="dashboard__content">
+            <div className="dashboard__content dashboard__content_white">
               <div className="kit">
                 <section>
                   <h1>Н1. Самый большой заголовок на&nbsp;странице</h1>
                   <h2>
                     Н2. Заголовок поменьше. Может быть в&nbsp;несколько строк. Используется, например, на&nbsp;страницах ошибки и&nbsp;успеха
                   </h2>
-                  <p>
-                    Стандартный текст, который используется для набора всей основной информации на&nbsp;страницах. Он&nbsp;может использоваться в&nbsp;двух цветах:
+                  <p>Regular. Обычный текст, им набран весь основной текст. Тоже может быть в несколько строк</p>
+                  <p className="small">
+                    Small. Подсказки и другая не очень важная информация набрана именно этим стилем
                   </p>
-                  <ul className="list">
-                    <li>Черный цвет&nbsp;&mdash; для важного текстаЧерный цвет&nbsp;&mdash; для важного текста</li>
-                    <li>Серый цвет&nbsp;&mdash; для второстепенного текста</li>
-                  </ul>
                 </section>
                 <section>
-                  <h2>Цвета</h2>
-                  <div className="kit__colors">
-                    <div className="kit__color kit__color_black" />
-                    <div className="kit__color kit__color_gray-dark" />
-                    <div className="kit__color kit__color_gray" />
-                    <div className="kit__color kit__color_gray-light" />
+                  <h3>Кнопки</h3>
+                  <div className="kit__buttons">
+                    <div className="kit__button">
+                      <span className="small">Regular</span>
+                      <button className="button button_primary">Пополнить</button>
+                    </div>
+                    <div className="kit__button">
+                      <span className="small">Hover</span>
+                      <button className="button button_primary button_primary_hover">Пополнить</button>
+                    </div>
+                    <div className="kit__button">
+                      <span className="small">On click</span>
+                      <button className="button button_primary button_primary_active">Пополнить</button>
+                    </div>
+                    <div className="kit__button">
+                      <span className="small">Disabled</span>
+                      <button className="button button_primary button_primary_disabled">Пополнить</button>
+                    </div>
+                  </div>
+                  <div className="kit__buttons">
+                    <div className="kit__button">
+                      <span className="small">Regular</span>
+                      <button className="button button_secondary">Пополнить</button>
+                    </div>
+                    <div className="kit__button">
+                      <span className="small">Hover</span>
+                      <button className="button button_secondary button_secondary_hover">Пополнить</button>
+                    </div>
+                    <div className="kit__button">
+                      <span className="small">On click</span>
+                      <button className="button button_secondary button_secondary_active">Пополнить</button>
+                    </div>
+                    <div className="kit__button">
+                      <span className="small">Disabled</span>
+                      <button className="button button_secondary button_secondary_disabled">Пополнить</button>
+                    </div>
                   </div>
                 </section>
                 <section>
-                  <h2>Уведомления</h2>
-                  <p className="gradient-orange">Cледующий платеж&nbsp;&mdash; через 4&nbsp;дня. На&nbsp;вашем счету не&nbsp;хватает 2000&nbsp;₽</p>
-                  <p className="gradient-red">Оплата по&nbsp;тарифу&nbsp;&mdash; через 1&nbsp;день. На&nbsp;вашем счету не&nbsp;хватает 3000&nbsp;₽</p>
-                  <p className="gradient-green">Добавлено 3&nbsp;ГБ бесплатного интернета до&nbsp;5&nbsp;марта</p>
-                  <p className="gradient-purple">Лучше купить SIM&nbsp;&mdash; карту местного оператора</p>
-                  <p className="gradient-blue">Добавьте электронную почту в&nbsp;настройках, чтобы получать квитанции</p>
+                  <h3>Ссылки</h3>
+                  <a className="link" href="/">Это ссылка</a> <a className="link link_hover" href="/">Это ссылка</a>
                 </section>
                 <section>
-                  <h2>Поля ввода</h2>
+                  <h3>Календарь</h3>
+                  <div className="kit__calendar">
+                    <Calendar onChange={() => {}} show />
+                  </div>
+                </section>
+                <section>
+                  <h3>Поля ввода</h3>
                   <Input className="kit__input" name="" value="" onChange={() => {}} placeholder="Плейсхолдер" />
-                  <Input className="kit__input input_active" name="" value="Активное поле" onChange={() => {}} />
-                  <Input className="kit__input" name="" value="" onChange={() => {}} placeholder="Электронная почта" />
                   <Input className="kit__input" name="" value="konstantinopolsky@gmail.com" onChange={() => {}} placeholder="Электронная почта" />
-                  <Input className="kit__input" name="" value="konstantinopolsky@gmail.com" onChange={() => {}} placeholder="Электронная почта" errorText="Такого адреса не существует" />
-                  <div className="detail__period kit__input">
-                    <Date
-                      className="input_detail"
-                      name="startDate"
-                      value="30 сентября 2020"
-                      onChange={() => {}}
-                      initDate={new window.Date(window.Date.now() - 2592000 * 1000)}
-                    />
-                    <div className="detail__divider" />
-                    <Date
-                      className="input_detail"
-                      name="endDate"
-                      value="30 сентября 2020"
-                      onChange={() => {}}
-                      initDate={new window.Date()}
-                    />
+                  <Input className="kit__input input_active" name="" value="Активное поле" onChange={() => {}} />
+                  <Input className="kit__input" name="" value="konstantinopolsky@gmail.com" onChange={() => {}} errorText="Такого адреса не существует" />
+                </section>
+                <section>
+                  <h3>Переключатели</h3>
+                  <div className="kit__switches">
+                    <Switch value name="onn" onChange={() => {}} />
+                    <Switch value={false} name="onn" onChange={() => {}} />
                   </div>
-                  <Select className="kit__input" onSelect={() => {}} items={['PDF', 'XLS', 'HTML']} value="XLS" placeholder="Выбор из списка" />
-                  <MultipleInput onChange={() => {}} name="" count={4} initValue="5677" />
-                  <Input className="kit__input input_middle" name="" value="konstantinopolsky@gmail.com" onChange={() => {}} placeholder="Крупное поле ввода" />
-                  <InputRuble className="kit__input input_big" name="" value={2000} onChange={() => {}} placeholder="Крупное поле ввода с суммой денег" clear />
-                </section>
-                <section>
-                  <h2>Табы</h2>
-                  <TabsRoaming
-                    tabs={[{id: 1, name: 'Зона 1'}, {id: 2, name: 'Зона 2'}, {id: 3, name: 'Зона 3'}, {id: 4, name: 'Остальной мир'}]}
-                    active={this.state.tab}
-                    onTabChange={v => this.onChange('tab', v)}
-                    disable={false}
-                  />
-                </section>
-                <section>
-                  <h2>Кнопки</h2>
-                </section>
-                <section>
-                  <h2>Таблица в&nbsp;три колонки</h2>
-                </section>
-                <section>
-                  <h2>Успех / Ошибка</h2>
-                  <div className="status status_ok">
-                    <span>Автоплатеж сохранен</span>
-                  </div>
-                  <div className="status status_error">
-                    <span>Что-то пошло не&nbsp;так</span>
-                  </div>
-                </section>
-                <section>
-                  <h2>Карты</h2>
-                </section>
-                <section>
-                  <h2>Изображения в&nbsp;чате</h2>
-                </section>
-                <section>
-                  <h2>Другая графика</h2>
                 </section>
               </div>
             </div>
