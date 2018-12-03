@@ -16,6 +16,7 @@ import OverviewInvite from '../components/OverviewInvite';
 import OverviewRoamingCurrent from '../components/OverviewRoamingCurrent';
 import OverviewAutoPay from '../components/OverviewAutoPay';
 import FooterNav from '../components/FooterNav';
+import Notice from '../components/Notice';
 
 import { Pages, TITLES } from '../constants';
 import { getData, formatCost } from '../utils';
@@ -116,6 +117,7 @@ class Overview extends Component {
       <DocumentMeta {...meta}>
         <HeaderMobile hideHomeLink />
         <MobileNav key="nav" type="dashboard" />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside hideLink />
           <Transitions>

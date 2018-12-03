@@ -1,77 +1,12 @@
 .notice {
   position: fixed;
-  z-index: 2;
-
-  &_overview {
-    top: 55px;
-    right: 55px;
-  }
-
-  &__button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: #c0c0d7 url("/media/icons/bell-white.svg") no-repeat 50% 50%;
-    background-size: 18px 19px;
-    cursor: pointer;
-    user-select: none;
-    transform: translateZ(0);
-
-    &_unread {
-      background: @WHITE url("/media/icons/bell-blue.svg") no-repeat 50% 50%;
-      background-size: 18px 19px;
-    }
-
-    &_close {
-      background: #fff url("/media/icons/close-blue.svg") no-repeat 50% 50%;
-      background-size: 18px 17px;
-    }
-  }
-
-  &__count {
-    background: #006eff linear-gradient(270deg, #09b6ff 0%, #006eff 100%);
-    color: @WHITE;
-    border-radius: 50%;
-    text-align: center;
-
-    &_1 {
-      width: 21px;
-      height: 21px;
-      line-height: 21px;
-      font-size: 15px;
-      margin-top: -2px;
-      margin-left: -6px;
-    }
-
-    &_2 {
-      width: 26px;
-      height: 26px;
-      line-height: 26px;
-      font-size: 15px;
-      margin-top: -7px;
-      margin-left: -11px;
-    }
-
-    &_3 {
-      width: 26px;
-      height: 26px;
-      line-height: 26px;
-      font-size: 12px;
-      margin-top: -7px;
-      margin-left: -11px;
-    }
-
-    &_hide {
-      display: none;
-    }
-  }
+  z-index: 500;
+  top: 24px;
+  right: 24px;
 
   &__inner {
     position: absolute;
-    top: 50px;
+    top: 0;
     right: 0;
     width: 581px;
     box-shadow: 0 2px 14px rgba(146, 146, 164, 0.1);
@@ -91,6 +26,22 @@
     padding: 13px 20px;
     border: 1px solid rgba(188, 188, 213, 0.2);
     height: 53px;
+    position: relative;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 53px;
+    height: 53px;
+    cursor: pointer;
+    background: url("/media/icons/x-menu.svg") no-repeat 50% 50%;
+    background-size: 30px 30px;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 
   &__list {
@@ -143,7 +94,7 @@
       margin-left: 4px;
       margin-bottom: 0.1em;
       border-radius: 50%;
-      background: #006eff linear-gradient(270deg, #09b6ff 0%, #006eff 100%);
+      background: @ORANGE;
     }
 
     &_unread:after {
@@ -214,16 +165,11 @@
   }
 
   @media (max-width: @BREAK-POINT) {
-    &__button {
-      top: 30px;
-      right: -30px;
-    }
-
+    top: 75px;
+    right: 10px;
     &__inner {
-      top: 80px;
-      right: -55px;
-      width: 100vw;
-      max-height: calc(100vh - 135px);
+      width: calc(100vw - 20px);
+      max-height: calc(100vh - 75px);
     }
 
     &__list {

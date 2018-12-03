@@ -8,6 +8,7 @@ import CopyCode from '../components/CopyCode';
 import Invites from '../components/Invites';
 import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
+import Notice from '../components/Notice';
 import { Pages, PROMO_CODES, LINKS, TITLES, LEFT, NOT_ACTIVATED } from '../constants';
 import { convertStrings } from '../utils';
 
@@ -55,6 +56,7 @@ class Invite extends Component {
       <DocumentMeta {...meta}>
         <HeaderMobile />
         <MobileNav key="nav" type="dashboard" />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transitions>

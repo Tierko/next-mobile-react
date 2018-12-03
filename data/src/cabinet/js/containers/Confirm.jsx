@@ -7,6 +7,7 @@ import Aside from '../components/Aside';
 import Breadcrumbs from '../components/Breadcrumbs';
 import Button from '../../../common/js/components/Button';
 import Transition from '../components/Transitions';
+import Notice from '../components/Notice';
 import { Pages } from '../constants';
 import { formatCost } from '../utils';
 
@@ -41,6 +42,7 @@ class Confirm extends Component {
       <DocumentMeta {...meta}>
         <HeaderMobile />
         <MobileNav key="nav" type="dashboard" />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transition>

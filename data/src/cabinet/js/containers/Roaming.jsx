@@ -14,6 +14,7 @@ import RoamingInternet from '../components/RoamingInternet';
 import RoamingTariffZone from '../components/RoamingTariffZone';
 import RoamingTariffCountry from '../components/RoamingTariffCountry';
 import Transitions from '../components/Transitions';
+import Notice from '../components/Notice';
 import { Pages, TITLES } from '../constants';
 
 class Roaming extends Component {
@@ -130,6 +131,7 @@ class Roaming extends Component {
           country={country}
         />
         <MobileNav key="nav" type="dashboard" hideSpot />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside />
           <div className="dashboard__content dashboard__content_white dashboard__content_roaming">

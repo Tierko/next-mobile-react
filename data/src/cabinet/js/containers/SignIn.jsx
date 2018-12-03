@@ -83,7 +83,7 @@ class SignIn extends Component {
           <Header />
           <Transitions classNames="slide">
             <div className="welcome__content">
-              <LogoAnimated expand={expandLogo} />
+              <div className="welcome__header">Вход</div>
               <div className="sign-in__text">{ message }</div>
               <form onSubmit={onSubmit} className="sign-in__form">
                 {

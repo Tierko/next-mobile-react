@@ -6,6 +6,10 @@ import Aside from '../../../cabinet/js/components/Aside';
 import Input from '../components/Input';
 import FaqItem from '../components/FaqItem';
 import FaqContacts from '../components/FaqContacts';
+import Notice from '../../../cabinet/js/components/Notice';
+import HeaderMobile from '../../../cabinet/js/components/HeaderMobile';
+import MobileNav from '../components/MobileNav';
+import { TITLES } from '../../../cabinet/js/constants';
 
 class Faq extends Component {
   state = {
@@ -53,9 +57,15 @@ class Faq extends Component {
     const { data, search } = this.state;
     const { onChange, filter } = this;
     const filteredData = filter(data, search);
+    const meta = {
+      title: TITLES.FAQ,
+    };
 
     return (
-      <DocumentMeta>
+      <DocumentMeta {...meta}>
+        <HeaderMobile />
+        <MobileNav key="nav" type="dashboard" />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside hideLink />
           <Transitions>

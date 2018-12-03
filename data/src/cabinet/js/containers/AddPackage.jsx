@@ -8,6 +8,7 @@ import Aside from '../components/Aside';
 import Package from '../components/Package';
 import Transitions from '../components/Transitions';
 import Breadcrumbs from '../components/Breadcrumbs';
+import Notice from '../components/Notice';
 import { Pages, TITLES } from '../constants';
 import getPackages from '../actions/Packages';
 import { getData } from '../utils';
@@ -30,6 +31,7 @@ class AddPackage extends Component {
       <DocumentMeta {...meta}>
         <HeaderMobile />
         <MobileNav key="nav" type="dashboard" />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transitions>

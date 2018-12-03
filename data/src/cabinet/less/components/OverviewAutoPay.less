@@ -1,13 +1,37 @@
 .overview-auto-pay {
   padding-top: 24px;
   padding-bottom: 24px;
-  background-image: url("/media/icons/auto-pay.png");
-  background-repeat: no-repeat;
-  background-position: 19px 20px;
+
+  &__title {
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 28px;
+      height: 32px;
+      position: absolute;
+      top: -5px;
+      left: -32px;
+      display: inline-block;
+      background-image: url("/media/icons/auto-pay.png");
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 28px 32px;
+    }
+  }
 
   &__list {
     .list;
     margin: 0;
     color: @GRAY-DARK;
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    &__title:before {
+      position: relative;
+      top: 10px;
+      left: 0;
+      margin-right: 7px;
+    }
   }
 }

@@ -12,6 +12,7 @@ import Button from '../../../common/js/components/Button';
 import CardEditor from '../components/CardEditor';
 import Transitions from '../components/Transitions';
 import BreadCrumbs from '../components/Breadcrumbs';
+import Notice from '../components/Notice';
 import { Pages, TITLES, MONTHS, MONTHS_M } from '../constants';
 import { formatCost, getShortPan } from '../utils';
 import { addCardAction } from '../actions/Cards';
@@ -114,6 +115,7 @@ class Pay extends Component {
       <DocumentMeta {...meta}>
         <HeaderMobile />
         <MobileNav key="nav" type="dashboard" />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transitions>

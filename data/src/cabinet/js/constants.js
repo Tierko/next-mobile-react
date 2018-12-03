@@ -5,8 +5,6 @@ export const URL = 'http://localhost';
 export const HOME = 'RU';
 
 export const ACTION_TYPES = keyMirror({
-  APP_NOTICE_SHOW: undefined,
-  APP_NOTICE_HIDE: undefined,
   APP_CHAT_SHOW: undefined,
   APP_CHAT_HIDE: undefined,
   PACKAGES_REQUEST: undefined,
@@ -29,6 +27,8 @@ export const ACTION_TYPES = keyMirror({
   CARDS_ADD: undefined,
   CARDS_REMOVE: undefined,
   CARDS_MAKE_DEFAULT: undefined,
+  NOTICE_SHOW: undefined,
+  NOTICE_HIDE: undefined,
   NOTICE_REMOVE: undefined,
   NOTICE_READ: undefined,
   NOTICE_EXCLUDE: undefined,
@@ -98,6 +98,7 @@ export const TITLES = {
   SIGN_UP: 'Регистрация',
   SIGN_IN: 'Вход',
   REQUEST_STATUS: 'Статус заявки',
+  FAQ: 'FAQ',
 };
 
 export const Statuses = {

@@ -17,3 +17,11 @@ export const repairNoticeAction = id => ({
   type: ACTION_TYPES.NOTICE_REPAIR,
   id,
 });
+
+export const showNoticeAction = () => ({
+  type: ACTION_TYPES.NOTICE_SHOW,
+});
+
+export const hideNoticeAction = () => ({
+  type: ACTION_TYPES.NOTICE_HIDE,
+});

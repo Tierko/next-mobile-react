@@ -8,6 +8,7 @@ import Aside from '../components/Aside';
 import InterCalls from '../../../common/js/components/InterCalls';
 import Breadcrumbs from '../components/Breadcrumbs';
 import Transitions from '../components/Transitions';
+import Notice from '../components/Notice';
 import { Pages, TITLES } from '../constants';
 import { dataBuffer } from '../utils';
 
@@ -36,6 +37,7 @@ const More = ({ countries, interCalls, match: { params: { type } } }) => {
     <DocumentMeta {...meta}>
       <HeaderMobile />
       <MobileNav key="nav" type="dashboard" />
+      <Notice />
       <div key="dashboard" className="dashboard">
         <Aside />
         <Transitions>

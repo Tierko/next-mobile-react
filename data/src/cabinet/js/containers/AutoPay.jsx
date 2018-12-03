@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import cs from 'classnames';
 import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
 import HeaderMobile from '../components/HeaderMobile';
@@ -13,6 +12,7 @@ import Select from '../../../common/js/components/Select';
 import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
 import Hider from '../components/Hider';
+import Notice from '../components/Notice';
 import { Pages, MONTHS, TITLES } from '../constants';
 import saveAutoPayAction from '../actions/AutoPay';
 import {
@@ -132,6 +132,7 @@ class AutoPay extends Component {
       <DocumentMeta {...meta}>
         <HeaderMobile />
         <MobileNav key="nav" type="dashboard" />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transitions>

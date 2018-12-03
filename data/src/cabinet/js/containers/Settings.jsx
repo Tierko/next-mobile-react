@@ -10,6 +10,7 @@ import Button from '../../../common/js/components/Button';
 import CheckboxSlide from '../components/CheckboxSlide';
 import Select from '../components/SelectLang';
 import Note from '../components/Note';
+import Notice from '../components/Notice';
 import Transitions from '../components/Transitions';
 import { TITLES } from '../constants';
 
@@ -104,6 +105,7 @@ class Settings extends Component {
       <DocumentMeta {...meta}>
         <HeaderMobile />
         <MobileNav type="dashboard" />
+        <Notice />
         <div className="dashboard">
           <Aside />
           <Transitions>

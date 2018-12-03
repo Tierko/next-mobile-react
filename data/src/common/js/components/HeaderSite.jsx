@@ -14,7 +14,7 @@ const HeaderSite = ({
   const requestStatus = translate.requestStatus || 'Статус заявки';
   const support = translate.support || 'Поддержка';
   const signIn = translate.signIn || 'Вход';
-  const signUp = translate.signUp || 'Регистрация';
+  const signUp = translate.signUp || 'Перейти на Next';
 
   tariff = tariff.replace('&nbsp;', ' ');
 
@@ -24,11 +24,9 @@ const HeaderSite = ({
         <NavLink className={cs('header__item', { header__item_light: light })} to={Pages.TARIFF}>
           {tariff}
         </NavLink>
-        <div className={cs('header__span', { header__span_light: light })} />
         <a className={cs('header__item', { header__item_light: light })} href={`${url}/#${Pages.REQUEST_STATUS}`}>
           {requestStatus}
         </a>
-        <div className={cs('header__span', { header__span_light: light })} />
         <a className={cs('header__item', { header__item_light: light })} href={`${url}/#${Pages.SUPPORT}`}>
           {support}
         </a>
@@ -37,7 +35,6 @@ const HeaderSite = ({
         <a className={cs('header__item', { header__item_light: light })} href={`${url}/#${Pages.SIGN_IN}`}>
           {signIn}
         </a>
-        <div className={cs('header__span', { header__span_light: light })} />
         <a className={cs('header__item', { header__item_light: light })} href={`${url}/#${Pages.SIGN_UP}${release === 2 ? '/after' : ''}`}>
           {signUp}
         </a>

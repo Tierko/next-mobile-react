@@ -82,7 +82,6 @@ class MobileNav extends Component {
     const {
       type,
       r,
-      dark,
       hideSpot,
       translate,
     } = this.props;
@@ -102,7 +101,6 @@ class MobileNav extends Component {
           <div
             onClick={toggle}
             className={cs('mobile-nav__menu', {
-              'mobile-nav__menu_dark': dark,
               'mobile-nav__menu_mask': !hideSpot,
             })}
           />
@@ -138,14 +136,12 @@ class MobileNav extends Component {
 MobileNav.propTypes = {
   type: PropTypes.string.isRequired,
   r: PropTypes.number,
-  dark: PropTypes.bool,
   hideSpot: PropTypes.bool,
   translate: PropTypes.shape(),
 };
 
 MobileNav.defaultProps = {
   r: 1,
-  dark: false,
   hideSpot: false,
   translate: {},
 };

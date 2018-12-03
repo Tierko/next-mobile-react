@@ -9,13 +9,10 @@ import {
   removeNoticeAction,
   excludeNoticeAction,
   repairNoticeAction,
+  hideNoticeAction,
 } from '../actions/Notice';
 
 class Notice extends Component {
-  state = {
-    show: false,
-  };
-
   componentDidMount() {
     const { onESC, outsideClick } = this;
 
@@ -23,11 +20,10 @@ class Notice extends Component {
     document.addEventListener('click', outsideClick);
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const { readNotice, excludeNotice } = this.props;
-    const { show } = this.state;
+  componentDidUpdate(prevProps) {
+    const { readNotice, excludeNotice, show } = this.props;
 
-    if (prevState.show && !show) {
+    if (prevProps.show && !show) {
       readNotice();
 
       setTimeout(() => {
@@ -44,15 +40,20 @@ class Notice extends Component {
   }
 
   onESC = ({ keyCode }) => {
+    const { hideNotice } = this.props;
+
     if (keyCode === 27) {
-      this.setState({
-        show: false,
-      });
+      hideNotice();
     }
   };
 
   outsideClick = ({ target }) => {
     const { notice } = this;
+    const { hideNotice } = this.props;
+
+    if (target.className.indexOf('aside__button_notice') !== -1) {
+      return;
+    }
 
     if (target.className.indexOf('notice__remove') !== -1) {
       return;
@@ -64,19 +65,9 @@ class Notice extends Component {
 
     try {
       if (!notice.contains(target)) {
-        this.setState({
-          show: false,
-        });
+        hideNotice();
       }
     } catch (e) {}
-  };
-
-  toggle = () => {
-    const { show } = this.state;
-
-    this.setState({
-      show: !show,
-    });
   };
 
   doAction = (action) => {
@@ -93,35 +84,18 @@ class Notice extends Component {
       notice,
       removeNotice,
       repairNotice,
+      show,
+      hideNotice,
     } = this.props;
-    const { show } = this.state;
-    const { toggle, doAction } = this;
-    const unReadCount = notice.reduce((acc, n) => (
-      n.isRed ? acc : acc + 1
-    ), 0);
+    const { doAction } = this;
 
     return (
       <div className={`notice ${className}`} ref={(e) => { this.notice = e; }}>
-        <div
-          onClick={toggle}
-          className={cs('notice__button', {
-            notice__button_close: show,
-            notice__button_unread: !!unReadCount,
-          })}
-        >
-          {
-            !!unReadCount &&
-            <div
-              className={cs(`notice__count notice__count_${unReadCount.toString().length}`, {
-                notice__count_hide: show,
-              })}
-            >
-              {unReadCount}
-            </div>
-          }
-        </div>
         <div className={cs('notice__inner', { notice__inner_show: show })}>
-          <div className="notice__header">Уведомления</div>
+          <div className="notice__header">
+            Уведомления
+            <div className="notice__close" onClick={hideNotice} />
+          </div>
           <div className="notice__list">
             {
               !notice.length &&
@@ -148,6 +122,7 @@ class Notice extends Component {
 function mapStateToProps(state) {
   return {
     notice: state.Notice.data,
+    show: state.Notice.showNotice,
   };
 }
 
@@ -157,6 +132,7 @@ function mapDispatchToProps(dispatch) {
     removeNotice: id => dispatch(removeNoticeAction(id)),
     excludeNotice: () => dispatch(excludeNoticeAction()),
     repairNotice: id => dispatch(repairNoticeAction(id)),
+    hideNotice: () => dispatch(hideNoticeAction()),
   };
 }
 
@@ -167,7 +143,9 @@ Notice.propTypes = {
   removeNotice: PropTypes.func.isRequired,
   excludeNotice: PropTypes.func.isRequired,
   repairNotice: PropTypes.func.isRequired,
+  hideNotice: PropTypes.func.isRequired,
   history: PropTypes.shape().isRequired,
+  show: PropTypes.bool.isRequired,
 };
 
 Notice.defaultProps = {

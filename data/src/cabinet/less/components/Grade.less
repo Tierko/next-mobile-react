@@ -1,9 +1,15 @@
 .grade {
   overflow: hidden;
+  position: relative;
+  height: 120px;
 
   &__inner {
-    margin-bottom: -20px;
+    position: absolute;
     padding-bottom: 20px;
+    top: 0;
+    right: 0;
+    bottom: -20px;
+    left: 0;
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
   }

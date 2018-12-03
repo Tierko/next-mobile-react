@@ -14,11 +14,9 @@
   }
 
   &__transition {
-    font-size: 60px;
-    line-height: 70px;
-    font-weight: 100;
+    .h1;
     text-align: center;
-    margin: 17px 0 21px;
+    margin: 72px 0 21px;
     white-space: pre-wrap;
 
     & > span {
@@ -45,7 +43,6 @@
   }
 
   &__message {
-    margin-top: -120px;
     position: relative;
     z-index: 1;
 
@@ -57,20 +54,6 @@
     &_select-tariff,
     &_no-logo {
       margin-top: 24px;
-    }
-
-    @media (max-width: 600px) {
-      margin-top: calc(-20vw + 10px);
-
-      &_step4 {
-        margin-top: 0;
-      }
-
-      &_select-number,
-      &_select-tariff,
-      &_no-logo {
-        margin-top: 24px;
-      }
     }
   }
 

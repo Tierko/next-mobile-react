@@ -1,15 +1,8 @@
 .header {
   display: flex;
-  padding: 0 15px;
   position: relative;
-  max-width: 1200px;
-  margin: auto;
-  align-items: flex-start;
-  height: 110px;
-
-  @media (max-width: @BREAK-POINT) {
-    display: none;
-  }
+  height: 80px;
+  background-color: @BLUE-MAIN;
 
   &__back {
     position: absolute;
@@ -28,14 +21,10 @@
   }
 
   &__logo {
-    width: 121px;
-    height: 75px;
-    background: url("/media/images/logo-mini-dark.png") no-repeat 50% 50%;
+    width: 308px;
+    height: 80px;
+    background: url("/media/images/logo-header.svg") no-repeat 30px 50%;
     position: relative;
-
-    &_light {
-      background-image: url("/media/images/logo-mini-light.png");
-    }
   }
 
   &__home {
@@ -57,25 +46,39 @@
   &__right {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     flex: 1 1 25%;
-    align-self: center;
   }
 
   &__item {
     .link-nav;
     line-height: @FONT-SIZE-BASE;
     font-size: @FONT-SIZE-SMALL;
-
-    &_light {
-      .link-nav-light;
-    }
+    margin: 0 15px;
   }
 
-  &__span {
-    .nav-point;
+  &__go {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    height: 80px;
+    padding: 0 35px;
+    margin-left: 20px;
+    text-decoration: none;
+    color: @WHITE;
+    background-color: @ORANGE;
+    font-size: 21px;
+  }
 
-    &_light:before {
-      background-color: rgba(255, 255, 255, 0.5);
+  @media (max-width: @BREAK-POINT) {
+    display: none;
+  }
+
+  @media (max-width: 1060px) {
+    &__left,
+    &__center,
+    &__right {
+      flex: auto;
     }
   }
 }

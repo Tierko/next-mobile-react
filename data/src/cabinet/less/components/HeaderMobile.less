@@ -4,24 +4,20 @@
   right: 0;
   left: 0;
   height: 60px;
-  background: #e8e8f0;
+  background: @BLUE-MAIN;
   z-index: 1001;
   display: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 
-  @media (max-width: @BREAK-POINT) {
-    display: block;
-  }
-
   &__logo {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 60px;
     bottom: 0;
-    left: 0;
-    max-width: 80px;
+    left: 60px;
+    max-width: 290px;
     margin: auto;
-    background: url("/media/images/logo-pc-mobile.png") 50% 50%;
+    background: url("/media/images/logo-header.svg") no-repeat 50% 50% / contain;
   }
 
   &__link {
@@ -51,5 +47,9 @@
     &_zoom {
       background-image: url("/media/icons/search.svg");
     }
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    display: block;
   }
 }

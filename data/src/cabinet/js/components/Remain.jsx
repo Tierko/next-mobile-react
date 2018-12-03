@@ -5,6 +5,7 @@ import cs from 'classnames';
 import ProgressLinear from './ProgressLinear';
 import Button from '../../../common/js/components/Button';
 import { Pages } from '../constants';
+import { getData } from '../utils';
 
 const Remain = ({
   data,
@@ -12,7 +13,7 @@ const Remain = ({
 }) => (
   <div className="block block_round">
     <div className="block__header">
-      Остаток до 16 ноября
+      Остаток по тарифу <Link className="link" to={Pages.SERVICES}>«{getData('tariff').title}»</Link> до 16 ноября
     </div>
     {
       data.map(i => (

@@ -5,7 +5,8 @@ import { NavLink, Link } from 'react-router-dom';
 import cs from 'classnames';
 import { formatCost, getData } from '../utils';
 import { Pages } from '../constants';
-import { showChatAction, showNoticeAction } from "../actions/App";
+import { showChatAction } from '../actions/App';
+import { showNoticeAction } from '../actions/Notice';
 
 class Aside extends Component {
   state = {
@@ -102,8 +103,8 @@ class Aside extends Component {
               </div>
             </div>
             <div className="aside__control">
-              <div className="aside__button aside__button_notice" />
-              <div className="aside__button aside__button_chat" />
+              <div className="aside__button aside__button_notice" onClick={showNotice} />
+              <div className="aside__button aside__button_chat" onClick={showChat} />
             </div>
             <nav className="aside__nav">
               {

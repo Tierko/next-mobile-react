@@ -75,12 +75,12 @@
   }
 
   &_borderless {
+    .link-mixin();
     border: none;
-    text-decoration: underline;
-    text-decoration-color: @GRAY;
+    padding: 0;
 
     &:hover {
-      text-decoration-color: @BLACK;
+      background-color: transparent;
     }
   }
 
@@ -99,13 +99,11 @@
   }
 
   &_promo-code-continue {
-    width: 172px;
     margin: auto;
   }
 
   &_no-promo-code {
-    width: 276px;
-    margin: auto;
+    margin: 9px auto 0;
   }
 
   &_request {
@@ -140,6 +138,7 @@
 
   &_conditions {
     margin: 50px auto 0;
+    min-width: 161px;
   }
 
   &_copy-code {

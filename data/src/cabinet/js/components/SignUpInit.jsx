@@ -60,9 +60,7 @@ class SignUp extends Component {
 
     return (
       <div className="welcome__content sign-up">
-        <Transitions>
-          <LogoAnimated expand={mode === 'promo'} />
-        </Transitions>
+        <div className="welcome__header">Регистрация</div>
         <div className="sign-up__message">
           {
             !mode &&

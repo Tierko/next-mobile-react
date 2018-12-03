@@ -7,6 +7,7 @@ import Aside from '../components/Aside';
 import Expense from '../components/Expense';
 import Operations from '../components/Operations';
 import Transitions from '../components/Transitions';
+import Notice from '../components/Notice';
 import { TITLES } from '../constants';
 import { getData } from '../utils';
 
@@ -19,6 +20,7 @@ const History = ({ history }) => {
     <DocumentMeta {...meta}>
       <HeaderMobile />
       <MobileNav key="nav" type="dashboard" />
+      <Notice />
       <div key="dashboard" className="dashboard">
         <Aside />
         <Transitions>

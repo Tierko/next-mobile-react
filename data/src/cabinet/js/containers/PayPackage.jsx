@@ -6,6 +6,7 @@ import Aside from '../components/Aside';
 import Payment from '../components/Payment';
 import LinkBack from '../components/LinkBack';
 import Transitions from '../components/Transitions';
+import Notice from '../components/Notice';
 import { Pages } from '../constants';
 
 class PayPackage extends Component {
@@ -28,6 +29,7 @@ class PayPackage extends Component {
     return (
       <DocumentMeta {...meta}>
         <MobileNav key="nav" type="dashboard" />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transitions>
