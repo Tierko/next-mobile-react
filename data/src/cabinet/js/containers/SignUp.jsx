@@ -96,7 +96,7 @@ class SignUp extends Component {
     const currentTariff = (tariff || id) &&
       tariffs.find(t => t.id === tariff * 1 || t.id === id * 1);
     const to = {
-      pathname: `${Pages.SIGN_UP}/tariff/${currentTariff.id}`,
+      pathname: `${Pages.SIGN_UP}/tariff/${currentTariff && currentTariff.id}`,
       state: {
         prev: pathname,
       },
