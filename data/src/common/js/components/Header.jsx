@@ -12,7 +12,7 @@ const Header = ({
   mode,
   hideHomeLink,
   info,
-                  translate,
+  translate,
 }) => {
   const url = info.lk_url || '';
   const release = info.release * 1 || 1;

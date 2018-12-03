@@ -82,6 +82,12 @@ class SignUp extends Component {
           id,
         },
       },
+      history: {
+        location: {
+          pathname,
+          state,
+        },
+      },
     } = this.props;
     const { nextStep, toPage } = this;
     const meta = {
@@ -89,12 +95,18 @@ class SignUp extends Component {
     };
     const currentTariff = (tariff || id) &&
       tariffs.find(t => t.id === tariff * 1 || t.id === id * 1);
+    const to = {
+      pathname: `${Pages.SIGN_UP}/tariff/${currentTariff.id}`,
+      state: {
+        prev: pathname,
+      },
+    };
 
     return (
       <DocumentMeta {...meta}>
         <div className="welcome">
           <MobileNav type="enter" />
-          <Header />
+          <Header back={state && state.prev} />
           <Transitions classNames="slide">
             {
               (step || tariff) &&
@@ -102,7 +114,7 @@ class SignUp extends Component {
                 Переход на&nbsp;Next
                 {
                   currentTariff &&
-                  <span> с тарифом <Link className="sign-up__transition-link" to={`${Pages.SIGN_UP}/tariff/${currentTariff.id}`}>
+                  <span> с тарифом <Link className="sign-up__transition-link" to={to}>
                     {currentTariff.title}
                     </Link>
                   </span>

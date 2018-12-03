@@ -1,7 +1,7 @@
 .sign-up-tariff {
   max-width: 500px;
   margin: auto;
-  padding-top: 17px;
+  padding: 17px 20px 0;
 
   &__header {
     line-height: 70px;
@@ -17,5 +17,9 @@
   &__row-title {
     line-height: 20px;
     color: @GRAY-DARK;
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    padding-top: 50px;
   }
 }
