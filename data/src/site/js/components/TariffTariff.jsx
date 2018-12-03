@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import TariffTable from '../../../common/js/components/TariffTable';
 import Button from '../../../common/js/components/Button';
@@ -55,13 +55,19 @@ const TariffTariff = ({
         dangerouslySetInnerHTML={{ __html: header }}
       />
       <TariffTable mode="detail" tariff to={toTariff} data={tariffs} />
-      <Button onClick={to} primary={r === 1}>
-        <span dangerouslySetInnerHTML={{ __html: btn }} />
-      </Button>
-      <div
-        className="tariff-tariff__note"
-        dangerouslySetInnerHTML={{ __html: note }}
-      />
+      {
+        r === 1 &&
+          <Fragment>
+
+            <Button onClick={to} primary>
+              <span dangerouslySetInnerHTML={{ __html: btn }} />
+            </Button>
+            <div
+              className="tariff-tariff__note"
+              dangerouslySetInnerHTML={{ __html: note }}
+            />
+          </Fragment>
+      }
       <InterCalls className="inter-calls_tariff" data={mergeDate(countries, interCalls)} />
     </div>
   );

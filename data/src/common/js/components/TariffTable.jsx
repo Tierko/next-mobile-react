@@ -177,7 +177,7 @@ class TariffTable extends Component {
                         'tariff-table__name_active': d.id === current,
                       })}
                     >
-                      <span>{d.title}</span>
+                      <span>{d.name}</span>
                       {
                         tariff && to &&
                         <Button onClick={() => to(d.id)} className="button_tariff-table">Перейти</Button>
