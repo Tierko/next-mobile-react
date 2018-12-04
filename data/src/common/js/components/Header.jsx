@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import cs from 'classnames';
 import HeaderCabinet from './HeaderCabinet';
 import HeaderSite from './HeaderSite';
@@ -13,6 +13,7 @@ const Header = ({
   hideHomeLink,
   info,
   translate,
+  history,
 }) => {
   const url = info.lk_url || '';
   const release = info.release * 1 || 1;
@@ -31,10 +32,16 @@ const Header = ({
           }
         </div>
         {
-          back &&
+          back && back !== true &&
           <Link to={back} className="header__back">
             <img src="/media/icons/back.svg" alt="" />
           </Link>
+        }
+        {
+          back && back === true &&
+          <div onClick={history.goBack} className="header__back">
+            <img src="/media/icons/back.svg" alt="" />
+          </div>
         }
       </div>
       {
@@ -47,12 +54,13 @@ const Header = ({
 };
 
 Header.propTypes = {
-  back: PropTypes.string,
+  back: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   light: PropTypes.bool,
   mode: PropTypes.string,
   hideHomeLink: PropTypes.bool,
   info: PropTypes.shape(),
   translate: PropTypes.shape(),
+  history: PropTypes.shape().isRequired,
 };
 
 Header.defaultProps = {
@@ -64,4 +72,4 @@ Header.defaultProps = {
   translate: {},
 };
 
-export default Header;
+export default withRouter(Header);
