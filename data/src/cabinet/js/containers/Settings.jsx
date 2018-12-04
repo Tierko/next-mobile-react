@@ -5,10 +5,8 @@ import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import Input from '../../../common/js/components/Input';
 import InputRuble from '../components/InputRuble';
-import Button from '../../../common/js/components/Button';
 import CheckboxSlide from '../components/CheckboxSlide';
 import Select from '../components/SelectLang';
-import Note from '../components/Note';
 import Notice from '../components/Notice';
 import Transitions from '../components/Transitions';
 import { TITLES } from '../constants';
@@ -37,43 +35,24 @@ class Settings extends Component {
     note: true,
     receipt: true,
     expenseNoteSum: 2000,
-    edited: false,
-    showNote: false,
   };
 
   onChange = (name, value) => {
     this.setState({
       [name]: value,
-      edited: true,
-    });
-  };
-
-  onSave = () => {
-    this.setState({
-      edited: false,
-      showNote: true,
     });
   };
 
   onLangSelect = (lang) => {
     this.setState({
       lang,
-      edited: true,
-    });
-  };
-
-  onNoteFade = () => {
-    this.setState({
-      showNote: false,
     });
   };
 
   render() {
     const {
-      onSave,
       onChange,
       onLangSelect,
-      onNoteFade,
       langs,
       rubbleRef,
     } = this;
@@ -83,8 +62,6 @@ class Settings extends Component {
       note,
       receipt,
       expenseNoteSum,
-      edited,
-      showNote,
     } = this.state;
     const meta = {
       title: TITLES.SETTINGS,
@@ -134,16 +111,6 @@ class Settings extends Component {
                   </div>
                   <div className="service__desc">После совершения платежа отправлять квитанцию на&nbsp;адрес</div>
                 </div>
-                <Button className="button_settings" onClick={onSave} disabled={!edited}>
-                  Сохранить настройки
-                </Button>
-                <Note
-                  className="note_settings"
-                  message="Настройки сохранены"
-                  color="green"
-                  onFadeOut={onNoteFade}
-                  show={showNote}
-                />
               </div>
             </div>
           </Transitions>

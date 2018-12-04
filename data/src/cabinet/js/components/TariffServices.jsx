@@ -4,7 +4,7 @@ import cs from 'classnames';
 import CheckboxSlide from './CheckboxSlide';
 
 const TariffServices = ({ services, onChange }) => (
-  <div className="tariff-services">
+  <div className="block tariff-services">
     <div className="tariff-services__header">
       Услуги
     </div>

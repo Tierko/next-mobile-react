@@ -9,7 +9,6 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import Checkbox from '../components/CheckboxSlide';
 import InputRuble from '../components/InputRuble';
 import Select from '../../../common/js/components/Select';
-import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
 import Hider from '../components/Hider';
 import Notice from '../components/Notice';
@@ -52,6 +51,8 @@ class AutoPay extends Component {
   }
 
   onChange = (name, value) => {
+    const { onSave } = this;
+
     if (name === 'autoPaySum' || name === 'fewSum' || name === 'fewLess') {
       if (value.toString().length > 5) {
         return;
@@ -60,13 +61,11 @@ class AutoPay extends Component {
 
     this.setState({
       [name]: value,
-      unsaved: true,
-    });
+    }, onSave);
   };
 
   onSave = () => {
     const {
-      unsaved,
       monthlyEnabled,
       monthlySum,
       monthlyDay,
@@ -76,11 +75,12 @@ class AutoPay extends Component {
       lessLess,
     } = this.state;
     const {
-      history,
       saveAutoPay,
     } = this.props;
+    const monthlyInLimits = monthlySum >= 100 && monthlySum <= 15000;
+    const lessSumInLimits = lessSum >= 100 && lessSum <= 15000;
 
-    if (unsaved) {
+    if (monthlyInLimits && lessSumInLimits ) {
       saveAutoPay({
         monthlyEnabled,
         monthlySum,
@@ -89,14 +89,6 @@ class AutoPay extends Component {
         lessEnabled,
         lessSum,
         lessLess,
-      });
-
-      history.push({
-        pathname: `${Pages.RESULT}/success`,
-        state: {
-          title: 'Автоплатеж сохранен',
-          text: 'Счет будет автоматически пополняться на 2 000 ₽ каждый месяц 10 числа до сентября 2018 включительно',
-        },
       });
     }
   };
@@ -116,17 +108,14 @@ class AutoPay extends Component {
       lessEnabled,
       lessLess,
       lessSum,
-      unsaved,
       alreadyEnabled,
     } = this.state;
-    const { onChange, onSave, getDefaultCard } = this;
+    const { onChange, getDefaultCard } = this;
     const { months, days } = AutoPay;
     const card = getDefaultCard();
     const meta = {
       title: TITLES.AUTO_PAY,
     };
-    const monthlyInLimits = monthlySum >= 100 && monthlySum <= 15000;
-    const lessSumInLimits = lessSum >= 100 && lessSum <= 15000;
 
     return (
       <DocumentMeta {...meta}>
@@ -234,12 +223,6 @@ class AutoPay extends Component {
                     </div>
                   </Hider>
                 </div>
-                <Button
-                  onClick={onSave}
-                  disabled={!unsaved || !card || !monthlyInLimits || !lessSumInLimits}
-                >
-                  Сохранить
-                </Button>
               </div>
             </div>
           </Transitions>

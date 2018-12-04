@@ -9,8 +9,6 @@ import TariffServices from '../components/TariffServices';
 import Tariffs from '../../../common/js/components/Tariffs';
 import InterCalls from '../../../common/js/components/InterCalls';
 import Transitions from '../components/Transitions';
-import Button from '../../../common/js/components/Button';
-import Note from '../components/Note';
 import Notice from '../components/Notice';
 import { Pages, TITLES } from '../constants';
 import { dataBuffer } from '../utils';
@@ -19,8 +17,6 @@ const mergeDate = dataBuffer();
 
 class Services extends Component {
   state = {
-    unsaved: false,
-    showNote: false,
     services: [{
       id: 1,
       name: 'Кто звонил',
@@ -46,7 +42,6 @@ class Services extends Component {
 
       this.setState({
         services,
-        unsaved: true,
       });
     }
   };
@@ -68,31 +63,14 @@ class Services extends Component {
     localStorage.setItem('tariff', tariff.id);
   };
 
-  onSave = () => {
-    this.setState({
-      unsaved: false,
-      showNote: true,
-    });
-  };
-
-  onNoteFade = () => {
-    this.setState({
-      showNote: false,
-    });
-  };
-
   render() {
     const {
       services,
       currentTariff,
-      showNote,
-      unsaved,
     } = this.state;
     const {
       toggleService,
       changeTariff,
-      onSave,
-      onNoteFade,
     } = this;
     const meta = {
       title: TITLES.SERVICES,
@@ -114,19 +92,7 @@ class Services extends Component {
                 <Tariffs current={currentTariff} onChange={changeTariff} />
                 <InterCalls data={data} more />
               </div>
-              <div className="block">
-                <TariffServices services={services} onChange={toggleService} />
-                <Button className="button_services" onClick={onSave} disabled={!unsaved}>
-                  Сохранить
-                </Button>
-                <Note
-                  className="note_services"
-                  message="Настройки сохранены"
-                  color="green"
-                  onFadeOut={onNoteFade}
-                  show={showNote}
-                />
-              </div>
+              <TariffServices services={services} onChange={toggleService} />
             </div>
           </Transitions>
         </div>

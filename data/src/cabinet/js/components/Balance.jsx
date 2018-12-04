@@ -5,7 +5,7 @@ import Input from './InputRuble';
 import OverviewAutoPay from '../components/OverviewAutoPay';
 import Button from '../../../common/js/components/Button';
 import Limit from './Limit';
-import { formatCost, getShortPan } from '../utils';
+import { formatCost } from '../utils';
 
 const Balance = ({
   status,
@@ -43,7 +43,7 @@ const Balance = ({
       {
         defaultCard &&
           <div className="balance__card">
-            Оплата с карты по умолчанию {getShortPan(defaultCard)}
+            Карта по&nbsp;умолчанию: ****&nbsp;****&nbsp;****&nbsp;{defaultCard.substring(12)}
           </div>
       }
       <OverviewAutoPay />

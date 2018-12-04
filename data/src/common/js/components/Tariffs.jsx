@@ -65,9 +65,7 @@ class TariffTable extends Component {
     });
   };
 
-  toggleMode = ({ target }) => {
-    const mode = target.getAttribute('data-tab');
-
+  toggleMode = (mode) => {
     this.setState({
       mode,
     });
