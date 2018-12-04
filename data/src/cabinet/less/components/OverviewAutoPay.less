@@ -8,9 +8,10 @@
       content: '';
       width: 28px;
       height: 32px;
-      position: absolute;
-      top: -5px;
-      left: -35px;
+      position: relative;
+      top: 10px;
+      left: 0;
+      margin-right: 7px;
       display: inline-block;
       background-image: url("/media/icons/auto-pay.png");
       background-repeat: no-repeat;
@@ -20,17 +21,12 @@
   }
 
   &__list {
-    .list;
     margin: 0;
     color: @GRAY-DARK;
   }
 
   @media (max-width: @BREAK-POINT) {
     &__title:before {
-      position: relative;
-      top: 10px;
-      left: 0;
-      margin-right: 7px;
     }
   }
 }

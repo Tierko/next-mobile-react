@@ -34,7 +34,7 @@ const Balance = ({
         </div>
       }
       <div className="balance__pay">
-        <Input value={sum} onChange={onChange} name="sum" className="input_balance" />
+        <Input value={sum} onChange={onChange} name="sum" className="input_balance" min={100} />
         <Button className="button_balance" onClick={onPay} disabled={sum > 15000 || sum < 100} primary>
           Оплатить
         </Button>

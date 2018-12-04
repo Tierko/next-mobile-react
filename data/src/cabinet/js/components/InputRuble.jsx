@@ -42,6 +42,15 @@ class InputRuble extends Input {
     target.setSelectionRange(value.length - 2, value.length - 2);
   };
 
+  onBlur = () => {
+    const { min, value } = this.props;
+    const { change } = this;
+
+    if (value < min) {
+      change(min.toString());
+    }
+  };
+
   render() {
     const {
       name,
@@ -51,7 +60,12 @@ class InputRuble extends Input {
       clear,
       disabled,
     } = this.props;
-    const { onChange, onFocus, change } = this;
+    const {
+      onChange,
+      onFocus,
+      change,
+      onBlur,
+    } = this;
     const { value } = this.state;
 
     return (
@@ -63,6 +77,7 @@ class InputRuble extends Input {
           value={value}
           onChange={onChange}
           onFocus={onFocus}
+          onBlur={onBlur}
           ref={(e) => { this.input = e; }}
           disabled={disabled}
         />

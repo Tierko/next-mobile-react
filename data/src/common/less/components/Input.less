@@ -51,7 +51,7 @@
   &_balance &__value {
     padding: 0;
     font-size: @FONT-SIZE-H2;
-    line-height: 43px;
+    line-height: 46px;
     color: rgba(33, 31, 94, 0.86);
   }
 
@@ -225,29 +225,11 @@
     position: relative;
     transition: background-color 0.3s;
 
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: @BLUE-MAIN;
-      opacity: 0;
-      transition: opacity 0.3s, transform 0.3s;
-    }
-
     &_light {
       background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
     }
 
     &_error {
-      background-color: @ORANGE;
-    }
-
-    &_error:before,
-    &_error:after {
       background-color: @ORANGE;
     }
 
@@ -259,37 +241,11 @@
   &__value:focus ~ &__indicator,
   &_active &__indicator {
     background-color: @BLUE-MAIN;
-
-    &:before,
-    &:after {
-      opacity: 1;
-    }
-
-    &:before {
-      transform: translateY(2px);
-    }
-
-    &:after {
-      transform: translateY(4px);
-    }
   }
 
   &__value:focus ~ &__indicator_error,
   &_active &__indicator_error {
     background-color: @ORANGE;
-
-    &:before,
-    &:after {
-      opacity: 1;
-    }
-
-    &:before {
-      transform: translateY(2px);
-    }
-
-    &:after {
-      transform: translateY(4px);
-    }
   }
 
   &__value:focus ~ &__indicator_light,

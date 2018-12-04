@@ -15,28 +15,28 @@ const OverviewAutoPay = ({ autoPay }) => {
       <div className="overview-auto-pay__title">
         Подключен <Link className="link" to={Pages.AUTO_PAY}>автоплатеж</Link>
       </div>
-      <ul className="overview-auto-pay__list">
+      <div className="overview-auto-pay__list">
         {
           autoPay.monthlyEnabled &&
-          <li>
+          <div>
             на&nbsp;{
               formatCost(autoPay.monthlySum)
             } ежемесячно {
               autoPay.monthlyDay
             } числа
-          </li>
+          </div>
         }
         {
           autoPay.lessEnabled &&
-          <li>
+          <div>
             на&nbsp;{
               formatCost(autoPay.lessSum)
             }, если на&nbsp;счету меньше чем {
               formatCost(autoPay.lessLess)
             }
-          </li>
+          </div>
         }
-      </ul>
+      </div>
     </div>
   );
 };
