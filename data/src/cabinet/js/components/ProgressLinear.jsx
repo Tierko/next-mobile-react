@@ -23,10 +23,12 @@ class ProgressLinear extends Component {
       className,
       dashed,
       x,
+      colorMin,
+      colorNormal,
     } = this.props;
     const percent = (current > maxValue || maxValue === 0) ? 100 : (current / maxValue) * 100;
     const { show } = this.state;
-    const color = percent > 15 ? '#211f5e' : '#ff5500';
+    const color = percent > 15 ? colorNormal : colorMin;
 
     return (
       <div className={cs(`progress-linear ${className}`, { 'progress-linear_dashed': dashed })}>
@@ -55,12 +57,16 @@ ProgressLinear.propTypes = {
   className: PropTypes.string,
   dashed: PropTypes.bool,
   x: PropTypes.bool,
+  colorNormal: PropTypes.string,
+  colorMin: PropTypes.string,
 };
 
 ProgressLinear.defaultProps = {
   className: '',
   dashed: false,
   x: false,
+  colorNormal: '#211f5e',
+  colorMin: '#ff5500',
 };
 
 export default ProgressLinear;

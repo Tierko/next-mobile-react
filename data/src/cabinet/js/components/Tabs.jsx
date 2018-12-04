@@ -14,8 +14,7 @@ const Tabs = ({
         <div
           key={t.id}
           className={cs('tabs__item', { tabs__item_active: tab === t.id })}
-          onClick={onChange}
-          data-tab={t.id}
+          onClick={() => onChange(t.id)}
         >
           <span>
             {t.title}

@@ -51,9 +51,7 @@ class Payment extends Component {
     });
   };
 
-  changeTab = (e) => {
-    const { tab } = e.target.dataset;
-
+  changeTab = (tab) => {
     this.setState({
       tab,
     });

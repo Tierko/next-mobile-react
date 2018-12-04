@@ -14,7 +14,6 @@ import History from '../components/History';
 import RoamingDashboard from '../components/RoamingDashboard';
 import OverviewInvite from '../components/OverviewInvite';
 import OverviewRoamingCurrent from '../components/OverviewRoamingCurrent';
-import OverviewAutoPay from '../components/OverviewAutoPay';
 import FooterNav from '../components/FooterNav';
 import Notice from '../components/Notice';
 
@@ -130,7 +129,6 @@ class Overview extends Component {
                 onPay={onPay}
                 onChange={sumChange}
               />
-              <OverviewAutoPay />
               <OverviewRoamingCurrent history={history} data={roaming} />
               <Remain
                 data={getData('remain')}

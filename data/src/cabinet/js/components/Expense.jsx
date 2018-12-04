@@ -49,21 +49,21 @@ class Expense extends Component {
             <div className="expense__details">
               {
                 item.expense.map((e) => {
-                  let colorStart;
-                  let colorEnd;
+                  let colorNormal;
+                  let colorMin;
 
                   switch (e.type) {
                   case 'pay':
-                    colorStart = '#fe46cc';
-                    colorEnd = '#d800b4';
+                    colorNormal = '#66d2ff';
+                    colorMin = '#66d2ff';
                     break;
                   case 'roaming':
-                    colorStart = '#7cfa1c';
-                    colorEnd = '#36c73d';
+                    colorNormal = '#d170f3';
+                    colorMin = '#d170f3';
                     break;
                   default:
-                    colorStart = '#02c4fe';
-                    colorEnd = '#003eff';
+                    colorNormal = '#5887ff';
+                    colorMin = '#5887ff';
                   }
 
                   return (
@@ -74,8 +74,8 @@ class Expense extends Component {
                         current={e.cost}
                         max={cost}
                         tall
-                        colorStart={colorStart}
-                        colorEnd={colorEnd}
+                        colorNormal={colorNormal}
+                        colorMin={colorMin}
                       />
                       <div className="expense__detail-cost">{formatCost(e.cost, true)}</div>
                     </div>

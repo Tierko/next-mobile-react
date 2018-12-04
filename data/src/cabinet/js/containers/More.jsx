@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import DocumentMeta from 'react-document-meta';
 import { connect } from 'react-redux';
 import HeaderMobile from '../components/HeaderMobile';
@@ -59,6 +60,7 @@ const More = ({ countries, interCalls, match: { params: { type } } }) => {
                   <div className="more__subtitle">550&nbsp;мин.&nbsp;/ мес.</div>
                   <div className="more__text">Стоимость звонков на&nbsp;номера Next Mobile по&nbsp;России</div>
                   <div className="more__subtitle">0&nbsp;₽&nbsp;/ мин.</div>
+                  <Link className="button button_primary button_more" to={Pages.ADD_PACKAGE}>Докупить минуты</Link>
                 </Fragment>
               }
               {
@@ -71,6 +73,7 @@ const More = ({ countries, interCalls, match: { params: { type } } }) => {
                   <div className="more__subtitle">До&nbsp;12&nbsp;сентбря</div>
                   <div className="more__text">Объем купленного трафика</div>
                   <div className="more__subtitle">2&nbsp;ГБ</div>
+                  <Link className="button button_primary button_more" to={Pages.ADD_PACKAGE}>Докупить интернет</Link>
                 </Fragment>
               }
             </div>

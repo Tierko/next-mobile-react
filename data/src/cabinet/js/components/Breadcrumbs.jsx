@@ -8,7 +8,7 @@ const Breadcrumbs = ({ className, items }) => {
       const item = items[i / 2];
 
       return (
-        <Link to={item.link} className="breadcrumbs__link">
+        <Link key={item.link} to={item.link} className="breadcrumbs__link">
           {item.title}
         </Link>
       );

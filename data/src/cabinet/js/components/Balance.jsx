@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Input from './InputRuble';
+import OverviewAutoPay from '../components/OverviewAutoPay';
 import Button from '../../../common/js/components/Button';
 import Limit from './Limit';
-import { formatCost } from '../utils';
+import { formatCost, getShortPan } from '../utils';
 
 const Balance = ({
   status,
@@ -13,6 +15,7 @@ const Balance = ({
   className,
   message,
   balance,
+  defaultCard,
 }) => {
   const fBalance = formatCost(Math.abs(balance).toFixed(2), true);
 
@@ -37,6 +40,13 @@ const Balance = ({
         </Button>
       </div>
       <Limit sum={sum} className="limit_balance" />
+      {
+        defaultCard &&
+          <div className="balance__card">
+            Оплата с карты по умолчанию {getShortPan(defaultCard)}
+          </div>
+      }
+      <OverviewAutoPay />
     </div>
   );
 };
@@ -49,11 +59,19 @@ Balance.propTypes = {
   onPay: PropTypes.func.isRequired,
   className: PropTypes.string,
   balance: PropTypes.number.isRequired,
+  defaultCard: PropTypes.string,
 };
 
 Balance.defaultProps = {
   status: '',
   className: '',
+  defaultCard: '',
 };
 
-export default Balance;
+function mapStateToProps(state) {
+  return {
+    defaultCard: state.Cards.defaultCard,
+  };
+}
+
+export default connect(mapStateToProps)(Balance);

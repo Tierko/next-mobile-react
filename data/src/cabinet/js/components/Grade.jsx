@@ -90,7 +90,13 @@ class Grade extends Component {
                       grade__line_wide: wide,
                     })}
                     style={{ height: (Grade.countExpense(e.expense) / maxExpense) * 100 }}
-                  />
+                  >
+                    {
+                      e.expense.map(i => (
+                        <div className={`grade__subline grade__subline_${i.type}`} />
+                      ))
+                    }
+                  </div>
                   {
                     wide &&
                     <div className={cs('grade__month', { grade__month_selected: e.id === selected })}>

@@ -40,13 +40,32 @@
   }
 
   &__line {
-    border-left: 3px solid @GRAY-LIGHT;
     cursor: pointer;
     margin-top: auto;
-    transition: border-left-color 0.3s;
+    width: 3px;
+    background-color: @GRAY-LIGHT;
+    transition: background-color 0.3s;
 
     &_selected {
-      border-left-color: @BLUE;
+      background-color: @BLUE;
+    }
+  }
+
+  &__subline {
+    height: 33.33%;
+    width: 3px;
+    display: none;
+
+    &_pay {
+      background-color: #66d2ff;
+    }
+
+    &_other {
+      background-color: #5887ff;
+    }
+
+    &_roaming {
+      background-color: #d170f3;
     }
   }
 

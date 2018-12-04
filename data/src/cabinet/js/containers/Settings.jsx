@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import DocumentMeta from 'react-document-meta';
-import cs from 'classnames';
 import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
@@ -69,21 +68,11 @@ class Settings extends Component {
     });
   };
 
-  setCash = (e) => {
-    const { cash } = e.target.dataset;
-    const { note } = this.state;
-
-    if (note) {
-      this.rubbleRef.current.change(cash);
-    }
-  };
-
   render() {
     const {
       onSave,
       onChange,
       onLangSelect,
-      setCash,
       onNoteFade,
       langs,
       rubbleRef,
@@ -136,35 +125,6 @@ class Settings extends Component {
                       clear
                       ref={rubbleRef}
                     />
-                    <div className="service__expense-sums">
-                      <div
-                        onClick={setCash}
-                        className={cs('service__expense-sum', {
-                          'service__expense-sum_disabled': !note,
-                        })}
-                        data-cash="2000"
-                      >
-                        2 000 ₽
-                      </div>
-                      <div
-                        onClick={setCash}
-                        className={cs('service__expense-sum', {
-                          'service__expense-sum_disabled': !note,
-                        })}
-                        data-cash="5000"
-                      >
-                        5 000 ₽
-                      </div>
-                      <div
-                        onClick={setCash}
-                        className={cs('service__expense-sum', {
-                          'service__expense-sum_disabled': !note,
-                        })}
-                        data-cash="10000"
-                      >
-                        10 000 ₽
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <div className="service">
