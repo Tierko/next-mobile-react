@@ -3,7 +3,7 @@
     .h1;
     position: relative;
     margin-top: 30px;
-    margin-bottom: -70px;
+    margin-bottom: 30px;
 
     span {
       position: absolute;
@@ -11,13 +11,15 @@
     }
   }
 
-  @media (max-width: @BREAK-POINT) {
+  @media (max-width: 1000px) {
     &__expense {
-      margin-bottom: -70px;
+      margin-bottom: -90px;
+    }
+  }
 
-      span {
-        position: static;
-      }
+  @media (max-width: @BREAK-POINT) {
+    &__expense span {
+      position: static;
     }
   }
 }
