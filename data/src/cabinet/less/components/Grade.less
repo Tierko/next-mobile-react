@@ -45,6 +45,8 @@
     width: 3px;
     background-color: @GRAY-LIGHT;
     transition: background-color 0.3s;
+    display: flex;
+    flex-direction: column;
 
     &_selected {
       background-color: @BLUE;
@@ -52,9 +54,9 @@
   }
 
   &__subline {
-    height: 33.33%;
     width: 3px;
-    display: none;
+    opacity: 0;
+    transition: 0.3s opacity;
 
     &_pay {
       background-color: #66d2ff;
@@ -67,6 +69,10 @@
     &_roaming {
       background-color: #d170f3;
     }
+  }
+
+  &__line_selected &__subline {
+    opacity: 1;
   }
 
   &__month {

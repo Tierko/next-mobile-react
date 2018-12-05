@@ -25,7 +25,7 @@ class Grade extends Component {
     });
   };
 
-  onBlur = (e) => {
+  onBlur = () => {
     const { saved } = this.state;
     const { onItemSelect, data } = this.props;
     const item = data.find(i => i.id === saved);
@@ -93,7 +93,10 @@ class Grade extends Component {
                   >
                     {
                       e.expense.map(i => (
-                        <div className={`grade__subline grade__subline_${i.type}`} />
+                        <div
+                          className={`grade__subline grade__subline_${i.type}`}
+                          style={{ flexGrow: i.cost }}
+                        />
                       ))
                     }
                   </div>
