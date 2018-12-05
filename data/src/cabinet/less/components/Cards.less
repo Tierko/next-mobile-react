@@ -1,9 +1,8 @@
 .cards {
   height: 189px;
-  margin: 0 -8px;
+  margin: 0 -8px 23px;
   position: relative;
   overflow: hidden;
-  //mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent);
 
   @media (max-width: @BREAK-POINT) {
     margin: 0 -15px;
@@ -82,8 +81,8 @@
   flex: 0 0 auto;
   border-radius: 8px;
   padding: 10px 14px;
-  width: 143px;
-  height: 91px;
+  width: 186px;
+  height: 119px;
   margin: 0 8px;
   cursor: pointer;
   user-select: none;
@@ -102,8 +101,6 @@
     background-repeat: no-repeat;
     right: 15px;
     bottom: 15px;
-    transform: scale(0.76);
-    transform-origin: 100% 100%;
     opacity: 0.3;
 
     @supports (mix-blend-mode: lighten) {
@@ -149,12 +146,14 @@
     background-size: 44px auto;
   }
 
-  &_default &__number:after {
+  &_default:before {
     content: '';
-    display: inline-block;
-    width: 20px;
-    height: 1em;
-    background: url("/media/icons/star.svg") no-repeat 50% 100%;
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    left: 14px;
+    bottom: 10px;
+    background: url("/media/icons/default.svg") no-repeat 50% 50%;
   }
 
   &_big {
@@ -162,10 +161,6 @@
     height: 170px;
     cursor: default;
     padding: 20px;
-
-    &:after {
-      transform: scale(1);
-    }
   }
 
   &_big &__number {
@@ -206,16 +201,6 @@
     color: @WHITE;
   }
 
-  &_selected {
-    width: 186px;
-    height: 119px;
-    cursor: default;
-
-    &:after {
-      transform: scale(1);
-    }
-  }
-
   &_auto-pay {
     margin: 50px 0 15px;
     cursor: default;
@@ -233,30 +218,15 @@
 
   &__number {
     color: @WHITE;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 400;
   }
 
-  &_selected &__number {
-    font-size: 18px;
-  }
-
-  &__points {
-    cursor: pointer;
+  &__title {
     position: absolute;
-    top: 0;
-    right: 0;
-    padding: 18px 15px;
-  }
-
-  &__point {
-    display: block;
-    width: 3px;
-    height: 3px;
-    background-color: @WHITE;
-    margin-bottom: 3px;
-    margin-left: auto;
-    border-radius: 50%;
+    bottom: -31px;
+    left: 0;
+    color: #6c7284;
   }
 
   &__form {

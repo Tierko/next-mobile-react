@@ -86,7 +86,7 @@ class Cards extends Component {
     const { row, inner } = this;
     const maxScroll = inner.clientWidth - row.clientWidth;
     const cardNumber = getAttr(cardE, 'number') * 1;
-    const scroll = id === 'new' ? maxScroll + 142 : cardNumber * 159;
+    const scroll = id === 'new' ? maxScroll + 142 : cardNumber * 202;
 
     row.scroll({
       left: scroll,
@@ -109,11 +109,10 @@ class Cards extends Component {
     }
   };
 
-  onCardEdit = ({ currentTarget }) => {
+  onCardEdit = (id) => {
     const { onEdit } = this.props;
-    const { getAttr } = this;
 
-    onEdit(getAttr(currentTarget, 'id'));
+    onEdit(id);
   };
 
   getAttr = (e, attr) => {
