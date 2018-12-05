@@ -5,7 +5,6 @@ import DocumentMeta from 'react-document-meta';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Header from '../../../common/js/components/Header';
 import Input from '../components/InputPhone';
-import LogoAnimated from '../components/LogoAnimated';
 import MobileCode from '../components/MobileCode';
 import Transitions from '../components/Transitions';
 import { Pages, TITLES } from '../constants';
@@ -15,7 +14,6 @@ class SignIn extends Component {
     phone: '',
     message: 'На\u00A0указанный номер Next Mobile будет отправлен код для входа в\u00A0Личный кабинет',
     isPhoneVisible: true,
-    expandLogo: false,
   };
 
   onChange = (name, value) => {
@@ -41,14 +39,6 @@ class SignIn extends Component {
     }
   };
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        expandLogo: true,
-      });
-    }, 400);
-  }
-
   onSubmit = (e) => {
     e.preventDefault();
     const { mobileCode: { current: { sendCode } } } = this;
@@ -70,7 +60,6 @@ class SignIn extends Component {
       phone,
       message,
       isPhoneVisible,
-      expandLogo,
     } = this.state;
     const meta = {
       title: TITLES.SIGN_IN,
@@ -79,7 +68,7 @@ class SignIn extends Component {
     return (
       <DocumentMeta {...meta}>
         <div className="welcome">
-          <MobileNav type="enter" />
+          <MobileNav type="enter" dark />
           <Header />
           <Transitions classNames="slide">
             <div className="welcome__content">
@@ -98,7 +87,13 @@ class SignIn extends Component {
                   </Transitions>
                 }
               </form>
-              <MobileCode className="mobile-code_sign-in" phone={phone} onCodeSend={onCodeSend} onEnter={onEnter} ref={mobileCode} />
+              <MobileCode
+                className="mobile-code_sign-in"
+                phone={phone}
+                onCodeSend={onCodeSend}
+                onEnter={onEnter}
+                ref={mobileCode}
+              />
               <div className="welcome__footer">
                 <Link className="link-nav" to={Pages.SIGN_UP}>Регистрация</Link>
               </div>

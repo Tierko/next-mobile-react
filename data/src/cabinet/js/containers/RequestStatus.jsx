@@ -153,7 +153,7 @@ class RequestStatus extends Component {
     return (
       <DocumentMeta {...meta}>
         <div className="welcome">
-          <MobileNav type="enter" />
+          <MobileNav type="enter" dark />
           <Header />
           <Transitions classNames="slide">
             {

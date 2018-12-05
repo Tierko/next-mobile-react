@@ -84,6 +84,7 @@ class MobileNav extends Component {
       r,
       hideSpot,
       translate,
+      dark,
     } = this.props;
     const {
       toggle,
@@ -102,6 +103,7 @@ class MobileNav extends Component {
             onClick={toggle}
             className={cs('mobile-nav__menu', {
               'mobile-nav__menu_mask': !hideSpot,
+              'mobile-nav__menu_dark': dark,
             })}
           />
           <div
@@ -138,12 +140,14 @@ MobileNav.propTypes = {
   r: PropTypes.number,
   hideSpot: PropTypes.bool,
   translate: PropTypes.shape(),
+  dark: PropTypes.bool,
 };
 
 MobileNav.defaultProps = {
   r: 1,
   hideSpot: false,
   translate: {},
+  dark: false,
 };
 
 export default MobileNav;
