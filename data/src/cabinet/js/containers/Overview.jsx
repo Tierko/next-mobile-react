@@ -135,7 +135,7 @@ class Overview extends Component {
                 tariff={getData('tariff')}
                 buy={onBuy}
               />
-              <History data={getData('history')} />
+              <History data={getData('history')} operations={getData('operations')} />
               <RoamingDashboard data={roaming} />
               <OverviewInvite message={message} code={code ? code.code : ''} />
               <FooterNav />

@@ -5,7 +5,7 @@ import Date from './Date';
 import Select from '../../../common/js/components/Select';
 import Button from '../../../common/js/components/Button';
 import Loader from './Loader';
-import { formatCost } from '../utils';
+import { formatCost, formatCount, showDate } from '../utils';
 import {
   HISTORY_FILTERS,
   HISTORY_TITLES, MONTHS_M,
@@ -14,37 +14,12 @@ import {
 } from '../constants';
 
 class Operations extends Component {
-  static formatCount = (count, unit) => {
-    if (unit === 'time') {
-      const sec = count % 60;
-      const min = (count - sec) / 60;
-
-      return `${min} мин. ${sec} сек.`;
-    }
-
-    return `${count} ${unit}`;
-  };
-
   static formatDate = (date) => {
     const year = date.getFullYear();
     const month = date.getMonth();
     const day = date.getDate();
 
     return `${day} ${MONTHS_SHORT[month]} ${year}`;
-  };
-
-  static showDate = (data, index) => {
-    const { date } = data[index];
-
-    if (index - 1 < 0) {
-      return true;
-    }
-
-    const prevDate = data[index - 1].date;
-
-    return date.year === prevDate.year &&
-      date.month === prevDate.month &&
-      date.day === prevDate.day;
   };
 
   state = {
@@ -121,11 +96,7 @@ class Operations extends Component {
     } = this.state;
     const { data } = this.props;
     const filteredData = filter(data).slice(0, show);
-    const {
-      showDate,
-      formatCount,
-      formatDate,
-    } = Operations;
+    const { formatDate } = Operations;
     const showMoreButton = data.length > show && filteredData.length < filter(data).length;
 
     return (

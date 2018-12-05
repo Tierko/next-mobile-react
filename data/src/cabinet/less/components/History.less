@@ -2,6 +2,8 @@
   &__expense {
     .h1;
     position: relative;
+    margin-top: 30px;
+    margin-bottom: -70px;
 
     span {
       position: absolute;
@@ -10,8 +12,12 @@
   }
 
   @media (max-width: @BREAK-POINT) {
-    &__expense span {
-      position: static;
+    &__expense {
+      margin-bottom: -70px;
+
+      span {
+        position: static;
+      }
     }
   }
 }

@@ -69,6 +69,29 @@ export const formatCost = (source, zeroByDefault) => {
   return `${arr.reverse().join('') || ''}${tail} ${units.currency}`;
 };
 
+export const formatCount = (count, unit) => {
+  if (unit === 'time') {
+    const sec = count % 60;
+    const min = (count - sec) / 60;
+
+    return `${min} мин. ${sec} сек.`;
+  }
+
+  return `${count} ${unit}`;
+};
+
+export const showDate = (data, index) => {
+  const { date } = data[index];
+
+  if (index - 1 < 0) {
+    return true;
+  }
+
+  return data.findIndex(d => (
+    d.date.year === date.year && d.date.month === date.month && d.date.day === date.day)
+  ) === index;
+};
+
 export const getData = (type) => {
   if (!data[type]) {
     return localStorage[type] * 1;
