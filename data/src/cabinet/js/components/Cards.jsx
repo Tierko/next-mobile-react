@@ -82,16 +82,18 @@ class Cards extends Component {
       dateInput,
       cvvInput,
     } = this;
-    const tmp = name === 'holder' ? value.toUpperCase().replace(/[^a-z\s]/gi, '') : value;
-    const nextState = Object.assign({}, state, { [name]: tmp });
-    const holderError = value.search(/[^a-z\s]/gi, '') !== -1 && name === 'holder';
+    const nextState = Object.assign({}, state, { [name]: value });
     nextState[name] = value;
 
     if (name === 'date') {
-      const dates = value.split(' / ');
+      let dates = value.split(' / ');
 
       if (dates && dates[0].length && (+dates[0]) > 12) {
-        return;
+        dates = dates.join('');
+        dates = `0${dates.substr(0, 1)} / ${dates.substr(2)}`;
+
+        nextState[name] = dates;
+        value = dates;
       }
     }
 
@@ -121,8 +123,7 @@ class Cards extends Component {
     };
 
     this.setState({
-      [name]: tmp,
-      holderError,
+      [name]: value,
     });
 
     onPermitChange(isNewCardValid(nextState), isNewCardValid(nextState) ? card : undefined);

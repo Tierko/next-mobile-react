@@ -28,6 +28,10 @@ class Operations extends Component {
     periodEnd: new window.Date(),
     show: 10,
     loaded: false,
+    sort: {
+      type: 'date',
+      order: 'desc',
+    }
   };
 
   componentDidMount() {
@@ -85,17 +89,61 @@ class Operations extends Component {
     });
   };
 
+  setSort = (type) => {
+    const { sort } = this.state;
+    const newSort = { type };
+
+    if (sort.type === type) {
+      newSort.order = sort.order === 'desc' ? 'asc' : 'desc';
+    } else {
+      newSort.order = 'desc';
+    }
+
+    this.setState({
+      sort: newSort,
+    });
+  };
+
   render() {
-    const { onChange, filter, loadMore } = this;
+    const {
+      onChange,
+      filter,
+      loadMore,
+      setSort,
+    } = this;
     const {
       filterBy,
       periodStart,
       periodEnd,
       show,
       loaded,
+      sort,
     } = this.state;
     const { data } = this.props;
-    const filteredData = filter(data).slice(0, show);
+    const filteredData = filter(data).slice(0, show).sort((a, b) => {
+      const { type, order } = sort;
+      let aa = a[type];
+      let bb = b[type];
+
+      if (type === 'date') {
+        aa = (new window.Date(a.date.year, a.date.month, a.date.day)).getTime();
+        bb = (new window.Date(b.date.year, b.date.month, b.date.day)).getTime();
+      }
+
+      if (aa > bb && order === 'desc') {
+        return 1;
+      } else if (aa > bb && order === 'asc') {
+        return -1;
+      }
+
+      if (aa < bb && order === 'desc') {
+        return -1;
+      } else if (aa < bb && order === 'asc') {
+        return 1;
+      }
+
+      return 0;
+    });
     const { formatDate } = Operations;
     const showMoreButton = data.length > show && filteredData.length < filter(data).length;
 
@@ -134,7 +182,14 @@ class Operations extends Component {
               <tr className="operations__row operations__row_header">
                 <td className="operations__cell-empty">&nbsp;</td>
                 <td className="operations__td_date">
-                  <div className="operations__cell_date-h">Дата</div>
+                  <div
+                    onClick={() => setSort('date')}
+                    className={cs(`operations__cell_date-h operations__cell_sort operations__cell_sort-${sort.order}`, {
+                      'operations__cell_sort-current': sort.type === 'date'
+                    })}
+                  >
+                    Дата
+                  </div>
                 </td>
                 <td className="operations__td_time">
                   <div className="operations__cell_time-h">Время</div>
@@ -153,7 +208,14 @@ class Operations extends Component {
                   <div className="operations__cell_count-h">Количество</div>
                 </td>
                 <td className="operations__td_cost">
-                  <div className="operations__cell_cost-h">Стоимость</div>
+                  <div
+                    onClick={() => setSort('cost')}
+                    className={cs(`operations__cell_date-h operations__cell_sort operations__cell_sort-${sort.order}`, {
+                      'operations__cell_sort-current': sort.type === 'cost'
+                    })}
+                  >
+                    Стоимость
+                  </div>
                 </td>
                 <td className="operations__cell-empty">&nbsp;</td>
               </tr>
@@ -164,10 +226,8 @@ class Operations extends Component {
                   <td className="operations__cell-empty">&nbsp;</td>
                   {
                     <td>
-                      <div
-                        className={cs('operations__cell operations__cell_date', { operations__cell_hide: !showDate(filteredData, i) })}
-                      >
-                        {showDate(filteredData, i) && `${d.date.day} ${MONTHS_M[d.date.month]}`}
+                      <div className="operations__cell operations__cell_date">
+                        {`${d.date.day} ${MONTHS_M[d.date.month]}`}
                       </div>
                     </td>
                   }

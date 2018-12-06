@@ -142,6 +142,29 @@
     &_hide {
       border-top-color: transparent;
     }
+
+    &_sort {
+      cursor: pointer;
+      user-select: none;
+
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 8px;
+        height: 12px;
+        margin-left: 5px;
+      }
+    }
+
+    &_sort-current {
+      &:after {
+        background: url("/media/icons/arrow-sort.svg");
+      }
+    }
+
+    &_sort-asc:after {
+      transform: rotate(180deg);
+    }
   }
 
   &__cell-empty {
