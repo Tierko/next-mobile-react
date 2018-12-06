@@ -87,6 +87,14 @@ class Cards extends Component {
     const holderError = value.search(/[^a-z\s]/gi, '') !== -1 && name === 'holder';
     nextState[name] = value;
 
+    if (name === 'date') {
+      const dates = value.split(' / ');
+
+      if (dates && dates[0].length && (+dates[0]) > 12) {
+        return;
+      }
+    }
+
     if (name === 'number') {
       manageFocus(name, value, 19, dateInput);
     }
