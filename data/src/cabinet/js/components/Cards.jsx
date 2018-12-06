@@ -36,7 +36,7 @@ class Cards extends Component {
     }
   }
 
-  onChange = (name, value) => {
+  onChange = (name, value, e) => {
     const { onPermitChange } = this.props;
     const { isNewCardValid, state } = this;
     const tmp = name === 'holder' ? value.toUpperCase().replace(/[^a-z\s]/gi, '') : value;
@@ -141,7 +141,7 @@ class Cards extends Component {
 
   calculateOffsetEnd = () => {
     const { row } = this;
-    const CARD_WIDTH = 279 + 16;
+    const CARD_WIDTH = 328 + 16;
 
     if (!row) {
       return 0;

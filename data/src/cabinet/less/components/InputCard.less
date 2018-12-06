@@ -1,0 +1,82 @@
+.input-card {
+  font-size: @FONT-SIZE-BASE;
+  line-height: @LINE-HEIGHT-BASE;
+  position: relative;
+  text-align: left;
+  padding-bottom: 30px;
+
+  &_number {
+    width: 238px;
+  }
+
+  &_date {
+    width: 105px;
+  }
+
+  &__value {
+    color: #161543;
+    font-family: inherit;
+    font-size: 24px;
+    line-height: inherit;
+    font-weight: inherit;
+    padding: 0 5px 0.33em;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    text-align-last: justify;
+    z-index: 1;
+  }
+
+  &__placeholder {
+    .text-ellipsis;
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  &__indicator {
+    height: 1px;
+    background-color: @GRAY-LIGHT;
+    position: relative;
+    transition: background-color 0.3s;
+
+    &_light {
+      background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    }
+
+    &_error {
+      background-color: @ORANGE;
+    }
+
+    &_hide {
+      opacity: 0;
+    }
+  }
+
+  &__value:focus ~ &__indicator,
+  &_active &__indicator {
+    background-color: @BLUE-MAIN;
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    &_number {
+      width: 160px;
+    }
+
+    &__placeholder {
+      margin-bottom: 0;
+    }
+
+    &__value {
+      font-size: 16px;
+      line-height: 20px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &_date &__indicator {
+      max-width: 62px;
+    }
+  }
+}

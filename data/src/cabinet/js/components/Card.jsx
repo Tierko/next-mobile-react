@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import InputMask from 'react-input-mask';
+import InputCard from '../components/InputCard';
 import {
   checkCardNumber,
   checkCardDate,
@@ -79,32 +80,42 @@ const Card = ({
           }
           {
             isSelected &&
-            <div className={cs(`card__form card__form_${isFilled && getPaySystem(number)}`, {
-              'card__form_has-pay': !!getPaySystem(number) && isFilled,
-            })}>
-              <InputMask
-                className="card__input card__input_wide card__input_number"
+            <div
+              className={cs(`card__form card__form_${isFilled && getPaySystem(number)}`, {
+                'card__form_has-pay': !!getPaySystem(number) && isFilled,
+              })}
+            >
+              <InputCard
+                className="input-card_number"
                 mask="9999 9999 9999 9999"
+                title="Номер карты"
                 placeholder="0000 0000 0000 0000"
-                onChange={e => onChange('number', e.target.value)}
+                name="number"
+                onChange={onChange}
                 value={number}
               />
-              <div className="card__row">
-                <InputMask
-                  className="card__input card__input_narrow"
-                  mask="99 / 99"
-                  placeholder="ММ / ГГ"
-                  onChange={e => onChange('date', e.target.value)}
-                  value={date}
-                />
-                <InputMask
-                  className="card__input card__input_narrow"
-                  placeholder="CVV"
-                  mask="999"
-                  onChange={e => onChange('cvv', e.target.value)}
-                  value={cvv}
-                />
-              </div>
+              <InputCard
+                className="input-card_date"
+                mask="99 / 99"
+                title="Срок действия"
+                placeholder="ММ / ГГ"
+                onChange={onChange}
+                value={date}
+                name="date"
+              />
+            </div>
+          }
+          {
+            isSelected &&
+            <div className="card__cvv">
+              <div className="card__cvv-title">CVC/CVV</div>
+              <InputMask
+                className="card__cvv-input"
+                mask="999"
+                onChange={e => onChange('cvv', e.target.value, e)}
+                value={cvv}
+              />
+              <div className="card__cvv-note">Последние три цифры на обороте карты</div>
             </div>
           }
         </div>
