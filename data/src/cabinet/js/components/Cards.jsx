@@ -25,6 +25,9 @@ class Cards extends Component {
   componentDidMount() {
     const { setOffset, addClasses, onCardSelect } = this;
     const { data: { defaultCard } } = this.props;
+    const numberInput = document.querySelector('.input-card_number input');
+    const dateInput = document.querySelector('.input-card_date input');
+    const cvvInput = document.querySelector('.card__cvv .card__cvv-input');
     setOffset();
     addClasses();
     const card = document.getElementById(`card-${defaultCard}`);
@@ -34,15 +37,67 @@ class Cards extends Component {
         currentTarget: card,
       });
     }
+
+    this.numberInput = numberInput;
+    this.dateInput = dateInput;
+    this.cvvInput = cvvInput;
   }
 
-  onChange = (name, value, e) => {
+  componentDidUpdate(prevProps, prevState) {
+    const { numberInput } = this;
+    const { selected } = this.state;
+
+    if (selected && selected !== prevState.selected && selected === 'new' && numberInput) {
+      setTimeout(() => numberInput.focus(), 650);
+    }
+  }
+
+  manageFocus = (name, value, count, nextInput, prevInput) => {
+    const { state } = this;
+
+    if (nextInput && value.length === count) {
+      if (state[name].length === count - 1) {
+        nextInput.focus();
+      }
+
+      if (state[name].length === count && state[name][count - 1] !== value[count - 1]) {
+        nextInput.focus();
+      }
+    }
+
+    if (prevInput && value.length === 0) {
+      if (state[name].length === 1) {
+        prevInput.focus();
+      }
+    }
+  };
+
+  onChange = (name, value) => {
     const { onPermitChange } = this.props;
-    const { isNewCardValid, state } = this;
+    const {
+      isNewCardValid,
+      state,
+      manageFocus,
+      numberInput,
+      dateInput,
+      cvvInput,
+    } = this;
     const tmp = name === 'holder' ? value.toUpperCase().replace(/[^a-z\s]/gi, '') : value;
     const nextState = Object.assign({}, state, { [name]: tmp });
     const holderError = value.search(/[^a-z\s]/gi, '') !== -1 && name === 'holder';
     nextState[name] = value;
+
+    if (name === 'number') {
+      manageFocus(name, value, 19, dateInput);
+    }
+
+    if (name === 'date') {
+      manageFocus(name, value, 7, cvvInput, numberInput);
+    }
+
+    if (name === 'cvv') {
+      manageFocus(name, value, 3, null, dateInput);
+    }
 
     const {
       number,

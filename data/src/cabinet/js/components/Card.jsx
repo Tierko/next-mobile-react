@@ -78,46 +78,42 @@ const Card = ({
               Новая карта
             </div>
           }
-          {
-            isSelected &&
-            <div
-              className={cs(`card__form card__form_${isFilled && getPaySystem(number)}`, {
-                'card__form_has-pay': !!getPaySystem(number) && isFilled,
-              })}
-            >
-              <InputCard
-                className="input-card_number"
-                mask="9999 9999 9999 9999"
-                title="Номер карты"
-                placeholder="0000 0000 0000 0000"
-                name="number"
-                onChange={onChange}
-                value={number}
-              />
-              <InputCard
-                className="input-card_date"
-                mask="99 / 99"
-                title="Срок действия"
-                placeholder="ММ / ГГ"
-                onChange={onChange}
-                value={date}
-                name="date"
-              />
-            </div>
-          }
-          {
-            isSelected &&
-            <div className="card__cvv">
-              <div className="card__cvv-title">CVC/CVV</div>
-              <InputMask
-                className="card__cvv-input"
-                mask="999"
-                onChange={e => onChange('cvv', e.target.value, e)}
-                value={cvv}
-              />
-              <div className="card__cvv-note">Последние три цифры на обороте карты</div>
-            </div>
-          }
+          <div
+            className={cs(`card__form card__form_${isFilled && getPaySystem(number)}`, {
+              'card__form_has-pay': !!getPaySystem(number) && isFilled,
+              card__form_show: isSelected,
+            })}
+          >
+            <InputCard
+              className="input-card_number"
+              mask="9999 9999 9999 9999"
+              title="Номер карты"
+              placeholder="0000 0000 0000 0000"
+              name="number"
+              onChange={onChange}
+              value={number}
+            />
+            <InputCard
+              className="input-card_date"
+              mask="99 / 99"
+              title="Срок действия"
+              placeholder="ММ / ГГ"
+              onChange={onChange}
+              value={date}
+              name="date"
+            />
+          </div>
+          <div className={cs('card__cvv', { card__cvv_show: isSelected })}>
+            <div className="card__cvv-title">CVC/CVV</div>
+            <InputMask
+              className="card__cvv-input"
+              mask="999"
+              maskChar={null}
+              onChange={e => onChange('cvv', e.target.value, e)}
+              value={cvv}
+            />
+            <div className="card__cvv-note">Последние три цифры на обороте карты</div>
+          </div>
         </div>
       </div>
     );
