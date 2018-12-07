@@ -1,16 +1,16 @@
 .result {
   text-align: center;
   max-width: 500px;
-  margin-top: 120px;
+  margin: 120px auto 0;
 
   &__image {
     margin: auto;
 
     &_success {
-      width: 54px;
-      height: 49px;
+      width: 124px;
+      height: 111px;
       margin-bottom: 14px;
-      background: url("/media/icons/ok.svg");
+      background: url("/media/icons/ok.svg") no-repeat 50% 50% / contain;
     }
 
     &_error {
@@ -23,8 +23,8 @@
 
   &__header {
     .h2;
-    padding-bottom: 26px;
     font-weight: 300;
+    margin-bottom: 0;
 
     &_ok {
 
@@ -36,11 +36,14 @@
   }
 
   &__text {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+  }
+
+  &__buttons {
+    display: inline-block;
   }
 
   &__link {
-    //.link-light;
     display: inline-block;
     margin-top: 20px;
   }
