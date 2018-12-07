@@ -1,6 +1,36 @@
 .copy-code {
-  width: 100%;
   max-width: 400px;
+  width: 100%;
+
+  &_invites {
+    display: flex;
+    margin: 0 20px 20px 0;
+
+    &:before {
+      content: '';
+      width: 2px;
+      background-color: #443f7a;
+      order: 2;
+    }
+  }
+
+  &_invites &__code {
+    width: auto;
+    background: @BLUE-DARK;
+    color: @WHITE;
+    margin: 0;
+    height: 46px;
+    border: none;
+    padding: 11px 28px 13px;
+    font-weight: bold;
+    text-align: center;
+    max-width: 150px;
+    order: 1;
+  }
+
+  &_invites .button {
+    order: 3;
+  }
 
   &__code {
     margin-bottom: 20px;
@@ -17,5 +47,11 @@
     padding: 0;
     overflow: hidden;
     color: inherit;
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    &_invites {
+      margin-right: 0;
+    }
   }
 }

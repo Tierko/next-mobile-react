@@ -4,7 +4,6 @@ import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import Breadcrumbs from '../components/Breadcrumbs';
-import CopyCode from '../components/CopyCode';
 import Invites from '../components/Invites';
 import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
@@ -46,8 +45,6 @@ class Invite extends Component {
 
       return acc;
     }, 0);
-    let code = items.find(i => !i.active);
-    code = code ? code.code : '';
     const meta = {
       title: TITLES.INVITES,
     };
@@ -84,8 +81,7 @@ class Invite extends Component {
                   } для активации
                 </div>
               }
-              <CopyCode code={code} mode={mode} />
-              <Invites items={items} />
+              <Invites items={items} mode={mode} />
             </div>
           </Transitions>
         </div>

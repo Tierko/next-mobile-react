@@ -27,7 +27,7 @@ class OverviewInvite extends Component {
 
   render() {
     let { code } = this.props;
-    const { mode } = this.props;
+    const { mode, className } = this.props;
     const { onCopy } = this;
 
     if (!code) {
@@ -39,7 +39,7 @@ class OverviewInvite extends Component {
     }
 
     return (
-      <div className="copy-code">
+      <div className={`copy-code ${className}`}>
         <textarea className="copy-code__code" value={code} ref={(e) => { this.code = e; }} onChange={() => {}} />
         <Button className="button_copy-code" onClick={onCopy} primary>
           <span>Скопировать</span>
@@ -52,6 +52,11 @@ class OverviewInvite extends Component {
 OverviewInvite.propTypes = {
   code: PropTypes.string.isRequired,
   mode: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};
+
+OverviewInvite.defaultProps = {
+  className: '',
 };
 
 export default OverviewInvite;
