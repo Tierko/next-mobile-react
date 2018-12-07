@@ -150,7 +150,7 @@ class Cards extends Component {
     const { row, inner } = this;
     const maxScroll = inner.clientWidth - row.clientWidth;
     const cardNumber = getAttr(cardE, 'number') * 1;
-    const scroll = id === 'new' ? maxScroll + 142 : cardNumber * 202;
+    const scroll = id === 'new' ? maxScroll + 142 : cardNumber * 159;
 
     row.scroll({
       left: scroll,

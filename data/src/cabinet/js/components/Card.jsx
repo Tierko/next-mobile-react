@@ -37,7 +37,7 @@ const Card = ({
   switch (type) {
   case 'card':
     return (
-      <div onClick={() => onEdit(id)} data-id={id} className="card__wrapper" id={`card-${id}`}>
+      <div onClick={onSelect} data-id={id} className="card__wrapper" id={`card-${id}`}>
         <div
           style={style}
           className={cs(`card card_${getPaySystem(id)}`, {
@@ -46,6 +46,14 @@ const Card = ({
           })}
         >
           <div className="card__number">{getShortPan(id)}</div>
+          {
+            isSelected &&
+            <div className="card__points" onClick={() => onEdit(id)}>
+              <span className="card__point" />
+              <span className="card__point" />
+              <span className="card__point" />
+            </div>
+          }
           {
             isDefault &&
             <div className="card__title">По умолчанию</div>
