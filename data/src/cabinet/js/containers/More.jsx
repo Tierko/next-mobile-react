@@ -48,31 +48,59 @@ const More = ({ countries, interCalls, match: { params: { type } } }) => {
               {
                 type === 'calls' &&
                 <Fragment>
-                  <div className="dashboard__header dashboard__header_more">Звонки по&nbsp;тарифу &laquo;СуперВИП&raquo;</div>
-                  <div className="more__text">Количество минут для звонков на&nbsp;номера всех операторов по&nbsp;Москве и&nbsp;на&nbsp;номера Next Mobile по&nbsp;России</div>
-                  <div className="more__subtitle">550&nbsp;мин.&nbsp;/ мес.</div>
-                  <div className="more__text">Стоимость звонков на&nbsp;номера Next Mobile по&nbsp;России</div>
-                  <div className="more__subtitle">0&nbsp;₽&nbsp;/ мин.</div>
-                  <InterCalls more className="inter-calls_more" data={data} />
-                  <div className="dashboard__header dashboard__header_more">Дополнительный пакет</div>
-                  <div className="more__subtitle">До&nbsp;12&nbsp;сентбря</div>
-                  <div className="more__text">Количество минут для звонков на&nbsp;номера всех операторов по&nbsp;Москве и&nbsp;на&nbsp;номера Next Mobile по&nbsp;России</div>
-                  <div className="more__subtitle">550&nbsp;мин.&nbsp;/ мес.</div>
-                  <div className="more__text">Стоимость звонков на&nbsp;номера Next Mobile по&nbsp;России</div>
-                  <div className="more__subtitle">0&nbsp;₽&nbsp;/ мин.</div>
+                  <div className="dashboard__header">Звонки по&nbsp;тарифу &laquo;СуперВИП&raquo;</div>
+                  <div className="more__items">
+                    <div className="more__row">
+                      <div className="more__title">Количество минут для звонков на&nbsp;номера всех операторов по&nbsp;Москве и&nbsp;на&nbsp;номера Next Mobile по&nbsp;России</div>
+                      <div className="more__value">550&nbsp;мин.</div>
+                    </div>
+                    <div className="more__row">
+                      <div className="more__title">Стоимость звонков на&nbsp;номера Next Mobile по&nbsp;России</div>
+                      <div className="more__value">0&nbsp;₽</div>
+                    </div>
+                    <div className="more__row">
+                      <div className="more__title">
+                        Дополнительный пакет
+                        <div className="small">Количество минут для звонков на&nbsp;номера всех операторов по&nbsp;Москве и&nbsp;на&nbsp;номера Next Mobile по&nbsp;России</div>
+                      </div>
+                      <div className="more__value">550&nbsp;мин.</div>
+                    </div>
+                    <div className="more__row">
+                      <div className="more__title">
+                        Звонки за границу
+                      </div>
+                      <div className="more__value">
+                        <InterCalls more className="inter-calls_more" data={data} />
+                      </div>
+                    </div>
+                  </div>
+                  {/*<div className="more__subtitle">До&nbsp;12&nbsp;сентбря</div>*/}
+                  {/*<div className="more__text">Количество минут для звонков на&nbsp;номера всех операторов по&nbsp;Москве и&nbsp;на&nbsp;номера Next Mobile по&nbsp;России</div>*/}
+                  {/*<div className="more__subtitle">550&nbsp;мин.&nbsp;/ мес.</div>*/}
+                  {/*<div className="more__text">Стоимость звонков на&nbsp;номера Next Mobile по&nbsp;России</div>*/}
+                  {/*<div className="more__subtitle">0&nbsp;₽&nbsp;/ мин.</div>*/}
+
+
                   <Link className="button button_primary button_more" to={Pages.ADD_PACKAGE}>Докупить минуты</Link>
                 </Fragment>
               }
               {
                 type === 'internet' &&
                 <Fragment>
-                  <div className="dashboard__header dashboard__header_more">Интернет-доступ по&nbsp;тарифу &laquo;СуперВИП&raquo;</div>
-                  <div className="more__text">Объем трафика</div>
-                  <div className="more__subtitle">18&nbsp;ГБ&nbsp;/ мес.</div>
-                  <div className="dashboard__header dashboard__header_more">Дополнительный пакет</div>
-                  <div className="more__subtitle">До&nbsp;12&nbsp;сентбря</div>
-                  <div className="more__text">Объем купленного трафика</div>
-                  <div className="more__subtitle">2&nbsp;ГБ</div>
+                  <div className="dashboard__header">Интернет-доступ по&nbsp;тарифу &laquo;СуперВИП&raquo;</div>
+                  <div className="more__items">
+                    <div className="more__row">
+                      <div className="more__title">Объем трафика в месяц</div>
+                      <div className="more__value">18&nbsp;ГБ</div>
+                    </div>
+                    <div className="more__row">
+                      <div className="more__title">
+                        Дополнительный пакет
+                        <div className="small">действует до&nbsp;12&nbsp;сентбря</div>
+                      </div>
+                      <div className="more__value">2&nbsp;ГБ</div>
+                    </div>
+                  </div>
                   <Link className="button button_primary button_more" to={Pages.ADD_PACKAGE}>Докупить интернет</Link>
                 </Fragment>
               }

@@ -6,8 +6,8 @@
     width: 100%;
   }
 
-  &_more {
-    margin-top: 30px;
+  &_more &__header {
+    display: none;
   }
 
   &_services {
@@ -64,6 +64,22 @@
     .select__list {
       top: calc(100% - (0.3em + 1px));
     }
+  }
+
+  &_more {
+    font-weight: 300;
+  }
+
+  &_more .select .input {
+    padding-top: 0;
+  }
+
+  &_more .select .input__value {
+    padding-top: 0;
+  }
+
+  &_more &__img {
+    margin-bottom: 5px;
   }
 
   &__img {
