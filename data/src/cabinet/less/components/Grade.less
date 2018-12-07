@@ -41,7 +41,7 @@
 
   &__line {
     cursor: pointer;
-    margin-top: auto;
+    margin: auto auto 0;
     width: 3px;
     background-color: @GRAY-LIGHT;
     transition: background-color 0.3s;
@@ -55,8 +55,6 @@
 
   &__subline {
     width: 3px;
-    opacity: 0;
-    transition: 0.3s opacity;
 
     &_pay {
       background-color: #66d2ff;
@@ -71,14 +69,11 @@
     }
   }
 
-  &__line_selected &__subline {
-    opacity: 1;
-  }
-
   &__month {
     .small;
     color: @GRAY;
     transition: color 0.3s;
+    text-align: center;
 
     &_selected {
       color: @BLUE;

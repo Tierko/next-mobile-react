@@ -74,13 +74,6 @@ const More = ({ countries, interCalls, match: { params: { type } } }) => {
                       </div>
                     </div>
                   </div>
-                  {/*<div className="more__subtitle">До&nbsp;12&nbsp;сентбря</div>*/}
-                  {/*<div className="more__text">Количество минут для звонков на&nbsp;номера всех операторов по&nbsp;Москве и&nbsp;на&nbsp;номера Next Mobile по&nbsp;России</div>*/}
-                  {/*<div className="more__subtitle">550&nbsp;мин.&nbsp;/ мес.</div>*/}
-                  {/*<div className="more__text">Стоимость звонков на&nbsp;номера Next Mobile по&nbsp;России</div>*/}
-                  {/*<div className="more__subtitle">0&nbsp;₽&nbsp;/ мин.</div>*/}
-
-
                   <Link className="button button_primary button_more" to={Pages.ADD_PACKAGE}>Докупить минуты</Link>
                 </Fragment>
               }

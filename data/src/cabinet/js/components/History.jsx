@@ -38,7 +38,7 @@ class History extends Component {
             </div>
             <Grade data={data} onItemSelect={selectMonth} wide />
             <div className="history__expense">
-              <span>&minus;</span>{formatCost(cost, true)} за&nbsp;{MONTHS[selectedItem.date.month]}
+              <span>&minus;</span>{formatCost(cost, true)} за&nbsp;{MONTHS[selectedItem.date.month].toLowerCase()}
             </div>
             {
               !!operations.length &&
