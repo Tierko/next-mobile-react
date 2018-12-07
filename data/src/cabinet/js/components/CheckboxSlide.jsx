@@ -7,14 +7,21 @@ const CheckboxSlide = ({
   name,
   onChange,
   className,
+  disabled,
 }) => (
-  <div className={cs(`checkbox-slide ${className}`, { 'checkbox-slide_checked': value })}>
+  <div
+    className={cs(`checkbox-slide ${className}`, {
+      'checkbox-slide_checked': value
+    })}
+  >
     <input
-      className="checkbox-slide__value"
+      className={cs('checkbox-slide__value', {
+        'checkbox-slide__value_disabled': disabled,
+      })}
       type="checkbox"
       checked={value}
       name={name}
-      onChange={() => onChange(name, !value)}
+      onChange={() => !disabled && onChange(name, !value)}
     />
     <div
       className={cs('checkbox-slide__point', {
@@ -29,10 +36,12 @@ CheckboxSlide.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   className: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 CheckboxSlide.defaultProps = {
   className: '',
+  disabled: false,
 };
 
 export default CheckboxSlide;
