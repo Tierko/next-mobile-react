@@ -46,6 +46,11 @@ const Remain = ({
             current={i.current}
             x
           />
+          {
+            i.packages.map(p => (
+              <div className="remain__package">Включая {`${p.current} из ${p.max} ${i.unit} ${p.until}`}</div>
+            ))
+          }
         </div>
       ))
     }
