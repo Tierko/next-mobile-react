@@ -14,6 +14,11 @@ const AutoPay = (state = initState, action) => {
   switch (action.type) {
   case ACTION_TYPES.AUTO_PAY_SAVE:
     return Object.assign({}, action.state);
+  case ACTION_TYPES.AUTO_PAY_DISABLE:
+    return Object.assign({}, state, {
+      monthlyEnabled: false,
+      lessEnabled: false,
+    });
   default:
     return state;
   }

@@ -24,6 +24,7 @@ export const ACTION_TYPES = keyMirror({
   ROAMING_INTERNET_REQUEST_FAIL: undefined,
   ROAMING_INTERNET_REQUEST_SUCCESS: undefined,
   AUTO_PAY_SAVE: undefined,
+  AUTO_PAY_DISABLE: undefined,
   CARDS_ADD: undefined,
   CARDS_REMOVE: undefined,
   CARDS_MAKE_DEFAULT: undefined,

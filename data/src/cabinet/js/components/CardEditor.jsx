@@ -8,6 +8,7 @@ import {
   removeCardAction,
   makeDefaultAction,
 } from '../actions/Cards';
+import { autoPayDisableAction } from '../actions/AutoPay';
 import {
   getShortPan,
   getPaySystem,
@@ -57,15 +58,31 @@ class CardEditor extends Component {
     } catch (e) {}
   };
 
+  onRemove = (token) => {
+    const {
+      removeCard,
+      onClose,
+      autoPayDisable,
+      cards,
+    } = this.props;
+
+    if (cards.length === 1) {
+      autoPayDisable();
+    }
+
+    removeCard(token);
+    onClose();
+  };
+
   render() {
     const {
       defaultCard,
       onClose,
       makeDefault,
-      removeCard,
       card: { token, colors },
     } = this.props;
     const { cardUnzoomed } = this.state;
+    const { onRemove } = this;
 
     const isCardDefault = defaultCard === token;
 
@@ -103,7 +120,7 @@ class CardEditor extends Component {
               </span>
               <span className="card__edit-title">Выбрать картой по&nbsp;умолчанию</span>
             </div>
-            <div className="card__edit-item" onClick={() => { removeCard(token); onClose(); }}>
+            <div className="card__edit-item" onClick={() => onRemove(token)}>
               <span className="card__edit-icon card__edit-icon_remove">
                 <InlineSvg src={require('../../../../media/icons/bucket.svg')} raw />
               </span>
@@ -122,17 +139,26 @@ CardEditor.propTypes = {
   onClose: PropTypes.func.isRequired,
   removeCard: PropTypes.func.isRequired,
   makeDefault: PropTypes.func.isRequired,
+  autoPayDisable: PropTypes.func.isRequired,
+  cards: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 CardEditor.defaultProps = {
   card: {},
 };
 
+function mapStateToProps(state) {
+  return {
+    cards: state.Cards.items,
+  };
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     removeCard: token => dispatch(removeCardAction(token)),
     makeDefault: token => dispatch(makeDefaultAction(token)),
+    autoPayDisable: () => dispatch(autoPayDisableAction()),
   };
 }
 
-export default connect(null, mapDispatchToProps)(CardEditor);
+export default connect(mapStateToProps, mapDispatchToProps)(CardEditor);

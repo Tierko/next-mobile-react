@@ -13,7 +13,7 @@ import Transitions from '../components/Transitions';
 import Hider from '../components/Hider';
 import Notice from '../components/Notice';
 import { Pages, MONTHS, TITLES } from '../constants';
-import saveAutoPayAction from '../actions/AutoPay';
+import { autoPaySaveAction } from '../actions/AutoPay';
 import {
   getShortPan,
   getPaySystem,
@@ -113,6 +113,7 @@ class AutoPay extends Component {
     const { onChange, getDefaultCard } = this;
     const { months, days } = AutoPay;
     const card = getDefaultCard();
+    const hasCards = this.props.cards.length > 0;
     const meta = {
       title: TITLES.AUTO_PAY,
     };
@@ -159,6 +160,7 @@ class AutoPay extends Component {
                       name="monthlyEnabled"
                       value={monthlyEnabled}
                       onChange={onChange}
+                      disabled={!hasCards}
                     />
                   </div>
                   <Hider show={monthlyEnabled}>
@@ -205,6 +207,7 @@ class AutoPay extends Component {
                       name="lessEnabled"
                       onChange={onChange}
                       className="checkbox-slide_auto-pay"
+                      disabled={!hasCards}
                     />
                   </div>
                   <Hider show={lessEnabled}>
@@ -241,7 +244,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    saveAutoPay: state => dispatch(saveAutoPayAction(state)),
+    saveAutoPay: state => dispatch(autoPaySaveAction(state)),
   };
 }
 
