@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import Grade from './Grade';
 import { formatCost, formatCount, showDate } from '../utils';
-import {Pages, MONTHS, MONTHS_M, HISTORY_TITLES} from '../constants';
+import { Pages, MONTHS, MONTHS_M, HISTORY_TITLES } from '../constants';
 
 class History extends Component {
   constructor(props) {
