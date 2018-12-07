@@ -5,26 +5,6 @@
   background: #f1f0f6 url("/media/icons/search.svg") 30px 50% no-repeat;
   border-radius: 26px;
 
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    background-color: #fff;
-    height: 0;
-    transition: height 0.5s;
-
-    @media (max-width: @BREAK-POINT) {
-      display: none;
-    }
-  }
-
-  &_drawer:after {
-    height: 100%;
-    z-index: 3;
-  }
-
   &_desktop {
     position: absolute;
     right: 62px;
@@ -73,6 +53,7 @@
     padding-top: 52px;
     transform: scaleY(0);
     transform-origin: 0 0;
+    border-radius: 26px;
   }
 
   &_desktop .select__list_open {
