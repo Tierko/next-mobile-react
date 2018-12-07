@@ -285,7 +285,7 @@ class Operations extends Component {
               showMoreButton && loaded &&
               <tr>
                 <td colSpan={7} className="operations__cell_button">
-                  <Button onClick={loadMore}>Загрузить еще</Button>
+                  <Button onClick={loadMore} primary>Загрузить еще</Button>
                 </td>
               </tr>
             }
@@ -342,7 +342,7 @@ class Operations extends Component {
           }
           {
             loaded && showMoreButton &&
-            <Button className="button_operations-list" onClick={loadMore}>Загрузить еще</Button>
+            <Button className="button_operations-list" onClick={loadMore} primary>Загрузить еще</Button>
           }
           {
             !loaded &&
