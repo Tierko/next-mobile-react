@@ -1,11 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import cs from 'classnames';
 import { Pages } from '../../../cabinet/js/constants';
 
 const HeaderSite = ({
-  light,
   url,
   release,
   translate,
@@ -21,21 +19,21 @@ const HeaderSite = ({
   return (
     <Fragment>
       <div className="header__center">
-        <NavLink className={cs('header__item', { header__item_light: light })} to={Pages.TARIFF}>
+        <NavLink className="header__item" to={Pages.TARIFF}>
           {tariff}
         </NavLink>
-        <a className={cs('header__item', { header__item_light: light })} href={`${url}/#${Pages.REQUEST_STATUS}`}>
+        <a className="header__item" href={`${url}/#${Pages.REQUEST_STATUS}`}>
           {requestStatus}
         </a>
-        <a className={cs('header__item', { header__item_light: light })} href={`${url}/#${Pages.SUPPORT}`}>
+        <a className="header__item" href={`${url}/#${Pages.SUPPORT}`}>
           {support}
         </a>
       </div>
       <div className="header__right">
-        <a className={cs('header__item', { header__item_light: light })} href={`${url}/#${Pages.SIGN_IN}`}>
+        <a className="header__item" href={`${url}/#${Pages.SIGN_IN}`}>
           {signIn}
         </a>
-        <a className={cs('header__item', { header__item_light: light })} href={`${url}/#${Pages.SIGN_UP}${release === 2 ? '/after' : ''}`}>
+        <a className="header__go" href={`${url}/#${Pages.SIGN_UP}${release === 2 ? '/after' : ''}`}>
           {signUp}
         </a>
       </div>
@@ -44,7 +42,6 @@ const HeaderSite = ({
 };
 
 HeaderSite.propTypes = {
-  light: PropTypes.bool.isRequired,
   url: PropTypes.string.isRequired,
   release: PropTypes.number.isRequired,
   translate: PropTypes.shape().isRequired,
