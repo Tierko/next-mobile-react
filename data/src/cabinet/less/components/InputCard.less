@@ -3,7 +3,6 @@
   line-height: @LINE-HEIGHT-BASE;
   position: relative;
   text-align: left;
-  padding-bottom: 30px;
 
   &_number {
     width: 260px;
@@ -62,10 +61,13 @@
   @media (max-width: @BREAK-POINT) {
     &_number {
       width: 160px;
+      letter-spacing: 0;
     }
 
     &__placeholder {
       margin-bottom: 0;
+      font-size: 14px;
+      line-height: 16px;
     }
 
     &__value {
