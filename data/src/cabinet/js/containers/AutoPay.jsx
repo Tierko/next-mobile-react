@@ -152,79 +152,81 @@ class AutoPay extends Component {
                   !card &&
                   <div className="auto-pay__note">У&nbsp;вас не&nbsp;установлена карта по&nbsp;умолчанию, вы&nbsp;не&nbsp;сможете настроить автоплатеж</div>
                 }
-                <div className="auto-pay__section">
-                  <div className="auto-pay__title">
-                    <div>Ежемесячно</div>
-                    <Checkbox
-                      className="checkbox-slide_auto-pay"
-                      name="monthlyEnabled"
-                      value={monthlyEnabled}
-                      onChange={onChange}
-                      disabled={!hasCards}
-                    />
-                  </div>
-                  <Hider show={monthlyEnabled}>
-                    <div className="auto-pay__row">
-                      <div className="auto-pay__cell">
-                        На&nbsp;сумму
-                        <div className="auto-pay__note">От&nbsp;100 до&nbsp;15&nbsp;000&nbsp;₽</div>
-                      </div>
-                      <InputRuble className="input_auto-pay" name="monthlySum" value={monthlySum} onChange={onChange} />
+                <div className="auto-pay__sections">
+                  <div className="auto-pay__section">
+                    <div className="auto-pay__title">
+                      <div>Ежемесячно</div>
+                      <Checkbox
+                        className="checkbox-slide_auto-pay"
+                        name="monthlyEnabled"
+                        value={monthlyEnabled}
+                        onChange={onChange}
+                        disabled={!hasCards}
+                      />
                     </div>
-                    <div className="auto-pay__row">
-                      <div className="auto-pay__cell">
-                        Какого числа пополнять
-                        <div className="auto-pay__note">
-                          Не&nbsp;позже трех дней до&nbsp;даты платежа по&nbsp;тарифу
+                    <Hider show={monthlyEnabled}>
+                      <div className="auto-pay__row">
+                        <div className="auto-pay__cell">
+                          На&nbsp;сумму
+                          <div className="auto-pay__note">От&nbsp;100 до&nbsp;15&nbsp;000&nbsp;₽</div>
                         </div>
+                        <InputRuble className="input_auto-pay" name="monthlySum" value={monthlySum} onChange={onChange} />
                       </div>
-                      <Select
-                        className="select_auto-pay-day"
-                        value={monthlyDay}
-                        items={days}
-                        onSelect={v => onChange('monthlyDay', v)}
-                      />
-                    </div>
-                    <div className="auto-pay__row">
-                      <div className="auto-pay__cell">
-                        До какого месяца
-                        <div className="auto-pay__note">Включительно</div>
+                      <div className="auto-pay__row">
+                        <div className="auto-pay__cell">
+                          Какого числа пополнять
+                          <div className="auto-pay__note">
+                            Не&nbsp;позже трех дней до&nbsp;даты платежа по&nbsp;тарифу
+                          </div>
+                        </div>
+                        <Select
+                          className="select_auto-pay-day"
+                          value={monthlyDay}
+                          items={days}
+                          onSelect={v => onChange('monthlyDay', v)}
+                        />
                       </div>
-                      <Select
-                        className="select_auto-pay-month"
-                        onSelect={v => onChange('monthlyUntil', v)}
-                        items={months}
-                        value={monthlyUntil}
-                      />
-                    </div>
-                  </Hider>
-                </div>
-                <div className="auto-pay__section">
-                  <div className="auto-pay__title">
-                    <div>Если на&nbsp;счете недостаточно денег</div>
-                    <Checkbox
-                      value={lessEnabled}
-                      name="lessEnabled"
-                      onChange={onChange}
-                      className="checkbox-slide_auto-pay"
-                      disabled={!hasCards}
-                    />
+                      <div className="auto-pay__row">
+                        <div className="auto-pay__cell">
+                          До какого месяца
+                          <div className="auto-pay__note">Включительно</div>
+                        </div>
+                        <Select
+                          className="select_auto-pay-month"
+                          onSelect={v => onChange('monthlyUntil', v)}
+                          items={months}
+                          value={monthlyUntil}
+                        />
+                      </div>
+                    </Hider>
                   </div>
-                  <Hider show={lessEnabled}>
-                    <div className="auto-pay__row">
-                      <div className="auto-pay__cell">
-                        На сумму
-                        <div className="auto-pay__note">От&nbsp;100 до&nbsp;15&nbsp;000&nbsp;₽</div>
-                      </div>
-                      <InputRuble className="input_auto-pay" onChange={onChange} value={lessSum} name="lessSum" />
+                  <div className="auto-pay__section">
+                    <div className="auto-pay__title">
+                      <div>Если на&nbsp;счете недостаточно денег</div>
+                      <Checkbox
+                        value={lessEnabled}
+                        name="lessEnabled"
+                        onChange={onChange}
+                        className="checkbox-slide_auto-pay"
+                        disabled={!hasCards}
+                      />
                     </div>
-                    <div className="auto-pay__row">
-                      <div className="auto-pay__cell">
-                        Пополнять, если на&nbsp;счету меньше, чем
+                    <Hider show={lessEnabled}>
+                      <div className="auto-pay__row">
+                        <div className="auto-pay__cell">
+                          На сумму
+                          <div className="auto-pay__note">От&nbsp;100 до&nbsp;15&nbsp;000&nbsp;₽</div>
+                        </div>
+                        <InputRuble className="input_auto-pay" onChange={onChange} value={lessSum} name="lessSum" />
                       </div>
-                      <InputRuble className="input_auto-pay" onChange={onChange} value={lessLess} name="lessLess" />
-                    </div>
-                  </Hider>
+                      <div className="auto-pay__row">
+                        <div className="auto-pay__cell">
+                          Пополнять, если на&nbsp;счету меньше, чем
+                        </div>
+                        <InputRuble className="input_auto-pay" onChange={onChange} value={lessLess} name="lessLess" />
+                      </div>
+                    </Hider>
+                  </div>
                 </div>
               </div>
             </div>
