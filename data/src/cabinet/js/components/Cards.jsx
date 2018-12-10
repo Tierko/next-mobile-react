@@ -155,7 +155,7 @@ class Cards extends Component {
     const { row, inner } = this;
     const maxScroll = inner.clientWidth - row.clientWidth;
     const cardNumber = getAttr(cardE, 'number') * 1;
-    const scroll = id === 'new' ? maxScroll + 142 : cardNumber * 159;
+    const scroll = id === 'new' ? maxScroll : cardNumber * 159;
 
     row.scroll({
       left: scroll,
@@ -204,7 +204,8 @@ class Cards extends Component {
 
   calculateOffsetEnd = () => {
     const { row } = this;
-    const CARD_WIDTH = 328 + 16;
+    const cardNew = document.getElementById('card-new');
+    const CARD_WIDTH = cardNew ? cardNew.clientWidth : 0;
 
     if (!row) {
       return 0;
