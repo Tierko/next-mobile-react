@@ -8,8 +8,8 @@ import {
   checkCardDate,
   checkCVV,
 } from '../utils';
-import {autoPayDisableAction} from "../actions/AutoPay";
-import {makeDefaultAction, removeCardAction} from "../actions/Cards";
+import { autoPayDisableAction } from '../actions/AutoPay';
+import { makeDefaultAction, removeCardAction } from '../actions/Cards';
 
 class Cards extends Component {
   state = {
@@ -46,8 +46,11 @@ class Cards extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { numberInput } = this;
+    const { numberInput, addClasses } = this;
     const { selected } = this.state;
+
+
+    addClasses();
 
     if (selected && selected !== prevState.selected && selected === 'new' && numberInput) {
       setTimeout(() => numberInput.focus(), 650);
@@ -175,12 +178,6 @@ class Cards extends Component {
     }
   };
 
-  onCardEdit = (id) => {
-    const { onEdit } = this.props;
-
-    onEdit(id);
-  };
-
   getAttr = (e, attr) => {
     if (e.dataset) {
       return e.dataset[attr];
@@ -232,7 +229,7 @@ class Cards extends Component {
     const { selected } = this.state;
     const { onCardSelect } = this;
     const direction = target.getAttribute('data-direction');
-    const currentCard = document.getElementById(`card-${selected}`);
+    let currentCard = document.getElementById(`card-${selected}`);
     let card = null;
 
     if (currentCard && direction === 'next') {
@@ -247,7 +244,7 @@ class Cards extends Component {
       currentCard.classList.add('card__wrapper_hide');
     }
 
-    if (currentCard.previousSibling && direction === 'prev') {
+    if (currentCard && currentCard.previousSibling && direction === 'prev') {
       currentCard.previousSibling.classList.remove('card__wrapper_hide');
     }
 
@@ -259,6 +256,8 @@ class Cards extends Component {
   };
 
   onRemove = (token) => {
+    const { rollCard } = this;
+    const card = document.querySelector('.card__wrapper');
     const {
       removeCard,
       autoPayDisable,
@@ -269,15 +268,26 @@ class Cards extends Component {
       autoPayDisable();
     }
 
+    if (card) {
+      rollCard({
+        target: card,
+      });
+    }
+
     removeCard(token);
   };
 
   render() {
-    const { className, data } = this.props;
+    const {
+      className,
+      data,
+      makeDefault,
+    } = this.props;
     const {
       onChange,
       onCardSelect,
       rollCard,
+      onRemove,
     } = this;
     const {
       number,
@@ -329,6 +339,8 @@ class Cards extends Component {
                       type="card"
                       colors={c.colors}
                       defaultCard={data.defaultCard}
+                      removeCard={onRemove}
+                      makeDefault={makeDefault}
                     />
                   ))
                 }
@@ -375,6 +387,7 @@ Cards.propTypes = {
   onPermitChange: PropTypes.func.isRequired,
   className: PropTypes.string,
   removeCard: PropTypes.func.isRequired,
+  makeDefault: PropTypes.func.isRequired,
   autoPayDisable: PropTypes.func.isRequired,
 };
 

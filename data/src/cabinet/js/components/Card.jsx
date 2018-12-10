@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import InputMask from 'react-input-mask';
+import InlineSvg from 'svg-inline-react';
 import InputCard from '../components/InputCard';
 import {
   checkCardNumber,
@@ -19,6 +20,8 @@ const Card = ({
   selected,
   defaultCard,
   colors,
+  removeCard,
+  makeDefault,
   values: {
     number,
     date,
@@ -51,10 +54,20 @@ const Card = ({
           <div className="card__title">По умолчанию</div>
         }
         {
-          isSelected && !isDefault && <div className="card__title">Назначить по умолчанию</div>
+          isSelected && !isDefault &&
+          <div className="card__title" onClick={() => makeDefault(id)}>
+            <img className="card__icon card__icon_default" src="/media/icons/default.svg" alt="" />
+            <span className="card__link">Назначить по умолчанию</span>
+          </div>
         }
         {
-          isSelected && <div className="card__title">Удалить</div>
+          isSelected &&
+          <div className="card__title">
+            <img className="card__icon card__icon_remove" src="/media/icons/bucket-gray.svg" alt="" />
+            <span className="card__link" onClick={() => removeCard(id)}>
+              Удалить
+            </span>
+          </div>
         }
       </div>
     );

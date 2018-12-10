@@ -9,7 +9,6 @@ class InputCard extends Input {
     const {
       className,
       placeholder,
-      errorText,
       value,
       mask,
       title,
@@ -33,8 +32,7 @@ class InputCard extends Input {
           onChange={onChange}
           value={value}
         />
-        <div className="input-card__error">{errorText}</div>
-        <div className={cs('input-card__indicator', { input__indicator_error: errorText })} />
+        <div className={cs('input-card__indicator', { input__indicator_error: 0 })} />
       </div>
     );
   }
@@ -45,14 +43,12 @@ InputCard.propTypes = {
   className: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  errorText: PropTypes.string,
   value: PropTypes.string.isRequired,
   mask: PropTypes.string.isRequired,
 };
 
 InputMask.defaultProps = {
   className: '',
-  errorText: '',
 };
 
 export default InputCard;

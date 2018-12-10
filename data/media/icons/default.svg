@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23"><defs><path id="i8nsa" d="M459.476 254.768l-4.501-3.274a1.071 1.071 0 0 0-1.26 1.733l5.355 3.894a1.071 1.071 0 0 0 1.487-.223l6.426-8.568a1.071 1.071 0 0 0-1.714-1.286zm-10.486-3.333c0-6.21 5.035-11.245 11.245-11.245 3.283 0 6.236 1.406 8.292 3.649a11.193 11.193 0 0 1 2.954 7.597c0 6.21-5.035 11.245-11.246 11.245-6.21 0-11.245-5.035-11.245-11.245z"/></defs><g><g transform="translate(-449 -240)"><use fill="#fff" fill-opacity=".92" xlink:href="#i8nsa"/></g></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="13px" viewBox="0 0 17 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Line 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.315522693" stroke-linecap="square">
+        <polyline id="Line-2" stroke="#161543" stroke-width="2" points="2 5.375 6.5 11 15 2"></polyline>
+    </g>
+</svg>
