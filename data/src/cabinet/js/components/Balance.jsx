@@ -8,7 +8,6 @@ import Limit from './Limit';
 import { formatCost, getShortPan } from '../utils';
 
 const Balance = ({
-  status,
   sum,
   onChange,
   onPay,
@@ -24,7 +23,7 @@ const Balance = ({
       <div className="block__header">
         Баланс
       </div>
-      <div className={`balance__sum balance__sum_${status}`}>
+      <div className="balance__sum">
         {balance < 0 && <span>&minus;</span>}{fBalance}
       </div>
       {
@@ -52,7 +51,6 @@ const Balance = ({
 };
 
 Balance.propTypes = {
-  status: PropTypes.string,
   sum: PropTypes.number.isRequired,
   message: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -63,7 +61,6 @@ Balance.propTypes = {
 };
 
 Balance.defaultProps = {
-  status: '',
   className: '',
   defaultCard: '',
 };

@@ -1,12 +1,24 @@
 const payment = [{
   sum: 500,
-  days: 15,
+  date: {
+    year: 2018,
+    month: 12,
+    day: 5,
+  },
 }, {
   sum: 1500,
-  days: 10,
+  date: {
+    year: 2018,
+    month: 12,
+    day: 5,
+  },
 }, {
   sum: 2000,
-  days: 5,
+  date: {
+    year: 2018,
+    month: 12,
+    day: 5,
+  },
 }];
 
 export default payment;

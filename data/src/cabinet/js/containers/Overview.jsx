@@ -97,20 +97,10 @@ class Overview extends Component {
     const { roaming, history } = this.props;
     const { onPay, sumChange, onBuy } = this;
     const { sum, invites: { message, items } } = this.state;
-    const data = getData('payment');
     const code = items.find(i => !i.active);
     const meta = {
       title: TITLES.OVERVIEW,
     };
-    let status = '';
-
-    if (data.days > 5 && data.days <= 10 && getData('balance') < getData('tariff').payment) {
-      status = 'warn';
-    }
-
-    if (data.days <= 5 && getData('balance') < getData('tariff').payment) {
-      status = 'error';
-    }
 
     return (
       <DocumentMeta {...meta}>
@@ -124,8 +114,7 @@ class Overview extends Component {
               <Balance
                 balance={getData('balance')}
                 sum={sum}
-                message={`Следующее списание: ${formatCost(getData('tariff').payment)} через ${getData('payment').days} дней`}
-                status={status}
+                message={`Следующее списание: ${formatCost(getData('tariff').payment)} 16 ноября`}
                 onPay={onPay}
                 onChange={sumChange}
               />
