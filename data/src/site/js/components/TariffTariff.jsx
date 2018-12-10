@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import TariffTable from '../../../common/js/components/TariffTable';
+import Tariffs from '../../../common/js/components/Tariffs';
+
 import Button from '../../../common/js/components/Button';
 import InterCalls from '../../../common/js/components/InterCalls';
 
@@ -54,7 +55,7 @@ const TariffTariff = ({
         className="tariff-tariff__header"
         dangerouslySetInnerHTML={{ __html: header }}
       />
-      <TariffTable mode="detail" tariff to={toTariff} data={tariffs} />
+      <Tariffs data={tariffs} mode="detail" showTabs={false} className="tariffs_tariffs" />
       {
         r === 1 &&
           <Fragment>

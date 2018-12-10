@@ -58,14 +58,14 @@ class Tariff extends Component {
               countries={countries.data}
               interCalls={interCalls.data}
             />
-            <TariffRoaming
-              size="small"
-              type="light"
-              translate={roamingTariff}
-              countries={countries.data}
-              roaming={roaming.data}
-            />
-            <TariffServices translate={services} />
+            {/*<TariffRoaming*/}
+              {/*size="small"*/}
+              {/*type="light"*/}
+              {/*translate={roamingTariff}*/}
+              {/*countries={countries.data}*/}
+              {/*roaming={roaming.data}*/}
+            {/*/>*/}
+            {/*<TariffServices translate={services} />*/}
           </div>
         </div>
       </DocumentMeta>

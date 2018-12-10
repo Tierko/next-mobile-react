@@ -107,10 +107,9 @@ class TariffTable extends Component {
     const {
       current,
       onChange,
-      home,
-      tariff,
       className,
       data,
+      showTabs,
     } = this.props;
     const { mode, selected } = this.state;
     const isDetail = mode === 'detail';
@@ -121,7 +120,7 @@ class TariffTable extends Component {
     return (
       <div className={`tariffs ${className}`}>
         {
-          !home && !tariff &&
+          showTabs &&
           <Tabs className="tabs_tariffs" onChange={toggleMode} items={tabs} tab={mode} />
         }
         <div className="tariffs__inner">
@@ -152,21 +151,19 @@ class TariffTable extends Component {
 TariffTable.propTypes = {
   current: PropTypes.number,
   onChange: PropTypes.func,
-  home: PropTypes.bool,
-  tariff: PropTypes.bool,
   mode: PropTypes.string,
   className: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.shape()),
+  showTabs: PropTypes.bool,
 };
 
 TariffTable.defaultProps = {
   current: -1,
-  onChange: null,
-  home: false,
-  tariff: false,
+  onChange: () => {},
   mode: 'short',
   className: '',
   data: null,
+  showTabs: true,
 };
 
 export default TariffTable;
