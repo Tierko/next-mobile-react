@@ -113,7 +113,7 @@ class AutoPay extends Component {
     const { onChange, getDefaultCard } = this;
     const { months, days } = AutoPay;
     const card = getDefaultCard();
-    const hasCards = this.props.cards.length > 0;
+    const hasCards = this.props.cards.items.length > 0;
     const meta = {
       title: TITLES.AUTO_PAY,
     };
