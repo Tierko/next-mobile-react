@@ -71,7 +71,7 @@ const remain = [
     link: true,
     type: 'internet',
     packages: [{
-      current: 2,
+      current: 0.5,
       max: 2,
       until: 'до 19 ноября',
     }],
