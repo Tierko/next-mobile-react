@@ -11,7 +11,20 @@ class Invites extends Component {
       <div className="invites">
         {
           items.map(i => (
-            <CopyCode code={i.code} mode={mode} className="copy-code_invites" />
+            !i.active && <CopyCode code={i.code} mode={mode} className="copy-code_invites" />
+          ))
+        }
+        {
+          items.map(i => (
+            i.active &&
+            <div key={i.id} className="invites__item">
+              <div className="invites__row">
+                <div className="invites__code invites__code_active">{i.code}</div>
+                <div className="invites__span" />
+                <div className="invites__status">Не&nbsp;активирован</div>
+              </div>
+              <div className="invites__note">{i.note}</div>
+            </div>
           ))
         }
       </div>

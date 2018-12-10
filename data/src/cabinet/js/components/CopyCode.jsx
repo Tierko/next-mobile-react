@@ -4,11 +4,27 @@ import Button from '../../../common/js/components/Button';
 import { URL } from '../constants';
 
 class OverviewInvite extends Component {
+  state = {
+    copied: false,
+  };
+
   onCopy = () => {
     const { code } = this;
 
     code.focus();
     code.select();
+
+    clearTimeout(this.timer);
+
+    this.setState({
+      copied: true,
+    });
+
+    this.timer = setTimeout(() => {
+      this.setState({
+        copied: false,
+      });
+    }, 2500);
 
     try {
       setTimeout(() => {
@@ -28,6 +44,7 @@ class OverviewInvite extends Component {
   render() {
     let { code } = this.props;
     const { mode, className } = this.props;
+    const { copied } = this.state;
     const { onCopy } = this;
 
     if (!code) {
@@ -42,7 +59,7 @@ class OverviewInvite extends Component {
       <div className={`copy-code ${className}`}>
         <textarea className="copy-code__code" value={code} ref={(e) => { this.code = e; }} onChange={() => {}} />
         <Button className="button_copy-code" onClick={onCopy} primary>
-          <span>Скопировать</span>
+          <span>{ copied ? 'Скопировано' : 'Скопировать' }</span>
         </Button>
       </div>
     );
