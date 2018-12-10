@@ -14,7 +14,6 @@ import {
 const Card = ({
   id,
   onSelect,
-  onEdit,
   onChange,
   type,
   selected,
@@ -46,19 +45,17 @@ const Card = ({
           })}
         >
           <div className="card__number">{getShortPan(id)}</div>
-          {
-            isSelected &&
-            <div className="card__points" onClick={() => onEdit(id)}>
-              <span className="card__point" />
-              <span className="card__point" />
-              <span className="card__point" />
-            </div>
-          }
-          {
-            isDefault &&
-            <div className="card__title">По умолчанию</div>
-          }
         </div>
+        {
+          isSelected && isDefault &&
+          <div className="card__title">По умолчанию</div>
+        }
+        {
+          isSelected && !isDefault && <div className="card__title">Назначить по умолчанию</div>
+        }
+        {
+          isSelected && <div className="card__title">Удалить</div>
+        }
       </div>
     );
   case 'apple-pay':
@@ -144,7 +141,6 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  onEdit: null,
   onChange: null,
   values: {},
   isDefault: false,

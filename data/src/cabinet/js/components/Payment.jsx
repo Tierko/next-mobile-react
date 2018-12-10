@@ -73,7 +73,6 @@ class Payment extends Component {
     const {
       isEditable,
       onPay,
-      onEdit,
       showNote,
     } = this.props;
     const inLimits = payment >= 100 && payment <= 15000;
@@ -87,7 +86,7 @@ class Payment extends Component {
               <img className="payment__img" src="/media/content/tyazhmash.png" alt="" />
               <div className="payment__company-name">Оплатит «Тяжмаштрансмагистраль»</div>
             </div> :
-            <Cards onPermitChange={onPermitChange} onEdit={onEdit} />
+            <Cards onPermitChange={onPermitChange} />
         }
         {
           !isEditable &&
@@ -123,7 +122,6 @@ Payment.propTypes = {
   sum: PropTypes.number,
   onPay: PropTypes.func.isRequired,
   onSumChange: PropTypes.func,
-  onEdit: PropTypes.func.isRequired,
   showNote: PropTypes.bool,
 };
 

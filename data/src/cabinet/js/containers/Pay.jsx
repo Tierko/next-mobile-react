@@ -9,7 +9,6 @@ import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import Payment from '../components/Payment';
 import Button from '../../../common/js/components/Button';
-import CardEditor from '../components/CardEditor';
 import Transitions from '../components/Transitions';
 import BreadCrumbs from '../components/Breadcrumbs';
 import Notice from '../components/Notice';
@@ -20,7 +19,6 @@ import { addCardAction } from '../actions/Cards';
 class Pay extends Component {
   state = {
     sum: 2000,
-    editCardId: '',
   };
 
   onPay = (card) => {
@@ -55,18 +53,6 @@ class Pay extends Component {
     });
   };
 
-  onEdit = (editCardId) => {
-    this.setState({
-      editCardId,
-    });
-  };
-
-  onClose = () => {
-    this.setState({
-      editCardId: '',
-    });
-  };
-
   changeAutoPay = () => {
     const { history } = this.props;
 
@@ -94,21 +80,18 @@ class Pay extends Component {
   };
 
   render() {
-    const { sum, editCardId } = this.state;
+    const { sum } = this.state;
     const { autoPay, cards, history } = this.props;
     const autoPayEnabled = autoPay.lessEnabled || autoPay.monthlyEnabled;
     const {
       onPay,
       changeAutoPay,
       onSumChange,
-      onEdit,
-      onClose,
       convertMonth,
     } = this;
     const meta = {
       title: TITLES.PAY,
     };
-    const currentCard = cards.items.find(c => c.token === editCardId);
     const { state } = history.location;
 
     return (
@@ -120,7 +103,7 @@ class Pay extends Component {
           <Aside />
           <Transitions>
             <div className="dashboard__content dashboard__content_white pay">
-              <div className={cs('pay__inner', { pay__inner_fade: !!editCardId })}>
+              <div className="pay__inner">
                 {
                   state &&
                   <BreadCrumbs items={[{ title: 'Тарифы', link: Pages.SERVICES }]} />
@@ -137,7 +120,6 @@ class Pay extends Component {
                   onPay={onPay}
                   sum={sum}
                   onSumChange={onSumChange}
-                  onEdit={onEdit}
                   showNote={state && state.tariff}
                 />
                 {
@@ -180,10 +162,6 @@ class Pay extends Component {
                   </div>
                 }
               </div>
-              {
-                currentCard &&
-                <CardEditor card={currentCard} onClose={onClose} defaultCard={cards.defaultCard} />
-              }
             </div>
           </Transitions>
         </div>

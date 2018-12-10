@@ -8,6 +8,8 @@ import {
   checkCardDate,
   checkCVV,
 } from '../utils';
+import {autoPayDisableAction} from "../actions/AutoPay";
+import {makeDefaultAction, removeCardAction} from "../actions/Cards";
 
 class Cards extends Component {
   state = {
@@ -256,12 +258,25 @@ class Cards extends Component {
     }
   };
 
+  onRemove = (token) => {
+    const {
+      removeCard,
+      autoPayDisable,
+      data,
+    } = this.props;
+
+    if (data.length === 1) {
+      autoPayDisable();
+    }
+
+    removeCard(token);
+  };
+
   render() {
     const { className, data } = this.props;
     const {
       onChange,
       onCardSelect,
-      onCardEdit,
       rollCard,
     } = this;
     const {
@@ -310,7 +325,6 @@ class Cards extends Component {
                       id={c.token}
                       onChange={onChange}
                       onSelect={onCardSelect}
-                      onEdit={onCardEdit}
                       selected={selected}
                       type="card"
                       colors={c.colors}
@@ -348,11 +362,20 @@ function mapStateToProps(state) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    removeCard: token => dispatch(removeCardAction(token)),
+    makeDefault: token => dispatch(makeDefaultAction(token)),
+    autoPayDisable: () => dispatch(autoPayDisableAction()),
+  };
+}
+
 Cards.propTypes = {
   data: PropTypes.shape().isRequired,
   onPermitChange: PropTypes.func.isRequired,
-  onEdit: PropTypes.func.isRequired,
   className: PropTypes.string,
+  removeCard: PropTypes.func.isRequired,
+  autoPayDisable: PropTypes.func.isRequired,
 };
 
 Cards.defaultProps = {
@@ -360,4 +383,4 @@ Cards.defaultProps = {
 };
 
 
-export default connect(mapStateToProps)(Cards);
+export default connect(mapStateToProps, mapDispatchToProps)(Cards);
