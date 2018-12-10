@@ -51,12 +51,14 @@ const Card = ({
         </div>
         {
           isSelected && isDefault &&
-          <div className="card__title">По умолчанию</div>
+          <div className="card__title">
+            <img className="card__icon card__icon_default" src="/media/icons/default.svg" alt="" />
+            По умолчанию
+          </div>
         }
         {
           isSelected && !isDefault &&
           <div className="card__title" onClick={() => makeDefault(id)}>
-            <img className="card__icon card__icon_default" src="/media/icons/default.svg" alt="" />
             <span className="card__link">Назначить по умолчанию</span>
           </div>
         }
