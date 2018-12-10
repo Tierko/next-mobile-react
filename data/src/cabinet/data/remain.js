@@ -8,7 +8,7 @@ const remain = [
     link: true,
     type: 'internet',
     packages: [{
-      current: 1,
+      current: 2,
       max: 2,
       until: 'до 19 ноября',
     }],
@@ -20,7 +20,11 @@ const remain = [
     name: 'Звонки',
     link: true,
     type: 'calls',
-    packages: [],
+    packages: [{
+      current: 400,
+      max: 400,
+      until: 'до 19 ноября',
+    }],
   }, {
     id: 3,
     current: 129,
@@ -29,7 +33,6 @@ const remain = [
     name: 'Сообщения',
     link: false,
     type: 'sms',
-    packages: [],
   }], [{
     id: 1,
     current: 8,
@@ -38,7 +41,11 @@ const remain = [
     name: 'Интернет',
     link: true,
     type: 'internet',
-    packages: [],
+    packages: [{
+      current: 1,
+      max: 2,
+      until: 'до 19 ноября',
+    }],
   }, {
     id: 2,
     current: 538,
@@ -47,7 +54,6 @@ const remain = [
     name: 'Звонки',
     link: true,
     type: 'calls',
-    packages: [],
   }, {
     id: 3,
     current: 129,
@@ -56,7 +62,6 @@ const remain = [
     name: 'Сообщения',
     link: false,
     type: 'sms',
-    packages: [],
   }], [{
     id: 1,
     current: 4,
@@ -65,7 +70,11 @@ const remain = [
     name: 'Интернет',
     link: true,
     type: 'internet',
-    packages: [],
+    packages: [{
+      current: 2,
+      max: 2,
+      until: 'до 19 ноября',
+    }],
   }, {
     id: 2,
     current: 243,
@@ -74,7 +83,6 @@ const remain = [
     name: 'Звонки',
     link: true,
     type: 'calls',
-    packages: [],
   }, {
     id: 3,
     current: 129,
@@ -83,7 +91,6 @@ const remain = [
     name: 'Сообщения',
     link: false,
     type: 'sms',
-    packages: [],
   }], [{
     id: 1,
     current: 2,
@@ -92,7 +99,11 @@ const remain = [
     name: 'Интернет',
     link: true,
     type: 'internet',
-    packages: [],
+    packages: [{
+      current: 0.3,
+      max: 2,
+      until: 'до 19 ноября',
+    }],
   }, {
     id: 2,
     current: 7,
@@ -101,7 +112,6 @@ const remain = [
     name: 'Звонки',
     link: true,
     type: 'calls',
-    packages: [],
   }, {
     id: 3,
     current: 129,
@@ -110,7 +120,6 @@ const remain = [
     name: 'Сообщения',
     link: false,
     type: 'sms',
-    packages: [],
   }], [{
     id: 1,
     current: 0,
@@ -119,7 +128,11 @@ const remain = [
     name: 'Интернет',
     link: true,
     type: 'internet',
-    packages: [],
+    packages: [{
+      current: 0,
+      max: 2,
+      until: 'до 19 ноября',
+    }],
   }, {
     id: 2,
     current: 0,
@@ -128,7 +141,6 @@ const remain = [
     name: 'Звонки',
     link: true,
     type: 'calls',
-    packages: [],
   }, {
     id: 3,
     current: 129,
@@ -137,7 +149,6 @@ const remain = [
     name: 'Сообщения',
     link: false,
     type: 'sms',
-    packages: [],
   }],
 ];
 

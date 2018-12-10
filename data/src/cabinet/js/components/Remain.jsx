@@ -16,43 +16,52 @@ const Remain = ({
       Остаток по тарифу <Link className="link" to={Pages.SERVICES}>«{getData('tariff').title}»</Link> до 16 ноября
     </div>
     {
-      data.map(i => (
-        <div key={i.id} className="remain__item">
-          <div className="remain__desc">
+      data.map(i => {
+        let { max, current } = i;
+
+        if (i.packages) {
+          max += i.packages.reduce((acc, item) => (acc + item.max), 0);
+          current += i.packages.reduce((acc, item) => (acc + item.current), 0);
+        }
+
+        return (
+          <div key={i.id} className="remain__item">
+            <div className="remain__desc">
+              {
+                max > 0 &&
+                <div>
+                  <span>{current.toString().replace('.', ',')}</span> из {max} {i.unit}
+                </div>
+              }
+              {
+                max === 0 &&
+                <div>
+                  <span>Безлимит {i.unit}</span>
+                </div>
+              }
+              {
+                i.link ?
+                  <Link className={cs('remain__service', { remain__service_link: i.link })} to={`${Pages.MORE}/${i.type}`}>
+                    {i.name}
+                  </Link>
+                  :
+                  <div className="remain__service">{i.name}</div>
+              }
+            </div>
+            <ProgressLinear
+              color="red"
+              max={max}
+              current={current}
+              x
+            />
             {
-              i.max > 0 &&
-              <div>
-                <span>{i.current.toString().replace('.', ',')}</span> из {i.max} {i.unit}
-              </div>
-            }
-            {
-              i.max === 0 &&
-              <div>
-                <span>Безлимит {i.unit}</span>
-              </div>
-            }
-            {
-              i.link ?
-                <Link className={cs('remain__service', { remain__service_link: i.link })} to={`${Pages.MORE}/${i.type}`}>
-                  {i.name}
-                </Link>
-                :
-                <div className="remain__service">{i.name}</div>
+              i.packages && i.packages.map(p => (
+                <div className="remain__package">Включая {`${p.current} из ${p.max} ${i.unit} ${p.until}`}</div>
+              ))
             }
           </div>
-          <ProgressLinear
-            color="red"
-            max={i.max}
-            current={i.current}
-            x
-          />
-          {
-            i.packages.map(p => (
-              <div className="remain__package">Включая {`${p.current} из ${p.max} ${i.unit} ${p.until}`}</div>
-            ))
-          }
-        </div>
-      ))
+        );
+      })
     }
     <Button className="button_remain" onClick={buy} primary>Докупить…</Button>
   </div>

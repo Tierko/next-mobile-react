@@ -11,12 +11,14 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import Transitions from '../components/Transitions';
 import Notice from '../components/Notice';
 import { Pages, TITLES } from '../constants';
-import { dataBuffer } from '../utils';
+import { dataBuffer, getData } from '../utils';
 
 const mergeDate = dataBuffer();
 
 const More = ({ countries, interCalls, match: { params: { type } } }) => {
   const data = mergeDate(countries, interCalls.data);
+  const remain = getData('remain');
+
   let title;
 
   switch (type) {
@@ -33,6 +35,16 @@ const More = ({ countries, interCalls, match: { params: { type } } }) => {
   const meta = {
     title,
   };
+
+  const calls = remain[1].current;
+  let internet = remain[0].current;
+  let internetPackage = 0;
+
+  if (remain[0].packages) {
+    internetPackage = remain[0].packages.reduce((acc, i) => (acc + i.current), 0);
+  }
+
+  internet += internetPackage;
 
   return (
     <DocumentMeta {...meta}>
@@ -52,19 +64,23 @@ const More = ({ countries, interCalls, match: { params: { type } } }) => {
                   <div className="more__items">
                     <div className="more__row">
                       <div className="more__title">Количество минут для звонков на&nbsp;номера всех операторов по&nbsp;Москве и&nbsp;на&nbsp;номера Next Mobile по&nbsp;России</div>
-                      <div className="more__value">550&nbsp;мин.</div>
+                      <div className="more__value">{calls}&nbsp;мин.</div>
                     </div>
                     <div className="more__row">
                       <div className="more__title">Стоимость звонков на&nbsp;номера Next Mobile по&nbsp;России</div>
                       <div className="more__value">0&nbsp;₽</div>
                     </div>
-                    <div className="more__row">
-                      <div className="more__title">
-                        Дополнительный пакет
-                        <div className="small">Количество минут для звонков на&nbsp;номера всех операторов по&nbsp;Москве и&nbsp;на&nbsp;номера Next Mobile по&nbsp;России</div>
-                      </div>
-                      <div className="more__value">550&nbsp;мин.</div>
-                    </div>
+                    {
+                      remain[1].packages && remain[1].packages.map(p => (
+                        <div className="more__row">
+                          <div className="more__title">
+                            Дополнительный пакет
+                            <div className="small">Количество минут для звонков на&nbsp;номера всех операторов по&nbsp;Москве и&nbsp;на&nbsp;номера Next Mobile по&nbsp;России</div>
+                          </div>
+                          <div className="more__value">{p.current}&nbsp;мин.</div>
+                        </div>
+                      ))
+                    }
                     <div className="more__row">
                       <div className="more__title">
                         Звонки за границу
@@ -84,15 +100,22 @@ const More = ({ countries, interCalls, match: { params: { type } } }) => {
                   <div className="more__items">
                     <div className="more__row">
                       <div className="more__title">Объем трафика в месяц</div>
-                      <div className="more__value">18&nbsp;ГБ</div>
+                      <div className="more__value">{internet}&nbsp;ГБ</div>
                     </div>
-                    <div className="more__row">
-                      <div className="more__title">
-                        Дополнительный пакет
-                        <div className="small">действует до&nbsp;12&nbsp;сентбря</div>
-                      </div>
-                      <div className="more__value">2&nbsp;ГБ</div>
-                    </div>
+                    {
+                      remain[0].packages && remain[0].packages.map(p => (
+                        <div
+                          className="more__row"
+                          key={`${p.current}${p.max}${p.until}`}
+                        >
+                          <div className="more__title">
+                            Дополнительный пакет
+                            <div className="small">действует до&nbsp;{p.until}</div>
+                          </div>
+                          <div className="more__value">{p.current}&nbsp;ГБ</div>
+                        </div>
+                      ))
+                    }
                   </div>
                   <Link className="button button_primary button_more" to={Pages.ADD_PACKAGE}>Докупить интернет</Link>
                 </Fragment>

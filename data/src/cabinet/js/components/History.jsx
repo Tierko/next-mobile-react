@@ -45,7 +45,7 @@ class History extends Component {
                   <tbody>
                     {operations.slice(0, 4).map(d => (
                       <Fragment>
-                        <tr key={d.id} className="operations__row">
+                        <tr key={`h-${d.id}`} className="operations__row">
                           <td className="operations__cell-empty">&nbsp;</td>
                           <td colSpan={4}>
                             <div className="operations__cell operations__cell_date">
@@ -54,7 +54,7 @@ class History extends Component {
                           </td>
                           <td className="operations__cell-empty">&nbsp;</td>
                         </tr>
-                        <tr key={d.id} className="operations__row">
+                        <tr key={`c-${d.id}`} className="operations__row">
                           <td className="operations__cell-empty">&nbsp;</td>
                           <td>
                             <div className="operations__cell operations__cell_time">{d.time}</div>
