@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import cs from 'classnames';
 import Grade from './Grade';
 import { formatCost, formatCount, showDate } from '../utils';
 import { Pages, MONTHS, MONTHS_M, HISTORY_TITLES } from '../constants';
@@ -44,50 +43,49 @@ class History extends Component {
               !!operations.length &&
                 <table className="operations__table">
                   <tbody>
-                    {operations.slice(0, 4).map((d, i) => (
-
-                      <tr key={d.id} className="operations__row">
-                        <td className="operations__cell-empty">&nbsp;</td>
-                        {
-                          <td>
-                            <div
-                              className={cs('operations__cell operations__cell_date', {
-                                operations__cell_hide: !showDate(operations, i)
-                              })}
-                            >
-                              {showDate(operations, i) && `${d.date.day} ${MONTHS_M[d.date.month]}`}
+                    {operations.slice(0, 4).map(d => (
+                      <Fragment>
+                        <tr key={d.id} className="operations__row">
+                          <td className="operations__cell-empty">&nbsp;</td>
+                          <td colSpan={4}>
+                            <div className="operations__cell operations__cell_date">
+                              {`${d.date.day} ${MONTHS_M[d.date.month]}`}
                             </div>
                           </td>
-                        }
-                        <td>
-                          <div className="operations__cell operations__cell_time">{d.time}</div>
-                        </td>
-                        <td>
-                          <div className="operations__cell operations__cell_type">
-                            <div className={`operations__type operations__type_${d.provider || ''}`}>
-                              {HISTORY_TITLES.find(f => f.id === d.type).title}
-                            </div>
-                            <div className="operations__note">{d.note}</div>
-                          </div>
-                        </td>
-                        <td>
-                          <div className="operations__cell operations__cell_count">
-                            {d.count && formatCount(d.count, d.unit)}
-                          </div>
-                        </td>
-                        <td>
-                          <div className="operations__cell operations__cell_cost">
-                            {formatCost(d.cost, true)}
-                            {
-                              d.tariff &&
-                              <div className="operations__note">
-                                {d.tariff} ₽ / {d.unit === 'time' ? 'мин.' : d.unit}
+                          <td className="operations__cell-empty">&nbsp;</td>
+                        </tr>
+                        <tr key={d.id} className="operations__row">
+                          <td className="operations__cell-empty">&nbsp;</td>
+                          <td>
+                            <div className="operations__cell operations__cell_time">{d.time}</div>
+                          </td>
+                          <td>
+                            <div className="operations__cell operations__cell_type">
+                              <div className={`operations__type operations__type_${d.provider || ''}`}>
+                                {HISTORY_TITLES.find(f => f.id === d.type).title}
                               </div>
-                            }
-                          </div>
-                        </td>
-                        <td className="operations__cell-empty">&nbsp;</td>
-                      </tr>
+                              <div className="operations__note">{d.note}</div>
+                            </div>
+                          </td>
+                          <td>
+                            <div className="operations__cell operations__cell_count">
+                              {d.count && formatCount(d.count, d.unit)}
+                            </div>
+                          </td>
+                          <td>
+                            <div className="operations__cell operations__cell_cost">
+                              {formatCost(d.cost, true)}
+                              {
+                                d.tariff &&
+                                <div className="operations__note">
+                                  {d.tariff} ₽ / {d.unit === 'time' ? 'мин.' : d.unit}
+                                </div>
+                              }
+                            </div>
+                          </td>
+                          <td className="operations__cell-empty">&nbsp;</td>
+                        </tr>
+                      </Fragment>
                     ))}
                   </tbody>
                 </table>
@@ -131,7 +129,7 @@ class History extends Component {
 
 History.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-
+  operations: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 export default History;

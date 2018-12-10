@@ -57,9 +57,6 @@ const OperationsList = ({
                 Дата
               </div>
             </td>
-            <td className="operations__td_time">
-              <div className="operations__cell_time-h">Время</div>
-            </td>
             <td className="operations__td_type">
               <div className="operations__cell_type-h">
                 <Select
@@ -88,50 +85,54 @@ const OperationsList = ({
         }
         {
           loaded && data.map(d => (
-            <tr key={d.id} className="operations__row">
-              <td className="operations__cell-empty">&nbsp;</td>
-              {
-                <td>
+            <Fragment>
+              <tr className="operations__row">
+                <td className="operations__cell-empty">&nbsp;</td>
+                <td colSpan={4}>
                   <div className="operations__cell operations__cell_date">
                     {`${d.date.day} ${MONTHS_M[d.date.month]}`}
                   </div>
                 </td>
-              }
-              <td>
-                <div className="operations__cell operations__cell_time">{d.time}</div>
-              </td>
-              <td>
-                <div className="operations__cell operations__cell_type">
-                  <div className={`operations__type operations__type_${d.provider || ''}`}>
-                    {HISTORY_TITLES.find(f => f.id === d.type).title}
-                  </div>
-                  <div className="operations__note">{d.note}</div>
-                </div>
-              </td>
-              <td>
-                <div className="operations__cell operations__cell_count">
-                  {d.count && formatCount(d.count, d.unit)}
-                </div>
-              </td>
-              <td>
-                <div className="operations__cell operations__cell_cost">
-                  {formatCost(d.cost, true)}
-                  {
-                    d.tariff &&
-                    <div className="operations__note">
-                      {d.tariff} ₽ / {d.unit === 'time' ? 'мин.' : d.unit}
+                <td className="operations__cell-empty">&nbsp;</td>
+              </tr>
+              <tr key={d.id} className="operations__row">
+                <td className="operations__cell-empty">&nbsp;</td>
+                <td className="operations__td operations__td_time">
+                  <div className="operations__cell operations__cell_time">{d.time}</div>
+                </td>
+                <td>
+                  <div className="operations__cell operations__cell_type">
+                    <div className={`operations__type operations__type_${d.provider || ''}`}>
+                      {HISTORY_TITLES.find(f => f.id === d.type).title}
                     </div>
-                  }
-                </div>
-              </td>
-              <td className="operations__cell-empty">&nbsp;</td>
-            </tr>
+                    <div className="operations__note">{d.note}</div>
+                  </div>
+                </td>
+                <td>
+                  <div className="operations__cell operations__cell_count">
+                    {d.count && formatCount(d.count, d.unit)}
+                  </div>
+                </td>
+                <td>
+                  <div className="operations__cell operations__cell_cost">
+                    {formatCost(d.cost, true)}
+                    {
+                      d.tariff &&
+                      <div className="operations__note">
+                        {d.tariff} ₽ / {d.unit === 'time' ? 'мин.' : d.unit}
+                      </div>
+                    }
+                  </div>
+                </td>
+                <td className="operations__cell-empty">&nbsp;</td>
+              </tr>
+            </Fragment>
           ))
         }
         {
           !loaded &&
           <tr>
-            <td colSpan={7}>
+            <td colSpan={6}>
               <div className="operations__loader">
                 <Loader className="loader_operations" />
                 <div>Подгружаем данные за&nbsp;выбранный период</div>
@@ -142,7 +143,7 @@ const OperationsList = ({
         {
           !data.length && loaded &&
           <tr>
-            <td colSpan={7} className="operations__empty">
+            <td colSpan={6} className="operations__empty">
               У&nbsp;вас нет данных за&nbsp;указанный период
             </td>
           </tr>
@@ -150,7 +151,7 @@ const OperationsList = ({
         {
           data && loaded &&
           <tr>
-            <td colSpan={7} className="operations__cell_button">
+            <td colSpan={6} className="operations__cell_button">
               <Button onClick={loadMore} primary>Загрузить еще</Button>
             </td>
           </tr>
