@@ -6,7 +6,7 @@ import Transitions from './Transitions';
 
 class SignUpTariffSelect extends Component {
   state = {
-    current: -1,
+    current: 38,
   };
 
   onChange = (_, v) => {

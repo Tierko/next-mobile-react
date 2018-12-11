@@ -32,10 +32,10 @@ class SignUpInitAfter extends Component {
             или зарегистрируйтесь по&nbsp;<Link className="link" to={`${Pages.SIGN_UP}/promo-after`}>промо-коду</Link>
           </div>
           <div className="sign-up__scenario">
-            <Radio name="whichNumber" value="current" selected={whichNumber} onChange={onChange}>
+            <Radio className="radio_sign-up" name="whichNumber" value="current" selected={whichNumber} onChange={onChange}>
               Текущий номер
             </Radio>
-            <Radio name="whichNumber" value="new" selected={whichNumber} onChange={onChange}>
+            <Radio className="radio_sign-up" name="whichNumber" value="new" selected={whichNumber} onChange={onChange}>
               Новый номер
             </Radio>
           </div>
