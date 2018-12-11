@@ -65,7 +65,7 @@ class Tariff extends Component {
               {/*countries={countries.data}*/}
               {/*roaming={roaming.data}*/}
             {/*/>*/}
-            {/*<TariffServices translate={services} />*/}
+            <TariffServices translate={services} />
           </div>
         </div>
       </DocumentMeta>

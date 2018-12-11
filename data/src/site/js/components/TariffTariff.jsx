@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import Select from '../components/SelectCalls';
 import Tariffs from '../../../common/js/components/Tariffs';
 
 import Button from '../../../common/js/components/Button';
@@ -34,30 +35,42 @@ export function dataBuffer() {
 
 const mergeDate = dataBuffer();
 
-const TariffTariff = ({
-  to,
-  toTariff,
-  r,
-  tariffs,
-  translate,
-  interCalls,
-  countries,
-}) => {
-  const { header, btn, note } = translate;
+class TariffTariff extends Component {
+  state = {
+    country: {},
+  };
 
-  if (!header || !btn || !note) {
-    return false;
-  }
+  onChange = (country) => {
+    this.setState({ country });
+  };
 
-  return (
-    <div className="tariff-tariff">
-      <div
-        className="tariff-tariff__header"
-        dangerouslySetInnerHTML={{ __html: header }}
-      />
-      <Tariffs data={tariffs} mode="detail" showTabs={false} className="tariffs_tariffs" />
-      {
-        r === 1 &&
+  render() {
+    const {
+      to,
+      toTariff,
+      r,
+      tariffs,
+      translate,
+      interCalls,
+      countries,
+    } = this.props;
+    const { header, btn, note } = translate;
+    const { onChange } = this;
+    const { country } = this.state;
+
+    if (!header || !btn || !note) {
+      return false;
+    }
+
+    return (
+      <div className="tariff-tariff">
+        <div
+          className="tariff-tariff__header"
+          dangerouslySetInnerHTML={{ __html: header }}
+        />
+        <Tariffs data={tariffs} mode="detail" showTabs={false} className="tariffs_tariffs" />
+        {
+          r === 1 &&
           <Fragment>
 
             <Button onClick={to} primary>
@@ -68,11 +81,15 @@ const TariffTariff = ({
               dangerouslySetInnerHTML={{ __html: note }}
             />
           </Fragment>
-      }
-      <InterCalls className="inter-calls_tariff" data={mergeDate(countries, interCalls)} />
-    </div>
-  );
-};
+        }
+        <div className="tariff-tariff__inter-calls">
+          <div className="tariff-tariff__inter-calls-title">Звонки за границу:</div>
+          <Select onSelect={onChange} value={country}  data={mergeDate(countries, interCalls)} />
+        </div>
+      </div>
+    );
+  }
+}
 
 TariffTariff.propTypes = {
   to: PropTypes.func.isRequired,

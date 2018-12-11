@@ -5,17 +5,23 @@
   }
 
   &__row {
-    margin-bottom: 39px;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(149, 155, 173, 0.25);
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
 
   &__title {
-    font-size: 28px;
-    line-height: 32px;
-    color: rgba(0, 0, 0, 0.9);
+    font-size: @FONT-SIZE-H2;
+    line-height: @LINE-HEIGHT-H2;
+    color: rgba(33, 31, 94, 0.86);
   }
 
   &__text {
     margin-top: 10px;
-    color: @GRAY-DARK;
+    color: #798199;
   }
 }

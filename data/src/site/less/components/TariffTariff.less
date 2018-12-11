@@ -11,4 +11,21 @@
     margin: 10px 0 60px;
     max-width: 453px;
   }
+
+  &__inter-calls {
+    display: flex;
+  }
+
+  &__inter-calls-title {
+    font-size: @FONT-SIZE-H2;
+    line-height: @LINE-HEIGHT-H2;
+    padding-right: 20px;
+    color: rgba(33, 31, 94, 0.86);
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    &__inter-calls {
+      display: block;
+    }
+  }
 }
