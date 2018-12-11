@@ -45,7 +45,7 @@ const data = {
     content: {
       header: 'Переход приостановлен',
       message: 'На\u00A0вашем счету есть задолженность 2000\u00A0₽ перед\nпредыдущим оператором. Пожалуйста, погасите\u00A0ее,\nчтобы перейти на\u00A0Next',
-      status: 'pause',
+      status: 'error',
     },
   },
   [Statuses.TRANSITION_STOPPED_ERROR]: {
@@ -60,7 +60,7 @@ const data = {
     type: 'delivery',
     content: {
       header: 'Доставка сим-карты',
-      img: '/media/icons/sim-color.svg',
+      img: '/media/icons/ok.svg',
       meta: [{
         id: 1,
         title: 'Дата',
