@@ -86,19 +86,13 @@ const OperationsList = ({
         {
           loaded && data.map(d => (
             <Fragment>
-              <tr className="operations__row">
-                <td className="operations__cell-empty">&nbsp;</td>
-                <td colSpan={4}>
-                  <div className="operations__cell operations__cell_date">
-                    {`${d.date.day} ${MONTHS_M[d.date.month]}`}
-                  </div>
-                </td>
-                <td className="operations__cell-empty">&nbsp;</td>
-              </tr>
               <tr key={d.id} className="operations__row">
                 <td className="operations__cell-empty">&nbsp;</td>
-                <td className="operations__td operations__td_time">
-                  <div className="operations__cell operations__cell_time">{d.time}</div>
+                <td>
+                  <div className="operations__cell operations__cell_date">
+                    {`${d.date.day} ${MONTHS_M[d.date.month]}`}
+                    <div className="operations__note">{d.time}</div>
+                  </div>
                 </td>
                 <td>
                   <div className="operations__cell operations__cell_type">

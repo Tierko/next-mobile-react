@@ -44,48 +44,40 @@ class History extends Component {
                 <table className="operations__table">
                   <tbody>
                     {operations.slice(0, 4).map(d => (
-                      <Fragment>
-                        <tr key={`h-${d.id}`} className="operations__row">
-                          <td className="operations__cell-empty">&nbsp;</td>
-                          <td colSpan={4}>
-                            <div className="operations__cell operations__cell_date">
-                              {`${d.date.day} ${MONTHS_M[d.date.month]}`}
+                      <tr key={`c-${d.id}`} className="operations__row">
+                        <td className="operations__cell-empty">&nbsp;</td>
+                        <td>
+                          <div className="operations__cell operations__cell_date">
+                            {`${d.date.day} ${MONTHS_M[d.date.month]}`}
+                            <div className="operations__note">{d.time}</div>
+                          </div>
+                        </td>
+                        <td>
+                          <div className="operations__cell operations__cell_type">
+                            <div className={`operations__type operations__type_${d.provider || ''}`}>
+                              {HISTORY_TITLES.find(f => f.id === d.type).title}
                             </div>
-                          </td>
-                          <td className="operations__cell-empty">&nbsp;</td>
-                        </tr>
-                        <tr key={`c-${d.id}`} className="operations__row">
-                          <td className="operations__cell-empty">&nbsp;</td>
-                          <td>
-                            <div className="operations__cell operations__cell_time">{d.time}</div>
-                          </td>
-                          <td>
-                            <div className="operations__cell operations__cell_type">
-                              <div className={`operations__type operations__type_${d.provider || ''}`}>
-                                {HISTORY_TITLES.find(f => f.id === d.type).title}
+                            <div className="operations__note">{d.note}</div>
+                          </div>
+                        </td>
+                        <td>
+                          <div className="operations__cell operations__cell_count">
+                            {d.count && formatCount(d.count, d.unit)}
+                          </div>
+                        </td>
+                        <td>
+                          <div className="operations__cell operations__cell_cost">
+                            {formatCost(d.cost, true)}
+                            {
+                              d.tariff &&
+                              <div className="operations__note">
+                                {d.tariff} ₽ / {d.unit === 'time' ? 'мин.' : d.unit}
                               </div>
-                              <div className="operations__note">{d.note}</div>
-                            </div>
-                          </td>
-                          <td>
-                            <div className="operations__cell operations__cell_count">
-                              {d.count && formatCount(d.count, d.unit)}
-                            </div>
-                          </td>
-                          <td>
-                            <div className="operations__cell operations__cell_cost">
-                              {formatCost(d.cost, true)}
-                              {
-                                d.tariff &&
-                                <div className="operations__note">
-                                  {d.tariff} ₽ / {d.unit === 'time' ? 'мин.' : d.unit}
-                                </div>
-                              }
-                            </div>
-                          </td>
-                          <td className="operations__cell-empty">&nbsp;</td>
-                        </tr>
-                      </Fragment>
+                            }
+                          </div>
+                        </td>
+                        <td className="operations__cell-empty">&nbsp;</td>
+                      </tr>
                     ))}
                   </tbody>
                 </table>
