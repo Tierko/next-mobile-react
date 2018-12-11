@@ -75,7 +75,7 @@ class TariffTariff extends Component {
           className="tariffs_tariffs"
           onChange={toTariff}
           allFocus
-          unSelectable
+          unSelectable={r === 1}
         />
         {
           r === 1 &&
