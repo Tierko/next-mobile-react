@@ -265,7 +265,7 @@ class Cards extends Component {
       data,
     } = this.props;
 
-    if (data.length === 1) {
+    if (data.items.length === 1) {
       autoPayDisable();
     }
 
