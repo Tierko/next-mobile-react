@@ -74,6 +74,8 @@ const SiteMap = () => (
             <br />
             <Link className="link" to={`${Pages.REQUEST_STATUS}/${Statuses.TRANSITION_STOPPED}`}>Статус заявки, переход приостановлен</Link>
             <br />
+            <Link className="link" to={`${Pages.REQUEST_STATUS}/${Statuses.TRANSITION_STOPPED_ERROR}`}>Статус заявки, переход приостановлен</Link>
+            <br />
             <Link className="link" to={`${Pages.REQUEST_STATUS}/${Statuses.SIM_DELIVERY}`}>Статус заявки, доставка sim-карты</Link>
             <br />
             <Link className="link" to={`${Pages.REQUEST_STATUS}/${Statuses.SIM_DELIVERY_TODAY}`}>Статус заявки, доставка sim-карты, сегодня</Link>
@@ -113,6 +115,8 @@ const SiteMap = () => (
             <Link className="link" to={`${Pages.ROAMING}/internet/1`}>Роуминг (докупка пакета)</Link>
             <br />
             <Link className="link" to={`${Pages.ROAMING}/zone-tariff/1`}>Роуминг (тарифы зоны)</Link>
+            <br />
+            <Link className="link" to={Pages.FAQ}>FAQ</Link>
             <br />
             <Link className="link" to={Pages.INVITE}>Инвайты</Link>
             <br />
