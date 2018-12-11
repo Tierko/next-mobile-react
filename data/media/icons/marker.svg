@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="16" viewBox="0 0 22 16"><defs><path id="vh0ia" d="M738 1529l10.38 16 9.62-16"/></defs><g><g transform="translate(-737 -1529)"><use fill="#fff" fill-opacity="0" stroke="#3476fe" stroke-miterlimit="50" xlink:href="#vh0ia"/></g></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="40px" viewBox="0 0 28 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M14,40 C23.3333333,27.8213243 28,19.1546577 28,14 C28,6.2680135 21.7319865,0 14,0 C6.2680135,0 0,6.2680135 0,14 C0,19.1546577 4.66666667,27.8213243 14,40 Z" id="Oval" fill="#FF5500"></path>
+    </g>
+</svg>

@@ -13,19 +13,22 @@ class TariffsItem extends Component {
       index,
       selected,
       onSelect,
+      allFocus,
+      unSelectable,
     } = this.props;
     const inFocus = selected === index;
 
     return (
       <div
-        onClick={() => index !== 0 && onSelect(index)}
+        onClick={() => (index !== 0 || allFocus) && onSelect(index)}
         className={cs('tariffs__item', {
           tariffs__item_current: current.id === data.id,
           tariffs__item_focus: inFocus && current.id !== data.id,
+          tariffs__item_unselectable: unSelectable,
         })}
       >
         <div className="tariffs__item-inner">
-          <div className="tariffs__name">{data.title}</div>
+          <div className="tariffs__name">{data.title || data.name}</div>
           <div className="tariffs__current">
             {current.id === data.id && 'Ваш тариф'}
           </div>
@@ -44,8 +47,8 @@ class TariffsItem extends Component {
           <div className="tariffs__pay">{data.payment} ₽ / месяц</div>
         </div>
         {
-          current.id !== data.id && selected === index &&
-          <Button className="button_tariffs" primary onClick={() => onClick(data)}>Перейти</Button>
+          current.id !== data.id && selected === index && !unSelectable &&
+          <Button className="button_tariffs" primary onClick={() => onClick && onClick(data)}>Перейти</Button>
         }
       </div>
     );
@@ -60,6 +63,8 @@ TariffsItem.propTypes = {
   index: PropTypes.number.isRequired,
   selected: PropTypes.number.isRequired,
   onSelect: PropTypes.func.isRequired,
+  allFocus: PropTypes.bool.isRequired,
+  unSelectable: PropTypes.bool.isRequired,
 };
 
 TariffsItem.defaultProps = {

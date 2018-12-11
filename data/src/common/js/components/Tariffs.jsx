@@ -110,6 +110,8 @@ class TariffTable extends Component {
       className,
       data,
       showTabs,
+      allFocus,
+      unSelectable,
     } = this.props;
     const { mode, selected } = this.state;
     const isDetail = mode === 'detail';
@@ -137,6 +139,8 @@ class TariffTable extends Component {
                     index={i}
                     selected={selected}
                     onSelect={onSelect}
+                    allFocus={allFocus}
+                    unSelectable={unSelectable}
                   />
                 ))
               }
@@ -155,6 +159,8 @@ TariffTable.propTypes = {
   className: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.shape()),
   showTabs: PropTypes.bool,
+  allFocus: PropTypes.bool,
+  unSelectable: PropTypes.bool,
 };
 
 TariffTable.defaultProps = {
@@ -164,6 +170,8 @@ TariffTable.defaultProps = {
   className: '',
   data: null,
   showTabs: true,
+  allFocus: false,
+  unSelectable: false,
 };
 
 export default TariffTable;

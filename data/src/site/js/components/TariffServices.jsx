@@ -37,7 +37,7 @@ class TariffServices extends Component {
             <div className="tariff-services__row" key={s.id}>
               <div className="tariff-services__title" dangerouslySetInnerHTML={{ __html: s.name }} />
               <div className="tariff-services__text" dangerouslySetInnerHTML={{ __html: s.text }} />
-              <div className="tariff-services__text" dangerouslySetInnerHTML={{ __html: s.price }} />
+              <div className="tariff-services__text tariff-services__text_price" dangerouslySetInnerHTML={{ __html: s.price }} />
             </div>
           ))
         }

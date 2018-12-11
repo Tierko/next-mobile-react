@@ -123,11 +123,11 @@ class Earth extends Component {
     const { setCenter } = this;
     const { country } = this.props;
 
-    if (!prevProps.country && country) {
+    if (!prevProps.country.code && country.code) {
       setCenter();
     }
 
-    if (prevProps.country && !country) {
+    if (prevProps.country.code && !country.code) {
       this.defaultAnimation = true;
       this.fastAnimation = false;
     }
@@ -147,7 +147,7 @@ class Earth extends Component {
     return (
       <div className={`earth earth_${style} earth_${size}`} ref={(e) => { this.cont = e; }} >
         <canvas className="earth__canvas" id="earth" ref={(e) => { this.earth = e; }} />
-        <div className={cs('earth__marker', { earth__marker_show: !!country })} />
+        <div className={cs('earth__marker', { earth__marker_show: !!country.code })} />
       </div>
     );
   }

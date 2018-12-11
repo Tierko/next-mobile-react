@@ -1,7 +1,7 @@
 .earth {
   position: absolute;
   top: 0;
-  right: -35px;
+  right: 0;
   bottom: 0;
   border-radius: 50%;
   margin: auto;
@@ -11,7 +11,7 @@
   }
 
   &_light {
-    background-image: linear-gradient(180deg, #e2e2ec 0%, #d6d6e4 100%);
+    background-color: #d6d6e4;
   }
 
   &_small {
@@ -24,11 +24,7 @@
     height: 556px;
   }
 
-  @media (max-width: @BREAK-POINT) {
-  }
-
   &__canvas {
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 1%, #000, #000);
     position: absolute;
     top: 0;
     right: 0;
@@ -37,8 +33,8 @@
   }
 
   &__marker {
-    width: 20px;
-    height: 16px;
+    width: 23px;
+    height: 32px;
     position: absolute;
     top: 0;
     right: 0;
@@ -48,6 +44,7 @@
     background: url("/media/icons/marker.svg") no-repeat 50% 50% / contain;
     opacity: 0;
     transition: opacity 0.5s;
+    transform: translateY(-32px);
 
     &_show {
       opacity: 1;

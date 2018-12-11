@@ -2,6 +2,22 @@
   margin: 0 -60px 46px;
   overflow: hidden;
 
+  &_tariffs &__inner {
+    max-width: none;
+  }
+
+  &_tariffs &__wrapper {
+    width: auto;
+    max-width: none;
+  }
+
+  &_tariffs &__traffic {
+    font-size: 72px;
+    line-height: 72px;
+    font-weight: 300;
+    color: rgba(33, 31, 94, 0.86);
+  }
+
   &__inner {
     width: 100%;
     overflow-x: scroll;
@@ -49,6 +65,11 @@
 
     &_focus:hover {
       border-color: rgba(33, 31, 94, 0.86);
+    }
+
+    &_unselectable {
+      border: transparent;
+      cursor: default;
     }
   }
 
@@ -114,12 +135,12 @@
 
 
   @media (max-width: @BREAK-POINT) {
-    margin: 0 -20px 46px;
+    margin: 0 -15px 46px;
 
     &__inner {
       max-width: none;
-      margin-left: -16px;
-      margin-right: -16px;
+      margin-left: 0;
+      margin-right: 0;
       padding: 0 0 20px;
       width: auto;
     }

@@ -10,7 +10,7 @@
     "build-cabinet": "webpack --mode production --env.type=cabinet",
     "build-site": "webpack --mode production --env.type=site",
     "deploy-cabinet": "node deploy.js next/mobile2 cabinet",
-    "deploy-site": "node deploy.js promo site",
+    "deploy-site": "node deploy.js promo2 site",
     "flow-cabinet": "git pull && git push && npm run build-cabinet && npm run deploy-cabinet",
     "flow-site": "git pull && git push && npm run build-site && npm run deploy-site",
     "flow": "git pull && git push && npm run build-site && npm run deploy-site && npm run build-cabinet && npm run deploy-cabinet"

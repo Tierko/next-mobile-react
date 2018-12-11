@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import InterCalls from '../../../common/js/components/InterCalls';
+import Select from '../components/SelectCalls';
 import Earth from './Earth';
 
 function dataBuffer() {
@@ -25,7 +25,7 @@ const filteredData = dataBuffer();
 
 class EarthTariff extends Component {
   state = {
-    country: null,
+    country: {},
   };
 
   onChange = (country) => {
@@ -36,7 +36,6 @@ class EarthTariff extends Component {
 
   render() {
     const {
-      tariff,
       className,
       type,
       size,
@@ -72,18 +71,16 @@ class EarthTariff extends Component {
               dangerouslySetInnerHTML={{ __html: text }}
             />
           }
-          <InterCalls
-            className="inter-calls_home"
-            home={home}
-            tariff={tariff}
-            onChange={onChange}
-            hidePrice
+          <Select
+            className="select_roaming"
+            onSelect={onChange}
             data={{ items: autoCompleteCountries }}
+            value={country}
           />
         </div>
         <div
           className={cs('earth-tariff__numbers', {
-            'earth-tariff__numbers_show': !!country,
+            'earth-tariff__numbers_show': !!country.code,
           })}
         >
           {
@@ -126,7 +123,6 @@ class EarthTariff extends Component {
 }
 
 EarthTariff.propTypes = {
-  tariff: PropTypes.bool,
   className: PropTypes.string,
   type: PropTypes.string.isRequired,
   size: PropTypes.string.isRequired,
@@ -137,7 +133,6 @@ EarthTariff.propTypes = {
 };
 
 EarthTariff.defaultProps = {
-  tariff: false,
   className: '',
   home: false,
   translate: {},

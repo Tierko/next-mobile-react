@@ -68,7 +68,15 @@ class TariffTariff extends Component {
           className="tariff-tariff__header"
           dangerouslySetInnerHTML={{ __html: header }}
         />
-        <Tariffs data={tariffs} mode="detail" showTabs={false} className="tariffs_tariffs" />
+        <Tariffs
+          data={tariffs}
+          mode="detail"
+          showTabs={false}
+          className="tariffs_tariffs"
+          onChange={toTariff}
+          allFocus
+          unSelectable
+        />
         {
           r === 1 &&
           <Fragment>
