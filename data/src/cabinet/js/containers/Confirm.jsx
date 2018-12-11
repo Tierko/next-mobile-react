@@ -57,7 +57,9 @@ class Confirm extends Component {
                 <div className="dashboard__header dashboard__header_confirm">{title}</div>
                 <div className="confirm__sum">{formatCost(sum || 0)}</div>
                 <Button className="button_confirm" onClick={onPay} >Оплатить</Button>
-                <div className="note note_show note_confirm">С баланса</div>
+                <div className="note note_show note_confirm">
+                  Списание будет произведено с текущего баланса
+                </div>
               </div>
             </div>
           </Transition>
