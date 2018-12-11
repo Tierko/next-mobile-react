@@ -108,6 +108,7 @@ export const Statuses = {
   CHANGES_SAVED: 'changes-saved',
   TRANSITION_CONFIRMED: 'transition-confirmed',
   TRANSITION_STOPPED: 'transition-stopped',
+  TRANSITION_STOPPED_ERROR: 'transition-stopped-error',
   SIM_DELIVERY: 'sim-delivery',
   SIM_DELIVERY_TODAY: 'sim-delivery-today',
 };

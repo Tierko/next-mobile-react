@@ -45,6 +45,15 @@ const data = {
     content: {
       header: 'Переход приостановлен',
       message: 'На\u00A0вашем счету есть задолженность 2000\u00A0₽ перед\nпредыдущим оператором. Пожалуйста, погасите\u00A0ее,\nчтобы перейти на\u00A0Next',
+      status: 'pause',
+    },
+  },
+  [Statuses.TRANSITION_STOPPED_ERROR]: {
+    type: 'simple',
+    content: {
+      header: 'Переход приостановлен',
+      message: 'Номер +7\u00A0905\u00A0123-45-67, который вы указали зарегестрирован на\u00A0другое имя. Укажите правильное имя, чтобы перейти на\u00A0Next',
+      status: 'error',
     },
   },
   [Statuses.SIM_DELIVERY]: {
@@ -187,6 +196,7 @@ class RequestStatus extends Component {
               <RequestStatusSimple
                 header={content.header}
                 message={content.message}
+                status={content.status}
                 action={status === Statuses.TRANSITION_STOPPED ? action : null}
               />
             }

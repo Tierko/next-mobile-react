@@ -14,9 +14,11 @@ const RequestStatusSimple = ({
   message,
   action,
   history,
+  status,
 }) => (
   <div className="welcome__content request-status">
-    <div className="welcome__header">{header}</div>
+    <div className={`request-status__status request-status__status_${status}`} />
+    <div className="welcome__header welcome__header_request">{header}</div>
     <div className="request-status__message">{message}</div>
     {
       action &&
@@ -38,10 +40,12 @@ RequestStatusSimple.propTypes = {
   message: PropTypes.string.isRequired,
   history: PropTypes.shape().isRequired,
   action: PropTypes.shape(),
+  status: PropTypes.string,
 };
 
 RequestStatusSimple.defaultProps = {
   action: null,
+  status: 'ok',
 };
 
 export default withRouter(RequestStatusSimple);

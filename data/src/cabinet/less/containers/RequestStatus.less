@@ -11,6 +11,26 @@
     padding: 100px 0 30px
   }
 
+  &__status {
+    height: 111px;
+    margin: auto;
+
+    &_ok {
+      background-image: url("/media/icons/ok.svg");
+      width: 124px;
+    }
+
+    &_error {
+      background-image: url("/media/icons/error.svg");
+      width: 110px;
+    }
+
+    &_pause {
+      background-image: url("/media/icons/pause.svg");
+      width: 51px;
+    }
+  }
+
   &__header {
     font-size: @FONT-SIZE-H2;
     line-height: @LINE-HEIGHT-H2;
@@ -26,7 +46,7 @@
   }
 
   &__message {
-    margin: 14px auto 0;
+    margin: 40px auto 0;
     white-space: pre-wrap;
     max-width: 500px;
 
@@ -47,10 +67,6 @@
   &__row-title {
     .small;
     color: @GRAY-DARK;
-  }
-
-  &__row-value {
-
   }
 
   &__img {
