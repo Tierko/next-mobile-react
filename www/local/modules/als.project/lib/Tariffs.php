@@ -56,6 +56,7 @@ class Tariffs {
 			'PROPERTY_CALLS>calls',
 			'PROPERTY_SMS>sms',
 			'PROPERTY_TRANSITION>transition',
+			'PROPERTY_OVER:string[]>over',
 		];
 
 		return $select;
