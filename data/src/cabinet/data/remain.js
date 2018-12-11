@@ -10,7 +10,7 @@ const remain = [
     packages: [{
       current: 2,
       max: 2,
-      until: 'до 19 ноября',
+      until: 'до 25 декабря',
     }],
   }, {
     id: 2,
@@ -23,7 +23,7 @@ const remain = [
     packages: [{
       current: 400,
       max: 400,
-      until: 'до 19 ноября',
+      until: 'до 25 декабря',
     }],
   }, {
     id: 3,
@@ -44,7 +44,7 @@ const remain = [
     packages: [{
       current: 1,
       max: 2,
-      until: 'до 19 ноября',
+      until: 'до 25 декабря',
     }],
   }, {
     id: 2,
@@ -73,7 +73,7 @@ const remain = [
     packages: [{
       current: 2,
       max: 2,
-      until: 'до 19 ноября',
+      until: 'до 25 декабря',
     }],
   }, {
     id: 2,
@@ -102,7 +102,7 @@ const remain = [
     packages: [{
       current: 2,
       max: 2,
-      until: 'до 19 ноября',
+      until: 'до 25 декабря',
     }],
   }, {
     id: 2,
@@ -131,7 +131,7 @@ const remain = [
     packages: [{
       current: 0,
       max: 2,
-      until: 'до 19 ноября',
+      until: 'до 25 декабря',
     }],
   }, {
     id: 2,

@@ -110,7 +110,7 @@ const More = ({ countries, interCalls, match: { params: { type } } }) => {
                         >
                           <div className="more__title">
                             Дополнительный пакет
-                            <div className="small">действует до&nbsp;{p.until}</div>
+                            <div className="small">действует {p.until}</div>
                           </div>
                           <div className="more__value">{p.current}&nbsp;ГБ</div>
                         </div>
