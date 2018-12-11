@@ -2,39 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
-import cs from 'classnames';
 import { formatCost, getData } from '../utils';
 import { Pages } from '../constants';
 import { showChatAction } from '../actions/App';
 import { showNoticeAction } from '../actions/Notice';
 
 class Aside extends Component {
-  state = {
-    current: '',
-  };
-
-  setActiveLink = (match, modifier) => {
-    const { current } = this.state;
-
-    if (modifier === 'exit') {
-      return false;
-    }
-
-    if (match && !match.isExact && current !== modifier) {
-      this.setState({
-        current: modifier,
-      });
-    }
-
-    if (match && match.isExact && current) {
-      this.setState({
-        current: '',
-      });
-    }
-
-    return !!match;
-  };
-
   items = [{
     to: Pages.OVERVIEW,
     title: 'Обзор',
@@ -76,8 +49,7 @@ class Aside extends Component {
       showChat,
       showNotice,
     } = this.props;
-    const { setActiveLink, items } = this;
-    const { current } = this.state;
+    const { items } = this;
     const traffic = getData('remain')[0].current.toString().replace('.', ',');
     const calls = getData('remain')[1].current;
 
@@ -112,8 +84,8 @@ class Aside extends Component {
                   <div key={i.modifier} className={`aside__nav-item aside__nav-item_${i.modifier}`}>
                     <NavLink
                       to={i.to}
-                      isActive={e => setActiveLink(e, i.modifier)}
-                      className={cs('aside__link', { 'aside__link_not-exact': current === i.modifier })}
+                      className="aside__link"
+                      exact
                     >
                       <span>{i.title}</span>
                     </NavLink>
