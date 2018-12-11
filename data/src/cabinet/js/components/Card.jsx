@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import InputMask from 'react-input-mask';
-import InlineSvg from 'svg-inline-react';
 import InputCard from '../components/InputCard';
 import {
   checkCardNumber,
@@ -42,7 +41,7 @@ const Card = ({
       <div onClick={onSelect} data-id={id} className="card__wrapper" id={`card-${id}`}>
         <div
           style={style}
-          className={cs(`card card_${getPaySystem(id)}`, {
+          className={cs(`card card_exist card_${getPaySystem(id)}`, {
             card_selected: isSelected,
             card_default: isDefault,
           })}

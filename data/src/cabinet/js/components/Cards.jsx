@@ -32,12 +32,10 @@ class Cards extends Component {
     const cvvInput = document.querySelector('.card__cvv .card__cvv-input');
     setOffset();
     addClasses();
-    const card = document.getElementById(`card-${defaultCard}`);
+    const card = document.getElementById(`card-${defaultCard}`) || document.querySelector('.card__wrapper');
 
     if (card) {
-      onCardSelect({
-        currentTarget: card,
-      });
+      onCardSelect({ target: card });
     }
 
     this.numberInput = numberInput;
@@ -134,8 +132,11 @@ class Cards extends Component {
     onPermitChange(isNewCardValid(nextState), isNewCardValid(nextState) ? card : undefined);
   };
 
-  onCardSelect = (e) => {
-    const cardE = e.currentTarget;
+  onCardSelect = ({ target }) => {
+    if (target.className.indexOf('card__wrapper') === -1) {
+      return;
+    }
+
     const { onPermitChange, isNewCardValid, getAttr } = this;
     const {
       number,
@@ -143,7 +144,8 @@ class Cards extends Component {
       date,
       cvv,
     } = this.state;
-    const id = getAttr(cardE, 'id');
+    const id = getAttr(target, 'id') || 'new';
+    const cardNumber = getAttr(target, 'number') || 0;
     const card = id === 'new' ? {
       holder,
       date,
@@ -154,7 +156,6 @@ class Cards extends Component {
     onPermitChange(id !== 'new' || (id === 'new' && isNewCardValid()), card);
     const { row, inner } = this;
     const maxScroll = inner.clientWidth - row.clientWidth;
-    const cardNumber = getAttr(cardE, 'number') * 1;
     const scroll = id === 'new' ? maxScroll : cardNumber * 159;
 
     row.scroll({
@@ -229,10 +230,9 @@ class Cards extends Component {
   rollCard = ({ target }) => {
     const { selected } = this.state;
     const { onCardSelect } = this;
-    const direction = target.getAttribute('data-direction');
-    let currentCard = document.getElementById(`card-${selected}`);
+    const direction = target && target.getAttribute('data-direction');
+    const currentCard = document.getElementById(`card-${selected}`);
     let card = null;
-
     if (currentCard && direction === 'next') {
       card = currentCard.nextSibling;
     }
@@ -250,15 +250,13 @@ class Cards extends Component {
     }
 
     if (card) {
-      onCardSelect({
-        currentTarget: card,
-      });
+      onCardSelect({ target: card });
     }
   };
 
   onRemove = (token) => {
-    const { rollCard } = this;
-    const card = document.querySelector('.card__wrapper');
+    const { onCardSelect } = this;
+    const card = document.querySelector(`.card__wrapper:not(#card-${token})`);
     const {
       removeCard,
       autoPayDisable,
@@ -270,9 +268,7 @@ class Cards extends Component {
     }
 
     if (card) {
-      rollCard({
-        target: card,
-      });
+      onCardSelect({ target: card });
     }
 
     removeCard(token);

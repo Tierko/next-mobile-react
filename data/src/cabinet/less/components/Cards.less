@@ -83,13 +83,13 @@
   width: 143px;
   height: 91px;
   margin: 0 8px 10px;
-  cursor: pointer;
   user-select: none;
   background-image: linear-gradient(to top right, #e72b2b, #ff693e);
   display: flex;
   justify-content: space-between;
   position: relative;
   transition: width 0.2s linear, height 0.2s linear;
+  pointer-events: none;
 
   &:after {
     content: '';
@@ -209,6 +209,7 @@
     justify-content: flex-start;
     border-color: transparent;
     border-radius: 0;
+    pointer-events: auto;
 
     @media (max-width: @BREAK-POINT) {
       height: 150px;
@@ -222,16 +223,6 @@
   &_auto-pay {
     margin: 50px 0 15px;
     cursor: default;
-  }
-
-  &_editor {
-    transform: scale(0.7);
-    transition: transform 0.3s;
-    will-change: transform;
-  }
-
-  &_editor-unzoomed {
-    transform: scale(1);
   }
 
   &__number {
