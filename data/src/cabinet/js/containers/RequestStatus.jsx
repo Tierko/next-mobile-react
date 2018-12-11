@@ -162,7 +162,7 @@ class RequestStatus extends Component {
           <Transitions classNames="slide">
             {
               !status &&
-              <div className="welcome__content request-status">
+              <div className="welcome__content request-status request-status_init">
                 <div className="request-status__title">Статус заявки</div>
                 {
                   codeSent &&

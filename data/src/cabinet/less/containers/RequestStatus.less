@@ -1,9 +1,21 @@
 .request-status {
   text-align: center;
   padding-top: 100px;
+  min-height: calc(100vh - 60px);
+  padding-bottom: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  &_delivery {
-    margin-top: 100px;
+  &_init {
+    display: block;
+    min-height: 0;
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    padding-bottom: 100px;
+    display: block;
   }
 
   &__title {
@@ -13,7 +25,7 @@
 
   &__status {
     height: 111px;
-    margin: auto;
+    margin: 0 auto;
 
     &_ok {
       background-image: url("/media/icons/ok.svg");

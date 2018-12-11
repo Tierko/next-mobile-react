@@ -16,7 +16,7 @@ const RequestStatusSimple = ({
   history,
   status,
 }) => (
-  <div className="welcome__content request-status">
+  <div className="welcome__content request-status request-status_simple">
     <div className={`request-status__status request-status__status_${status}`} />
     <div className="welcome__header welcome__header_request">{header}</div>
     <div className="request-status__message">{message}</div>
