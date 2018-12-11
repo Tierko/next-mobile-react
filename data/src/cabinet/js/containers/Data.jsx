@@ -145,13 +145,13 @@ class Calls extends Component {
                     16 ГБ / 2ГБ / 700 мин / 400 мин
                   </Button>
                   <Button className="button_data" onClick={() => setData('remain', 1)} disabled={getData('remain')[0].current === 8}>
-                    8 ГБ / 1ГБ / 538 мин
+                    8 ГБ / 2ГБ / 538 мин
                   </Button>
                   <Button className="button_data" onClick={() => setData('remain', 2)} disabled={getData('remain')[0].current === 4}>
-                    4 ГБ / 0,5ГБ / 243 мин
+                    4 ГБ / 2ГБ / 243 мин
                   </Button>
                   <Button className="button_data" onClick={() => setData('remain', 3)} disabled={getData('remain')[0].current === 2}>
-                    2 ГБ / 0,3ГБ / 7 мин
+                    2 ГБ / 2ГБ / 7 мин
                   </Button>
                   <Button className="button_data" onClick={() => setData('remain', 4)} disabled={getData('remain')[0].current === 0}>
                     0 ГБ / 0ГБ / 0 мин
