@@ -12,7 +12,7 @@ export function dataBuffer() {
   };
 
   return (countries, interCalls) => {
-    if (!interCallsData.items.length && countries.length && interCalls.items.length) {
+    if (!interCallsData.items.length && countries.length && interCalls.items && interCalls.items.length) {
       return {
         groups: Object.assign({}, interCalls.groups),
         items: interCalls.items.map((item) => {

@@ -102,7 +102,7 @@ module.exports = (env, { mode }) => {
       port,
       proxy: {
         '/api//*': {
-          target: 'http://next-promo.dev.design.ru',
+          target: 'http://next-promo-v2.dev.design.ru',
           secure: false,
           changeOrigin: true,
         },

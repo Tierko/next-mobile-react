@@ -56,7 +56,7 @@ class TariffsItem extends Component {
 }
 
 TariffsItem.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   isDetail: PropTypes.bool.isRequired,
   data: PropTypes.shape().isRequired,
   current: PropTypes.shape(),
@@ -69,6 +69,7 @@ TariffsItem.propTypes = {
 
 TariffsItem.defaultProps = {
   current: {},
+  onClick: null,
 };
 
 export default TariffsItem;
