@@ -130,7 +130,9 @@ const Card = ({
               maskChar={null}
               onChange={e => onChange('cvv', e.target.value, e)}
               value={cvv}
+              placeholder="000"
             />
+            <div className="card__cvv-indicator" />
             <div className="card__cvv-note">Последние три цифры на обороте карты</div>
           </div>
         </div>

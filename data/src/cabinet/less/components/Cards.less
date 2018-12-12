@@ -3,20 +3,23 @@
   margin: 0 -8px 23px;
   position: relative;
   overflow: hidden;
+  transition: height 0.3s linear;
+
+  &_new {
+    height: 229px;
+  }
 
   @media (max-width: @BREAK-POINT) {
     margin: 0 -20px;
-    mask-image: none;
+
+    &_new {
+      height: 308px;
+    }
   }
 
   &__wrapper {
     position: relative;
     padding: 0;
-    transition: padding 0.3s linear;
-
-    &_new {
-      padding: 35px 0;
-    }
   }
 
   &__row {
@@ -39,9 +42,10 @@
   }
 
   &__fix {
-    height: 212px;
+    height: 100%;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
   }
 
   &__arrow {
@@ -212,8 +216,12 @@
     pointer-events: auto;
 
     @media (max-width: @BREAK-POINT) {
-      height: 150px;
+      border-color: rgba(21, 21, 67, 0.5);
+      border-radius: 8px;
+      height: auto;
       width: 306px;
+      display: block;
+      padding: 18px 15px 23px;
     }
   }
 
@@ -302,7 +310,9 @@
     }
 
     @media (max-width: @BREAK-POINT) {
-      padding: 12px 10px;
+      //padding: 12px 10px;
+      padding: 0;
+      border: none;
     }
   }
 
@@ -350,16 +360,35 @@
 
   @media (max-width: @BREAK-POINT) {
     &__cvv {
-      max-width: 130px;
+      max-width: none;
       background-image: none;
-      padding: 12px 15px;
+      background-color: transparent;
+      padding: 0;
+      margin-left: 0;
     }
 
     &__cvv-input {
-      font-size: 16px;
-      line-height: 24px;
-      width: 60px;
-      margin: 10px 0;
+      line-height: @LINE-HEIGHT-BASE;
+      font-size: 21px;
+      border: none;
+      background-color: transparent;
+      width: 100%;
+      text-align: left;
+      padding-bottom: 6px;
+    }
+
+    &__cvv-indicator {
+      height: 1px;
+      background-color: #959bad66;
+      transition: background-color 0.3s;
+    }
+
+    &__cvv-input:focus + &__cvv-indicator {
+      background-color: @BLUE-MAIN;
+    }
+
+    &__cvv-note {
+      font-size: 12px;
     }
   }
 }

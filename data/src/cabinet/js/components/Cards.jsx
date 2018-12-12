@@ -41,6 +41,8 @@ class Cards extends Component {
     this.numberInput = numberInput;
     this.dateInput = dateInput;
     this.cvvInput = cvvInput;
+
+    window.addEventListener('resize', setOffset);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -55,25 +57,11 @@ class Cards extends Component {
     }
   }
 
-  manageFocus = (name, value, count, nextInput, prevInput) => {
-    const { state } = this;
+  componentWillUnmount() {
+    const { setOffset } = this;
 
-    if (nextInput && value.length === count) {
-      if (state[name].length === count - 1) {
-        nextInput.focus();
-      }
-
-      if (state[name].length === count && state[name][count - 1] !== value[count - 1]) {
-        nextInput.focus();
-      }
-    }
-
-    if (prevInput && value.length === 0) {
-      if (state[name].length === 1) {
-        prevInput.focus();
-      }
-    }
-  };
+    window.removeEventListener('resize', setOffset);
+  }
 
   onChange = (name, value) => {
     const { onPermitChange } = this.props;
@@ -193,6 +181,26 @@ class Cards extends Component {
     inner.style.paddingRight = `${offsetEnd}px`;
   };
 
+  manageFocus = (name, value, count, nextInput, prevInput) => {
+    const { state } = this;
+
+    if (nextInput && value.length === count) {
+      if (state[name].length === count - 1) {
+        nextInput.focus();
+      }
+
+      if (state[name].length === count && state[name][count - 1] !== value[count - 1]) {
+        nextInput.focus();
+      }
+    }
+
+    if (prevInput && value.length === 0) {
+      if (state[name].length === 1) {
+        prevInput.focus();
+      }
+    }
+  };
+
   addClasses = () => {
     const cards = document.querySelectorAll('.card__wrapper');
 
@@ -298,7 +306,7 @@ class Cards extends Component {
     const selected = this.state.selected || data.defaultCard;
 
     return (
-      <div className={cs('cards__wrapper', { cards__wrapper_new: selected === 'new' })}>
+      <div className="cards__wrapper">
         <div
           className={cs('cards__arrow cards__arrow_prev', {
             cards__arrow_hide: !prevShow,
@@ -313,7 +321,7 @@ class Cards extends Component {
           data-direction="next"
           onClick={rollCard}
         />
-        <div className={`cards ${className}`}>
+        <div className={cs(`cards ${className}`, { cards_new: selected === 'new' })}>
           <div className="cards__row" ref={(e) => { this.row = e; }}>
             <div className="cards__inner" ref={(e) => { this.inner = e; }}>
               <div className="cards__fix">
