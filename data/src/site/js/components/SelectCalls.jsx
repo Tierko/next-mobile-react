@@ -24,6 +24,9 @@ class SelectCalls extends Select {
           onClick={toggle}
           role="button"
         >
+          {
+            !value.name && <span className="small">Выберите страну</span>
+          }
           <span>{value.name ? value.name.ru : value.title}</span> <span>{cost}</span>
         </div>
         <div className={cs('select__list', { select__list_open: open })}>

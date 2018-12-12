@@ -9,6 +9,7 @@ export function dataBuffer() {
   const interCallsData = {
     groups: {},
     items: [],
+    rand: 0,
   };
 
   return (countries, interCalls) => {
@@ -39,6 +40,12 @@ class TariffTariff extends Component {
     country: {},
   };
 
+  componentDidMount() {
+    this.setState({
+      rand: Math.floor(Math.random() * (100)),
+    });
+  }
+
   onChange = (country) => {
     this.setState({ country });
   };
@@ -55,7 +62,9 @@ class TariffTariff extends Component {
     } = this.props;
     const { header, btn, note } = translate;
     const { onChange } = this;
-    const { country } = this.state;
+    const { country, rand } = this.state;
+    const data = mergeDate(countries, interCalls);
+    const countriesFiltered = data.items.filter(c => !!c.name);
 
     if (!header || !btn || !note) {
       return false;
@@ -91,8 +100,28 @@ class TariffTariff extends Component {
         }
         <div className="tariff-tariff__inter-calls">
           <div className="tariff-tariff__inter-calls-title">Звонки за границу:</div>
-          <Select onSelect={onChange} value={country}  data={mergeDate(countries, interCalls)} />
+          <Select onSelect={onChange} value={country}  data={data} />
         </div>
+        {
+          countriesFiltered && !!countriesFiltered.length &&
+          <div className="tariff-tariff__random">
+            {
+              countriesFiltered.slice(rand, rand + 3).map(c => {
+                const cost = data.groups && c.group ? `${data.groups[c.group].price} ₽/мин.` : ' ';
+
+                return (
+                  <div className="tariff-tariff__random-item">
+                    <img src={`/media/flags/${c.code}.svg`} alt="" />
+                    {c.name.ru} <span>{cost}</span>
+                  </div>
+                );
+              })
+            }
+            <div className="tariff-tariff__random-note">
+              и еще {countriesFiltered.length - 3} стран
+            </div>
+          </div>
+        }
       </div>
     );
   }
