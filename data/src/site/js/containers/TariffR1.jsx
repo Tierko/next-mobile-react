@@ -46,7 +46,6 @@ class Tariff extends Component {
     return (
       <DocumentMeta title={title ? title.tariff : ''}>
         <div className="tariff">
-          <LogoMobile />
           <MobileNav type="home" translate={nav} />
           <Header mode="site" info={info} translate={nav} />
           <div className="tariff__inner">
