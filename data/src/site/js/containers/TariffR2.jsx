@@ -22,11 +22,11 @@ class Tariff extends Component {
     }
   };
 
-  toTariff = (id) => {
+  toTariff = ({ id }) => {
     const { info } = this.props.data.translations.data;
     const url = info ? info.lk_url : '';
 
-    if (url) {
+    if (url && id) {
       location.href = `${url}/#/signup/after/tariff/${id}`;
     }
   };

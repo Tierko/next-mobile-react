@@ -4,7 +4,6 @@ import Select from '../components/SelectCalls';
 import Tariffs from '../../../common/js/components/Tariffs';
 
 import Button from '../../../common/js/components/Button';
-import InterCalls from '../../../common/js/components/InterCalls';
 
 export function dataBuffer() {
   const interCallsData = {
