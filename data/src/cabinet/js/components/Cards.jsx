@@ -7,6 +7,7 @@ import {
   checkCardNumber,
   checkCardDate,
   checkCVV,
+  luhnAlgorithm,
 } from '../utils';
 import { autoPayDisableAction } from '../actions/AutoPay';
 import { makeDefaultAction, removeCardAction } from '../actions/Cards';
@@ -20,6 +21,7 @@ class Cards extends Component {
     date: '',
     cvv: '',
     editCardId: '',
+    error: '',
     prevShow: false,
     nextShow: false,
   };
@@ -64,7 +66,7 @@ class Cards extends Component {
   }
 
   onChange = (name, value) => {
-    const { onPermitChange } = this.props;
+    const { onPermitChange, data } = this.props;
     const {
       isNewCardValid,
       state,
@@ -88,6 +90,22 @@ class Cards extends Component {
       }
     }
 
+    if (
+      data.items.length &&
+      nextState.number.length === 19 &&
+      data.items.find(d => d.token === nextState.number.replace(/\s/g, ''))
+    ) {
+      nextState.error = 'Карта с таких номером уже существует';
+    } else if (
+      data.items.length &&
+      nextState.number.length === 19 &&
+      !luhnAlgorithm(nextState.number)
+    ) {
+      nextState.error = 'Неверный номер карты';
+    } else {
+      nextState.error = '';
+    }
+
     if (name === 'number') {
       manageFocus(name, value, 19, dateInput);
     }
@@ -105,6 +123,7 @@ class Cards extends Component {
       holder,
       date,
       cvv,
+      error,
     } = nextState;
     const card = {
       token: number.replace(/\s/g, ''),
@@ -115,9 +134,12 @@ class Cards extends Component {
 
     this.setState({
       [name]: value,
+      error,
     });
 
-    onPermitChange(isNewCardValid(nextState), isNewCardValid(nextState) ? card : undefined);
+    const isCardValid = isNewCardValid(nextState) && !error;
+
+    onPermitChange(isCardValid, isCardValid ? card : undefined);
   };
 
   onCardSelect = ({ target }) => {
@@ -229,10 +251,11 @@ class Cards extends Component {
       number,
       date,
       cvv,
+      error,
     } = state;
 
     return checkCardNumber(number) &&
-      checkCardDate(date) && checkCVV(cvv);
+      checkCardDate(date) && checkCVV(cvv) && !error;
   };
 
   rollCard = ({ target }) => {
@@ -302,6 +325,7 @@ class Cards extends Component {
       holderError,
       prevShow,
       nextShow,
+      error,
     } = this.state;
     const selected = this.state.selected || data.defaultCard;
 
@@ -356,6 +380,7 @@ class Cards extends Component {
                   onSelect={onCardSelect}
                   selected={selected}
                   onChange={onChange}
+                  error={error}
                   values={{
                     number,
                     holder,

@@ -21,6 +21,7 @@ const Card = ({
   colors,
   removeCard,
   makeDefault,
+  error,
   values: {
     number,
     date,
@@ -150,6 +151,10 @@ const Card = ({
             <div className="card__cvv-note">Последние три цифры на обороте карты</div>
           </div>
         </div>
+        {
+          isSelected && error &&
+          <div className="card__error">{error}</div>
+        }
       </div>
     );
 
@@ -168,6 +173,7 @@ Card.propTypes = {
   selected: PropTypes.string.isRequired,
   values: PropTypes.shape(),
   colors: PropTypes.arrayOf(PropTypes.string),
+  error: PropTypes.string,
 };
 
 Card.defaultProps = {
@@ -175,6 +181,7 @@ Card.defaultProps = {
   values: {},
   isDefault: false,
   colors: null,
+  error: '',
 };
 
 export default Card;
