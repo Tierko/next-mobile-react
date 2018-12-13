@@ -13,7 +13,7 @@
     margin: 0 -20px;
 
     &_new {
-      height: 308px;
+      height: 338px;
     }
   }
 
@@ -131,6 +131,7 @@
 
   &__wrapper {
     transition: opacity 0.3s;
+    cursor: pointer;
 
     &_hide {
       opacity: 0;
@@ -139,6 +140,10 @@
     &_new {
       width: 450px;
       padding: 0 8px;
+    }
+
+    &_selected {
+      cursor: default;
     }
 
     @media (max-width: @BREAK-POINT) {
@@ -216,10 +221,10 @@
     pointer-events: auto;
 
     @media (max-width: @BREAK-POINT) {
-      border-color: rgba(21, 21, 67, 0.5);
+      border-color: rgba(21, 21, 67, 0.1);
       border-radius: 8px;
       height: auto;
-      width: 306px;
+      width: 304px;
       display: block;
       padding: 18px 15px 23px;
     }
@@ -310,7 +315,6 @@
     }
 
     @media (max-width: @BREAK-POINT) {
-      //padding: 12px 10px;
       padding: 0;
       border: none;
     }
@@ -365,6 +369,10 @@
       background-color: transparent;
       padding: 0;
       margin-left: 0;
+    }
+
+    &__cvv-title {
+      margin-bottom: 10px;
     }
 
     &__cvv-input {
