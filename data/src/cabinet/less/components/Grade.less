@@ -41,7 +41,7 @@
   &__line {
     cursor: pointer;
     margin: auto auto 0;
-    width: 3px;
+    width: 6px;
     background-color: @GRAY-LIGHT;
     transition: background-color 0.3s;
     display: flex;
@@ -53,7 +53,7 @@
   }
 
   &__subline {
-    width: 3px;
+    width: 100%;
 
     &_pay {
       background-color: #66d2ff;
@@ -73,9 +73,14 @@
     color: @GRAY;
     transition: color 0.3s;
     text-align: center;
+    background: linear-gradient(to right, @GRAY-LIGHT 50%, transparent 50%) 0 calc(50% + 0.5em) repeat-x;
+    background-size: 6px 1px;
+    margin: 0 auto;
+
 
     &_selected {
       color: @BLUE;
+      background-image: none;
     }
   }
 }
