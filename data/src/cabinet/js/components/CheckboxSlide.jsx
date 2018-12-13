@@ -11,12 +11,15 @@ const CheckboxSlide = ({
 }) => (
   <div
     className={cs(`checkbox-slide ${className}`, {
-      'checkbox-slide_checked': value
+      'checkbox-slide_checked': value,
+      'checkbox-slide_disabled': disabled && value,
     })}
   >
     <input
       className={cs('checkbox-slide__value', {
         'checkbox-slide__value_disabled': disabled,
+        'checkbox-slide__value_disabled-on': disabled && value,
+        'checkbox-slide__value_disabled-off': disabled && !value,
       })}
       type="checkbox"
       checked={value}

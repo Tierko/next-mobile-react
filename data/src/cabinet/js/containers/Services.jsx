@@ -23,26 +23,48 @@ class Services extends Component {
       checked: true,
       desc: 'Мы будем присылать СМС о том, кто вам звонил, пока вы были недоступны.',
       price: 'Бесплатно',
+      disabled: false,
     }, {
       id: 2,
       name: 'Антиопределитель номера',
       checked: false,
       desc: 'Ваш номер нельзя будет определить при звонке.',
       price: 'Бесплатно',
+      disabled: false,
     }],
     currentTariff: (localStorage.getItem('tariff') || 0) * 1 || 37,
   };
 
   toggleService = (id, value) => {
-    const { services } = this.state;
-    const index = services.slice().findIndex(s => s.id === id);
+    const { enableService } = this;
+    const services = this.state.services.slice();
+    const index = services.findIndex(s => s.id === id);
 
     if (index !== -1) {
       services[index].checked = value;
+      services[index].disabled = true;
 
       this.setState({
         services,
       });
+
+      enableService(id);
+    }
+  };
+
+  enableService = (id) => {
+    const services = this.state.services.slice();
+    const index = services.findIndex(s => s.id === id);
+
+    if (index !== -1) {
+
+      setTimeout(() => {
+        services[index].disabled = false;
+
+        this.setState({
+          services,
+        });
+      }, 1500);
     }
   };
 

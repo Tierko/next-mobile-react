@@ -20,7 +20,12 @@ const TariffServices = ({ services, onChange }) => (
             <div className="tariff-service__name">
               {s.name}
             </div>
-            <CheckboxSlide value={s.checked} name="tariff" onChange={(n, v) => onChange(s.id, v)} />
+            <CheckboxSlide
+              value={s.checked}
+              name="tariff"
+              onChange={(n, v) => onChange(s.id, v)}
+              disabled={s.disabled}
+            />
           </div>
           <div className="tariff-service__desc">{s.desc}</div>
           <div className="tariff-service__price">{s.price}</div>
