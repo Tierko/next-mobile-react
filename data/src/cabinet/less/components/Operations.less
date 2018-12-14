@@ -88,6 +88,12 @@
     min-height: 100%;
     border-top: 1px solid rgba(149, 155, 173, 0.25);
 
+    &_date-h {
+      .link-mixin(inherit, @GRAY-DARK, transparent);
+      background-position: 0% calc(50% + 1.43em);
+      display: inline-block;
+    }
+
     &_date-h,
     &_time-h,
     &_count-h,
@@ -128,16 +134,17 @@
 
       &:after {
         content: '';
-        display: inline-block;
+        display: none;
         width: 8px;
         height: 12px;
         margin-left: 5px;
+        background: url("/media/icons/arrow-sort.svg");
       }
     }
 
     &_sort-current {
       &:after {
-        background: url("/media/icons/arrow-sort.svg");
+        display: inline-block;
       }
     }
 
