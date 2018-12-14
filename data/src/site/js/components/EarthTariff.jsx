@@ -24,13 +24,29 @@ function dataBuffer() {
 const filteredData = dataBuffer();
 
 class EarthTariff extends Component {
-  state = {
-    country: {},
-  };
+  constructor(props) {
+    super(props);
+    const { countries } = props;
+    const rand = Math.floor(Math.random() * countries.length);
+    let country = {};
+
+    if (countries[rand]) {
+      country = {
+        name: countries[rand].properties.name,
+        code: countries[rand].properties.code,
+      };
+    }
+
+    this.state = {
+      country,
+      animate: true,
+    };
+  }
 
   onChange = (country) => {
     this.setState({
       country,
+      animate: false,
     });
   };
 
@@ -45,9 +61,9 @@ class EarthTariff extends Component {
       roaming,
     } = this.props;
     const { onChange } = this;
-    const { country } = this.state;
+    const { country, animate } = this.state;
     const autoCompleteCountries = filteredData(countries);
-    let currentRoaming = country && roaming.find(r => r.code === country.code);
+    let currentRoaming = country.code && roaming.find(r => r.code === country.code);
     currentRoaming = currentRoaming || {};
 
     if (home && (!header || !text || !countries.length)) {
@@ -116,7 +132,7 @@ class EarthTariff extends Component {
             </div>
           }
         </div>
-        <Earth style={type} size={size} country={country} features={countries} />
+        <Earth style={type} size={size} country={animate ? {} : country} features={countries} />
       </div>
     );
   }

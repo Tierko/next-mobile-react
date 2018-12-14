@@ -103,7 +103,7 @@ class TariffTariff extends Component {
           <Select onSelect={onChange} value={country}  data={data} />
         </div>
         {
-          countriesFiltered && !!countriesFiltered.length &&
+          countriesFiltered && !!countriesFiltered.length && country.code &&
           <div className="tariff-tariff__random">
             {
               countriesFiltered.slice(rand, rand + 3).map(c => {

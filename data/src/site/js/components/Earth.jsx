@@ -22,6 +22,8 @@ class Earth extends Component {
       return f;
     });
 
+    features = features.filter(f => f.geometry);
+
     if (!context || !cont) {
       return;
     }
@@ -123,7 +125,7 @@ class Earth extends Component {
     const { setCenter } = this;
     const { country } = this.props;
 
-    if (!prevProps.country.code && country.code) {
+    if (prevProps.country.code !== country.code) {
       setCenter();
     }
 

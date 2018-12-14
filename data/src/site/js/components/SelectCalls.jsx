@@ -25,7 +25,7 @@ class SelectCalls extends Select {
           role="button"
         >
           {
-            !value.name && <span className="small">Выберите страну</span>
+            !value.name && <span className="select__empty">Выберите страну</span>
           }
           <span>{value.name ? value.name.ru : value.title}</span> <span>{cost}</span>
         </div>
@@ -41,6 +41,9 @@ class SelectCalls extends Select {
                 key={i.code}
               >
                 {i.name ? i.name.ru : i.title}
+                {
+                  !i.name && !i.title && console.log(i)
+                }
               </div>
             ))
           }

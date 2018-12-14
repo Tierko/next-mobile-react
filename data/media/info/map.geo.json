@@ -47298,5 +47298,126 @@
         "ru": "Остров Мартиника"
       }
     }
+  },
+  {
+    "type": "Feature",
+    "geometry": null,
+    "properties": {
+      "code": "SAIPAN",
+      "flag": "SAIPAN",
+      "name": {
+        "ru": "Острова Сайпан (Марианские Острова)"
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": null,
+    "properties": {
+      "code": "WS",
+      "flag": "WS",
+      "name": {
+        "ru": "Самоа (США)"
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": null,
+    "properties": {
+      "code": "OS",
+      "flag": "OS",
+      "name": {
+        "ru": "Южная Осетия"
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": null,
+    "properties": {
+      "code": "AN",
+      "flag": "AN",
+      "name": {
+        "ru": "Нидерландские Антильские острова"
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": null,
+    "properties": {
+      "code": "AB",
+      "flag": "AB",
+      "name": {
+        "ru": "Абхазия"
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": null,
+    "properties": {
+      "code": "MH",
+      "flag": "MH",
+      "name": {
+        "ru": "Маршалловы Острова"
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": null,
+    "properties": {
+      "code": "SM",
+      "flag": "SM",
+      "name": {
+        "ru": "Сан Марино"
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": null,
+    "properties": {
+      "code": "PF",
+      "flag": "PF",
+      "name": {
+        "ru": "Французская Полинезия"
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": null,
+    "properties": {
+      "code": "OTHER",
+      "flag": "OTHER",
+      "name": {
+        "ru": "Остальные страны"
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": null,
+    "properties": {
+      "code": "GLNE",
+      "flag": "GLNE",
+      "name": {
+        "ru": "Международные Сети 883 - Global Networks MTT, Система Глобальной Подвижной Спутниковой Связи, Международные Сети, Инмарсат"
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": null,
+    "properties": {
+      "code": "VI",
+      "flag": "VI",
+      "name": {
+        "ru": "Виргинские острова Соединенных Штатов"
+      }
+    }
   }
 ]

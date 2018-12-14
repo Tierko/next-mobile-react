@@ -60,7 +60,9 @@
     min-height: 38px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding-right: 15px;
+    white-space: normal;
   }
 
   &_roaming {
@@ -99,6 +101,10 @@
       width: 9px;
       background: 50% 50% url("/media/icons/down.svg") no-repeat;
     }
+  }
+
+  &__empty {
+    color: @GRAY;
   }
 
   &__list {
