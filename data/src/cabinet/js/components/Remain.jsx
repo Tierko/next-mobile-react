@@ -13,7 +13,8 @@ const Remain = ({
 }) => (
   <div className="block block_round">
     <div className="block__header">
-      Остаток по тарифу <Link className="link" to={Pages.SERVICES}>«{getData('tariff').title}»</Link> до 16 ноября
+      <div>Остаток по тарифу до 25 декабря</div>
+      <Link className="remain__header-link" to={Pages.SERVICES}>«{getData('tariff').title}»</Link>
     </div>
     {
       data.map(i => {
