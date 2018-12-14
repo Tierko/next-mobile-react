@@ -21,12 +21,38 @@
   &__control {
     display: flex;
     justify-content: space-between;
-    align-items: center;
   }
 
   &__name {
     .h2;
     margin-bottom: 10px;
+  }
+
+  &__name-inner:after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+  }
+
+  &__spinner {
+    font-size: @FONT-SIZE-BASE;
+    line-height: @LINE-HEIGHT-BASE;
+    color: @GRAY;
+    display: inline-block;
+  }
+
+  &__spinner:before {
+    content: '';
+    display: inline-block;
+    background: url("/media/icons/spinner.svg") no-repeat 50% 50% / contain;
+    width: 21px;
+    height: 21px;
+    transform-origin: 50% 50%;
+    animation-duration: 0.5s;
+    animation-name: spinner;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    margin-right: 5px;
   }
 
   &__desc {
@@ -35,5 +61,15 @@
 
   &__price {
     color: @ORANGE;
+  }
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
