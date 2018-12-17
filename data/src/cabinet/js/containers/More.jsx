@@ -85,7 +85,7 @@ const More = ({ countries, interCalls, match: { params: { type } } }) => {
                       <div className="more__title">
                         Звонки за границу
                       </div>
-                      <div className="more__value">
+                      <div className="more__select">
                         <InterCalls more className="inter-calls_more" data={data} />
                       </div>
                     </div>
