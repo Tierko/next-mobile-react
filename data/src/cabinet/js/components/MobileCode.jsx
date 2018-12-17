@@ -102,7 +102,7 @@ class MobileCode extends Component {
         {
           status === 'sent' &&
           <Transitions>
-            <div className="mobile-code__timer">Код действителен еще {seconds}&nbsp;сек.</div>
+            <div className="mobile-code__timer">Новый код можно отправить через {seconds}&nbsp;сек.</div>
           </Transitions>
         }
         {
