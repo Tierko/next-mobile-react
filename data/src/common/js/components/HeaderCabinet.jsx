@@ -7,7 +7,7 @@ const HeaderCabinet = () => (
     <div className="header__center">
       <div className="header__item">
         <a className="header__link" href={`${SERVICE_URL}/#${Pages.TARIFF}`}>
-          Тарифы и услуги
+          Тарифы и&nbsp;услуги
         </a>
       </div>
       <div className="header__item">
