@@ -92,7 +92,7 @@ class SignUp extends Component {
               <div>Введите номер для связи</div>
               <Input className="input_phone" name="phone" value={phone} onChange={onChange} />
               <Button primary className="button_request" onClick={onSubmitNoPromo} disabled={!checkPhone(phone)}>
-                Продолжить…
+                Продолжить
               </Button>
             </form>
           </Transitions>
