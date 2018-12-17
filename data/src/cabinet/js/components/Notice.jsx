@@ -51,6 +51,10 @@ class Notice extends Component {
     const { notice } = this;
     const { hideNotice } = this.props;
 
+    if (!target.className) {
+      return;
+    }
+
     if (target.className.indexOf('aside__button_notice') !== -1) {
       return;
     }

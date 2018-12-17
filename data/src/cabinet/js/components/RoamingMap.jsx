@@ -237,7 +237,6 @@ class RoamingMap extends Component {
               maxZoom={maxZoom}
               ref={(e) => { this.map = e; }}
               onzoom={onZoomLevelsChange}
-              zoomDelta={0.2}
             >
               <GeoJSON
                 data={features}
