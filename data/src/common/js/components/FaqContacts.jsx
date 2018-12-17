@@ -12,7 +12,9 @@ const FaqContacts = () => (
       <div className="faq-contacts__item">
         <img className="faq-contacts__img faq-contacts__img_phone" src="/media/images/phone.svg" alt="" />
         <div className="faq-contacts__title">Позвоните</div>
-        <a href="mailto:880060066776677" className="link">8 800 600-66-77 6677</a>
+        <a href="tel:88006006677" className="link">8 800 600-66-77</a>
+        <br />
+        <a href="tel:6677" className="link">6677</a>
       </div>
       <div className="faq-contacts__item">
         <img className="faq-contacts__img faq-contacts__img_messanger" src="/media/images/messanger.svg" alt="" />

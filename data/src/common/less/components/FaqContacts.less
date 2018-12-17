@@ -4,6 +4,7 @@
   &__items {
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
   }
 
   &__item {
@@ -37,5 +38,18 @@
 
   &__title {
     color: #798199;
+  }
+
+  @media (max-width: 1000px) {
+    &__items {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    &__item {
+      flex-basis: 40%;
+      margin-bottom: 20px;
+      min-width: 200px;
+    }
   }
 }
