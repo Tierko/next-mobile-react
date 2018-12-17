@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import cs from 'classnames';
 import Button from '../../../common/js/components/Button';
 import { URL } from '../constants';
 
@@ -57,8 +58,21 @@ class OverviewInvite extends Component {
 
     return (
       <div className={`copy-code ${className}`}>
-        <textarea className="copy-code__code" value={code} ref={(e) => { this.code = e; }} onChange={() => {}} />
-        <Button className="button_copy-code" onClick={onCopy} primary>
+        <textarea
+          value={code}
+          ref={(e) => { this.code = e; }}
+          onChange={() => {}}
+          className={cs('copy-code__code', {
+            'copy-code__code_link': mode === 'link',
+          })}
+        />
+        <Button
+          onClick={onCopy}
+          primary
+          className={cs('button_copy-code', {
+            'button_copy-code-link': mode === 'link'
+          })}
+        >
           <span>{ copied ? 'Скопировано' : 'Скопировать' }</span>
         </Button>
       </div>

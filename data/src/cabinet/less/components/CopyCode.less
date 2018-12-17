@@ -1,9 +1,10 @@
 .copy-code {
-  max-width: 400px;
+  max-width: 340px;
   width: 100%;
 
   &_invites {
     display: flex;
+    flex-wrap: wrap;
     margin: 0 20px 20px 0;
 
     &:before {
@@ -24,8 +25,14 @@
     padding: 11px 28px 13px;
     font-weight: bold;
     text-align: center;
-    max-width: 150px;
+    max-width: 160px;
     order: 1;
+  }
+
+  &_invites &__code_link {
+    max-width: none;
+    width: 100%;
+    border-bottom: 2px solid #443f7a;
   }
 
   &_invites .button {
