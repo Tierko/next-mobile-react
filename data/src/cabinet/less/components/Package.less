@@ -43,6 +43,10 @@
     }
   }
 
+  &__link {
+    .link-mixin(@ORANGE, rgba(255, 85, 0, 0.1), rgba(255, 85, 0, 0.1), inherit);
+  }
+
   &__cell {
     padding: 10px;
     flex-shrink: 1;
@@ -69,8 +73,32 @@
       text-align: right;
       padding-right: 24px;
     }
+  }
 
-    @media screen and (max-width: 500px) {
+  @media (max-width: @BREAK-POINT) {
+    &__table {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    &__row:hover {
+      background-color: transparent;
+    }
+
+    &__cell {
+      &_count {
+        padding-left: 0;
+      }
+
+      &_action {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    &__cell {
       &_count {
         flex-basis: 40%;
       }
@@ -88,9 +116,5 @@
         width: 100%;
       }
     }
-  }
-
-  &__link {
-    .link-mixin(@ORANGE, rgba(255, 85, 0, 0.1), rgba(255, 85, 0, 0.1), inherit);
   }
 }
