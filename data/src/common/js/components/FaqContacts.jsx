@@ -2,7 +2,7 @@ import React from 'react';
 
 const FaqContacts = () => (
   <div className="faq-contacts">
-    <div className="h1">Не нашли, ответ?</div>
+    <div className="h1">Не нашли ответ?</div>
     <div className="faq-contacts__items">
       <div className="faq-contacts__item">
         <img className="faq-contacts__img faq-contacts__img_mail" src="/media/images/mail.svg" alt="" />
