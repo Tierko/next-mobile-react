@@ -120,6 +120,7 @@ class InterCalls extends Component {
                     <img src={`/media/flags/${item.code}.svg`} alt="" />
                   </div>
                 }
+                &nbsp;
                 {item.name ? item.name.ru : item.title}
               </div>
               {
