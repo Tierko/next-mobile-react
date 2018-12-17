@@ -73,7 +73,9 @@ class OverviewInvite extends Component {
             'button_copy-code-link': mode === 'link'
           })}
         >
-          <span>{ copied ? 'Скопировано' : 'Скопировать' }</span>
+          {
+            copied ? 'Скопировано': <span>Скопировать</span>
+          }
         </Button>
       </div>
     );
