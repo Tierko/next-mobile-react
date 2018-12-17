@@ -13,7 +13,7 @@ const NotFound = () => {
 
   return (
     <DocumentMeta {...meta}>
-      <MobileNav key="nav" type="dashboard" />
+      <MobileNav key="nav" type="dashboard" dark />
       <div key="dashboard" className="dashboard">
         <Aside hideNav />
         <Transitions>
