@@ -1,5 +1,6 @@
 .header {
   display: flex;
+  justify-content: space-between;
   position: relative;
   height: 80px;
   background-color: @BLUE-MAIN;
@@ -25,6 +26,7 @@
     width: 308px;
     height: 80px;
     background: url("/media/images/logo-header.svg") no-repeat 30px 50%;
+    background-size: calc(100% - 30px) auto;
     position: relative;
   }
 
@@ -38,9 +40,10 @@
   }
 
   &__center {
-    flex: 1 1 50%;
+    flex: 1 1 35%;
     display: flex;
     justify-content: center;
+    align-items: center;
     align-self: center;
   }
 
@@ -52,10 +55,13 @@
   }
 
   &__item {
+    padding: 0 15px;
+  }
+
+  &__link {
     .link-nav;
     line-height: @FONT-SIZE-BASE;
     font-size: @FONT-SIZE-SMALL;
-    margin: 0 15px;
   }
 
   &__go {
@@ -75,11 +81,28 @@
     display: none;
   }
 
+  @media (max-width: 1050px) {
+    &__item {
+      padding: 0 8px;
+    }
+  }
+
   @media (max-width: 1060px) {
-    &__left,
-    &__center,
+    &__left {
+      flex: 0 0 auto;
+    }
+
+    &__center {
+      flex: 0 1 auto;
+    }
+
     &__right {
-      flex: auto;
+      flex: 0 0 auto;
+    }
+
+    &__logo {
+      max-width: 240px;
+      background-position: 20px 50%;
     }
   }
 }

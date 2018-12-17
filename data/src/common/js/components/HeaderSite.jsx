@@ -19,20 +19,28 @@ const HeaderSite = ({
   return (
     <Fragment>
       <div className="header__center">
-        <NavLink className="header__item" to={Pages.TARIFF}>
-          {tariff}
-        </NavLink>
-        <a className="header__item" href={`${url}/#${Pages.REQUEST_STATUS}`}>
-          {requestStatus}
-        </a>
-        <a className="header__item" href={`${url}/#${Pages.SUPPORT}`}>
-          {support}
-        </a>
+        <div className="header__item">
+          <NavLink className="header__link" to={Pages.TARIFF}>
+            {tariff}
+          </NavLink>
+        </div>
+        <div className="header__item">
+          <a className="header__link" href={`${url}/#${Pages.REQUEST_STATUS}`}>
+            {requestStatus}
+          </a>
+        </div>
+        <div className="header__item">
+          <a className="header__link" href={`${url}/#${Pages.SUPPORT}`}>
+            {support}
+          </a>
+        </div>
       </div>
       <div className="header__right">
-        <a className="header__item" href={`${url}/#${Pages.SIGN_IN}`}>
-          {signIn}
-        </a>
+        <div className="header__item">
+          <a className="header__link" href={`${url}/#${Pages.SIGN_IN}`}>
+            {signIn}
+          </a>
+        </div>
         <a className="header__go" href={`${url}/#${Pages.SIGN_UP}${release === 2 ? '/after' : ''}`}>
           {signUp}
         </a>
