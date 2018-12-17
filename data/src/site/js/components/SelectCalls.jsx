@@ -31,21 +31,30 @@ class SelectCalls extends Select {
         </div>
         <div className={cs('select__list', { select__list_open: open })}>
           {
-            items.map(i => (
-              <div
-                className={cs('select__item', {
-                  select__item_active: i.code === value.code,
-                })}
-                onClick={() => selectItem(i)}
-                role="button"
-                key={i.code}
-              >
-                {i.name ? i.name.ru : i.title}
-                {
-                  !i.name && !i.title && console.log(i)
+            items
+              .sort((a, b) => {
+                if (a.name.ru > b.name.ru) {
+                  return 1;
                 }
-              </div>
-            ))
+
+                if (a.name.ru < b.name.ru) {
+                  return -1;
+                }
+
+                return 0;
+              })
+              .map(i => (
+                <div
+                  className={cs('select__item', {
+                    select__item_active: i.code === value.code,
+                  })}
+                  onClick={() => selectItem(i)}
+                  role="button"
+                  key={i.code}
+                >
+                  {i.name ? i.name.ru : i.title}
+                </div>
+              ))
           }
         </div>
       </div>
