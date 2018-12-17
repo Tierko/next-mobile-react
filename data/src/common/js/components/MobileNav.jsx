@@ -40,6 +40,8 @@ class MobileNav extends Component {
     if (isOpen) {
       body.style.position = 'fixed';
       body.style.top = `${-scrolled}px`;
+      body.style.right = 0;
+      body.style.left = 0;
       html.style.overflow = 'hidden';
       html.style.position = 'relative';
       html.style.height = '100%';

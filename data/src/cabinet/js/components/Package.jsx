@@ -55,7 +55,7 @@ const Package = ({
                   className="package__link"
                   to={{ pathname: Pages.CONFIRM, state: { sum: i.price, pack: `${i.count} ${data.unit} ${data.title_}` } }}
                 >
-                  Купить
+                  Купить...
                 </Link>
               </div>
             </div>
