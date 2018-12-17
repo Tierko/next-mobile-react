@@ -12,11 +12,7 @@ const localTariffs = [{
   calls: 700,
   sms: 'Безлимит',
   transition: 0,
-  over: {
-    internet: 3,
-    sms: 3,
-    calls: 3,
-  },
+  over: [3, 3, 3],
 }, {
   id: 38,
   current: false,
@@ -27,11 +23,7 @@ const localTariffs = [{
   nextCalls: 700,
   sms: 'Безлимит',
   transition: 0,
-  over: {
-    internet: 2,
-    sms: 2,
-    calls: 2,
-  },
+  over: [5, 5, 5],
 }, {
   id: 39,
   current: false,
@@ -42,11 +34,7 @@ const localTariffs = [{
   nextCalls: 700,
   sms: 'Безлимит',
   transition: 0,
-  over: {
-    internet: 1,
-    sms: 1,
-    calls: 1,
-  },
+  over: [7, 7, 7],
 }];
 
 

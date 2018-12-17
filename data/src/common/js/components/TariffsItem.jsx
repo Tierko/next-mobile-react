@@ -39,9 +39,9 @@ class TariffsItem extends Component {
             data.over &&
             <div className={cs('tariffs__over', { tariffs__over_show: isDetail })}>
               <div className="tariffs__over-title">Сверх пакета</div>
-              <div className="tariffs__over-row">{data.over.internet} ₽ / МБ</div>
-              <div className="tariffs__over-row">{data.over.sms} ₽ / СМС</div>
-              <div className="tariffs__over-row">{data.over.calls} ₽ / мин</div>
+              <div className="tariffs__over-row">{data.over[0]} ₽ / МБ</div>
+              <div className="tariffs__over-row">{data.over[1]} ₽ / СМС</div>
+              <div className="tariffs__over-row">{data.over[2]} ₽ / мин</div>
             </div>
           }
           <div className="tariffs__pay">{data.payment} ₽ / месяц</div>
