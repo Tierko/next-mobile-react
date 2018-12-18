@@ -4,6 +4,10 @@ import cs from 'classnames';
 
 class Earth extends Component {
   globe = () => {
+    if (this.running) {
+      return;
+    }
+    console.log('global')
     const { earth, cont, d3 } = this;
     const { style } = this.props;
     const context = earth && earth.getContext('2d');
@@ -11,6 +15,8 @@ class Earth extends Component {
     const height = cont && cont.clientHeight;
     const size = cont && d3.min([width, height]);
     let { features } = this.props;
+
+    this.running = true;
 
     features = features.map((f) => {
       const excludes = ['MARTINIKA', 'REYUNYON', 'BQ-BO', 'GP', 'MAYOTTE'];
@@ -66,7 +72,10 @@ class Earth extends Component {
       context.fillStyle = style === 'dark' ? '#06145f' : '#eaeaf6';
 
       drawFeatures(features);
-      window.requestAnimationFrame(update);
+
+      setTimeout(() => {
+        window.requestAnimationFrame(update);
+      }, 25);
     };
 
     window.requestAnimationFrame(update);
@@ -78,7 +87,7 @@ class Earth extends Component {
     const { d3 } = this;
     const feature = features.find(l => l.properties.code === countryCode);
 
-    if (feature) {
+    if (feature && feature.geometry) {
       const center = d3.geoCentroid(feature);
       const firstCoords = feature.geometry.coordinates[0][0];
 
@@ -149,7 +158,7 @@ class Earth extends Component {
     return (
       <div className={`earth earth_${style} earth_${size}`} ref={(e) => { this.cont = e; }} >
         <canvas className="earth__canvas" id="earth" ref={(e) => { this.earth = e; }} />
-        <div className={cs('earth__marker', { earth__marker_show: !!country.code })} />
+        <div className={cs('earth__marker', { earth__marker_show: !!country.code && country.code !== 'GLNE' })} />
       </div>
     );
   }
