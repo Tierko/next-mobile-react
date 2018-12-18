@@ -36,7 +36,10 @@ class AddPackage extends Component {
           <Aside />
           <Transitions>
             <div className="dashboard__content dashboard__content_white">
-              <Breadcrumbs items={[{ title: 'Обзор', link: Pages.OVERVIEW }]} />
+              <Breadcrumbs
+                items={[{ title: 'Обзор', link: Pages.OVERVIEW }]}
+                current={TITLES.ADD_PACKAGE}
+              />
               <div className="dashboard__header">Дополнительный пакет</div>
               {
                 data.map((d, i) => <Package key={d.id} data={d} remain={remain[i]} />)

@@ -127,7 +127,10 @@ class AutoPay extends Component {
           <Aside />
           <Transitions>
             <div className="dashboard__content dashboard__content_white">
-              <Breadcrumbs items={[{ title: 'Пополнение', link: Pages.PAY }]} />
+              <Breadcrumbs
+                items={[{ title: 'Пополнение', link: Pages.PAY }]}
+                current={TITLES.AUTO_PAY}
+              />
               <div className="dashboard__header dashboard__header_auto-pay">
                 {
                   alreadyEnabled ? 'Ваш автоплатеж' : 'Подключение автоплатежа'

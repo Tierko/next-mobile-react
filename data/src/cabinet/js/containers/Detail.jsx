@@ -91,7 +91,10 @@ class Detail extends Component {
           <Aside />
           <Transitions>
             <div className="dashboard__content dashboard__content_white">
-              <Breadcrumbs items={[{ title: 'История', link: Pages.HISTORY }]} />
+              <Breadcrumbs
+                items={[{ title: 'История', link: Pages.HISTORY }]}
+                current={TITLES.DETAIL}
+              />
               <div className="detail">
                 <div className="dashboard__header">Детализация</div>
                 <div className="detail__period-title">За&nbsp;период</div>

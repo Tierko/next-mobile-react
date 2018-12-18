@@ -15,6 +15,7 @@ const RoamingCountries = ({ items, zone }) => {
             { title: 'Роуминг', link: Pages.ROAMING },
             { title: zone.name, link: `${Pages.ROAMING}/${zone.id}` },
           ]}
+          current={`Страны ${zone.title_.toLowerCase()}`}
         />
         Страны <span>{zone.title_.toLowerCase()}</span>
       </div>
@@ -34,7 +35,7 @@ const RoamingCountries = ({ items, zone }) => {
       </div>
     </div>
   );
-}
+};
 
 RoamingCountries.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape()).isRequired,

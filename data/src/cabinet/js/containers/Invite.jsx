@@ -58,7 +58,10 @@ class Invite extends Component {
           <Aside />
           <Transitions>
             <div className="dashboard__content dashboard__content_white invite">
-              <Breadcrumbs items={[{ title: 'Обзор', link: Pages.OVERVIEW }]} />
+              <Breadcrumbs
+                items={[{ title: 'Обзор', link: Pages.OVERVIEW }]}
+                current={TITLES.INVITES}
+              />
               <div className="dashboard__header">
                 Подарите близким возможность присоединиться к&nbsp;закрытому клубу Next Mobile
               </div>

@@ -29,9 +29,9 @@ class Confirm extends Component {
     const state = location.state || {};
     const { pack, sum } = state;
     const { onPay, redirect } = this;
-    const title = `Оплатить ${pack}?`;
+    const title = `Оплатить ${pack}`;
     const meta = {
-      title,
+      title: `${title}?`,
     };
 
     if (!pack || !sum) {
@@ -52,9 +52,10 @@ class Confirm extends Component {
                   { title: 'Обзор', link: Pages.OVERVIEW },
                   { title: 'Дополнительный пакет', link: Pages.ADD_PACKAGE },
                 ]}
+                current={title}
               />
               <div className="confirm">
-                <div className="dashboard__header dashboard__header_confirm">{title}</div>
+                <div className="dashboard__header dashboard__header_confirm">{title}?</div>
                 <div className="confirm__sum">{formatCost(sum || 0)}</div>
                 <Button className="button_confirm" onClick={onPay} >Оплатить</Button>
                 <div className="note note_show note_confirm">
