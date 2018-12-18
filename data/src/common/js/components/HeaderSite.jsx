@@ -14,7 +14,7 @@ const HeaderSite = ({
   const signIn = translate.signIn || 'Вход';
   const signUp = translate.signUp || 'Перейти на Next';
 
-  tariff = tariff.replace('&nbsp;', ' ');
+  tariff = tariff.replace('&nbsp;', '\u00A0');
 
   return (
     <Fragment>
