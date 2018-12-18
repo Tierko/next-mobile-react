@@ -94,6 +94,9 @@ class Earth extends Component {
       this.fastAnimation = true;
 
       this.center = [-center[0] || -firstCoords[0], -center[1] || -firstCoords[1]];
+    } else {
+      this.defaultAnimation = true;
+      this.fastAnimation = false;
     }
   };
 
@@ -141,7 +144,6 @@ class Earth extends Component {
       this.defaultAnimation = true;
       this.fastAnimation = false;
     }
-
   }
 
   componentWillUnmount() {
