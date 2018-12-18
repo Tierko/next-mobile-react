@@ -113,7 +113,7 @@ class TariffTariff extends Component {
                 const cost = data.groups && c.group ? `${data.groups[c.group].price} ₽/мин.` : ' ';
 
                 return (
-                  <div className="tariff-tariff__random-item">
+                  <div className="tariff-tariff__random-item" key={c.code}>
                     <img src={`/media/flags/${c.code}.svg`} alt="" />
                     {c.name.ru} <span>{cost}</span>
                   </div>

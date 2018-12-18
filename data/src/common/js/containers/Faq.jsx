@@ -77,13 +77,13 @@ class Faq extends Component {
                   {
                     filteredData.map(section => (
                       !!section.items.length &&
-                      <Element name={`q${section.id}`}>
+                      <Element key={section.id} name={`q${section.id}`}>
                         <div className="faq__section">
                           <div className="faq__subheader">{section.title}</div>
                           <div className="faq__questions">
                             {
                               section.items.map(i => (
-                                <FaqItem title={i.title} text={i.text} search={search} />
+                                <FaqItem key={i.id} title={i.title} text={i.text} search={search} />
                               ))
                             }
                           </div>
@@ -95,7 +95,9 @@ class Faq extends Component {
                 <div className="faq__aside">
                   {
                     data.map(i => (
-                      <Link className="faq__aside-item" smooth spy to={`q${i.id}`}>{i.title}</Link>
+                      <Link offset={-50} key={i.id} className="faq__aside-item" smooth spy to={`q${i.id}`}>
+                        {i.title}
+                      </Link>
                     ))
                   }
                 </div>
