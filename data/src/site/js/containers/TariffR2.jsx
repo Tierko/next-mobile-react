@@ -7,7 +7,6 @@ import Header from '../../../common/js/components/Header';
 import TariffTariff from '../components/TariffTariff';
 import TariffRoaming from '../components/TariffRoaming';
 import TariffServices from '../components/TariffServices';
-import LogoMobile from '../components/LogoMobile';
 
 class Tariff extends Component {
   componentDidMount() {
@@ -62,6 +61,7 @@ class Tariff extends Component {
               translate={tariffTariff}
               countries={countries.data}
               interCalls={interCalls.data}
+              r={2}
             />
             <TariffRoaming
               size="small"

@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import cs from 'classnames';
 import Select from '../components/SelectCalls';
 import Tariffs from '../../../common/js/components/Tariffs';
 
@@ -75,15 +76,17 @@ class TariffTariff extends Component {
         <div
           className="tariff-tariff__header"
           dangerouslySetInnerHTML={{ __html: header }}
-        />
+        />{console.log(r)}
         <Tariffs
           data={tariffs}
           mode="detail"
           showTabs={false}
-          className="tariffs_tariffs"
           onChange={toTariff}
           allFocus
           unSelectable={r === 1}
+          className={cs('tariffs_tariffs', {
+            'tariffs_tariffs-r2': r === 2,
+          })}
         />
         {
           r === 1 &&

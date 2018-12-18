@@ -7,7 +7,6 @@ import Header from '../../../common/js/components/Header';
 import TariffTariff from '../components/TariffTariff';
 import TariffRoaming from '../components/TariffRoaming';
 import TariffServices from '../components/TariffServices';
-import LogoMobile from '../components/LogoMobile';
 
 
 
