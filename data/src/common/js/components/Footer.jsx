@@ -46,10 +46,10 @@ const Footer = ({ als, light, data }) => {
         <div className="footer__chats">
           <div>Напишите нам</div>
           <div>
-            <a className="footer__chat" href="https://wa.me/00000000000">
+            <a className="footer__chat" href="tg://resolve?domain=<USERNAME>">
               <img src="/media/icons/tg.svg" alt="" />
             </a>
-            <a className="footer__chat" href="tg://resolve?domain=<USERNAME>">
+            <a className="footer__chat" href="https://wa.me/00000000000">
               <img src="/media/icons/wa.svg" alt="" />
             </a>
           </div>
