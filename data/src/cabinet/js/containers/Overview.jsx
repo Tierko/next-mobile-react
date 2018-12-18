@@ -114,7 +114,7 @@ class Overview extends Component {
               <Balance
                 balance={getData('balance')}
                 sum={sum}
-                message={`Следующее списание: ${formatCost(getData('tariff').payment)} 16 ноября`}
+                message={`Следующее списание: ${formatCost(getData('tariff').payment)} 25 декабря`}
                 onPay={onPay}
                 onChange={sumChange}
               />
