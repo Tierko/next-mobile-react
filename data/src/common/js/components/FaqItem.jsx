@@ -8,10 +8,21 @@ class FaqItem extends Component {
     height: 0,
   };
 
-  toggle = ({ currentTarget }) => {
+  componentDidMount() {
+    const { onResize } = this;
+
+    window.addEventListener('resize', onResize);
+  }
+
+  componentWillUnmount() {
+    const { onResize } = this;
+
+    window.removeEventListener('resize', onResize);
+  }
+
+  toggle = () => {
     const { open } = this.state;
-    const text = currentTarget.querySelector('.faq__question-text');
-    const textInner = currentTarget.querySelector('.faq__question-text-inner');
+    const { text, textInner } = this;
     let height = 0;
 
     if (text && textInner && !open) {
@@ -38,6 +49,17 @@ class FaqItem extends Component {
     return title.replace(search, `<b>${search}</b>`);
   };
 
+  onResize = () => {
+    const { textInner } = this;
+    const { open } = this.state;
+
+    if (open && textInner) {
+      this.setState({
+        height: textInner.clientHeight,
+      });
+    }
+  };
+
   render() {
     const { title, text, search } = this.props;
     const { open, height } = this.state;
@@ -51,10 +73,15 @@ class FaqItem extends Component {
       >
         <div className="faq__question-title" dangerouslySetInnerHTML={{ __html: matchedTitle }} />
         <div
-          className={cs('faq__question-text', { 'faq__question-text_expand': open })}
           style={{ maxHeight: `${height}px` }}
+          ref={(e) => { this.text = e; }}
+          className={cs('faq__question-text', { 'faq__question-text_expand': open })}
         >
-          <div className="faq__question-text-inner" dangerouslySetInnerHTML={{ __html: text }} />
+          <div
+            className="faq__question-text-inner"
+            ref={(e) => { this.textInner = e; }}
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
         </div>
       </div>
     );

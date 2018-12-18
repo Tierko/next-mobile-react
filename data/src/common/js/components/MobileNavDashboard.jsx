@@ -26,7 +26,7 @@ const MobileNavDashboard = () => ([
   <NavLink key="settings" className="mobile-nav__link mobile-nav__link_settings" to={Pages.SETTINGS}>
     <InlineSvg src={require('../../../../media/nav/settings.svg')} raw /> Настройки
   </NavLink>,
-  <NavLink key="settings" className="mobile-nav__link mobile-nav__link_faq" to={Pages.FAQ}>
+  <NavLink key="faq" className="mobile-nav__link mobile-nav__link_faq" to={Pages.FAQ}>
     <InlineSvg src={require('../../../../media/nav/faq.svg')} raw /> FAQ
   </NavLink>,
   <NavLink key="exit" className="mobile-nav__link mobile-nav__link_exit" to={Pages.Exit} exact>
