@@ -62,7 +62,7 @@ class EarthTariff extends Component {
     } = this.props;
     const { onChange } = this;
     const { country, animate } = this.state;
-    const autoCompleteCountries = filteredData(countries);
+    const autoCompleteCountries = filteredData(countries).filter(c => roaming.find(r => r.code === c.code));
     let currentRoaming = country.code && roaming.find(r => r.code === country.code);
     currentRoaming = currentRoaming || {};
 

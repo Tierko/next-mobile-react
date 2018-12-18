@@ -39,7 +39,6 @@ class Calendar extends Component {
     const { fromTomorrow } = props;
     const offset = Date.now() + (24 * 60 * 60 * 1000);
     const today = props.date || (fromTomorrow ? new Date(offset) : new Date());
-    console.log(today)
 
     super(props);
     this.state = {

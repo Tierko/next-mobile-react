@@ -76,7 +76,7 @@ class TariffTariff extends Component {
         <div
           className="tariff-tariff__header"
           dangerouslySetInnerHTML={{ __html: header }}
-        />{console.log(r)}
+        />
         <Tariffs
           data={tariffs}
           mode="detail"

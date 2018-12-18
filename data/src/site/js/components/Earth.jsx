@@ -7,7 +7,6 @@ class Earth extends Component {
     if (this.running) {
       return;
     }
-    console.log('global')
     const { earth, cont, d3 } = this;
     const { style } = this.props;
     const context = earth && earth.getContext('2d');
