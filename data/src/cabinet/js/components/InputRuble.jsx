@@ -13,7 +13,7 @@ class InputRuble extends Input {
   }
   onChange = ({ target }) => {
     const { name, onChange } = this.props;
-    const { value } = target;
+    const value = target.value.replace(/^0/, '');
     const fValue = formatCost(value);
 
     this.setState({
@@ -33,7 +33,7 @@ class InputRuble extends Input {
       value: fValue,
     });
 
-    onChange(name, value.replace(/[^\d/.,]/g, '').replace(',', '.') * 1);
+    onChange(name, value.replace(/[^\d/.,]|/g, '').replace(',', '.') * 1);
   };
 
   onFocus = ({ target }) => {

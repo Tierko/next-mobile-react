@@ -105,7 +105,10 @@ class Pay extends Component {
               <div className="pay__inner">
                 {
                   state &&
-                  <BreadCrumbs items={[{ title: 'Тарифы', link: Pages.SERVICES }]} />
+                  <BreadCrumbs
+                    items={[{ title: 'Тарифы', link: Pages.SERVICES }]}
+                    current={`Оплата за тариф ${state.tariff.title}`}
+                  />
                 }
                 <div className="dashboard__header">
                   {
