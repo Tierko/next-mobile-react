@@ -41,8 +41,8 @@
   }
 
   &__transition-link {
-    .link-dashed;
-    color: @BLACK;
+    .link-mixin(inherit, @GRAY, transparent);
+    background-position: 0 calc(50% + 0.43em);
   }
 
   &__header {
