@@ -52,6 +52,7 @@ class Aside extends Component {
     const { items } = this;
     const traffic = getData('remain')[0].current.toString().replace('.', ',');
     const calls = getData('remain')[1].current;
+    const balance = getData('balance');
 
     return (
       <div className="aside">
@@ -67,7 +68,9 @@ class Aside extends Component {
             <div className="aside__phone">+ 7 905 123-23-44</div>
             <div className="aside__info">
               <div>
-                <span>Баланс:</span> {formatCost(getData('balance'))}
+                <span>Баланс: </span>
+                {balance < 0 && '−'}
+                {formatCost(Math.abs(balance))}
               </div>
               <div>
                 <span>По России: </span>
