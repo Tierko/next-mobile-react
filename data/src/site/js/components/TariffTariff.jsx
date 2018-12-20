@@ -110,7 +110,7 @@ class TariffTariff extends Component {
           countriesFiltered && !!countriesFiltered.length && !country.code &&
           <div className="tariff-tariff__random">
             {
-              countriesFiltered.map(c => {
+              countriesFiltered.slice(rand, rand + 3).map(c => {
                 const cost = data.groups && c.group ? `${data.groups[c.group].price} ₽/мин.` : ' ';
 
                 return (
