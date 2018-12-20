@@ -255,6 +255,20 @@ const operations = [
     cost: 0,
     note: 'на номер +7 903 234-01-83 Smarts',
     provider: 'smarts',
+  }, {
+    id: 20,
+    date: {
+      year: 2020,
+      month: 8,
+      day: 8,
+    },
+    time: '9:15',
+    type: 9,
+    count: 1,
+    unit: 'СМС',
+    cost: 0,
+    note: 'на номер +7 903 111-11-11 Next',
+    provider: 'next-vip',
   }],
   [],
 ];
