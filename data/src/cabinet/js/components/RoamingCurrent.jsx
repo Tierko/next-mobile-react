@@ -43,7 +43,7 @@ class RoamingCurrent extends Component {
             </div>
             <ProgressLinear className="progress-linear_roaming" max={20} current={12.01} />
             <Button className="button_roaming-add" onClick={addPackage} primary={inRoaming}>
-              Добавить трафик
+              Добавить трафик...
             </Button>
           </Fragment>
         }
