@@ -24,6 +24,24 @@
       background: url("/media/icons/search.svg") 49px 50% no-repeat;
       z-index: 4;
     }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      //bottom: -2px;
+      left: -2px;
+      background-color: @WHITE;
+      z-index: 3;
+      border-radius: 26px 26px 0 0;
+      height: 0;
+      transition: height 0.2s;
+    }
+  }
+
+  &_drawer:after {
+    height: calc(100% + 10px);
   }
 
   &_hide-icon {
@@ -50,14 +68,18 @@
 
   &_desktop .select__list {
     top: 0;
-    padding-top: 52px;
+    right: -2px;
+    left: -2px;
     transform: scaleY(0);
     transform-origin: 0 0;
-    border-radius: 26px;
+    border-radius: 0 0 26px 26px;
+    width: auto;
+    transition: transform 0.2s, top 0.2s;
   }
 
   &_desktop .select__list_open {
     transform: scaleY(1);
+    top: 50px;
   }
 
   &_desktop &__value {
