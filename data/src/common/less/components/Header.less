@@ -62,6 +62,10 @@
     .link-nav;
     line-height: @FONT-SIZE-BASE;
     font-size: @FONT-SIZE-SMALL;
+
+    &.active {
+      background-image: none;
+    }
   }
 
   &__go {
@@ -75,6 +79,10 @@
     color: @WHITE;
     background-color: @ORANGE;
     font-size: 21px;
+
+    &.active {
+      cursor: default;
+    }
   }
 
   @media (max-width: @BREAK-POINT) {
