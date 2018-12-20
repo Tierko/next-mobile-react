@@ -115,9 +115,9 @@ class InterCalls extends Component {
             >
               <div className="inter-calls__country">
                 {
-                  item.code &&
+                  item.flag &&
                   <div>
-                    <img src={`/media/flags/${item.code}.svg`} alt="" />
+                    <img src={`/media/flags/${item.flag}.svg`} alt="" />
                   </div>
                 }
                 &nbsp;

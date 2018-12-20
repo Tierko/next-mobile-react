@@ -175,6 +175,7 @@ export function dataBuffer() {
           if (country) {
             item.code = country.properties.code;
             item.name = country.properties.name;
+            item.flag = country.properties.flag;
           }
 
           return item;
