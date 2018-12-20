@@ -77,7 +77,7 @@ class ComboBox extends Select {
           {
             value && value.properties && value.properties.name.ru &&
             <div className="combo-box__title">
-              <img className="select__img" src={`/media/flags/${value.properties.code}.svg`} alt={value.properties.name.ru} />
+              <img className="select__img" src={`/media/flags/${value.properties.flag}.svg`} alt={value.properties.name.ru} />
               {value.properties.name.ru}
               <span className="combo-box__zone"> находится в&nbsp;{zoneName.toLowerCase()}</span>
             </div>
@@ -100,7 +100,7 @@ class ComboBox extends Select {
                 onClick={() => onSelect(i)}
                 role="button"
               >
-                <img className="select__img" src={`/media/flags/${i.properties.code}.svg`} alt={i.properties.name.ru} />
+                <img className="select__img" src={`/media/flags/${i.properties.flag}.svg`} alt={i.properties.name.ru} />
                 {i.properties.name.ru}
               </div>
             ))
