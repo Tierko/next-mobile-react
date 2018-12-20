@@ -21,7 +21,7 @@ const OperationsList = ({
 }) => (
   <Fragment>
     {
-      !!data.length &&
+      loaded &&
       <div className="operations__dates">
         <div className="operations__dates-inner">
           <span className="operations__date-from">с</span>
@@ -44,7 +44,7 @@ const OperationsList = ({
     <table className="operations__table">
       <tbody>
         {
-          !!data.length &&
+          loaded &&
           <tr className="operations__row operations__row_header">
             <td className="operations__cell-empty">&nbsp;</td>
             <td className="operations__td_date">

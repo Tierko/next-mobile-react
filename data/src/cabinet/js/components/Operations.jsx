@@ -142,7 +142,7 @@ class Operations extends Component {
     const { formatDate } = Operations;
 
     return (
-      <div className="block">
+      <div className="block block_operations">
         <div className="h1">История операций</div>
         {
           !data.length &&

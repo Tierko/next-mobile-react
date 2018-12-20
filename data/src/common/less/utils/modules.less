@@ -129,12 +129,12 @@
   margin-bottom: 10px;
   padding: 50px 60px 55px;
 
-  @media (max-width: @BREAK-POINT) {
-    padding: 20px;
-  }
-
   &_round {
     border-radius: 10px;
+  }
+
+  &_operations {
+    min-height: 485px;
   }
 
   &__header {
@@ -143,5 +143,15 @@
     letter-spacing: 1.5px;
     margin-bottom: 23px;
     text-transform: uppercase;
+  }
+
+  @media (max-width: 1000px) {
+    &_operations {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    padding: 20px;
   }
 }
