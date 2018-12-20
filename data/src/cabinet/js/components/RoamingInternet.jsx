@@ -18,11 +18,12 @@ class RoamingInternet extends Component {
   render() {
     const { roaming: { zones, internet }, zoneId } = this.props;
     const zone = zones.items.find(z => z.id === zoneId * 1);
-    const title = `Интернет в ${zone.title.toLowerCase()}`;
 
     if (!zone) {
       return false;
     }
+
+    const title = `Интернет в ${zone.title.toLowerCase()}`;
 
     return (
       <div className="roaming">
