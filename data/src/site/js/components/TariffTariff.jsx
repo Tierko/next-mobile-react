@@ -23,6 +23,7 @@ export function dataBuffer() {
           if (country) {
             item.code = country.properties.code;
             item.name = country.properties.name;
+            item.flag = country.properties.flag;
           }
 
           return item;
@@ -109,12 +110,12 @@ class TariffTariff extends Component {
           countriesFiltered && !!countriesFiltered.length && !country.code &&
           <div className="tariff-tariff__random">
             {
-              countriesFiltered.slice(rand, rand + 3).map(c => {
+              countriesFiltered.map(c => {
                 const cost = data.groups && c.group ? `${data.groups[c.group].price} ₽/мин.` : ' ';
 
                 return (
                   <div className="tariff-tariff__random-item" key={c.code}>
-                    <img src={`/media/flags/${c.code}.svg`} alt="" />
+                    <img src={`/media/flags/${c.flag}.svg`} alt="" />
                     {c.name.ru} <span>{cost}</span>
                   </div>
                 );
