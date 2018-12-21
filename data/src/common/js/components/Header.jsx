@@ -17,7 +17,6 @@ const Header = ({
 }) => {
   const url = info.lk_url || '';
   const release = info.release * 1 || 1;
-  console.log(release)
 
   return (
     <nav className="header">
@@ -47,7 +46,7 @@ const Header = ({
       </div>
       {
         mode === 'site' ?
-          <HeaderSite light={light} release={release} url={url} translate={translate} /> :
+          <HeaderSite r={release} light={light} release={release} url={url} translate={translate} /> :
           <HeaderCabinet light={light} />
       }
     </nav>
