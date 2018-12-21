@@ -5,7 +5,6 @@ import { Pages } from '../../../cabinet/js/constants';
 
 const HeaderSite = ({
   url,
-  release,
   translate,
   r,
 }) => {
@@ -16,6 +15,8 @@ const HeaderSite = ({
   const signUp = translate.signUp || 'Перейти на Next';
 
   tariff = tariff.replace('&nbsp;', '\u00A0');
+
+  console.log(r)
 
   return (
     <Fragment>
@@ -51,7 +52,7 @@ const HeaderSite = ({
             {signIn}
           </a>
         </div>
-        <a className="header__go" href={`${url}/#${Pages.SIGN_UP}${release === 2 ? '/after' : ''}`}>
+        <a className="header__go" href={`${url}/#${Pages.SIGN_UP}${r === 2 ? '/after' : ''}`}>
           {signUp}
         </a>
       </div>
@@ -61,7 +62,6 @@ const HeaderSite = ({
 
 HeaderSite.propTypes = {
   url: PropTypes.string.isRequired,
-  release: PropTypes.number.isRequired,
   translate: PropTypes.shape().isRequired,
   r: PropTypes.number.isRequired,
 };
