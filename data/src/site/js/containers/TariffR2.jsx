@@ -52,7 +52,7 @@ class Tariff extends Component {
       <DocumentMeta title={title ? title.tariff : ''}>
         <div className="tariff">
           <MobileNav type="home" translate={nav} dark />
-          <Header mode="site" info={info} translate={nav} />
+          <Header mode="site" info={info} translate={nav} r={2} />
           <div className="tariff__inner">
             <TariffTariff
               to={() => to('signup/after')}

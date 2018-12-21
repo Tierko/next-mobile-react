@@ -17,6 +17,7 @@ const Header = ({
 }) => {
   const url = info.lk_url || '';
   const release = info.release * 1 || 1;
+  console.log(release)
 
   return (
     <nav className="header">

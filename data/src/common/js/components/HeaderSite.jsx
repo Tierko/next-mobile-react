@@ -7,6 +7,7 @@ const HeaderSite = ({
   url,
   release,
   translate,
+  r,
 }) => {
   let tariff = translate.tariff || 'Тарифы и услуги';
   const requestStatus = translate.requestStatus || 'Статус заявки';
@@ -20,9 +21,18 @@ const HeaderSite = ({
     <Fragment>
       <div className="header__center">
         <div className="header__item">
-          <NavLink className="header__link" to={Pages.TARIFF}>
-            {tariff}
-          </NavLink>
+          {
+            r === 1 &&
+            <NavLink className="header__link" to={Pages.TARIFF_R1}>
+              {tariff}
+            </NavLink>
+          }
+          {
+            r === 2 &&
+            <NavLink className="header__link" to={Pages.TARIFF_R2}>
+              {tariff}
+            </NavLink>
+          }
         </div>
         <div className="header__item">
           <a className="header__link" href={`${url}/#${Pages.REQUEST_STATUS}`}>
@@ -53,6 +63,7 @@ HeaderSite.propTypes = {
   url: PropTypes.string.isRequired,
   release: PropTypes.number.isRequired,
   translate: PropTypes.shape().isRequired,
+  r: PropTypes.number.isRequired,
 };
 
 export default HeaderSite;
