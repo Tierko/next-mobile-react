@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cs from 'classnames';
 import Date from './Date';
 import Loader from './Loader';
 import Select from '../../../common/js/components/Select';
@@ -55,7 +56,17 @@ const OperationsList = ({
           )}
           <div className="operations__item-row">
             <div>{HISTORY_TITLES.find(f => f.id === d.type).title}</div>
-            <div>{formatCost(d.cost, true)}</div>
+            <div
+              className={cs('operations__item-cost', {
+                'operations__item-cost_pay': d.type === 11,
+              })}
+            >
+              {
+                d.type === 11 &&
+                  <span>+ </span>
+              }
+              {formatCost(d.cost, true)}
+            </div>
           </div>
           <div className="operations__item-row operations__item-row_gray">
             <div>{d.note}</div>

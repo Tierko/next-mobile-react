@@ -108,7 +108,15 @@ const OperationsList = ({
                   </div>
                 </td>
                 <td>
-                  <div className="operations__cell operations__cell_cost">
+                  <div
+                    className={cs('operations__cell operations__cell_cost', {
+                      operations__cell_pay: d.type === 11,
+                    })}
+                  >
+                    {
+                      d.type === 11 &&
+                        <span>+ </span>
+                    }
                     {formatCost(d.cost, true)}
                     {
                       d.tariff &&
