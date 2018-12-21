@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
+import { formatCost } from "../utils";
 import { MONTHS_SHORT } from '../constants';
 
 class Grade extends Component {
@@ -60,7 +61,12 @@ class Grade extends Component {
 
   render() {
     const { selectItem, onEnter, onBlur } = this;
-    const { data, className, wide } = this.props;
+    const {
+      data,
+      className,
+      showRatio,
+      showTotal,
+    } = this.props;
     const selected = this.state.selected === -1 ? data[data.length - 1].id : this.state.selected;
     const maxExpense = Math.max.apply(null, data.map(i => Grade.countExpense(i.expense)));
 
@@ -69,9 +75,19 @@ class Grade extends Component {
     }
 
     return (
-      <div className={`grade ${className}`} onMouseEnter={onEnter} onMouseLeave={onBlur}>
+      <div
+        className={cs(`grade ${className}`, {
+          grade_total: showTotal
+        })}
+        onMouseEnter={onEnter}
+        onMouseLeave={onBlur}
+      >
         <div className="grade__inner">
-          <div className="grade__items">
+          <div
+            className={cs('grade__items', {
+              grade__items_total: showTotal,
+            })}
+          >
             {
               data.map(e => (
                 <div
@@ -81,18 +97,16 @@ class Grade extends Component {
                   data-id={e.id}
                   className={cs('grade__item', {
                     grade__item_selected: e.id === selected,
-                    grade__item_wide: wide,
                   })}
                 >
                   <div
                     className={cs('grade__line', {
                       grade__line_selected: e.id === selected,
-                      grade__line_wide: wide,
                     })}
                     style={{ height: (Grade.countExpense(e.expense) / maxExpense) * 100 }}
                   >
                     {
-                      e.expense.map(i => (
+                      showRatio && e.expense.map(i => (
                         <div
                           className={`grade__subline grade__subline_${i.type}`}
                           style={{ flexGrow: i.cost }}
@@ -100,10 +114,17 @@ class Grade extends Component {
                       ))
                     }
                   </div>
+                  <div className={cs('grade__month', { grade__month_selected: e.id === selected })}>
+                    {MONTHS_SHORT[e.date.month]}
+                  </div>
                   {
-                    wide &&
-                    <div className={cs('grade__month', { grade__month_selected: e.id === selected })}>
-                      {MONTHS_SHORT[e.date.month]}
+                    showTotal &&
+                    <div
+                      className={cs('grade__total', {
+                        grade__total_selected: e.id === selected,
+                      })}
+                    >
+                      {formatCost(Grade.countExpense(e.expense))}
                     </div>
                   }
                 </div>
@@ -120,12 +141,14 @@ Grade.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   className: PropTypes.string,
   onItemSelect: PropTypes.func.isRequired,
-  wide: PropTypes.bool,
+  showRatio: PropTypes.bool,
+  showTotal: PropTypes.bool,
 };
 
 Grade.defaultProps = {
   className: '',
-  wide: false,
+  showRatio: false,
+  showTotal: false,
 };
 
 export default Grade;

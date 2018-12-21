@@ -40,7 +40,7 @@ class Expense extends Component {
         {
           !!item &&
           <Fragment>
-            <Grade data={data} onItemSelect={onMonthSelect} wide className="grade_expense" />
+            <Grade data={data} onItemSelect={onMonthSelect} showRatio showTotal />
             <div className="expense__total">
               <div className="expense__total-date">{MONTHS[item.date.month]} {item.date.year}</div>
               <div className="expense__total-cost">{formatCost(cost, true)}</div>
