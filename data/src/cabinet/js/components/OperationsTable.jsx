@@ -90,7 +90,7 @@ const OperationsList = ({
                 <td className="operations__cell-empty">&nbsp;</td>
                 <td>
                   <div className="operations__cell operations__cell_date">
-                    {`${d.date.day} ${MONTHS_M[d.date.month]}`}
+                    {`${d.date.day} ${MONTHS_M[d.date.month]}, ${d.date.year}`}
                     <div className="operations__note">{d.time}</div>
                   </div>
                 </td>

@@ -48,7 +48,9 @@ const OperationsList = ({
             <div className="operations__item-date">
               {d.date.day}
               &nbsp;
-              {MONTHS_M[d.date.month]}
+              {MONTHS_M[d.date.month]},
+              &nbsp;
+              {d.date.year}
             </div>
           )}
           <div className="operations__item-row">
