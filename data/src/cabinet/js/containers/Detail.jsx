@@ -117,7 +117,7 @@ class Detail extends Component {
                 </div>
                 {
                   !isInLimit() &&
-                  <div className="detail__error">Вы&nbsp;выбрали слишком большой период<span className="nobr">(максимум 30&nbsp;дней)</span></div>
+                  <div className="detail__error">Вы&nbsp;выбрали слишком большой период <span className="nobr">(максимум 30&nbsp;дней)</span></div>
                 }
                 <Input
                   placeholder="На какую почту отправить"
