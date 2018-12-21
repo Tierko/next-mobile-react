@@ -42,11 +42,11 @@ class RoamingZone extends Component {
           <div className="roaming__title roaming__title_desktop">
             Роуминг в&nbsp;<span>{data.title}</span>
           </div>
-          <Link to={`${Pages.ROAMING}/countries/${data.id}`} className="roaming-zone__countries">
+          <Link to={`${Pages.ROAMING}/countries/${data.id}`} className="link">
             {getCountries()}
           </Link>
           <RoamingCurrent data={data} history={history} inRoaming />
-          <Link to={`${Pages.ROAMING}/zone-tariff/${data.id}`} className="roaming-zone__more">
+          <Link to={`${Pages.ROAMING}/zone-tariff/${data.id}`} className="link">
             Подробнее о&nbsp;тарифах в&nbsp;{data.title.toLowerCase()}
           </Link>
         </div>
@@ -60,7 +60,7 @@ RoamingZone.propTypes = {
   active: PropTypes.number.isRequired,
   history: PropTypes.shape().isRequired,
   features: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-
+  country: PropTypes.shape().isRequired,
 };
 
 export default RoamingZone;
