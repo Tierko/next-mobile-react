@@ -163,7 +163,7 @@ class RequestStatus extends Component {
             {
               !status &&
               <div className="welcome__content request-status request-status_init">
-                <div className="request-status__title">Статус заявки</div>
+                <div className="welcome__header welcome__header_request">Статус заявки</div>
                 {
                   codeSent &&
                   <div className="request-status__message">
