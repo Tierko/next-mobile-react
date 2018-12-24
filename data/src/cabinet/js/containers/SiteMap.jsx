@@ -121,6 +121,8 @@ const SiteMap = () => (
             <Link className="link" to={Pages.INVITE}>Инвайты</Link>
             <br />
             <Link className="link" to="/not-found">404</Link>
+            <br />
+            <Link className="link" to={Pages.KIT}>Типовая</Link>
           </div>
         </div>
       </Transitions>
