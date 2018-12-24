@@ -16,8 +16,6 @@ const HeaderSite = ({
 
   tariff = tariff.replace('&nbsp;', '\u00A0');
 
-  console.log(r)
-
   return (
     <Fragment>
       <div className="header__center">

@@ -14,6 +14,7 @@ class Earth extends Component {
     const height = cont && cont.clientHeight;
     const size = cont && d3.min([width, height]);
     let { features } = this.props;
+    let prevT = 0;
 
     this.running = true;
 
@@ -57,24 +58,27 @@ class Earth extends Component {
     const update = (t) => {
       const { defaultAnimation, fastAnimation, center } = this;
       const currentAngles = [-t / 100 % 360, 0];
-      context.clearRect(0, 0, width, height);
 
-      if (defaultAnimation && !fastAnimation) {
-        projection.rotate(currentAngles);
+      if (t > prevT + 30 && !this.freeze) {
+        context.clearRect(0, 0, width, height);
+
+        if (defaultAnimation && !fastAnimation) {
+          projection.rotate(currentAngles);
+        }
+
+        if (!defaultAnimation && fastAnimation) {
+          projection.rotate(center);
+        }
+
+        context.lineWidth = 1;
+        context.fillStyle = style === 'dark' ? '#06145f' : '#eaeaf6';
+
+        drawFeatures(features);
+
+        prevT = t;
       }
 
-      if (!defaultAnimation && fastAnimation) {
-        projection.rotate(center);
-      }
-
-      context.lineWidth = 1;
-      context.fillStyle = style === 'dark' ? '#06145f' : '#eaeaf6';
-
-      drawFeatures(features);
-
-      setTimeout(() => {
-        window.requestAnimationFrame(update);
-      }, 25);
+      window.requestAnimationFrame(update);
     };
 
     window.requestAnimationFrame(update);
@@ -119,8 +123,26 @@ class Earth extends Component {
       .translate([0.5 * width, 0.5 * height]);
   };
 
+  onScroll = () => {
+    const { earth } = this;
+    const windowHeight = window.innerHeight;
+
+    if (!earth) {
+      return;
+    }
+
+    const { y } = earth.getBoundingClientRect();
+    const earthHeight = earth.clientHeight;
+
+    if (y > -earthHeight && y < windowHeight) {
+      this.freeze = false;
+    } else {
+      this.freeze = true;
+    }
+  };
+
   componentDidMount() {
-    const { globe, onResize } = this;
+    const { globe, onResize, onScroll } = this;
     this.defaultAnimation = true;
 
     require.ensure(['d3'], (require) => {
@@ -130,6 +152,8 @@ class Earth extends Component {
     });
 
     window.addEventListener('resize', onResize);
+    window.addEventListener('scroll', onScroll);
+    this.freeze = true;
   }
 
   componentDidUpdate(prevProps) {
@@ -147,9 +171,10 @@ class Earth extends Component {
   }
 
   componentWillUnmount() {
-    const { onResize } = this;
+    const { onResize, onScroll } = this;
 
     window.removeEventListener('resize', onResize);
+    window.removeEventListener('scroll', onScroll);
   }
 
   render() {
