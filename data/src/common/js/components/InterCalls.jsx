@@ -113,16 +113,19 @@ class InterCalls extends Component {
               'inter-calls__selected_light': home,
             })}
             >
-              <div className="inter-calls__country">
-                {
-                  item.flag &&
-                  <div>
-                    <img src={`/media/flags/${item.flag}.svg`} alt="" />
+              {
+                item.flag ?
+                  <div className="inter-calls__country">
+                    <div>
+                      <img src={`/media/flags/${item.flag}.svg`} alt="" />
+                    </div>
+                    &nbsp;
+                    {item.name ? item.name.ru : item.title}
+                  </div> :
+                  <div className="inter-calls__country">
+                    {item.name ? item.name.ru : item.title}
                   </div>
-                }
-                &nbsp;
-                {item.name ? item.name.ru : item.title}
-              </div>
+              }
               {
                 !hidePrice &&
                 <span>{formatCost(getCost())} / мин</span>
