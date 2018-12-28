@@ -40,16 +40,22 @@ const Footer = ({ als, light, data }) => {
             <a href="mailto:info@nextmobile.ru" className="link">info@nextmobile.ru</a>
           </div>
           <div className="footer__contact">
-            <a href="tel:88006006677" className="link">8 800 600-66-77</a> или <a href="tel:6677" className="link">6677</a>
+            В России: <a href="tel:88006006677" className="link">8 800 600-66-77</a> или <a href="tel:6677" className="link">6677</a>
+          </div>
+          <div className="footer__contact">
+            В роуминге: <a href="tel:84996006677" className="link">8 499 600-66-77</a>
           </div>
         </div>
         <div className="footer__chats">
           <div>Напишите нам</div>
           <div>
-            <a className="footer__chat" href="tg://resolve?domain=<USERNAME>">
+            <a className="footer__chat" href="tg://resolve/?domain=NextMobile_bot">
               <img src="/media/icons/tg.svg" alt="" />
             </a>
-            <a className="footer__chat" href="https://wa.me/00000000000">
+            <a className="footer__chat" href="viber://pa/?chatURI=nextmobile1">
+              <img src="/media/icons/viber.svg" alt="" />
+            </a>
+            <a className="footer__chat" href="https://wa.me/79006166677">
               <img src="/media/icons/wa.svg" alt="" />
             </a>
           </div>
