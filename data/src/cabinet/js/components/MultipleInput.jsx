@@ -43,8 +43,12 @@ class MultipleInput extends Component {
     }
 
     if (keyCode === 8 && number !== count - 1 && number !== 0) {
-      this[`input${number - 1}`].focus();
-      values[number - 1] = '';
+      if (values[number]) {
+        values[number] = '';
+      } else {
+        this[`input${number - 1}`].focus();
+        values[number - 1] = '';
+      }
       return;
     }
 
