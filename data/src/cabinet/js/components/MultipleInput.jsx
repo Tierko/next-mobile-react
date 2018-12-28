@@ -74,6 +74,7 @@ class MultipleInput extends Component {
 
     if (value.length === 1) {
       this[`input${number}`].focus();
+      this[`input${number}`].setSelectionRange(0, 9999);
     }
   };
 
