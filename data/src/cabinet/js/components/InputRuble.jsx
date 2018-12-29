@@ -12,9 +12,13 @@ class InputRuble extends Input {
     };
   }
   onChange = ({ target }) => {
-    const { name, onChange } = this.props;
+    const { name, onChange, length } = this.props;
     const { value } = target;
     const fValue = formatCost(value);
+
+    if (length && value.replace(/[^\d/.,]/g, '').length > length) {
+      return;
+    }
 
     this.setState({
       value: fValue,

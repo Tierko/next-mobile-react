@@ -20,7 +20,7 @@ import {
 } from '../utils';
 
 class AutoPay extends Component {
-  static days = Array(28).fill(0).map((_, i) => i + 1);
+  static days = Array(31).fill(0).map((_, i) => i + 1);
 
   static months = (() => {
     const date = new Date();
@@ -52,12 +52,6 @@ class AutoPay extends Component {
   }
 
   onChange = (name, value) => {
-    if (name === 'autoPaySum' || name === 'fewSum' || name === 'fewLess') {
-      if (value.toString().length > 5) {
-        return;
-      }
-    }
-
     if (name === 'monthlyEnabled' || name === 'lessEnabled') {
       this.setState({
         overflowHidden: true,
@@ -195,7 +189,7 @@ class AutoPay extends Component {
                         На&nbsp;сумму
                         <div className="auto-pay__note">От&nbsp;100 до&nbsp;15&nbsp;000&nbsp;₽</div>
                       </div>
-                      <InputRuble className="input_auto-pay" name="monthlySum" value={monthlySum} onChange={onChange} />
+                      <InputRuble className="input_auto-pay" length={5} name="monthlySum" value={monthlySum} onChange={onChange} />
                     </div>
                     <div className="auto-pay__row">
                       <div className="auto-pay__cell">
@@ -246,13 +240,13 @@ class AutoPay extends Component {
                         На сумму
                         <div className="auto-pay__note">От&nbsp;100 до&nbsp;15&nbsp;000&nbsp;₽</div>
                       </div>
-                      <InputRuble className="input_auto-pay" onChange={onChange} value={lessSum} name="lessSum" />
+                      <InputRuble className="input_auto-pay" length={5} onChange={onChange} value={lessSum} name="lessSum" />
                     </div>
                     <div className="auto-pay__row">
                       <div className="auto-pay__cell">
                         Пополнять, если на&nbsp;счету меньше, чем
                       </div>
-                      <InputRuble className="input_auto-pay" onChange={onChange} value={lessLess} name="lessLess" />
+                      <InputRuble className="input_auto-pay" length={5} onChange={onChange} value={lessLess} name="lessLess" />
                     </div>
                   </div>
                 </div>
