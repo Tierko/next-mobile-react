@@ -128,7 +128,7 @@ class Overview extends Component {
               <RoamingDashboard data={roaming} />
               <OverviewInvite message={message} code={code ? code.code : ''} />
               <FooterNav />
-              <Footer als />
+              <Footer als mode="cabinet" />
             </div>
           </Transitions>
         </div>

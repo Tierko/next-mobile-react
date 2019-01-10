@@ -20,6 +20,8 @@ const SiteMap = () => (
             <br />
             <a className="link" href={`${SERVICE_URL}/tariff_r2`}>Тарифы (релиз 2)</a>
             <br />
+            <a className="link" href={`${SERVICE_URL}/legal`}>Юридическая информация</a>
+            <br />
             <Link className="link" to={Pages.SIGN_IN}>Вход</Link>
             <br />
             <Link className="link" to={`${Pages.SIGN_UP}/promo`}>Регистрация (промо)</Link>
