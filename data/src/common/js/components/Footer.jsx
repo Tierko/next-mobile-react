@@ -48,7 +48,7 @@ const Footer = ({
             <a className="footer__link" href={`${SERVICE_URL}${Pages.LEGAL}`}>Юридическая информация</a>
           }
         </div>
-        <div className="footer__right">
+        <div className="footer__center">
           <div className="footer__contacts">
             <div className="footer__contact">
               <a href="mailto:info@nextmobile.ru" className="footer__link">info@nextmobile.ru</a>
@@ -60,6 +60,8 @@ const Footer = ({
               В роуминге: <a href="tel:84996006677" className="footer__link">8 499 600-66-77</a>
             </div>
           </div>
+        </div>
+        <div className="footer__right">
           <div className="footer__chats">
             <div>Напишите нам</div>
             <div>
@@ -74,7 +76,10 @@ const Footer = ({
               </a>
             </div>
           </div>
-          <Link className="footer__link" to={Pages.LEGAL}>Юридическая информация</Link>
+          {
+            mode === 'site' &&
+            <Link className="footer__link" to={Pages.LEGAL}>Юридическая информация</Link>
+          }
         </div>
       </div>
     </div>

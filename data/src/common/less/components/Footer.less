@@ -1,6 +1,5 @@
 .footer {
   padding:  30px 0 14px;
-  max-width: 638px;
   width: 100%;
   margin: auto auto 0;
   letter-spacing: -0.28px;
@@ -9,7 +8,6 @@
   line-height: @LINE-HEIGHT-SMALL;
 
   &_wide {
-    max-width: none;
     padding: 100px 0 80px;
   }
 
@@ -19,22 +17,28 @@
     padding: 0 20px;
   }
 
-  @media (max-width: @BREAK-POINT) {
-    max-width: none;
-  }
-
   &__inner {
     display: flex;
     justify-content: space-between;
-
-    @media (max-width: @BREAK-POINT) {
-      display: block;
-    }
+    flex-wrap: wrap;
+    margin: 0 108px;
   }
 
   &_light {
     color: rgba(255, 255, 255, 0.3);
     background-color: @BLUE-MAIN;
+  }
+
+  &__left {
+    padding-right: 20px;
+  }
+
+  &__center {
+    padding-top: 30px;
+  }
+
+  &__right {
+    padding-top: 24px;
   }
 
   &__copy {
@@ -43,11 +47,6 @@
 
   &__dev {
     display: flex;
-
-    @media (max-width: @BREAK-POINT) {
-      display: block;
-      margin-top: 20px;
-    }
   }
 
   &__dev-img {
@@ -59,11 +58,6 @@
   &__dev-text {
     margin-left: 10px;
     max-width: calc(100% - 110px);
-
-    @media (max-width: @BREAK-POINT) {
-      margin-left: 0;
-      max-width: none;
-    }
   }
 
   &__dev-link:hover + &__dev-text &__link_stud {
@@ -89,7 +83,6 @@
   }
 
   &__chats {
-    margin-top: 14px;
     display: flex;
     align-items: center;
   }
@@ -97,4 +90,97 @@
   &__chat {
     margin-left: 14px;
   }
+
+  @media (max-width: 1492px) {
+    &__center {
+      width: 240px;
+    }
+
+    &__right {
+      margin-left: auto;
+      width: 240px;
+      padding-top: 0;
+    }
+
+    &_wide &__center {
+      width: auto;
+    }
+
+    &_wide &__right {
+      padding-top: 24px;
+      margin-left: 0;
+      width: auto;
+    }
+  }
+
+  @media (max-width: 1260px) {
+    &__inner {
+      max-width: 638px;
+      margin: auto;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    &__inner {
+      display: block;
+    }
+
+    &__right {
+      margin-left: 0;
+      margin-top: 14px;
+    }
+
+    &_wide &__inner {
+      display: flex;
+    }
+
+    &_wide &__right {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 900px) {
+    &_wide &__center {
+      width: 240px;
+    }
+
+    &_wide &__right {
+      width: 240px;
+      margin-left: auto;
+      padding-top: 14px;
+    }
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    max-width: none;
+
+    &__inner {
+      display: block;
+      margin: 0;
+    }
+
+    &_wide &__inner {
+      display: block;
+    }
+
+    &__dev {
+      display: block;
+      margin-top: 20px;
+    }
+
+    &__dev-text {
+      margin-left: 0;
+      max-width: none;
+    }
+    &_wide &__center {
+      width: auto;
+    }
+
+    &_wide &__right {
+      width: auto;
+      margin-left: 0;
+      padding-top: 14px;
+    }
+  }
+
 }
