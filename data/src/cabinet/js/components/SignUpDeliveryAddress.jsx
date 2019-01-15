@@ -78,18 +78,18 @@ class SignUpDeliveryAddress extends Component {
                 placeholder="Дом"
               />
               <Input
-                className="input_sign-up-flat"
-                name="flat"
-                value={flat}
-                onChange={onChange}
-                placeholder="Квартира"
-              />
-              <Input
                 className="input_sign-up-housing"
                 name="housing"
                 value={housing}
                 onChange={onChange}
                 placeholder="Корпус/строение"
+              />
+              <Input
+                className="input_sign-up-flat"
+                name="flat"
+                value={flat}
+                onChange={onChange}
+                placeholder="Квартира"
               />
             </div>
             <div className="sign-up__conditions">
