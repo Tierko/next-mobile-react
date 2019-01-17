@@ -7,6 +7,10 @@
   font-size: 14px;
   line-height: @LINE-HEIGHT-SMALL;
 
+  &__contact {
+    line-height: @LINE-HEIGHT-BASE;
+  }
+
   &_wide {
     padding: 100px 0 80px;
   }
@@ -47,6 +51,7 @@
 
   &__dev {
     display: flex;
+    margin-bottom: 12px;
   }
 
   &__dev-img {
@@ -89,9 +94,33 @@
 
   &__chat {
     margin-left: 14px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+
+    img {
+      display: block;
+    }
+
+    img + img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+    }
+
+    &:hover img + img {
+      opacity: 1;
+    }
   }
 
   @media (max-width: 1492px) {
+    &__chats {
+      margin-top: 30px;
+    }
+
     &__center {
       width: 240px;
     }
@@ -100,6 +129,10 @@
       margin-left: auto;
       width: 240px;
       padding-top: 0;
+    }
+
+    &_wide &__chats {
+      margin-top: 0;
     }
 
     &_wide &__center {
@@ -114,6 +147,10 @@
   }
 
   @media (max-width: 1260px) {
+    &__chats {
+      margin-top: 30px;
+    }
+
     &__inner {
       max-width: 638px;
       margin: auto;

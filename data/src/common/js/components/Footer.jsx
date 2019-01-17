@@ -44,8 +44,9 @@ const Footer = ({
             </div>
           }
           {
-            mode === 'cabinet' &&
-            <a className="footer__link" href={`${SERVICE_URL}${Pages.LEGAL}`}>Юридическая информация</a>
+            mode === 'cabinet' ?
+              <a className="footer__link" href={`${SERVICE_URL}${Pages.LEGAL}`}>Юридическая информация</a> :
+              <Link className="footer__link" to={Pages.LEGAL}>Юридическая информация</Link>
           }
         </div>
         <div className="footer__center">
@@ -67,19 +68,18 @@ const Footer = ({
             <div>
               <a className="footer__chat" href="tg://resolve/?domain=NextMobile_bot">
                 <img src="/media/icons/tg.svg" alt="" />
+                <img src="/media/icons/tg-hover.svg" alt="" />
               </a>
               <a className="footer__chat" href="viber://pa/?chatURI=nextmobile1">
                 <img src="/media/icons/viber.svg" alt="" />
+                <img src="/media/icons/viber-hover.svg" alt="" />
               </a>
               <a className="footer__chat" href="https://wa.me/79006166677">
                 <img src="/media/icons/wa.svg" alt="" />
+                <img src="/media/icons/wa-hover.svg" alt="" />
               </a>
             </div>
           </div>
-          {
-            mode === 'site' &&
-            <Link className="footer__link" to={Pages.LEGAL}>Юридическая информация</Link>
-          }
         </div>
       </div>
     </div>
