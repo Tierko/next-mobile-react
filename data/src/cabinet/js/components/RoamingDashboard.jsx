@@ -57,7 +57,7 @@ const RoamingDashboard = ({ data: { zones, currentZoneId } }) => {
                     <td className="roaming-dashboard__item-desc">
                       Пакет быстрого интернет-трафика
                     </td>
-                    <td>
+                    <td className="roaming-dashboard__item-count">
                       {i.additionalPackage.current.toString().replace('.', ',')} ГБ еще {i.additionalPackage.expired} {convertStrings(i.additionalPackage.expired, DAYS)}
                     </td>
                   </tr>
@@ -65,7 +65,7 @@ const RoamingDashboard = ({ data: { zones, currentZoneId } }) => {
                     <td className="roaming-dashboard__item-desc">
                       Помегабайтный трафик
                     </td>
-                    <td>
+                    <td className="roaming-dashboard__item-count">
                       {formatCost(i.tariff.internet.byMb)} / МБ
                     </td>
                   </tr>
@@ -83,7 +83,7 @@ const RoamingDashboard = ({ data: { zones, currentZoneId } }) => {
                     <td className="roaming-dashboard__item-desc">
                       Помегабайтный трафик
                     </td>
-                    <td>{formatCost(i.tariff.internet.byMb)} / МБ</td>
+                    <td className="roaming-dashboard__item-count">{formatCost(i.tariff.internet.byMb)} / МБ</td>
                   </tr>
                   <tr>
                     <td colSpan={3}>
