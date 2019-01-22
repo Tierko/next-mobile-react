@@ -51,20 +51,32 @@
   }
 
   &__button {
-    width: 30px;
-    height: 30px;
+    width: 32px;
     margin-right: 16px;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: contain;
     cursor: pointer;
+    position: relative;
 
-    &_notice {
-      background-image: url("/media/icons/notice.svg");
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
-    &_chat {
-      background-image: url("/media/icons/chat.svg");
+    img + img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    &:hover img + img {
+      opacity: 1;
     }
   }
 

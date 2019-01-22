@@ -78,8 +78,14 @@ class Aside extends Component {
               </div>
             </div>
             <div className="aside__control">
-              <div className="aside__button aside__button_notice" onClick={showNotice} />
-              <div className="aside__button aside__button_chat" onClick={showChat} />
+              <div className="aside__button" onClick={showNotice}>
+                <img src="/media/icons/notice.svg" alt="" />
+                <img src="/media/icons/notice-hover.svg" alt="" />
+              </div>
+              <div className="aside__button" onClick={showChat}>
+                <img src="/media/icons/chat.svg" alt="" />
+                <img src="/media/icons/chat-hover.svg" alt="" />
+              </div>
             </div>
             <nav className="aside__nav">
               {
