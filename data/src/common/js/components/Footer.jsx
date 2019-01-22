@@ -74,7 +74,7 @@ const Footer = ({
                 <img src="/media/icons/viber.svg" alt="" />
                 <img src="/media/icons/viber-hover.svg" alt="" />
               </a>
-              <a className="footer__chat" href="https://wa.me/79006166677">
+              <a className="footer__chat" href="https://api.whatsapp.com/send?phone=79006166677">
                 <img src="/media/icons/wa.svg" alt="" />
                 <img src="/media/icons/wa-hover.svg" alt="" />
               </a>
