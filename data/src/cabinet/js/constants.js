@@ -76,6 +76,7 @@ export const Pages = {
   TARIFF_R1: '/tariff_r1',
   TARIFF_R2: '/tariff_r2',
   LEGAL: '/legal',
+  FAQ_WEB_VIEW: '/faq-web-view',
 };
 
 export const TITLES = {

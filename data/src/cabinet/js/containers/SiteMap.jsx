@@ -125,6 +125,8 @@ const SiteMap = () => (
             <Link className="link" to="/not-found">404</Link>
             <br />
             <Link className="link" to={Pages.KIT}>Типовая</Link>
+            <br />
+            <a className="link" href={`${SERVICE_URL}/faq-web-view`}>FAQ WebView</a>
           </div>
         </div>
       </Transitions>
