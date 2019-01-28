@@ -1,4 +1,4 @@
-import { units } from './constants';
+import { GENERAL_SETTINGS, units } from './constants';
 import data from '../data/index';
 
 export const checkCardNumber = str => str && str.replace(/\D/g, '').length === 16;
@@ -229,4 +229,21 @@ export const cleanPhone = (phone) => {
   }
 
   return phone.replace(/[+ -]/g, '');
+};
+
+export const sendAjax = (apiUrl, method, data, onRequest, onSuccess, onFail) => {
+
+  let headers = new Headers({
+    'Content-Types': 'application/json',
+    'Authorization': `Basic ${btoa(GENERAL_SETTINGS.api_login + ":" + GENERAL_SETTINGS.api_password)}`
+  });
+
+  fetch(`${GENERAL_SETTINGS.api_url}${GENERAL_SETTINGS.api_version}${apiUrl}`, {
+    method: method,
+    headers: headers,
+    body: data
+  })
+    .then(response => onRequest(response))
+    .then(data => onSuccess(data))
+    .catch(error => onFail(error))
 };
