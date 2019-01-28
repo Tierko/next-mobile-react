@@ -231,19 +231,22 @@ export const cleanPhone = (phone) => {
   return phone.replace(/[+ -]/g, '');
 };
 
-export const sendAjax = (apiUrl, method, data, onRequest, onSuccess, onFail) => {
+export const sendAjax = (apiUrl, method, data) => {
 
-  let headers = new Headers({
+  const headers = new Headers({
     'Content-Types': 'application/json',
-    'Authorization': `Basic ${btoa(GENERAL_SETTINGS.api_login + ":" + GENERAL_SETTINGS.api_password)}`
+    'Authorization': `Basic ${btoa(GENERAL_SETTINGS.api_login + ":" + GENERAL_SETTINGS.api_password)}`,
   });
 
-  fetch(`${GENERAL_SETTINGS.api_url}${GENERAL_SETTINGS.api_version}${apiUrl}`, {
+  return fetch(`${GENERAL_SETTINGS.api_url}${GENERAL_SETTINGS.api_version}${apiUrl}`, {
     method: method,
     headers: headers,
-    body: data
+    body: data,
   })
-    .then(response => onRequest(response))
-    .then(data => onSuccess(data))
-    .catch(error => onFail(error))
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw response;
+    });
 };

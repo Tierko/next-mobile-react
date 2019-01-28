@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Link, Redirect} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import DocumentMeta from 'react-document-meta';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Header from '../../../common/js/components/Header';
@@ -8,7 +8,7 @@ import Input from '../components/InputPhone';
 import LogoAnimated from '../components/LogoAnimated';
 import MobileCode from '../components/MobileCode';
 import Transitions from '../components/Transitions';
-import { Pages, TITLES, GENERAL_SETTINGS } from '../constants';
+import { Pages, TITLES } from '../constants';
 import { cleanPhone, sendAjax } from '../utils';
 
 class SignIn extends Component {
@@ -19,44 +19,43 @@ class SignIn extends Component {
     expandLogo: false,
   };
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        expandLogo: true,
+      });
+    }, 400);
+  };
+
   onChange = (name, value) => {
     this.setState({
       [name]: value,
     });
   };
 
-  onCodeSend = (onSuccess) => {
+  onCodeSend = async (onSuccess) => {
     const { phone } = this.state;
-    const that = this;
 
     const formattedPhone = cleanPhone(phone);
 
-    var data = new FormData();
-    data.append( "phone",  formattedPhone);
+    const form = new FormData();
+    form.append('phone', formattedPhone);
 
-    sendAjax('/auth/send-code/', 'POST', data,
-      (response) => {
-      if (response.ok) {
-        return response.json()
-      }
-      throw response;
-    },
-      (data) => {
-        that.setState({
-          message: `Введите код, присланный на номер \n ${phone}`,
-          isPhoneVisible: false,
-        });
-        onSuccess();
-      },
-      (error) => {
-        error.json()
-          .then(data => {
-            that.setState({
-              message: `${data[0].text}`
-            });
+    try {
+      await sendAjax('/auth/send-code/', 'POST', form);
+      this.setState({
+        message: `Введите код, присланный на номер \n ${phone}`,
+        isPhoneVisible: false,
+      });
+      onSuccess();
+    } catch (error) {
+      error.json()
+        .then((data) => {
+          this.setState({
+            message: `${data[0].text}`,
           });
-      }
-    );
+        });
+    }
   };
 
   onEnter = (code) => {
@@ -66,14 +65,6 @@ class SignIn extends Component {
       history.push(Pages.DASHBOARD);
     }
   };
-
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        expandLogo: true,
-      });
-    }, 400);
-  }
 
   onSubmit = (e) => {
     e.preventDefault();
