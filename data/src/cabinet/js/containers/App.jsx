@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import { animateScroll } from 'react-scroll';
@@ -78,7 +78,6 @@ class App extends Component {
     return (
       <div>
         <Switch location={location}>
-          <Route path={Pages.SITE_MAP} component={SiteMap} exact />
           <Route path={Pages.SIGN_IN} component={SignIn} exact />
           <Route path={Pages.KIT} component={Kit} />
           <Route path={Pages.SIGN_UP} component={SignUp} exact />
@@ -112,6 +111,7 @@ class App extends Component {
           <Route path={Pages.INVITE} component={Invite} />
           <Route path={Pages.CONFIRM} component={Confirm} />
           <Route path={Pages.ALFA} component={Alfa} />
+          <Route path={Pages.SITE_MAP} component={SiteMap} exact />
           <Route component={NotFound} />
         </Switch>
       </div>

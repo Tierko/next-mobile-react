@@ -50,8 +50,7 @@ class MobileCode extends Component {
     const { onCodeSend, phone } = this.props;
 
     if (checkPhone(phone)) {
-      onCodeSend();
-      this.initTimer();
+      onCodeSend(this.initTimer);
     }
   };
 

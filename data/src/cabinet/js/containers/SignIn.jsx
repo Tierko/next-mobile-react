@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import DocumentMeta from 'react-document-meta';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Header from '../../../common/js/components/Header';
@@ -8,7 +8,8 @@ import Input from '../components/InputPhone';
 import LogoAnimated from '../components/LogoAnimated';
 import MobileCode from '../components/MobileCode';
 import Transitions from '../components/Transitions';
-import { Pages, TITLES } from '../constants';
+import { Pages, TITLES, GENERAL_SETTINGS } from '../constants';
+import { cleanPhone } from '../utils';
 
 class SignIn extends Component {
   state = {
@@ -24,13 +25,48 @@ class SignIn extends Component {
     });
   };
 
-  onCodeSend = () => {
+  onCodeSend = (onSuccess) => {
     const { phone } = this.state;
+    const that = this;
 
-    this.setState({
-      message: `Введите код, присланный на номер \n ${phone}`,
-      isPhoneVisible: false,
+    let headers = new Headers({
+      'Content-Types': 'application/json',
     });
+
+
+    headers.append('Authorization', `Basic ${btoa(GENERAL_SETTINGS.api_login + ":" + GENERAL_SETTINGS.api_password)}`);
+    var data = new FormData();
+    const formattedPhone = cleanPhone(phone);
+    data.append( "phone",  formattedPhone);
+
+
+    fetch(`${GENERAL_SETTINGS.api_url}${GENERAL_SETTINGS.api_version}/auth/send-code/`, {
+      method: 'POST',
+      headers: headers,
+      body: data
+    })
+      .then(response => {
+        if (response.ok) {
+          return response.json()
+        }
+        throw response;
+      })
+      .then(data => {
+        console.log(data);
+        that.setState({
+          message: `Введите код, присланный на номер \n ${phone}`,
+          isPhoneVisible: false,
+        });
+        onSuccess();
+      })
+      .catch(error => {
+        error.json()
+          .then(data => {
+            that.setState({
+              message: `${data[0].text}`
+            });
+          })
+      });
   };
 
   onEnter = (code) => {
@@ -75,6 +111,10 @@ class SignIn extends Component {
     const meta = {
       title: TITLES.SIGN_IN,
     };
+
+    // if (!localStorage.getItem('logged')) {
+    //     return <h2>Welcome</h2>;
+    // }
 
     return (
       <DocumentMeta {...meta}>

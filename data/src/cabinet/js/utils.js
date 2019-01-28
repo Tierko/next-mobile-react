@@ -222,3 +222,11 @@ export function dataBuffer() {
     return interCallsData;
   };
 }
+
+export const cleanPhone = (phone) => {
+  if (!phone) {
+    return phone;
+  }
+
+  return phone.replace(/[+ -]/g, '');
+};
