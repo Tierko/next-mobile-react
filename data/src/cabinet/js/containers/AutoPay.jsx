@@ -20,7 +20,7 @@ import {
 } from '../utils';
 
 class AutoPay extends Component {
-  static days = Array(31).fill(0).map((_, i) => i + 1);
+  static days = Array(28).fill(0).map((_, i) => i + 1);
 
   static months = (() => {
     const date = new Date();

@@ -16,10 +16,6 @@ class InputRuble extends Input {
     const value = target.value.replace(/^0/, '');
     const fValue = formatCost(value);
 
-    if (length && value.replace(/[^\d/.,]/g, '').length > length) {
-      return;
-    }
-
     this.setState({
       value: fValue,
     }, () => {
