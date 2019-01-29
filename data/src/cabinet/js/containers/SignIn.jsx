@@ -19,15 +19,9 @@ class SignIn extends Component {
 
   componentDidMount() {
     const { history } = this.props;
-    if (localStorage.getItem('next-token')) {
+    if (localStorage.getItem('next-token-login')) {
       history.push(Pages.DASHBOARD);
     }
-
-    setTimeout(() => {
-      this.setState({
-        expandLogo: true,
-      });
-    }, 400);
   }
 
   onChange = (name, value) => {
@@ -67,14 +61,14 @@ class SignIn extends Component {
 
     const formattedPhone = cleanPhone(phone);
 
-    let formData = new FormData();
+    const formData = new FormData();
     formData.append('phone', formattedPhone);
     formData.append('code', code);
 
     if (code.length === 4) {
       await sendAjax('/auth/login/', 'POST', formData)
         .then((data) => {
-          localStorage.setItem('next-token', data.token);
+          localStorage.setItem('next-token-login', data.token);
           history.push(Pages.DASHBOARD);
         })
         .catch((error) => {
