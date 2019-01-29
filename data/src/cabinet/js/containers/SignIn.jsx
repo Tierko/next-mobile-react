@@ -20,12 +20,17 @@ class SignIn extends Component {
   };
 
   componentDidMount() {
+    const { history } = this.props;
+    if (localStorage.getItem('next-token')) {
+      history.push(Pages.DASHBOARD);
+    }
+
     setTimeout(() => {
       this.setState({
         expandLogo: true,
       });
     }, 400);
-  };
+  }
 
   onChange = (name, value) => {
     this.setState({
@@ -58,11 +63,30 @@ class SignIn extends Component {
     }
   };
 
-  onEnter = (code) => {
+  onEnter = async (code) => {
     const { history } = this.props;
+    const { phone } = this.state;
+
+    const formattedPhone = cleanPhone(phone);
+
+    let formData = new FormData();
+    formData.append('phone', formattedPhone);
+    formData.append('code', code);
 
     if (code.length === 4) {
-      history.push(Pages.DASHBOARD);
+      await sendAjax('/auth/login/', 'POST', formData)
+        .then((data) => {
+          localStorage.setItem('next-token', data.token);
+          history.push(Pages.DASHBOARD);
+        })
+        .catch((error) => {
+          error.json()
+            .then((data) => {
+              this.setState({
+                message: `${data[0].text}`,
+              });
+            });
+        });
     }
   };
 
@@ -93,10 +117,6 @@ class SignIn extends Component {
       title: TITLES.SIGN_IN,
     };
 
-    // if (!localStorage.getItem('logged')) {
-    //     return <h2>Welcome</h2>;
-    // }
-
     return (
       <DocumentMeta {...meta}>
         <div className="welcome">
@@ -105,7 +125,7 @@ class SignIn extends Component {
           <Transitions classNames="slide">
             <div className="welcome__content">
               <LogoAnimated expand={expandLogo} />
-              <div className="sign-in__text">{ message }</div>
+              <div className="sign-in__text">{message}</div>
               <form onSubmit={onSubmit} className="sign-in__form">
                 {
                   isPhoneVisible &&

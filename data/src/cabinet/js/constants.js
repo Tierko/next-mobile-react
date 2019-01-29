@@ -36,7 +36,7 @@ export const ACTION_TYPES = keyMirror({
 
 export const Pages = {
   KIT: '/kit',
-  SIGN_IN: '/signin',
+  SIGN_IN: '/',
   SIGN_UP: '/signup',
   DASHBOARD: '/cabinet',
   SUPPORT: '/support',
@@ -52,7 +52,7 @@ export const Pages = {
   ADD_PACKAGE: '/cabinet/add-package',
   PAY_PACKAGE: '/pay-package',
   AUTO_PAY: '/payment/auto-pay',
-  SITE_MAP: '/',
+  SITE_MAP: '/sitemap',
   SUPPORT_DASHBOARD: '/support-dashboard',
   DETAIL: '/history/detail',
   MORE: '/cabinet/more',
