@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="19px" viewBox="0 0 20 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Next_blue</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="3" y="0" width="20" height="19" rx="4"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-994.000000, -209.000000)">
+            <g id="Next_blue" transform="translate(981.000000, 195.000000)">
+                <g id="MTS-Copy">
+                    <rect id="Rectangle-12" x="0" y="0" width="46" height="46"></rect>
+                </g>
+                <g id="App_icon_blue" transform="translate(10.000000, 14.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Rectangle" fill="#151443" xlink:href="#path-1"></use>
+                    <g id="Group-3" mask="url(#mask-2)" fill="#FFFFFF">
+                        <g transform="translate(0.000000, 4.000000)">
+                            <path d="M8.4032,4.84236111 L7.37706667,4.84236111 L4.88106667,0.989583333 L4.85333333,0.989583333 L4.8672,1.20069444 C4.89493333,1.60972222 4.92266667,1.99236111 4.92266667,2.32222222 L4.92266667,4.84236111 L4.16,4.84236111 L4.16,-4.47197834e-13 L5.17226667,-4.47197834e-13 L7.66826667,3.83958333 L7.696,3.83958333 C7.696,3.78680556 7.68213333,3.60208333 7.66826667,3.28541667 C7.6544,2.96875 7.64053333,2.71805556 7.64053333,2.53333333 L7.64053333,-4.47197834e-13 L8.4032,-4.47197834e-13 L8.4032,4.84236111 Z" id="Path"></path>
+                            <rect id="Rectangle" x="9.36" y="4" width="15.5722667" height="1"></rect>
+                            <rect id="Rectangle" x="9.45706667" y="0.0527777778" width="15.5722667" height="1"></rect>
+                            <rect id="Rectangle" x="9.45706667" y="2.08472222" width="15.5722667" height="1"></rect>
+                            <rect id="Rectangle" x="9.76996262e-15" y="9.92847222" width="11.3429333" height="1"></rect>
+                            <rect id="Rectangle" x="9.76996262e-15" y="5.92847222" width="11.3429333" height="1"></rect>
+                            <rect id="Rectangle" x="9.76996262e-15" y="7.92847222" width="11.3429333" height="1"></rect>
+                            <polygon id="Path" points="17.4096 10.7708333 16.4528 10.7708333 15.1770667 8.79166667 13.8874667 10.7708333 13 10.7708333 14.6917333 8.26388889 13.1109333 5.92847222 14.04 5.92847222 15.2186667 7.7625 16.3973333 5.92847222 17.2986667 5.92847222 15.704 8.27708333"></polygon>
+                            <polygon id="Path" points="20.3296 10.7576389 19.4976 10.7576389 19.4976 6.60138889 18 6.60138889 18 5.92847222 21.8272 5.92847222 21.8272 6.60138889 20.3296 6.60138889"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

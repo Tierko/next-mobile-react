@@ -33,7 +33,7 @@ class RoamingCurrent extends Component {
         {
           additionalPackage &&
           <Fragment>
-            <div className="roaming-current__subtitle roaming-current__subtitle_fast">
+            <div className="roaming-current__subtitle">
               Пакет быстрого интернет-трафика <span className="roaming-current__note roaming-current__note_desktop">(действует еще&nbsp;{additionalPackage.expired} {convertStrings(additionalPackage.expired, DAYS)})</span>
             </div>
             <div>
@@ -43,7 +43,7 @@ class RoamingCurrent extends Component {
             </div>
             <ProgressLinear className="progress-linear_roaming" max={20} current={12.01} />
             <Button className="button_roaming-add" onClick={addPackage} primary={inRoaming}>
-              Добавить трафик
+              Добавить трафик...
             </Button>
           </Fragment>
         }

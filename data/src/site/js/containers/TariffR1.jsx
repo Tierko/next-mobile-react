@@ -7,7 +7,6 @@ import Header from '../../../common/js/components/Header';
 import TariffTariff from '../components/TariffTariff';
 import TariffRoaming from '../components/TariffRoaming';
 import TariffServices from '../components/TariffServices';
-import LogoMobile from '../components/LogoMobile';
 
 
 
@@ -46,8 +45,7 @@ class Tariff extends Component {
     return (
       <DocumentMeta title={title ? title.tariff : ''}>
         <div className="tariff">
-          <LogoMobile />
-          <MobileNav type="home" translate={nav} />
+          <MobileNav type="home" translate={nav} dark />
           <Header mode="site" info={info} translate={nav} />
           <div className="tariff__inner">
             <TariffTariff

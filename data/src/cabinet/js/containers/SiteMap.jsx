@@ -8,7 +8,7 @@ const SiteMap = () => (
   <DocumentMeta title={TITLES.SITE_MAP}>
     <div key="dashboard" className="dashboard" style={{ maxWidth: 650, margin: '0 auto' }}>
       <Transitions>
-        <div className="dashboard__content">
+        <div className="dashboard__content dashboard__content_white">
           <div>
             <Link className="link" to={Pages.DATA}>Демо данные</Link>
             <br />
@@ -19,6 +19,8 @@ const SiteMap = () => (
             <a className="link" href={`${SERVICE_URL}/tariff_r1`}>Тарифы (релиз 1)</a>
             <br />
             <a className="link" href={`${SERVICE_URL}/tariff_r2`}>Тарифы (релиз 2)</a>
+            <br />
+            <a className="link" href={`${SERVICE_URL}/legal`}>Юридическая информация</a>
             <br />
             <Link className="link" to={Pages.SIGN_IN}>Вход</Link>
             <br />
@@ -74,6 +76,8 @@ const SiteMap = () => (
             <br />
             <Link className="link" to={`${Pages.REQUEST_STATUS}/${Statuses.TRANSITION_STOPPED}`}>Статус заявки, переход приостановлен</Link>
             <br />
+            <Link className="link" to={`${Pages.REQUEST_STATUS}/${Statuses.TRANSITION_STOPPED_ERROR}`}>Статус заявки, переход приостановлен</Link>
+            <br />
             <Link className="link" to={`${Pages.REQUEST_STATUS}/${Statuses.SIM_DELIVERY}`}>Статус заявки, доставка sim-карты</Link>
             <br />
             <Link className="link" to={`${Pages.REQUEST_STATUS}/${Statuses.SIM_DELIVERY_TODAY}`}>Статус заявки, доставка sim-карты, сегодня</Link>
@@ -114,9 +118,15 @@ const SiteMap = () => (
             <br />
             <Link className="link" to={`${Pages.ROAMING}/zone-tariff/1`}>Роуминг (тарифы зоны)</Link>
             <br />
+            <Link className="link" to={Pages.FAQ}>FAQ</Link>
+            <br />
             <Link className="link" to={Pages.INVITE}>Инвайты</Link>
             <br />
             <Link className="link" to="/not-found">404</Link>
+            <br />
+            <Link className="link" to={Pages.KIT}>Типовая</Link>
+            <br />
+            <a className="link" href={`${SERVICE_URL}/faq-web-view`}>FAQ WebView</a>
           </div>
         </div>
       </Transitions>

@@ -4,7 +4,6 @@ import { Map, GeoJSON } from 'react-leaflet';
 import cs from 'classnames';
 import ComboBox from './ComboBox';
 import Loader from './Loader';
-import { HOME } from '../constants';
 import { mapNumbers } from '../utils';
 
 class RoamingMap extends Component {
@@ -238,7 +237,6 @@ class RoamingMap extends Component {
               maxZoom={maxZoom}
               ref={(e) => { this.map = e; }}
               onzoom={onZoomLevelsChange}
-              zoomDelta={0.2}
             >
               <GeoJSON
                 data={features}

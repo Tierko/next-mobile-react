@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import Logo from './Logo';
 import Button from '../../../common/js/components/Button';
 
 const handler = (action, history) => {
@@ -13,13 +12,13 @@ const handler = (action, history) => {
 const RequestStatusSimple = ({
   header,
   message,
-  color,
   action,
   history,
+  status,
 }) => (
-  <div className="welcome__content request-status">
-    <Logo type={color} />
-    <div className={`request-status__header request-status__header_${color}`}>{header}</div>
+  <div className="welcome__content request-status request-status_simple">
+    <div className={`request-status__status request-status__status_${status}`} />
+    <div className="welcome__header welcome__header_request">{header}</div>
     <div className="request-status__message">{message}</div>
     {
       action &&
@@ -39,13 +38,14 @@ const RequestStatusSimple = ({
 RequestStatusSimple.propTypes = {
   header: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
   history: PropTypes.shape().isRequired,
   action: PropTypes.shape(),
+  status: PropTypes.string,
 };
 
 RequestStatusSimple.defaultProps = {
   action: null,
+  status: 'ok',
 };
 
 export default withRouter(RequestStatusSimple);

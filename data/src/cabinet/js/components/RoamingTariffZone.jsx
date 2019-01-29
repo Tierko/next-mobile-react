@@ -50,24 +50,29 @@ const data = [{
   }],
 }];
 
-const RoamingTariffZone = ({ zone }) => (
-  <div className="roaming">
-    <div className="roaming__title">
-      <Breadcrumbs
-        items={[
-          { title: 'Роуминг', link: Pages.ROAMING },
-          { title: zone.name, link: `${Pages.ROAMING}/${zone.id}` },
-        ]}
-      />
-      Тарифы в {zone.title.toLowerCase()}
+const RoamingTariffZone = ({ zone }) => {
+  const title = `Тарифы в ${zone.title.toLowerCase()}`;
+
+  return (
+    <div className="roaming">
+      <div className="roaming__title">
+        <Breadcrumbs
+          items={[
+            { title: 'Роуминг', link: Pages.ROAMING },
+            { title: zone.name, link: `${Pages.ROAMING}/${zone.id}` },
+          ]}
+          current={title}
+        />
+        {title}
+      </div>
+      <RoamingTariff data={data} />
+      <div className="roaming__note">
+        <Link className="link" to={`${Pages.ROAMING}/internet/${zone.id}`}>Выбрать интернет-пакет </Link>
+        <div className="roaming__note-text">У&nbsp;вас осталось 0,44&nbsp;ГБ трафика на&nbsp;стандартной скорости на&nbsp;10&nbsp;дней в&nbsp;этой зоне</div>
+      </div>
     </div>
-    <RoamingTariff data={data} />
-    <div className="roaming__note">
-      <Link className="link" to={`${Pages.ROAMING}/internet/${zone.id}`}>Выбрать интернет-пакет </Link>
-      <div className="roaming__note-text">У&nbsp;вас осталось 0,44&nbsp;ГБ трафика на&nbsp;стандартной скорости на&nbsp;10&nbsp;дней в&nbsp;этой зоне</div>
-    </div>
-  </div>
-);
+  );
+};
 
 RoamingTariffZone.propTypes = {
   zone: PropTypes.shape().isRequired,

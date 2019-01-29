@@ -4,10 +4,10 @@ import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import Breadcrumbs from '../components/Breadcrumbs';
-import CopyCode from '../components/CopyCode';
 import Invites from '../components/Invites';
 import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
+import Notice from '../components/Notice';
 import { Pages, PROMO_CODES, LINKS, TITLES, LEFT, NOT_ACTIVATED } from '../constants';
 import { convertStrings } from '../utils';
 
@@ -45,8 +45,6 @@ class Invite extends Component {
 
       return acc;
     }, 0);
-    let code = items.find(i => !i.active);
-    code = code ? code.code : '';
     const meta = {
       title: TITLES.INVITES,
     };
@@ -55,11 +53,15 @@ class Invite extends Component {
       <DocumentMeta {...meta}>
         <HeaderMobile />
         <MobileNav key="nav" type="dashboard" />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transitions>
-            <div className="dashboard__content invite">
-              <Breadcrumbs items={[{ title: 'Обзор', link: Pages.OVERVIEW }]} />
+            <div className="dashboard__content dashboard__content_white invite">
+              <Breadcrumbs
+                items={[{ title: 'Обзор', link: Pages.OVERVIEW }]}
+                current={TITLES.INVITES}
+              />
               <div className="dashboard__header">
                 Подарите близким возможность присоединиться к&nbsp;закрытому клубу Next Mobile
               </div>
@@ -82,8 +84,7 @@ class Invite extends Component {
                   } для активации
                 </div>
               }
-              <CopyCode code={code} mode={mode} />
-              <Invites items={items} />
+              <Invites items={items} mode={mode} />
             </div>
           </Transitions>
         </div>

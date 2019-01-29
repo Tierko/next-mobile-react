@@ -1,14 +1,31 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import cs from 'classnames';
 import Button from '../../../common/js/components/Button';
 import { URL } from '../constants';
 
 class OverviewInvite extends Component {
+  state = {
+    copied: false,
+  };
+
   onCopy = () => {
     const { code } = this;
 
     code.focus();
     code.select();
+
+    clearTimeout(this.timer);
+
+    this.setState({
+      copied: true,
+    });
+
+    this.timer = setTimeout(() => {
+      this.setState({
+        copied: false,
+      });
+    }, 2500);
 
     try {
       setTimeout(() => {
@@ -27,7 +44,8 @@ class OverviewInvite extends Component {
 
   render() {
     let { code } = this.props;
-    const { mode } = this.props;
+    const { mode, className } = this.props;
+    const { copied } = this.state;
     const { onCopy } = this;
 
     if (!code) {
@@ -39,10 +57,25 @@ class OverviewInvite extends Component {
     }
 
     return (
-      <div className="copy-code">
-        <textarea className="copy-code__code" value={code} ref={(e) => { this.code = e; }} onChange={() => {}} />
-        <Button className="button_copy-code" onClick={onCopy}>
-          <span>Скопировать</span>
+      <div className={`copy-code ${className}`}>
+        <textarea
+          value={code}
+          ref={(e) => { this.code = e; }}
+          onChange={() => {}}
+          className={cs('copy-code__code', {
+            'copy-code__code_link': mode === 'link',
+          })}
+        />
+        <Button
+          onClick={onCopy}
+          primary
+          className={cs('button_copy-code', {
+            'button_copy-code-link': mode === 'link'
+          })}
+        >
+          {
+            copied ? 'Скопировано': <span>Скопировать</span>
+          }
         </Button>
       </div>
     );
@@ -52,6 +85,11 @@ class OverviewInvite extends Component {
 OverviewInvite.propTypes = {
   code: PropTypes.string.isRequired,
   mode: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};
+
+OverviewInvite.defaultProps = {
+  className: '',
 };
 
 export default OverviewInvite;

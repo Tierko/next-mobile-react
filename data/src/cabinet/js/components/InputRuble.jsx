@@ -12,8 +12,8 @@ class InputRuble extends Input {
     };
   }
   onChange = ({ target }) => {
-    const { name, onChange, length } = this.props;
-    const { value } = target;
+    const { name, onChange } = this.props;
+    const value = target.value.replace(/^0/, '');
     const fValue = formatCost(value);
 
     if (length && value.replace(/[^\d/.,]/g, '').length > length) {
@@ -37,13 +37,22 @@ class InputRuble extends Input {
       value: fValue,
     });
 
-    onChange(name, value.replace(/[^\d/.,]/g, '').replace(',', '.') * 1);
+    onChange(name, value.replace(/[^\d/.,]|/g, '').replace(',', '.') * 1);
   };
 
   onFocus = ({ target }) => {
     const { value } = this.state;
 
     target.setSelectionRange(value.length - 2, value.length - 2);
+  };
+
+  onBlur = () => {
+    const { min, value } = this.props;
+    const { change } = this;
+
+    if (value < min) {
+      change(min.toString());
+    }
   };
 
   render() {
@@ -55,7 +64,12 @@ class InputRuble extends Input {
       clear,
       disabled,
     } = this.props;
-    const { onChange, onFocus, change } = this;
+    const {
+      onChange,
+      onFocus,
+      change,
+      onBlur,
+    } = this;
     const { value } = this.state;
 
     return (
@@ -67,6 +81,7 @@ class InputRuble extends Input {
           value={value}
           onChange={onChange}
           onFocus={onFocus}
+          onBlur={onBlur}
           ref={(e) => { this.input = e; }}
           disabled={disabled}
         />

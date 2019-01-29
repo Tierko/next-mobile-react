@@ -1,37 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
-import cs from 'classnames';
 import { formatCost, getData } from '../utils';
 import { Pages } from '../constants';
+import { showChatAction } from '../actions/App';
+import { showNoticeAction } from '../actions/Notice';
 
 class Aside extends Component {
-  state = {
-    current: '',
-  };
-
-  setActiveLink = (match, modifier) => {
-    const { current } = this.state;
-
-    if (modifier === 'exit') {
-      return false;
-    }
-
-    if (match && !match.isExact && current !== modifier) {
-      this.setState({
-        current: modifier,
-      });
-    }
-
-    if (match && match.isExact && current) {
-      this.setState({
-        current: '',
-      });
-    }
-
-    return !!match;
-  };
-
   items = [{
     to: Pages.OVERVIEW,
     title: 'Обзор',
@@ -57,9 +33,9 @@ class Aside extends Component {
     title: 'Настройки',
     modifier: 'settings',
   }, {
-    to: Pages.SUPPORT_DASHBOARD,
-    title: 'Поддержка',
-    modifier: 'support-dashboard',
+    to: Pages.FAQ,
+    title: 'FAQ',
+    modifier: 'faq',
   }, {
     to: Pages.Exit,
     title: 'Выход',
@@ -67,16 +43,21 @@ class Aside extends Component {
   }];
 
   render() {
-    const { hideLink, hideNav } = this.props;
-    const { setActiveLink, items } = this;
-    const { current } = this.state;
+    const {
+      hideLink,
+      hideNav,
+      showChat,
+      showNotice,
+    } = this.props;
+    const { items } = this;
     const traffic = getData('remain')[0].current.toString().replace('.', ',');
     const calls = getData('remain')[1].current;
+    const balance = getData('balance');
 
     return (
       <div className="aside">
         <div className="aside__logo">
-          <img src="/media/images/logo-aside.png" alt="Next Mobile" />
+          <img src="/media/images/logo-aside.svg" alt="Next Mobile" />
           {
             !hideLink && <Link className="aside__home" to={Pages.OVERVIEW} />
           }
@@ -87,11 +68,23 @@ class Aside extends Component {
             <div className="aside__phone">+ 7 905 123-23-44</div>
             <div className="aside__info">
               <div>
-                <span>Баланс:</span> {formatCost(getData('balance'))}
+                <span>Баланс: </span>
+                {balance < 0 && '−'}
+                {formatCost(Math.abs(balance))}
               </div>
               <div>
                 <span>По России: </span>
                 <div>{traffic} ГБ, {calls} мин., БЕЗЛИМИТ СМС</div>
+              </div>
+            </div>
+            <div className="aside__control">
+              <div className="aside__button" onClick={showNotice}>
+                <img src="/media/icons/notice.svg" alt="" />
+                <img src="/media/icons/notice-hover.svg" alt="" />
+              </div>
+              <div className="aside__button" onClick={showChat}>
+                <img src="/media/icons/chat.svg" alt="" />
+                <img src="/media/icons/chat-hover.svg" alt="" />
               </div>
             </div>
             <nav className="aside__nav">
@@ -100,8 +93,8 @@ class Aside extends Component {
                   <div key={i.modifier} className={`aside__nav-item aside__nav-item_${i.modifier}`}>
                     <NavLink
                       to={i.to}
-                      isActive={e => setActiveLink(e, i.modifier)}
-                      className={cs('aside__link', { 'aside__link_not-exact': current === i.modifier })}
+                      className="aside__link"
+                      exact
                     >
                       <span>{i.title}</span>
                     </NavLink>
@@ -119,6 +112,8 @@ class Aside extends Component {
 Aside.propTypes = {
   hideLink: PropTypes.bool,
   hideNav: PropTypes.bool,
+  showChat: PropTypes.func.isRequired,
+  showNotice: PropTypes.func.isRequired,
 };
 
 Aside.defaultProps = {
@@ -126,4 +121,11 @@ Aside.defaultProps = {
   hideNav: false,
 };
 
-export default Aside;
+function mapDispatchToProps(dispatch) {
+  return {
+    showChat: () => dispatch(showChatAction()),
+    showNotice: () => dispatch(showNoticeAction()),
+  };
+}
+
+export default connect(null, mapDispatchToProps)(Aside);

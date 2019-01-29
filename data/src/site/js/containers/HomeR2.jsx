@@ -64,8 +64,14 @@ class Home extends Component {
             />
             <Cabinet to={() => to('signin')} translate={cabinet} />
             <Club className="club_home-r2" to={() => to('signup/after')} translate={club} />
-            <Footer als light translate={copyright} />
           </div>
+          <Footer
+            als
+            light
+            data={copyright}
+            mode="site"
+            className="footer_wide"
+          />
         </div>
       </DocumentMeta>
     );

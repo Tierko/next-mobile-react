@@ -13,11 +13,11 @@ const SupportDashboard = () => {
 
   return (
     <DocumentMeta {...meta}>
-      <MobileNav key="nav" type="dashboard" />
+      <MobileNav key="nav" type="dashboard" dark />
       <div key="dashboard" className="dashboard">
         <Aside />
         <Transitions>
-          <div className="dashboard__content dashboard__content_support">
+          <div className="dashboard__content">
             <Chat className="chat_dashboard" />
           </div>
         </Transitions>

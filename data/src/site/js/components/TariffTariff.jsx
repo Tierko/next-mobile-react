@@ -1,17 +1,20 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import TariffTable from '../../../common/js/components/TariffTable';
+import cs from 'classnames';
+import Select from '../components/SelectCalls';
+import Tariffs from '../../../common/js/components/Tariffs';
+
 import Button from '../../../common/js/components/Button';
-import InterCalls from '../../../common/js/components/InterCalls';
 
 export function dataBuffer() {
   const interCallsData = {
     groups: {},
     items: [],
+    rand: 0,
   };
 
   return (countries, interCalls) => {
-    if (!interCallsData.items.length && countries.length && interCalls.items.length) {
+    if (!interCallsData.items.length && countries.length && interCalls.items && interCalls.items.length) {
       return {
         groups: Object.assign({}, interCalls.groups),
         items: interCalls.items.map((item) => {
@@ -20,6 +23,7 @@ export function dataBuffer() {
           if (country) {
             item.code = country.properties.code;
             item.name = country.properties.name;
+            item.flag = country.properties.flag;
           }
 
           return item;
@@ -33,30 +37,60 @@ export function dataBuffer() {
 
 const mergeDate = dataBuffer();
 
-const TariffTariff = ({
-  to,
-  toTariff,
-  r,
-  tariffs,
-  translate,
-  interCalls,
-  countries,
-}) => {
-  const { header, btn, note } = translate;
+class TariffTariff extends Component {
+  state = {
+    country: {},
+  };
 
-  if (!header || !btn || !note) {
-    return false;
+  componentDidMount() {
+    this.setState({
+      rand: Math.floor(Math.random() * (100)),
+    });
   }
 
-  return (
-    <div className="tariff-tariff">
-      <div
-        className="tariff-tariff__header"
-        dangerouslySetInnerHTML={{ __html: header }}
-      />
-      <TariffTable mode="detail" tariff to={toTariff} data={tariffs} />
-      {
-        r === 1 &&
+  onChange = (country) => {
+    this.setState({ country });
+  };
+
+  render() {
+    const {
+      to,
+      toTariff,
+      r,
+      tariffs,
+      translate,
+      interCalls,
+      countries,
+    } = this.props;
+    const { header, btn, note } = translate;
+    const { onChange } = this;
+    const { country, rand } = this.state;
+    const data = mergeDate(countries, interCalls);
+    const countriesFiltered = data.items.filter(c => !!c.name);
+
+    if (!header || !btn || !note) {
+      return false;
+    }
+
+    return (
+      <div className="tariff-tariff">
+        <div
+          className="tariff-tariff__header"
+          dangerouslySetInnerHTML={{ __html: header }}
+        />
+        <Tariffs
+          data={tariffs}
+          mode="detail"
+          showTabs={false}
+          onChange={toTariff}
+          allFocus
+          unSelectable={r === 1}
+          className={cs('tariffs_tariffs', {
+            'tariffs_tariffs-r2': r === 2,
+          })}
+        />
+        {
+          r === 1 &&
           <Fragment>
 
             <Button onClick={to} primary>
@@ -67,11 +101,35 @@ const TariffTariff = ({
               dangerouslySetInnerHTML={{ __html: note }}
             />
           </Fragment>
-      }
-      <InterCalls className="inter-calls_tariff" data={mergeDate(countries, interCalls)} />
-    </div>
-  );
-};
+        }
+        <div className="tariff-tariff__inter-calls">
+          <div className="tariff-tariff__inter-calls-title">Звонки за границу:</div>
+          <Select onSelect={onChange} value={country}  data={data} />
+        </div>
+        {
+          countriesFiltered && !!countriesFiltered.length && !country.code &&
+          <div className="tariff-tariff__random">
+            {
+              countriesFiltered.slice(rand, rand + 3).map(c => {
+                const cost = data.groups && c.group ? `${data.groups[c.group].price} ₽/мин.` : ' ';
+
+                return (
+                  <div className="tariff-tariff__random-item" key={c.code}>
+                    <img src={`/media/flags/${c.flag}.svg`} alt="" />
+                    {c.name.ru} <span>{cost}</span>
+                  </div>
+                );
+              })
+            }
+            <div className="tariff-tariff__random-note">
+              и еще {countriesFiltered.length - 3} стран
+            </div>
+          </div>
+        }
+      </div>
+    );
+  }
+}
 
 TariffTariff.propTypes = {
   to: PropTypes.func.isRequired,

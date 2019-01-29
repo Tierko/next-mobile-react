@@ -7,7 +7,6 @@ import Header from '../../../common/js/components/Header';
 import TariffTariff from '../components/TariffTariff';
 import TariffRoaming from '../components/TariffRoaming';
 import TariffServices from '../components/TariffServices';
-import LogoMobile from '../components/LogoMobile';
 
 class Tariff extends Component {
   componentDidMount() {
@@ -22,11 +21,11 @@ class Tariff extends Component {
     }
   };
 
-  toTariff = (id) => {
+  toTariff = ({ id }) => {
     const { info } = this.props.data.translations.data;
     const url = info ? info.lk_url : '';
 
-    if (url) {
+    if (url && id) {
       location.href = `${url}/#/signup/after/tariff/${id}`;
     }
   };
@@ -52,9 +51,8 @@ class Tariff extends Component {
     return (
       <DocumentMeta title={title ? title.tariff : ''}>
         <div className="tariff">
-          <LogoMobile r={2} />
-          <MobileNav type="home" translate={nav} />
-          <Header mode="site" info={info} translate={nav} />
+          <MobileNav type="home" translate={nav} dark />
+          <Header mode="site" info={info} translate={nav} r={2} />
           <div className="tariff__inner">
             <TariffTariff
               to={() => to('signup/after')}
@@ -63,6 +61,7 @@ class Tariff extends Component {
               translate={tariffTariff}
               countries={countries.data}
               interCalls={interCalls.data}
+              r={2}
             />
             <TariffRoaming
               size="small"

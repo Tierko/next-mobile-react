@@ -1,47 +1,68 @@
 .button {
   font-family: inherit;
   font-size: @FONT-SIZE-BASE;
-  line-height: @LINE-HEIGHT-BASE;
+  line-height: 22px;
   border-radius: 2px;
   margin: 0;
   cursor: pointer;
   display: block;
   font-weight: 300;
+  transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+  text-decoration: none;
 
   &_primary {
-    background: #277afe linear-gradient(to right, #277afe, #58d2fe);
+    background-color: @BLUE-DARK;
     color: @WHITE;
     border: none;
-    padding: 9px 35px 12px;
+    padding: 11px 28px 13px;
 
-    &:hover {
-      background: #274dfe linear-gradient(to right, #274dfe, #58b5fe);
+    &:hover,
+    &_hover {
+      background-color: @BLUE-LIGHT;
+    }
+
+    &:active,
+    &_active {
+      background-color: @BLUE;
     }
 
     &:disabled,
-    &:disabled:hover {
+    &:disabled:hover,
+    &_disabled,
+    &_disabled:hover {
       cursor: default;
       color: @WHITE;
-      opacity: 0.45;
-      background: #277afe linear-gradient(to right, #277afe, #58d2fe);
+      background-color: @GRAY-LIGHT;
     }
   }
 
   &_secondary {
     background-color: transparent;
-    color: @BLACK;
-    border: 1px solid @GRAY;
-    padding: 7px 22px 9px;
+    color: @BLUE;
+    border: 1px solid rgba(121, 129, 153, 0.3);
+    padding: 9px 27px 11px;
 
-    &:hover {
-      border-color: @BLACK;
+    &:hover,
+    &_hover {
+      background-color: @BLUE-DARK;
+      border-color: transparent;
+      color: @WHITE;
+    }
+
+    &:active,
+    &_active {
+      background-color: @BLUE;
+      color: @WHITE;
     }
 
     &:disabled,
-    &:disabled:hover {
+    &:disabled:hover,
+    &_disabled,
+    &_disabled:hover {
       cursor: default;
       color: @GRAY;
       border-color: @GRAY;
+      background-color: transparent;
     }
   }
 
@@ -55,12 +76,12 @@
   }
 
   &_borderless {
+    .link-mixin();
     border: none;
-    text-decoration: underline;
-    text-decoration-color: @GRAY;
+    padding: 0;
 
     &:hover {
-      text-decoration-color: @BLACK;
+      background-color: transparent;
     }
   }
 
@@ -69,8 +90,7 @@
   }
 
   &_mobile-code-again {
-    width: 255px;
-    margin: auto;
+    margin: 15px auto 0;
     color: @GRAY-DARK;
 
     &:hover {
@@ -79,13 +99,11 @@
   }
 
   &_promo-code-continue {
-    width: 172px;
     margin: auto;
   }
 
   &_no-promo-code {
-    width: 276px;
-    margin: auto;
+    margin: 15px auto 0;
   }
 
   &_request {
@@ -99,9 +117,7 @@
   }
 
   &_remain {
-    @media (max-width: @BREAK-POINT) {
-      width: 100%;
-    }
+    margin-top: 50px;
   }
 
   &_to-next-mobile {
@@ -122,9 +138,11 @@
 
   &_conditions {
     margin: 50px auto 0;
+    min-width: 161px;
   }
 
   &_copy-code {
+    border-radius: 0;
     @media (max-width: @BREAK-POINT) {
       width: 100%;
 
@@ -134,19 +152,8 @@
     }
   }
 
-  &_balance {
-    min-width: 126px;
-    margin-top: 11px;
-  }
-
-  &_settings {
-    margin: 0 0 14px;
-  }
-
-  &_services {
+  &_copy-code-link {
     width: 100%;
-    max-width: 150px;
-    margin: 30px 0 0;
   }
 
   &_pay-package {
@@ -169,7 +176,7 @@
   }
 
   &_expense {
-    margin: 28px 0 70px;
+    margin: 28px 0 0;
   }
 
   &_detail {
@@ -181,7 +188,7 @@
   }
 
   &_roaming-add {
-    margin-top: 10px;
+    margin-top: 30px;
 
     @media (max-width: @BREAK-POINT) {
       width: 100%;
@@ -200,11 +207,14 @@
   }
 
   &_invites {
-    .dashed;
+    .link-mixin();
     padding: 0;
     margin-left: auto;
-    color: @GRAY-DARK;
-    min-width: auto;
+    border: none;
+
+    &:hover {
+      background-color: transparent;
+    }
 
     @media (max-width: @BREAK-POINT) {
       span:after {
@@ -214,12 +224,23 @@
   }
 
   &_code-mode {
-    .dashed;
     padding: 0;
     display: inline-block;
     min-width: auto;
     font-size: inherit;
     line-height: inherit;
+    color: inherit;
+    border: none;
+    background-image: linear-gradient(to right, @WHITE 50%, transparent 50%);
+    background-size: 6px 1px;
+    background-repeat: repeat-x;
+    background-position: 50% calc(50% + 0.5em);
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      background-image: none;
+    }
   }
 
   &_confirm {
@@ -251,12 +272,17 @@
   }
 
   &_result {
-    display: inline-block;
     margin-top: 20px;
     text-decoration: none;
   }
 
   &_tariffs {
-    width: 100%;
+    width: calc(100% + 2px);
+    margin: 0 -1px -1px;
+  }
+
+  &_more {
+    margin-top: 20px;
+    display: inline-block;
   }
 }

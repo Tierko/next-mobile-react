@@ -1,0 +1,56 @@
+.faq-contacts {
+  margin-top: auto;
+  padding-top: 50px;
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  &__item {
+    position: relative;
+    padding-top: 64px;
+  }
+
+  &__img {
+    position: absolute;
+
+    &_mail {
+      top: 14px;
+      left: -14px;
+    }
+
+    &_phone {
+      top: 0;
+      left: -4px;
+    }
+
+    &_messanger {
+      top: 9px;
+      left: -7px;
+    }
+
+    &_chat {
+      top: 5px;
+      left: 0;
+    }
+  }
+
+  &__title {
+    color: #798199;
+  }
+
+  @media (max-width: 1000px) {
+    &__items {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    &__item {
+      flex-basis: 40%;
+      margin-bottom: 20px;
+      min-width: 200px;
+    }
+  }
+}

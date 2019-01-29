@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TariffsItem from './TariffsItem';
+import Tabs from '../../../cabinet/js/components/Tabs';
 
 const localTariffs = [{
   id: 37,
@@ -11,11 +12,7 @@ const localTariffs = [{
   calls: 700,
   sms: 'Безлимит',
   transition: 0,
-  over: {
-    internet: 3,
-    sms: 3,
-    calls: 3,
-  },
+  over: [3, 3, 3],
 }, {
   id: 38,
   current: false,
@@ -26,11 +23,7 @@ const localTariffs = [{
   nextCalls: 700,
   sms: 'Безлимит',
   transition: 0,
-  over: {
-    internet: 2,
-    sms: 2,
-    calls: 2,
-  },
+  over: [5, 5, 5],
 }, {
   id: 39,
   current: false,
@@ -41,11 +34,7 @@ const localTariffs = [{
   nextCalls: 700,
   sms: 'Безлимит',
   transition: 0,
-  over: {
-    internet: 1,
-    sms: 1,
-    calls: 1,
-  },
+  over: [7, 7, 7],
 }];
 
 
@@ -64,11 +53,9 @@ class TariffTable extends Component {
     });
   };
 
-  toggleMode = () => {
-    const { mode } = this.state;
-
+  toggleMode = (mode) => {
     this.setState({
-      mode: mode === 'short' ? 'detail' : 'short',
+      mode,
     });
   };
 
@@ -95,15 +82,24 @@ class TariffTable extends Component {
     return [current, ...filtered];
   };
 
+  tabs = [{
+    title: 'Краткая информация',
+    id: 'short',
+  }, {
+    title: 'Подробная информация',
+    id: 'detail',
+  }];
+
   render() {
-    const { toggleMode, filter, onSelect } = this;
+    const { toggleMode, filter, onSelect, tabs } = this;
     const {
       current,
       onChange,
-      home,
-      tariff,
       className,
       data,
+      showTabs,
+      allFocus,
+      unSelectable,
     } = this.props;
     const { mode, selected } = this.state;
     const isDetail = mode === 'detail';
@@ -113,6 +109,10 @@ class TariffTable extends Component {
 
     return (
       <div className={`tariffs ${className}`}>
+        {
+          showTabs &&
+          <Tabs className="tabs_tariffs" onChange={toggleMode} items={tabs} tab={mode} />
+        }
         <div className="tariffs__inner">
           <div className="tariffs__wrapper">
             <div className="tariffs__items">
@@ -127,19 +127,13 @@ class TariffTable extends Component {
                     index={i}
                     selected={selected}
                     onSelect={onSelect}
+                    allFocus={allFocus}
+                    unSelectable={unSelectable}
                   />
                 ))
               }
             </div>
           </div>
-          {
-            !home && !tariff &&
-            <div className="tariff-table__toggle" onClick={toggleMode}>
-              {
-                isDetail ? 'Краткая информация' : 'Подробная информация'
-              }
-            </div>
-          }
         </div>
       </div>
     );
@@ -149,21 +143,23 @@ class TariffTable extends Component {
 TariffTable.propTypes = {
   current: PropTypes.number,
   onChange: PropTypes.func,
-  home: PropTypes.bool,
-  tariff: PropTypes.bool,
   mode: PropTypes.string,
   className: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.shape()),
+  showTabs: PropTypes.bool,
+  allFocus: PropTypes.bool,
+  unSelectable: PropTypes.bool,
 };
 
 TariffTable.defaultProps = {
   current: -1,
-  onChange: null,
-  home: false,
-  tariff: false,
+  onChange: () => {},
   mode: 'short',
   className: '',
   data: null,
+  showTabs: true,
+  allFocus: false,
+  unSelectable: false,
 };
 
 export default TariffTable;

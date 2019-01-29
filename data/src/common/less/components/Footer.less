@@ -1,33 +1,49 @@
 .footer {
-  display: flex;
-  color: rgba(0, 0, 0, 0.3);
-  padding-top: 100px;
+  padding:  30px 0 14px;
   width: 100%;
-  order: 50;
-  margin-top: auto;
+  margin: auto auto 0;
+  letter-spacing: -0.28px;
+  color: @GRAY-DARK;
+  font-size: 14px;
+  line-height: @LINE-HEIGHT-SMALL;
+
+  &__contact {
+    line-height: @LINE-HEIGHT-BASE;
+  }
+
+  &_wide {
+    padding: 100px 0 80px;
+  }
+
+  &_wide &__inner {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 20px;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 108px;
+  }
 
   &_light {
     color: rgba(255, 255, 255, 0.3);
+    background-color: @BLUE-MAIN;
   }
 
-  @media (max-width: @BREAK-POINT) {
-    display: block;
-    width: 100%;
-    max-width: 450px;
-    margin: auto;
+  &__left {
+    padding-right: 20px;
   }
 
   &__copy {
-    margin-right: 43px;
+    margin-bottom: 10px;
   }
 
   &__dev {
     display: flex;
-
-    @media (max-width: @BREAK-POINT) {
-      display: block;
-      margin-top: 20px;
-    }
+    margin-bottom: 12px;
   }
 
   &__dev-img {
@@ -37,39 +53,161 @@
   }
 
   &__dev-text {
-    .small;
     margin-left: 10px;
     max-width: calc(100% - 110px);
-
-    @media (max-width: @BREAK-POINT) {
-      margin-left: 0;
-      max-width: none;
-    }
   }
 
   &__dev-link:hover + &__dev-text &__link_stud {
-    background-image: linear-gradient(to right, @BLACK, @BLACK);
+    background-image: none;
+    color: @ORANGE;
   }
 
   &_light &__dev-link:hover + &__dev-text &__link_stud {
-    background-image: linear-gradient(to right, @WHITE, @WHITE);
+    background-image: none;
     color: @WHITE;
   }
 
   &__link {
     .link;
-    color: inherit;
   }
 
   &_light &__link {
     color: rgba(255, 255, 255, 0.3);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.3)) 0 93% repeat-x;
-    background-size: 100% 1px;
 
     &:hover {
-      background: linear-gradient(to right, rgba(255, 255, 255, 1)) 0 93% repeat-x;
-      background-size: 100% 1px;
       color: @WHITE;
     }
   }
+
+  &__chats {
+    display: flex;
+    align-items: center;
+  }
+
+  &__chat {
+    margin-left: 14px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+
+    img {
+      display: block;
+    }
+
+    img + img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+    }
+
+    &:hover img + img {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 1492px) {
+    &__chats {
+      margin-top: 30px;
+    }
+
+    &__center {
+      width: 240px;
+    }
+
+    &__right {
+      margin-left: auto;
+      width: 240px;
+    }
+
+    &_wide &__chats {
+      margin-top: 0;
+    }
+
+    &_wide &__center {
+      width: auto;
+    }
+
+    &_wide &__right {
+      margin-left: 0;
+      width: auto;
+    }
+  }
+
+  @media (max-width: 1260px) {
+    &__chats {
+      margin-top: 30px;
+    }
+
+    &__inner {
+      max-width: 638px;
+      margin: auto;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    &__inner {
+      display: block;
+    }
+
+    &__right {
+      margin-left: 0;
+      margin-top: 14px;
+    }
+
+    &_wide &__inner {
+      display: flex;
+    }
+
+    &_wide &__right {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 900px) {
+    &_wide &__center {
+      width: 240px;
+    }
+
+    &_wide &__right {
+      width: 240px;
+      margin-left: auto;
+      padding-top: 14px;
+    }
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    max-width: none;
+
+    &__inner {
+      display: block;
+      margin: 0;
+    }
+
+    &_wide &__inner {
+      display: block;
+    }
+
+    &__dev {
+      display: block;
+      margin-top: 20px;
+    }
+
+    &__dev-text {
+      margin-left: 0;
+      max-width: none;
+    }
+    &_wide &__center {
+      width: auto;
+    }
+
+    &_wide &__right {
+      width: auto;
+      margin-left: 0;
+      padding-top: 14px;
+    }
+  }
+
 }

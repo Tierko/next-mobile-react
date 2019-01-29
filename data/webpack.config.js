@@ -9,8 +9,8 @@ const PORT = {
   site: '8082',
 };
 const URL = {
-  cabinet: 'http://next-promo.dev.design.ru',
-  site: 'http://next-mobile.dev.design.ru',
+  cabinet: 'http://next-promo-v2.dev.design.ru',
+  site: 'http://next-mobile-v2.dev.design.ru',
 };
 
 module.exports = (env, { mode }) => {
@@ -102,7 +102,7 @@ module.exports = (env, { mode }) => {
       port,
       proxy: {
         '/api//*': {
-          target: 'http://next-promo.dev.design.ru',
+          target: 'http://next-promo-v2.dev.design.ru',
           secure: false,
           changeOrigin: true,
         },

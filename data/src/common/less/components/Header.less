@@ -1,20 +1,14 @@
 .header {
   display: flex;
-  padding: 0 15px;
+  justify-content: space-between;
   position: relative;
-  max-width: 1200px;
-  margin: auto;
-  align-items: flex-start;
-  height: 110px;
-
-  @media (max-width: @BREAK-POINT) {
-    display: none;
-  }
+  height: 80px;
+  background-color: @BLUE-MAIN;
 
   &__back {
     position: absolute;
-    bottom: -20px;
-    left: 68px;
+    bottom: -60px;
+    left: 30px;
     z-index: 1;
     transition: opacity 0.3s;
     cursor: pointer;
@@ -29,14 +23,11 @@
   }
 
   &__logo {
-    width: 121px;
-    height: 75px;
-    background: url("/media/images/logo-mini-dark.png") no-repeat 50% 50%;
+    width: 308px;
+    height: 80px;
+    background: url("/media/images/logo-header.svg") no-repeat 30px 50%;
+    background-size: calc(100% - 30px) auto;
     position: relative;
-
-    &_light {
-      background-image: url("/media/images/logo-mini-light.png");
-    }
   }
 
   &__home {
@@ -49,34 +40,77 @@
   }
 
   &__center {
-    flex: 1 1 50%;
+    flex: 1 1 35%;
     display: flex;
     justify-content: center;
+    align-items: center;
     align-self: center;
   }
 
   &__right {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     flex: 1 1 25%;
-    align-self: center;
   }
 
   &__item {
+    padding: 0 15px;
+  }
+
+  &__link {
     .link-nav;
     line-height: @FONT-SIZE-BASE;
     font-size: @FONT-SIZE-SMALL;
 
-    &_light {
-      .link-nav-light;
+    &.active {
+      background-image: none;
     }
   }
 
-  &__span {
-    .nav-point;
+  &__go {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    height: 80px;
+    padding: 0 35px;
+    margin-left: 20px;
+    text-decoration: none;
+    color: @WHITE;
+    background-color: @ORANGE;
+    font-size: 21px;
 
-    &_light:before {
-      background-color: rgba(255, 255, 255, 0.5);
+    &.active {
+      cursor: default;
+    }
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    display: none;
+  }
+
+  @media (max-width: 1050px) {
+    &__item {
+      padding: 0 8px;
+    }
+  }
+
+  @media (max-width: 1060px) {
+    &__left {
+      flex: 0 0 auto;
+    }
+
+    &__center {
+      flex: 0 1 auto;
+    }
+
+    &__right {
+      flex: 0 0 auto;
+    }
+
+    &__logo {
+      max-width: 240px;
+      background-position: 20px 50%;
     }
   }
 }

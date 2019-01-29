@@ -23,6 +23,8 @@ class RoamingInternet extends Component {
       return false;
     }
 
+    const title = `Интернет в ${zone.title.toLowerCase()}`;
+
     return (
       <div className="roaming">
         <div className="roaming__title">
@@ -31,8 +33,9 @@ class RoamingInternet extends Component {
               { title: 'Роуминг', link: Pages.ROAMING },
               { title: zone.name, link: `${Pages.ROAMING}/${zone.id}` },
             ]}
+            current={title}
           />
-          Интернет в {zone.title.toLowerCase()}
+          {title}
         </div>
         {
           zone.additionalPackage &&

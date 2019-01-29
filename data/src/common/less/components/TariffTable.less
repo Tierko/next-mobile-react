@@ -108,7 +108,6 @@
   }
 
   &__current {
-    .gradient-tariff-current;
     max-width: 140px;
     display: inline-block;
   }
@@ -154,15 +153,7 @@
   }
 
   &__toggle {
-    .link-dashed;
-    margin-top: 30px;
-    cursor: pointer;
+    .link-mixin(@GRAY, @GRAY, transparent);
     display: inline-block;
-  }
-
-  &__cost_home {
-    font-size: 40px;
-    line-height: 46px;
-    font-weight: 100;
   }
 }

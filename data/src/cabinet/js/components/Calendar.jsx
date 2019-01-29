@@ -277,7 +277,7 @@ Calendar.propTypes = {
 };
 
 Calendar.defaultProps = {
-  date: null,
+  date: new Date(),
   fromTomorrow: false,
 };
 

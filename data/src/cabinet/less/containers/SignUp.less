@@ -13,20 +13,28 @@
     max-width: 700px;
   }
 
+  &_after {
+    padding-top: 150px;
+
+    @media (max-width: @BREAK-POINT) {
+      padding-top: 75px;
+    }
+  }
+
   &__transition {
-    font-size: 60px;
-    line-height: 70px;
-    font-weight: 100;
+    .h1;
     text-align: center;
-    margin: 17px 0 21px;
+    margin: 72px 0 21px;
     white-space: pre-wrap;
+    padding: 0 15px;
 
     & > span {
       display: block;
     }
 
     @media (max-width: @BREAK-POINT) {
-      padding-top: 50px;
+      margin-top: 0;
+      padding-top: 122px;
 
       & > span {
         display: inline;
@@ -35,8 +43,8 @@
   }
 
   &__transition-link {
-    .link-dashed;
-    color: @BLACK;
+    .link-mixin(inherit, @GRAY, transparent);
+    background-position: 0 calc(50% + 0.43em);
   }
 
   &__header {
@@ -45,7 +53,6 @@
   }
 
   &__message {
-    margin-top: -120px;
     position: relative;
     z-index: 1;
 
@@ -57,20 +64,6 @@
     &_select-tariff,
     &_no-logo {
       margin-top: 24px;
-    }
-
-    @media (max-width: 600px) {
-      margin-top: calc(-20vw + 10px);
-
-      &_step4 {
-        margin-top: 0;
-      }
-
-      &_select-number,
-      &_select-tariff,
-      &_no-logo {
-        margin-top: 24px;
-      }
     }
   }
 
@@ -100,6 +93,10 @@
   &__row {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 400px) {
+      display: block;
+    }
   }
 
   &__scenario {

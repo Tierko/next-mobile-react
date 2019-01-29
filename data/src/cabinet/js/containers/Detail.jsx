@@ -10,6 +10,7 @@ import Input from '../../../common/js/components/Input';
 import Select from '../../../common/js/components/Select';
 import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
+import Notice from '../components/Notice';
 import { Pages, TITLES, THIRTY_DAYS } from '../constants';
 
 class Detail extends Component {
@@ -85,11 +86,15 @@ class Detail extends Component {
       <DocumentMeta {...meta}>
         <HeaderMobile />
         <MobileNav key="nav" type="dashboard" />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transitions>
-            <div className="dashboard__content">
-              <Breadcrumbs items={[{ title: 'История', link: Pages.HISTORY }]} />
+            <div className="dashboard__content dashboard__content_white">
+              <Breadcrumbs
+                items={[{ title: 'История', link: Pages.HISTORY }]}
+                current={TITLES.DETAIL}
+              />
               <div className="detail">
                 <div className="dashboard__header">Детализация</div>
                 <div className="detail__period-title">За&nbsp;период</div>
@@ -112,7 +117,7 @@ class Detail extends Component {
                 </div>
                 {
                   !isInLimit() &&
-                  <div className="detail__error">Вы&nbsp;выбрали слишком большой период<span className="nobr">(максимум 30&nbsp;дней)</span></div>
+                  <div className="detail__error">Вы&nbsp;выбрали слишком большой период <span className="nobr">(максимум 30&nbsp;дней)</span></div>
                 }
                 <Input
                   placeholder="На какую почту отправить"

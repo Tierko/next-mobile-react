@@ -2,7 +2,7 @@ const operations = [
   [{
     id: 1,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 10,
     },
@@ -16,7 +16,7 @@ const operations = [
   }, {
     id: 2,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 10,
     },
@@ -30,7 +30,7 @@ const operations = [
   }, {
     id: 3,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 10,
     },
@@ -43,7 +43,7 @@ const operations = [
   }, {
     id: 4,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 10,
     },
@@ -57,7 +57,7 @@ const operations = [
   }, {
     id: 5,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 9,
     },
@@ -68,7 +68,7 @@ const operations = [
   }, {
     id: 6,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 9,
     },
@@ -81,7 +81,7 @@ const operations = [
   }, {
     id: 7,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 9,
     },
@@ -94,7 +94,7 @@ const operations = [
   }, {
     id: 8,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 9,
     },
@@ -108,7 +108,7 @@ const operations = [
   }, {
     id: 9,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 9,
     },
@@ -122,7 +122,7 @@ const operations = [
   }, {
     id: 10,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 8,
     },
@@ -135,7 +135,7 @@ const operations = [
   }, {
     id: 11,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 8,
     },
@@ -146,7 +146,7 @@ const operations = [
   }, {
     id: 12,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 8,
     },
@@ -160,7 +160,7 @@ const operations = [
   }, {
     id: 13,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 8,
     },
@@ -174,7 +174,7 @@ const operations = [
   }, {
     id: 14,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 8,
     },
@@ -188,7 +188,7 @@ const operations = [
   }, {
     id: 15,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 8,
     },
@@ -202,7 +202,7 @@ const operations = [
   }, {
     id: 16,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 8,
     },
@@ -216,7 +216,7 @@ const operations = [
   }, {
     id: 17,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 8,
     },
@@ -230,7 +230,7 @@ const operations = [
   }, {
     id: 18,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 8,
     },
@@ -244,7 +244,7 @@ const operations = [
   }, {
     id: 19,
     date: {
-      year: 2020,
+      year: 2018,
       month: 8,
       day: 8,
     },
@@ -255,6 +255,20 @@ const operations = [
     cost: 0,
     note: 'на номер +7 903 234-01-83 Smarts',
     provider: 'smarts',
+  }, {
+    id: 20,
+    date: {
+      year: 2018,
+      month: 8,
+      day: 8,
+    },
+    time: '9:15',
+    type: 9,
+    count: 1,
+    unit: 'СМС',
+    cost: 0,
+    note: 'на номер +7 903 111-11-11 Next',
+    provider: 'next-vip',
   }],
   [],
 ];

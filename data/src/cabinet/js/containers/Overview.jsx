@@ -14,8 +14,8 @@ import History from '../components/History';
 import RoamingDashboard from '../components/RoamingDashboard';
 import OverviewInvite from '../components/OverviewInvite';
 import OverviewRoamingCurrent from '../components/OverviewRoamingCurrent';
-import Notice from '../components/Notice';
 import FooterNav from '../components/FooterNav';
+import Notice from '../components/Notice';
 
 import { Pages, TITLES } from '../constants';
 import { getData, formatCost } from '../utils';
@@ -97,35 +97,24 @@ class Overview extends Component {
     const { roaming, history } = this.props;
     const { onPay, sumChange, onBuy } = this;
     const { sum, invites: { message, items } } = this.state;
-    const data = getData('payment');
     const code = items.find(i => !i.active);
     const meta = {
       title: TITLES.OVERVIEW,
     };
-    let status = '';
-
-    if (data.days > 5 && data.days <= 10 && getData('balance') < getData('tariff').payment) {
-      status = 'warn';
-    }
-
-    if (data.days <= 5 && getData('balance') < getData('tariff').payment) {
-      status = 'error';
-    }
 
     return (
       <DocumentMeta {...meta}>
         <HeaderMobile hideHomeLink />
         <MobileNav key="nav" type="dashboard" />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside hideLink />
           <Transitions>
             <div className="dashboard__content">
-              <Notice className="notice_overview" />
               <Balance
                 balance={getData('balance')}
                 sum={sum}
-                message={`${formatCost(getData('tariff').payment)} через ${getData('payment').days} дней`}
-                status={status}
+                message={`Следующее списание: ${formatCost(getData('tariff').payment)} 25 декабря`}
                 onPay={onPay}
                 onChange={sumChange}
               />
@@ -134,13 +123,12 @@ class Overview extends Component {
                 data={getData('remain')}
                 tariff={getData('tariff')}
                 buy={onBuy}
-                inRoaming={!!roaming.currentZoneId}
               />
               <History data={getData('history')} />
               <RoamingDashboard data={roaming} />
               <OverviewInvite message={message} code={code ? code.code : ''} />
               <FooterNav />
-              <Footer als />
+              <Footer als mode="cabinet" />
             </div>
           </Transitions>
         </div>

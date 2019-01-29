@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import InterCalls from '../../../common/js/components/InterCalls';
+import Select from '../components/SelectCalls';
 import Earth from './Earth';
 
 function dataBuffer() {
@@ -24,19 +24,34 @@ function dataBuffer() {
 const filteredData = dataBuffer();
 
 class EarthTariff extends Component {
-  state = {
-    country: null,
-  };
+  constructor(props) {
+    super(props);
+    const { countries } = props;
+    const rand = Math.floor(Math.random() * countries.length);
+    let country = {};
+
+    if (countries[rand]) {
+      country = {
+        name: countries[rand].properties.name,
+        code: countries[rand].properties.code,
+      };
+    }
+
+    this.state = {
+      country,
+      animate: true,
+    };
+  }
 
   onChange = (country) => {
     this.setState({
       country,
+      animate: false,
     });
   };
 
   render() {
     const {
-      tariff,
       className,
       type,
       size,
@@ -46,9 +61,9 @@ class EarthTariff extends Component {
       roaming,
     } = this.props;
     const { onChange } = this;
-    const { country } = this.state;
-    const autoCompleteCountries = filteredData(countries);
-    let currentRoaming = country && roaming.find(r => r.code === country.code);
+    const { country, animate } = this.state;
+    const autoCompleteCountries = filteredData(countries).filter(c => roaming.find(r => r.code === c.code));
+    let currentRoaming = country.code && roaming.find(r => r.code === country.code);
     currentRoaming = currentRoaming || {};
 
     if (home && (!header || !text || !countries.length)) {
@@ -72,18 +87,16 @@ class EarthTariff extends Component {
               dangerouslySetInnerHTML={{ __html: text }}
             />
           }
-          <InterCalls
-            className="inter-calls_home"
-            home={home}
-            tariff={tariff}
-            onChange={onChange}
-            hidePrice
+          <Select
+            className="select_roaming"
+            onSelect={onChange}
             data={{ items: autoCompleteCountries }}
+            value={country}
           />
         </div>
         <div
           className={cs('earth-tariff__numbers', {
-            'earth-tariff__numbers_show': !!country,
+            'earth-tariff__numbers_show': !!country.code,
           })}
         >
           {
@@ -119,14 +132,13 @@ class EarthTariff extends Component {
             </div>
           }
         </div>
-        <Earth style={type} size={size} country={country} features={countries} />
+        <Earth style={type} size={size} country={animate ? {} : country} features={countries} />
       </div>
     );
   }
 }
 
 EarthTariff.propTypes = {
-  tariff: PropTypes.bool,
   className: PropTypes.string,
   type: PropTypes.string.isRequired,
   size: PropTypes.string.isRequired,
@@ -137,7 +149,6 @@ EarthTariff.propTypes = {
 };
 
 EarthTariff.defaultProps = {
-  tariff: false,
   className: '',
   home: false,
   translate: {},

@@ -29,6 +29,7 @@ import Invite from './Invite';
 import Confirm from './Confirm';
 import Alfa from './Alfa';
 import NotFound from './NotFound';
+import Faq from '../../../common/js/containers/Faq';
 import { Pages } from '../constants';
 import getInterCallsAction from '../actions/InterCalls';
 import {
@@ -111,6 +112,7 @@ class App extends Component {
           <Route path={Pages.INVITE} component={Invite} />
           <Route path={Pages.CONFIRM} component={Confirm} />
           <Route path={Pages.ALFA} component={Alfa} />
+          <Route path={Pages.FAQ} component={Faq} />
           <Route path={Pages.SITE_MAP} component={SiteMap} exact />
           <Route component={NotFound} />
         </Switch>

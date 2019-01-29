@@ -7,6 +7,11 @@ const remain = [
     name: 'Интернет',
     link: true,
     type: 'internet',
+    packages: [{
+      current: 2,
+      max: 2,
+      until: 'до 25 декабря',
+    }],
   }, {
     id: 2,
     current: 1000,
@@ -15,6 +20,11 @@ const remain = [
     name: 'Звонки',
     link: true,
     type: 'calls',
+    packages: [{
+      current: 400,
+      max: 400,
+      until: 'до 25 декабря',
+    }],
   }, {
     id: 3,
     current: 129,
@@ -31,6 +41,11 @@ const remain = [
     name: 'Интернет',
     link: true,
     type: 'internet',
+    packages: [{
+      current: 1,
+      max: 2,
+      until: 'до 25 декабря',
+    }],
   }, {
     id: 2,
     current: 538,
@@ -55,6 +70,11 @@ const remain = [
     name: 'Интернет',
     link: true,
     type: 'internet',
+    packages: [{
+      current: 2,
+      max: 2,
+      until: 'до 25 декабря',
+    }],
   }, {
     id: 2,
     current: 243,
@@ -79,6 +99,11 @@ const remain = [
     name: 'Интернет',
     link: true,
     type: 'internet',
+    packages: [{
+      current: 2,
+      max: 2,
+      until: 'до 25 декабря',
+    }],
   }, {
     id: 2,
     current: 7,
@@ -103,6 +128,11 @@ const remain = [
     name: 'Интернет',
     link: true,
     type: 'internet',
+    packages: [{
+      current: 0,
+      max: 2,
+      until: 'до 25 декабря',
+    }],
   }, {
     id: 2,
     current: 0,

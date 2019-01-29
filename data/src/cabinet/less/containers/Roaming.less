@@ -1,23 +1,6 @@
 .roaming {
   position: relative;
 
-  @media (max-width: @MAX-WIDTH) {
-    padding: 0 15px;
-  }
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: -100px;
-    left: -83px;
-    border-left: 1px solid @GRAY-LIGHT;
-
-    @media (max-width: @MAX-WIDTH) {
-      left: calc(100vw / -12);
-    }
-  }
-
   &_zones {
     min-height: 665px;
   }
@@ -26,24 +9,6 @@
     display: flex;
     max-width: 100%;
     overflow: hidden;
-  }
-
-  &_countries {
-    @media (min-width: 1000px) {
-      margin-right: calc((100vw - 1000px) / -2);
-    }
-  }
-
-  @media (max-width: @BREAK-POINT) {
-    padding: 0;
-
-    &:before {
-      display: none;
-    }
-
-    &_zones {
-      padding-left: 0;
-    }
   }
 
   &__title {
@@ -102,13 +67,10 @@
     display: block;
   }
 
-  &__countries {
-    .link-dashed;
-  }
-
-  &__more {
-    .link-dashed;
-  }
+  //&__countries,
+  //&__more {
+  //  .link-mixin(#798199, @GRAY-DARK, transparent);
+  //}
 
   &__big {
     .h2;
@@ -153,10 +115,11 @@
   }
 
   &__name {
-    border-bottom: 1px solid @GRAY;
+    .link-mixin()
   }
 
   &:hover &__name {
-    border-bottom-color: @BLACK;
+    color: @ORANGE;
+    background-image: none;
   }
 }

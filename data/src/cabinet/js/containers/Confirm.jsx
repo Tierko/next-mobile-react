@@ -7,6 +7,7 @@ import Aside from '../components/Aside';
 import Breadcrumbs from '../components/Breadcrumbs';
 import Button from '../../../common/js/components/Button';
 import Transition from '../components/Transitions';
+import Notice from '../components/Notice';
 import { Pages } from '../constants';
 import { formatCost } from '../utils';
 
@@ -28,9 +29,9 @@ class Confirm extends Component {
     const state = location.state || {};
     const { pack, sum } = state;
     const { onPay, redirect } = this;
-    const title = `Оплатить ${pack}?`;
+    const title = `Оплатить ${pack}`;
     const meta = {
-      title,
+      title: `${title}?`,
     };
 
     if (!pack || !sum) {
@@ -41,20 +42,25 @@ class Confirm extends Component {
       <DocumentMeta {...meta}>
         <HeaderMobile />
         <MobileNav key="nav" type="dashboard" />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transition>
-            <div className="dashboard__content">
+            <div className="dashboard__content dashboard__content_white">
               <Breadcrumbs
                 items={[
                   { title: 'Обзор', link: Pages.OVERVIEW },
                   { title: 'Дополнительный пакет', link: Pages.ADD_PACKAGE },
                 ]}
+                current={title}
               />
               <div className="confirm">
-                <div className="dashboard__header dashboard__header_confirm">{title}</div>
+                <div className="dashboard__header dashboard__header_confirm">{title}?</div>
                 <div className="confirm__sum">{formatCost(sum || 0)}</div>
                 <Button className="button_confirm" onClick={onPay} >Оплатить</Button>
+                <div className="note note_show note_confirm">
+                  Списание будет произведено с текущего баланса
+                </div>
               </div>
             </div>
           </Transition>

@@ -18,7 +18,7 @@ class Select extends Component {
     const { onESC } = this;
 
     document.removeEventListener('click', this.outsideClick);
-    window.removeEventListener('kyup', onESC);
+    window.removeEventListener('keyup', onESC);
   }
 
   onESC = ({ keyCode }) => {

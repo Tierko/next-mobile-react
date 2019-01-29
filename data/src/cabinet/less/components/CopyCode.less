@@ -1,6 +1,45 @@
 .copy-code {
+  max-width: 340px;
   width: 100%;
-  max-width: 400px;
+
+  &_invites {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 20px 20px 0;
+
+    &:before {
+      content: '';
+      width: 2px;
+      background-color: #443f7a;
+      order: 2;
+    }
+  }
+
+  &_invites &__code {
+    width: auto;
+    background: @BLUE-DARK;
+    color: @WHITE;
+    margin: 0;
+    height: 46px;
+    border: none;
+    padding: 11px 28px 13px;
+    font-weight: bold;
+    text-align: center;
+    max-width: 160px;
+    order: 1;
+  }
+
+  &_invites &__code_link {
+    max-width: none;
+    width: 100%;
+    border-bottom: 2px solid #443f7a;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  &_invites .button {
+    order: 3;
+  }
 
   &__code {
     margin-bottom: 20px;
@@ -16,5 +55,18 @@
     white-space: nowrap;
     padding: 0;
     overflow: hidden;
+    color: inherit;
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    &_invites {
+      margin-right: 0;
+    }
+
+    &_invites &__code {
+      max-width: none;
+      width: 100%;
+      border-bottom: 2px solid #443f7a;
+    }
   }
 }

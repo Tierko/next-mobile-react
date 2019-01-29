@@ -73,12 +73,14 @@ class AutoComplete extends Select {
                 className={cs('select__item', { select__item_flag: flag })}
                 onClick={() => onSelect(i)}
                 role="button"
-                key={i.id || i.title}
+                key={i.id || i.code || i.title}
               >
                 {
-                  flag && i.code &&
+                  flag &&
                     <span className="select__flag">
-                      <img src={`/media/flags/${i.code}.svg`} alt="" />
+                      {
+                        i.flag && <img src={`/media/flags/${i.flag}.svg`} alt="" />
+                      }
                     </span>
                 }
                 {

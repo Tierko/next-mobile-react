@@ -9,8 +9,7 @@ import TariffServices from '../components/TariffServices';
 import Tariffs from '../../../common/js/components/Tariffs';
 import InterCalls from '../../../common/js/components/InterCalls';
 import Transitions from '../components/Transitions';
-import Button from '../../../common/js/components/Button';
-import Note from '../components/Note';
+import Notice from '../components/Notice';
 import { Pages, TITLES } from '../constants';
 import { dataBuffer } from '../utils';
 
@@ -18,35 +17,54 @@ const mergeDate = dataBuffer();
 
 class Services extends Component {
   state = {
-    unsaved: false,
-    showNote: false,
     services: [{
       id: 1,
       name: 'Кто звонил',
       checked: true,
       desc: 'Мы будем присылать СМС о том, кто вам звонил, пока вы были недоступны.',
       price: 'Бесплатно',
+      disabled: false,
     }, {
       id: 2,
       name: 'Антиопределитель номера',
       checked: false,
       desc: 'Ваш номер нельзя будет определить при звонке.',
       price: 'Бесплатно',
+      disabled: false,
     }],
     currentTariff: (localStorage.getItem('tariff') || 0) * 1 || 37,
   };
 
   toggleService = (id, value) => {
-    const { services } = this.state;
-    const index = services.slice().findIndex(s => s.id === id);
+    const { enableService } = this;
+    const services = this.state.services.slice();
+    const index = services.findIndex(s => s.id === id);
 
     if (index !== -1) {
       services[index].checked = value;
+      services[index].disabled = true;
 
       this.setState({
         services,
-        unsaved: true,
       });
+
+      enableService(id);
+    }
+  };
+
+  enableService = (id) => {
+    const services = this.state.services.slice();
+    const index = services.findIndex(s => s.id === id);
+
+    if (index !== -1) {
+
+      setTimeout(() => {
+        services[index].disabled = false;
+
+        this.setState({
+          services,
+        });
+      }, 1500);
     }
   };
 
@@ -67,31 +85,14 @@ class Services extends Component {
     localStorage.setItem('tariff', tariff.id);
   };
 
-  onSave = () => {
-    this.setState({
-      unsaved: false,
-      showNote: true,
-    });
-  };
-
-  onNoteFade = () => {
-    this.setState({
-      showNote: false,
-    });
-  };
-
   render() {
     const {
       services,
       currentTariff,
-      showNote,
-      unsaved,
     } = this.state;
     const {
       toggleService,
       changeTariff,
-      onSave,
-      onNoteFade,
     } = this;
     const meta = {
       title: TITLES.SERVICES,
@@ -103,25 +104,17 @@ class Services extends Component {
       <DocumentMeta {...meta}>
         <HeaderMobile />
         <MobileNav key="nav" type="dashboard" />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transitions>
             <div className="dashboard__content">
-              <div className="dashboard__header">Тарифы</div>
-              <div className="dashboard__text">При смене тарифа первый месяц использования оплачивается сразу</div>
-              <Tariffs current={currentTariff} onChange={changeTariff} />
-              <InterCalls data={data} />
+              <div className="block">
+                <div className="dashboard__header">Тарифы</div>
+                <Tariffs current={currentTariff} onChange={changeTariff} />
+                <InterCalls data={data} more />
+              </div>
               <TariffServices services={services} onChange={toggleService} />
-              <Button className="button_services" onClick={onSave} disabled={!unsaved}>
-                Сохранить
-              </Button>
-              <Note
-                className="note_services"
-                message="Настройки сохранены"
-                color="green"
-                onFadeOut={onNoteFade}
-                show={showNote}
-              />
             </div>
           </Transitions>
         </div>

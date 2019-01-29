@@ -8,6 +8,7 @@ import Aside from '../components/Aside';
 import Package from '../components/Package';
 import Transitions from '../components/Transitions';
 import Breadcrumbs from '../components/Breadcrumbs';
+import Notice from '../components/Notice';
 import { Pages, TITLES } from '../constants';
 import getPackages from '../actions/Packages';
 import { getData } from '../utils';
@@ -30,13 +31,16 @@ class AddPackage extends Component {
       <DocumentMeta {...meta}>
         <HeaderMobile />
         <MobileNav key="nav" type="dashboard" />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transitions>
-            <div className="dashboard__content">
-              <Breadcrumbs items={[{ title: 'Обзор', link: Pages.OVERVIEW }]} />
+            <div className="dashboard__content dashboard__content_white">
+              <Breadcrumbs
+                items={[{ title: 'Обзор', link: Pages.OVERVIEW }]}
+                current={TITLES.ADD_PACKAGE}
+              />
               <div className="dashboard__header">Дополнительный пакет</div>
-              <div className="dashboard__text">Через 10&nbsp;дней по&nbsp;тарифу «СуперВИП» будут начислены 200&nbsp;мин. и&nbsp;2&nbsp;ГБ</div>
               {
                 data.map((d, i) => <Package key={d.id} data={d} remain={remain[i]} />)
               }

@@ -4,7 +4,7 @@ import Input from './InputRuble';
 import Button from '../../../common/js/components/Button';
 import Cards from './Cards';
 import Limit from './Limit';
-import Tabs from './PaymentTabs';
+import Tabs from './Tabs';
 import { formatCost } from '../utils';
 
 class Payment extends Component {
@@ -51,9 +51,7 @@ class Payment extends Component {
     });
   };
 
-  changeTab = (e) => {
-    const { tab } = e.target.dataset;
-
+  changeTab = (tab) => {
     this.setState({
       tab,
     });
@@ -75,21 +73,20 @@ class Payment extends Component {
     const {
       isEditable,
       onPay,
-      onEdit,
       showNote,
     } = this.props;
     const inLimits = payment >= 100 && payment <= 15000;
 
     return (
       <div className="payment">
-        <Tabs items={Payment.tabs} onChange={changeTab} tab={tab} />
+        <Tabs className="tabs_payment" items={Payment.tabs} onChange={changeTab} tab={tab} />
         {
           tab === 'company' ?
             <div className="payment__company">
               <img className="payment__img" src="/media/content/tyazhmash.png" alt="" />
               <div className="payment__company-name">Оплатит «Тяжмаштрансмагистраль»</div>
             </div> :
-            <Cards onPermitChange={onPermitChange} onEdit={onEdit} />
+            <Cards onPermitChange={onPermitChange} />
         }
         {
           !isEditable &&
@@ -98,7 +95,7 @@ class Payment extends Component {
         {
           isEditable &&
           <Fragment>
-            <Input className="input_pay" onChange={onChange} value={payment} name="payment" clear />
+            <Input className="input_pay" onChange={onChange} value={payment} name="payment" clear min={100} />
             <Limit className="limit_payment" sum={payment} />
             <div className="payment__message">Для оплаты по&nbsp;тарифу Супервип на&nbsp;счету не&nbsp;хватает <span className="nobr">{formatCost(paymentInit, true)}</span></div>
           </Fragment>
@@ -125,7 +122,6 @@ Payment.propTypes = {
   sum: PropTypes.number,
   onPay: PropTypes.func.isRequired,
   onSumChange: PropTypes.func,
-  onEdit: PropTypes.func.isRequired,
   showNote: PropTypes.bool,
 };
 

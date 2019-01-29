@@ -25,7 +25,7 @@ class MobileNav extends Component {
   };
 
   outsideClick = (e) => {
-    if (!this.nav.contains(e.target)) {
+    if (this.nav && !this.nav.contains(e.target)) {
       this.setState({
         open: false,
       });
@@ -40,6 +40,8 @@ class MobileNav extends Component {
     if (isOpen) {
       body.style.position = 'fixed';
       body.style.top = `${-scrolled}px`;
+      body.style.right = 0;
+      body.style.left = 0;
       html.style.overflow = 'hidden';
       html.style.position = 'relative';
       html.style.height = '100%';
@@ -82,9 +84,9 @@ class MobileNav extends Component {
     const {
       type,
       r,
-      dark,
       hideSpot,
       translate,
+      dark,
     } = this.props;
     const {
       toggle,
@@ -102,8 +104,8 @@ class MobileNav extends Component {
           <div
             onClick={toggle}
             className={cs('mobile-nav__menu', {
-              'mobile-nav__menu_dark': dark,
               'mobile-nav__menu_mask': !hideSpot,
+              'mobile-nav__menu_dark': dark,
             })}
           />
           <div
@@ -138,16 +140,16 @@ class MobileNav extends Component {
 MobileNav.propTypes = {
   type: PropTypes.string.isRequired,
   r: PropTypes.number,
-  dark: PropTypes.bool,
   hideSpot: PropTypes.bool,
   translate: PropTypes.shape(),
+  dark: PropTypes.bool,
 };
 
 MobileNav.defaultProps = {
   r: 1,
-  dark: false,
   hideSpot: false,
   translate: {},
+  dark: false,
 };
 
 export default MobileNav;

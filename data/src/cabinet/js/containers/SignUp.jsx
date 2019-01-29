@@ -94,7 +94,7 @@ class SignUp extends Component {
     return (
       <DocumentMeta {...meta}>
         <div className="welcome">
-          <MobileNav type="enter" />
+          <MobileNav type="enter" dark />
           <Header back={!!id} />
           <Transitions classNames="slide">
             {

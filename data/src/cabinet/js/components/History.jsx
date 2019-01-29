@@ -21,22 +21,24 @@ class History extends Component {
   };
 
   render() {
-    const { className, data } = this.props;
+    const { data } = this.props;
     const { selected } = this.state;
     const { selectMonth } = this;
     const selectedItem = data.find(i => i.id === selected);
     const cost = selectedItem ? selectedItem.expense.reduce((acc, d) => (acc + d.cost), 0) : 0;
 
     return (
-      <div className={`history ${className}`}>
+      <div className="block block_round">
         {
           selectedItem &&
           <Fragment>
-            <div className="history__title">
-              <Link className="link-overview" to={Pages.HISTORY}>Расходы</Link>
+            <div className="block__header">
+              <Link className="link" to={Pages.HISTORY}>Расходы</Link>
             </div>
-            <div className="history__expense">&minus;{formatCost(cost)} за&nbsp;{MONTHS[selectedItem.date.month]}</div>
-            <Grade data={data} onItemSelect={selectMonth} />
+            <Grade data={data} onItemSelect={selectMonth} wide />
+            <div className="history__expense">
+              <span>&minus;</span>{formatCost(cost, true)} за&nbsp;{MONTHS[selectedItem.date.month].toLowerCase()}
+            </div>
           </Fragment>
         }
         {
@@ -50,11 +52,6 @@ class History extends Component {
 
 History.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  className: PropTypes.string,
-};
-
-History.defaultProps = {
-  className: '',
 };
 
 export default History;

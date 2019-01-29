@@ -63,8 +63,14 @@ class Home extends Component {
               roaming={roaming.data}
             />
             <Cabinet to={() => to('signin')} translate={cabinet} />
-            <Footer als light data={copyright} />
           </div>
+          <Footer
+            als
+            light
+            data={copyright}
+            mode="site"
+            className="footer_wide"
+          />
         </div>
       </DocumentMeta>
     );

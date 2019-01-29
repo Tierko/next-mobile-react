@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import InputMask from 'react-input-mask';
+import InputCard from '../components/InputCard';
 import {
   checkCardNumber,
   checkCardDate,
@@ -13,12 +14,14 @@ import {
 const Card = ({
   id,
   onSelect,
-  onEdit,
   onChange,
   type,
   selected,
   defaultCard,
   colors,
+  removeCard,
+  makeDefault,
+  error,
   values: {
     number,
     date,
@@ -36,26 +39,57 @@ const Card = ({
   switch (type) {
   case 'card':
     return (
-      <div onClick={onSelect} data-id={id} className="card__wrapper" id={`card-${id}`}>
+      <div
+        onClick={onSelect}
+        data-id={id}
+        id={`card-${id}`}
+        className={cs('card__wrapper', {
+          card__wrapper_selected: isSelected,
+        })}
+      >
         <div
-          className={cs(`card card_${getPaySystem(id)}`, { card_selected: isSelected, card_default: isDefault })}
           style={style}
+          className={cs(`card card_exist card_${getPaySystem(id)}`, {
+            card_selected: isSelected,
+            card_default: isDefault,
+          })}
         >
           <div className="card__number">{getShortPan(id)}</div>
-          {
-            isSelected &&
-            <div className="card__points" onClick={onEdit} data-id={id}>
-              <span className="card__point" />
-              <span className="card__point" />
-              <span className="card__point" />
-            </div>
-          }
         </div>
+        {
+          isSelected && isDefault &&
+          <div className="card__title">
+            <img className="card__icon card__icon_default" src="/media/icons/default.svg" alt="" />
+            По умолчанию
+          </div>
+        }
+        {
+          isSelected && !isDefault &&
+          <div className="card__title" onClick={() => makeDefault(id)}>
+            <span className="card__link">Назначить по умолчанию</span>
+          </div>
+        }
+        {
+          isSelected &&
+          <div className="card__title">
+            <img className="card__icon card__icon_remove" src="/media/icons/bucket-gray.svg" alt="" />
+            <span className="card__link" onClick={() => removeCard(id)}>
+              Удалить
+            </span>
+          </div>
+        }
       </div>
     );
   case 'apple-pay':
     return (
-      <div onClick={onSelect} data-id={id} className="card__wrapper" id={`card-${id}`}>
+      <div
+        onClick={onSelect}
+        data-id={id}
+        id={`card-${id}`}
+        className={cs('card__wrapper', {
+          card__wrapper_selected: isSelected,
+        })}
+      >
         <div className={cs('card card_apple-pay', { card_selected: isSelected })}>
           <img src="/media/cards/apple-pay.png" alt="" />
         </div>
@@ -78,37 +112,49 @@ const Card = ({
               Новая карта
             </div>
           }
-          {
-            isSelected &&
-            <div className={cs(`card__form card__form_${isFilled && getPaySystem(number)}`, {
+          <div
+            className={cs(`card__form card__form_${isFilled && getPaySystem(number)}`, {
               'card__form_has-pay': !!getPaySystem(number) && isFilled,
-            })}>
-              <InputMask
-                className="card__input card__input_wide card__input_number"
-                mask="9999 9999 9999 9999"
-                placeholder="0000 0000 0000 0000"
-                onChange={e => onChange('number', e.target.value)}
-                value={number}
-              />
-              <div className="card__row">
-                <InputMask
-                  className="card__input card__input_narrow"
-                  mask="99 / 99"
-                  placeholder="ММ / ГГ"
-                  onChange={e => onChange('date', e.target.value)}
-                  value={date}
-                />
-                <InputMask
-                  className="card__input card__input_narrow"
-                  placeholder="CVV"
-                  mask="999"
-                  onChange={e => onChange('cvv', e.target.value)}
-                  value={cvv}
-                />
-              </div>
-            </div>
-          }
+              card__form_show: isSelected,
+            })}
+          >
+            <InputCard
+              className="input-card_number"
+              mask="9999 9999 9999 9999"
+              title="Номер карты"
+              placeholder="0000 0000 0000 0000"
+              name="number"
+              onChange={onChange}
+              value={number}
+            />
+            <InputCard
+              className="input-card_date"
+              mask="99 / 99"
+              title="Срок действия"
+              placeholder="ММ / ГГ"
+              onChange={onChange}
+              value={date}
+              name="date"
+            />
+          </div>
+          <div className={cs('card__cvv', { card__cvv_show: isSelected })}>
+            <div className="card__cvv-title">CVC/CVV</div>
+            <InputMask
+              className="card__cvv-input"
+              mask="999"
+              maskChar={null}
+              onChange={e => onChange('cvv', e.target.value, e)}
+              value={cvv}
+              placeholder="000"
+            />
+            <div className="card__cvv-indicator" />
+            <div className="card__cvv-note">Последние три цифры на обороте карты</div>
+          </div>
         </div>
+        {
+          isSelected && error &&
+          <div className="card__error">{error}</div>
+        }
       </div>
     );
 
@@ -127,14 +173,15 @@ Card.propTypes = {
   selected: PropTypes.string.isRequired,
   values: PropTypes.shape(),
   colors: PropTypes.arrayOf(PropTypes.string),
+  error: PropTypes.string,
 };
 
 Card.defaultProps = {
-  onEdit: null,
   onChange: null,
   values: {},
   isDefault: false,
   colors: null,
+  error: '',
 };
 
 export default Card;

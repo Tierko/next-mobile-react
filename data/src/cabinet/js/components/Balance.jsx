@@ -1,120 +1,74 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cs from 'classnames';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import Input from './InputRuble';
+import OverviewAutoPay from '../components/OverviewAutoPay';
 import Button from '../../../common/js/components/Button';
 import Limit from './Limit';
-import { formatCost } from '../utils';
-import { Pages } from '../constants';
+import { formatCost, getShortPan } from '../utils';
 
 const Balance = ({
-  status,
   sum,
   onChange,
   onPay,
   className,
   message,
-  autoPay,
   balance,
+  defaultCard,
 }) => {
-  let fSum = formatCost(Math.abs(balance).toFixed(2), true);
-  const rubPos = fSum.lastIndexOf(' ');
-  const coinsPos = fSum.lastIndexOf(',');
-  const rub = fSum.substr(rubPos);
-  const coins = fSum.substring(coinsPos + 1, rubPos);
-  fSum = coinsPos !== -1 && rubPos !== -1 ? fSum.substring(0, coinsPos) : fSum;
+  const fBalance = formatCost(Math.abs(balance).toFixed(2), true);
 
   return (
-    <div className={`balance ${className}`}>
-      <div className="balance__header">
+    <div className={`block block_round ${className}`}>
+      <div className="block__header">
         Баланс
       </div>
-      <div className="balance__inner">
-        <div className={cs('balance__left', { balance__left_negative: balance < 0 })}>
-          {
-            coinsPos !== -1 && rubPos !== -1 ?
-              <div className={`balance__sum balance__sum_${status}`}>
-                {balance < 0 && <span>&minus;</span>}{
-                  fSum
-                }{coins !== '00' ? ',' : ''}<span className="balance__coins">{coins !== '00' ? coins : ''}</span>{rub}
-              </div> :
-              <div className={`balance__sum balance__sum_${status}`}>
-                {balance < 0 && <span>&minus;</span>}{fSum}
-              </div>
-          }
-          {
-            message &&
-            <div className="balance__message">
-              <div className={`balance__message-item balance__message-item_${status}`}>
-                Следующее списание:
-              </div>
-              <div className={`balance__message-item balance__message-item_${status}`}>
-                {message}
-              </div>
-            </div>
-          }
-        </div>
-        <div className="balance__center" />
-        <div className="balance__right">
-          <div className="balance__pay">
-            <Input value={sum} onChange={onChange} name="sum" className="input_balance" />
-            <Button className="button_balance" onClick={onPay} disabled={sum > 15000 || sum < 100}>Оплатить</Button>
-          </div>
-          <Limit sum={sum} className="limit_balance" />
-          {
-            (autoPay.monthlyEnabled || autoPay.lessEnabled) &&
-            <div className="balance__auto-pay">
-              <div>Подключен <Link className="link-light" to={Pages.AUTO_PAY}>автоплатеж</Link></div>
-              {
-                autoPay.monthlyEnabled &&
-                <div>
-                  на&nbsp;{
-                    formatCost(autoPay.monthlySum)
-                  } ежемесячно {
-                    autoPay.monthlyDay
-                  } числа
-                </div>
-              }
-              {
-                autoPay.lessEnabled &&
-                <div>
-                  на&nbsp;{
-                    formatCost(autoPay.lessSum)
-                  }, если на&nbsp;счету меньше чем {
-                    formatCost(autoPay.lessLess)
-                  }
-                </div>
-              }
-            </div>
-          }
-        </div>
+      <div className="balance__sum">
+        {balance < 0 && <span>&minus;</span>}{fBalance}
       </div>
+      {
+        message &&
+        <div className="balance__message">
+          {message}
+        </div>
+      }
+      <div className="balance__pay">
+        <Input value={sum} onChange={onChange} name="sum" className="input_balance" min={100} />
+        <Button className="button_balance" onClick={onPay} disabled={sum > 15000 || sum < 100} primary>
+          Оплатить
+        </Button>
+      </div>
+      <Limit sum={sum} className="limit_balance" />
+      {
+        defaultCard &&
+          <div className="balance__card">
+            Карта по&nbsp;умолчанию: {getShortPan(defaultCard)}
+          </div>
+      }
+      <OverviewAutoPay />
     </div>
   );
 };
 
 Balance.propTypes = {
-  status: PropTypes.string,
   sum: PropTypes.number.isRequired,
   message: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onPay: PropTypes.func.isRequired,
   className: PropTypes.string,
-  autoPay: PropTypes.shape().isRequired,
   balance: PropTypes.number.isRequired,
+  defaultCard: PropTypes.string,
 };
 
 Balance.defaultProps = {
-  status: '',
   className: '',
+  defaultCard: '',
 };
 
-function mapDispatchToProps(state) {
+function mapStateToProps(state) {
   return {
-    autoPay: state.AutoPay,
+    defaultCard: state.Cards.defaultCard,
   };
 }
 
-export default connect(mapDispatchToProps)(Balance);
+export default connect(mapStateToProps)(Balance);

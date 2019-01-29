@@ -50,13 +50,34 @@
     margin: auto;
   }
 
+  &_calls {
+    margin-top: 2px;
+    flex: 1 1 auto;
+    max-width: 498px;
+  }
+
+  &_calls &__value {
+    min-height: 38px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-right: 15px;
+    white-space: normal;
+  }
+
+  &_roaming {
+    width: 100%;
+    max-width: 416px;
+    margin-bottom: 35px;
+  }
+
   &__placeholder {
     color: @GRAY-DARK;
     font-size: 0.83em;
   }
 
   &__value {
-    border-bottom: 1px solid @GRAY;
+    border-bottom: 1px solid @GRAY-LIGHT;
     padding: 0.33em 0;
     cursor: pointer;
     user-select: none;
@@ -80,6 +101,10 @@
       width: 9px;
       background: 50% 50% url("/media/icons/down.svg") no-repeat;
     }
+  }
+
+  &__empty {
+    color: @GRAY;
   }
 
   &__list {

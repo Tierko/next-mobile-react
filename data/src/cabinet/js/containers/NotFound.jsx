@@ -13,36 +13,36 @@ const NotFound = () => {
 
   return (
     <DocumentMeta {...meta}>
-      <MobileNav key="nav" type="dashboard" />
+      <MobileNav key="nav" type="dashboard" dark />
       <div key="dashboard" className="dashboard">
         <Aside hideNav />
         <Transitions>
-          <div className="dashboard__content not-found">
+          <div className="dashboard__content dashboard__content_white not-found">
             <div className="dashboard__header">Страница не&nbsp;найдена</div>
             <div className="not-found__message">
               Неправильно набран адрес, или такой страницы на&nbsp;сайте больше не&nbsp;существует.
             </div>
             <div className="not-found__nav">
               <div className="not-found__nav-item">
-                <Link className="link-nav" to={Pages.OVERVIEW}>Обзор</Link>
+                <Link className="link" to={Pages.OVERVIEW}>Обзор</Link>
               </div>
               <div className="not-found__nav-item">
-                <Link className="link-nav" to={Pages.HISTORY}>История</Link>
+                <Link className="link" to={Pages.HISTORY}>История</Link>
               </div>
               <div className="not-found__nav-item">
-                <Link className="link-nav" to={Pages.PAY}>Пополнение</Link>
+                <Link className="link" to={Pages.PAY}>Пополнение</Link>
               </div>
               <div className="not-found__nav-item">
-                <Link className="link-nav" to={Pages.SETTINGS}>Настройки</Link>
+                <Link className="link" to={Pages.SETTINGS}>Настройки</Link>
               </div>
               <div className="not-found__nav-item">
-                <Link className="link-nav" to={Pages.SERVICES}>Тарифы и услуги</Link>
+                <Link className="link" to={Pages.SERVICES}>Тарифы и услуги</Link>
               </div>
               <div className="not-found__nav-item">
-                <Link className="link-nav" to={Pages.SUPPORT}>Поддержка</Link>
+                <Link className="link" to={Pages.SUPPORT}>Поддержка</Link>
               </div>
               <div className="not-found__nav-item">
-                <Link className="link-nav" to={Pages.ROAMING}>Роуминг</Link>
+                <Link className="link" to={Pages.ROAMING}>Роуминг</Link>
               </div>
             </div>
           </div>

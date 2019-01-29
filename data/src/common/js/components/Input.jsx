@@ -8,7 +8,7 @@ class Input extends Component {
     const { value } = e.target;
     const { textArea } = this;
 
-    onChange(name, value);
+    onChange(name, value, e);
 
     if (multiLine && textArea) {
       textArea.style.height = 'auto';

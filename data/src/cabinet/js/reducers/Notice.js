@@ -1,6 +1,7 @@
 import { ACTION_TYPES } from '../constants';
 
 const initState = {
+  showNotice: false,
   data: [{
     id: 1,
     date: '21\u00A0июля, 14:30',
@@ -68,6 +69,10 @@ const Notice = (state = initState, action) => {
         return n;
       }),
     });
+  case ACTION_TYPES.NOTICE_SHOW:
+    return Object.assign({}, state, { showNotice: true });
+  case ACTION_TYPES.NOTICE_HIDE:
+    return Object.assign({}, state, { showNotice: false });
   default:
     return state;
   }

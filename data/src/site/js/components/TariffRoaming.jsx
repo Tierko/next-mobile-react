@@ -21,8 +21,15 @@ const TariffRoaming = ({
         className="tariff-roaming__header"
         dangerouslySetInnerHTML={{ __html: header }}
       />
-      <div dangerouslySetInnerHTML={{ __html: text }} />
-      <EarthTariff className="earth-tariff_tariff" tariff type={type} size={size} countries={countries} roaming={roaming} />
+      <div className="tariff-roaming__text" dangerouslySetInnerHTML={{ __html: text }} />
+      <EarthTariff
+        className="earth-tariff_tariff"
+        tariff
+        type={type}
+        size={size}
+        countries={countries}
+        roaming={roaming}
+      />
     </div>
   );
 };

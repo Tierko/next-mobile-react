@@ -1,10 +1,14 @@
 .package {
   padding: 25px 0;
-  max-width: 450px;
+  max-width: 484px;
   width: 100%;
 
   &__title {
-    margin-bottom: 2px;
+    margin-bottom: 5px;
+
+    span {
+      color: #6c7284;
+    }
   }
 
   &__desc {
@@ -13,13 +17,13 @@
   }
 
   &__table {
-    width: 100%;
-    margin-top: 10px;
+    margin: 10px -24px 0;
   }
 
   &__row {
     display: flex;
     flex-wrap: wrap;
+    transition: background-color 0.3s;
 
     &_simple {
       border-top: 1px solid @GRAY;
@@ -31,12 +35,16 @@
     }
 
     &:hover {
-      background-color: @WHITE;
+      background-color: rgba(149, 155, 173, 0.1);
     }
 
     &_simple:hover {
       background-color: transparent;
     }
+  }
+
+  &__link {
+    .link-mixin(@ORANGE, rgba(255, 85, 0, 0.1), rgba(255, 85, 0, 0.1), inherit);
   }
 
   &__cell {
@@ -47,24 +55,11 @@
 
     &_count {
       flex-basis: 30%;
-    }
-
-    &_count-fast span {
-      .gradient-black-purple;
-      display: inline-block;
-
-      &:after {
-        content: '';
-        display: inline-block;
-        width: 13px;
-        height: 13px;
-        background: url("/media/icons/fast-purple.svg") no-repeat 100% 100%;
-      }
+      padding-left: 24px;
     }
 
     &_period {
       text-align: center;
-      color: @GRAY-DARK;
       flex-basis: 20%;
     }
 
@@ -76,9 +71,34 @@
     &_action {
       flex-basis: 30%;
       text-align: right;
+      padding-right: 24px;
+    }
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    &__table {
+      margin-left: 0;
+      margin-right: 0;
     }
 
-    @media screen and (max-width: 500px) {
+    &__row:hover {
+      background-color: transparent;
+    }
+
+    &__cell {
+      &_count {
+        padding-left: 0;
+      }
+
+      &_action {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    &__cell {
       &_count {
         flex-basis: 40%;
       }

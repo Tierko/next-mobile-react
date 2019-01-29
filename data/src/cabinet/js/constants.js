@@ -5,6 +5,8 @@ export const URL = 'http://localhost';
 export const HOME = 'RU';
 
 export const ACTION_TYPES = keyMirror({
+  APP_CHAT_SHOW: undefined,
+  APP_CHAT_HIDE: undefined,
   PACKAGES_REQUEST: undefined,
   PACKAGES_REQUEST_FAIL: undefined,
   PACKAGES_REQUEST_SUCCESS: undefined,
@@ -22,9 +24,12 @@ export const ACTION_TYPES = keyMirror({
   ROAMING_INTERNET_REQUEST_FAIL: undefined,
   ROAMING_INTERNET_REQUEST_SUCCESS: undefined,
   AUTO_PAY_SAVE: undefined,
+  AUTO_PAY_DISABLE: undefined,
   CARDS_ADD: undefined,
   CARDS_REMOVE: undefined,
   CARDS_MAKE_DEFAULT: undefined,
+  NOTICE_SHOW: undefined,
+  NOTICE_HIDE: undefined,
   NOTICE_REMOVE: undefined,
   NOTICE_READ: undefined,
   NOTICE_EXCLUDE: undefined,
@@ -63,12 +68,15 @@ export const Pages = {
   CONFIRM: '/confirm',
   ALFA: '/alfa',
   NOT_FOUND: '/not-found',
+  FAQ: '/faq',
   HOME: '/',
   TARIFF: '/tariff',
   HOME_R1: '/home_r1',
   HOME_R2: '/home_r2',
   TARIFF_R1: '/tariff_r1',
   TARIFF_R2: '/tariff_r2',
+  LEGAL: '/legal',
+  FAQ_WEB_VIEW: '/faq-web-view',
 };
 
 export const TITLES = {
@@ -93,6 +101,7 @@ export const TITLES = {
   SIGN_UP: 'Регистрация',
   SIGN_IN: 'Вход',
   REQUEST_STATUS: 'Статус заявки',
+  FAQ: 'FAQ',
 };
 
 export const Statuses = {
@@ -101,6 +110,7 @@ export const Statuses = {
   CHANGES_SAVED: 'changes-saved',
   TRANSITION_CONFIRMED: 'transition-confirmed',
   TRANSITION_STOPPED: 'transition-stopped',
+  TRANSITION_STOPPED_ERROR: 'transition-stopped-error',
   SIM_DELIVERY: 'sim-delivery',
   SIM_DELIVERY_TODAY: 'sim-delivery-today',
 };

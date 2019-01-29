@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import DocumentMeta from 'react-document-meta';
-import cs from 'classnames';
 import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import Input from '../../../common/js/components/Input';
 import InputRuble from '../components/InputRuble';
-import Button from '../../../common/js/components/Button';
 import CheckboxSlide from '../components/CheckboxSlide';
 import Select from '../components/SelectLang';
-import Note from '../components/Note';
+import Notice from '../components/Notice';
 import Transitions from '../components/Transitions';
 import { TITLES } from '../constants';
 
@@ -37,53 +35,24 @@ class Settings extends Component {
     note: true,
     receipt: true,
     expenseNoteSum: 2000,
-    edited: false,
-    showNote: false,
   };
 
   onChange = (name, value) => {
     this.setState({
       [name]: value,
-      edited: true,
-    });
-  };
-
-  onSave = () => {
-    this.setState({
-      edited: false,
-      showNote: true,
     });
   };
 
   onLangSelect = (lang) => {
     this.setState({
       lang,
-      edited: true,
     });
-  };
-
-  onNoteFade = () => {
-    this.setState({
-      showNote: false,
-    });
-  };
-
-  setCash = (e) => {
-    const { cash } = e.target.dataset;
-    const { note } = this.state;
-
-    if (note) {
-      this.rubbleRef.current.change(cash);
-    }
   };
 
   render() {
     const {
-      onSave,
       onChange,
       onLangSelect,
-      setCash,
-      onNoteFade,
       langs,
       rubbleRef,
     } = this;
@@ -93,8 +62,6 @@ class Settings extends Component {
       note,
       receipt,
       expenseNoteSum,
-      edited,
-      showNote,
     } = this.state;
     const meta = {
       title: TITLES.SETTINGS,
@@ -104,10 +71,11 @@ class Settings extends Component {
       <DocumentMeta {...meta}>
         <HeaderMobile />
         <MobileNav type="dashboard" />
+        <Notice />
         <div className="dashboard">
           <Aside />
           <Transitions>
-            <div className="dashboard__content">
+            <div className="dashboard__content dashboard__content_white">
               <div className="settings">
                 <div className="dashboard__header">Настройки</div>
                 <Input className="input_settings-email" name="email" value={email} onChange={onChange} placeholder="Почта" />
@@ -134,35 +102,6 @@ class Settings extends Component {
                       clear
                       ref={rubbleRef}
                     />
-                    <div className="service__expense-sums">
-                      <div
-                        onClick={setCash}
-                        className={cs('service__expense-sum', {
-                          'service__expense-sum_disabled': !note,
-                        })}
-                        data-cash="2000"
-                      >
-                        2 000 ₽
-                      </div>
-                      <div
-                        onClick={setCash}
-                        className={cs('service__expense-sum', {
-                          'service__expense-sum_disabled': !note,
-                        })}
-                        data-cash="5000"
-                      >
-                        5 000 ₽
-                      </div>
-                      <div
-                        onClick={setCash}
-                        className={cs('service__expense-sum', {
-                          'service__expense-sum_disabled': !note,
-                        })}
-                        data-cash="10000"
-                      >
-                        10 000 ₽
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <div className="service">
@@ -172,16 +111,6 @@ class Settings extends Component {
                   </div>
                   <div className="service__desc">После совершения платежа отправлять квитанцию на&nbsp;адрес</div>
                 </div>
-                <Button className="button_settings" onClick={onSave} disabled={!edited}>
-                  Сохранить настройки
-                </Button>
-                <Note
-                  className="note_settings"
-                  message="Настройки сохранены"
-                  color="green"
-                  onFadeOut={onNoteFade}
-                  show={showNote}
-                />
               </div>
             </div>
           </Transitions>

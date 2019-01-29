@@ -1,26 +1,25 @@
 .history {
-  margin-bottom: 60px;
-  order: 35;
+  &__expense {
+    .h1;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    span {
+      position: absolute;
+      left: -30px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    &__expense {
+      margin-bottom: -90px;
+    }
+  }
 
   @media (max-width: @BREAK-POINT) {
-    width: 100%;
-    max-width: 450px;
-    margin: auto;
-  }
-
-  &__title {
-    .h1;
-    margin-bottom: 9px;
-  }
-
-  &__expense {
-    .big;
-    margin-bottom: 16px;
-    text-indent: -25px;
-    text-transform: lowercase;
-
-    @media (max-width: @BREAK-POINT) {
-      text-indent: 0;
+    &__expense span {
+      position: static;
     }
   }
 }

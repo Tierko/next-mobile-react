@@ -5,6 +5,8 @@ import HomeR1 from './HomeR1';
 import HomeR2 from './HomeR2';
 import TariffR1 from './TariffR1';
 import TariffR2 from './TariffR2';
+import Legal from './Legal';
+import FaqWebView from './FaqWebView';
 import { Pages } from '../../../cabinet/js/constants';
 
 class App extends Component {
@@ -234,6 +236,14 @@ class App extends Component {
           <Route
             component={props => (<TariffR2 {...props} data={state} />)}
             path={Pages.TARIFF_R2}
+          />
+          <Route
+            component={props => (<Legal {...props} data={state} />)}
+            path={Pages.LEGAL}
+          />
+          <Route
+            component={() => (<FaqWebView />)}
+            path={Pages.FAQ_WEB_VIEW}
           />
         </Switch>
       </div>

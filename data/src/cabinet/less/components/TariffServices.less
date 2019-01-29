@@ -1,32 +1,75 @@
 .tariff-services {
-  max-width: 600px;
-
   &__header {
     .h1;
-    padding: 20px 0;
-    border-bottom: 1px solid @GRAY-LIGHT;
   }
 }
 
 .tariff-service {
-  color: @GRAY-DARK;
+  color: #798199;
   border-bottom: 1px solid @GRAY-LIGHT;
-  padding: 20px 0 29px;
+  padding: 22px 0 29px;
+
+  &_first {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
 
   &__control {
     display: flex;
     justify-content: space-between;
-    align-items: center;
   }
 
   &__name {
     .h2;
-    color: rgba(0, 0, 0, 0.76);
     margin-bottom: 10px;
-    transition: color 0.3s linear;
+  }
+
+  &__name-inner:after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+  }
+
+  &__spinner {
+    font-size: @FONT-SIZE-BASE;
+    line-height: @LINE-HEIGHT-BASE;
+    color: @GRAY;
+    display: inline-block;
+  }
+
+  &__spinner:before {
+    content: '';
+    display: inline-block;
+    background: url("/media/icons/spinner.svg") no-repeat 50% 50% / contain;
+    width: 21px;
+    height: 21px;
+    transform-origin: 50% 50%;
+    animation-duration: 0.5s;
+    animation-name: spinner;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    margin-right: 5px;
   }
 
   &__desc {
     margin-bottom: 10px;
+  }
+
+  &__price {
+    color: @ORANGE;
+  }
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }

@@ -1,0 +1,80 @@
+.input-card {
+  font-size: @FONT-SIZE-BASE;
+  line-height: @LINE-HEIGHT-BASE;
+  position: relative;
+  text-align: left;
+
+  &_number {
+    width: 260px;
+  }
+
+  &_date {
+    width: 105px;
+  }
+
+  &__value {
+    color: #161543;
+    font-family: inherit;
+    font-size: 25px;
+    line-height: inherit;
+    font-weight: inherit;
+    padding: 0 0 0.33em;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.8px;
+  }
+
+  &__placeholder {
+    .text-ellipsis;
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  &__indicator {
+    height: 1px;
+    background-color: @GRAY-LIGHT;
+    position: relative;
+    transition: background-color 0.3s;
+
+    &_error {
+      background-color: @ORANGE;
+    }
+
+    &_hide {
+      opacity: 0;
+    }
+  }
+
+  &__value:focus ~ &__indicator,
+  &_active &__indicator {
+    background-color: @BLUE-MAIN;
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    &_number {
+      width: 100%;
+      letter-spacing: 0;
+      margin-bottom: 21px;
+    }
+
+    &_date {
+      width: 100%;
+      margin-bottom: 21px;
+    }
+
+    &__placeholder {
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    &__value {
+      font-size: 21px;
+      line-height: @LINE-HEIGHT-BASE;
+      padding-bottom: 6px;
+    }
+  }
+}

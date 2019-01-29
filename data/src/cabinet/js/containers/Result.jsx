@@ -28,7 +28,7 @@ const Result = ({ match, location }) => {
       <div key="dashboard" className="dashboard">
         <Aside />
         <Transitions>
-          <div className="dashboard__content">
+          <div className="dashboard__content dashboard__content_white">
             <div className="result">
               <div className={`result__image result__image_${status}`} />
               <div
@@ -37,33 +37,35 @@ const Result = ({ match, location }) => {
                   result__header_error: status !== 'success',
                 })}
               >
-                <span>{title}</span>
+                {title}
               </div>
               <div className="result__text">{text}</div>
-              {
-                (!links || !links.length) &&
-                <div>
-                  <Link className="button button_primary button_result" to={Pages.OVERVIEW}>
-                    Продолжить работу
-                  </Link>
-                </div>
-              }
-              {
-                links && links.map(l => (
-                  <div key={l.url}>
-                    <Link
-                      className={
-                        l.primary ?
-                          'button button_primary button_result' :
-                          'button button_secondary button_result'
-                      }
-                      to={l.url}
-                    >
-                      {l.title}
+              <div className="result__buttons">
+                {
+                  (!links || !links.length) &&
+                  <div>
+                    <Link className="button button_primary button_result" to={Pages.OVERVIEW}>
+                      Продолжить работу
                     </Link>
                   </div>
-                ))
-              }
+                }
+                {
+                  links && links.map(l => (
+                    <div key={l.url}>
+                      <Link
+                        className={
+                          l.primary ?
+                            'button button_primary button_result' :
+                            'button button_secondary button_result'
+                        }
+                        to={l.url}
+                      >
+                        {l.title}
+                      </Link>
+                    </div>
+                  ))
+                }
+              </div>
             </div>
           </div>
         </Transitions>

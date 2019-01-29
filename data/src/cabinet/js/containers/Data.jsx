@@ -31,7 +31,7 @@ class Calls extends Component {
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transitions>
-            <div className="dashboard__content">
+            <div className="dashboard__content dashboard__content_white">
               <div>
                 <h2>Сброс</h2>
                 <div>
@@ -142,19 +142,19 @@ class Calls extends Component {
                 <h2>Остаток по тарифу (трафик, звонки)</h2>
                 <div>
                   <Button className="button_data" onClick={() => setData('remain', 0)} disabled={getData('remain')[0].current === 16}>
-                    16 ГБ / 700 мин
+                    16 ГБ / 2ГБ / 700 мин / 400 мин
                   </Button>
                   <Button className="button_data" onClick={() => setData('remain', 1)} disabled={getData('remain')[0].current === 8}>
-                    8 ГБ / 538 мин
+                    8 ГБ / 2ГБ / 538 мин
                   </Button>
                   <Button className="button_data" onClick={() => setData('remain', 2)} disabled={getData('remain')[0].current === 4}>
-                    4 ГБ / 243 мин
+                    4 ГБ / 2ГБ / 243 мин
                   </Button>
                   <Button className="button_data" onClick={() => setData('remain', 3)} disabled={getData('remain')[0].current === 2}>
-                    2 ГБ / 7 мин
+                    2 ГБ / 2ГБ / 7 мин
                   </Button>
                   <Button className="button_data" onClick={() => setData('remain', 4)} disabled={getData('remain')[0].current === 0}>
-                    0 ГБ / 0 мин
+                    0 ГБ / 0ГБ / 0 мин
                   </Button>
                 </div>
                 <h2>Роуминг</h2>

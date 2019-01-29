@@ -7,7 +7,10 @@ import {
   checkCardNumber,
   checkCardDate,
   checkCVV,
+  luhnAlgorithm,
 } from '../utils';
+import { autoPayDisableAction } from '../actions/AutoPay';
+import { makeDefaultAction, removeCardAction } from '../actions/Cards';
 
 class Cards extends Component {
   state = {
@@ -18,6 +21,7 @@ class Cards extends Component {
     date: '',
     cvv: '',
     editCardId: '',
+    error: '',
     prevShow: false,
     nextShow: false,
   };
@@ -25,30 +29,101 @@ class Cards extends Component {
   componentDidMount() {
     const { setOffset, addClasses, onCardSelect } = this;
     const { data: { defaultCard } } = this.props;
+    const numberInput = document.querySelector('.input-card_number input');
+    const dateInput = document.querySelector('.input-card_date input');
+    const cvvInput = document.querySelector('.card__cvv .card__cvv-input');
     setOffset();
     addClasses();
-    const card = document.getElementById(`card-${defaultCard}`);
+    const card = document.getElementById(`card-${defaultCard}`) || document.querySelector('.card__wrapper');
 
     if (card) {
-      onCardSelect({
-        currentTarget: card,
-      });
+      onCardSelect({ target: card });
+    }
+
+    this.numberInput = numberInput;
+    this.dateInput = dateInput;
+    this.cvvInput = cvvInput;
+
+    window.addEventListener('resize', setOffset);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { numberInput, addClasses } = this;
+    const { selected } = this.state;
+
+
+    addClasses();
+
+    if (selected && selected !== prevState.selected && selected === 'new' && numberInput) {
+      setTimeout(() => numberInput.focus(), 650);
     }
   }
 
+  componentWillUnmount() {
+    const { setOffset } = this;
+
+    window.removeEventListener('resize', setOffset);
+  }
+
   onChange = (name, value) => {
-    const { onPermitChange } = this.props;
-    const { isNewCardValid, state } = this;
-    const tmp = name === 'holder' ? value.toUpperCase().replace(/[^a-z\s]/gi, '') : value;
-    const nextState = Object.assign({}, state, { [name]: tmp });
-    const holderError = value.search(/[^a-z\s]/gi, '') !== -1 && name === 'holder';
+    const { onPermitChange, data } = this.props;
+    const {
+      isNewCardValid,
+      state,
+      manageFocus,
+      numberInput,
+      dateInput,
+      cvvInput,
+    } = this;
+    const nextState = Object.assign({}, state, { [name]: value });
     nextState[name] = value;
+
+    if (name === 'date') {
+      let dates = value.split(' / ');
+
+      if (dates && dates[0].length && (+dates[0]) > 12) {
+        dates = dates.join('');
+        dates = `0${dates.substr(0, 1)} / ${dates.substr(2)}`;
+
+        nextState[name] = dates;
+        value = dates;
+      }
+    }
+
+    if (
+      data.items.length &&
+      nextState.number.length === 19 &&
+      data.items.find(d => d.token === nextState.number.replace(/\s/g, ''))
+    ) {
+      nextState.error = 'Карта с таких номером уже существует';
+    } else if (
+      data.items.length &&
+      nextState.number.length === 19 &&
+      !luhnAlgorithm(nextState.number)
+    ) {
+      nextState.error = 'Неверный номер карты';
+    } else {
+      nextState.error = '';
+    }
+
+    if (name === 'number') {
+      manageFocus(name, value, 19, dateInput);
+    }
+
+    if (name === 'date') {
+      manageFocus(name, value, 7, cvvInput, numberInput);
+    }
+
+    if (name === 'cvv') {
+      manageFocus(name, value, 3, null, dateInput);
+    }
 
     const {
       number,
       holder,
       date,
       cvv,
+      error,
     } = nextState;
     const card = {
       token: number.replace(/\s/g, ''),
@@ -58,15 +133,20 @@ class Cards extends Component {
     };
 
     this.setState({
-      [name]: tmp,
-      holderError,
+      [name]: value,
+      error,
     });
 
-    onPermitChange(isNewCardValid(nextState), isNewCardValid(nextState) ? card : undefined);
+    const isCardValid = isNewCardValid(nextState) && !error;
+
+    onPermitChange(isCardValid, isCardValid ? card : undefined);
   };
 
-  onCardSelect = (e) => {
-    const cardE = e.currentTarget;
+  onCardSelect = ({ target }) => {
+    if (target.className.indexOf('card__wrapper') === -1) {
+      return;
+    }
+
     const { onPermitChange, isNewCardValid, getAttr } = this;
     const {
       number,
@@ -74,7 +154,8 @@ class Cards extends Component {
       date,
       cvv,
     } = this.state;
-    const id = getAttr(cardE, 'id');
+    const id = getAttr(target, 'id') || 'new';
+    const cardNumber = getAttr(target, 'number') || 0;
     const card = id === 'new' ? {
       holder,
       date,
@@ -85,8 +166,7 @@ class Cards extends Component {
     onPermitChange(id !== 'new' || (id === 'new' && isNewCardValid()), card);
     const { row, inner } = this;
     const maxScroll = inner.clientWidth - row.clientWidth;
-    const cardNumber = getAttr(cardE, 'number') * 1;
-    const scroll = id === 'new' ? maxScroll + 142 : cardNumber * 159;
+    const scroll = id === 'new' ? maxScroll : cardNumber * 159;
 
     row.scroll({
       left: scroll,
@@ -109,13 +189,6 @@ class Cards extends Component {
     }
   };
 
-  onCardEdit = ({ currentTarget }) => {
-    const { onEdit } = this.props;
-    const { getAttr } = this;
-
-    onEdit(getAttr(currentTarget, 'id'));
-  };
-
   getAttr = (e, attr) => {
     if (e.dataset) {
       return e.dataset[attr];
@@ -130,6 +203,26 @@ class Cards extends Component {
     inner.style.paddingRight = `${offsetEnd}px`;
   };
 
+  manageFocus = (name, value, count, nextInput, prevInput) => {
+    const { state } = this;
+
+    if (nextInput && value.length === count) {
+      if (state[name].length === count - 1) {
+        nextInput.focus();
+      }
+
+      if (state[name].length === count && state[name][count - 1] !== value[count - 1]) {
+        nextInput.focus();
+      }
+    }
+
+    if (prevInput && value.length === 0) {
+      if (state[name].length === 1) {
+        prevInput.focus();
+      }
+    }
+  };
+
   addClasses = () => {
     const cards = document.querySelectorAll('.card__wrapper');
 
@@ -142,7 +235,8 @@ class Cards extends Component {
 
   calculateOffsetEnd = () => {
     const { row } = this;
-    const CARD_WIDTH = 279 + 16;
+    const cardNew = document.getElementById('card-new');
+    const CARD_WIDTH = cardNew ? cardNew.clientWidth : 0;
 
     if (!row) {
       return 0;
@@ -157,19 +251,19 @@ class Cards extends Component {
       number,
       date,
       cvv,
+      error,
     } = state;
 
     return checkCardNumber(number) &&
-      checkCardDate(date) && checkCVV(cvv);
+      checkCardDate(date) && checkCVV(cvv) && !error;
   };
 
   rollCard = ({ target }) => {
     const { selected } = this.state;
     const { onCardSelect } = this;
-    const direction = target.getAttribute('data-direction');
+    const direction = target && target.getAttribute('data-direction');
     const currentCard = document.getElementById(`card-${selected}`);
     let card = null;
-
     if (currentCard && direction === 'next') {
       card = currentCard.nextSibling;
     }
@@ -182,24 +276,46 @@ class Cards extends Component {
       currentCard.classList.add('card__wrapper_hide');
     }
 
-    if (currentCard.previousSibling && direction === 'prev') {
+    if (currentCard && currentCard.previousSibling && direction === 'prev') {
       currentCard.previousSibling.classList.remove('card__wrapper_hide');
     }
 
     if (card) {
-      onCardSelect({
-        currentTarget: card,
-      });
+      onCardSelect({ target: card });
     }
   };
 
+  onRemove = (token) => {
+    const { onCardSelect } = this;
+    const card = document.querySelector(`.card__wrapper:not(#card-${token})`);
+    const {
+      removeCard,
+      autoPayDisable,
+      data,
+    } = this.props;
+
+    if (data.items.length === 1) {
+      autoPayDisable();
+    }
+
+    if (card) {
+      onCardSelect({ target: card });
+    }
+
+    removeCard(token);
+  };
+
   render() {
-    const { className, data } = this.props;
+    const {
+      className,
+      data,
+      makeDefault,
+    } = this.props;
     const {
       onChange,
       onCardSelect,
-      onCardEdit,
       rollCard,
+      onRemove,
     } = this;
     const {
       number,
@@ -209,11 +325,12 @@ class Cards extends Component {
       holderError,
       prevShow,
       nextShow,
+      error,
     } = this.state;
     const selected = this.state.selected || data.defaultCard;
 
     return (
-      <div className={cs('cards__wrapper', { cards__wrapper_new: selected === 'new' })}>
+      <div className="cards__wrapper">
         <div
           className={cs('cards__arrow cards__arrow_prev', {
             cards__arrow_hide: !prevShow,
@@ -228,7 +345,7 @@ class Cards extends Component {
           data-direction="next"
           onClick={rollCard}
         />
-        <div className={`cards ${className}`}>
+        <div className={cs(`cards ${className}`, { cards_new: selected === 'new' })}>
           <div className="cards__row" ref={(e) => { this.row = e; }}>
             <div className="cards__inner" ref={(e) => { this.inner = e; }}>
               <div className="cards__fix">
@@ -247,11 +364,12 @@ class Cards extends Component {
                       id={c.token}
                       onChange={onChange}
                       onSelect={onCardSelect}
-                      onEdit={onCardEdit}
                       selected={selected}
                       type="card"
                       colors={c.colors}
                       defaultCard={data.defaultCard}
+                      removeCard={onRemove}
+                      makeDefault={makeDefault}
                     />
                   ))
                 }
@@ -262,6 +380,7 @@ class Cards extends Component {
                   onSelect={onCardSelect}
                   selected={selected}
                   onChange={onChange}
+                  error={error}
                   values={{
                     number,
                     holder,
@@ -285,11 +404,21 @@ function mapStateToProps(state) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    removeCard: token => dispatch(removeCardAction(token)),
+    makeDefault: token => dispatch(makeDefaultAction(token)),
+    autoPayDisable: () => dispatch(autoPayDisableAction()),
+  };
+}
+
 Cards.propTypes = {
   data: PropTypes.shape().isRequired,
   onPermitChange: PropTypes.func.isRequired,
-  onEdit: PropTypes.func.isRequired,
   className: PropTypes.string,
+  removeCard: PropTypes.func.isRequired,
+  makeDefault: PropTypes.func.isRequired,
+  autoPayDisable: PropTypes.func.isRequired,
 };
 
 Cards.defaultProps = {
@@ -297,4 +426,4 @@ Cards.defaultProps = {
 };
 
 
-export default connect(mapStateToProps)(Cards);
+export default connect(mapStateToProps, mapDispatchToProps)(Cards);

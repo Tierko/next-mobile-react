@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import cs from 'classnames';
 import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
 import HeaderMobile from '../components/HeaderMobile';
@@ -10,10 +9,11 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import Checkbox from '../components/CheckboxSlide';
 import InputRuble from '../components/InputRuble';
 import Select from '../../../common/js/components/Select';
-import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
+import Hider from '../components/Hider';
+import Notice from '../components/Notice';
 import { Pages, MONTHS, TITLES } from '../constants';
-import saveAutoPayAction from '../actions/AutoPay';
+import { autoPaySaveAction } from '../actions/AutoPay';
 import {
   getShortPan,
   getPaySystem,
@@ -47,32 +47,25 @@ class AutoPay extends Component {
 
     this.state = Object.assign(data, {
       alreadyEnabled: monthlyEnabled || lessEnabled,
-      overflowHidden: false,
     });
   }
 
   onChange = (name, value) => {
-    if (name === 'monthlyEnabled' || name === 'lessEnabled') {
-      this.setState({
-        overflowHidden: true,
-      });
+    const { onSave } = this;
 
-      setTimeout(() => {
-        this.setState({
-          overflowHidden: false,
-        });
-      }, 1000);
+    if (name === 'autoPaySum' || name === 'fewSum' || name === 'fewLess') {
+      if (value.toString().length > 5) {
+        return;
+      }
     }
 
     this.setState({
       [name]: value,
-      unsaved: true,
-    });
+    }, onSave);
   };
 
   onSave = () => {
     const {
-      unsaved,
       monthlyEnabled,
       monthlySum,
       monthlyDay,
@@ -82,11 +75,12 @@ class AutoPay extends Component {
       lessLess,
     } = this.state;
     const {
-      history,
       saveAutoPay,
     } = this.props;
+    const monthlyInLimits = monthlySum >= 100 && monthlySum <= 15000;
+    const lessSumInLimits = lessSum >= 100 && lessSum <= 15000;
 
-    if (unsaved) {
+    if (monthlyInLimits && lessSumInLimits ) {
       saveAutoPay({
         monthlyEnabled,
         monthlySum,
@@ -95,14 +89,6 @@ class AutoPay extends Component {
         lessEnabled,
         lessSum,
         lessLess,
-      });
-
-      history.push({
-        pathname: `${Pages.RESULT}/success`,
-        state: {
-          title: 'Автоплатеж сохранен',
-          text: 'Счет будет автоматически пополняться на 2 000 ₽ каждый месяц 10 числа до сентября 2018 включительно',
-        },
       });
     }
   };
@@ -122,29 +108,30 @@ class AutoPay extends Component {
       lessEnabled,
       lessLess,
       lessSum,
-      unsaved,
       alreadyEnabled,
-      overflowHidden,
     } = this.state;
-    const { onChange, onSave, getDefaultCard } = this;
+    const { onChange, getDefaultCard } = this;
     const { months, days } = AutoPay;
     const card = getDefaultCard();
+    const hasCards = this.props.cards.items.length > 0;
     const meta = {
       title: TITLES.AUTO_PAY,
     };
-    const monthlyInLimits = monthlySum >= 100 && monthlySum <= 15000;
-    const lessSumInLimits = lessSum >= 100 && lessSum <= 15000;
 
     return (
       <DocumentMeta {...meta}>
         <HeaderMobile />
         <MobileNav key="nav" type="dashboard" />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transitions>
-            <div className="dashboard__content">
-              <Breadcrumbs items={[{ title: 'Пополнение', link: Pages.PAY }]} />
-              <div className="dashboard__header">
+            <div className="dashboard__content dashboard__content_white">
+              <Breadcrumbs
+                items={[{ title: 'Пополнение', link: Pages.PAY }]}
+                current={TITLES.AUTO_PAY}
+              />
+              <div className="dashboard__header dashboard__header_auto-pay">
                 {
                   alreadyEnabled ? 'Ваш автоплатеж' : 'Подключение автоплатежа'
                 }
@@ -168,94 +155,82 @@ class AutoPay extends Component {
                   !card &&
                   <div className="auto-pay__note">У&nbsp;вас не&nbsp;установлена карта по&nbsp;умолчанию, вы&nbsp;не&nbsp;сможете настроить автоплатеж</div>
                 }
-                <div className="auto-pay__section">
-                  <div className="auto-pay__title">
-                    <div>Ежемесячно</div>
-                    <Checkbox
-                      className="checkbox-slide_auto-pay"
-                      name="monthlyEnabled"
-                      value={monthlyEnabled}
-                      onChange={onChange}
-                    />
-                  </div>
-                  <div
-                    className={cs('auto-pay__block', {
-                      'auto-pay__block_show': monthlyEnabled,
-                      'auto-pay__block_overflow': overflowHidden,
-                    })}
-                  >
-                    <div className="auto-pay__row">
-                      <div className="auto-pay__cell">
-                        На&nbsp;сумму
-                        <div className="auto-pay__note">От&nbsp;100 до&nbsp;15&nbsp;000&nbsp;₽</div>
-                      </div>
-                      <InputRuble className="input_auto-pay" length={5} name="monthlySum" value={monthlySum} onChange={onChange} />
+                <div className="auto-pay__sections">
+                  <div className="auto-pay__section">
+                    <div className="auto-pay__title">
+                      <div>Ежемесячно</div>
+                      <Checkbox
+                        className="checkbox-slide_auto-pay"
+                        name="monthlyEnabled"
+                        value={monthlyEnabled}
+                        onChange={onChange}
+                        disabled={!hasCards}
+                      />
                     </div>
-                    <div className="auto-pay__row">
-                      <div className="auto-pay__cell">
-                        Какого числа пополнять
-                        <div className="auto-pay__note">
-                          Не&nbsp;позже трех дней до&nbsp;даты платежа по&nbsp;тарифу
+                    <Hider show={monthlyEnabled}>
+                      <div className="auto-pay__row">
+                        <div className="auto-pay__cell">
+                          На&nbsp;сумму
+                          <div className="auto-pay__note">От&nbsp;100 до&nbsp;15&nbsp;000&nbsp;₽</div>
                         </div>
+                        <InputRuble className="input_auto-pay" name="monthlySum" value={monthlySum} onChange={onChange} />
                       </div>
-                      <Select
-                        className="select_auto-pay-day"
-                        value={monthlyDay}
-                        items={days}
-                        onSelect={v => onChange('monthlyDay', v)}
+                      <div className="auto-pay__row">
+                        <div className="auto-pay__cell">
+                          Какого числа пополнять
+                          <div className="auto-pay__note">
+                            Не&nbsp;позже трех дней до&nbsp;даты платежа по&nbsp;тарифу
+                          </div>
+                        </div>
+                        <Select
+                          className="select_auto-pay-day"
+                          value={monthlyDay}
+                          items={days}
+                          onSelect={v => onChange('monthlyDay', v)}
+                        />
+                      </div>
+                      <div className="auto-pay__row">
+                        <div className="auto-pay__cell">
+                          До какого месяца
+                          <div className="auto-pay__note">Включительно</div>
+                        </div>
+                        <Select
+                          className="select_auto-pay-month"
+                          onSelect={v => onChange('monthlyUntil', v)}
+                          items={months}
+                          value={monthlyUntil}
+                        />
+                      </div>
+                    </Hider>
+                  </div>
+                  <div className="auto-pay__section">
+                    <div className="auto-pay__title">
+                      <div>Если на&nbsp;счете недостаточно денег</div>
+                      <Checkbox
+                        value={lessEnabled}
+                        name="lessEnabled"
+                        onChange={onChange}
+                        className="checkbox-slide_auto-pay"
+                        disabled={!hasCards}
                       />
                     </div>
-                    <div className="auto-pay__row">
-                      <div className="auto-pay__cell">
-                        До какого месяца
-                        <div className="auto-pay__note">Включительно</div>
+                    <Hider show={lessEnabled}>
+                      <div className="auto-pay__row">
+                        <div className="auto-pay__cell">
+                          На сумму
+                          <div className="auto-pay__note">От&nbsp;100 до&nbsp;15&nbsp;000&nbsp;₽</div>
+                        </div>
+                        <InputRuble className="input_auto-pay" onChange={onChange} value={lessSum} name="lessSum" />
                       </div>
-                      <Select
-                        className="select_auto-pay-month"
-                        onSelect={v => onChange('monthlyUntil', v)}
-                        items={months}
-                        value={monthlyUntil}
-                      />
-                    </div>
+                      <div className="auto-pay__row">
+                        <div className="auto-pay__cell">
+                          Пополнять, если на&nbsp;счету меньше, чем
+                        </div>
+                        <InputRuble className="input_auto-pay" onChange={onChange} value={lessLess} name="lessLess" />
+                      </div>
+                    </Hider>
                   </div>
                 </div>
-                <div className="auto-pay__section">
-                  <div className="auto-pay__title">
-                    <div>Если на&nbsp;счете недостаточно денег</div>
-                    <Checkbox
-                      value={lessEnabled}
-                      name="lessEnabled"
-                      onChange={onChange}
-                      className="checkbox-slide_auto-pay"
-                    />
-                  </div>
-                  <div
-                    className={cs('auto-pay__block', {
-                      'auto-pay__block_show': lessEnabled,
-                      'auto-pay__block_overflow': overflowHidden,
-                    })}
-                  >
-                    <div className="auto-pay__row">
-                      <div className="auto-pay__cell">
-                        На сумму
-                        <div className="auto-pay__note">От&nbsp;100 до&nbsp;15&nbsp;000&nbsp;₽</div>
-                      </div>
-                      <InputRuble className="input_auto-pay" length={5} onChange={onChange} value={lessSum} name="lessSum" />
-                    </div>
-                    <div className="auto-pay__row">
-                      <div className="auto-pay__cell">
-                        Пополнять, если на&nbsp;счету меньше, чем
-                      </div>
-                      <InputRuble className="input_auto-pay" length={5} onChange={onChange} value={lessLess} name="lessLess" />
-                    </div>
-                  </div>
-                </div>
-                <Button
-                  onClick={onSave}
-                  disabled={!unsaved || !card || !monthlyInLimits || !lessSumInLimits}
-                >
-                  Сохранить
-                </Button>
               </div>
             </div>
           </Transitions>
@@ -274,7 +249,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    saveAutoPay: state => dispatch(saveAutoPayAction(state)),
+    saveAutoPay: state => dispatch(autoPaySaveAction(state)),
   };
 }
 

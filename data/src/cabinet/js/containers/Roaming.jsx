@@ -7,13 +7,14 @@ import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import RoamingMap from '../components/RoamingMap';
-import Tabs from '../components/Tabs';
+import TabsRoaming from '../components/TabsRoaming';
 import RoamingZone from '../components/RoamingZone';
 import RoamingCountries from '../components/RoamingCountries';
 import RoamingInternet from '../components/RoamingInternet';
 import RoamingTariffZone from '../components/RoamingTariffZone';
 import RoamingTariffCountry from '../components/RoamingTariffCountry';
 import Transitions from '../components/Transitions';
+import Notice from '../components/Notice';
 import { Pages, TITLES } from '../constants';
 
 class Roaming extends Component {
@@ -130,9 +131,10 @@ class Roaming extends Component {
           country={country}
         />
         <MobileNav key="nav" type="dashboard" hideSpot />
+        <Notice />
         <div key="dashboard" className="dashboard">
           <Aside />
-          <div className="dashboard__content dashboard__content_roaming">
+          <div className="dashboard__content dashboard__content_white dashboard__content_roaming">
             <Transitions>
               <RoamingMap
                 zone={currentZone}
@@ -145,7 +147,7 @@ class Roaming extends Component {
                 !type &&
                 <Transitions>
                   <div className="roaming roaming_zones">
-                    <Tabs
+                    <TabsRoaming
                       tabs={zones}
                       active={tab}
                       onTabChange={onTabChange}

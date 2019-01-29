@@ -1,13 +1,12 @@
 .aside {
-  flex: 0 0 33.33%;
-
-  @media (max-width: @BREAK-POINT) {
-    display: none;
-  }
+  flex: 0 0 30%;
+  background: @BLUE-MAIN;
+  color: @WHITE;
+  max-width: 360px;
 
   &__inner {
     max-width: 200px;
-    margin: -25px 0 0;
+    margin: auto;
     padding: 0 15px 15px;
     position: relative;
     z-index: 1;
@@ -15,11 +14,9 @@
 
   &__logo {
     position: relative;
-    padding-top: 12px;
-
-    img {
-      margin-left: -56px;
-    }
+    padding: 72px 0 0 15px;
+    max-width: 200px;
+    margin: auto;
   }
 
   &__home {
@@ -29,27 +26,58 @@
     bottom: 0;
     left: 0;
     max-width: 117px;
-    margin-left: -56px;
   }
 
   &__phone {
-    color: @GRAY-DARK;
+    color: @WHITE-TRANSPARENT;
     margin-bottom: 30px;
     margin-left: -14px;
   }
 
   &__info {
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     letter-spacing: 1.7px;
     font-size: @FONT-SIZE-SMALL;
 
     span {
-      color: @GRAY-DARK;
+      color: @WHITE-TRANSPARENT;
     }
   }
 
-  &__nav {
+  &__control {
+    margin-bottom: 30px;
+    display: flex;
+  }
+
+  &__button {
+    width: 32px;
+    margin-right: 16px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    cursor: pointer;
+    position: relative;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    img + img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    &:hover img + img {
+      opacity: 1;
+    }
   }
 
   &__nav-item {
@@ -64,37 +92,28 @@
     .link-nav;
     position: relative;
 
-    &:hover {
-      background: none;
-    }
-
     &.active {
-      .gradient-link-nav;
+      background-image: none;
 
       &:before {
         content: '';
         position: absolute;
-        top: 0;
-        left: -8px;
+        top: 3px;
+        left: -7px;
         bottom: 0;
-        width: 1px;
-        background: #003cff;
+        width: 2px;
+        height: 14px;
+        background: @WHITE;
       }
     }
 
     &_not-exact.active {
       cursor: pointer;
-
-      &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        background: linear-gradient(to right, #003cff, #148cff) no-repeat 0 calc(50% + 0.5em);
-        background-size: 100% 1px;
-      }
+      //background-image: linear-gradient(to right, @WHITE-TRANSPARENT, @WHITE-TRANSPARENT);
     }
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    display: none;
   }
 }

@@ -33,6 +33,14 @@
     width: 155px;
   }
 
+  @media (max-width: 400px) {
+    &_sign-up-house,
+    &_sign-up-flat,
+    &_sign-up-housing {
+      width: 100%;
+    }
+  }
+
   &_chat {
     margin: 0 20px;
     flex: 1 1 auto;
@@ -44,13 +52,15 @@
 
   &_balance {
     padding: 0;
-    margin-right: 12px;
-    max-width: 205px;
+    margin-right: 10px;
+    max-width: 137px;
   }
 
   &_balance &__value {
-    .big;
-    padding: 0 0 4px;
+    padding: 0;
+    font-size: @FONT-SIZE-H2;
+    line-height: 46px;
+    color: rgba(33, 31, 94, 0.86);
   }
 
   &_payment &__value {
@@ -60,12 +70,10 @@
 
   &_settings-email {
     font-size: @FONT-SIZE-H2;
-    margin-bottom: 35px;
+    margin: 40px 0 10px;
 
     @media (max-width: @BREAK-POINT) {
       font-size: @FONT-SIZE-BASE;
-      margin-bottom: 4px;
-      margin-top: 23px;
     }
   }
 
@@ -91,10 +99,6 @@
   &_pay &__value {
     line-height: 60px;
     padding: 0;
-  }
-
-  &_pay &__clear {
-
   }
 
   &_operations-date {
@@ -155,6 +159,7 @@
   }
 
   &__value {
+    color: inherit;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
@@ -211,9 +216,9 @@
 
   &__error {
     .text-ellipsis;
-    .gradient-red-purple;
     font-size: @FONT-SIZE-SMALL;
     line-height: @LINE-HEIGHT-SMALL;
+    color: @ORANGE;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -222,15 +227,16 @@
 
   &__indicator {
     height: 1px;
-    background-color: @GRAY;
+    background-color: @GRAY-LIGHT;
+    position: relative;
+    transition: background-color 0.3s;
 
     &_light {
       background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
     }
 
     &_error {
-      background-color: transparent;
-      background-image: linear-gradient(#f97a7c, #f97ad2);
+      background-color: @ORANGE;
     }
 
     &_hide {
@@ -240,7 +246,12 @@
 
   &__value:focus ~ &__indicator,
   &_active &__indicator {
-    background-color: @BLACK;
+    background-color: @BLUE-MAIN;
+  }
+
+  &__value:focus ~ &__indicator_error,
+  &_active &__indicator_error {
+    background-color: @ORANGE;
   }
 
   &__value:focus ~ &__indicator_light,
@@ -261,6 +272,7 @@
 
     &_clear {
       background-image: url("/media/icons/x.svg");
+      background-color: @WHITE;
       transition: opacity 0.5s;
 
       &:hover {
@@ -270,6 +282,12 @@
 
     &_calendar {
       background-image: url("/media/icons/calendar.svg");
+    }
+  }
+
+  @media (max-width: 340px) {
+    &__value_date + &__icon_calendar {
+      display: none;
     }
   }
 }

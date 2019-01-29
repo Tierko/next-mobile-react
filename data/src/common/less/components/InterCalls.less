@@ -6,16 +6,12 @@
     width: 100%;
   }
 
-  &_more {
-    margin-top: 30px;
+  &_more &__header {
+    display: none;
   }
 
   &_services {
     margin-bottom: 50px;
-  }
-
-  &_tariff {
-
   }
 
   &__header {
@@ -66,6 +62,27 @@
     }
   }
 
+  &_more {
+    font-weight: 300;
+  }
+
+  &_more .select .input {
+    padding: 0;
+  }
+
+  &_more .select .input__value {
+    height: 38px;
+  }
+
+  &_more &__clear {
+    margin-top: 3px;
+  }
+
+  &_more &__selected {
+    margin: 0;
+    min-height: 39px;
+  }
+
   &__img {
     height: 20px;
     width: 20px;
@@ -89,6 +106,10 @@
 
     &_light {
       border-bottom-color: @WHITE;
+    }
+
+    & > span {
+      white-space: nowrap;
     }
   }
 

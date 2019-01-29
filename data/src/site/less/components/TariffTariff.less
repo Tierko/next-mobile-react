@@ -2,12 +2,51 @@
   padding-bottom: 100px;
 
   &__header {
-    .page-title;
+    .h1;
     margin-bottom: 40px;
   }
 
   &__note {
-    margin: 10px 0 60px;
+    .small;
+    margin: 10px 0 100px;
     max-width: 453px;
+  }
+
+  &__inter-calls-title {
+    font-size: @FONT-SIZE-H2;
+    line-height: @LINE-HEIGHT-H2;
+    padding-right: 20px;
+    color: rgba(33, 31, 94, 0.86);
+  }
+
+  &__random {
+    padding-top: 20px;
+  }
+
+  &__random-item {
+    display: flex;
+    align-items: baseline;
+    max-width: 498px;
+    padding-bottom: 7px;
+
+    img {
+      margin-right: 10px;
+
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+      }
+    }
+
+    span {
+      margin-left: auto;
+      white-space: nowrap;
+      padding-left: 10px;
+    }
+  }
+
+  &__random-note {
+    .small;
   }
 }

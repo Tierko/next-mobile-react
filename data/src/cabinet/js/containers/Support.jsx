@@ -10,7 +10,7 @@ class Support extends Component {
   render() {
     return (
       <DocumentMeta title={TITLES.SUPPORT}>
-        <MobileNav type="enter" />
+        <MobileNav type="enter" dark />
         <Header />
         <Transitions classNames="slide">
           <div className="support">

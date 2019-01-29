@@ -5,6 +5,10 @@
 .service {
   margin-bottom: 60px;
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   &__control {
     display: flex;
     justify-content: space-between;
@@ -27,25 +31,5 @@
 
   &__expense {
 
-  }
-
-  &__expense-sums {
-    display: flex;
-  }
-
-  &__expense-sum {
-    margin-right: 30px;
-    color: @GRAY-DARK;
-    cursor: pointer;
-    user-select: none;
-    transition: color 0.3s;
-
-    &:not(&_disabled):hover {
-      color: @BLACK;
-    }
-
-    &_disabled {
-      cursor: default;
-    }
   }
 }

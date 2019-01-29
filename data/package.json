@@ -9,8 +9,8 @@
     "start-site": "webpack-dev-server --mode development --env.type=site --open",
     "build-cabinet": "webpack --mode production --env.type=cabinet",
     "build-site": "webpack --mode production --env.type=site",
-    "deploy-cabinet": "node deploy.js next/mobile cabinet",
-    "deploy-site": "node deploy.js promo site",
+    "deploy-cabinet": "node deploy.js next/mobile2 cabinet",
+    "deploy-site": "node deploy.js promo2 site",
     "flow-cabinet": "git pull && git push && npm run build-cabinet && npm run deploy-cabinet",
     "flow-site": "git pull && git push && npm run build-site && npm run deploy-site",
     "flow": "git pull && git push && npm run build-site && npm run deploy-site && npm run build-cabinet && npm run deploy-cabinet"
@@ -71,5 +71,9 @@
     "webpack": "4.12.0",
     "webpack-cli": "3.0.4",
     "webpack-dev-server": "3.1.4"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.0.0"
   }
 }

@@ -1,10 +1,51 @@
 .more {
-  &__text {
-    margin-top: 30px;
-    color: @GRAY-DARK;
+  &__items {
+    padding-top: 20px;
   }
 
-  &__subtitle {
+  &__row  {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid @GRAY-LIGHT;
+    padding: 15px 0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__title {
+    padding-right: 15px;
+    flex-basis: 65%;
+  }
+
+  &__title .small {
+    margin-top: 5px;
+  }
+
+  &__value {
     .h2;
+    margin-bottom: 0;
+    font-weight: 400;
+    flex-basis: 35%;
+    text-align: right;
+  }
+
+  &__select {
+    font-weight: 400;
+    text-align: right;
+    flex-grow: 1;
+    flex-shrink: 0;
+    min-width: 270px;
+  }
+
+  @media (max-width: @BREAK-POINT) {
+    &__row {
+      display: block;
+    }
+
+    &__value {
+      text-align: left;
+    }
   }
 }

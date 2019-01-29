@@ -1,40 +1,9 @@
 .payment {
   width: 100%;
-  max-width: 520px;
   margin-bottom: 60px;
 
   @media (max-width: @BREAK-POINT) {
     max-width: 100%;
-  }
-
-  &__tabs {
-    display: flex;
-    margin-bottom: 15px;
-  }
-
-  &__tab {
-    margin: 10px;
-    cursor: pointer;
-    user-select: none;
-    border-bottom: 1px dashed transparent;
-    line-height: 20px;
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    &_active {
-      cursor: default;
-    }
-
-    &:not(&_active) {
-      border-bottom-color: @GRAY-DARK;
-      color: @GRAY-DARK;
-    }
   }
 
   &__sum {
