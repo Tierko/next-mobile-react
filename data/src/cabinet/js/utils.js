@@ -1,4 +1,4 @@
-import { GENERAL_SETTINGS, units } from './constants';
+import { GENERAL_SETTINGS, Pages, units } from './constants';
 import data from '../data/index';
 
 export const checkCardNumber = str => str && str.replace(/\D/g, '').length === 16;
@@ -143,9 +143,7 @@ export const ajax = (url, dispatch, onRequest, onFail, onSuccess) => {
     .catch(() => dispatch(onFail()));
 };
 
-export const mapNumbers = (x, inMin, inMax, outMin, outMax) => {
-  return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
-};
+export const mapNumbers = (x, inMin, inMax, outMin, outMax) => (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 
 export const formatPhone = (phone) => {
   if (!phone) {
@@ -221,17 +219,21 @@ export const cleanPhone = (phone) => {
   return phone.replace(/[+ -]/g, '');
 };
 
-export const sendAjax = (apiUrl, method, data) => {
+export const sendAjax = (apiUrl, method, body) => {
 
   const headers = new Headers({
     'Content-Types': 'application/json',
-    'Authorization': `Basic ${btoa(GENERAL_SETTINGS.api_login + ":" + GENERAL_SETTINGS.api_password)}`,
+    'Authorization': `Basic ${btoa(`${GENERAL_SETTINGS.api_login}:${GENERAL_SETTINGS.api_password}`)}`,
   });
 
+  if (localStorage.getItem('next-token-login')) {
+    headers.append('X-Authorization', `Bearer ${localStorage.getItem('next-token-login')}`);
+  }
+
   return fetch(`${GENERAL_SETTINGS.api_url}${GENERAL_SETTINGS.api_version}${apiUrl}`, {
-    method: method,
-    headers: headers,
-    body: data,
+    method,
+    headers,
+    body,
   })
     .then((response) => {
       if (response.ok) {
