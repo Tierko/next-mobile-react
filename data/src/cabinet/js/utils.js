@@ -233,7 +233,6 @@ export const token = {
 
 export const sendAjax = (apiUrl, method, body) => {
   const headers = new Headers({
-    'Content-Type': 'application/json',
     'Authorization': `Basic ${btoa(`${GENERAL_SETTINGS.api_login}:${GENERAL_SETTINGS.api_password}`)}`,
   });
   const authToken = token.get();
@@ -248,7 +247,7 @@ export const sendAjax = (apiUrl, method, body) => {
   })
     .then((response) => {
       if (response.ok) {
-        return response.json();
+        return response.json().catch(() => ({}));
       }
       throw response;
     });

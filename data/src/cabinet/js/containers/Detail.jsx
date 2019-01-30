@@ -12,18 +12,34 @@ import Button from '../../../common/js/components/Button';
 import Transitions from '../components/Transitions';
 import Notice from '../components/Notice';
 import { Pages, TITLES, THIRTY_DAYS } from '../constants';
+import { sendAjax } from '../utils';
 
 class Detail extends Component {
   static formats = [{
     id: 1,
     title: 'PDF',
+    code: 'pdf',
   }, {
     id: 2,
-    title: 'XLS',
-  }, {
+    title: 'DOC',
+    code: 'docx',
+  },  {
     id: 3,
+    title: 'XLS',
+    code: 'xlsx',
+  }, {
+    id: 4,
     title: 'HTML',
+    code: 'html',
   }];
+
+  static formatDate = (date) => {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    return `${year}-${month}-${day}`;
+  };
 
   state = {
     startDate: new window.Date(window.Date.now() - THIRTY_DAYS),
@@ -57,16 +73,29 @@ class Detail extends Component {
     return Math.abs(start - end) <= THIRTY_DAYS;
   };
 
-  order = () => {
+  order = async () => {
     const { history } = this.props;
+    const { formatDate } = Detail;
+    const { email, startDate, endDate, format} = this.state;
 
-    history.push({
-      pathname: `${Pages.RESULT}/success`,
-      state: {
-        title: 'Детализация отправлена',
-        text: 'Отчет о\u00A0расходах с\u00A01\u00A0сентября по\u00A030\u00A0сентября 2018\u00A0г. отправлен в\u00A0виде файла PDF на\u00A0адрес konstantinopolsky@gmail.com',
-      },
-    });
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('start_date', formatDate(startDate));
+    formData.append('end_date', formatDate(endDate));
+    formData.append('file_type', format.code);
+
+    try {
+      await sendAjax('/history/detailing/', 'POST', formData);
+      history.push({
+        pathname: `${Pages.RESULT}/success`,
+        state: {
+          title: 'Детализация отправлена',
+          text: 'Отчет о\u00A0расходах с\u00A01\u00A0сентября по\u00A030\u00A0сентября 2018\u00A0г. отправлен в\u00A0виде файла PDF на\u00A0адрес konstantinopolsky@gmail.com',
+        },
+      });
+    } catch (error) {
+      history.push(`${Pages.RESULT}/error`);
+    }
   };
 
   render() {
