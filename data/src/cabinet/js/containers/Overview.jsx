@@ -94,7 +94,7 @@ class Overview extends Component {
   };
 
   render() {
-    const { roaming, history } = this.props;
+    const { roaming, history, expenses } = this.props;
     const { onPay, sumChange, onBuy } = this;
     const { sum, invites: { message, items } } = this.state;
     const code = items.find(i => !i.active);
@@ -124,7 +124,7 @@ class Overview extends Component {
                 tariff={getData('tariff')}
                 buy={onBuy}
               />
-              <History data={getData('history')} />
+              <History data={expenses.items} />
               <RoamingDashboard data={roaming} />
               <OverviewInvite message={message} code={code ? code.code : ''} />
               <FooterNav />
@@ -138,11 +138,12 @@ class Overview extends Component {
 }
 
 function mapStateToProps(state) {
-  const { Roaming, Cards } = state;
+  const { Roaming, Cards, Expenses } = state;
 
   return {
     roaming: Roaming,
     cards: Cards,
+    expenses: Expenses,
   };
 }
 
@@ -150,6 +151,7 @@ Overview.propTypes = {
   history: PropTypes.shape().isRequired,
   roaming: PropTypes.shape().isRequired,
   cards: PropTypes.shape().isRequired,
+  expenses: PropTypes.shape().isRequired,
 };
 
 export default connect(mapStateToProps)(Overview);

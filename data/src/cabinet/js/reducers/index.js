@@ -7,6 +7,7 @@ import AutoPay from './AutoPay';
 import Balance from './Balance';
 import Cards from './Cards';
 import Packages from './Packages';
+import Expenses from './Expenses';
 import Roaming from './Roaming';
 import Notice from './Notice';
 import InterCalls from './InterCalls';
@@ -22,6 +23,7 @@ const reducers = combineReducers({
   Balance,
   Cards,
   Packages,
+  Expenses,
   Roaming,
   Notice,
   InterCalls,

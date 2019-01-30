@@ -37,6 +37,9 @@ export const ACTION_TYPES = keyMirror({
   INTER_CALLS_REQUEST: undefined,
   INTER_CALLS_REQUEST_FAIL: undefined,
   INTER_CALLS_REQUEST_SUCCESS: undefined,
+  EXPENSES_REQUEST: undefined,
+  EXPENSES_REQUEST_FAIL: undefined,
+  EXPENSES_REQUEST_SUCCESS: undefined,
 });
 
 export const Pages = {

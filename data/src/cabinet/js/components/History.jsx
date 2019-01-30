@@ -6,17 +6,13 @@ import { formatCost } from '../utils';
 import { Pages, MONTHS } from '../constants';
 
 class History extends Component {
-  constructor(props) {
-    const { data } = props;
-    super(props);
-    this.state = {
-      selected: data.length ? data[data.length - 1].id : -1,
-    };
-  }
+  state = {
+    selected: -1,
+  };
 
-  selectMonth = ({ id }) => {
+  selectMonth = ({month}) => {
     this.setState({
-      selected: id,
+      selected: month,
     });
   };
 
@@ -24,8 +20,9 @@ class History extends Component {
     const { data } = this.props;
     const { selected } = this.state;
     const { selectMonth } = this;
-    const selectedItem = data.find(i => i.id === selected);
-    const cost = selectedItem ? selectedItem.expense.reduce((acc, d) => (acc + d.cost), 0) : 0;
+    const selectedItem = selected === -1 ? data[0] : data.find(i => i.month === selected);
+    const cost = selectedItem ? selectedItem.total : 0;
+    const selectedItemMonth = selectedItem ? (new Date(selectedItem.month)).getMonth() : 0;
 
     return (
       <div className="block block_round">
@@ -37,7 +34,7 @@ class History extends Component {
             </div>
             <Grade data={data} onItemSelect={selectMonth} wide />
             <div className="history__expense">
-              <span>&minus;</span>{formatCost(cost, true)} за&nbsp;{MONTHS[selectedItem.date.month].toLowerCase()}
+              <span>&minus;</span>{formatCost(cost, true)} за&nbsp;{MONTHS[selectedItemMonth].toLowerCase()}
             </div>
           </Fragment>
         }

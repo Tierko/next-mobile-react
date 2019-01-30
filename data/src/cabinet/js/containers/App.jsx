@@ -36,15 +36,17 @@ import {
   getZonesAction,
   getFeaturesAction,
 } from '../actions/Roaming';
+import getExpensesAction from '../actions/Expenses';
 
 
 class App extends Component {
   componentDidMount() {
-    const { getZones, getFeatures, getInterCalls } = this.props;
+    const { getZones, getFeatures, getInterCalls, getExpenses } = this.props;
     const { detectIE10 } = this;
     getZones();
     getFeatures();
     getInterCalls();
+    getExpenses();
     detectIE10();
   }
 
@@ -125,6 +127,7 @@ App.propTypes = {
   getZones: PropTypes.func.isRequired,
   getFeatures: PropTypes.func.isRequired,
   getInterCalls: PropTypes.func.isRequired,
+  getExpenses: PropTypes.func.isRequired,
   location: PropTypes.shape().isRequired,
 };
 
@@ -133,6 +136,7 @@ function mapDispatchToProps(dispatch) {
     getZones: () => dispatch(getZonesAction()),
     getFeatures: () => dispatch(getFeaturesAction()),
     getInterCalls: () => dispatch(getInterCallsAction()),
+    getExpenses: () => dispatch(getExpensesAction()),
   };
 }
 

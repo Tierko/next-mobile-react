@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import DocumentMeta from 'react-document-meta';
 import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
@@ -8,10 +9,11 @@ import Expense from '../components/Expense';
 import Operations from '../components/Operations';
 import Transitions from '../components/Transitions';
 import Notice from '../components/Notice';
-import { TITLES } from '../constants';
-import { getData } from '../utils';
+import {TITLES} from '../constants';
+import {getData} from '../utils';
 
-const History = ({ history }) => {
+function History(props) {
+  const {history, expenses} = props;
   const meta = {
     title: TITLES.HISTORY,
   };
@@ -25,17 +27,26 @@ const History = ({ history }) => {
         <Aside />
         <Transitions>
           <div className="dashboard__content">
-            <Expense history={history} data={getData('history')} />
+            <Expense history={history} data={expenses.items} />
             <Operations data={getData('operations')} />
           </div>
         </Transitions>
       </div>
     </DocumentMeta>
   );
-};
+}
 
 History.propTypes = {
   history: PropTypes.shape().isRequired,
+  expenses: PropTypes.shape().isRequired,
 };
 
-export default History;
+function mapStateToProps(state) {
+  const { Expenses } = state;
+
+  return {
+    expenses: Expenses,
+  };
+}
+
+export default connect(mapStateToProps)(History);
