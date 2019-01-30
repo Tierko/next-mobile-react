@@ -11,6 +11,7 @@ import Expenses from './Expenses';
 import Roaming from './Roaming';
 import Notice from './Notice';
 import InterCalls from './InterCalls';
+import Profile from './Profile';
 
 const persistConfig = {
   key: 'root',
@@ -27,6 +28,7 @@ const reducers = combineReducers({
   Roaming,
   Notice,
   InterCalls,
+  Profile,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

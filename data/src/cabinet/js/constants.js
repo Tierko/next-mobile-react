@@ -40,6 +40,13 @@ export const ACTION_TYPES = keyMirror({
   EXPENSES_REQUEST: undefined,
   EXPENSES_REQUEST_FAIL: undefined,
   EXPENSES_REQUEST_SUCCESS: undefined,
+  PROFILE_REQUEST: undefined,
+  PROFILE_REQUEST_SUCCESS: undefined,
+  PROFILE_REQUEST_FAIL: undefined,
+  PROFILE_CHANGE: undefined,
+  PROFILE_CHANGE_SAVE: undefined,
+  PROFILE_CHANGE_SAVE_SUCCESS: undefined,
+  PROFILE_CHANGE_SAVE_FAIL: undefined,
 });
 
 export const Pages = {
@@ -249,8 +256,8 @@ export const THIRTY_DAYS = 24 * 60 * 60 * 30 * 1000;
 export const ACCESS_TOKEN_NAME = 'next-token-login';
 
 export const GENERAL_SETTINGS = {
-  'api_url': '',
-  'api_version': '',
-  'api_login': '',
-  'api_password': ''
+  'api_url': 'https://cors-escape.herokuapp.com/http://qa.next.agimagroup.ru/api/v',
+  'api_version': 1,
+  'api_login': 'next',
+  'api_password': 'dU5WQZt3L1yX1JKUp7BoToLf'
 };
