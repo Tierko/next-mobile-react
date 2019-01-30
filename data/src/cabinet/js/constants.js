@@ -243,6 +243,8 @@ export const units = {
 
 export const THIRTY_DAYS = 24 * 60 * 60 * 30 * 1000;
 
+export const ACCESS_TOKEN_NAME = 'next-token-login';
+
 export const GENERAL_SETTINGS = {
   'api_url': '',
   'api_version': '',

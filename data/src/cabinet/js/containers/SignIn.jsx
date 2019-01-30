@@ -8,7 +8,7 @@ import Input from '../components/InputPhone';
 import MobileCode from '../components/MobileCode';
 import Transitions from '../components/Transitions';
 import { Pages, TITLES } from '../constants';
-import { cleanPhone, sendAjax } from '../utils';
+import { cleanPhone, sendAjax, token } from '../utils';
 
 class SignIn extends Component {
   state = {
@@ -19,7 +19,7 @@ class SignIn extends Component {
 
   componentDidMount() {
     const { history } = this.props;
-    if (localStorage.getItem('next-token-login')) {
+    if (token.get()) {
       history.push(Pages.DASHBOARD);
     }
   }
@@ -68,7 +68,7 @@ class SignIn extends Component {
     if (code.length === 4) {
       await sendAjax('/auth/login/', 'POST', formData)
         .then((data) => {
-          localStorage.setItem('next-token-login', data.token);
+          token.set(data.token);
           history.push(Pages.DASHBOARD);
         })
         .catch((error) => {

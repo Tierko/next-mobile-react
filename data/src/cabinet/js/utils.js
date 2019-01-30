@@ -1,4 +1,4 @@
-import { GENERAL_SETTINGS, Pages, units } from './constants';
+import { GENERAL_SETTINGS, Pages, units, ACCESS_TOKEN_NAME } from './constants';
 import data from '../data/index';
 
 export const checkCardNumber = str => str && str.replace(/\D/g, '').length === 16;
@@ -219,15 +219,26 @@ export const cleanPhone = (phone) => {
   return phone.replace(/[+ -]/g, '');
 };
 
-export const sendAjax = (apiUrl, method, body) => {
+export const token = {
+  get() {
+    return localStorage.getItem(ACCESS_TOKEN_NAME);
+  },
+  set(value) {
+    localStorage.setItem(ACCESS_TOKEN_NAME, value);
+  },
+  unset() {
+    localStorage.removeItem(ACCESS_TOKEN_NAME);
+  }
+};
 
+export const sendAjax = (apiUrl, method, body) => {
   const headers = new Headers({
-    'Content-Types': 'application/json',
+    'Content-Type': 'application/json',
     'Authorization': `Basic ${btoa(`${GENERAL_SETTINGS.api_login}:${GENERAL_SETTINGS.api_password}`)}`,
   });
-
-  if (localStorage.getItem('next-token-login')) {
-    headers.append('X-Authorization', `Bearer ${localStorage.getItem('next-token-login')}`);
+  const authToken = token.get();
+  if (authToken) {
+    headers.append('X-Authorization', `Bearer ${authToken}`);
   }
 
   return fetch(`${GENERAL_SETTINGS.api_url}${GENERAL_SETTINGS.api_version}${apiUrl}`, {
