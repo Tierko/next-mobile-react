@@ -4,65 +4,44 @@ import HeaderMobile from '../components/HeaderMobile';
 import MobileNav from '../../../common/js/components/MobileNav';
 import Aside from '../components/Aside';
 import Input from '../../../common/js/components/Input';
-import InputRuble from '../components/InputRuble';
 import CheckboxSlide from '../components/CheckboxSlide';
-import Select from '../components/SelectLang';
 import Notice from '../components/Notice';
 import Transitions from '../components/Transitions';
 import { TITLES } from '../constants';
+import { getProfile, changeProfile, patchProfile } from '../actions/Profile';
+import connect from 'react-redux/es/connect/connect';
+import * as PropTypes from 'prop-types';
 
 class Settings extends Component {
-  langs = [{
-    id: 1,
-    title: 'Русский',
-    value: 'ru',
-    flag: 'RU.svg',
-  }, {
-    id: 2,
-    title: 'English',
-    value: 'en',
-    flag: 'US.svg',
-  }];
-
-  constructor() {
-    super();
-    this.rubbleRef = React.createRef();
+  constructor(props) {
+    super(props);
   }
 
-  state = {
-    email: 'Konstantinopolsky@gmail.com',
-    lang: this.langs[0],
-    note: true,
-    receipt: true,
-    expenseNoteSum: 2000,
-  };
+  componentDidMount() {
+    const {getProfileSettings} = this.props;
+    getProfileSettings();
+  }
 
   onChange = (name, value) => {
-    this.setState({
-      [name]: value,
-    });
-  };
+    const {setProfileSettings} = this.props;
 
-  onLangSelect = (lang) => {
-    this.setState({
-      lang,
-    });
+    setProfileSettings({name, value});
+
+    if (name !== 'email') {
+      const formData = new FormData();
+      for ( var key in this.props.profile ) {
+        formData.append(key, this.props.profile[key]);
+      }
+      patchProfile(formData);
+    }
   };
 
   render() {
-    const {
-      onChange,
-      onLangSelect,
-      langs,
-      rubbleRef,
-    } = this;
-    const {
+    const { onChange } = this;
+    let {
       email,
-      lang,
-      note,
-      receipt,
-      expenseNoteSum,
-    } = this.state;
+      send_paychecks
+    } = this.props.profile;
     const meta = {
       title: TITLES.SETTINGS,
     };
@@ -79,37 +58,12 @@ class Settings extends Component {
               <div className="settings">
                 <div className="dashboard__header">Настройки</div>
                 <Input className="input_settings-email" name="email" value={email} onChange={onChange} placeholder="Почта" />
-                <Select
-                  className="select_settings"
-                  placeholder="Язык"
-                  items={langs}
-                  value={lang}
-                  onSelect={onLangSelect}
-                />
-                <div className="service">
-                  <div className="service__control">
-                    <div className="service__name">Уведомление о&nbsp;расходах</div>
-                    <CheckboxSlide className="checkbox-slide_settings" value={note} name="note" onChange={onChange} />
-                  </div>
-                  <div className="service__desc">СМС-оповещение после траты каждых</div>
-                  <div className="service__expense">
-                    <InputRuble
-                      className="input_settings-expense"
-                      name="expenseNoteSum"
-                      value={expenseNoteSum}
-                      onChange={onChange}
-                      disabled={!note}
-                      clear
-                      ref={rubbleRef}
-                    />
-                  </div>
-                </div>
                 <div className="service">
                   <div className="service__control">
                     <div className="service__name">Квитанции об&nbsp;оплате</div>
-                    <CheckboxSlide className="checkbox-slide_settings" value={receipt} name="receipt" onChange={onChange} />
+                    <CheckboxSlide className="checkbox-slide_settings" value={send_paychecks} name="send_paychecks" onChange={onChange} />
                   </div>
-                  <div className="service__desc">После совершения платежа отправлять квитанцию на&nbsp;адрес</div>
+                  <div className="service__desc">После совершения платежа отправлять квитанцию на&nbsp;адрес {email}</div>
                 </div>
               </div>
             </div>
@@ -120,4 +74,24 @@ class Settings extends Component {
   }
 }
 
-export default Settings;
+Settings.propTypes = {
+  getProfileSettings: PropTypes.func.isRequired,
+  setProfileSettings: PropTypes.func.isRequired,
+  patchProfileSettings: PropTypes.func.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    profile: state.Profile,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getProfileSettings: () => dispatch(getProfile()),
+    setProfileSettings: (profileValue) => dispatch(changeProfile(profileValue)),
+    patchProfileSettings: (profile) => dispatch(patchProfile(profile)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Settings);

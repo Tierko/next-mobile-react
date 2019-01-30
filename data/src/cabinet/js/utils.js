@@ -253,3 +253,27 @@ export const sendAjax = (apiUrl, method, body) => {
       throw response;
     });
 };
+
+export const reduxAjax = (apiUrl, method, body, dispatch, onRequest, onFail, onSuccess) => {
+  if (onRequest) {
+    dispatch(onRequest());
+  }
+
+  const headers = new Headers({
+    'Content-Types': 'application/json',
+    'Authorization': `Basic ${btoa(`${GENERAL_SETTINGS.api_login}:${GENERAL_SETTINGS.api_password}`)}`,
+  });
+
+  if (localStorage.getItem('next-token-login')) {
+    headers.append('X-Authorization', `Bearer ${localStorage.getItem('next-token-login')}`);
+  }
+
+  fetch(`${GENERAL_SETTINGS.api_url}${GENERAL_SETTINGS.api_version}${apiUrl}`, {
+    method,
+    headers,
+    body,
+  })
+    .then(items => items.json())
+    .then(items => dispatch(onSuccess(items)))
+    .catch(() => dispatch(onFail()));
+};
