@@ -1,5 +1,5 @@
 import { ACTION_TYPES } from '../constants';
-import { ajax, reduxAjax } from '../utils';
+import { ajax, reduxAjax, getFormData } from '../utils';
 
 const profileRequest = () => ({
   type: ACTION_TYPES.PROFILE_REQUEST,
@@ -35,6 +35,7 @@ const patchProfileRequestSuccess = () => ({
   type: ACTION_TYPES.PROFILE_CHANGE_SAVE_SUCCESS,
 });
 
-export const patchProfile = (data) => (
-  dispatch => reduxAjax('/profile/', 'PATCH', data, dispatch, patchProfileRequest, patchProfileRequestFail, patchProfileRequestSuccess)
-);
+export const patchProfile = () => (dispatch, getState) => {
+  const {Profile} = getState();
+  reduxAjax('/profile/', 'PATCH', getFormData(Profile), dispatch, patchProfileRequest, patchProfileRequestFail, patchProfileRequestSuccess)
+};

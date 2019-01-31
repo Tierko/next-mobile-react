@@ -22,13 +22,10 @@ const Profile = (state = initState, action) => {
   case ACTION_TYPES.PROFILE_CHANGE:
     return Object.assign({}, state, { [action.profileValue.name]: action.profileValue.value });
   case ACTION_TYPES.PROFILE_CHANGE_SAVE:
-    console.log(action);
     return Object.assign({}, state, { error: false });
   case ACTION_TYPES.PROFILE_CHANGE_SAVE_SUCCESS:
-    console.log(action);
     return Object.assign({}, state, { error: false });
   case ACTION_TYPES.PROFILE_CHANGE_SAVE_FAIL:
-    console.log(action);
     return Object.assign({}, state, { error: true });
   default:
     return state;

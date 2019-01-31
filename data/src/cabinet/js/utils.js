@@ -11,6 +11,8 @@ export const checkCVV = str => str && str.replace(/\D/g, '').length === 3;
 
 export const checkCardHolder = str => str && str.search(/^[a-z]+\s+[a-z]+$/gi) === 0;
 
+export const checkEmail = str => (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(str.toLowerCase());
+
 export const getPaySystem = (pan) => {
   if (pan.indexOf('2') === 0) {
     return 'mir';
@@ -264,3 +266,8 @@ export const reduxAjax = async (apiUrl, method, body, dispatch, onRequest, onFai
     dispatch(onFail());
   }
 };
+
+export const getFormData = object => Object.keys(object).reduce((formData, key) => {
+  formData.append(key, object[key]);
+  return formData;
+}, new FormData());

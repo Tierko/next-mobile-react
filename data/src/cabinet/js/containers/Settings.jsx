@@ -11,11 +11,16 @@ import { TITLES } from '../constants';
 import { getProfile, changeProfile, patchProfile } from '../actions/Profile';
 import connect from 'react-redux/es/connect/connect';
 import * as PropTypes from 'prop-types';
+import { checkEmail } from '../utils';
 
 class Settings extends Component {
   constructor(props) {
     super(props);
   }
+
+  state = {
+    emailValidation: true
+  };
 
   componentDidMount() {
     const {getProfileSettings} = this.props;
@@ -23,21 +28,25 @@ class Settings extends Component {
   }
 
   onChange = (name, value) => {
+    const {setProfileSettings, patchProfileSettings} = this.props;
+
+    setProfileSettings({name, value});
+    patchProfileSettings();
+  };
+
+  onEmailChange = (name, value) => {
     const {setProfileSettings} = this.props;
 
     setProfileSettings({name, value});
-
-    if (name !== 'email') {
-      const formData = new FormData();
-      for ( var key in this.props.profile ) {
-        formData.append(key, this.props.profile[key]);
-      }
-      patchProfile(formData);
-    }
+      this.setState({
+        'emailValidation': checkEmail(value)
+      });
+    //setProfileSettings({name, value});
   };
 
   render() {
-    const { onChange } = this;
+    const { onChange, onEmailChange } = this;
+    const { emailValidation } = this.state;
     let {
       email,
       send_paychecks
@@ -57,7 +66,7 @@ class Settings extends Component {
             <div className="dashboard__content dashboard__content_white">
               <div className="settings">
                 <div className="dashboard__header">Настройки</div>
-                <Input className="input_settings-email" name="email" value={email} onChange={onChange} placeholder="Почта" />
+                <Input className="input_settings-email" name="email" value={email} onChange={onEmailChange} placeholder="Почта" errorText={emailValidation ? null : "Укажите корректный E-Mail"} />
                 <div className="service">
                   <div className="service__control">
                     <div className="service__name">Квитанции об&nbsp;оплате</div>
@@ -90,7 +99,7 @@ function mapDispatchToProps(dispatch) {
   return {
     getProfileSettings: () => dispatch(getProfile()),
     setProfileSettings: (profileValue) => dispatch(changeProfile(profileValue)),
-    patchProfileSettings: (profile) => dispatch(patchProfile(profile)),
+    patchProfileSettings: () => dispatch(patchProfile()),
   };
 }
 
