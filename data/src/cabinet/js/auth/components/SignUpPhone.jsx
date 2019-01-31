@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import Input from './InputPhone';
-import Button from '../../../common/js/components/Button';
-import Transitions from './Transitions';
-import { checkPhone } from '../utils';
+import Input from '../../components/InputPhone';
+import Button from '../../../../common/js/components/Button';
+import Transitions from '../../components/Transitions';
+import { checkPhone } from '../../utils';
 
 class SignUpPhone extends Component {
   state = {

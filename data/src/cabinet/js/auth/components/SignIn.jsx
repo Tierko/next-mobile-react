@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import DocumentMeta from 'react-document-meta';
-import MobileNav from '../../../common/js/components/MobileNav';
-import Header from '../../../common/js/components/Header';
-import Input from '../components/InputPhone';
-import MobileCode from '../components/MobileCode';
-import Transitions from '../components/Transitions';
-import { Pages, TITLES } from '../constants';
-import { cleanPhone, sendAjax, token } from '../utils';
+import MobileNav from '../../../../common/js/components/MobileNav';
+import Header from '../../../../common/js/components/Header';
+import Input from '../../components/InputPhone';
+import MobileCode from '../../components/MobileCode';
+import Transitions from '../../components/Transitions';
+import { Pages, TITLES } from '../../constants';
+import { cleanPhone, sendAjax, token } from '../../utils';
 
 class SignIn extends Component {
   state = {

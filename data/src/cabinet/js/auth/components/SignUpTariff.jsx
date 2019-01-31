@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Transitions from './Transitions';
-import { formatCost } from '../utils';
+import Transitions from '../../components/Transitions';
+import { formatCost } from '../../utils';
 
 const fields = [{
   id: 1,

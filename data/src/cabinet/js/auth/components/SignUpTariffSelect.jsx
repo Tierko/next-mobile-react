@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../../common/js/components/Button';
-import TariffTable from '../../../common/js/components/TariffTable';
-import Transitions from './Transitions';
+import Button from '../../../../common/js/components/Button';
+import TariffTable from '../../../../common/js/components/TariffTable';
+import Transitions from '../../components/Transitions';
 
 class SignUpTariffSelect extends Component {
   state = {

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cs from 'classnames';
-import Radio from '../../../common/js/components/Radio';
-import Button from '../../../common/js/components/Button';
-import Transitions from './Transitions';
-import { Pages } from '../constants';
+import Radio from '../../../../common/js/components/Radio';
+import Button from '../../../../common/js/components/Button';
+import Transitions from '../../components/Transitions';
+import { Pages } from '../../constants';
 
 class SignUpInitAfter extends Component {
   state = {

@@ -2,20 +2,20 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DocumentMeta from 'react-document-meta';
 import { Link } from 'react-router-dom';
-import MobileNav from '../../../common/js/components/MobileNav';
-import Header from '../../../common/js/components/Header';
-import ProgressBar from '../components/ProgressBar';
-import SignUpInit from '../components/SignUpInit';
-import SignUpInitAfter from '../components/SignUpInitAfter';
-import SingUpStep1 from '../components/SignUpPhone';
-import SignUpPersonal from '../components/SignUpPersonal';
-import SignUpDeliveryAddress from '../components/SignUpDeliveryAddress';
-import SignUpDeliveryDate from '../components/SignUpDeliveryDate';
-import SignUpNumberSelect from '../components/SignUpNumberSelect';
-import SingUpTariffSelect from '../components/SignUpTariffSelect';
-import SignUpTariff from '../components/SignUpTariff';
-import Transitions from '../components/Transitions';
-import { Pages, TITLES } from '../constants';
+import MobileNav from '../../../../common/js/components/MobileNav';
+import Header from '../../../../common/js/components/Header';
+import ProgressBar from './ProgressBar';
+import SignUpInit from './SignUpInit';
+import SignUpInitAfter from './SignUpInitAfter';
+import SingUpStep1 from './SignUpPhone';
+import SignUpPersonal from './SignUpPersonal';
+import SignUpDeliveryAddress from './SignUpDeliveryAddress';
+import SignUpDeliveryDate from './SignUpDeliveryDate';
+import SignUpNumberSelect from './SignUpNumberSelect';
+import SingUpTariffSelect from './SignUpTariffSelect';
+import SignUpTariff from './SignUpTariff';
+import Transitions from '../../components/Transitions';
+import { Pages, TITLES } from '../../constants';
 
 const tariffs = [{
   id: 37,

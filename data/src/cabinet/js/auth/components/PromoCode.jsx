@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import MultipleInput from './MultipleInput';
-import Button from '../../../common/js/components/Button';
+import MultipleInput from '../../components/MultipleInput';
+import Button from '../../../../common/js/components/Button';
 
 class PromoCode extends Component {
   state = {

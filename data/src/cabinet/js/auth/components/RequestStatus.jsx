@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DocumentMeta from 'react-document-meta';
-import MobileNav from '../../../common/js/components/MobileNav';
-import Header from '../../../common/js/components/Header';
-import InputPhone from '../components/InputPhone';
-import MobileCode from '../components/MobileCode';
-import RequestStatusSimple from '../components/RequestStatusSimple';
-import RequestStatusDelivery from '../components/RequestStatusDelivery';
-import RequestStatusFooter from '../components/RequestStatusFooter';
-import Transitions from '../components/Transitions';
-import { Statuses, Pages, TITLES } from '../constants';
+import MobileNav from '../../../../common/js/components/MobileNav';
+import Header from '../../../../common/js/components/Header';
+import InputPhone from '../../components/InputPhone';
+import MobileCode from '../../components/MobileCode';
+import RequestStatusSimple from '../../components/RequestStatusSimple';
+import RequestStatusDelivery from '../../components/RequestStatusDelivery';
+import RequestStatusFooter from '../../components/RequestStatusFooter';
+import Transitions from '../../components/Transitions';
+import { Statuses, Pages, TITLES } from '../../constants';
 
 const data = {
   [Statuses.REQUEST_SENT]: {

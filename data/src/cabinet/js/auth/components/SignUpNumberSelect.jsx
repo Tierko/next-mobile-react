@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SmallTabs from './SmallTabs';
-import Button from '../../../common/js/components/Button';
+import Button from '../../../../common/js/components/Button';
 import Numbers from './Numbers';
-import Transitions from './Transitions';
-import { formatPhone, formatCost } from '../utils';
+import Transitions from '../../components/Transitions';
+import { formatPhone, formatCost } from '../../utils';
 
 class SignUpNumberSelect extends Component {
   state = {

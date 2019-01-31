@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Input from '../../../common/js/components/Input';
-import Button from '../../../common/js/components/Button';
-import AutoComplete from '../../../common/js/components/AutoComplete';
-import Transitions from './Transitions';
-import Checkbox from './Checkbox';
-import { Pages, Statuses } from '../constants';
+import Input from '../../../../common/js/components/Input';
+import Button from '../../../../common/js/components/Button';
+import AutoComplete from '../../../../common/js/components/AutoComplete';
+import Transitions from '../../components/Transitions';
+import Checkbox from '../../components/Checkbox';
+import { Pages, Statuses } from '../../constants';
 
 class SignUpDeliveryAddress extends Component {
   state = {

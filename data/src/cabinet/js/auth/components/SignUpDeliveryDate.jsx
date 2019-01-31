@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import Select from '../../../common/js/components/Select';
-import Date from './Date';
-import Button from '../../../common/js/components/Button';
-import Transitions from './Transitions';
-import { MONTHS_M, WEEKDAYS } from '../constants';
+import Select from '../../../../common/js/components/Select';
+import Date from '../../components/Date';
+import Button from '../../../../common/js/components/Button';
+import Transitions from '../../components/Transitions';
+import { MONTHS_M, WEEKDAYS } from '../../constants';
 
 class SignUpDeliveryDate extends Component {
   static times = [{
