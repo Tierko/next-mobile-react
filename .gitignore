@@ -10,3 +10,4 @@ www/index.html
 www/index.php
 .idea
 ftp-config.json
+.env

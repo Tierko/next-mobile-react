@@ -231,7 +231,7 @@ export const token = {
   }
 };
 
-export const sendAjax = (apiUrl, method, body) => {
+export const sendAjax = async (apiUrl, method, body) => {
   const headers = new Headers({
     'Authorization': `Basic ${btoa(`${GENERAL_SETTINGS.api_login}:${GENERAL_SETTINGS.api_password}`)}`,
   });
@@ -240,39 +240,27 @@ export const sendAjax = (apiUrl, method, body) => {
     headers.append('X-Authorization', `Bearer ${authToken}`);
   }
 
-  return fetch(`${GENERAL_SETTINGS.api_url}${GENERAL_SETTINGS.api_version}${apiUrl}`, {
+  const response = await fetch(`${GENERAL_SETTINGS.api_url}${GENERAL_SETTINGS.api_version}${apiUrl}`, {
     method,
     headers,
     body,
-  })
-    .then((response) => {
-      if (response.ok) {
-        return response.json().catch(() => ({}));
-      }
-      throw response;
-    });
+  });
+  if (response.ok) {
+    // json() can throw an exception on empty body
+    return response.json().catch(() => ({}));
+  }
+  throw response;
 };
 
-export const reduxAjax = (apiUrl, method, body, dispatch, onRequest, onFail, onSuccess) => {
+export const reduxAjax = async (apiUrl, method, body, dispatch, onRequest, onFail, onSuccess) => {
   if (onRequest) {
     dispatch(onRequest());
   }
 
-  const headers = new Headers({
-    'Content-Types': 'application/json',
-    'Authorization': `Basic ${btoa(`${GENERAL_SETTINGS.api_login}:${GENERAL_SETTINGS.api_password}`)}`,
-  });
-
-  if (localStorage.getItem('next-token-login')) {
-    headers.append('X-Authorization', `Bearer ${localStorage.getItem('next-token-login')}`);
+  try {
+    const response = await sendAjax(apiUrl, method, body);
+    dispatch(onSuccess(response));
+  } catch (error) {
+    dispatch(onFail());
   }
-
-  fetch(`${GENERAL_SETTINGS.api_url}${GENERAL_SETTINGS.api_version}${apiUrl}`, {
-    method,
-    headers,
-    body,
-  })
-    .then(items => items.json())
-    .then(items => dispatch(onSuccess(items)))
-    .catch(() => dispatch(onFail()));
 };

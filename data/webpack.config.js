@@ -1,8 +1,9 @@
-let path = require('path');
-let MiniCssExtractPlugin = require('mini-css-extract-plugin');
-let webpack = require('webpack');
-let autoprefixer = require('autoprefixer');
-let HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
+const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PORT = {
   cabinet: '8081',
@@ -76,6 +77,7 @@ module.exports = (env, { mode }) => {
         SERVICE_URL: JSON.stringify(url),
         NODE_ENV: isDevelopment ? JSON.stringify('development') : JSON.stringify('production'),
       }),
+      new Dotenv(),
       new MiniCssExtractPlugin({
         filename: '[name].css',
       }),
@@ -103,6 +105,12 @@ module.exports = (env, { mode }) => {
       proxy: {
         '/api//*': {
           target: 'http://next-promo-v2.dev.design.ru',
+          secure: false,
+          changeOrigin: true,
+        },
+        '/cabinet-api//*': {
+          target: 'http://qa.next.agimagroup.ru',
+          pathRewrite: {'^/cabinet-api' : '/api'},
           secure: false,
           changeOrigin: true,
         },

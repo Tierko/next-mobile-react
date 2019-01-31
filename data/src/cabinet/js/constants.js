@@ -256,8 +256,8 @@ export const THIRTY_DAYS = 24 * 60 * 60 * 30 * 1000;
 export const ACCESS_TOKEN_NAME = 'next-token-login';
 
 export const GENERAL_SETTINGS = {
-  'api_url': 'https://cors-escape.herokuapp.com/http://qa.next.agimagroup.ru/api/v',
-  'api_version': 1,
-  'api_login': 'next',
-  'api_password': 'dU5WQZt3L1yX1JKUp7BoToLf'
+  'api_url': process.env.NEXT_APP_API_URL,
+  'api_version': process.env.NEXT_APP_API_VERSION,
+  'api_login': process.env.NEXT_APP_API_LOGIN,
+  'api_password': process.env.NEXT_APP_API_PASSWORD
 };
