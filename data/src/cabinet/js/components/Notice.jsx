@@ -125,8 +125,8 @@ class Notice extends Component {
 
 function mapStateToProps(state) {
   return {
-    notice: state.Notice.data,
-    show: state.Notice.showNotice,
+    notice: [],
+    show: [],
   };
 }
 

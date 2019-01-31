@@ -1,7 +1,10 @@
 import React from 'react';
 import cs from 'classnames';
 import InputMask from 'react-input-mask';
-import Input from '../../../common/js/components/Input';
+
+import Input from '~/common/js/components/Input';
+
+import { formatFromPhone, formatPhone } from '@cabinet/utils'
 
 class InputPhone extends Input {
   render() {
@@ -15,6 +18,14 @@ class InputPhone extends Input {
     } = this.props;
     const { onChange } = this;
 
+    const realOnChange = (e) => {
+      onChange({
+        target: {
+          value: formatFromPhone(e.target.value),
+        }
+      })
+    }
+
     return (
       <div className={`input ${className}`}>
         <InputMask
@@ -22,7 +33,7 @@ class InputPhone extends Input {
           className="input__value"
           name={name}
           value={value || '+7'}
-          onChange={onChange}
+          onChange={realOnChange}
           mask="+7 999 999-99-99"
           maskChar={null}
         />

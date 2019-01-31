@@ -2,91 +2,70 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import DocumentMeta from 'react-document-meta';
-import MobileNav from '../../../../common/js/components/MobileNav';
-import Header from '../../../../common/js/components/Header';
-import Input from '../../components/InputPhone';
-import MobileCode from '../../components/MobileCode';
-import Transitions from '../../components/Transitions';
-import { Pages, TITLES } from '../../constants';
-import { cleanPhone, sendAjax, token } from '../../utils';
+
+import MobileNav from '~/common/js/components/MobileNav';
+import Header from '~/common/js/components/Header';
+
+import Input from '@cabinet/components/InputPhone';
+import MobileCode from '@cabinet/components/MobileCode';
+import Transitions from '@cabinet/components/Transitions';
+
+import { Pages, TITLES } from '~/common/js/constants';
+import { formatPhone } from '@cabinet/utils';
 
 class SignIn extends Component {
   state = {
-    phone: '',
     message: 'На\u00A0указанный номер Next Mobile будет отправлен код для входа в\u00A0Личный кабинет',
     isPhoneVisible: true,
   };
 
-  componentDidMount() {
-    const { history } = this.props;
-    if (token.get()) {
-      history.push(Pages.DASHBOARD);
+  onChange = (name, value) => {
+    const {
+      authFormActions,
+    } = this.props
+    authFormActions.changeField(name, value)
+  }
+
+  onCodeSend = (initTimer) => {
+    const {
+      authActions,
+      authForm,
+    } = this.props
+    authActions.sendCode(authForm.phone).then(() => {
+      initTimer();
+      this.setState({
+        message: `Введите код, присланный на номер \n ${formatPhone(authForm.phone)}`,
+        isPhoneVisible: false,
+      });
+    })
+  };
+
+  showError = (name) => (error) => {
+    if (error && error.length !== 0) {
+      this.setState({
+        [name]: error.data[0].text,
+      });
     }
   }
 
-  onChange = (name, value) => {
-    this.setState({
-      [name]: value,
-    });
-  };
-
-  onCodeSend = async (onSuccess) => {
-    const { phone } = this.state;
-
-    const formattedPhone = cleanPhone(phone);
-
-    const form = new FormData();
-    form.append('phone', formattedPhone);
-
-    try {
-      await sendAjax('/auth/send-code/', 'POST', form);
-      this.setState({
-        message: `Введите код, присланный на номер \n ${phone}`,
-        isPhoneVisible: false,
-      });
-      onSuccess();
-    } catch (error) {
-      error.json()
-        .then((data) => {
-          this.setState({
-            message: `${data[0].text}`,
-          });
-        });
-    }
-  };
-
-  onEnter = async (code) => {
-    const { history } = this.props;
-    const { phone } = this.state;
-
-    const formattedPhone = cleanPhone(phone);
-
-    const formData = new FormData();
-    formData.append('phone', formattedPhone);
-    formData.append('code', code);
+  onEnter = (code) => {
+    const {
+      history,
+      authActions,
+      authForm,
+    } = this.props;
 
     if (code.length === 4) {
-      await sendAjax('/auth/login/', 'POST', formData)
-        .then((data) => {
-          token.set(data.token);
+      authActions.login(authForm.phone, code)
+        .then(() => {
           history.push(Pages.DASHBOARD);
         })
-        .catch((error) => {
-          error.json()
-            .then((data) => {
-              this.setState({
-                message: `${data[0].text}`,
-              });
-            });
-        });
+        .catch(this.showError('mobileCodeError'));
     }
   };
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { mobileCode: { current: { sendCode } } } = this;
-
-    sendCode();
   };
 
   mobileCode = React.createRef();
@@ -100,10 +79,12 @@ class SignIn extends Component {
       mobileCode,
     } = this;
     const {
-      phone,
       message,
       isPhoneVisible,
     } = this.state;
+    const {
+      authForm,
+    } = this.props
     const meta = {
       title: TITLES.SIGN_IN,
     };
@@ -123,7 +104,7 @@ class SignIn extends Component {
                   <Transitions>
                     <Input
                       name="phone"
-                      value={phone}
+                      value={authForm.phone}
                       onChange={onChange}
                       className="input_phone input_phone-sign-in"
                     />
@@ -132,7 +113,7 @@ class SignIn extends Component {
               </form>
               <MobileCode
                 className="mobile-code_sign-in"
-                phone={phone}
+                phone={authForm.phone}
                 onCodeSend={onCodeSend}
                 onEnter={onEnter}
                 ref={mobileCode}
@@ -150,6 +131,11 @@ class SignIn extends Component {
 
 SignIn.propTypes = {
   history: PropTypes.shape().isRequired,
+
+  authForm: PropTypes.shape().isRequired,
+
+  authFormActions: PropTypes.shape().isRequired,
+  authActions: PropTypes.shape().isRequired,
 };
 
 export default SignIn;

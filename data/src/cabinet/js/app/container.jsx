@@ -8,7 +8,6 @@ import { animateScroll } from 'react-scroll';
 import SiteMap from '../containers/SiteMap';
 import Support from '../containers/Support';
 import Overview from '../containers/Overview';
-import Settings from '../containers/Settings';
 import Services from '../containers/Services';
 import AddPackage from '../containers/AddPackage';
 import PayPackage from '../containers/PayPackage';
@@ -41,6 +40,7 @@ import auth, {
   RequestStatus,
   Conditions,
 } from '@cabinet/auth';
+import pageSettings from '@cabinet/pageSettings';
 
 const notAuthenticatedPages = [
   Pages.SIGN_IN,
@@ -125,7 +125,7 @@ class App extends Component {
           <Route path={Pages.ADD_PACKAGE} component={AddPackage} />
           <Route path={Pages.PAY} component={Pay} exact />
           <Route path={Pages.SERVICES} component={Services} />
-          <Route path={Pages.SETTINGS} component={Settings} />
+          <Route path={Pages.SETTINGS} component={pageSettings.container} />
           <Route path={Pages.HISTORY} component={History} exact />
           <Route path={Pages.DETAIL} component={Detail} />
           <Route path={Pages.AUTO_PAY} component={AutoPay} />
