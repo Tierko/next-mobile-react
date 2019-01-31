@@ -12,6 +12,8 @@ import { getProfile, changeProfile, patchProfile } from '../actions/Profile';
 import connect from 'react-redux/es/connect/connect';
 import * as PropTypes from 'prop-types';
 import { checkEmail } from '../utils';
+import { debounce } from 'throttle-debounce';
+
 
 class Settings extends Component {
   constructor(props) {
@@ -35,13 +37,17 @@ class Settings extends Component {
   };
 
   onEmailChange = (name, value) => {
-    const {setProfileSettings} = this.props;
+    const {setProfileSettings, patchProfileSettings} = this.props;
+    const checkResult = checkEmail(value);
 
     setProfileSettings({name, value});
-      this.setState({
-        'emailValidation': checkEmail(value)
-      });
-    //setProfileSettings({name, value});
+    this.setState({
+      'emailValidation': checkResult
+    });
+
+    if (checkResult) {
+      debounce(1000, patchProfileSettings)();
+    }
   };
 
   render() {
