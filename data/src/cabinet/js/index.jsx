@@ -6,7 +6,7 @@ import createHistory from 'history/createHashHistory';
 import { syncHistoryWithStore, ConnectedRouter } from 'react-router-redux';
 import { api, setRestifyStore } from 'redux-restify'
 
-import App from './containers/App';
+import app from '@cabinet/app';
 import '../less/style.less';
 
 import { stringify, parse } from 'qs'
@@ -16,6 +16,8 @@ import moment from 'moment'
 
 import configRestify from '@cabinet/configRestify'
 import getStorage from '@cabinet/storage'
+
+const App = app.container
 
 moment.locale('ru')
 const history = qhistory(
