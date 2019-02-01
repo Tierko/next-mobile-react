@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cs from 'classnames';
 import { connect } from 'react-redux';
-import Input from './InputRuble';
-import OverviewAutoPay from '../components/OverviewAutoPay';
-import Button from '../../../common/js/components/Button';
-import Limit from './Limit';
-import { formatCost, getShortPan } from '../utils';
+import { Link } from 'react-router-dom';
+
+import Button from '~/common/js/components/Button';
+
+import Input from '@cabinet/components/InputRuble';
+import Limit from '@cabinet/components/Limit';
+
+import { formatCost } from '@cabinet/utils';
+import { Pages } from '~/common/js/constants';
 
 const Balance = ({
   sum,
@@ -16,7 +21,12 @@ const Balance = ({
   balance,
   defaultCard,
 }) => {
-  const fBalance = formatCost(Math.abs(balance).toFixed(2), true);
+  let fSum = formatCost(Math.abs(balance).toFixed(2), true);
+  const rubPos = fSum.lastIndexOf(' ');
+  const coinsPos = fSum.lastIndexOf(',');
+  const rub = fSum.substr(rubPos);
+  const coins = fSum.substring(coinsPos + 1, rubPos);
+  fSum = coinsPos !== -1 && rubPos !== -1 ? fSum.substring(0, coinsPos) : fSum;
 
   return (
     <div className={`block block_round ${className}`}>
@@ -24,7 +34,7 @@ const Balance = ({
         Баланс
       </div>
       <div className="balance__sum">
-        {balance < 0 && <span>&minus;</span>}{fBalance}
+        {balance < 0 && <span>&minus;</span>}{fSum}
       </div>
       {
         message &&

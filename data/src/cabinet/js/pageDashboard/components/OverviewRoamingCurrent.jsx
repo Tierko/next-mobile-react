@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import RoamingCurrent from './RoamingCurrent';
-import { Pages } from '../constants';
+import RoamingCurrent from '@cabinet/components/RoamingCurrent';
+import { Pages } from '~/common/js/constants';
 
 const OverviewRoamingCountry = ({ history, data }) => {
   const currentZone = data.zones.items.find(z => z.id === data.currentZoneId);

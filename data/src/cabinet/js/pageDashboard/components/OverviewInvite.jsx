@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import CopyCode from './CopyCode';
-import { Pages } from '../constants';
-import Button from '../../../common/js/components/Button';
+
+import Button from '~/common/js/components/Button';
+
+import CopyCode from '@cabinet/components/CopyCode';
+
+import { Pages } from '~/common/js/constants';
 
 class OverviewInvite extends Component {
   state = {
@@ -21,14 +24,14 @@ class OverviewInvite extends Component {
     const { mode } = this.state;
     const { setCopyMode } = this;
 
-    if (!code) {
-      return false;
+    if (!message || !code || !link) {
+      return null;
     }
 
     return (
       <div className="block block_round overview-invite">
         <Link className="overview-invite__header" to={Pages.INVITE}>
-          Подарок близким
+          {message}
         </Link>
         <div>
           { message ? `${message} по` : 'По'}&nbsp;{
@@ -41,7 +44,7 @@ class OverviewInvite extends Component {
               'ссылке'
           }
         </div>
-        <CopyCode code={code} mode={mode} />
+        <CopyCode link={link} code={code.code} mode={mode} />
       </div>
     );
   }
@@ -49,7 +52,8 @@ class OverviewInvite extends Component {
 
 OverviewInvite.propTypes = {
   message: PropTypes.string.isRequired,
-  code: PropTypes.string.isRequired,
+  code: PropTypes.shape(),
+  link: PropTypes.string,
 };
 
 export default OverviewInvite;
