@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DocumentMeta from 'react-document-meta';
-import HeaderMobile from '../components/HeaderMobile';
-import MobileNav from '../../../common/js/components/MobileNav';
-import Aside from '../components/Aside';
-import Breadcrumbs from '../components/Breadcrumbs';
-import Date from '../components/Date';
-import Input from '../../../common/js/components/Input';
-import Select from '../../../common/js/components/Select';
-import Button from '../../../common/js/components/Button';
-import Transitions from '../components/Transitions';
-import Notice from '../components/Notice';
-import { Pages, TITLES, THIRTY_DAYS } from '../constants';
-import { sendAjax } from '../utils';
+import moment from 'moment';
+
+import MobileNav from '~/common/js/components/MobileNav';
+import Input from '~/common/js/components/Input';
+import Select from '~/common/js/components/Select';
+import Button from '~/common/js/components/Button';
+
+import HeaderMobile from '@cabinet/components/HeaderMobile';
+import Aside from '@cabinet/components/Aside';
+import Breadcrumbs from '@cabinet/components/Breadcrumbs';
+import Date from '@cabinet/components/Date';
+import Transitions from '@cabinet/components/Transitions';
+
+//import Notice from '../components/Notice';
+import { Pages, TITLES, THIRTY_DAYS } from '~/common/js/constants';
 
 class Detail extends Component {
   static formats = [{
@@ -73,29 +76,37 @@ class Detail extends Component {
     return Math.abs(start - end) <= THIRTY_DAYS;
   };
 
-  order = async () => {
-    const { history } = this.props;
-    const { formatDate } = Detail;
-    const { email, startDate, endDate, format} = this.state;
+  order = () => {
+    const {
+      startDate,
+      endDate,
+      email,
+      format,
+    } = this.state
+    const {
+      history,
+      pageHistoryDetailActions,
+    } = this.props;
 
-    const formData = new FormData();
-    formData.append('email', email);
-    formData.append('start_date', formatDate(startDate));
-    formData.append('end_date', formatDate(endDate));
-    formData.append('file_type', format.code);
 
-    try {
-      await sendAjax('/history/detailing/', 'POST', formData);
+    pageHistoryDetailActions.requestHistoryDetail({
+      email,
+      startDate: moment(startDate).format('YYYY-MM-DD'),
+      endDate: moment(endDate).format('YYYY-MM-DD'),
+      fileType: format.value,
+    }).then(() => {
+      const startDateFormatted = moment(startDate).format('D\u00A0MMMM\u00A0YYYY\u00A0г.')
+      const endDateFormatted = moment(endDate).format('D\u00A0MMMM\u00A0YYYY\u00A0г.')
       history.push({
         pathname: `${Pages.RESULT}/success`,
         state: {
           title: 'Детализация отправлена',
-          text: 'Отчет о\u00A0расходах с\u00A01\u00A0сентября по\u00A030\u00A0сентября 2018\u00A0г. отправлен в\u00A0виде файла PDF на\u00A0адрес konstantinopolsky@gmail.com',
+          nextPage: Pages.HISTORY,
+          text: `Отчет о\u00A0расходах с\u00A0${startDateFormatted} по\u00A0${endDateFormatted} отправлен в\u00A0виде файла ${format.title} на\u00A0адрес ${email}`,
         },
       });
-    } catch (error) {
-      history.push(`${Pages.RESULT}/error`);
-    }
+    })
+
   };
 
   render() {
@@ -115,7 +126,7 @@ class Detail extends Component {
       <DocumentMeta {...meta}>
         <HeaderMobile />
         <MobileNav key="nav" type="dashboard" />
-        <Notice />
+        {/*<Notice />*/}
         <div key="dashboard" className="dashboard">
           <Aside />
           <Transitions>
@@ -174,6 +185,7 @@ class Detail extends Component {
 
 Detail.propTypes = {
   history: PropTypes.shape().isRequired,
+  pageHistoryDetailActions: PropTypes.shape().isRequired,
 };
 
 export default Detail;

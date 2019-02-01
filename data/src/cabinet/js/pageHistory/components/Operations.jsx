@@ -4,9 +4,10 @@ import OperationsList from './OperationsList';
 import OperationsTable from './OperationsTable';
 import {
   HISTORY_FILTERS,
+  HISTORY_TITLES, MONTHS_M,
   MONTHS_SHORT,
   THIRTY_DAYS,
-} from '../constants';
+} from '~/common/js/constants';
 
 class Operations extends Component {
   static formatDate = (date) => {
@@ -30,39 +31,31 @@ class Operations extends Component {
   };
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        loaded: true,
-      });
-    }, 1500);
+    const {
+      pageHistoryFiltersFormActions,
+    } = this.props
+    pageHistoryFiltersFormActions.changeField('startDate', moment().format('YYYY-MM-DD'))
   }
 
   onChange = (name, value) => {
     const { periodStart, periodEnd } = this.state;
+    const {
+      pageHistoryFiltersFormActions,
+    } = this.props
 
-    if (name === 'periodStart' && value.getTime() >= periodEnd.getTime()) {
-      return;
-    }
+    // if (name === 'periodStart' && value.getTime() >= periodEnd.getTime()) {
+    //   return;
+    // }
 
-    if (name === 'periodEnd' && value.getTime() <= periodStart.getTime()) {
-      return;
-    }
+    // if (name === 'periodEnd' && value.getTime() <= periodStart.getTime()) {
+    //   return;
+    // }
 
-    if (name === 'filterBy') {
-      this.setState({
-        [name]: value,
-        loaded: false,
-      });
-
-      setTimeout(() => {
-        this.setState({
-          loaded: true,
-        });
-      }, 1000);
-    } else {
-      this.setState({
-        [name]: value,
-      });
+    this.setState({
+      [name]: value,
+    });
+    if (name === 'periodEnd') {
+      pageHistoryFiltersFormActions.changeField('startDate', moment(value).format('YYYY-MM-DD'))
     }
   };
 
@@ -114,31 +107,11 @@ class Operations extends Component {
       loaded,
       sort,
     } = this.state;
-    const { data } = this.props;
-    const filteredData = filter(data).slice(0, show).sort((a, b) => {
-      const { type, order } = sort;
-      let aa = a[type];
-      let bb = b[type];
-
-      if (type === 'date') {
-        aa = (new window.Date(a.date.year, a.date.month, a.date.day)).getTime();
-        bb = (new window.Date(b.date.year, b.date.month, b.date.day)).getTime();
-      }
-
-      if (aa > bb && order === 'desc') {
-        return 1;
-      } else if (aa > bb && order === 'asc') {
-        return -1;
-      }
-
-      if (aa < bb && order === 'desc') {
-        return -1;
-      } else if (aa < bb && order === 'asc') {
-        return 1;
-      }
-
-      return 0;
-    });
+    const {
+      data,
+      historyDetailIsLoading,
+    } = this.props;
+    const filteredData = filter(data.operations).slice(0, show);
     const { formatDate } = Operations;
 
     return (
@@ -175,7 +148,9 @@ class Operations extends Component {
 }
 
 Operations.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  data: PropTypes.shape().isRequired,
+  pageHistoryFiltersFormActions: PropTypes.shape().isRequired,
+  historyDetailIsLoading: PropTypes.bool.isRequired,
 };
 
 export default Operations;

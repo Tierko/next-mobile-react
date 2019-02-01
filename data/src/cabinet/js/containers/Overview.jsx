@@ -10,7 +10,7 @@ import Aside from '../components/Aside';
 import Footer from '../../../common/js/components/Footer';
 import Balance from '../components/Balance';
 import Remain from '../components/Remain';
-import History from '../components/History';
+import History from '../pageHistory/components/History';
 import RoamingDashboard from '../components/RoamingDashboard';
 import OverviewInvite from '../components/OverviewInvite';
 import OverviewRoamingCurrent from '../components/OverviewRoamingCurrent';

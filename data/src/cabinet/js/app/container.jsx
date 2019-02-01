@@ -13,8 +13,6 @@ import AddPackage from '../containers/AddPackage';
 import PayPackage from '../containers/PayPackage';
 import AutoPay from '../containers/AutoPay';
 import SupportDashboard from '../containers/SupportDashboard';
-import History from '../containers/History';
-import Detail from '../containers/Detail';
 import Pay from '../containers/Pay';
 import More from '../containers/More';
 import Kit from '../containers/Kit';
@@ -41,6 +39,8 @@ import auth, {
   Conditions,
 } from '@cabinet/auth';
 import pageSettings from '@cabinet/pageSettings';
+import pageHistory from '@cabinet/pageHistory'
+import pageHistoryDetail from '@cabinet/pageHistoryDetail'
 
 const notAuthenticatedPages = [
   Pages.SIGN_IN,
@@ -126,8 +126,8 @@ class App extends Component {
           <Route path={Pages.PAY} component={Pay} exact />
           <Route path={Pages.SERVICES} component={Services} />
           <Route path={Pages.SETTINGS} component={pageSettings.container} />
-          <Route path={Pages.HISTORY} component={History} exact />
-          <Route path={Pages.DETAIL} component={Detail} />
+          <Route path={Pages.HISTORY} component={pageHistory.container} exact />
+          <Route path={Pages.DETAIL} component={pageHistoryDetail.container} />
           <Route path={Pages.AUTO_PAY} component={AutoPay} />
           <Route path={Pages.SUPPORT_DASHBOARD} component={SupportDashboard} />
           <Route path={`${Pages.RESULT}/:status`} component={Result} />

@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import Date from './Date';
-import Loader from './Loader';
-import Select from '../../../common/js/components/Select';
-import Button from '../../../common/js/components/Button';
-import { formatCost, formatCount } from '../utils';
-import { HISTORY_FILTERS, HISTORY_TITLES, MONTHS_M } from '../constants';
+import moment from 'moment';
+import Select from '~/common/js/components/Select';
+import Button from '~/common/js/components/Button';
+import Date from '@cabinet/components/Date';
+import Loader from '@cabinet/components/Loader';
+import { formatCost, formatCount } from '@cabinet/utils';
+import { HISTORY_FILTERS, HISTORY_TITLES, MONTHS_M } from '~/common/js/constants';
 
 const OperationsList = ({
   loaded,
