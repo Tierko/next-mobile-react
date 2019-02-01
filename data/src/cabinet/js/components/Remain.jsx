@@ -13,7 +13,7 @@ const Remain = ({
 }) => (
   <div className="block block_round">
     <div className="block__header">
-      <div>Остаток по тарифу до 25 декабря</div>
+      <div>Остаток по тарифу</div>
       <Link className="remain__header-link" to={Pages.SERVICES}>«{tariff.name}»</Link>
     </div>
     {
