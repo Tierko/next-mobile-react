@@ -4,49 +4,47 @@ import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import ProgressLinear from './ProgressLinear';
 import Button from '../../../common/js/components/Button';
-import { Pages } from '../constants';
-import { getData } from '../utils';
+import { Pages, MONTHS_M } from '../constants';
 
 const Remain = ({
   data,
   buy,
+  tariff,
 }) => (
   <div className="block block_round">
     <div className="block__header">
       <div>Остаток по тарифу до 25 декабря</div>
-      <Link className="remain__header-link" to={Pages.SERVICES}>«{getData('tariff').title}»</Link>
+      <Link className="remain__header-link" to={Pages.SERVICES}>«{tariff.name}»</Link>
     </div>
     {
-      data.map(i => {
-        let { max, current } = i;
-
-        if (i.packages) {
-          max += i.packages.reduce((acc, item) => (acc + item.max), 0);
-          current += i.packages.reduce((acc, item) => (acc + item.current), 0);
-        }
+      data.map(product => {
+        const { type, base, remain, unit, packages } = product;
+        const additionalPackages = packages.filter(p => p.additional === true);
+        const max = Number(base);
+        const current = Number(remain);
 
         return (
-          <div key={i.id} className="remain__item">
+          <div key={type.code} className="remain__item">
             <div className="remain__desc">
               {
                 max > 0 &&
                 <div>
-                  <span>{current.toString().replace('.', ',')}</span> из {max} {i.unit}
+                  <span>{current.toString().replace('.', ',')}</span> из {max} {unit}
                 </div>
               }
               {
                 max === 0 &&
                 <div>
-                  <span>Безлимит {i.unit}</span>
+                  <span>Безлимит {unit}</span>
                 </div>
               }
               {
-                i.link ?
-                  <Link className={cs('remain__service', { remain__service_link: i.link })} to={`${Pages.MORE}/${i.type}`}>
-                    {i.name}
+                type.link ?
+                  <Link className={cs('remain__service', { remain__service_link: type.link })} to={`${Pages.MORE}/${type.code}`}>
+                    {type.name}
                   </Link>
                   :
-                  <div className="remain__service">{i.name}</div>
+                  <div className="remain__service">{type.name}</div>
               }
             </div>
             <ProgressLinear
@@ -56,9 +54,13 @@ const Remain = ({
               x
             />
             {
-              i.packages && i.packages.map(p => (
-                <div className="remain__package">Включая {`${p.current} из ${p.max} ${i.unit} ${p.until}`}</div>
-              ))
+              additionalPackages && additionalPackages.map(p => {
+                const renewalDate = new Date(p.renewal);
+                const day = renewalDate.getDay();
+                const month = renewalDate.getDay();
+
+                return <div className="remain__package">Включая {`${p.remain} из ${p.base} ${p.unit} до ${day} ${MONTHS_M[month]}`}</div>;
+              })
             }
           </div>
         );
@@ -70,6 +72,7 @@ const Remain = ({
 
 Remain.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  tariff: PropTypes.shape().isRequired,
   buy: PropTypes.func.isRequired,
 };
 

@@ -4,6 +4,24 @@ export const URL = 'http://localhost';
 
 export const HOME = 'RU';
 
+export const PRODUCT_TYPES = {
+  INTERNET: {
+    code: 'internet',
+    name: 'Интернет',
+    link: true,
+  },
+  CALLS: {
+    code: 'calls',
+    name: 'Звонки',
+    link: true,
+  },
+  SMS: {
+    code: 'sms',
+    name: 'Сообщения',
+    link: false,
+  },
+};
+
 export const ACTION_TYPES = keyMirror({
   APP_CHAT_SHOW: undefined,
   APP_CHAT_HIDE: undefined,
@@ -47,6 +65,9 @@ export const ACTION_TYPES = keyMirror({
   PROFILE_CHANGE_SAVE: undefined,
   PROFILE_CHANGE_SAVE_SUCCESS: undefined,
   PROFILE_CHANGE_SAVE_FAIL: undefined,
+  DASHBOARD_REQUEST: undefined,
+  DASHBOARD_REQUEST_FAIL: undefined,
+  DASHBOARD_REQUEST_SUCCESS: undefined,
 });
 
 export const Pages = {

@@ -46,7 +46,7 @@ class Overview extends Component {
   };
 
   onPay = () => {
-    const { history, cards } = this.props;
+    const { history, cards, dashboard: { tariff } } = this.props;
     const { sum } = this.state;
     const links = [{
       url: Pages.AUTO_PAY,
@@ -56,15 +56,6 @@ class Overview extends Component {
       url: Pages.OVERVIEW,
       title: 'Вернуться на\u00A0главную',
     }];
-
-    history.push({
-      pathname: `${Pages.RESULT}/success`,
-      state: {
-        title: 'Оплата прошла успешно',
-        text: `На\u00A0ваш счет зачислено ${formatCost(sum)}`,
-        links,
-      },
-    });
 
     if (cards.defaultCard) {
       history.push({
@@ -78,7 +69,10 @@ class Overview extends Component {
     } else {
       history.push({
         pathname: Pages.PAY,
-        state: { sum },
+        state: {
+          sum,
+          tariff,
+        },
       });
     }
   };
@@ -94,7 +88,7 @@ class Overview extends Component {
   };
 
   render() {
-    const { roaming, history, expenses } = this.props;
+    const { roaming, history, expenses, dashboard } = this.props;
     const { onPay, sumChange, onBuy } = this;
     const { sum, invites: { message, items } } = this.state;
     const code = items.find(i => !i.active);
@@ -112,7 +106,7 @@ class Overview extends Component {
           <Transitions>
             <div className="dashboard__content">
               <Balance
-                balance={getData('balance')}
+                balance={dashboard.balance}
                 sum={sum}
                 message={`Следующее списание: ${formatCost(getData('tariff').payment)} 25 декабря`}
                 onPay={onPay}
@@ -120,8 +114,8 @@ class Overview extends Component {
               />
               <OverviewRoamingCurrent history={history} data={roaming} />
               <Remain
-                data={getData('remain')}
-                tariff={getData('tariff')}
+                data={dashboard.remaining}
+                tariff={dashboard.tariff}
                 buy={onBuy}
               />
               <History data={expenses.items} />
@@ -138,12 +132,13 @@ class Overview extends Component {
 }
 
 function mapStateToProps(state) {
-  const { Roaming, Cards, Expenses } = state;
+  const { Roaming, Cards, Expenses, Dashboard } = state;
 
   return {
     roaming: Roaming,
     cards: Cards,
     expenses: Expenses,
+    dashboard: Dashboard,
   };
 }
 
@@ -152,6 +147,7 @@ Overview.propTypes = {
   roaming: PropTypes.shape().isRequired,
   cards: PropTypes.shape().isRequired,
   expenses: PropTypes.shape().isRequired,
+  dashboard: PropTypes.shape().isRequired,
 };
 
 export default connect(mapStateToProps)(Overview);

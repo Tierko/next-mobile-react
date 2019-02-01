@@ -135,7 +135,7 @@ class Grade extends Component {
                           grade__total_selected: itemSelected,
                         })}
                       >
-                        {formatCost(expense.total)}
+                        {formatCost(expense.total, true)}
                       </div>
                     }
                   </div>

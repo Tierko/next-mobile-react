@@ -13,7 +13,7 @@ const Expenses = (state = initState, action) => {
   case ACTION_TYPES.EXPENSES_REQUEST_FAIL:
     return Object.assign({}, state, { loaded: false, error: true });
   case ACTION_TYPES.EXPENSES_REQUEST_SUCCESS:
-    return Object.assign({}, state, { loaded: true, error: false, items: action.items });
+    return Object.assign({}, state, { loaded: true, error: false, items: action.response.history });
   default:
     return state;
   }

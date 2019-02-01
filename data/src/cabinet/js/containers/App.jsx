@@ -37,16 +37,18 @@ import {
   getFeaturesAction,
 } from '../actions/Roaming';
 import getExpensesAction from '../actions/Expenses';
+import getDashboardAction from '../actions/Dashboard';
 
 
 class App extends Component {
   componentDidMount() {
-    const { getZones, getFeatures, getInterCalls, getExpenses } = this.props;
+    const { getZones, getFeatures, getInterCalls, getExpenses, getDashboard } = this.props;
     const { detectIE10 } = this;
     getZones();
     getFeatures();
     getInterCalls();
     getExpenses();
+    getDashboard();
     detectIE10();
   }
 
@@ -128,6 +130,7 @@ App.propTypes = {
   getFeatures: PropTypes.func.isRequired,
   getInterCalls: PropTypes.func.isRequired,
   getExpenses: PropTypes.func.isRequired,
+  getDashboard: PropTypes.func.isRequired,
   location: PropTypes.shape().isRequired,
 };
 
@@ -137,6 +140,7 @@ function mapDispatchToProps(dispatch) {
     getFeatures: () => dispatch(getFeaturesAction()),
     getInterCalls: () => dispatch(getInterCallsAction()),
     getExpenses: () => dispatch(getExpensesAction()),
+    getDashboard: () => dispatch(getDashboardAction()),
   };
 }
 

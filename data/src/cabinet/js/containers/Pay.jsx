@@ -107,13 +107,13 @@ class Pay extends Component {
                   state &&
                   <BreadCrumbs
                     items={[{ title: 'Тарифы', link: Pages.SERVICES }]}
-                    current={`Оплата за тариф ${state.tariff.title}`}
+                    current={`Оплата за тариф ${state.tariff.name}`}
                   />
                 }
                 <div className="dashboard__header">
                   {
                     state && state.tariff ?
-                      `Оплата за тариф ${state.tariff.title}` :
+                      `Оплата за тариф ${state.tariff.name}` :
                       'Пополнение'
                   }
                 </div>

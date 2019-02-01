@@ -1,5 +1,5 @@
 import { ACTION_TYPES } from '../constants';
-import { sendAjax } from '../utils';
+import { reduxAjax } from '../utils';
 
 const expensesRequest = () => ({
   type: ACTION_TYPES.EXPENSES_REQUEST,
@@ -9,21 +9,13 @@ const expensesRequestFail = () => ({
   type: ACTION_TYPES.EXPENSES_REQUEST_FAIL,
 });
 
-const expensesRequestSuccess = (items) => ({
+const expensesRequestSuccess = (response) => ({
   type: ACTION_TYPES.EXPENSES_REQUEST_SUCCESS,
-  items,
+  response,
 });
 
 const getExpenses = () => (
-  async (dispatch) => {
-    dispatch(expensesRequest());
-    try {
-      const items = await sendAjax('/history/groups/', 'GET');
-      dispatch(expensesRequestSuccess(items.history));
-    } catch (error) {
-      dispatch(expensesRequestFail());
-    }
-  }
+  dispatch => reduxAjax('/history/groups/', 'GET', null, dispatch, expensesRequest, expensesRequestFail, expensesRequestSuccess)
 );
 
 export default getExpenses;
