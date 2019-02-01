@@ -76,11 +76,9 @@ class AutoComplete extends Select {
                 key={i.id || i.code || i.title}
               >
                 {
-                  flag &&
+                  flag && i.code &&
                     <span className="select__flag">
-                      {
-                        i.flag && <img src={`/media/flags/${i.flag}.svg`} alt="" />
-                      }
+                        <img src={`/media/flags/${i.code}.png`} alt="" />
                     </span>
                 }
                 {

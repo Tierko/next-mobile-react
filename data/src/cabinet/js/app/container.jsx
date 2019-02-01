@@ -5,31 +5,12 @@ import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import { animateScroll } from 'react-scroll';
 
-import SiteMap from '../containers/SiteMap';
 import Support from '../containers/Support';
-import Services from '../containers/Services';
-import AddPackage from '../containers/AddPackage';
-import PayPackage from '../containers/PayPackage';
-import AutoPay from '../containers/AutoPay';
 import SupportDashboard from '../containers/SupportDashboard';
-import Pay from '../containers/Pay';
-import More from '../containers/More';
-import Kit from '../containers/Kit';
-import Data from '../containers/Data';
 import Result from '../containers/Result';
-import Roaming from '../containers/Roaming';
-import Invite from '../containers/Invite';
-import Confirm from '../containers/Confirm';
-import Alfa from '../containers/Alfa';
 import NotFound from './components/NotFound';
 import Faq from '../../../common/js/containers/Faq';
 import { Pages } from '~/common/js/constants';
-import getInterCallsAction from '../actions/InterCalls';
-// import {
-//   getZonesAction,
-//   getFeaturesAction,
-// } from '../actions/Roaming';
-// import getExpensesAction from '../actions/Expenses';
 
 import auth, {
   SignUp,
@@ -37,10 +18,12 @@ import auth, {
   RequestStatus,
   Conditions,
 } from '@cabinet/auth';
+import pageServices from '@cabinet/pageServices'
 import pageSettings from '@cabinet/pageSettings';
 import pageHistory from '@cabinet/pageHistory'
 import pageHistoryDetail from '@cabinet/pageHistoryDetail'
 import pageDashboard from '@cabinet/pageDashboard'
+import pageInvite from '@cabinet/pageInvite'
 
 const notAuthenticatedPages = [
   Pages.SIGN_IN,
@@ -121,22 +104,11 @@ class App extends Component {
           }
 
           <Route path={Pages.DASHBOARD} component={pageDashboard.container} exact />
-          <Route path={`${Pages.MORE}/:type`} component={More} />
-          <Route path={Pages.ADD_PACKAGE} component={AddPackage} />
-          <Route path={Pages.PAY} component={Pay} exact />
-          <Route path={Pages.SERVICES} component={Services} />
+          <Route path={Pages.SERVICES} component={pageServices.container} />
           <Route path={Pages.SETTINGS} component={pageSettings.container} />
           <Route path={Pages.HISTORY} component={pageHistory.container} exact />
           <Route path={Pages.DETAIL} component={pageHistoryDetail.container} />
-          <Route path={Pages.AUTO_PAY} component={AutoPay} />
-          <Route path={Pages.SUPPORT_DASHBOARD} component={SupportDashboard} />
-          <Route path={`${Pages.RESULT}/:status`} component={Result} />
-          <Route path={`${Pages.ROAMING}/:type/:zoneId/:countryId`} component={Roaming} />
-          <Route path={`${Pages.ROAMING}/:type/:zoneId`} component={Roaming} />
-          <Route path={`${Pages.ROAMING}/:zoneId`} component={Roaming} />
-          <Route path={Pages.ROAMING} component={Roaming} exact />
-          <Route path={Pages.INVITE} component={Invite} />
-          <Route path={Pages.CONFIRM} component={Confirm} />
+          <Route path={Pages.INVITE} component={pageInvite.container} />
           <Route path={Pages.FAQ} component={Faq} />
           {/*<Route path={Pages.PAY_PACKAGE} component={PayPackage} />*/}
           {/*<Route path={Pages.ALFA} component={Alfa} />*/}

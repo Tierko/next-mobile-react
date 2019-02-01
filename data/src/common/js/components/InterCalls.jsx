@@ -30,13 +30,12 @@ class InterCalls extends Component {
 
   getCost = () => {
     const { item } = this.state;
-    const { data } = this.props;
 
     if (!item) {
       return 0;
     }
 
-    return data.groups[item.group].price;
+    return item.price;
   };
 
   clear = () => {
@@ -91,7 +90,11 @@ class InterCalls extends Component {
               onChange={onChange}
               onSelect={onSelect}
               placeholder="Например, Армения"
-              items={data.items}
+              items={data.map(item => ({
+                ...item,
+                title: item.name,
+                name: undefined,
+              }))}
               simplePlaceholder
               fromStart
               emptyText="Такой страны нет в списке"
@@ -114,10 +117,10 @@ class InterCalls extends Component {
             })}
             >
               {
-                item.flag ?
+                item.code ?
                   <div className="inter-calls__country">
                     <div>
-                      <img src={`/media/flags/${item.flag}.svg`} alt="" />
+                      <img src={`/media/flags/${item.code}.svg`} alt="" />
                     </div>
                     &nbsp;
                     {item.name ? item.name.ru : item.title}
@@ -128,7 +131,7 @@ class InterCalls extends Component {
               }
               {
                 !hidePrice &&
-                <span>{formatCost(getCost())} / мин</span>
+                <span>{getCost()}</span>
               }
             </div>
           </div>
@@ -148,7 +151,7 @@ InterCalls.propTypes = {
   tariff: PropTypes.bool,
   onChange: PropTypes.func,
   hidePrice: PropTypes.bool,
-  data: PropTypes.shape().isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 InterCalls.defaultProps = {

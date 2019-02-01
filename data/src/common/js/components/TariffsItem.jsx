@@ -3,6 +3,15 @@ import PropTypes from 'prop-types';
 import cs from 'classnames';
 import Button from './Button';
 
+import { TARIFF_PARAMETERS } from '~/common/js/tariffs'
+
+const TARIFF_PARAMETERS_CLASSES = {
+  [TARIFF_PARAMETERS.internet]: 'tariffs__traffic',
+  [TARIFF_PARAMETERS.sms]: 'tariffs__sms',
+  [TARIFF_PARAMETERS.calls]: 'tariffs__calls',
+  [TARIFF_PARAMETERS.pay]: 'tariffs__pay',
+}
+
 class TariffsItem extends Component {
   render() {
     const {
@@ -18,6 +27,9 @@ class TariffsItem extends Component {
     } = this.props;
     const inFocus = selected === index;
 
+    const parameters = data.parameters.filter(item => item.order === 0)
+    const otherParameters = data.parameters.filter(item => item.order === 1)
+
     return (
       <div
         onClick={() => (index !== 0 || allFocus) && onSelect(index)}
@@ -32,19 +44,34 @@ class TariffsItem extends Component {
           <div className="tariffs__current">
             {current.id === data.id && 'Ваш тариф'}
           </div>
-          <div className="tariffs__traffic">{data.internet} ГБ</div>
-          <div className="tariffs__sms">{data.sms} СМС</div>
-          <div className="tariffs__calls">{data.calls} мин</div>
           {
-            data.over &&
+            parameters.map((param, index) => {
+              return (
+                <div key={index} className={TARIFF_PARAMETERS_CLASSES[param.type]}>
+                  {param.value === '0' ? 'Безлимит' : param.value}
+                  &nbsp;
+                  {param.type === TARIFF_PARAMETERS.pay && `${param.currency} / месяц`}
+                  &nbsp;
+                  {param.unit}
+                </div>
+              )
+            })
+          }
+          {
+            !!otherParameters.length &&
             <div className={cs('tariffs__over', { tariffs__over_show: isDetail })}>
               <div className="tariffs__over-title">Сверх пакета</div>
-              <div className="tariffs__over-row">{data.over[0]} ₽ / МБ</div>
-              <div className="tariffs__over-row">{data.over[1]} ₽ / СМС</div>
-              <div className="tariffs__over-row">{data.over[2]} ₽ / мин</div>
+              {
+                otherParameters.map((param, index) => {
+                  return (
+                    <div key={index} className="tariffs__over-row">
+                      {param.value} {param.currency} / {param.unit}
+                    </div>
+                  )
+                })
+              }
             </div>
           }
-          <div className="tariffs__pay">{data.payment} ₽ / месяц</div>
         </div>
         {
           current.id !== data.id && selected === index && !unSelectable &&
